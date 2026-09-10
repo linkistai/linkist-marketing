@@ -7,7 +7,7 @@ import { clientIp, rateLimit, readJsonObject, sendMail, tooMany, verifyTurnstile
  */
 export const runtime = 'nodejs';
 
-const TOPICS = ['support', 'teams', 'partnership', 'press', 'security', 'other'];
+const TOPICS = ['support', 'teams', 'partnership', 'press', 'security', 'design-partner', 'other'];
 
 export async function POST(req: Request) {
   const ip = clientIp(req);

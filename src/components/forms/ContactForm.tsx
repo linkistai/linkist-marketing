@@ -61,6 +61,7 @@ export function ContactForm({ defaultTopic = 'support' }: { defaultTopic?: strin
           <option value="partnership">Partnerships</option>
           <option value="press">Press</option>
           <option value="security">Security</option>
+          <option value="design-partner">Design partner programme</option>
           <option value="other">Something else</option>
         </select>
       </label>

@@ -29,6 +29,8 @@ Items the site cannot decide alone. Resolved items stay here with their answer s
 | C16 | The terms of service (7) say prices are displayed in USD unless otherwise stated; the store shows AED with an approximate dollar figure. Which is the billing currency? Folded into C5. | Pricing and the legal hub's refund and shipping document. | As C5. |
 | C17 | Product release notes: does the team keep any (dates, what shipped)? The changelog carries only dated public events until then (D22). | `/changelog`, the community emails. | Send a list, even rough, and it goes on the timeline under a Product tag. |
 | C18 | The articles written in-house (D20) carry title-card covers. Approve them as they are, or fund photographs under C4? | `/blogs` cards and the Open Graph images of those ten posts. | Keep the title cards; they are honest and consistent. |
+| C19 | Counsel review of the eight legal drafts (cookie policy, acceptable use, refund and shipping, sub-processors, security overview, accessibility, company information, contact data notice), each with its `[PLACEHOLDER]` items: licence and VAT numbers, provider names and regions, delivery times and duties, subscription refunds, retention for imported non-user data, the non-user request process, the security disclosure route. Extends C13. | The legal hub (D24). | Work through the markers document by document; each flips to "in force" when signed off. |
+| C20 | What design partners receive (the customers page invites them without promising anything). | `/customers`. | Decide before anyone is asked to commit; the page states it then. |
 
 ## Resolved by the walk-through
 

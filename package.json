@@ -24,6 +24,7 @@
     "og": "tsx scripts/og.ts",
     "import:blog": "tsx scripts/import-blog.ts",
     "covers": "tsx scripts/covers.ts",
+    "import:legal": "tsx scripts/import-legal.ts",
     "a11y": "tsx scripts/a11y.ts",
     "test": "vitest run"
   },

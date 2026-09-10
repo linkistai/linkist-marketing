@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { FEATURES } from '@/content/features';
 import { USE_CASES } from '@/content/usecases';
 import { getPosts } from '@/lib/blog';
+import { getLegal } from '@/lib/legal';
 import { SITE_URL } from '@/lib/site';
 
 /** Grows as pages land (docs/sitemap.md). Internal routes stay out. */
@@ -24,6 +25,13 @@ export const ROUTES: readonly string[] = [
   '/chat',
   '/changelog',
   '/community',
+  '/about',
+  '/customers',
+  '/contact',
+  '/legal',
+  ...getLegal()
+    .filter((d) => d.status === 'published')
+    .map((d) => `/legal/${d.slug}`),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

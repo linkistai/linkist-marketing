@@ -19,8 +19,8 @@ Changes from the brief's section 4 are marked. Every page: one job, one primary 
 | `/teams` | The Team plan for companies | Team mini mockup | Built | Enterprise is an interest route (mailto) until a contact page exists. |
 | `/ai` | What the AI does, reads, keeps; how to switch it off | Home preview | Built | Written from the published policy and terms with citations (D19); provider, region and credits listed as not published (C8). |
 | `/security` | Trust page for a sceptical reader | At-a-glance card | Built | The policy's controls, providers by category, retention, rights, transfers and a "not published yet" list (D19, C9). |
-| `/customers` | Honest proof page | | Not built | Pending C10 (founder story, design-partner invitation). |
-| `/about` | RatioX Labs, the idea of a PRM, the team, contact | | Not built | Pending C10. |
+| `/customers` | Honest proof page: no named customers, what can be shown, three example networks, a design-partner invitation | Mini mockups | Built | Founder story and team wait for C10; partner terms for C20 (D26). |
+| `/about` | RatioX Labs, the idea of a PRM, six principles with sources, how it is built, the timeline, the company | | Built | The team is named when confirmed (C10, D26). |
 
 ## Content and support
 
@@ -32,14 +32,14 @@ Changes from the brief's section 4 are marked. Every page: one job, one primary 
 | `/chat` | Full-page assistant over the same corpus, suggested questions, how it answers | Built |
 | `/changelog` | Dated public events, what is in the product today, what is announced (D22) | Built |
 | `/community` | The sign-up as a page, what members get, three channels, latest reads (D23) | Built |
-| `/contact` | Support, partnerships, press, security | Checkpoint 6 |
+| `/contact` | Support, privacy, partnerships, press, security, phone and WhatsApp, post, the form | Built (D25) |
 
 ## Legal hub `/legal`
 
-Terms, Privacy, Cookie Policy, Acceptable Use, Refund and Shipping, Sub-processors, Security Overview, Accessibility, Company Information, Contact Data Notice. Checkpoint 6. Until then the footer links to the company's published privacy policy and terms on linkist.ai (D14).
+Built (D24). Terms and Privacy are the published documents reproduced verbatim and marked in force; Cookie Policy, Acceptable Use, Refund and Shipping, Sub-processors, Security Overview, Accessibility, Company Information and the Contact Data Notice are dated drafts for counsel with visible placeholder markers, noindex and outside the sitemap until signed off (C19).
 
 ## Utility
 
 `/404` (built), `/500` (built), `/sitemap.xml`, `/robots.txt`, `/llms.txt`, `/manifest.webmanifest`, favicons and app icons (built), `/app`, `/sign-in` and `/start` redirect to the PRM app's unified screen, `/get-card` to the card product's sign-in, `/learn` and `/blog` to `/blogs` (built).
 
-Total today: 42 prerendered public routes plus 4 API routes (`/api/lead`, `/api/subscribe`, `/api/community`, `/api/chat`).
+Total today: 56 prerendered public routes plus 4 API routes (`/api/lead`, `/api/subscribe`, `/api/community`, `/api/chat`).

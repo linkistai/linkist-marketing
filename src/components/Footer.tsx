@@ -4,7 +4,7 @@ import { Newsletter } from './forms/Newsletter';
 import { CookieChoicesLink } from './CookieChoicesLink';
 import { MotionToggle } from './MotionToggle';
 import { G } from '@/lib/glossary';
-import { COMPANY, EXTERNAL_PRIVACY_URL, EXTERNAL_TERMS_URL, GET_APP_URL, GET_CARD_URL, SIGN_IN_URL, SUPPORT_EMAIL } from '@/lib/site';
+import { COMPANY, GET_APP_URL, GET_CARD_URL, SIGN_IN_URL } from '@/lib/site';
 
 const COLUMNS: { title: string; links: { href: string; label: string; external?: boolean }[] }[] = [
   {
@@ -41,15 +41,18 @@ const COLUMNS: { title: string; links: { href: string; label: string; external?:
     title: 'Company',
     links: [
       { href: SIGN_IN_URL, label: 'Sign in', external: true },
+      { href: '/about', label: 'About' },
+      { href: '/customers', label: 'Customers' },
       { href: '/blogs', label: 'Blog' },
       { href: '/help', label: 'Help centre' },
       { href: '/chat', label: 'Ask the assistant' },
       { href: '/changelog', label: 'Changelog' },
       { href: '/community', label: 'Community' },
       { href: '/security', label: 'Security' },
-      { href: SUPPORT_EMAIL ? `mailto:${SUPPORT_EMAIL}` : 'mailto:support@linkist.ai', label: 'Support', external: true },
-      { href: EXTERNAL_PRIVACY_URL, label: 'Privacy', external: true },
-      { href: EXTERNAL_TERMS_URL, label: 'Terms', external: true },
+      { href: '/contact', label: 'Contact' },
+      { href: '/legal', label: 'Legal' },
+      { href: '/legal/privacy', label: 'Privacy' },
+      { href: '/legal/terms', label: 'Terms' },
     ],
   },
 ];

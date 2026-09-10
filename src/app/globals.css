@@ -1053,3 +1053,12 @@ html[data-motion='off'] .ftabs__screen[data-active='false'] {
 .card .link {
   color: var(--color-accent-ink);
 }
+
+/* Legal drafts: every item counsel must supply is visible on the page, never a silent gap. */
+.prose-lk .placeholder {
+  background: color-mix(in srgb, var(--brand-coral) 22%, transparent);
+  color: var(--color-text);
+  border-radius: var(--radius-sm);
+  padding: 0.05em 0.35em;
+  font-style: italic;
+}

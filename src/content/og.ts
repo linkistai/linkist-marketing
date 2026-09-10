@@ -33,4 +33,8 @@ export const OG_PAGES: readonly OgPage[] = [
   { slug: 'chat', title: 'Ask anything the help centre knows.', eyebrow: 'Ask the assistant' },
   { slug: 'changelog', title: 'What changed, by date.', eyebrow: 'Changelog' },
   { slug: 'community', title: 'Join the Linkist community.', eyebrow: 'Community' },
+  { slug: 'legal', title: 'The documents, dated.', eyebrow: 'Legal' },
+  { slug: 'contact', title: 'Talk to a person.', eyebrow: 'Contact' },
+  { slug: 'about', title: 'Made in Dubai for the people you meet.', eyebrow: 'About Linkist' },
+  { slug: 'customers', title: 'No named customers yet. Here is why.', eyebrow: 'Customers' },
 ];
