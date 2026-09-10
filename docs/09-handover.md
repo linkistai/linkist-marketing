@@ -5,11 +5,11 @@ Date: 11 September 2026. This is the document to read first. It says where the s
 ## Where it is
 
 - **Repository**: https://github.com/linkistai/linkist-marketing, branch `main`, conventional commits, no force pushes. This folder is the repository root. Pushing needs a GitHub login with write access to the `linkistai` organisation, and a push that adds or changes anything under `.github/workflows/` needs the `workflow` scope on that login (`gh auth refresh -h github.com -s workflow`, a one-time browser step); without it GitHub rejects the whole push.
-- **Vercel**: the Linkist account (linkistai@gmail.com), project `linkist-marketing` (D33). The brief named the team `bettroi-website` by mistake; a project created there on 11 September was deleted the same day and nothing was deployed to it. Root directory `.`, framework Next.js, install and build commands at their defaults (`pnpm install`, `next build`), Node 22.x from the `engines` field in `package.json`, and the environment variables below.
-- **First production deploy**: with the Vercel CLI logged in as the Linkist account (`vercel login linkistai@gmail.com`, a one-time email or browser step), one command from this folder, about 3 minutes. The build machine's assistant session was not permitted to publish, so the owner runs it:
+- **Vercel**: the Linkist account (linkistai@gmail.com, scope `drmhopes-projects`, the same account that hosts m.linkist.ai), project `linkist-marketing` (id `prj_L1nVgR7MY4bvzm7VSt92AREasOAp`), created on 11 September 2026 with the environment variables below (D33). The brief named the team `bettroi-website` by mistake; a project created there that morning was deleted the same day and nothing was deployed to it. Root directory `.`, framework Next.js, install and build commands at their defaults (`pnpm install`, `next build`), Node 22.x from the `engines` field in `package.json`. No deployment yet.
+- **First production deploy**: with the Vercel CLI logged in as the Linkist account (`vercel login linkistai@gmail.com`, a one-time email step, done on this machine on 11 September), one command from this folder, about 3 minutes. The build machine's assistant session was not permitted to publish, so the owner runs it:
 
   ```bash
-  vercel deploy --prod --yes
+  vercel deploy --prod --yes --scope drmhopes-projects
   ```
 
   It prints the production URL (expected `https://linkist-marketing.vercel.app`; Vercel adds a suffix if that name is taken). Production deployments on this team are public; preview deployments sit behind Vercel Authentication (the team's default protection). The URL is not indexed: every page carries `noindex` and `robots.txt` disallows everything until launch day (D27).
@@ -29,7 +29,7 @@ Date: 11 September 2026. This is the document to read first. It says where the s
 
   The SEO run reports every page as `noindex` by design until launch; everything else must be 0 problems. The Lighthouse run is the measurement of record for mobile performance (checkpoint 8 recorded the local HTTP/1.1 simulation, D32); the Lighthouse SEO category will flag the `noindex` for the same reason. Then start the Browsers job in GitHub Actions against the URL (D34), which is the Firefox pass.
 - **Local**: `pnpm build && pnpm start` on port 3200, then any of the QA scripts. Never build while a QA run is reading the server. Local QA builds that must run in WebKit over plain http use `CSP_NO_UPGRADE=true pnpm build`; the deployed build keeps `upgrade-insecure-requests`.
-- **Another Vercel project?** On 10 September the owner showed a Vercel build log for this repository failing with `Invalid URL, input: ''` (fixed the same day, `coerceUrl` in `src/lib/site.ts`). If that project exists on the Linkist account and is connected to the repository, it is the one to keep: give it the variables below and it becomes `linkist-marketing`; otherwise create the project fresh. Either way, one production site.
+- **Another Vercel project?** On 10 September the owner showed a Vercel build log for this repository failing with `Invalid URL, input: ''` (fixed the same day, `coerceUrl` in `src/lib/site.ts`). No such project exists on the Linkist account (its projects are the card product, `linkist-prod-1806` at m.linkist.ai, and `staging-linkist`), so that log came from somewhere else. If it still exists, delete it, so there is one production site.
 
 ## Environment checklist
 
@@ -66,7 +66,7 @@ When C1 is answered (the root of linkist.ai, or a subdomain):
 1. Add the domain to the Vercel project (Settings, Domains) and point DNS at it as Vercel instructs. If the new site replaces the root, the current linkist.ai pages, store link and legal documents move with it; the redirects for the old paths that are known today (`/blog`, `/learn/*`, `/privacy`, `/terms`, `/choose-plan`, `/digital-business-card`, `/app`, `/sign-in`, `/start`, `/get-card`) are in `next.config.ts`. Pull the old site's sitemap first and add a redirect for any other path that had traffic.
 2. Set `NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_ASSET_URL` to the domain in production.
 3. Remove `NEXT_PUBLIC_NOINDEX` from production only.
-4. Redeploy (`vercel deploy --prod --yes`, or a push once the repository is connected, C23).
+4. Redeploy (`vercel deploy --prod --yes --scope drmhopes-projects`, or a push once the repository is connected, C23).
 5. Check `https://<domain>/robots.txt` allows, `https://<domain>/sitemap.xml` lists the domain with real dates, `https://<domain>/llms.txt` answers, and a shared link renders its Open Graph card.
 6. Run `REVIEW_BASE_URL=https://<domain> pnpm seo` and `pnpm lighthouse`, and the Browsers job in GitHub Actions against the domain.
 7. Submit the sitemap in Google Search Console and, if the property exists, Bing Webmaster Tools.
