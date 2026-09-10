@@ -24,6 +24,8 @@ const KINDS: readonly { dir: string; out: string; prefix: string; width2x: numbe
   { dir: 'people', out: 'people', prefix: '', width2x: 900, trim: true },
   { dir: '3d', out: '3d', prefix: '3d-', width2x: 512, trim: true },
   { dir: 'scenes', out: 'scenes', prefix: '', width2x: 1200, trim: false },
+  // NFC card renders (D35): cut-out card faces, one per material plus the Founders Circle finish.
+  { dir: 'cards', out: 'cards', prefix: '', width2x: 1200, trim: true },
 ];
 
 async function deliver(src: string, outDir: string, name: string, width2x: number, trim: boolean) {

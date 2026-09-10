@@ -25,7 +25,7 @@ Grownz used about 12,000 credits over six batches, mostly on regenerations after
 
 - People: editorial studio photographs, **full figure completely inside the frame with generous margin, nothing cropped**, on a plain flat deep charcoal backdrop for cut-out, soft natural light, candid and warm, no text anywhere. Heroes waist-up, facing the camera, holding the phone toward the viewer with a flat magenta screen (`#FF00FF`) so a real capture can be warped onto it. Diverse, Gulf-first plus international; wardrobe charcoal, warm grey, white, one crimson accent. Never the pensive person at a laptop.
 - Objects: "Small matte 3D object, product-render style, soft studio light, centred on a plain light warm-grey background, materials in charcoal and paper white with one small crimson accent, no text, no letters, no numbers". The first approved object is the style reference for the rest.
-- NFC cards: product photographs from the client preferred (C3); otherwise the CSS renders stay.
+- NFC cards: done on 11 September outside this plan at the owner's request, four faces rendered from the brand mark (D35, `docs/image-log.md`); product photographs from the client still replace them (C3).
 - Never generate app screens, QR codes with real payloads, readable business cards or any text. One seed and model per series. Palette discipline.
 
 ## Slots the site resolves today

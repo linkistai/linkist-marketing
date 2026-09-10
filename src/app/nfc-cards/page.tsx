@@ -72,7 +72,7 @@ export default function NfcCardsPage() {
                   </div>
                 ))}
               </div>
-              <p className="disclaimer mt-6 text-center">Drawn from the design tokens. Product photographs replace these renders.</p>
+              <p className="disclaimer mt-6 text-center">Rendered from the brand mark, example name. Product photographs replace these renders when they arrive.</p>
             </div>
           </HeroIntro>
         </div>

@@ -72,3 +72,5 @@ wcag
 overshirt
 linkistai
 ineverleft
+cardring
+crawlable

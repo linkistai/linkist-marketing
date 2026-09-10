@@ -220,7 +220,7 @@ Alt text and captions the site uses, for reuse wherever a picture travels withou
 - Hero composite: Design preview of the Linkist home screen with ICP matches, a follow-up nudge, Opportunity Radar, Network Pulse and Relationship Health.
 - Share Contact: Design preview of the Share Contact screen with a QR code and Tap to Link.
 - Public profile: Design preview of a public Linkist profile page with tags, a personal Linkist address and social links.
-- Card stack: Linkist NFC cards in PVC, cherry wood and brushed metal.
+- Cards: Linkist Signature cards in black PVC, cherry wood and brushed metal, example name Olivia Jones; the Founders Circle card in its crimson-black finish.
 - Closing band person: A person standing with a phone in hand, smiling at the camera.
 - Mini mockups: A contact record filling in; a search typed in plain words with two results; ICP chips lighting up on matches; a nudge dropping in. Every figure an example.
 

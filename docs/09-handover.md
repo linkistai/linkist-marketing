@@ -1,6 +1,6 @@
 # Checkpoint 9: deploy and handover
 
-Date: 11 September 2026. This is the document to read first. It says where the site is, what it needs from its environment, what is confirmed and what is not, what is done and what is not, and what to do next. The decisions behind it are in `docs/decision-log.md` (D1 to D34) and the open questions in `docs/confirm-list.md`.
+Date: 11 September 2026. This is the document to read first. It says where the site is, what it needs from its environment, what is confirmed and what is not, what is done and what is not, and what to do next. The decisions behind it are in `docs/decision-log.md` (D1 to D35) and the open questions in `docs/confirm-list.md`.
 
 ## Where it is
 
@@ -113,7 +113,7 @@ When C1 is answered (the root of linkist.ai, or a subdomain):
 
 1. **Launch.** The site is live on its Vercel URL with `noindex`; the domain (C1) and the launch-day steps remain.
 2. **Real product screens.** Every phone frame shows the prototype's design preview until the owner signs in once on this machine (`pnpm capture:login`, then `pnpm capture`, `pnpm og`, build, deploy; C2). The pipeline is written and tested against the store's public pages.
-3. **Photography and 3D objects** are planned and priced, not generated (C4). The slots render nothing or a token glyph until a file is delivered.
+3. **Photography and 3D objects** are planned and priced, not generated (C4); the slots render nothing or a token glyph until a file is delivered. The four NFC card faces are the exception, generated on 11 September at the owner's request (D35, `docs/image-log.md`).
 4. **Firefox** was not run on this machine (its Playwright binary cannot spawn here). The Browsers job in `.github/workflows/qa.yml` runs it on a Linux runner against the deployed site once that workflow is pushed (it needs the `workflow` scope on the GitHub token, above).
 5. **Mobile Lighthouse on HTTP/2**: see the addendum; the local number and its cause are D32.
 6. **Forms, analytics and Turnstile** cannot be verified live until the keys exist (C12). Their off behaviour is tested.
@@ -140,3 +140,10 @@ When C1 is answered (the root of linkist.ai, or a subdomain):
 - **Tokens**: `src/styles/tokens.json`, then `pnpm tokens:build`; `pnpm tokens:check` fails a stale build.
 - **Release**: `pnpm typecheck && pnpm lint && pnpm test && pnpm spell && pnpm build`, then `pnpm start` and the QA scripts (`review`, `a11y`, `seo`, `api`, `layout`, `browsers`, `lighthouse`), then deploy. CI runs the first line on every push.
 - **Motion looks static**: the operating system is reporting reduced motion; the footer switch overrides it, and `?motion=off` forces it off for a review.
+
+## Addendum, 11 September 2026: production checks and the card renders
+
+- **SEO against production**: 0 problems on 58 routes and 95 links apart from the intended `noindex` on the 48 public routes.
+- **Lighthouse against production** (`docs/09-lighthouse-production.md`, HTTP/2, the measurement of record, D32): desktop 100 in performance, accessibility and best practices on all 48 routes. Mobile performance 95 or better on 45 of 48; the home page scored 88 on its first, cold run and 98, 96 and 94 on three spaced re-runs; two imported articles sit at 93 and 94 (image-heavy bodies). Accessibility 100 everywhere; best practices 100 everywhere except one mobile run of the find page (96), which logged a React hydration error once while Vercel's rate protection was answering 403 to the audit browser; 16 later loads of that page on phone and desktop emulation were clean. SEO reads 66 to 69 everywhere because of the pre-launch `noindex` and returns to 100 on launch day. Core Web Vitals: CLS 0 on every route, TBT under 170 ms on mobile everywhere except two articles.
+- **Auditing production**: Vercel answers 403 to a headless browser after about 100 rapid page loads. Run `pnpm lighthouse` on a handful of routes at a time, or pause between routes; the rows that came back as zeros were re-run that way.
+- **NFC card renders** (D35, `docs/image-log.md`): the four card faces were generated from the brand mark at the owner's request and now appear in the hero ring, the cards section, the pricing page and the bundles. Product photographs from the client replace the masters (C3).

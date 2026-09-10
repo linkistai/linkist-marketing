@@ -6,11 +6,12 @@ import { useCallback, useEffect, useRef, useState, type KeyboardEvent, type Poin
 import { GetApp, GetCard } from '@/components/Button';
 import { FloatingCard } from '@/components/FloatingCard';
 import { MetricChip } from '@/components/MetricChip';
-import { NfcCard } from '@/components/NfcCard';
+import { NfcCard, NfcCardBack } from '@/components/NfcCard';
 import { Person } from '@/components/Person';
 import { ScreenFrame } from '@/components/ScreenFrame';
 import { HeroIntro } from '@/motion/HeroIntro';
 import { HERO, HERO_SLIDES } from '@/content/home';
+import type { Material } from '@/content/plans';
 
 const AUTO_MS = 8000;
 const SWIPE_PX = 48;
@@ -207,29 +208,33 @@ function AppStage({ screen, alt, person, priority }: { screen?: string; alt: str
   );
 }
 
-/** The NFC slide: the three materials fanned as CSS cards (photographs replace them, C3) with two floating cards. */
+/** The NFC slide: the three rendered cards on a slow 3D ring, the front one flipping and coming forward (D35), with three floating cards. */
+const RING: readonly Material[] = ['pvc', 'metal', 'wood'];
 function CardStage() {
   return (
-    <div className="hero-stage relative min-h-[420px] p-2 sm:min-h-[560px] sm:p-4">
-      <div className="relative mx-auto mt-2 max-w-[560px]">
-        <div className="cardfan" data-hero-card="1" aria-label="Signature cards in PVC, wood and metal, example names" role="group">
-          <div className="cardfan__card cardfan__card--1">
-            <NfcCard material="pvc" tier="signature" name="Olivia Jones" meta="NYU Abu Dhabi" />
-          </div>
-          <div className="cardfan__card cardfan__card--2">
-            <NfcCard material="metal" tier="signature" name="Olivia Jones" meta="NYU Abu Dhabi" />
-          </div>
-          <div className="cardfan__card cardfan__card--3">
-            <NfcCard material="wood" tier="signature" name="Olivia Jones" meta="NYU Abu Dhabi" />
+    <div className="hero-stage relative flex min-h-[420px] items-center p-2 sm:min-h-[560px] sm:p-4">
+      <div className="relative mx-auto w-full max-w-[560px]">
+        <div className="cardring" data-hero-card="1" aria-label="Signature cards in PVC, brushed metal and cherry wood turning on a ring, example names" role="group">
+          <div className="cardring__ring">
+            {RING.map((m, i) => (
+              <div key={m} className={`cardring__card cardring__card--${i + 1}`}>
+                <div className="cardring__face">
+                  <NfcCard material={m} tier="signature" name="Olivia Jones" meta="NYU Abu Dhabi" sizes="(min-width: 640px) 330px, 60vw" />
+                </div>
+                <div className="cardring__face cardring__face--back">
+                  <NfcCardBack material={m} />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-        <FloatingCard className="absolute -left-2 top-4 hidden p-1 sm:block lg:-left-6" variant={1} heroIndex={2} ariaLabel="Profile opened with one tap">
+        <FloatingCard className="absolute -left-2 top-[3%] hidden p-1 sm:block lg:-left-6" variant={1} heroIndex={2} ariaLabel="Profile opened with one tap">
           <MetricChip live text="Profile opened with one tap" />
         </FloatingCard>
-        <FloatingCard className="absolute -right-2 bottom-8 hidden p-1 sm:block lg:-right-8" variant={2} delay={1.1} deep heroIndex={4} ariaLabel="Contact saved to Linkist: Olivia Jones, example">
+        <FloatingCard className="absolute bottom-[3%] right-[6%] hidden p-1 sm:block" variant={2} delay={1.1} deep heroIndex={4} ariaLabel="Contact saved to Linkist: Olivia Jones, example">
           <MetricChip initials="OJ" text="Contact saved: Olivia Jones" example />
         </FloatingCard>
-        <FloatingCard className="absolute right-0 top-[40%] hidden p-1 md:block lg:-right-4" variant={1} delay={0.5} ariaLabel="Every card includes PRM Essential">
+        <FloatingCard className="absolute -right-2 top-[12%] hidden p-1 md:block lg:-right-6" variant={1} delay={0.5} ariaLabel="Every card includes PRM Essential">
           <MetricChip icon={Nfc} label="Included" value="PRM Essential" />
         </FloatingCard>
       </div>

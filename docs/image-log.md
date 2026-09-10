@@ -1,15 +1,17 @@
 # Image log
 
-Every picture the site uses, where it came from and on what terms, so any of them can be regenerated or replaced from its entry. Status on 11 September 2026: **no imagery has been generated.** The plan in `docs/image-plan.md` is priced and waits for the client's choice (C4). Everything on the site today is one of the four kinds below.
+Every picture the site uses, where it came from and on what terms, so any of them can be regenerated or replaced from its entry. Status on 11 September 2026: **the four NFC card faces are generated** (below, at the owner's request); the people, objects and scenes of `docs/image-plan.md` are priced and wait for the client's choice (C4). Everything else on the site is one of the kinds further down.
 
 ## Generated imagery
 
-None. The Magnific account was checked on 11 September 2026: Pro plan, about 2,390,000 credits available of 3,600,000, 75 credits per person generation at 3:4 and 2K (simulated), 3 per background removal. The fullest option in the plan is under 1 percent of the balance. Nothing was spent; the brief asks for approval first (section 8), and the four options are on the confirm list as C4.
-
-When an option is approved, this table is the record, one row per creation, in the order they are made:
+Magnific project "Linkist", model Google Nano Banana 2 (`imagen-nano-banana-2-flash`), 3:2 at 2K, 75 credits per generation and 3 per background removal; 387 credits spent in total on 11 September 2026 (5 generations, 4 removals). The reference for every card was the real brand mark, uploaded from the deployed site, so the mark on the cards is the mark and nothing is generated as text: the name and company on a card are HTML (D35). Masters in `public/assets/masters/cards/` (git-ignored, the raw renders beside them in `cards-raw/`), delivered by `pnpm imagery` as `public/assets/cards/<material>-1x.webp` and `-2x.webp`.
 
 | Slot | File | Prompt summary | Result | Refinements |
 | --- | --- | --- | --- | --- |
+| NFC card, PVC | cards/pvc | Matte black PVC card, straight on, the red mark top-left in spot varnish, dark chip top-right, embossed NFC wave bottom-right, lower-left empty, no text | Approved | Background removed |
+| NFC card, wood | cards/wood | The same card in cherry wood, warm reddish-brown, straight grain, satin oiled finish, engraved wave | Approved on the second take; the first came out pale (kept as `cards-raw/wood-pale-raw.png`, not used) | Background removed |
+| NFC card, metal | cards/metal | The same card in brushed gunmetal stainless steel, glossy enamel mark, etched wave | Approved | Background removed |
+| NFC card, Founders Circle | cards/founders | The same card in deep crimson-black PVC with a fine guilloche pattern and a thin polished dark-red border | Approved | Background removed |
 
 Procedure, from the Grownz operating record: a Magnific folder named `Linkist website` with `people`, `3d`, `scenes`, `og` and `articles` inside; model `imagen-nano-banana-2-flash`; people at 3:4 and 2K, objects at 1:1 and 1K; one seed and model per series; the first approved object is the style reference for the rest; masters saved under `public/assets/masters/<kind>/` (git-ignored) the moment the download link arrives, because the links expire; `pnpm imagery` delivers 1x and 2x WebP into `public/assets/<kind>/`; the site resolves each slot at build time, so a delivered file appears on the next build with no code change. The prompts are written out slot by slot in `docs/content-hub.md`.
 
@@ -32,7 +34,7 @@ Real captures replace them the moment the owner signs in once on this machine (`
 | `public/brand/mark.png`, `public/brand/lockup.png` | Cropped from the prototype's logo lockup by `scripts/brand-build.ts`. Replace with the vector files when they arrive (C3); the wordmark on the site is set in the brand font, not an image. |
 | `public/icon.png`, `public/apple-icon.png`, favicons | Drawn by the same script from the mark on the brand crimson. |
 
-The NFC cards on the site are CSS renders of the three materials with the mark composited by the browser, never a generated image (brief 8). Product photographs from the client replace them (C3).
+The NFC cards on the site are the generated faces above with the name and company set in HTML; the card backs shown in the hero flip are drawn from the tokens with the mark. Product photographs from the client replace the four files (C3).
 
 ## Article covers and figures
 
