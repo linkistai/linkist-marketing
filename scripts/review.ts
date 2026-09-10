@@ -18,7 +18,8 @@ const outDir = join(root, 'captures/site-review');
 const args = process.argv.slice(2);
 const wIdx = args.indexOf('--widths');
 const widths = wIdx >= 0 ? (args[wIdx + 1] ?? '').split(',').map(Number) : [390, 1440];
-const routes = args.filter((a, i) => a.startsWith('/') && i !== wIdx + 1);
+// Without --widths, wIdx is -1 and the old test (i !== wIdx + 1) silently dropped the first route.
+const routes = args.filter((a, i) => a.startsWith('/') && (wIdx < 0 || i !== wIdx + 1));
 const ROUTES = routes.length ? routes : [...ALL];
 
 async function main() {
