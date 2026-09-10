@@ -4,14 +4,16 @@ Every picture the site uses, where it came from and on what terms, so any of the
 
 ## Generated imagery
 
-Magnific project "Linkist", model Google Nano Banana 2 (`imagen-nano-banana-2-flash`), 3:2 at 2K, 75 credits per generation and 3 per background removal; 387 credits spent in total on 11 September 2026 (5 generations, 4 removals). The reference for every card was the real brand mark, uploaded from the deployed site, so the mark on the cards is the mark and nothing is generated as text: the name and company on a card are HTML (D35). Masters in `public/assets/masters/cards/` (git-ignored, the raw renders beside them in `cards-raw/`), delivered by `pnpm imagery` as `public/assets/cards/<material>-1x.webp` and `-2x.webp`.
+Magnific project "Linkist", model Google Nano Banana 2 (`imagen-nano-banana-2-flash`), 3:2 at 2K, 75 credits per generation and 3 per background removal; 1,011 credits spent in total on 11 September 2026 (13 generations, 12 removals). The first batch generated the mark into the card from the real brand file as a reference; the second batch (the one in use, D37) generates the faces without any logo and the site composites the mark in HTML at one size, so nothing on a card is generated as a logo or as text. Masters in `public/assets/masters/cards/` (git-ignored, every raw render beside them in `cards-raw/`), delivered by `pnpm imagery` as `public/assets/cards/<material>-1x.webp` and `-2x.webp`, backs as `<material>-back-*.webp`.
 
 | Slot | File | Prompt summary | Result | Refinements |
 | --- | --- | --- | --- | --- |
-| NFC card, PVC | cards/pvc | Matte black PVC card, straight on, the red mark top-left in spot varnish, dark chip top-right, embossed NFC wave bottom-right, lower-left empty, no text | Approved | Background removed |
-| NFC card, wood | cards/wood | The same card in cherry wood, warm reddish-brown, straight grain, satin oiled finish, engraved wave | Approved on the second take; the first came out pale (kept as `cards-raw/wood-pale-raw.png`, not used) | Background removed |
-| NFC card, metal | cards/metal | The same card in brushed gunmetal stainless steel, glossy enamel mark, etched wave | Approved | Background removed |
-| NFC card, Founders Circle | cards/founders | The same card in deep crimson-black PVC with a fine guilloche pattern and a thin polished dark-red border | Approved | Background removed |
+| NFC card front, PVC | cards/pvc | Matte black PVC card, straight on, dark chip top-right, embossed NFC wave bottom-right, top-left and lower-left empty, no logo, no text | In use (second batch) | Background removed |
+| NFC card front, wood | cards/wood | The same in cherry wood, warm reddish-brown, straight grain, satin oiled finish, engraved wave | In use | Background removed |
+| NFC card front, metal | cards/metal | The same in brushed gunmetal stainless steel, etched wave | In use | Background removed |
+| NFC card front, Founders Circle | cards/founders | The same in deep crimson-black PVC with a fine guilloche pattern and a thin polished dark-red border | In use | Background removed |
+| NFC card back, four materials | cards/<material>-back | The back of each card: plain, a small NFC wave exactly centred, a thin engraved line across the lower third, no chip, no stripe, no logo, no text | In use | Background removed |
+| First batch, four fronts with the mark generated in | cards-raw/*-raw.png | As the fronts above but with "the red logo mark from the reference image, top-left" | Superseded: the generated marks came out at different sizes; the wood card's first take was pale and was regenerated once | Not used |
 
 Procedure, from the Grownz operating record: a Magnific folder named `Linkist website` with `people`, `3d`, `scenes`, `og` and `articles` inside; model `imagen-nano-banana-2-flash`; people at 3:4 and 2K, objects at 1:1 and 1K; one seed and model per series; the first approved object is the style reference for the rest; masters saved under `public/assets/masters/<kind>/` (git-ignored) the moment the download link arrives, because the links expire; `pnpm imagery` delivers 1x and 2x WebP into `public/assets/<kind>/`; the site resolves each slot at build time, so a delivered file appears on the next build with no code change. The prompts are written out slot by slot in `docs/content-hub.md`.
 

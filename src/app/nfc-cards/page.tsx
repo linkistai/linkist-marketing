@@ -4,7 +4,7 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Button, TextLink } from '@/components/Button';
 import { ClosingBand } from '@/components/ClosingBand';
 import { Faq } from '@/components/Faq';
-import { NfcCard } from '@/components/NfcCard';
+import { CardDeck } from '@/components/CardDeck';
 import { MiniMock } from '@/components/mockups/MiniMock';
 import { ScreenFrame } from '@/components/ScreenFrame';
 import { Section, SectionHead } from '@/components/Section';
@@ -64,15 +64,11 @@ export default function NfcCardsPage() {
               </div>
             </div>
             <div className="hero-stage relative">
-              <div className="grid grid-cols-3 items-end gap-4 px-2 sm:px-6" data-hero-card="1">
-                {MATERIALS.map((m, i) => (
-                  <div key={m.key} style={{ transform: `translateY(${i === 1 ? -24 : 0}px)` }}>
-                    <NfcCard material={m.key} tier="signature" name="Olivia Jones" meta="NYU Abu Dhabi" />
-                    <p className="mt-3 text-center text-xs font-semibold uppercase tracking-[0.04em] text-body">{m.name}</p>
-                  </div>
-                ))}
+              <div className="px-2 pt-10 sm:px-8" data-hero-card="1">
+                <CardDeck />
               </div>
-              <p className="disclaimer mt-6 text-center">Rendered from the brand mark, example name. Product photographs replace these renders when they arrive.</p>
+              <p className="mt-8 text-center text-xs font-semibold uppercase tracking-[0.04em] text-body">{MATERIALS.map((m) => m.name).join(', ')}</p>
+              <p className="disclaimer mt-2 text-center">Rendered from the brand mark, example name. Product photographs replace these renders when they arrive.</p>
             </div>
           </HeroIntro>
         </div>

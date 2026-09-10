@@ -74,3 +74,5 @@ linkistai
 ineverleft
 cardring
 crawlable
+glassmorphism
+carddeck

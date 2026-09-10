@@ -149,11 +149,20 @@ video {
 .section--tight {
   padding-block: calc(var(--section-y) * 0.6);
 }
-/* Section grounds alternate near-black, charcoal and a slightly lifted charcoal (brief 5). */
+/*
+ * Section grounds alternate near-black, a deeper black gradient and a slightly lifted charcoal
+ * (brief 5; owner, 11 September: the alternate sections go blacker, as gradients rather than flats).
+ */
 .section--charcoal {
-  background: var(--color-paper);
+  background: linear-gradient(180deg, #0f0f0e 0%, #161615 45%, #121211 100%);
 }
 .section--lifted {
+  background: radial-gradient(120% 90% at 50% 0%, #1e1e1d 0%, #151514 60%, #0f0f0e 100%);
+}
+[data-theme='light'] .section--charcoal {
+  background: var(--color-paper);
+}
+[data-theme='light'] .section--lifted {
   background: color-mix(in srgb, var(--color-surface) 70%, var(--color-bg));
 }
 /* One radial crimson glow rising from the bottom of a section, gradient as light (prototype). */
@@ -337,12 +346,32 @@ video {
   cursor: default;
 }
 
-/* Surfaces: charcoal cards with a hairline and the prototype's two shadow depths. */
+/*
+ * Surfaces: glass cards (owner, 11 September). A translucent gradient over a blurred backdrop, a
+ * hairline that catches light at the top edge, and the prototype's shadow depth. The surface token
+ * stays underneath as the fallback for browsers without backdrop-filter.
+ */
 .card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.075) 0%, rgba(255, 255, 255, 0.03) 55%, rgba(255, 255, 255, 0.015) 100%), var(--color-surface);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-2xl);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    var(--shadow-card);
+}
+@supports (backdrop-filter: blur(1px)) {
+  .card {
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.075) 0%, rgba(255, 255, 255, 0.03) 55%, rgba(255, 255, 255, 0.015) 100%), color-mix(in srgb, var(--color-surface) 62%, transparent);
+    backdrop-filter: blur(18px) saturate(1.25);
+    -webkit-backdrop-filter: blur(18px) saturate(1.25);
+  }
+}
+[data-theme='light'] .card {
+  background: var(--color-surface);
+  border-color: var(--color-line);
   box-shadow: var(--shadow-card);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 .card--sm {
   border-radius: var(--radius-xl);
@@ -357,11 +386,22 @@ video {
   box-shadow: var(--shadow-float);
 }
 .float {
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%), color-mix(in srgb, var(--color-surface) 78%, transparent);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-pill);
-  box-shadow: var(--shadow-card);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    var(--shadow-card);
   color: var(--color-text);
+  backdrop-filter: blur(16px) saturate(1.25);
+  -webkit-backdrop-filter: blur(16px) saturate(1.25);
+}
+[data-theme='light'] .float {
+  background: var(--color-surface);
+  border-color: var(--color-line);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 .float--deep {
   box-shadow: var(--shadow-float);

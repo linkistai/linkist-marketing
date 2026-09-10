@@ -215,17 +215,19 @@ function CardStage() {
     <div className="hero-stage relative flex min-h-[420px] items-center p-2 sm:min-h-[560px] sm:p-4">
       <div className="relative mx-auto w-full max-w-[560px]">
         <div className="cardring" data-hero-card="1" aria-label="Signature cards in PVC, brushed metal and cherry wood turning on a ring, example names" role="group">
-          <div className="cardring__ring">
-            {RING.map((m, i) => (
-              <div key={m} className={`cardring__card cardring__card--${i + 1}`}>
-                <div className="cardring__face">
-                  <NfcCard material={m} tier="signature" name="Olivia Jones" meta="NYU Abu Dhabi" sizes="(min-width: 640px) 330px, 60vw" />
+          <div className="cardring__scene">
+            <div className="cardring__ring">
+              {RING.map((m, i) => (
+                <div key={m} className={`cardring__card cardring__card--${i + 1}`}>
+                  <div className="face3d">
+                    <NfcCard material={m} tier="signature" name="Olivia Jones" meta="NYU Abu Dhabi" sizes="(min-width: 640px) 400px, 70vw" />
+                  </div>
+                  <div className="face3d face3d--back">
+                    <NfcCardBack material={m} sizes="(min-width: 640px) 400px, 70vw" />
+                  </div>
                 </div>
-                <div className="cardring__face cardring__face--back">
-                  <NfcCardBack material={m} />
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
         <FloatingCard className="absolute -left-2 top-[3%] hidden p-1 sm:block lg:-left-6" variant={1} heroIndex={2} ariaLabel="Profile opened with one tap">
