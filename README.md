@@ -47,3 +47,13 @@ Never build while the dev server runs.
 ## Truth rules
 
 Every claim traces to `docs/01-audit.md`. Every product image is a real capture, a labelled design preview or a labelled pending frame. No em dashes, British English, numbers as digits. Compliance words appear only with evidence. The imported blog articles are the authors' text as published and sit outside the em-dash rule (D18).
+
+## Deploy
+
+The site deploys to the Vercel project `linkist-marketing` in team `bettroi-website` (D33). Environment variables are documented in `.env.example` and, as set today, in `docs/09-handover.md`. Until the GitHub connection exists (C23), a release is one command from this folder after the QA scripts pass:
+
+```bash
+vercel deploy --prod --yes --scope bettroi-website
+```
+
+`.github/workflows/qa.yml` runs tokens, types, lint, tests, spelling and a build on every push, and on demand the browser pass (Chromium, Firefox, WebKit, iPhone and Pixel) against a deployed site. Launch day, step by step, is in the handover document.

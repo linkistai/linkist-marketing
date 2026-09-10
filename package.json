@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Linkist PRM marketing website. A standalone Next.js project built on the approved prototype's design tokens; every product screen is a real capture from prm.linkist.ai or a labelled design preview.",
   "engines": {
-    "node": ">=22.12"
+    "node": "22.x"
   },
   "packageManager": "pnpm@10.34.5",
   "scripts": {
