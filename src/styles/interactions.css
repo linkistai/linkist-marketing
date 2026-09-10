@@ -1,0 +1,536 @@
+/* Grownz interaction patterns re-expressed in Linkist tokens (brief 5 and 6). */
+
+@property --sweep {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: -135deg;
+}
+
+@layer components {
+  /* Gradient border sweep: a conic arc masked to a 1 px ring, rotating once on hover. Gradient as light. */
+  .sweep {
+    position: relative;
+    isolation: isolate;
+  }
+  .sweep::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(from var(--sweep), var(--sweep-color, var(--brand-crimson)) 90deg, transparent 0deg);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.9;
+    transition: --sweep 700ms var(--ease-out);
+    z-index: 1;
+  }
+  .sweep:hover::before,
+  .sweep:focus-within::before {
+    --sweep: 225deg;
+  }
+  /* The featured card: a full gradient ring, crimson to coral, plus the glow shadow. */
+  .sweep--featured::before {
+    background: conic-gradient(from var(--sweep), var(--brand-crimson) 0deg, var(--brand-coral) 120deg, var(--brand-crimson) 240deg, var(--brand-coral) 360deg);
+    opacity: 1;
+  }
+  .sweep--featured {
+    box-shadow: var(--shadow-glow);
+  }
+  .sweep--neutral::before {
+    --sweep-color: color-mix(in srgb, var(--color-line-strong) 100%, transparent);
+  }
+
+  /* Physical hover: transform and box-shadow together, 160 to 200 ms. */
+  .lift {
+    transition:
+      transform 180ms var(--ease-out),
+      box-shadow 180ms var(--ease-out);
+  }
+  .lift:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-float);
+  }
+
+  /* Glow behind a hero object: one crimson light source. */
+  .glow-brand {
+    position: relative;
+  }
+  .glow-brand::before {
+    content: '';
+    position: absolute;
+    inset: -12%;
+    z-index: -1;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, color-mix(in srgb, var(--brand-crimson) 32%, transparent), transparent);
+    filter: blur(24px);
+    pointer-events: none;
+  }
+
+  /* Intent chips in the hero. */
+  .intent {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 16px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--color-line-strong);
+    background: var(--color-surface);
+    font: inherit;
+    font-size: var(--text-base);
+    font-weight: var(--weight-medium);
+    color: var(--color-text);
+    cursor: pointer;
+    transition:
+      background-color 160ms,
+      border-color 160ms,
+      color 160ms,
+      transform 160ms var(--ease-out),
+      box-shadow 160ms;
+  }
+  .intent:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+    border-color: color-mix(in srgb, var(--brand-crimson) 60%, transparent);
+  }
+  .intent[aria-pressed='true'] {
+    background: var(--brand-crimson);
+    color: #fff;
+    border-color: transparent;
+  }
+
+  /* Segmented tabs with a tweening pill. */
+  .segtabs {
+    position: relative;
+    display: inline-flex;
+    gap: 2px;
+    padding: 4px;
+    border-radius: var(--radius-pill);
+    background: var(--color-surface2);
+    border: 1px solid var(--color-line);
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .segtabs__pill {
+    position: absolute;
+    top: 4px;
+    height: calc(100% - 8px);
+    border-radius: var(--radius-pill);
+    background: var(--brand-crimson);
+    transition:
+      left 250ms var(--ease-out),
+      width 250ms var(--ease-out);
+  }
+  .segtabs__tab {
+    position: relative;
+    z-index: 1;
+    border: 0;
+    background: transparent;
+    border-radius: var(--radius-pill);
+    padding: 0 18px;
+    min-height: 44px;
+    font: inherit;
+    font-weight: var(--weight-semibold);
+    font-size: var(--text-base);
+    color: var(--color-muted);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 160ms;
+  }
+  .segtabs__tab[aria-selected='true'] {
+    color: #fff;
+  }
+  .seggrid {
+    position: relative;
+  }
+  .seggrid__set {
+    transition:
+      opacity 200ms var(--ease-out),
+      transform 200ms var(--ease-out);
+  }
+  .seggrid__set[data-active='false'] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: translateY(12px);
+    pointer-events: none;
+  }
+
+  /* Journey deck: three real screens that fan out from a tight stack as the section enters. */
+  .deck {
+    position: relative;
+    height: 560px;
+    max-width: 960px;
+    margin-inline: auto;
+    --deck-step: clamp(150px, 22vw, 300px);
+  }
+  .deck__card {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 220px;
+    margin-left: -110px;
+    transform-origin: 50% 100%;
+    transform: translateX(var(--stack-x, 0px)) rotate(var(--stack-r, 0deg)) scale(0.96);
+    transition:
+      transform 500ms var(--ease-out),
+      box-shadow 500ms var(--ease-out);
+    transition-delay: calc(var(--i) * 80ms);
+    will-change: transform;
+  }
+  .deck[data-fanned='true'] .deck__card {
+    transform: translateX(calc(var(--k) * var(--deck-step))) rotate(var(--fan-r)) scale(1);
+  }
+  .deck__card:hover,
+  .deck__card:focus-within {
+    transition-delay: 0ms;
+    transform: translateX(calc(var(--k) * var(--deck-step))) rotate(0deg) translateY(-18px) scale(1.04);
+    z-index: 10;
+  }
+  .deck__label {
+    margin-top: 12px;
+    text-align: center;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    opacity: 0;
+    transition: opacity 300ms;
+    transition-delay: calc(var(--i) * 80ms + 300ms);
+  }
+  .deck[data-fanned='true'] .deck__label {
+    opacity: 1;
+  }
+  @media (max-width: 900px) {
+    .deck {
+      height: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .deck__card {
+      position: static;
+      width: auto;
+      margin: 0;
+      transform: none !important;
+    }
+    .deck__label {
+      opacity: 1;
+    }
+  }
+  @media (max-width: 560px) {
+    .deck {
+      grid-template-columns: 1fr;
+      max-width: 300px;
+    }
+  }
+
+  /* Use-case fan: a snap strip on phones, a spread of tilted cards on desktop. */
+  .fanstrip {
+    display: flex;
+    gap: 16px;
+    margin: 0;
+    padding: 8px 4px 16px;
+    list-style: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .fanstrip::-webkit-scrollbar {
+    display: none;
+  }
+  .fanstrip:focus-visible {
+    outline: 2px solid var(--brand-coral);
+    outline-offset: 4px;
+    border-radius: 12px;
+  }
+  .fanstrip__item {
+    flex: 0 0 min(320px, 84vw);
+    scroll-snap-align: center;
+    display: flex;
+  }
+  .fanstrip__item > * {
+    width: 100%;
+  }
+  @media (min-width: 1024px) {
+    .fanstrip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      overflow: visible;
+      padding: 24px 0 8px;
+    }
+    .fanstrip__item {
+      flex: initial;
+      transition: transform 450ms var(--ease-out);
+    }
+    html[data-motion='on'] .fanstrip[data-in='false'] .fanstrip__item {
+      transform: translateY(24px) rotate(calc(var(--i) * 2deg));
+      opacity: 0;
+    }
+    html[data-motion='on'] .fanstrip[data-in='true'] .fanstrip__item {
+      transform: rotate(calc(var(--i) * 1.5deg)) translateY(calc(var(--i) * var(--i) * 6px));
+      transition-delay: calc((var(--i) + 2) * 80ms);
+    }
+    html[data-motion='on'] .fanstrip__item:hover,
+    html[data-motion='on'] .fanstrip__item:focus-within {
+      transform: rotate(0deg) translateY(-10px);
+      transition-delay: 0ms;
+      z-index: 2;
+    }
+  }
+
+  /* Card pair: two contact cards that slide apart on hover (team sharing). */
+  .pair {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    min-height: 240px;
+    margin-inline: auto;
+  }
+  .pair__card {
+    position: absolute;
+    inset: 0;
+    transition: transform 240ms var(--ease-out);
+  }
+  .pair__card--back {
+    transform: translate(16px, 16px) scale(0.98);
+    z-index: 0;
+  }
+  .pair__card--front {
+    z-index: 1;
+  }
+  .pair:hover .pair__card--front,
+  .pair:focus-within .pair__card--front {
+    transform: translate(-24px, -12px);
+  }
+  .pair:hover .pair__card--back,
+  .pair:focus-within .pair__card--back {
+    transform: translate(40px, 28px) scale(1);
+  }
+  @media (max-width: 640px) {
+    .pair {
+      min-height: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .pair__card {
+      position: static;
+      transform: none !important;
+    }
+  }
+
+  /* Closing band: a near-black panel with one crimson glow. */
+  .band {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-3xl);
+    background: var(--color-paper);
+    border: 1px solid var(--color-line);
+    color: var(--color-text);
+    isolation: isolate;
+  }
+  .band::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -60%;
+    width: 80%;
+    height: 120%;
+    transform: translateX(-50%);
+    background: radial-gradient(closest-side, color-mix(in srgb, var(--brand-crimson) 30%, transparent), transparent);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  /* NFC card visualiser: three materials as tilted cards with a specular sweep on hover. */
+  .nfc-wrap {
+    container-type: inline-size;
+  }
+  .nfc {
+    position: relative;
+    aspect-ratio: 1.586;
+    border-radius: 6.5% / 10.3%;
+    overflow: hidden;
+    isolation: isolate;
+    box-shadow: var(--shadow-float);
+    transform: perspective(900px) rotateX(6deg) rotateY(-10deg);
+    transition: transform 400ms var(--ease-out);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .nfc:hover,
+  .nfc:focus-within {
+    transform: perspective(900px) rotateX(0deg) rotateY(0deg) translateY(-4px);
+  }
+  .nfc--pvc {
+    background: linear-gradient(135deg, #2b2b2c 0%, #151515 60%, #1f1f20 100%);
+  }
+  .nfc--wood {
+    background:
+      repeating-linear-gradient(98deg, rgba(0, 0, 0, 0.12) 0 2px, transparent 2px 9px),
+      linear-gradient(135deg, #7a5233 0%, #5a3a22 55%, #6d472c 100%);
+  }
+  .nfc--metal {
+    background: linear-gradient(120deg, #5a5a5c 0%, #2c2c2e 35%, #6a6a6d 60%, #26262a 100%);
+  }
+  .nfc--founders {
+    background: linear-gradient(135deg, #3a1218 0%, #1c0c0e 60%, #2a1014 100%);
+  }
+  .nfc::after {
+    content: '';
+    position: absolute;
+    inset: -40% -60%;
+    background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.16) 50%, transparent 60%);
+    transform: translateX(-60%);
+    transition: transform 900ms var(--ease-out);
+    pointer-events: none;
+  }
+  .nfc:hover::after,
+  .nfc:focus-within::after {
+    transform: translateX(60%);
+  }
+  .nfc__mark {
+    position: absolute;
+    left: 7%;
+    top: 12%;
+    width: 16%;
+  }
+  .nfc__chip {
+    position: absolute;
+    right: 8%;
+    top: 14%;
+    width: 11%;
+    aspect-ratio: 1;
+    border-radius: 18%;
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.04));
+  }
+  .nfc__name {
+    position: absolute;
+    left: 7%;
+    bottom: 22%;
+    font-family: var(--font-display);
+    font-weight: var(--weight-semibold);
+    font-size: clamp(11px, 4cqw, 18px);
+    color: rgba(255, 255, 255, 0.92);
+    letter-spacing: -0.01em;
+  }
+  .nfc__meta {
+    position: absolute;
+    left: 7%;
+    bottom: 11%;
+    font-family: var(--font-body);
+    font-size: clamp(8px, 2.6cqw, 12px);
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .nfc__wave {
+    position: absolute;
+    right: 8%;
+    bottom: 12%;
+    width: 8%;
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+html[data-motion='off'] .deck__card,
+html[data-motion='off'] .deck__label,
+html[data-motion='off'] .sweep::before,
+html[data-motion='off'] .fanstrip__item,
+html[data-motion='off'] .nfc,
+html[data-motion='off'] .nfc::after {
+  transition-duration: 200ms !important;
+  transition-delay: 0ms !important;
+}
+
+/* Design previews (Grownz D23): one to three phones, fanned on wide screens, a snap strip on phones. */
+.preview-badge {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  z-index: 3;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, #000 70%, transparent);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font: 600 10px/1 var(--font-body, Inter, system-ui, sans-serif);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  backdrop-filter: blur(6px);
+}
+.preview-row {
+  display: flex;
+  gap: 14px;
+  margin: 0;
+  padding: 6px 2px 10px;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.preview-row::-webkit-scrollbar {
+  display: none;
+}
+.preview-row:focus-visible {
+  outline: 2px solid var(--brand-coral);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+.preview-row__item {
+  flex: 0 0 min(230px, 62vw);
+  scroll-snap-align: center;
+}
+.preview-row__item .phone {
+  transition:
+    transform 0.45s var(--ease-out),
+    box-shadow 0.45s;
+}
+.preview-row__caption {
+  margin: 12px 4px 0;
+  font-size: 12.5px;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--color-muted);
+}
+@media (min-width: 768px) {
+  .preview-row {
+    overflow: visible;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 12px 0 4px;
+    gap: 0;
+  }
+  .preview-row__item {
+    flex: 0 1 240px;
+    margin: 0 -6px;
+  }
+  .preview-row[data-count='1'] .preview-row__item {
+    flex-basis: 260px;
+  }
+  .preview-row[data-count='2'] .preview-row__item {
+    margin: 0 8px;
+  }
+  html[data-motion='on'] .preview-row__item .phone {
+    transform: rotate(calc(var(--i) * 5deg)) translateY(calc(var(--i) * var(--i) * 10px));
+  }
+  html[data-motion='on'] .preview-row__item:hover .phone,
+  html[data-motion='on'] .preview-row__item:focus-within .phone {
+    transform: rotate(0deg) translateY(-8px) scale(1.03);
+    z-index: 2;
+  }
+  .preview-row__item:hover {
+    position: relative;
+    z-index: 2;
+  }
+}

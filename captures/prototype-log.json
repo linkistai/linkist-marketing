@@ -1,0 +1,38 @@
+[
+  {
+    "name": "proto-profile",
+    "source": "Linkist Landing.html hero composite (design mockup, not an app screen)",
+    "region": {
+      "left": 44,
+      "top": 78,
+      "width": 238,
+      "height": 515
+    },
+    "caption": "Public profile page",
+    "at": "2026-09-10T00:00:49.381Z"
+  },
+  {
+    "name": "proto-home",
+    "source": "Linkist Landing.html hero composite (design mockup, not an app screen)",
+    "region": {
+      "left": 318,
+      "top": 62,
+      "width": 322,
+      "height": 697
+    },
+    "caption": "Home: Welcome Back, ICP Matches Found, a nudge, Opportunity Radar, Network Pulse, Relationship Health",
+    "at": "2026-09-10T00:00:49.414Z"
+  },
+  {
+    "name": "proto-share",
+    "source": "Linkist Landing.html hero composite (design mockup, not an app screen)",
+    "region": {
+      "left": 672,
+      "top": 78,
+      "width": 226,
+      "height": 489
+    },
+    "caption": "Share Contact with QR and Tap to Link",
+    "at": "2026-09-10T00:00:49.439Z"
+  }
+]

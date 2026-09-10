@@ -1,0 +1,54 @@
+{
+  "name": "linkist-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Linkist PRM marketing website. A standalone Next.js project built on the approved prototype's design tokens; every product screen is a real capture from prm.linkist.ai or a labelled design preview.",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "packageManager": "pnpm@10.34.5",
+  "scripts": {
+    "dev": "next dev --port 3200",
+    "build": "next build",
+    "start": "next start --port 3200",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "tokens:build": "tsx scripts/tokens-build.ts",
+    "tokens:check": "tsx scripts/tokens-build.ts --check",
+    "capture:login": "tsx scripts/capture-login.ts",
+    "capture": "tsx scripts/capture.ts",
+    "capture:prototype": "tsx scripts/capture-prototype.ts",
+    "capture:all": "pnpm capture && pnpm og && pnpm build && vercel deploy --prod --yes",
+    "review": "tsx scripts/review.ts",
+    "og": "tsx scripts/og.ts",
+    "a11y": "tsx scripts/a11y.ts",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "lenis": "^1.3.26",
+    "lucide-react": "^1.41.0",
+    "next": "^15.5.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@eslint/js": "^9.30.0",
+    "@playwright/test": "^1.62.1",
+    "@tailwindcss/postcss": "^4.1.0",
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "eslint": "^9.30.0",
+    "eslint-config-next": "^15.5.0",
+    "postcss": "^8.5.0",
+    "sharp": "^0.34.0",
+    "tailwindcss": "^4.1.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.9.0",
+    "typescript-eslint": "^8.35.0",
+    "vitest": "^3.2.0"
+  }
+}

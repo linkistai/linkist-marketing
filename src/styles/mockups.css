@@ -1,0 +1,694 @@
+/*
+ * Mini mockups (brief 5, Grownz D26): card-sized UI sequences that replay what a feature does
+ * with example figures, the "See it move" style. Every sequence is CSS keyframes on a 9 s loop,
+ * paused off-screen and frozen at its end state when motion is off. Every element's static
+ * style IS its end state; animations only add the way in, so `animation: none` shows the
+ * finished picture. They are not app screens and every figure is an example.
+ */
+@layer components {
+  .mini {
+    --loop: 9s;
+    position: relative;
+    margin-top: 16px;
+    padding: 12px 12px 10px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-line);
+    background: var(--color-paper);
+    color: var(--color-text);
+    font-size: 12px;
+    line-height: 1.3;
+    min-height: 92px;
+    overflow: hidden;
+  }
+  .mini[data-inview='false'] * {
+    animation-play-state: paused !important;
+  }
+  html[data-motion='off'] .mini *,
+  html[data-motion='off'] .mini *::after {
+    animation: none !important;
+  }
+  .mini__example {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    font-size: 9px;
+    font-weight: var(--weight-semibold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .mini__label {
+    font-size: 10px;
+    font-weight: var(--weight-semibold);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-bottom: 6px;
+  }
+  .mini__note {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    margin: 8px 0 0;
+    color: var(--color-muted);
+    animation: mini-in var(--loop) var(--ease-out) infinite both;
+    animation-delay: var(--d, 2.2s);
+  }
+  .mini__note svg {
+    color: var(--brand-green);
+  }
+  .mini__amt {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-weight: var(--weight-semibold);
+  }
+  @keyframes mini-in {
+    0% {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    5% {
+      opacity: 1;
+      transform: none;
+    }
+    90% {
+      opacity: 1;
+      transform: none;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+  }
+
+  /* rows: lines that arrive one by one */
+  .mini__rows {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .mini__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    animation: mini-in var(--loop) var(--ease-out) infinite both;
+    animation-delay: var(--d);
+  }
+  .mini__row--done {
+    color: var(--color-muted);
+  }
+  .mini__tick {
+    display: inline-grid;
+    place-items: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--color-surface2);
+    color: transparent;
+    flex: none;
+    animation: mini-tick var(--loop) steps(1) infinite;
+    animation-delay: var(--d);
+  }
+  @keyframes mini-tick {
+    0%,
+    25% {
+      background: var(--color-surface2);
+      color: transparent;
+    }
+    28%,
+    90% {
+      background: var(--brand-green);
+      color: #fff;
+    }
+    100% {
+      background: var(--color-surface2);
+      color: transparent;
+    }
+  }
+
+  /* bars */
+  .mini__bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 58px;
+    margin-top: 6px;
+  }
+  .mini__bar {
+    flex: 1;
+    height: var(--h);
+    border-radius: 4px 4px 2px 2px;
+    background: var(--brand-crimson);
+    transform-origin: bottom;
+    animation: mini-grow var(--loop) var(--ease-out) infinite;
+    animation-delay: var(--d);
+  }
+  .mini__bar[data-alt] {
+    background: var(--brand-teal);
+  }
+  @keyframes mini-grow {
+    0% {
+      transform: scaleY(0.08);
+    }
+    6% {
+      transform: scaleY(1.04);
+    }
+    9%,
+    88% {
+      transform: scaleY(1);
+    }
+    100% {
+      transform: scaleY(0.08);
+    }
+  }
+
+  /* ring: Network Pulse, sweeps to its value once per loop */
+  .mini__ring {
+    position: relative;
+    display: grid;
+    grid-template-columns: 76px 1fr;
+    gap: 10px;
+    align-items: center;
+  }
+  .mini__ring svg {
+    width: 76px;
+    height: 76px;
+    transform: rotate(-90deg);
+  }
+  .mini__ring-track,
+  .mini__ring-fill {
+    fill: none;
+    stroke-width: 8;
+    stroke-linecap: round;
+  }
+  .mini__ring-track {
+    stroke: var(--color-surface2);
+  }
+  .mini__ring-fill {
+    stroke: var(--brand-green);
+    stroke-dasharray: 201;
+    stroke-dashoffset: calc(201 - 201 * var(--pct) / 100);
+    animation: mini-arc var(--loop) var(--ease-out) infinite;
+  }
+  .mini__ring-fill--2 {
+    stroke: var(--brand-teal);
+    stroke-dasharray: 163;
+    stroke-dashoffset: calc(163 - 163 * var(--pct) / 100);
+    animation: mini-arc2 var(--loop) var(--ease-out) infinite;
+  }
+  @keyframes mini-arc {
+    0% {
+      stroke-dashoffset: 201;
+    }
+    12%,
+    90% {
+      stroke-dashoffset: calc(201 - 201 * var(--pct) / 100);
+    }
+    100% {
+      stroke-dashoffset: 201;
+    }
+  }
+  @keyframes mini-arc2 {
+    0% {
+      stroke-dashoffset: 163;
+    }
+    14%,
+    90% {
+      stroke-dashoffset: calc(163 - 163 * var(--pct) / 100);
+    }
+    100% {
+      stroke-dashoffset: 163;
+    }
+  }
+  .mini__ring-value {
+    position: absolute;
+    left: 38px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: var(--weight-semibold);
+  }
+  .mini__legend {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 11px;
+  }
+  .mini__legend li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    animation: mini-in var(--loop) var(--ease-out) infinite both;
+    animation-delay: var(--d);
+  }
+  .mini__legend i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--c, var(--brand-green));
+    flex: none;
+  }
+
+  /* progress */
+  .mini__track {
+    position: relative;
+    height: 10px;
+    margin-top: 8px;
+    border-radius: 999px;
+    background: var(--color-surface2);
+  }
+  .mini__fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: var(--pct);
+    border-radius: 999px;
+    background: var(--gradient-brand);
+    animation: mini-fill var(--loop) var(--ease-out) infinite;
+  }
+  @keyframes mini-fill {
+    0% {
+      width: 0;
+    }
+    12%,
+    90% {
+      width: var(--pct);
+    }
+    100% {
+      width: 0;
+    }
+  }
+
+  /* chips that light up one by one */
+  .mini__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .mini__chip {
+    padding: 4px 9px;
+    border-radius: 999px;
+    border: 1px solid var(--color-line-strong);
+    background: var(--color-surface);
+    font-size: 11px;
+    color: var(--color-body);
+  }
+  .mini__chip[data-pick] {
+    background: var(--brand-crimson);
+    color: #fff;
+    border-color: var(--brand-crimson);
+    animation: mini-pick var(--loop) steps(1) infinite;
+    animation-delay: var(--d, 0s);
+  }
+  @keyframes mini-pick {
+    0%,
+    12% {
+      background: var(--color-surface);
+      color: var(--color-body);
+      border-color: var(--color-line-strong);
+    }
+    14%,
+    92% {
+      background: var(--brand-crimson);
+      color: #fff;
+      border-color: var(--brand-crimson);
+    }
+    100% {
+      background: var(--color-surface);
+      color: var(--color-body);
+      border-color: var(--color-line-strong);
+    }
+  }
+
+  /* search: a query types in, results slide in */
+  .mini__field {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 34px;
+    padding: 0 10px;
+    border-radius: 10px;
+    border: 1px solid var(--color-line-strong);
+    background: var(--color-surface);
+    font-size: 12px;
+    color: var(--color-text);
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .mini__field svg {
+    color: var(--color-muted);
+    flex: none;
+  }
+  .mini__typed::after {
+    content: var(--full);
+  }
+  html[data-motion='on'] .mini[data-inview='true'] .mini__typed::after {
+    animation: mini-type var(--loop) steps(1, end) infinite;
+  }
+  .mini__caret {
+    display: inline-block;
+    width: 2px;
+    height: 1.1em;
+    background: var(--color-text);
+    animation: mini-caret 1s steps(2, start) infinite;
+  }
+  html[data-motion='off'] .mini__caret {
+    display: none;
+  }
+  @keyframes mini-caret {
+    to {
+      visibility: hidden;
+    }
+  }
+  @keyframes mini-type {
+    0% {
+      content: '';
+    }
+    3% {
+      content: var(--t1);
+    }
+    6% {
+      content: var(--t2);
+    }
+    9% {
+      content: var(--t3);
+    }
+    12% {
+      content: var(--t4);
+    }
+    15% {
+      content: var(--t5);
+    }
+    18%,
+    100% {
+      content: var(--full);
+    }
+  }
+  .mini__results {
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .mini__result {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    animation: mini-in var(--loop) var(--ease-out) infinite both;
+    animation-delay: var(--d);
+  }
+  .mini__avatar {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 9px;
+    font-weight: var(--weight-semibold);
+    color: #fff;
+    background: var(--brand-teal);
+    flex: none;
+  }
+  .mini__avatar--2 {
+    background: var(--brand-crimson-deep);
+  }
+  .mini__avatar--3 {
+    background: var(--brand-green);
+  }
+
+  /* enrich: fields fill in one by one */
+  .mini__fields {
+    display: grid;
+    grid-template-columns: 62px 1fr;
+    gap: 4px 8px;
+    font-size: 11px;
+    align-items: center;
+    margin: 0;
+  }
+  .mini__fields dt {
+    color: var(--color-muted);
+  }
+  .mini__fields dd {
+    margin: 0;
+    min-height: 18px;
+    border-radius: 6px;
+    padding: 2px 6px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    color: var(--color-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .mini__fields dd[data-fill] {
+    animation: mini-in var(--loop) var(--ease-out) infinite both;
+    animation-delay: var(--d);
+  }
+  .mini__fields dd[data-fill]::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--brand-coral);
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* nudge: a card drops in with two actions */
+  .mini__nudge {
+    margin-top: 2px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid color-mix(in srgb, var(--brand-crimson) 55%, transparent);
+    background: color-mix(in srgb, var(--brand-crimson) 12%, var(--color-surface));
+    animation: mini-drop var(--loop) var(--ease-out) infinite both;
+  }
+  .mini__nudge b {
+    display: block;
+    font-weight: var(--weight-semibold);
+    color: var(--color-text);
+  }
+  .mini__nudge small {
+    color: var(--color-muted);
+  }
+  .mini__actions {
+    display: flex;
+    gap: 6px;
+    margin-top: 6px;
+  }
+  .mini__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 24px;
+    padding: 0 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: var(--weight-semibold);
+    background: var(--brand-crimson);
+    color: #fff;
+  }
+  .mini__btn--ghost {
+    background: transparent;
+    border: 1px solid var(--color-line-strong);
+    color: var(--color-body);
+  }
+  .mini__btn[data-press] {
+    animation: mini-press var(--loop) ease-out infinite;
+  }
+  @keyframes mini-drop {
+    0% {
+      opacity: 0;
+      transform: translateY(-14px);
+    }
+    10% {
+      opacity: 1;
+      transform: none;
+    }
+    92% {
+      opacity: 1;
+      transform: none;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-14px);
+    }
+  }
+  @keyframes mini-press {
+    0%,
+    40% {
+      transform: none;
+      filter: none;
+    }
+    43% {
+      transform: scale(0.95);
+      filter: brightness(1.2);
+    }
+    46%,
+    100% {
+      transform: none;
+      filter: none;
+    }
+  }
+
+  /* share: two contact cards slide apart, the back one gets a team tag */
+  .mini__pair {
+    position: relative;
+    height: 74px;
+    margin-top: 4px;
+  }
+  .mini__pcard {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 72%;
+    padding: 8px 10px;
+    border-radius: 10px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    font-size: 11px;
+  }
+  .mini__pcard b {
+    display: block;
+    color: var(--color-text);
+  }
+  .mini__pcard--back {
+    animation: mini-slide-back var(--loop) var(--ease-out) infinite;
+    transform: translate(28%, 14px);
+  }
+  .mini__pcard--front {
+    z-index: 1;
+    animation: mini-slide-front var(--loop) var(--ease-out) infinite;
+    transform: translate(0, 0);
+  }
+  @keyframes mini-slide-back {
+    0%,
+    10% {
+      transform: translate(4%, 4px);
+    }
+    25%,
+    88% {
+      transform: translate(28%, 14px);
+    }
+    100% {
+      transform: translate(4%, 4px);
+    }
+  }
+  @keyframes mini-slide-front {
+    0%,
+    10% {
+      transform: translate(2%, 2px);
+    }
+    25%,
+    88% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(2%, 2px);
+    }
+  }
+  .mini__teamtag {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 1px 6px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--brand-teal) 30%, transparent);
+    color: var(--color-text);
+    font-size: 9px;
+    animation: mini-in var(--loop) var(--ease-out) infinite both;
+    animation-delay: 2.6s;
+  }
+
+  /* tap: a card slides to a phone and a toast confirms the share */
+  .mini__tap {
+    position: relative;
+    height: 78px;
+    margin-top: 4px;
+  }
+  .mini__tap-phone {
+    position: absolute;
+    right: 8px;
+    top: 4px;
+    width: 34px;
+    height: 66px;
+    border-radius: 8px;
+    background: #0b0b0b;
+    border: 2px solid #3a3a3b;
+  }
+  .mini__tap-card {
+    position: absolute;
+    left: 8px;
+    top: 18px;
+    width: 58px;
+    height: 36px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #2b2b2c, #151515);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    animation: mini-tap var(--loop) var(--ease-out) infinite;
+    transform: translateX(82px) rotate(-6deg);
+  }
+  .mini__tap-card i {
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--brand-crimson);
+  }
+  @keyframes mini-tap {
+    0%,
+    8% {
+      transform: translateX(0) rotate(0deg);
+    }
+    30%,
+    88% {
+      transform: translateX(82px) rotate(-6deg);
+    }
+    100% {
+      transform: translateX(0) rotate(0deg);
+    }
+  }
+  .mini__toast {
+    position: absolute;
+    left: 8px;
+    bottom: 2px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    font-size: 10px;
+    color: var(--color-text);
+    animation: mini-in var(--loop) var(--ease-out) infinite both;
+    animation-delay: 3.2s;
+  }
+  .mini__toast i {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--brand-green);
+  }
+}

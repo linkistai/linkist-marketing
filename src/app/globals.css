@@ -1,0 +1,1027 @@
+@import 'tailwindcss';
+@import '../styles/tokens.css';
+@import '../styles/interactions.css';
+@import '../styles/mockups.css';
+@import '../styles/extras.css';
+
+/* Tailwind utilities read the token variables so bg-surface, text-muted and friends follow the theme. */
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-paper: var(--color-paper);
+  --color-surface: var(--color-surface);
+  --color-surface2: var(--color-surface2);
+  --color-text: var(--color-text);
+  --color-body: var(--color-body);
+  --color-muted: var(--color-muted);
+  --color-line: var(--color-line);
+  --color-line-strong: var(--color-line-strong);
+  --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-on-primary: var(--color-on-primary);
+  --color-accent: var(--color-accent);
+  --color-accent-ink: var(--color-accent-ink);
+  --color-good: var(--color-good);
+  --color-warn: var(--color-warn);
+  --color-bad: var(--color-bad);
+  --color-teal: var(--color-teal);
+  --color-crimson: var(--brand-crimson);
+  --color-crimson-deep: var(--brand-crimson-deep);
+  --color-coral: var(--brand-coral);
+  --color-ground: var(--brand-ground);
+  --color-charcoal: var(--brand-charcoal);
+  --color-warm-grey: var(--brand-warm-grey);
+  --color-paperb: var(--brand-paper);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+  --radius-3xl: var(--radius-3xl);
+  --radius-pill: var(--radius-pill);
+}
+
+/* next/font loads the faces; the token stacks resolve to them with the same fallbacks. */
+:root {
+  --font-display: var(--font-display-next), 'DM Sans', Inter, system-ui, sans-serif;
+  --font-body: var(--font-body-next), Inter, system-ui, sans-serif;
+  --font-mono: var(--font-mono-next), 'JetBrains Mono', ui-monospace, Menlo, monospace;
+}
+
+/* Site-level scale on top of the prototype's measured sizes (brief, Design system; Grownz D11). */
+:root {
+  --display-1: clamp(40px, 2rem + 2.4vw, 60px);
+  --display-2: clamp(30px, 1.5rem + 1.5vw, 44px);
+  --display-3: clamp(21px, 1.15rem + 0.55vw, 26px);
+  --lede: clamp(16px, 0.95rem + 0.25vw, 18px);
+  --section-y: clamp(96px, 8vw, 128px);
+  --container: 1280px;
+  --gutter: clamp(20px, 4vw, 48px);
+  --z-base: 0;
+  --z-float: 10;
+  --z-sticky: 20;
+  --z-nav: 30;
+  --z-overlay: 40;
+  --z-toast: 50;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-proto: cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+/* Base styles sit in the base layer so component classes and utilities beat them. */
+@layer base {
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+html[data-theme='light'] {
+  color-scheme: light;
+}
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  line-height: var(--leading-normal);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+* {
+  min-width: 0;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: var(--tracking-display);
+  text-wrap: balance;
+  margin: 0;
+  font-weight: var(--weight-semibold);
+}
+p {
+  margin: 0;
+}
+a {
+  color: inherit;
+}
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+::selection {
+  background: var(--brand-crimson);
+  color: #fff;
+}
+.num,
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+:is(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--brand-coral);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+}
+
+/* Site primitives live in the components layer so Tailwind utilities (lg:hidden, sr-only) can override them. */
+@layer components {
+/* Layout */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.section {
+  padding-block: var(--section-y);
+}
+.section--tight {
+  padding-block: calc(var(--section-y) * 0.6);
+}
+/* Section grounds alternate near-black, charcoal and a slightly lifted charcoal (brief 5). */
+.section--charcoal {
+  background: var(--color-paper);
+}
+.section--lifted {
+  background: color-mix(in srgb, var(--color-surface) 70%, var(--color-bg));
+}
+/* One radial crimson glow rising from the bottom of a section, gradient as light (prototype). */
+.section--glow {
+  position: relative;
+  isolation: isolate;
+}
+.section--glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--gradient-glow);
+  pointer-events: none;
+}
+
+/* Type */
+.display-1 {
+  font-family: var(--font-display);
+  font-size: var(--display-1);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  font-weight: var(--weight-semibold);
+}
+.display-2 {
+  font-family: var(--font-display);
+  font-size: var(--display-2);
+  line-height: 1.12;
+  letter-spacing: var(--tracking-tight);
+  font-weight: var(--weight-semibold);
+}
+.display-3 {
+  font-family: var(--font-display);
+  font-size: var(--display-3);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-display);
+  font-weight: var(--weight-semibold);
+}
+.lede {
+  font-size: var(--lede);
+  line-height: var(--leading-relaxed);
+  color: var(--color-body);
+  max-width: 60ch;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-body);
+}
+.eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand-crimson);
+  flex: none;
+}
+.eyebrow--accent {
+  color: var(--color-accent-ink);
+}
+.em-coral {
+  color: var(--color-accent);
+}
+:root[data-theme='light'] .em-coral {
+  color: var(--brand-crimson-deep);
+}
+.text-body {
+  color: var(--color-body);
+}
+
+/* Links: underline grows from the left */
+.link {
+  position: relative;
+  text-decoration: none;
+  font-weight: var(--weight-medium);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-accent);
+}
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 160ms var(--ease-out);
+}
+.link:hover::after,
+.link:focus-visible::after {
+  transform: scaleX(1);
+}
+.link svg {
+  transition: transform 160ms var(--ease-out);
+}
+.link:hover svg {
+  transform: translateX(3px);
+}
+
+/* Buttons: pills, as the prototype. Primary darkens and lifts 1 px with the crimson glow. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid transparent;
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-lg);
+  letter-spacing: -0.01em;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background-color 180ms ease,
+    color 180ms,
+    border-color 180ms,
+    transform 180ms var(--ease-out),
+    box-shadow 180ms;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn--primary {
+  background: var(--brand-crimson);
+  border-color: var(--brand-crimson);
+  color: #fff;
+}
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  background: var(--brand-crimson-deep);
+  border-color: var(--brand-crimson-deep);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-glow);
+}
+.btn--secondary {
+  background: var(--color-surface);
+  border-color: color-mix(in srgb, var(--color-text) 85%, transparent);
+  color: var(--color-text);
+}
+.btn--secondary:hover,
+.btn--secondary:focus-visible {
+  transform: translateY(-1px);
+  background: var(--color-surface2);
+}
+.btn--ghost {
+  background: transparent;
+  color: inherit;
+  border-color: color-mix(in srgb, currentColor 28%, transparent);
+}
+.btn--ghost:hover,
+.btn--ghost:focus-visible {
+  background: color-mix(in srgb, currentColor 10%, transparent);
+}
+.btn--lg {
+  min-height: 54px;
+  padding: 0 28px;
+  font-size: var(--text-lg);
+}
+.btn--sm {
+  min-height: 40px;
+  padding: 0 16px;
+  font-size: var(--text-md);
+}
+.btn[disabled] {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* Surfaces: charcoal cards with a hairline and the prototype's two shadow depths. */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-card);
+}
+.card--sm {
+  border-radius: var(--radius-xl);
+}
+.card--hover {
+  transition:
+    transform 200ms var(--ease-out),
+    box-shadow 200ms var(--ease-out);
+}
+.card--hover:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-float);
+}
+.float {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-card);
+  color: var(--color-text);
+}
+.float--deep {
+  box-shadow: var(--shadow-float);
+}
+.float--card {
+  border-radius: var(--radius-lg);
+}
+
+/* Capability chips (prototype): hairline pill, 12 px, warm grey. */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-pill);
+  padding: 5px 12px;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-body);
+  white-space: nowrap;
+}
+.tag--accent {
+  border-color: color-mix(in srgb, var(--brand-crimson) 55%, transparent);
+  color: var(--color-accent-ink);
+}
+.tag--plan {
+  background: color-mix(in srgb, var(--brand-crimson) 18%, transparent);
+  border-color: transparent;
+  color: var(--color-accent-ink);
+}
+
+/* Metric chip: icon, label, value; the mono face carries figures. */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px 8px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  box-shadow: var(--shadow-card);
+  font-size: var(--text-base);
+  white-space: nowrap;
+  color: var(--color-text);
+}
+.chip__icon {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--brand-crimson) 22%, transparent);
+  color: var(--brand-coral);
+  flex: none;
+}
+.chip__icon--teal {
+  background: var(--brand-teal);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: var(--weight-semibold);
+}
+.chip__label {
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+}
+.chip__value {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-semibold);
+  font-variant-numeric: tabular-nums;
+  font-size: var(--text-base);
+}
+.chip__text {
+  font-weight: var(--weight-medium);
+  font-size: 13px;
+}
+.chip__example {
+  font-size: 10px;
+  color: var(--color-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+/* Live dot (prototype lk-pulse) */
+.dot-live {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brand-green);
+  display: inline-block;
+  flex: none;
+}
+html[data-motion='on'] .dot-live {
+  animation: lk-pulse var(--motion-pulse) ease-in-out infinite;
+}
+
+/* Floating cards: the prototype's lk-float and lk-float2, paused off-screen. */
+@keyframes lk-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0);
+  }
+}
+@keyframes lk-float2 {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, 6px, 0);
+  }
+}
+@keyframes lk-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.drift {
+  animation: lk-float var(--drift-duration, 7s) ease-in-out infinite;
+  animation-delay: var(--drift-delay, 0s);
+  animation-play-state: paused;
+  will-change: transform;
+}
+.drift--2 {
+  animation-name: lk-float2;
+}
+.drift[data-inview='true'] {
+  animation-play-state: running;
+}
+
+/* Phone frame: every dimension a share of its width (container units), so any size keeps circular
+   corners and a correctly sized island (Grownz D23 follow-up). The screen ground is the app's own dark. */
+.phone {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 390 / 844;
+  container-type: inline-size;
+  border-radius: 13.75% / 6.354%;
+  background: #0b0b0b;
+  padding: 3.125%;
+  box-shadow:
+    var(--shadow-float),
+    inset 0 0 0 2px #3a3a3b;
+}
+.phone__screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 11.25cqw;
+  overflow: hidden;
+  background: #141413;
+}
+.phone__img {
+  position: absolute;
+  inset: 11cqw 0 0 0;
+}
+.phone__img--full {
+  inset: 0;
+}
+.phone__notch {
+  position: absolute;
+  top: 4.375cqw;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28cqw;
+  height: 7.5cqw;
+  border-radius: 3.75cqw;
+  background: #0b0b0b;
+  z-index: 2;
+}
+.phone .screen-pending {
+  position: absolute;
+  inset: 0;
+}
+.screen-pending {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 24px;
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  background: repeating-linear-gradient(45deg, transparent 0 14px, color-mix(in srgb, var(--color-line-strong) 60%, transparent) 14px 15px);
+}
+
+/* Browser frame base (drawn as a laptop in extras.css). */
+.browser {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-float);
+  border: 1px solid var(--color-line);
+  overflow: hidden;
+}
+.browser__bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--color-line);
+  background: var(--color-paper);
+}
+.browser__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-line-strong);
+}
+.browser__url {
+  flex: 1;
+  margin-left: 8px;
+  height: 22px;
+  border-radius: 6px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  font-size: 11px;
+  color: var(--color-muted);
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  font-family: var(--font-mono);
+}
+.browser__screen {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+/* Feature tabs: sticky left tabs, right screen crossfade (250 ms + 12 px slide). */
+.ftabs {
+  display: grid;
+  grid-template-columns: minmax(280px, 5fr) 7fr;
+  gap: 48px;
+  align-items: start;
+}
+.ftabs__list {
+  position: sticky;
+  top: 108px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ftabs__tab {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 18px 20px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-xl);
+  background: transparent;
+  color: var(--color-muted);
+  cursor: pointer;
+  font: inherit;
+  transition:
+    color 160ms,
+    background-color 160ms,
+    border-color 160ms;
+}
+.ftabs__tab:hover {
+  background: color-mix(in srgb, var(--color-surface) 70%, transparent);
+  color: var(--color-text);
+}
+.ftabs__tab[aria-selected='true'] {
+  color: var(--color-text);
+  background: var(--color-surface);
+  border-color: var(--color-line);
+  box-shadow: var(--shadow-card);
+}
+.ftabs__tab h3 {
+  font-size: var(--text-xl);
+  margin-bottom: 4px;
+}
+.ftabs__tab p {
+  font-size: var(--text-base);
+  color: var(--color-muted);
+}
+.ftabs__indicator {
+  position: absolute;
+  left: -12px;
+  width: 3px;
+  border-radius: 2px;
+  background: var(--gradient-brand);
+  transition:
+    top 250ms var(--ease-out),
+    height 250ms var(--ease-out);
+}
+.ftabs__panel {
+  position: relative;
+}
+.ftabs__screen {
+  transition:
+    opacity 250ms var(--ease-out),
+    transform 250ms var(--ease-out);
+}
+.ftabs__screen[data-active='false'] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateX(12px);
+  pointer-events: none;
+}
+.ftabs__screen[data-active='true'] {
+  opacity: 1;
+  transform: none;
+}
+@media (max-width: 900px) {
+  .ftabs {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .ftabs__list {
+    position: static;
+    flex-direction: row;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+  .ftabs__tab {
+    flex: none;
+    width: min(78vw, 320px);
+  }
+  .ftabs__tab p {
+    display: none;
+  }
+  .ftabs__indicator {
+    display: none;
+  }
+}
+
+/* Card stack: cards pin under each other as the reader scrolls. */
+.stack {
+  display: grid;
+  gap: 16px;
+}
+.stack__card {
+  position: sticky;
+  top: calc(108px + var(--stack-i, 0) * 16px);
+}
+
+/* FAQ: each question a pill card, as the prototype. */
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.faq details {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 22px;
+  overflow: hidden;
+}
+.faq summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  min-height: 44px;
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-lg);
+  letter-spacing: -0.01em;
+  transition: color 160ms;
+}
+.faq summary:hover {
+  color: var(--color-accent);
+}
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+.faq summary svg {
+  flex: none;
+  color: var(--color-body);
+  transition: transform 250ms var(--ease-out);
+}
+.faq details[open] summary svg {
+  transform: rotate(180deg);
+}
+.faq__body {
+  padding: 0 24px 20px;
+  color: var(--color-body);
+  max-width: 70ch;
+  line-height: var(--leading-relaxed);
+  font-size: var(--text-md);
+}
+
+/* Segmented control (currency switcher) */
+.seg {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface2);
+  border: 1px solid var(--color-line);
+  max-width: 100%;
+  overflow-x: auto;
+}
+.seg__btn {
+  border: 0;
+  background: transparent;
+  border-radius: var(--radius-pill);
+  padding: 8px 16px;
+  font: inherit;
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  cursor: pointer;
+  min-height: 36px;
+  transition:
+    background-color 140ms,
+    color 140ms;
+}
+.seg__btn[aria-pressed='true'] {
+  background: var(--brand-crimson);
+  color: #fff;
+}
+
+.disclaimer {
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+  letter-spacing: 0.01em;
+}
+
+/* Nav: the prototype's centred pill, sticky, blurred. */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-nav);
+  padding: 16px var(--gutter) 0;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+.nav__pill {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-pill);
+  padding: 8px 10px 8px 22px;
+  box-shadow: var(--shadow-card);
+  max-width: 100%;
+}
+.nav__link {
+  padding: 9px 14px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-md);
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  color: var(--color-text);
+  transition:
+    background-color 180ms,
+    color 180ms;
+  white-space: nowrap;
+}
+.nav__link:hover,
+.nav__link:focus-visible {
+  background: var(--brand-crimson);
+  color: #fff;
+}
+.nav__link[aria-current='page'] {
+  background: var(--color-surface2);
+}
+.nav__link[aria-current='page']:hover {
+  background: var(--brand-crimson);
+}
+.nav__menu {
+  pointer-events: auto;
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  top: 84px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-float);
+  padding: 12px 16px 20px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  color: inherit;
+  line-height: 1;
+}
+
+/* Hero intro: CSS animations keyed on html[data-motion], set before first paint (Grownz D15). */
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes hero-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+html[data-motion='on'] [data-hero-text] {
+  animation: hero-in 400ms var(--ease-out) both;
+}
+html[data-motion='on'] [data-hero-text]:nth-child(2) {
+  animation-delay: 80ms;
+}
+html[data-motion='on'] [data-hero-text]:nth-child(3) {
+  animation-delay: 160ms;
+}
+html[data-motion='on'] [data-hero-text]:nth-child(4) {
+  animation-delay: 240ms;
+}
+html[data-motion='on'] [data-hero-text]:nth-child(5) {
+  animation-delay: 320ms;
+}
+html[data-motion='on'] [data-hero-text]:nth-child(6) {
+  animation-delay: 400ms;
+}
+html[data-motion='on'] [data-hero-card] {
+  animation: hero-card-in 400ms var(--ease-out) both;
+}
+html[data-motion='on'] [data-hero-card='1'] {
+  animation-delay: 300ms;
+}
+html[data-motion='on'] [data-hero-card='2'] {
+  animation-delay: 420ms;
+}
+html[data-motion='on'] [data-hero-card='3'] {
+  animation-delay: 540ms;
+}
+html[data-motion='on'] [data-hero-card='4'] {
+  animation-delay: 660ms;
+}
+
+/* Tables */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-2xl);
+  background: var(--color-surface);
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-base);
+}
+.table th,
+.table td {
+  text-align: left;
+  padding: 12px 16px;
+  border-top: 1px solid var(--color-line);
+  vertical-align: top;
+}
+.table thead th {
+  border-top: 0;
+  background: var(--brand-crimson-deep);
+  color: #fff;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+}
+.table th[scope='row'] {
+  font-weight: var(--weight-medium);
+  color: var(--color-body);
+}
+.table--group td {
+  background: var(--color-surface2);
+  color: var(--color-text);
+  font-weight: var(--weight-bold);
+}
+.table .yes {
+  color: var(--color-accent-ink);
+  font-weight: var(--weight-semibold);
+}
+.table .no {
+  color: var(--color-muted);
+}
+}
+
+/* Article prose (src/lib/markdown.ts output) */
+.prose-lk h2 { font-size: var(--display-3); margin-top: 2.2em; }
+.prose-lk h3 { font-size: var(--text-xl); margin-top: 1.6em; font-weight: var(--weight-semibold); }
+.prose-lk h2 + p, .prose-lk h3 + p { margin-top: 0.6em; }
+.prose-lk p { margin-top: 1em; line-height: var(--leading-relaxed); font-size: var(--text-lg); max-width: 68ch; color: var(--color-body); }
+.prose-lk ul, .prose-lk ol { margin-top: 1em; padding-left: 1.4em; line-height: var(--leading-relaxed); font-size: var(--text-lg); max-width: 68ch; color: var(--color-body); }
+.prose-lk ul { list-style: disc; }
+.prose-lk ol { list-style: decimal; }
+.prose-lk li { margin-top: 0.4em; }
+.prose-lk a { text-decoration: underline; text-underline-offset: 3px; }
+.prose-lk .anchor { text-decoration: none; color: var(--color-text); }
+.prose-lk .anchor:hover::after { content: ' #'; color: var(--brand-coral); }
+.prose-lk code { font-family: var(--font-mono); font-size: 0.9em; background: var(--color-surface2); padding: 0.1em 0.35em; border-radius: var(--radius-sm); }
+.prose-lk .note { margin-top: 1.6em; padding: 16px 20px; border-left: 3px solid var(--brand-crimson); background: var(--color-surface); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; }
+.prose-lk .note p { margin-top: 0; font-size: var(--text-base); }
+.prose-lk .note p + p { margin-top: 0.6em; }
+.prose-lk strong { font-weight: var(--weight-semibold); color: var(--color-text); }
+.prose-lk .table-wrap { margin-top: 1.4em; }
+.prose-lk table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: var(--text-base); }
+.prose-lk th, .prose-lk td { text-align: left; padding: 12px 14px; border-top: 1px solid var(--color-line); vertical-align: top; }
+.prose-lk thead th { border-top: 0; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-muted); }
+
+/* Lenis drives the easing while it is active; the browser's own smooth scroll would fight it. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+/* Motion off: instant end states (brief 6). */
+html[data-motion='off'] {
+  scroll-behavior: auto;
+}
+html[data-motion='off'] .drift {
+  animation: none;
+}
+html[data-motion='off'] .dot-live {
+  animation: none;
+  opacity: 1;
+}
+html[data-motion='off'] *,
+html[data-motion='off'] *::before,
+html[data-motion='off'] *::after {
+  transition-duration: 0.001ms !important;
+  animation-duration: 0.001ms !important;
+}
+html[data-motion='off'] .ftabs__screen[data-active='false'] {
+  transform: none;
+}

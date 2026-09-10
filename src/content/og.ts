@@ -1,0 +1,27 @@
+/** Open Graph images per page (scripts/og.ts renders them into public/og). Add one per route. */
+export interface OgPage {
+  readonly slug: string;
+  readonly title: string;
+  readonly eyebrow: string;
+  /** A real capture or design preview from public/screens, drawn in a phone at the right. */
+  readonly screen?: string;
+  /** Cut-out from public/assets/people (<name>-2x.webp), drawn at the right edge when it exists. */
+  readonly person?: string;
+}
+
+export const OG_PAGES: readonly OgPage[] = [
+  { slug: 'default', title: 'Capture Contacts. Remember Context. Act at the right time.', eyebrow: 'Personal Relationship Manager', screen: 'proto-home' },
+  { slug: 'home', title: 'Capture Contacts. Remember Context. Act at the right time.', eyebrow: 'Personal Relationship Manager', screen: 'proto-home' },
+  { slug: 'how-it-works', title: 'Capture and share. Build relationships. Act and grow.', eyebrow: 'How Linkist works', screen: 'proto-share' },
+  { slug: 'features', title: 'Simple to use. Smarter underneath.', eyebrow: 'Features', screen: 'proto-home' },
+  { slug: 'features-capture', title: 'Save the contact. Save the context.', eyebrow: 'Capture', screen: 'proto-share' },
+  { slug: 'features-find', title: 'Find the people worth your attention.', eyebrow: 'Find', screen: 'proto-profile' },
+  { slug: 'features-act', title: 'Know what to do next.', eyebrow: 'Act', screen: 'proto-home' },
+  { slug: 'features-profiles', title: 'One live profile. Every way to share it.', eyebrow: 'Profiles and cards', screen: 'proto-profile' },
+  { slug: 'features-teams', title: 'Relationships that stay with the company.', eyebrow: 'Teams', screen: 'proto-home' },
+  { slug: 'use-cases', title: 'Built for real working days.', eyebrow: 'Use cases', screen: 'proto-home' },
+  { slug: 'nfc-cards', title: 'Tap. Share. Make the first impression count.', eyebrow: 'Linkist NFC cards', screen: 'proto-share' },
+  { slug: 'bundles', title: 'The NFC card and PRM Pro together.', eyebrow: 'Bundled offers', screen: 'proto-share' },
+  { slug: 'pricing', title: 'Start free. Add more when you need it.', eyebrow: 'Linkist PRM pricing', screen: 'proto-home' },
+  { slug: 'teams', title: 'Relationships that stay with the company.', eyebrow: 'Linkist for teams', screen: 'proto-home' },
+];
