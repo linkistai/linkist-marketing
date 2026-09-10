@@ -40,7 +40,7 @@ function html(title: string, eyebrow: string, screen?: string, person?: string) 
   .phone{position:absolute;right:88px;top:96px;width:262px;height:567px;border-radius:40px;background:#0b0b0b;padding:8px;box-shadow:0 30px 70px rgba(0,0,0,.55),inset 0 0 0 2px #3a3a3b}
   .phone .screen{position:relative;width:100%;height:100%;border-radius:32px;overflow:hidden;background:#141413}
   .phone img{width:100%;height:100%;object-fit:cover;object-position:top}
-  .badge{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);padding:6px 10px;border-radius:999px;background:rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.18);font:600 11px/1 Inter;letter-spacing:.06em;text-transform:uppercase;color:#fff;white-space:nowrap}
+  .badge{position:absolute;left:50%;top:16px;transform:translateX(-50%);padding:6px 10px;border-radius:999px;background:rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.18);font:600 11px/1 Inter;letter-spacing:.06em;text-transform:uppercase;color:#fff;white-space:nowrap}
   .person{position:absolute;right:56px;bottom:0;max-height:600px;max-width:520px;width:auto;height:auto;filter:drop-shadow(0 24px 40px rgba(0,0,0,.5))}
 </style></head><body>
 <div class="glow"></div>
