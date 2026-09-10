@@ -34,7 +34,7 @@ export function ContactForm({ defaultTopic = 'support' }: { defaultTopic?: strin
     return (
       <div className="card p-6" role="status">
         <p className="font-semibold">Thank you. It has been sent.</p>
-        <p className="mt-1 text-sm text-muted">We reply from a real inbox, usually within 2 working days.</p>
+        <p className="mt-1 text-sm text-muted">We reply from a real inbox.</p>
       </div>
     );
   const fe = state.kind === 'error' ? (state.fields ?? {}) : {};

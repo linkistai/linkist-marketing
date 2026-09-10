@@ -14,7 +14,7 @@ export const HERO = {
   lines: ['Capture Contacts.', 'Remember Context.', 'Act at the right time.'] as const,
   lede: 'Linkist brings your contacts, meeting context and relationship opportunities into one place. Capture the people you meet, find who matters, and know what to do next.',
   subline: 'Turn the contacts you collect into relationships and opportunities you can act on.',
-  proof: ['Start free, no card required', 'Works with or without an NFC card', 'Every NFC card includes PRM Essential', 'Sign in with email or mobile', 'Ships across the GCC and worldwide'],
+  proof: ['Start free, no card required', 'Works with or without an NFC card', 'Every NFC card includes PRM Essential', 'Sign in with email or mobile', 'Ships to 16 countries, UAE shipping included'],
 } as const;
 
 /**
@@ -40,7 +40,7 @@ export const HERO_SLIDES: readonly HeroSlide[] = [
     eyebrow: HERO.eyebrow,
     lines: HERO.lines,
     lede: HERO.lede,
-    subline: HERO.subline,
+    subline: 'Free plan. No card required. Add a card any time.',
     secondary: { href: '/how-it-works', label: G.ctaSecondary },
   },
   {
@@ -49,7 +49,7 @@ export const HERO_SLIDES: readonly HeroSlide[] = [
     eyebrow: 'Linkist NFC cards',
     lines: ['Tap the card.', 'Share your profile.', 'Save the contact.'],
     lede: 'A Linkist NFC card opens your live profile with one tap, so the person you meet can save your details and you can capture theirs into Linkist PRM. PVC, wood or metal, and every card includes PRM Essential.',
-    subline: 'One-time prices. Ships across the GCC and worldwide. Already own a card? Activate it free.',
+    subline: 'One-time prices. Ships to 16 countries. Already own a card? Activate it free.',
     secondary: { href: '/nfc-cards', label: 'Explore NFC cards' },
   },
 ];
@@ -186,7 +186,7 @@ export const CAPABILITIES: readonly Capability[] = [
     mock: { kind: 'icp', label: 'ICP chips lighting up on matches', items: ['Fintech', 'Founder', 'Dubai', 'Series A'], count: '12 matches' },
   },
   {
-    title: 'Smart nudges',
+    title: 'Intelligent Nudges',
     body: 'See what changed and what deserves action today.',
     href: '/features/act',
     object: 'nudge',
@@ -201,7 +201,7 @@ export const FAQ: readonly FaqItem[] = [
   { q: 'Do I need an NFC card to use Linkist PRM?', a: 'No. You can start with the free PRM plan on its own and add a card any time.' },
   { q: 'Does every NFC card include PRM Essential?', a: 'Yes. Every Linkist NFC card includes the PRM Essential plan.' },
   { q: 'What happens to my contacts if I leave my company?', a: 'Your personal contacts stay yours. Team-shared contacts and their relationship history remain with the authorised team, so relationship value stays inside the company.' },
-  { q: 'How does Linkist use AI and handle contact data?', a: 'AI enriches incomplete records, matches contacts against your ICPs and helps draft follow-ups. You review what it suggests. Contact data is handled under the privacy policy, written to the UAE Personal Data Protection Law, with encryption in transit and at rest.' },
+  { q: 'How does Linkist use AI and handle contact data?', a: 'AI enriches incomplete records, matches contacts against your ICPs and helps draft follow-ups. You review what it suggests. Contact data is handled under the privacy policy, written to the UAE Personal Data Protection Law, with encryption in transit and, where the policy applies it, at rest.' },
 ];
 
 export const COMMUNITY = {

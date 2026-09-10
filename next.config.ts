@@ -19,7 +19,8 @@ const csp = [
   "base-uri 'self'",
   "form-action 'self'",
   "object-src 'none'",
-  'upgrade-insecure-requests',
+  // Off only for a local http QA run (CSP_NO_UPGRADE=true): WebKit upgrades even localhost otherwise.
+  ...(process.env['CSP_NO_UPGRADE'] === 'true' ? [] : ['upgrade-insecure-requests']),
 ].join('; ');
 
 const securityHeaders = [
@@ -62,6 +63,11 @@ const nextConfig: NextConfig = {
       { source: '/learn', destination: '/blogs', permanent: true },
       { source: '/learn/:slug', destination: '/blogs/:slug', permanent: true },
       { source: '/blog', destination: '/blogs', permanent: true },
+      // The company's published legal addresses and the old site's store pages (D31).
+      { source: '/privacy', destination: '/legal/privacy', permanent: true },
+      { source: '/terms', destination: '/legal/terms', permanent: true },
+      { source: '/choose-plan', destination: '/pricing', permanent: true },
+      { source: '/digital-business-card', destination: '/nfc-cards', permanent: true },
     ];
   },
 };

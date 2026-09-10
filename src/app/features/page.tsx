@@ -23,7 +23,7 @@ export default function FeaturesHub() {
       <Section tight className="pt-8 sm:pt-10">
         <Breadcrumbs items={[{ label: 'Features', href: '/features' }]} />
         <div className="mt-8">
-          <SectionHead as="h1" size={1} eyebrow="Features" title={<>Simple to use. <span className="em-coral">Smarter underneath.</span></>} lede="Five families of capability behind the three-stage journey. Pick one, and every screen on its page is a real capture or a labelled design preview." />
+          <SectionHead as="h1" size={1} eyebrow="Features" title={<>Simple to use. <span className="em-coral">Smarter underneath.</span></>} lede="5 families of capability behind the three-stage journey. Pick one, and every screen on its page is a real capture or a labelled design preview." />
         </div>
       </Section>
       <Section tone="charcoal" tight>

@@ -23,7 +23,7 @@ export const metadata: Metadata = pageMeta(
 );
 
 const TAP = [
-  { icon: Nfc, title: 'Tap', body: 'Hold the card to any modern phone. No app is needed on their side.' },
+  { icon: Nfc, title: 'Tap', body: 'Hold the card to a phone with NFC switched on. No app is needed on their side.' },
   { icon: UserCheck, title: 'Your profile opens', body: 'Your live digital business card, with your photo, details and links.' },
   { icon: QrCode, title: 'They save you', body: 'One tap saves your details. If they use Linkist, the meeting is captured on both sides.' },
   { icon: RefreshCw, title: 'It stays current', body: 'Change your role or number once. Every card you ever tapped shows the new details.' },
@@ -34,7 +34,7 @@ const FAQ = [
   { q: 'Which phones work?', a: 'Any phone with NFC, which is most iPhones and Android phones sold in recent years. The QR code on your profile covers the rest.' },
   { q: 'What is the difference between Starter and Signature?', a: 'Starter has no customisation. Signature carries your name and logo. Both come in PVC, cherry wood or brushed metal and both include PRM Essential.' },
   { q: 'Which currency are cards priced in?', a: 'The store prices in AED and shows an approximate dollar figure beside each card. VAT is shown upfront at checkout.' },
-  { q: 'Is shipping included?', a: 'Card shipping is included in the UAE. The store ships to 16 regions across the GCC and worldwide; elsewhere the cost is shown at checkout.' },
+  { q: 'Is shipping included?', a: 'Card shipping is included in the UAE. The store ships to 16 countries across the GCC, South Asia, North America, Europe and Australia; for the other 15 the cost is shown at checkout.' },
   { q: 'Can I use a card I already own?', a: 'Yes, free. Tap your existing NFC card or sticker on your phone and Linkist writes your live profile onto it, or paste an old profile link. Encoding a chip needs an Android phone.' },
   { q: 'Can I return a card?', a: 'Custom products are returnable where the product is defective, there was a production error, or it differs materially from the confirmed order, within 7 days of delivery.' },
 ] as const;
@@ -54,7 +54,7 @@ export default function NfcCardsPage() {
                 Tap. Share. Make the <span className="em-coral">first impression</span> count.
               </h1>
               <p className="lede mt-5" data-hero-text>
-                A card that opens your live professional profile on any phone, and remembers the meeting for you. Every card includes PRM Essential.
+                A card that opens your live professional profile on any NFC phone, and by QR code on the rest, and remembers the meeting for you. Every card includes PRM Essential.
               </p>
               <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center" data-hero-text>
                 <Button href={`${APP_URL}/store`} size="lg">
@@ -158,7 +158,7 @@ export default function NfcCardsPage() {
       </Section>
 
       <Section tight id="shipping">
-        <SectionHead eyebrow="Shipping" title={<>Ships across the GCC <span className="em-coral">and worldwide</span>.</>} lede="Card shipping is included in the UAE. The store lists 16 regions; elsewhere the cost is shown at checkout with VAT upfront." />
+        <SectionHead eyebrow="Shipping" title={<>Ships to <span className="em-coral">16 countries</span>.</>} lede="Card shipping is included in the UAE and shown at checkout for the other 15, with VAT upfront." />
         <ul className="mt-8 flex flex-wrap gap-2" aria-label="Shipping regions" data-reveal="fade">
           {SHIPPING_REGIONS.map((r) => (
             <li key={r} className="tag">

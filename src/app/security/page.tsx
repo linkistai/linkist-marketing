@@ -6,7 +6,7 @@ import { ClosingBand } from '@/components/ClosingBand';
 import { Faq } from '@/components/Faq';
 import { Section, SectionHead } from '@/components/Section';
 import { HeroIntro } from '@/motion/HeroIntro';
-import { CONTACT_DATA, CONTROLLER, CONTROLS, DPO_EMAIL_PUBLISHED, POLICY_DATE, PRIVACY_EMAIL_PUBLISHED, PRIVACY_URL, PROVIDERS, RETENTION, RIGHTS, SECURITY_FAQ, SECURITY_NOT_PUBLISHED, SUPPORT_EMAIL_PUBLISHED, TERMS_URL, TRANSFER_SAFEGUARDS } from '@/content/trust';
+import { CONTACT_DATA, CONTROLLER, CONTROLS, DPO_EMAIL_PUBLISHED, POLICY_DATE, PRIVACY_EMAIL_PUBLISHED, PRIVACY_URL, PROVIDERS, RETENTION, RIGHTS, SECURITY_FAQ, SECURITY_NOT_PUBLISHED, SITE_CONTROLS, SUPPORT_EMAIL_PUBLISHED, TERMS_URL, TRANSFER_SAFEGUARDS } from '@/content/trust';
 import { person } from '@/lib/screens';
 import { pageMeta } from '@/lib/site';
 
@@ -61,7 +61,7 @@ export default function SecurityPage() {
       </section>
 
       <Section tone="charcoal" id="controls" glow>
-        <SectionHead eyebrow="Ten controls" title={<>What protects your data, <span className="em-coral">and where it is written</span>.</>} lede="The policy's own list of technical and organisational measures, in plain words, plus what the sign-in screen shows. P is the privacy policy and the number its section." center />
+        <SectionHead eyebrow="10 controls" title={<>What protects your data, <span className="em-coral">and where it is written</span>.</>} lede="The policy's own list of technical and organisational measures, in plain words, plus what the sign-in screen shows. P is the privacy policy and the number its section." center />
         <ol className="mt-12 grid gap-4 md:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.05">
           {CONTROLS.map((c, i) => (
             <li key={c.title} className="card sweep sweep--neutral lift p-6">
@@ -77,7 +77,7 @@ export default function SecurityPage() {
       </Section>
 
       <Section id="providers">
-        <SectionHead eyebrow="Who receives data" title={<>Ten categories, <span className="em-coral">one name</span>.</>} lede="The policy lists the kinds of provider that process data on Linkist's behalf, under confidentiality and data processing terms. It names Stripe and no one else." center />
+        <SectionHead eyebrow="Who receives data" title={<>10 categories, <span className="em-coral">one name</span>.</>} lede="The policy lists the kinds of provider that process data on Linkist's behalf, under confidentiality and data processing terms. It names Stripe and no one else." center />
         <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-5" data-reveal="rise" data-reveal-stagger="0.04">
           {PROVIDERS.map((p) => (
             <li key={p.role} className="card card--sm p-4">
@@ -164,17 +164,31 @@ export default function SecurityPage() {
             </p>
             <p className="mt-4 text-sm text-body">Governing law: the United Arab Emirates as applied in Dubai. Framework: {CONTROLLER.law}.</p>
             <p className="mt-4 text-sm">
-              <a href={PRIVACY_URL} className="underline" rel="noopener noreferrer" target="_blank">
+              <a href={PRIVACY_URL} className="underline">
                 Privacy policy
               </a>
               <span className="text-muted"> · </span>
-              <a href={TERMS_URL} className="underline" rel="noopener noreferrer" target="_blank">
+              <a href={TERMS_URL} className="underline">
                 Terms of service
               </a>
             </p>
             <p className="mt-3 font-mono text-[11px] text-muted">P 2, 3, 24; T 27</p>
           </div>
         </div>
+      </Section>
+
+      <Section tone="lifted" id="this-website">
+        <SectionHead eyebrow="This website" title={<>What belongs to <span className="em-coral">this site</span>, not the app.</>} lede="The controls above are the product's. These five are the marketing site's own, so nobody confuses the two." center />
+        <ul className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-5" data-reveal="rise" data-reveal-stagger="0.05">
+          {SITE_CONTROLS.map((c) => (
+            <li key={c.title} className="card card--hover p-5">
+              <ShieldCheck size={18} aria-hidden="true" className="text-coral" />
+              <h3 className="mt-3 font-semibold">{c.title}</h3>
+              <p className="mt-2 text-sm text-body">{c.body}</p>
+              <p className="mt-3 font-mono text-[11px] text-muted">{c.source}</p>
+            </li>
+          ))}
+        </ul>
       </Section>
 
       <Section tone="charcoal" id="not-yet">

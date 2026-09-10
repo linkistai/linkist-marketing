@@ -111,6 +111,6 @@ export function search(query: string, limit = 3): KnowledgeHit[] {
     .slice(0, limit);
 }
 
-export const SUGGESTED = ['What is a PRM?', 'Do I need an NFC card?', 'Which plan has ICP matching?', 'How do I sign in?', 'What happens to contacts when someone leaves my team?', 'Is shipping included?'] as const;
+export const SUGGESTED = ['What is a PRM?', 'Do I need an NFC card?', 'Which plan has ICP Matching?', 'How do I sign in?', 'What happens to contacts when someone leaves my team?', 'Is shipping included?'] as const;
 
 export const FALLBACK = 'I do not have an answer for that in the help centre. I only know what Linkist does today, and I would rather say so than guess. Try another wording, browse the help centre, or email support@linkist.ai.';

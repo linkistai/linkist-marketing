@@ -55,7 +55,7 @@ export default function AboutPage() {
       </Section>
 
       <Section>
-        <SectionHead eyebrow="How we work" title={<>Six things Linkist <span className="em-coral">holds itself to</span>.</>} lede="Each one points at where it is written: the published documents, the store, the sign-in screens, or this site." center />
+        <SectionHead eyebrow="How we work" title={<>6 things Linkist <span className="em-coral">holds itself to</span>.</>} lede="Each one points at where it is written: the published documents, the store, the sign-in screens, or this site." center />
         <ul className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3" data-reveal="rise" data-reveal-stagger="0.06">
           {PRINCIPLES.map((p) => (
             <li key={p.title} className="card sweep sweep--neutral lift p-6">

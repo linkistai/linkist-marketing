@@ -29,6 +29,11 @@ Never build while the dev server runs.
 | `pnpm seo [routes]` | Status, titles, descriptions, canonical, robots, Open Graph, H1, JSON-LD, markers, links and images on every route, plus the 404 probe, against a running site. |
 | `pnpm import:legal` | Import the published terms and privacy policy from linkist.ai into `content/legal`, verbatim. |
 | `pnpm imagery [name]` | Deliver generated masters from `public/assets/masters/<kind>/` as 1x and 2x WebP under `public/assets/<kind>/`. |
+| `pnpm api` | Forms and API behaviour against a running site: validation, honeypot, bad bodies answer 400, rate limit, unconfigured 503, security headers, redirects. |
+| `pnpm layout [routes]` | 44 px targets (with the WCAG exemptions), the assistant launcher never covering the footer or hero controls, the tablet newsletter width. |
+| `pnpm lighthouse [routes] [--mobile or --desktop]` | Lighthouse on every route against a running production build; summary in `captures/lighthouse/summary.md`. |
+| `pnpm browsers [routes]` | Chromium, Firefox, WebKit, an iPhone and a Pixel emulation: page errors, console errors, overflow, the assistant on each engine, screenshots in `captures/browsers`. |
+| `pnpm spell` | cspell in British English over the content, copy and docs, with `cspell-words.txt` as the project dictionary. |
 | `pnpm test`, `pnpm typecheck`, `pnpm lint` | Unit tests (tokens, markdown), TypeScript, ESLint. |
 
 ## Where things live

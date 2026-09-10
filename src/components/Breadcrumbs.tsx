@@ -16,11 +16,11 @@ export function Breadcrumbs({ items }: { items: readonly Crumb[] }) {
           <li key={c.href} className="flex items-center gap-2">
             {i > 0 ? <span aria-hidden="true">/</span> : null}
             {i === all.length - 1 ? (
-              <span aria-current="page" className="text-body">
+              <span aria-current="page" className="inline-flex min-h-[44px] items-center text-body">
                 {c.label}
               </span>
             ) : (
-              <Link href={c.href} className="no-underline hover:underline">
+              <Link href={c.href} className="inline-flex min-h-[44px] items-center no-underline hover:underline">
                 {c.label}
               </Link>
             )}

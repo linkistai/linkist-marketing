@@ -33,7 +33,7 @@ const EXAMPLES: readonly { title: string; who: string; body: string; mock: MiniM
   {
     title: 'A sales lead after a trade show',
     who: 'Example, not a customer',
-    body: 'Sixty taps in two days, each with a voice note. Top Actions turns them into a week of follow-ups in the order that matters.',
+    body: '60 taps in 2 days, each with a voice note. Top Actions turns them into a week of follow-ups in the order that matters.',
     mock: { kind: 'day', label: 'Top Actions ticking off', items: [['Follow up with Julian', 'GITEX'], ['Send deck to Sara', 'Series A'], ['Coffee with Omar', 'Cooling down']] },
   },
   {

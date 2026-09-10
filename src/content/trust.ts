@@ -9,8 +9,8 @@ import type { FaqItem } from '@/components/Faq';
 import { G } from '@/lib/glossary';
 
 export const POLICY_DATE = '1 June 2026';
-export const PRIVACY_URL = 'https://www.linkist.ai/privacy';
-export const TERMS_URL = 'https://www.linkist.ai/terms';
+export const PRIVACY_URL = '/legal/privacy';
+export const TERMS_URL = '/legal/terms';
 export const PRIVACY_EMAIL_PUBLISHED = 'privacy@linkist.ai';
 export const DPO_EMAIL_PUBLISHED = 'dpo@linkist.ai';
 export const SUPPORT_EMAIL_PUBLISHED = 'support@linkist.ai';
@@ -155,6 +155,15 @@ export const CONTACT_DATA: readonly string[] = [
   'Imported contact data is used only for the features you choose, with data minimisation, and is not sold.',
   'The people in your contacts are not marketed to unless they opt in themselves.',
   'Anyone whose details were added can ask Linkist for access, correction, restriction or deletion.',
+];
+
+/** What this website itself does, as distinct from the app (brief 7: the trust page says which controls belong to which). */
+export const SITE_CONTROLS: readonly Rule[] = [
+  { title: 'No credentials here', body: 'Sign in and Start free hand over to the product. This website never sees a code, a password or a payment.', source: 'This site' },
+  { title: 'Content Security Policy', body: 'Scripts run only from this site, Google Tag Manager and Cloudflare Turnstile; frames from any other site are refused; nosniff, referrer and permissions policies are set.', source: 'next.config.ts' },
+  { title: 'Nothing loads before consent', body: 'No analytics script until you accept it in the cookie notice, and no third-party script at all unless its key is configured.', source: 'This site' },
+  { title: 'Forms that fail safely', body: 'Server validation, a size cap, a per-address rate limit, a honeypot and Cloudflare Turnstile when enabled. Messages go to the team by email and are not stored here.', source: 'src/lib/forms.ts' },
+  { title: 'The assistant keeps nothing', body: 'Questions are matched in your browser against the help centre. When a model is configured it receives the question and the matching entries only, and this site stores nothing.', source: '/chat' },
 ];
 
 /** Honest gaps for the security page (C9). */

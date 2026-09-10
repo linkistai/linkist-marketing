@@ -211,12 +211,9 @@
   }
 
   /* Keeps the floating assistant launcher clear of the footer links (Grownz audit). */
+  /* Clearance for the floating assistant launcher at every width: the footer's last row holds the
+     motion and cookie switches, and the launcher must never cover them (Appendix B). */
   .footer-clearance {
     padding-bottom: 88px;
-  }
-  @media (min-width: 1024px) {
-    .footer-clearance {
-      padding-bottom: 0;
-    }
   }
 }

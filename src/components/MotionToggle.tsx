@@ -22,11 +22,15 @@ export function MotionToggle() {
       /* ignore */
     }
     setOn(next);
-    if (next) window.location.reload();
+    if (next) {
+      const u = new URL(window.location.href);
+      u.searchParams.delete('motion');
+      window.location.replace(u.toString());
+    }
   };
   if (on === null) return null;
   return (
-    <button type="button" className="underline" aria-pressed={on} onClick={() => set(!on)}>
+    <button type="button" className="inline-flex min-h-[44px] items-center underline" aria-pressed={on} onClick={() => set(!on)}>
       Motion: {on ? 'on' : 'off'}
     </button>
   );

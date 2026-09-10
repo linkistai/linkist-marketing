@@ -6,7 +6,7 @@ import Image from 'next/image';
  * wordmark is set in the page's display face so it always matches the type.
  */
 export function LogoMark({ size = 22, className = '' }: { size?: number; className?: string }) {
-  return <Image src="/brand/mark.png" alt="" width={size} height={size} className={className} aria-hidden="true" priority />;
+  return <Image src="/brand/mark.png" alt="" width={size} height={size} className={className} aria-hidden="true" />;
 }
 
 export function Wordmark({ size = 22, className = '' }: { size?: number; className?: string }) {

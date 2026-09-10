@@ -328,7 +328,7 @@ video {
   font-size: var(--text-lg);
 }
 .btn--sm {
-  min-height: 40px;
+  min-height: 44px;
   padding: 0 16px;
   font-size: var(--text-md);
 }
@@ -776,13 +776,13 @@ html[data-motion='on'] .dot-live {
   border: 0;
   background: transparent;
   border-radius: var(--radius-pill);
-  padding: 8px 16px;
+  min-height: 44px;
+  padding: 0 16px;
   font: inherit;
   font-weight: var(--weight-semibold);
   font-size: var(--text-sm);
   color: var(--color-muted);
   cursor: pointer;
-  min-height: 36px;
   transition:
     background-color 140ms,
     color 140ms;
@@ -823,7 +823,10 @@ html[data-motion='on'] .dot-live {
   max-width: 100%;
 }
 .nav__link {
-  padding: 9px 14px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 14px;
   border-radius: var(--radius-pill);
   font-family: var(--font-body);
   font-weight: var(--weight-medium);
@@ -1061,4 +1064,18 @@ html[data-motion='off'] .ftabs__screen[data-active='false'] {
   border-radius: var(--radius-sm);
   padding: 0.05em 0.35em;
   font-style: italic;
+}
+
+/* The hero headline is the largest paint on most pages; it enters with movement only, never from
+   transparent, so the paint is not delayed (Lighthouse LCP at checkpoint 8). */
+@keyframes hero-in-move {
+  from {
+    transform: translateY(16px);
+  }
+  to {
+    transform: none;
+  }
+}
+html[data-motion='on'] .display-1[data-hero-text] {
+  animation-name: hero-in-move;
 }

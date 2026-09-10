@@ -1,0 +1,12 @@
+{
+  "version": "0.2",
+  "language": "en-GB",
+  "import": ["@cspell/dict-en-gb/cspell-ext.json"],
+  "dictionaries": ["en-gb", "linkist"],
+  "dictionaryDefinitions": [{ "name": "linkist", "path": "./cspell-words.txt", "addWords": true }],
+  "files": ["content/**/*.md", "src/content/**/*.ts", "src/app/**/*.tsx", "src/components/**/*.tsx", "docs/*.md"],
+  "ignorePaths": ["node_modules", ".next", "captures", "public"],
+  "ignoreRegExpList": ["/https?:\\/\\/\\S+/g", "/[a-z0-9.-]+@[a-z0-9.-]+/gi", "/`[^`]*`/g", "/#[0-9a-fA-F]{3,8}\\b/g", "/\\b[A-Z0-9_]{3,}\\b/g", "/\\bAED \\d+/g"],
+  "minWordLength": 4,
+  "allowCompoundWords": false
+}

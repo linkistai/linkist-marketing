@@ -2,7 +2,6 @@
 
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
-import { EXTERNAL_PRIVACY_URL } from '@/lib/site';
 
 const KEY = 'linkist-consent';
 const GA = process.env['NEXT_PUBLIC_GA_MEASUREMENT_ID'];
@@ -80,7 +79,7 @@ export function CookieNotice() {
           <p className="font-semibold">Analytics cookies</p>
           <p className="mt-1 text-body">
             {noticeOnly ? 'This site uses Google Analytics to understand which pages help. You can switch it off here or later from the footer.' : 'This site uses Google Analytics only if you allow it. Nothing loads until you choose.'}{' '}
-            <a href={EXTERNAL_PRIVACY_URL} className="underline">
+            <a href="/legal/privacy" className="underline">
               Privacy policy
             </a>
             .

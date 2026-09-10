@@ -10,7 +10,7 @@ describe('assistant retrieval', () => {
   });
 
   it('finds the plan that has ICP matching', () => {
-    const hits = search('Which plan has ICP matching?');
+    const hits = search('Which plan has ICP Matching?');
     expect(hits[0]!.entry.id).toBe('which-plan-has-icp-matching');
   });
 

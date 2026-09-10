@@ -10,7 +10,7 @@ import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
   'Use cases: built for real working days',
-  'Five situations Linkist is built for: after an event, finding the right person, too many relationships to track, a network growing the wrong way, and a key person leaving.',
+  '5 situations Linkist is built for: after an event, finding the right person, too many relationships to track, a network growing the wrong way, and a key person leaving.',
   '/use-cases',
   { image: '/og/use-cases.png' },
 );
@@ -21,7 +21,7 @@ export default function UseCasesHub() {
       <Section tight className="pt-8 sm:pt-10">
         <Breadcrumbs items={[{ label: 'Use cases', href: '/use-cases' }]} />
         <div className="mt-8">
-          <SectionHead as="h1" size={1} eyebrow="Built for real working days" title={<>See what Linkist looks like <span className="em-coral">in real life</span>.</>} lede="The problem is rarely collecting contacts. It is knowing what to do with them afterwards. Five situations, each with the steps Linkist takes." />
+          <SectionHead as="h1" size={1} eyebrow="Built for real working days" title={<>See what Linkist looks like <span className="em-coral">in real life</span>.</>} lede="The problem is rarely collecting contacts. It is knowing what to do with them afterwards. 5 situations, each with the steps Linkist takes." />
         </div>
       </Section>
       <Section tone="charcoal" tight>

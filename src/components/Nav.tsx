@@ -54,7 +54,7 @@ export function Nav() {
   return (
     <header className="nav">
       <div className="nav__pill">
-        <Link href="/" aria-label="Linkist home" className="no-underline">
+        <Link href="/" aria-label="Linkist home" className="inline-flex min-h-[44px] items-center no-underline">
           <Wordmark size={19} />
         </Link>
         <nav aria-label="Primary" className="hidden items-center gap-0.5 xl:flex">

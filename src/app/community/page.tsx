@@ -48,7 +48,7 @@ export default function CommunityPage() {
           <div data-reveal="rise">
             <p className="eyebrow">Follow along</p>
             <h2 className="display-2 mt-4">
-              Three <span className="em-coral">channels</span>.
+              3 <span className="em-coral">channels</span>.
             </h2>
             <ul className="mt-6 flex flex-col gap-3">
               {CHANNELS.map((c) => (

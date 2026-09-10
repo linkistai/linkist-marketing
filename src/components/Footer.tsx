@@ -65,7 +65,7 @@ const COLUMNS: { title: string; links: { href: string; label: string; external?:
 export function Footer() {
   return (
     <footer className="footer-clearance border-t border-line" style={{ background: 'var(--color-bg)' }}>
-      <div className="container grid gap-12 py-16 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
+      <div className="container grid gap-12 py-16 lg:grid-cols-[minmax(300px,1.4fr)_repeat(4,1fr)]">
         <div className="flex flex-col gap-4">
           <Wordmark size={22} />
           <p className="max-w-xs text-sm text-body">Capture Contacts. Remember Context. Act at the right time. A Personal Relationship Manager with an optional NFC card, built in Dubai.</p>
@@ -78,7 +78,7 @@ export function Footer() {
             </a>
           </div>
           <div className="mt-4 max-w-sm">
-            <Newsletter />
+            <Newsletter stacked />
           </div>
         </div>
         {COLUMNS.map((c) => (

@@ -127,7 +127,7 @@ export const FEATURES: readonly FeaturePage[] = [
       { q: 'How often do nudges arrive?', a: 'When something deserves attention: a follow-up you have not made, a relationship going quiet, a signal about a contact. Not on a schedule.' },
       { q: 'What is the deal-tracking mini-CRM?', a: 'A light pipeline for the opportunities behind your relationships, on Pro and Team. It is not a full sales CRM and does not try to be.' },
     ],
-    hubBlurb: 'Top Actions, Weekly Planner, nudges, signals, Warm Introductions and AI Follow-up.',
+    hubBlurb: 'Top Actions, Weekly Planner, Intelligent Nudges, Smart Signals, Warm Introductions and AI Follow-up.',
     object: 'nudge',
     mock: { kind: 'day', label: 'Top Actions ticking off', items: [['Follow up with Julian', 'GITEX'], ['Reply to Sara about the intro', 'Fintech'], ['Book coffee with Omar', 'Cooling down']] },
   },

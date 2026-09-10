@@ -14,7 +14,7 @@ export const runtime = 'nodejs';
 
 export async function POST(req: Request) {
   const key = process.env['ANTHROPIC_API_KEY'];
-  if (!key) return NextResponse.json({ error: 'assistant not configured' }, { status: 503 });
+  if (!key) return NextResponse.json({ answer: null, configured: false });
   const ip = clientIp(req);
   const rl = rateLimit(`chat:${ip}`, 20, 10 * 60 * 1000);
   if (!rl.ok) return tooMany(rl.retryAfter);

@@ -109,7 +109,7 @@ export const HELP: readonly HelpEntry[] = [
 
   // Plans and billing
   e('Plans and billing', 'What do the plans cost?', 'Essential is free. Enhanced is $2 a month, $12 a year or $25 for life. Pro is $10 a month or $100 a year. Team is $4 per user a month or $200 a year, with a minimum of 5 users.', [{ label: 'Pricing', href: '/pricing' }]),
-  e('Plans and billing', 'Which plan has ICP matching?', 'Pro and Team. Enhanced adds profiles, templates and lead capture; Pro adds the AI and relationship intelligence features.'),
+  e('Plans and billing', 'Which plan has ICP Matching?', 'Pro and Team. Enhanced adds profiles, templates and lead capture; Pro adds the AI and relationship intelligence features.'),
   e('Plans and billing', 'Is there an Enterprise plan?', 'Not yet. Enterprise is coming later and is interest only today. Single sign-on and CRM or HRMS integration are listed for it.'),
   e('Plans and billing', 'Which currency am I billed in?', 'The store prices the cards in AED and shows an approximate US dollar figure beside each one. The terms say prices are displayed in USD unless stated otherwise, so check the currency at checkout.', [TERMS]),
   e('Plans and billing', 'Where do I manage my subscription?', 'In the billing hub at prm.linkist.ai, which handles plans, AI credit top-ups, invoices and card orders.'),

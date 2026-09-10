@@ -57,7 +57,7 @@ export default function AiPage() {
       </section>
 
       <Section tone="charcoal" id="capabilities" glow>
-        <SectionHead eyebrow="What it does" title={<>Eight things, <span className="em-coral">each named in the policy</span>.</>} lede="The product's name first, the privacy policy's name second. Nothing here is padded: if a capability is not on this list, the policy does not describe it." center />
+        <SectionHead eyebrow="What it does" title={<>8 things, <span className="em-coral">each named in the policy</span>.</>} lede="The product's name first, the privacy policy's name second. Nothing here is padded: if a capability is not on this list, the policy does not describe it." center />
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-reveal="rise" data-reveal-stagger="0.06">
           {AI_CAPABILITIES.map((c, i) => {
             const Icon = ICONS[i] ?? Sparkles;
@@ -116,11 +116,11 @@ export default function AiPage() {
         </ul>
         <p className="mt-8 text-center text-sm text-muted">
           Read the{' '}
-          <a href={PRIVACY_URL} className="underline" rel="noopener noreferrer" target="_blank">
+          <a href={PRIVACY_URL} className="underline">
             privacy policy
           </a>{' '}
           and the{' '}
-          <a href={TERMS_URL} className="underline" rel="noopener noreferrer" target="_blank">
+          <a href={TERMS_URL} className="underline">
             terms of service
           </a>
           . Questions and objections: {PRIVACY_EMAIL_PUBLISHED}.

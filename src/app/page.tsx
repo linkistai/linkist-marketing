@@ -53,7 +53,7 @@ export default function HomePage() {
           <UseCaseGrid />
         </div>
         <div className="mt-8 flex justify-center">
-          <TextLink href="/use-cases">All five use cases</TextLink>
+          <TextLink href="/use-cases">All 5 use cases</TextLink>
         </div>
       </Section>
 

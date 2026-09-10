@@ -102,13 +102,15 @@ export function HeroCarousel({ screen, screenAlt, person }: { screen?: string; s
   return (
     <section className="section pt-10 sm:pt-14">
       <div className="container">
+        {/* The page's one H1 never hides: a parked slide is invisible to assistive technology, so the slide headings are H2s. */}
+        <h1 className="sr-only">{HERO.lines.join(' ')}</h1>
         <div ref={rootRef} className="hcar" role="region" aria-roledescription="carousel" aria-label="Linkist products" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)} onFocus={() => setPaused(true)} onBlur={() => setPaused(false)}>
           <HeroIntro className="hcar__track">
             <div aria-live={rotating ? 'off' : 'polite'} onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerCancel={() => (downX.current = null)} className="hcar__slides">
               {HERO_SLIDES.map((s, i) => {
                 const active = i === index;
                 const state = active ? 'active' : i < index ? 'prev' : 'next';
-                const Heading = i === 0 ? 'h1' : 'h2';
+                const Heading = 'h2';
                 return (
                   <div key={s.key} id={`hero-panel-${s.key}`} role="tabpanel" aria-roledescription="slide" aria-labelledby={`hero-tab-${s.key}`} aria-hidden={!active} inert={!active} data-state={state} className="hcar__slide grid items-center gap-12 lg:grid-cols-[5fr_3fr] lg:gap-10">
                     <div className="hero-copy max-w-3xl">
@@ -143,7 +145,7 @@ export function HeroCarousel({ screen, screenAlt, person }: { screen?: string; s
           </HeroIntro>
 
           <div className="hcar__controls" data-hero-text>
-            <button type="button" className="btn btn--ghost btn--sm !px-2.5" onClick={() => go(index - 1)} aria-label="Previous slide">
+            <button type="button" className="btn btn--ghost btn--sm !h-11 !w-11 !p-0" onClick={() => go(index - 1)} aria-label="Previous slide">
               <ChevronLeft size={18} aria-hidden="true" />
             </button>
             <div ref={tabsRef} role="tablist" aria-label="Choose a product" className="segtabs" onKeyDown={onTabKey}>
@@ -154,7 +156,7 @@ export function HeroCarousel({ screen, screenAlt, person }: { screen?: string; s
                 </button>
               ))}
             </div>
-            <button type="button" className="btn btn--ghost btn--sm !px-2.5" onClick={() => go(index + 1)} aria-label="Next slide">
+            <button type="button" className="btn btn--ghost btn--sm !h-11 !w-11 !p-0" onClick={() => go(index + 1)} aria-label="Next slide">
               <ChevronRight size={18} aria-hidden="true" />
             </button>
             <span className="sr-only" aria-live="polite">

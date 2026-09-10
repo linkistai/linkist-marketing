@@ -84,7 +84,7 @@ export default async function UseCasePage({ params }: { params: Promise<{ slug: 
       </Section>
 
       <Section tight>
-        <SectionHead eyebrow="More situations" title="The other four." />
+        <SectionHead eyebrow="More situations" title="The other 4." />
         <ul className="mt-8 grid gap-3 sm:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.05">
           {others.map((o) => (
             <li key={o.slug}>

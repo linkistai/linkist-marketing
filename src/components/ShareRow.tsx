@@ -15,7 +15,7 @@ export function ShareRow({ url, title }: { url: string; title: string }) {
   }, []);
   const copy = async () => {
     try {
-      await navigator.clipboard.writeText(url);
+      await navigator.clipboard.writeText(window.location.href);
       setCopied(true);
       setTimeout(() => setCopied(false), 1600);
     } catch {
@@ -31,7 +31,7 @@ export function ShareRow({ url, title }: { url: string; title: string }) {
   };
   const text = encodeURIComponent(`${title} ${url}`);
   return (
-    <div className="flex flex-wrap items-center gap-2 text-sm" aria-label="Share">
+    <div className="flex flex-wrap items-center gap-2 text-sm" role="group" aria-label="Share">
       <span className="text-muted">Share</span>
       <button type="button" className="btn btn--ghost btn--sm" onClick={copy}>
         {copied ? <Check size={16} aria-hidden="true" /> : <Link2 size={16} aria-hidden="true" />}

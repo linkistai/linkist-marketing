@@ -22,6 +22,9 @@ export function Assistant({ compact }: { compact?: boolean }) {
   const [q, setQ] = useState('');
   const [busy, setBusy] = useState(false);
   const endRef = useRef<HTMLDivElement>(null);
+  /** A question sent while the previous one is still being answered waits its turn instead of being dropped. */
+  const queued = useRef<string | null>(null);
+  const busyRef = useRef(false);
   useEffect(() => {
     // Braces matter: scrollIntoView returns a Promise in newer Chromium, and React would treat a
     // returned Promise as a cleanup function and crash the page on the next turn (Grownz D31).
@@ -30,9 +33,15 @@ export function Assistant({ compact }: { compact?: boolean }) {
 
   const ask = async (text: string) => {
     const question = text.trim();
-    if (!question || busy) return;
+    if (!question) return;
+    if (busyRef.current) {
+      queued.current = question;
+      setQ('');
+      return;
+    }
     setQ('');
     setTurns((t) => [...t, { who: 'you', text: question }]);
+    busyRef.current = true;
     setBusy(true);
     const hits = search(question, 3);
     let answer = hits.length ? hits[0]!.entry.a : FALLBACK;
@@ -46,7 +55,11 @@ export function Assistant({ compact }: { compact?: boolean }) {
       /* offline or unconfigured: the retrieved answer stands */
     }
     setTurns((t) => [...t, { who: 'linkist', text: answer, hits }]);
+    busyRef.current = false;
     setBusy(false);
+    const next = queued.current;
+    queued.current = null;
+    if (next) void ask(next);
   };
 
   const onSubmit = (e: FormEvent) => {
@@ -112,7 +125,7 @@ export function Assistant({ compact }: { compact?: boolean }) {
         {turns.length <= 1 ? (
           <div className="mb-3 flex flex-wrap gap-2">
             {SUGGESTED.slice(0, compact ? 3 : 6).map((s) => (
-              <button key={s} type="button" className="intent !min-h-[36px] !text-sm" onClick={() => void ask(s)}>
+              <button key={s} type="button" className="intent !text-sm" onClick={() => void ask(s)}>
                 {s}
               </button>
             ))}
@@ -122,7 +135,7 @@ export function Assistant({ compact }: { compact?: boolean }) {
           <label className="sr-only" htmlFor={compact ? 'chat-q-widget' : 'chat-q'}>
             Your question
           </label>
-          <input id={compact ? 'chat-q-widget' : 'chat-q'} value={q} onChange={(e) => setQ(e.target.value)} placeholder="Ask about plans, cards, ICP matching" className="min-w-0 flex-1 rounded-xl border border-line-strong bg-surface px-3 py-2.5 text-base text-text" autoComplete="off" />
+          <input id={compact ? 'chat-q-widget' : 'chat-q'} value={q} onChange={(e) => setQ(e.target.value)} placeholder="Ask about plans, cards, ICP Matching" className="min-w-0 flex-1 rounded-xl border border-line-strong bg-surface px-3 py-2.5 text-base text-text" autoComplete="off" />
           <button type="submit" className="btn btn--primary btn--sm" disabled={busy || !q.trim()} aria-label="Send">
             <Send size={16} aria-hidden="true" />
           </button>

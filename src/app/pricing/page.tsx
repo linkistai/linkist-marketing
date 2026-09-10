@@ -22,7 +22,7 @@ export const metadata: Metadata = pageMeta(
 const BILLING_FAQ = [
   { q: 'Do I need a card to start?', a: 'No. The Essential plan is free and needs no NFC card. Add a card any time.' },
   { q: 'How is yearly billed?', a: 'Enhanced is $12 a year or $25 for life. Pro is $100 a year. Team is $200 a year. Paid subscriptions may renew automatically until cancelled, as the terms say.' },
-  { q: 'Which currency am I billed in?', a: 'Prices are shown in US dollars. VAT is shown at checkout. An AED display option for the cards is being confirmed.' },
+  { q: 'Which currency am I billed in?', a: 'Plan prices are listed in US dollars. The store prices the cards in AED and shows an approximate dollar figure beside each; the terms say prices are displayed in USD unless stated otherwise, so the billing currency is being confirmed and the checkout shows it. VAT is shown upfront.' },
   { q: 'Can I cancel?', a: 'Yes. You are responsible for cancelling before the renewal date if you do not want a subscription to renew. What you have paid for runs to the end of its period.' },
   { q: 'Is there an Enterprise plan?', a: 'Not yet. Enterprise is coming later and is interest only. Single sign-on, CRM and HRMS integration and product customisation are planned for it.' },
   { q: 'Where do I buy?', a: 'Plans, cards, bundles, AI credit top-ups and invoices are handled in the browser at prm.linkist.ai, so the app stays focused on your relationships.' },
@@ -34,7 +34,7 @@ export default function PricingPage() {
       <Section tight className="pt-8 sm:pt-10">
         <Breadcrumbs items={[{ label: 'Pricing', href: '/pricing' }]} />
         <div className="mt-8 grid items-end gap-8 lg:grid-cols-[1fr_340px]">
-          <SectionHead as="h1" size={1} eyebrow="Linkist PRM pricing" title={<>Start free. <span className="em-coral">Add more</span> when you need it.</>} lede="Four plans in US dollars, no NFC card required. Upgrade when you need richer contact management, AI matching and follow-up, or team collaboration." />
+          <SectionHead as="h1" size={1} eyebrow="Linkist PRM pricing" title={<>Start free. <span className="em-coral">Add more</span> when you need it.</>} lede="4 plans in US dollars, no NFC card required. Upgrade when you need richer contact management, AI matching and follow-up, or team collaboration." />
           <div className="hidden h-[340px] lg:block">
             <Person src={person('pricing')} alt="A person holding a phone with Linkist open towards the camera" hero bust priority sizes="340px" />
           </div>

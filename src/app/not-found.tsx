@@ -2,6 +2,8 @@ import { Button } from '@/components/Button';
 import { Section } from '@/components/Section';
 import { START_URL } from '@/lib/site';
 
+export const metadata = { title: 'Page not found', robots: { index: false, follow: false } };
+
 export default function NotFound() {
   return (
     <Section>

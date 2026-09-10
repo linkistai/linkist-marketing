@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const p = getPost(slug);
   if (!p) return {};
-  return pageMeta(p.title, p.excerpt, `/blogs/${p.slug}`, { type: 'article', image: `/og/blogs-${p.slug}.png`, publishedTime: p.date, modifiedTime: p.imported });
+  return pageMeta(p.title, p.excerpt, `/blogs/${p.slug}`, { type: 'article', image: `/og/blogs-${p.slug}.png`, publishedTime: p.date, modifiedTime: p.date });
 }
 
 /** One article, in the structure of the old site's post page (D18): header, cover, chapters at the side, the body, FAQ JSON-LD, related reads. */
@@ -42,7 +42,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       headline: post.title,
       description: post.excerpt,
       datePublished: post.date,
-      dateModified: post.imported,
+      dateModified: post.date,
       author: { '@type': 'Person', name: post.author },
       publisher: { '@type': 'Organization', name: 'Linkist', legalName: COMPANY, logo: { '@type': 'ImageObject', url: absoluteAsset('/icon.png') } },
       mainEntityOfPage: url,
@@ -71,7 +71,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <h1 className="display-2 mt-5">{post.title}</h1>
             <p className="lede mt-5">{post.excerpt}</p>
             <div className="mt-6">
-              <AuthorRow author={post.author} dateLabel={`Updated ${post.dateLabel}`} minutes={post.minutes} size="md" />
+              <AuthorRow author={post.author} dateLabel={`Published ${post.dateLabel}`} minutes={post.minutes} size="md" />
             </div>
           </header>
           {post.coverKind === 'card' ? null : (

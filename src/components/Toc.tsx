@@ -26,7 +26,7 @@ export function Toc({ chapters, title = 'Chapters' }: { chapters: readonly Chapt
       <ol className="mt-3 flex flex-col gap-1 text-sm">
         {chapters.map((c) => (
           <li key={c.id} className={c.level === 3 ? 'pl-3' : ''}>
-            <a href={`#${c.id}`} className="block rounded-md px-2 py-1 no-underline" style={active === c.id ? { background: 'var(--color-surface2)', fontWeight: 600 } : { color: 'var(--color-muted)' }} aria-current={active === c.id ? 'location' : undefined}>
+            <a href={`#${c.id}`} className="flex min-h-[44px] items-center rounded-md px-2 py-1 no-underline" style={active === c.id ? { background: 'var(--color-surface2)', fontWeight: 600 } : { color: 'var(--color-muted)' }} aria-current={active === c.id ? 'location' : undefined}>
               {c.text}
             </a>
           </li>

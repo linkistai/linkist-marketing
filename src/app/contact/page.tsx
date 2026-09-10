@@ -20,7 +20,7 @@ export default function ContactPage() {
       <Section tight className="pt-8 sm:pt-10">
         <Breadcrumbs items={[{ label: 'Contact', href: '/contact' }]} />
         <div className="mt-8">
-          <SectionHead as="h1" size={1} eyebrow="Contact" title={<>Talk to <span className="em-coral">a person</span>.</>} lede="Linkist is self-serve and free to start, so there is no sales call. For everything else, these routes reach a real inbox, usually within 2 working days." />
+          <SectionHead as="h1" size={1} eyebrow="Contact" title={<>Talk to <span className="em-coral">a person</span>.</>} lede="Linkist is self-serve and free to start, so there is no sales call. For everything else, these routes reach a real inbox." />
         </div>
       </Section>
       <Section tone="charcoal" tight>

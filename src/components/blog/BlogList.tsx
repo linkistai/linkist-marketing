@@ -27,7 +27,7 @@ export function BlogList({ posts }: { posts: readonly BlogCardData[] }) {
     <div>
       <div className="flex flex-wrap gap-2" role="group" aria-label="Filter articles by category">
         {FILTERS.map((f) => (
-          <button key={f.key} type="button" className="intent !min-h-[38px] text-sm" aria-pressed={cat === f.key} onClick={() => setCat(f.key)}>
+          <button key={f.key} type="button" className="intent text-sm" aria-pressed={cat === f.key} onClick={() => setCat(f.key)}>
             {f.label}
           </button>
         ))}
