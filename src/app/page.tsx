@@ -5,29 +5,31 @@ import { ClosingBand } from '@/components/ClosingBand';
 import { Faq } from '@/components/Faq';
 import { Scene } from '@/components/Person';
 import { ScreenFrame } from '@/components/ScreenFrame';
-import { Outcome, Section, SectionHead, Tags } from '@/components/Section';
+import { Section, SectionHead } from '@/components/Section';
 import { Bundles } from '@/components/home/Bundles';
 import { CapabilityGrid } from '@/components/home/CapabilityGrid';
 import { CardTiers } from '@/components/home/CardTiers';
 import { CommunityBand } from '@/components/home/CommunityBand';
-import { HeroInteractive } from '@/components/home/HeroInteractive';
-import { JourneyDeck } from '@/components/home/JourneyDeck';
+import { HeroCarousel } from '@/components/home/HeroCarousel';
 import { HomeJsonLd } from '@/components/home/JsonLd';
 import { PlanCards } from '@/components/home/PlanCards';
-import { UseCaseFan } from '@/components/home/UseCaseFan';
+import { StageFlow } from '@/components/home/StageFlow';
+import { UseCaseGrid } from '@/components/home/UseCaseGrid';
 import { PROTO_ALT, DESIGN_NOTE } from '@/content/design';
-import { FAQ, HERO, MORE_THAN, MORE_THAN_LINE, STAGES } from '@/content/home';
+import { FAQ, MORE_THAN, MORE_THAN_LINE, STAGES } from '@/content/home';
 import { person, scene, screen } from '@/lib/screens';
 import { DEFAULT_DESCRIPTION, TAGLINE, pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(TAGLINE, DEFAULT_DESCRIPTION, '/', { image: '/og/home.png' });
 
 export default function HomePage() {
-  const screens = Object.fromEntries((['proto-home', 'proto-profile', 'proto-share'] as const).map((n) => [n, screen(n)]));
-  const deck = STAGES.map((s) => ({
-    key: String(s.n),
+  const stages = STAGES.map((s) => ({
+    n: s.n,
     label: s.label,
     title: s.title,
+    bullets: s.bullets,
+    outcome: s.outcome,
+    chips: s.chips,
     href: s.href,
     frame: <ScreenFrame kind="phone" src={screen(s.screen)} alt={PROTO_ALT[s.screen]} preview full className="!max-w-none" />,
   }));
@@ -35,61 +37,22 @@ export default function HomePage() {
   return (
     <>
       <HomeJsonLd />
-      <HeroInteractive
-        screens={screens}
-        person={person('hero-1')}
-        heading={
-          <>
-            <p className="eyebrow" data-hero-text>
-              {HERO.eyebrow}
-            </p>
-            <h1 className="display-1 mt-5" data-hero-text>
-              {HERO.lines[0]}
-              <br />
-              {HERO.lines[1]}
-              <br />
-              <span className="em-coral">{HERO.lines[2]}</span>
-            </h1>
-          </>
-        }
-      />
+      <HeroCarousel screen={screen('proto-home')} screenAlt={PROTO_ALT['proto-home']} person={person('hero-1')} />
 
       <Section id="how" tone="charcoal" glow>
         <SectionHead eyebrow="How Linkist works" title={<>Turn the contacts you collect into <span className="em-coral">opportunities</span>.</>} lede="Linkist helps you capture the right people, understand who matters, and know what to do next." center />
-        <div className="mt-14">
-          <JourneyDeck cards={deck} />
+        <div className="mt-12">
+          <StageFlow stages={stages} />
         </div>
-        <p className="disclaimer mx-auto mt-6 max-w-2xl text-center">{DESIGN_NOTE}</p>
-        <div className="mt-12 grid gap-6 lg:grid-cols-3" data-reveal="rise" data-reveal-stagger="0.08">
-          {STAGES.map((s) => (
-            <article key={s.n} className="card card--hover flex flex-col gap-4 p-7">
-              <p className="eyebrow eyebrow--accent text-[12px]">
-                {s.n} · {s.label}
-              </p>
-              <h3 className="display-3">{s.title}</h3>
-              <ul className="flex flex-col gap-2 pl-5 text-md text-body" style={{ listStyle: 'disc' }}>
-                {s.bullets.map((b) => (
-                  <li key={b}>{b}</li>
-                ))}
-              </ul>
-              <div className="mt-auto">
-                <Outcome>{s.outcome}</Outcome>
-              </div>
-              <Tags items={s.chips} />
-              <TextLink href={s.href} className="text-sm">
-                {s.label} in depth
-              </TextLink>
-            </article>
-          ))}
-        </div>
+        <p className="disclaimer mx-auto mt-8 max-w-2xl text-center">{DESIGN_NOTE}</p>
       </Section>
 
       <Section id="use-cases">
         <SectionHead eyebrow="Built for real working days" title={<>See what Linkist looks like <span className="em-coral">in real life</span>.</>} lede="The problem is rarely collecting contacts. It is knowing what to do with them afterwards." center />
         <div className="mt-12">
-          <UseCaseFan />
+          <UseCaseGrid />
         </div>
-        <div className="mt-6 flex justify-center">
+        <div className="mt-8 flex justify-center">
           <TextLink href="/use-cases">All five use cases</TextLink>
         </div>
       </Section>

@@ -7,6 +7,8 @@ export interface OgPage {
   readonly screen?: string;
   /** Cut-out from public/assets/people (<name>-2x.webp), drawn at the right edge when it exists. */
   readonly person?: string;
+  /** A picture under public (blog covers), drawn as a rounded card at the right. */
+  readonly image?: string;
 }
 
 export const OG_PAGES: readonly OgPage[] = [
@@ -24,4 +26,7 @@ export const OG_PAGES: readonly OgPage[] = [
   { slug: 'bundles', title: 'The NFC card and PRM Pro together.', eyebrow: 'Bundled offers', screen: 'proto-share' },
   { slug: 'pricing', title: 'Start free. Add more when you need it.', eyebrow: 'Linkist PRM pricing', screen: 'proto-home' },
   { slug: 'teams', title: 'Relationships that stay with the company.', eyebrow: 'Linkist for teams', screen: 'proto-home' },
+  { slug: 'ai', title: 'What the AI does. What it sees. How to switch it off.', eyebrow: 'AI and your data', screen: 'proto-home' },
+  { slug: 'security', title: 'Written for a sceptical reader.', eyebrow: 'Security and trust' },
+  { slug: 'blogs', title: 'Network smarter, not harder.', eyebrow: 'Linkist Insights', image: '/blog/linkedin-profile-vs-digital-identity/cover.jpg' },
 ];

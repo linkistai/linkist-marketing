@@ -2,11 +2,17 @@ import type { Metadata } from 'next';
 
 /** C1: the marketing domain is not confirmed. linkist.ai is the placeholder until it is. */
 export const SITE_URL = (process.env['NEXT_PUBLIC_SITE_URL'] ?? 'https://linkist.ai').replace(/\/$/, '');
-/** The product. The app signs in and registers on one screen at its root. */
+/** The PRM app. Its unified screen signs in and creates an account in one place (D7, D15). */
 export const APP_URL = (process.env['NEXT_PUBLIC_APP_URL'] ?? 'https://prm.linkist.ai').replace(/\/$/, '');
-/** "Sign in or create your account" is one screen in the app, so both CTAs land there. */
-export const SIGN_IN_URL = `${APP_URL}/`;
-export const START_URL = `${APP_URL}/`;
+/** The NFC card product: profiles, card activation and the card-holder sign-in (D15). */
+export const CARD_APP_URL = (process.env['NEXT_PUBLIC_CARD_APP_URL'] ?? 'https://m.linkist.ai').replace(/\/$/, '');
+/** "Get the App": the PRM app's unified sign-in and registration screen. */
+export const GET_APP_URL = process.env['NEXT_PUBLIC_GET_APP_URL'] ?? `${APP_URL}/UnifiedAuth`;
+/** "Get NFC Card": the card product's sign-in, as the owner directed on 10 September 2026. */
+export const GET_CARD_URL = process.env['NEXT_PUBLIC_GET_CARD_URL'] ?? `${CARD_APP_URL}/login`;
+/** Sign in and Start free both land on the PRM app's unified screen (D7). */
+export const SIGN_IN_URL = GET_APP_URL;
+export const START_URL = GET_APP_URL;
 /**
  * Where static assets such as OG images really live. The canonical domain (SITE_URL) is a
  * placeholder until C1 is answered, so social previews must point at the deployment that

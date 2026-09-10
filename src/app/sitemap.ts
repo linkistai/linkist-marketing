@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { FEATURES } from '@/content/features';
 import { USE_CASES } from '@/content/usecases';
+import { getPosts } from '@/lib/blog';
 import { SITE_URL } from '@/lib/site';
 
 /** Grows as pages land (docs/sitemap.md). Internal routes stay out. */
@@ -15,6 +16,10 @@ export const ROUTES: readonly string[] = [
   '/bundles',
   '/pricing',
   '/teams',
+  '/ai',
+  '/security',
+  '/blogs',
+  ...getPosts().map((p) => `/blogs/${p.slug}`),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -7,6 +7,7 @@
 import type { FaqItem } from '@/components/Faq';
 import type { MiniMockKind } from '@/components/mockups/MiniMock';
 import type { ProtoScreen } from '@/content/design';
+import { G } from '@/lib/glossary';
 
 export const HERO = {
   eyebrow: 'Personal Relationship Manager',
@@ -16,13 +17,55 @@ export const HERO = {
   proof: ['Start free, no card required', 'Works with or without an NFC card', 'Every NFC card includes PRM Essential', 'Sign in with email or mobile', 'Ships across the GCC and worldwide'],
 } as const;
 
-/** Interactive hero (brief 4): each chip swaps the hero screen and rewrites the lede. The CTA never changes. */
+/**
+ * The hero carousel (D15): one slide for the PRM app, one for the NFC cards, each with its own
+ * button. Every line on the card slide traces to the store walk-through and the prototype's card
+ * section (docs/01-audit.md): a tap opens the live profile, the other person saves the details,
+ * Tap to Link captures theirs, three materials, PRM Essential included, one-time prices, free
+ * activation of a card you already own.
+ */
+export interface HeroSlide {
+  readonly key: 'app' | 'card';
+  readonly tab: string;
+  readonly eyebrow: string;
+  readonly lines: readonly [string, string, string];
+  readonly lede: string;
+  readonly subline: string;
+  readonly secondary: { readonly href: string; readonly label: string };
+}
+export const HERO_SLIDES: readonly HeroSlide[] = [
+  {
+    key: 'app',
+    tab: 'The PRM app',
+    eyebrow: HERO.eyebrow,
+    lines: HERO.lines,
+    lede: HERO.lede,
+    subline: HERO.subline,
+    secondary: { href: '/how-it-works', label: G.ctaSecondary },
+  },
+  {
+    key: 'card',
+    tab: 'NFC cards',
+    eyebrow: 'Linkist NFC cards',
+    lines: ['Tap the card.', 'Share your profile.', 'Save the contact.'],
+    lede: 'A Linkist NFC card opens your live profile with one tap, so the person you meet can save your details and you can capture theirs into Linkist PRM. PVC, wood or metal, and every card includes PRM Essential.',
+    subline: 'One-time prices. Ships across the GCC and worldwide. Already own a card? Activate it free.',
+    secondary: { href: '/nfc-cards', label: 'Explore NFC cards' },
+  },
+];
+
+/**
+ * Intent chips, now in "How Linkist works" (D17): each chip rewrites the scenario line, lights
+ * the stage of the journey it belongs to and points at its use case. The CTA never changes.
+ */
 export interface Intent {
   readonly key: string;
   readonly chip: string;
   readonly lede: string;
   readonly screen: ProtoScreen;
   readonly href: string;
+  /** The stage of the three-stage journey the moment belongs to. */
+  readonly stage: 1 | 2 | 3;
 }
 export const INTENTS: readonly Intent[] = [
   {
@@ -31,6 +74,7 @@ export const INTENTS: readonly Intent[] = [
     lede: 'Capture the people you met with tags and voice notes, let AI Enrichment fill the gaps, and see who fits what you are looking for before the week is out.',
     screen: 'proto-home',
     href: '/use-cases/after-the-event',
+    stage: 1,
   },
   {
     key: 'find',
@@ -38,6 +82,7 @@ export const INTENTS: readonly Intent[] = [
     lede: 'Describe who you need in plain words. Natural-Language Search and ICP Matching find the people who fit, or a trusted path to them.',
     screen: 'proto-profile',
     href: '/use-cases/find-the-right-person',
+    stage: 2,
   },
   {
     key: 'many',
@@ -45,6 +90,7 @@ export const INTENTS: readonly Intent[] = [
     lede: 'Start the day with Top Actions, get nudged before a follow-up slips, and plan the conversations that matter this week.',
     screen: 'proto-home',
     href: '/use-cases/too-many-relationships',
+    stage: 3,
   },
   {
     key: 'team',
@@ -52,6 +98,7 @@ export const INTENTS: readonly Intent[] = [
     lede: 'Share contacts across the team, brand every card, and keep the relationship history with the company when people move on.',
     screen: 'proto-share',
     href: '/teams',
+    stage: 1,
   },
 ];
 

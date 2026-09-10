@@ -52,9 +52,10 @@
 
 /* Site-level scale on top of the prototype's measured sizes (brief, Design system; Grownz D11). */
 :root {
-  --display-1: clamp(40px, 2rem + 2.4vw, 60px);
-  --display-2: clamp(30px, 1.5rem + 1.5vw, 44px);
-  --display-3: clamp(21px, 1.15rem + 0.55vw, 26px);
+  /* Display scale matched to linkist.ai's home page (D16): 72 px and 56 px at 1440, 36 px and 32 px at 390. */
+  --display-1: clamp(36px, 1.25rem + 3.6vw, 72px);
+  --display-2: clamp(32px, 1.1rem + 2.7vw, 56px);
+  --display-3: clamp(22px, 1.2rem + 0.6vw, 28px);
   --lede: clamp(16px, 0.95rem + 0.25vw, 18px);
   --section-y: clamp(96px, 8vw, 128px);
   --container: 1280px;
@@ -1024,4 +1025,26 @@ html[data-motion='off'] *::after {
 }
 html[data-motion='off'] .ftabs__screen[data-active='false'] {
   transform: none;
+}
+
+/* Blog article blocks (D18): figures with captions, flow steps joined by arrows, small card grids. */
+.prose-lk figure { margin: 1.8em 0 0; }
+.prose-lk figure img { width: 100%; height: auto; border-radius: var(--radius-xl); border: 1px solid var(--color-line); display: block; }
+.prose-lk figcaption { margin-top: 0.6em; font-size: var(--text-sm); color: var(--color-muted); }
+.prose-lk .flow-steps { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 1.4em; padding: 0; list-style: none; max-width: none; }
+.prose-lk .flow-steps li { margin: 0; padding: 8px 14px; border-radius: var(--radius-pill); border: 1px solid var(--color-line-strong); background: var(--color-surface); font-size: var(--text-sm); font-weight: var(--weight-medium); color: var(--color-text); }
+.prose-lk .flow-steps li + li::before { content: ''; display: inline-block; width: 14px; height: 2px; margin-right: 12px; vertical-align: middle; background: var(--brand-crimson); }
+.prose-lk .cards { display: grid; gap: 12px; margin-top: 1.4em; padding: 0; list-style: none; max-width: none; }
+@media (min-width: 640px) { .prose-lk .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.prose-lk .cards li { margin: 0; padding: 16px 18px; border-radius: var(--radius-lg); border: 1px solid var(--color-line); background: var(--color-surface); }
+.prose-lk .cards strong { display: block; font-size: var(--text-md); }
+.prose-lk .cards p { margin-top: 0.4em; font-size: var(--text-base); max-width: none; }
+
+/* Hero copy columns: the headline follows the column so a three-line headline with forced breaks never wraps (D16).
+   The widest line, "Act at the right time.", measures 9.54 px per pixel of font size in DM Sans 600 at -0.02em, so 10.3cqi leaves 2%. */
+.hero-copy {
+  container-type: inline-size;
+}
+.hero-copy .display-1 {
+  font-size: min(var(--display-1), 10.3cqi);
 }

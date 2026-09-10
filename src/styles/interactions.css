@@ -165,126 +165,259 @@
     pointer-events: none;
   }
 
-  /* Journey deck: three real screens that fan out from a tight stack as the section enters. */
-  .deck {
+  /* Hero carousel (D15): two slides stacked in one grid cell that slide sideways and cross-fade. */
+  .hcar {
     position: relative;
-    height: 560px;
-    max-width: 960px;
-    margin-inline: auto;
-    --deck-step: clamp(150px, 22vw, 300px);
   }
-  .deck__card {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    width: 220px;
-    margin-left: -110px;
-    transform-origin: 50% 100%;
-    transform: translateX(var(--stack-x, 0px)) rotate(var(--stack-r, 0deg)) scale(0.96);
+  .hcar__slides {
+    display: grid;
+    touch-action: pan-y;
+    /* The parked slide sits 12% off to the side; clip sideways only so it never widens the page and the glow keeps its vertical bleed.
+       The clip edge sits one gutter out (where supported) so floating cards may overhang the column. */
+    overflow-x: clip;
+    overflow-y: visible;
+    overflow-clip-margin: var(--gutter);
+  }
+  .hcar__slide {
+    grid-area: 1 / 1;
     transition:
-      transform 500ms var(--ease-out),
-      box-shadow 500ms var(--ease-out);
-    transition-delay: calc(var(--i) * 80ms);
-    will-change: transform;
+      transform 600ms var(--ease-out),
+      opacity 500ms var(--ease-out),
+      visibility 0s linear 600ms;
   }
-  .deck[data-fanned='true'] .deck__card {
-    transform: translateX(calc(var(--k) * var(--deck-step))) rotate(var(--fan-r)) scale(1);
-  }
-  .deck__card:hover,
-  .deck__card:focus-within {
-    transition-delay: 0ms;
-    transform: translateX(calc(var(--k) * var(--deck-step))) rotate(0deg) translateY(-18px) scale(1.04);
-    z-index: 10;
-  }
-  .deck__label {
-    margin-top: 12px;
-    text-align: center;
-    font-size: var(--text-sm);
-    font-weight: var(--weight-semibold);
-    opacity: 0;
-    transition: opacity 300ms;
-    transition-delay: calc(var(--i) * 80ms + 300ms);
-  }
-  .deck[data-fanned='true'] .deck__label {
+  .hcar__slide[data-state='active'] {
+    transform: none;
     opacity: 1;
+    visibility: visible;
+    transition-delay: 0s, 0s, 0s;
   }
-  @media (max-width: 900px) {
-    .deck {
-      height: auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-    .deck__card {
-      position: static;
-      width: auto;
-      margin: 0;
-      transform: none !important;
-    }
-    .deck__label {
-      opacity: 1;
-    }
+  .hcar__slide[data-state='prev'] {
+    transform: translateX(-12%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
   }
-  @media (max-width: 560px) {
-    .deck {
-      grid-template-columns: 1fr;
-      max-width: 300px;
+  .hcar__slide[data-state='next'] {
+    transform: translateX(12%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .hcar__controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 28px;
+  }
+  @media (min-width: 1024px) {
+    .hcar__controls {
+      justify-content: flex-start;
     }
   }
 
-  /* Use-case fan: a snap strip on phones, a spread of tilted cards on desktop. */
-  .fanstrip {
-    display: flex;
-    gap: 16px;
-    margin: 0;
-    padding: 8px 4px 16px;
+  /* Three CSS cards fanned for the NFC slide; photographs replace them (C3). */
+  .cardfan {
+    position: relative;
+    width: min(100%, 420px);
+    aspect-ratio: 1 / 1;
+    margin-inline: auto;
+  }
+  .cardfan__card {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 72%;
+    transform: translate(-50%, -50%) translateY(var(--y, 0px)) rotate(var(--r, 0deg));
+    transition: transform 500ms var(--ease-out);
+  }
+  .cardfan__card .nfc {
+    transform: none;
+  }
+  .cardfan__card .nfc:hover,
+  .cardfan__card .nfc:focus-within {
+    transform: translateY(-6px);
+  }
+  .cardfan__card--1 {
+    --y: -32%;
+    --r: -8deg;
+    z-index: 1;
+  }
+  .cardfan__card--2 {
+    --y: 0%;
+    --r: 0deg;
+    z-index: 3;
+  }
+  .cardfan__card--3 {
+    --y: 32%;
+    --r: 8deg;
+    z-index: 2;
+  }
+  .cardfan:hover .cardfan__card--1 {
+    --y: -40%;
+  }
+  .cardfan:hover .cardfan__card--3 {
+    --y: 40%;
+  }
+
+  /* Stage flow (D17): three stage screens joined by a rail; one lit at a time, the rail filling towards the next. */
+  .flow__stages {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    max-width: 960px;
+    margin-inline: auto;
+    padding: 0;
     list-style: none;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
   }
-  .fanstrip::-webkit-scrollbar {
-    display: none;
-  }
-  .fanstrip:focus-visible {
-    outline: 2px solid var(--brand-coral);
-    outline-offset: 4px;
-    border-radius: 12px;
-  }
-  .fanstrip__item {
-    flex: 0 0 min(320px, 84vw);
-    scroll-snap-align: center;
+  .flow__stage {
+    position: relative;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
   }
-  .fanstrip__item > * {
-    width: 100%;
+  .flow__phone {
+    width: min(100%, 220px);
+    cursor: pointer;
+    border-radius: 12% / 6%;
+    transform: scale(0.92);
+    opacity: 0.72;
+    transition:
+      transform 500ms var(--ease-out),
+      opacity 500ms var(--ease-out),
+      filter 500ms var(--ease-out);
+    filter: saturate(0.8);
   }
-  @media (min-width: 1024px) {
-    .fanstrip {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
+  .flow__stage[data-state='active'] .flow__phone {
+    transform: scale(1);
+    opacity: 1;
+    filter: none;
+  }
+  .flow__stage[data-state='active'] .flow__phone::after {
+    content: '';
+    position: absolute;
+    inset: -6%;
+    border-radius: inherit;
+    background: radial-gradient(closest-side, color-mix(in srgb, var(--brand-crimson) 34%, transparent), transparent);
+    z-index: -1;
+    pointer-events: none;
+  }
+  .flow__phone {
+    position: relative;
+    isolation: isolate;
+  }
+  .flow__seg {
+    position: absolute;
+    top: 45%;
+    left: calc(50% + min(50%, 110px) + 4px);
+    right: calc(-50% + min(50%, 110px) + 4px - 24px);
+    height: 2px;
+    background: var(--color-line-strong);
+    border-radius: 2px;
+    overflow: hidden;
+    z-index: 2;
+  }
+  .flow__seg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-brand);
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+  .flow__seg[data-state='done']::before {
+    transform: scaleX(1);
+  }
+  .flow__seg[data-state='filling']::before {
+    animation: flow-fill var(--dur, 3600ms) linear forwards;
+  }
+  @keyframes flow-fill {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+  .flow__label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: var(--radius-lg);
+    border: 1px solid transparent;
+    background: transparent;
+    font: inherit;
+    color: var(--color-text);
+    text-align: left;
+    cursor: pointer;
+    transition:
+      background-color 200ms,
+      border-color 200ms;
+  }
+  .flow__label:hover {
+    background: var(--color-surface);
+  }
+  .flow__label[aria-pressed='true'] {
+    background: var(--color-surface);
+    border-color: var(--color-line-strong);
+  }
+  .flow__num {
+    display: inline-grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    flex: none;
+    border-radius: 50%;
+    border: 1px solid var(--color-line-strong);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    transition:
+      background-color 300ms,
+      border-color 300ms;
+  }
+  .flow__label[aria-pressed='true'] .flow__num {
+    background: var(--brand-crimson);
+    border-color: transparent;
+    color: #fff;
+  }
+  html[data-motion='on'] .flow[data-in='false'] .flow__stage {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  html[data-motion='on'] .flow__stage {
+    transition:
+      opacity 500ms var(--ease-out),
+      transform 500ms var(--ease-out);
+    transition-delay: calc(var(--i) * 120ms);
+  }
+  @media (max-width: 720px) {
+    .flow__stages {
+      display: flex;
       gap: 16px;
-      overflow: visible;
-      padding: 24px 0 8px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      padding: 8px 4px 12px;
+      -webkit-overflow-scrolling: touch;
     }
-    .fanstrip__item {
-      flex: initial;
-      transition: transform 450ms var(--ease-out);
+    .flow__stages::-webkit-scrollbar {
+      display: none;
     }
-    html[data-motion='on'] .fanstrip[data-in='false'] .fanstrip__item {
-      transform: translateY(24px) rotate(calc(var(--i) * 2deg));
-      opacity: 0;
+    .flow__stage {
+      flex: 0 0 min(240px, 76vw);
+      scroll-snap-align: center;
     }
-    html[data-motion='on'] .fanstrip[data-in='true'] .fanstrip__item {
-      transform: rotate(calc(var(--i) * 1.5deg)) translateY(calc(var(--i) * var(--i) * 6px));
-      transition-delay: calc((var(--i) + 2) * 80ms);
+    .flow__seg {
+      display: none;
     }
-    html[data-motion='on'] .fanstrip__item:hover,
-    html[data-motion='on'] .fanstrip__item:focus-within {
-      transform: rotate(0deg) translateY(-10px);
-      transition-delay: 0ms;
-      z-index: 2;
+    .flow__phone {
+      transform: none;
+      opacity: 1;
+      filter: none;
     }
   }
 
@@ -440,10 +573,11 @@
   }
 }
 
-html[data-motion='off'] .deck__card,
-html[data-motion='off'] .deck__label,
+html[data-motion='off'] .hcar__slide,
+html[data-motion='off'] .flow__phone,
+html[data-motion='off'] .flow__stage,
+html[data-motion='off'] .cardfan__card,
 html[data-motion='off'] .sweep::before,
-html[data-motion='off'] .fanstrip__item,
 html[data-motion='off'] .nfc,
 html[data-motion='off'] .nfc::after {
   transition-duration: 200ms !important;

@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Wordmark } from './Logo';
 import { G } from '@/lib/glossary';
-import { SIGN_IN_URL, START_URL } from '@/lib/site';
+import { GET_APP_URL, GET_CARD_URL, SIGN_IN_URL } from '@/lib/site';
 
 const LINKS = [
   { href: '/how-it-works', label: 'How it works' },
@@ -15,15 +15,17 @@ const LINKS = [
   { href: '/nfc-cards', label: 'NFC cards' },
   { href: '/pricing', label: 'Pricing' },
   { href: '/teams', label: 'Teams' },
+  { href: '/blogs', label: 'Blog' },
 ];
 
-/** Matches Tailwind's `lg` breakpoint, where the desktop links replace the menu button. */
-const DESKTOP = '(min-width: 1024px)';
+/** Matches Tailwind's `xl` breakpoint, where the desktop links replace the menu button (D15: two buttons need the room). */
+const DESKTOP = '(min-width: 1280px)';
 
 /**
- * The prototype's centred pill navigation: sticky, blurred, links that fill crimson on hover,
- * Sign in and Start free at the right. On phones the pill holds the wordmark and a menu button;
- * the menu closes on Escape, on navigation and when the viewport crosses the breakpoint (Grownz D31).
+ * The prototype's centred pill navigation: sticky, blurred, links that fill crimson on hover, and
+ * the two product buttons at the right: Get the App (the PRM app) and Get NFC Card (the card product).
+ * Below the desktop breakpoint the pill holds the wordmark, Get the App and a menu button; the menu
+ * closes on Escape, on navigation and when the viewport crosses the breakpoint (Grownz D31).
  */
 export function Nav() {
   const path = usePathname();
@@ -55,24 +57,27 @@ export function Nav() {
         <Link href="/" aria-label="Linkist home" className="no-underline">
           <Wordmark size={19} />
         </Link>
-        <nav aria-label="Primary" className="hidden items-center gap-0.5 lg:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-0.5 xl:flex">
           {LINKS.map((l) => (
             <Link key={l.href} href={l.href} className="nav__link" aria-current={current(l.href)}>
               {l.label}
             </Link>
           ))}
         </nav>
-        <div className="hidden items-center gap-2 lg:flex">
+        <div className="hidden items-center gap-2 xl:flex">
           <a href={SIGN_IN_URL} className="nav__link">
             {G.ctaSignIn}
           </a>
-          <a href={START_URL} className="btn btn--primary btn--sm">
-            {G.ctaPrimary}
+          <a href={GET_CARD_URL} className="btn btn--secondary btn--sm">
+            {G.ctaNfc}
+          </a>
+          <a href={GET_APP_URL} className="btn btn--primary btn--sm">
+            {G.ctaApp}
           </a>
         </div>
-        <div className="flex items-center gap-2 lg:hidden">
-          <a href={START_URL} className="btn btn--primary btn--sm">
-            {G.ctaPrimary}
+        <div className="flex items-center gap-2 xl:hidden">
+          <a href={GET_APP_URL} className="btn btn--primary btn--sm">
+            {G.ctaApp}
           </a>
           <button type="button" className="btn btn--ghost btn--sm !px-3" aria-expanded={open} aria-controls="mobile-nav" onClick={() => setOpen((v) => !v)}>
             {open ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
@@ -81,7 +86,7 @@ export function Nav() {
         </div>
       </div>
       {open ? (
-        <div id="mobile-nav" className="nav__menu lg:hidden">
+        <div id="mobile-nav" className="nav__menu xl:hidden">
           <nav aria-label="Primary mobile" className="flex flex-col">
             {LINKS.map((l) => (
               <Link key={l.href} href={l.href} className="nav__link py-3 text-lg" aria-current={current(l.href)}>
@@ -90,10 +95,13 @@ export function Nav() {
             ))}
           </nav>
           <div className="mt-4 flex flex-col gap-2">
-            <a href={START_URL} className="btn btn--primary">
-              {G.ctaPrimary}
+            <a href={GET_APP_URL} className="btn btn--primary">
+              {G.ctaApp}
             </a>
-            <a href={SIGN_IN_URL} className="btn btn--secondary">
+            <a href={GET_CARD_URL} className="btn btn--secondary">
+              {G.ctaNfc}
+            </a>
+            <a href={SIGN_IN_URL} className="btn btn--ghost">
               {G.ctaSignIn}
             </a>
           </div>

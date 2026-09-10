@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { G } from '@/lib/glossary';
-import { START_URL } from '@/lib/site';
+import { GET_APP_URL, GET_CARD_URL, START_URL } from '@/lib/site';
 
 type Variant = 'primary' | 'secondary' | 'ghost';
 type Size = 'sm' | 'md' | 'lg';
@@ -53,6 +53,24 @@ export function StartFree({ size = 'lg', variant = 'primary', className = '', la
   return (
     <Button href={START_URL} size={size} variant={variant} className={className}>
       {label ?? G.ctaPrimary}
+    </Button>
+  );
+}
+
+/** "Get the App": the PRM app's unified sign-in and registration screen (header, footer, hero). */
+export function GetApp({ size = 'md', variant = 'primary', className = '' }: { size?: Size; variant?: Variant; className?: string }) {
+  return (
+    <Button href={GET_APP_URL} size={size} variant={variant} className={className}>
+      {G.ctaApp}
+    </Button>
+  );
+}
+
+/** "Get NFC Card": the card product's sign-in (header, footer, hero). */
+export function GetCard({ size = 'md', variant = 'secondary', className = '' }: { size?: Size; variant?: Variant; className?: string }) {
+  return (
+    <Button href={GET_CARD_URL} size={size} variant={variant} className={className}>
+      {G.ctaNfc}
     </Button>
   );
 }

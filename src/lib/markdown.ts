@@ -1,6 +1,8 @@
 /**
  * A small Markdown subset for article and legal bodies: h2/h3 with anchors, paragraphs,
- * bullet and numbered lists, bold, italic, inline code, links, pipe tables and a ::note callout.
+ * bullet and numbered lists, bold, italic, inline code, links, pipe tables, images with a
+ * caption (`![alt](src "caption")`), and three fenced blocks closed by `::`: `::note` (callout),
+ * `::flow` (steps joined by arrows, one per line) and `::cards` (`Title | text` per line).
  * No dependency, no raw HTML pass-through, so content cannot inject markup.
  */
 export interface Chapter {
@@ -42,6 +44,7 @@ export function renderMarkdown(md: string): { html: string; chapters: Chapter[];
   let para: string[] = [];
   let list: { kind: 'ul' | 'ol'; items: string[] } | null = null;
   let note: string[] | null = null;
+  let block: { kind: 'flow' | 'cards'; items: string[] } | null = null;
   let table: string[][] | null = null;
   let words = 0;
 
@@ -60,11 +63,13 @@ export function renderMarkdown(md: string): { html: string; chapters: Chapter[];
       list = null;
     }
   };
+  let tables = 0;
   const flushTable = () => {
     if (table && table.length) {
       const [head, ...body] = table;
+      tables += 1;
       html.push(
-        `<div class="table-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways on small screens"><table><thead><tr>${head!.map((c) => `<th>${inline(c)}</th>`).join('')}</tr></thead><tbody>${body
+        `<div class="table-wrap" tabindex="0" role="region" aria-label="Table ${tables}, scrolls sideways on small screens"><table><thead><tr>${head!.map((c) => `<th>${inline(c)}</th>`).join('')}</tr></thead><tbody>${body
           .map((r) => `<tr>${r.map((c) => `<td>${inline(c)}</td>`).join('')}</tr>`)
           .join('')}</tbody></table></div>`,
       );
@@ -88,10 +93,41 @@ export function renderMarkdown(md: string): { html: string; chapters: Chapter[];
       } else if (line.trim()) note.push(line.trim());
       continue;
     }
+    if (block) {
+      if (line.trim() === '::') {
+        if (block.kind === 'flow') html.push(`<ol class="flow-steps" aria-label="Steps">${block.items.map((i) => `<li>${inline(i)}</li>`).join('')}</ol>`);
+        else
+          html.push(
+            `<ul class="cards">${block.items
+              .map((i) => {
+                const [title, ...rest] = i.split('|');
+                return `<li><strong>${inline((title ?? '').trim())}</strong><p>${inline(rest.join('|').trim())}</p></li>`;
+              })
+              .join('')}</ul>`,
+          );
+        words += block.items.join(' ').split(/\s+/).length;
+        block = null;
+      } else if (line.trim()) block.items.push(line.trim());
+      continue;
+    }
     if (line.trim() === '::note') {
       flushPara();
       flushList();
       note = [];
+      continue;
+    }
+    if (line.trim() === '::flow' || line.trim() === '::cards') {
+      flushPara();
+      flushList();
+      block = { kind: line.trim() === '::flow' ? 'flow' : 'cards', items: [] };
+      continue;
+    }
+    const img = /^!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)\s*$/.exec(line.trim());
+    if (img) {
+      flushPara();
+      flushList();
+      const src = /^(https?:\/\/|\/)/.test(img[2]!) ? img[2]! : '';
+      if (src) html.push(`<figure><img src="${esc(src)}" alt="${esc(img[1] ?? '')}" loading="lazy" decoding="async" />${img[3] ? `<figcaption>${inline(img[3])}</figcaption>` : ''}</figure>`);
       continue;
     }
     if (/^\|.*\|\s*$/.test(line)) {

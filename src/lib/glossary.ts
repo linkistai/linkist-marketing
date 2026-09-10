@@ -12,6 +12,8 @@ export const G = {
   headline: ['Capture Contacts.', 'Remember Context.', 'Act at the right time.'] as const,
   stages: ['Capture and share', 'Build relationships', 'Act and grow'] as const,
   ctaPrimary: 'Start free',
+  ctaApp: 'Get the App',
+  ctaNfc: 'Get NFC Card',
   ctaSignIn: 'Sign in',
   ctaSecondary: 'Explore Linkist',
   ctaTry: 'Try Linkist now',

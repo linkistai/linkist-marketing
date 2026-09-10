@@ -22,18 +22,20 @@ Never build while the dev server runs.
 | `pnpm capture:prototype` | Crop the three prototype phone screens into `public/screens/proto-*.png` (design previews). |
 | `pnpm capture:login` | One-time manual sign-in to the app and the store; saves a session for captures. |
 | `pnpm capture [names] [--public] [--all]` | Capture real screens into `public/screens` with a checksum log. |
-| `pnpm og [slug]` | Render 1200 x 630 Open Graph images with the brand fonts into `public/og`. |
+| `pnpm og [slug]` | Render 1200 x 630 Open Graph images with the brand fonts into `public/og`, one per page and one per blog post. |
+| `pnpm import:blog [slug]` | Import the articles published on linkist.ai/blogs into `content/blog` (Markdown with a JSON front matter block) and their images into `public/blog`. |
 | `pnpm review [routes] --widths 390,1440` | Full-page screenshots and a horizontal-overflow scan against a running site. |
 | `pnpm a11y [routes]` | axe-core, heading order, landmarks and a keyboard pass on every route, on the dark theme. |
 | `pnpm test`, `pnpm typecheck`, `pnpm lint` | Unit tests (tokens, markdown), TypeScript, ESLint. |
 
 ## Where things live
 
-- `src/content/*` all copy as typed data: home, plans and cards, features, use cases, help, design previews, OG pages.
+- `src/content/*` all copy as typed data: home, plans and cards, features, use cases, help, design previews, OG pages, the AI and security facts with their policy citations.
+- `content/blog/*.md` the articles imported from linkist.ai/blogs (JSON front matter, Markdown body, verbatim); `public/blog/<slug>/` their covers and figures.
 - `src/components/*` the component library; `src/motion/*` motion primitives; `src/styles/*` tokens, interactions, mini mockups, extras.
 - `src/lib/site.ts` URLs and `pageMeta()`; `src/lib/glossary.ts` product vocabulary; `src/lib/screens.ts` build-time resolvers for captures and generated assets.
 - `captures/` capture manifest, README and logs. `docs/` audit, checkpoint reports, decision log, confirm list, sitemap, image plan.
 
 ## Truth rules
 
-Every claim traces to `docs/01-audit.md`. Every product image is a real capture, a labelled design preview or a labelled pending frame. No em dashes, British English, numbers as digits. Compliance words appear only with evidence.
+Every claim traces to `docs/01-audit.md`. Every product image is a real capture, a labelled design preview or a labelled pending frame. No em dashes, British English, numbers as digits. Compliance words appear only with evidence. The imported blog articles are the authors' text as published and sit outside the em-dash rule (D18).

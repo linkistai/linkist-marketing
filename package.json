@@ -22,6 +22,7 @@
     "capture:all": "pnpm capture && pnpm og && pnpm build && vercel deploy --prod --yes",
     "review": "tsx scripts/review.ts",
     "og": "tsx scripts/og.ts",
+    "import:blog": "tsx scripts/import-blog.ts",
     "a11y": "tsx scripts/a11y.ts",
     "test": "vitest run"
   },

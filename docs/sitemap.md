@@ -6,7 +6,7 @@ Changes from the brief's section 4 are marked. Every page: one job, one primary 
 
 | Route | Job | Hero screen | Status | Change from brief |
 | --- | --- | --- | --- | --- |
-| `/` | Explain Linkist in 30 seconds and send people to Start free | Prototype home screen (design preview) until the real home capture | Built | Sections in the prototype's order. The use cases are a fan of five cards linking to their pages; the comparison table lives on `/pricing#compare`. |
+| `/` | Explain Linkist in 30 seconds and send people to Get the App or Get NFC Card | Prototype home screen (design preview) until the real home capture; CSS cards on the NFC slide | Built | Sections in the prototype's order, with a two-slide hero (D17), the intent chips inside "How Linkist works", and the use cases in a three-plus-two grid; the comparison table lives on `/pricing#compare`. |
 | `/how-it-works` | The three stages in depth, one screen and one mini mockup per stage | Share, profile and home previews | Built | None |
 | `/features` | Hub, one card per family | Objects and mini mockups | Built | Five families: Capture, Find, Act, Profiles and cards, Teams. |
 | `/features/capture`, `/find`, `/act`, `/profiles`, `/teams` | Sticky feature tabs, chips, FAQ | Preview in the hero, pending captures in the tabs | Built | None |
@@ -17,8 +17,8 @@ Changes from the brief's section 4 are marked. Every page: one job, one primary 
 | `/founders-circle` | The offer, if still running | | Not built | Pending C7 (offer status). |
 | `/pricing` | Four plans, comparison table, cards, bundles, billing FAQ | | Built | The USD/AED switch applies to cards; plan prices are USD until C5 is answered. |
 | `/teams` | The Team plan for companies | Team mini mockup | Built | Enterprise is an interest route (mailto) until a contact page exists. |
-| `/ai` | What the AI does, sees, stores; how to switch it off | | Not built | Pending C8 (AI provider and data handling). |
-| `/security` | Trust page | | Not built | Pending C9 (hosting, encryption, access, deletion, sub-processors). |
+| `/ai` | What the AI does, reads, keeps; how to switch it off | Home preview | Built | Written from the published policy and terms with citations (D19); provider, region and credits listed as not published (C8). |
+| `/security` | Trust page for a sceptical reader | At-a-glance card | Built | The policy's controls, providers by category, retention, rights, transfers and a "not published yet" list (D19, C9). |
 | `/customers` | Honest proof page | | Not built | Pending C10 (founder story, design-partner invitation). |
 | `/about` | RatioX Labs, the idea of a PRM, the team, contact | | Not built | Pending C10. |
 
@@ -26,7 +26,8 @@ Changes from the brief's section 4 are marked. Every page: one job, one primary 
 
 | Route | Job | Status |
 | --- | --- | --- |
-| `/learn`, `/learn/[slug]` | Ten launch articles | Checkpoint 5 |
+| `/blogs`, `/blogs/[slug]` | The seven articles published on linkist.ai/blogs, imported verbatim at their existing addresses; `/learn` redirects here (D18) | Built |
+| `/learn`, `/learn/[slug]` | Ten launch articles written from the product | Checkpoint 5, to be added to the blog |
 | `/help` | Twelve categories, instant search, 80 to 120 Q&As | Checkpoint 5; the starter corpus (48 entries) already powers the assistant widget |
 | `/chat` | Full-page assistant | Checkpoint 5; the floating widget is live on every page |
 | `/changelog`, `/contact`, `/community` | | Checkpoint 5 and 6; the community sign-up lives on the home page at `/#community` for now |
@@ -37,6 +38,6 @@ Terms, Privacy, Cookie Policy, Acceptable Use, Refund and Shipping, Sub-processo
 
 ## Utility
 
-`/404` (built), `/500` (built), `/sitemap.xml`, `/robots.txt`, `/llms.txt`, `/manifest.webmanifest`, favicons and app icons (built), `/app`, `/sign-in` and `/start` redirect to the app (built).
+`/404` (built), `/500` (built), `/sitemap.xml`, `/robots.txt`, `/llms.txt`, `/manifest.webmanifest`, favicons and app icons (built), `/app`, `/sign-in` and `/start` redirect to the PRM app's unified screen, `/get-card` to the card product's sign-in, `/learn` and `/blog` to `/blogs` (built).
 
-Total today: 18 prerendered public routes plus 4 API routes (`/api/lead`, `/api/subscribe`, `/api/community`, `/api/chat`).
+Total today: 28 prerendered public routes plus 4 API routes (`/api/lead`, `/api/subscribe`, `/api/community`, `/api/chat`).
