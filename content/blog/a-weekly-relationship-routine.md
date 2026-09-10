@@ -12,6 +12,7 @@
   "image": "",
   "cover": "/blog/a-weekly-relationship-routine/cover.jpg",
   "coverAlt": "Title card: A weekly relationship routine that takes 20 minutes",
+  "coverKind": "card",
   "source": "Written from the product for the Linkist website, checkpoint 5",
   "imported": "2026-09-10",
   "faq": [

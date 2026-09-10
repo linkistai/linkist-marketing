@@ -12,6 +12,7 @@
   "image": "",
   "cover": "/blog/keeping-relationships-when-people-leave/cover.jpg",
   "coverAlt": "Title card: Keeping relationships when people leave",
+  "coverKind": "card",
   "source": "Written from the product for the Linkist website, checkpoint 5",
   "imported": "2026-09-10",
   "faq": [

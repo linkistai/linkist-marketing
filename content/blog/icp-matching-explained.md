@@ -12,6 +12,7 @@
   "image": "",
   "cover": "/blog/icp-matching-explained/cover.jpg",
   "coverAlt": "Title card: ICP Matching, explained",
+  "coverKind": "card",
   "source": "Written from the product for the Linkist website, checkpoint 5",
   "imported": "2026-09-10",
   "faq": [

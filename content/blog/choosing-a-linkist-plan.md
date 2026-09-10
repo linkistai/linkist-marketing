@@ -12,6 +12,7 @@
   "image": "",
   "cover": "/blog/choosing-a-linkist-plan/cover.jpg",
   "coverAlt": "Title card: Choosing between Essential, Enhanced, Pro and Team",
+  "coverKind": "card",
   "source": "Written from the product for the Linkist website, checkpoint 5",
   "imported": "2026-09-10",
   "faq": [

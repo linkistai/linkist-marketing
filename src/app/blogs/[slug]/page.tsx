@@ -74,9 +74,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               <AuthorRow author={post.author} dateLabel={`Updated ${post.dateLabel}`} minutes={post.minutes} size="md" />
             </div>
           </header>
-          <figure className="relative mt-10 aspect-[16/9] w-full overflow-hidden rounded-3xl border border-line">
-            <Image src={post.cover} alt={post.coverAlt} fill priority sizes="(max-width: 1280px) 100vw, 1280px" style={{ objectFit: 'cover' }} />
-          </figure>
+          {post.coverKind === 'card' ? null : (
+            <figure className="relative mt-10 aspect-[16/9] w-full overflow-hidden rounded-3xl border border-line">
+              <Image src={post.cover} alt={post.coverAlt} fill priority sizes="(max-width: 1280px) 100vw, 1280px" style={{ objectFit: 'cover' }} />
+            </figure>
+          )}
         </div>
       </section>
 

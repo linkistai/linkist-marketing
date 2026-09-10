@@ -209,6 +209,7 @@ async function main() {
       ...post,
       cover: `/blog/${post.slug}/cover.jpg`,
       coverAlt: post.title,
+      coverKind: 'photo',
       source: url,
       imported: today,
       faq: got.faqs,

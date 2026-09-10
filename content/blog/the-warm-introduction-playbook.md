@@ -12,6 +12,7 @@
   "image": "",
   "cover": "/blog/the-warm-introduction-playbook/cover.jpg",
   "coverAlt": "Title card: The warm-introduction playbook",
+  "coverKind": "card",
   "source": "Written from the product for the Linkist website, checkpoint 5",
   "imported": "2026-09-10",
   "faq": [

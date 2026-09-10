@@ -12,6 +12,7 @@
   "image": "",
   "cover": "/blog/what-linkist-ai-does-with-your-contacts/cover.jpg",
   "coverAlt": "Title card: What Linkist's AI does with your contacts, and how to switch it off",
+  "coverKind": "card",
   "source": "Written from the privacy policy and terms of 1 June 2026 for the Linkist website, checkpoint 5",
   "imported": "2026-09-10",
   "faq": [

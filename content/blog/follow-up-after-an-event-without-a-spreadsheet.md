@@ -12,6 +12,7 @@
   "image": "",
   "cover": "/blog/follow-up-after-an-event-without-a-spreadsheet/cover.jpg",
   "coverAlt": "Title card: How to follow up after an event without a spreadsheet",
+  "coverKind": "card",
   "source": "Written from the product for the Linkist website, checkpoint 5",
   "imported": "2026-09-10",
   "faq": [

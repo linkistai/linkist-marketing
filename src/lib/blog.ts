@@ -27,6 +27,8 @@ export interface BlogPost {
   readonly readTime: number;
   readonly cover: string;
   readonly coverAlt: string;
+  /** A photograph, or a title card rendered from the tokens (D20); article pages skip the latter. */
+  readonly coverKind?: 'photo' | 'card';
   readonly source: string;
   readonly imported: string;
   readonly faq: readonly BlogFaq[];

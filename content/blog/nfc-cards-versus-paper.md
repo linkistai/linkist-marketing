@@ -12,6 +12,7 @@
   "image": "",
   "cover": "/blog/nfc-cards-versus-paper/cover.jpg",
   "coverAlt": "Title card: NFC cards versus paper, what actually changes",
+  "coverKind": "card",
   "source": "Written from the product for the Linkist website, checkpoint 5",
   "imported": "2026-09-10",
   "faq": [

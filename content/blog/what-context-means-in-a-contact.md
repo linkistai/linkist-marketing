@@ -12,6 +12,7 @@
   "image": "",
   "cover": "/blog/what-context-means-in-a-contact/cover.jpg",
   "coverAlt": "Title card: Context, the part of a contact a phone book cannot hold",
+  "coverKind": "card",
   "source": "Written from the product for the Linkist website, checkpoint 5",
   "imported": "2026-09-10",
   "faq": [

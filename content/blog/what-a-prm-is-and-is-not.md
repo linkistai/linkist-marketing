@@ -12,6 +12,7 @@
   "image": "",
   "cover": "/blog/what-a-prm-is-and-is-not/cover.jpg",
   "coverAlt": "Title card: What a PRM is, and what it is not",
+  "coverKind": "card",
   "source": "Written from the product for the Linkist website, checkpoint 5",
   "imported": "2026-09-10",
   "faq": [
