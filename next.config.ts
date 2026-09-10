@@ -41,9 +41,19 @@ const nextConfig: NextConfig = {
     // The only integration with the product (brief, scope): Start free, Sign in and Get the App land
     // on the PRM app's unified screen ("Sign in or create your account"); Get NFC Card lands on the
     // card product's sign-in (D15). The brief's /learn path lives at /blogs, the old site's URL (D18).
-    const app = (process.env['NEXT_PUBLIC_APP_URL'] ?? 'https://prm.linkist.ai').replace(/\/$/, '');
-    const appAuth = process.env['NEXT_PUBLIC_GET_APP_URL'] ?? `${app}/UnifiedAuth`;
-    const card = process.env['NEXT_PUBLIC_GET_CARD_URL'] ?? `${(process.env['NEXT_PUBLIC_CARD_APP_URL'] ?? 'https://m.linkist.ai').replace(/\/$/, '')}/login`;
+    // Empty or unparsable values fall back, as in src/lib/site.ts (a dashboard can hold an empty variable).
+    const url = (value: string | undefined, fallback: string) => {
+      const v = (value ?? '').trim();
+      try {
+        if (/^https?:$/.test(new URL(v).protocol)) return v.replace(/\/$/, '');
+      } catch {
+        /* fall through */
+      }
+      return fallback.replace(/\/$/, '');
+    };
+    const app = url(process.env['NEXT_PUBLIC_APP_URL'], 'https://prm.linkist.ai');
+    const appAuth = url(process.env['NEXT_PUBLIC_GET_APP_URL'], `${app}/UnifiedAuth`);
+    const card = url(process.env['NEXT_PUBLIC_GET_CARD_URL'], `${url(process.env['NEXT_PUBLIC_CARD_APP_URL'], 'https://m.linkist.ai')}/login`);
     return [
       { source: '/app', destination: appAuth, permanent: false },
       { source: '/sign-in', destination: appAuth, permanent: false },

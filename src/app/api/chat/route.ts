@@ -31,7 +31,7 @@ export async function POST(req: Request) {
       method: 'POST',
       headers: { 'content-type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01' },
       body: JSON.stringify({
-        model: process.env['ANTHROPIC_MODEL'] ?? 'claude-haiku-4-5-20251001',
+        model: process.env['ANTHROPIC_MODEL']?.trim() || 'claude-haiku-4-5-20251001',
         max_tokens: 300,
         system,
         messages: [{ role: 'user', content: `Context:\n${context.map((c) => `Q: ${c.q}\nA: ${c.a}`).join('\n\n')}\n\nQuestion: ${question}` }],
