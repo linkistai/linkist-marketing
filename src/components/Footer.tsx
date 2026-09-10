@@ -42,8 +42,11 @@ const COLUMNS: { title: string; links: { href: string; label: string; external?:
     links: [
       { href: SIGN_IN_URL, label: 'Sign in', external: true },
       { href: '/blogs', label: 'Blog' },
+      { href: '/help', label: 'Help centre' },
+      { href: '/chat', label: 'Ask the assistant' },
+      { href: '/changelog', label: 'Changelog' },
+      { href: '/community', label: 'Community' },
       { href: '/security', label: 'Security' },
-      { href: '/#community', label: 'Community' },
       { href: SUPPORT_EMAIL ? `mailto:${SUPPORT_EMAIL}` : 'mailto:support@linkist.ai', label: 'Support', external: true },
       { href: EXTERNAL_PRIVACY_URL, label: 'Privacy', external: true },
       { href: EXTERNAL_TERMS_URL, label: 'Terms', external: true },

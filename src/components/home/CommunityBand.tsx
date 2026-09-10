@@ -1,3 +1,4 @@
+import { TextLink } from '@/components/Button';
 import { Newsletter } from '@/components/forms/Newsletter';
 import { COMMUNITY } from '@/content/home';
 
@@ -11,6 +12,9 @@ export function CommunityBand() {
             <p className="eyebrow">{COMMUNITY.eyebrow}</p>
             <h2 className="display-2 mt-3 text-[28px] sm:text-[32px]">{COMMUNITY.title}</h2>
             <p className="mt-3 text-sm text-body">{COMMUNITY.body}</p>
+            <p className="mt-3 text-sm">
+              <TextLink href="/community">What members get</TextLink>
+            </p>
           </div>
           <div className="w-full max-w-md">
             <Newsletter endpoint="/api/community" label="Email address" placeholder="Email address" button="Join" note="No spam. Unsubscribe any time." large />

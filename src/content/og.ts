@@ -29,4 +29,8 @@ export const OG_PAGES: readonly OgPage[] = [
   { slug: 'ai', title: 'What the AI does. What it sees. How to switch it off.', eyebrow: 'AI and your data', screen: 'proto-home' },
   { slug: 'security', title: 'Written for a sceptical reader.', eyebrow: 'Security and trust' },
   { slug: 'blogs', title: 'Network smarter, not harder.', eyebrow: 'Linkist Insights', image: '/blog/linkedin-profile-vs-digital-identity/cover.jpg' },
+  { slug: 'help', title: 'Answers, with their sources.', eyebrow: 'Help centre' },
+  { slug: 'chat', title: 'Ask anything the help centre knows.', eyebrow: 'Ask the assistant' },
+  { slug: 'changelog', title: 'What changed, by date.', eyebrow: 'Changelog' },
+  { slug: 'community', title: 'Join the Linkist community.', eyebrow: 'Community' },
 ];

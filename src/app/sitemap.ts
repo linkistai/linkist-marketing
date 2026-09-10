@@ -20,6 +20,10 @@ export const ROUTES: readonly string[] = [
   '/security',
   '/blogs',
   ...getPosts().map((p) => `/blogs/${p.slug}`),
+  '/help',
+  '/chat',
+  '/changelog',
+  '/community',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

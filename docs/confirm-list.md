@@ -27,6 +27,8 @@ Items the site cannot decide alone. Resolved items stay here with their answer s
 | C14 | Vercel: team `bettroi-website`, project name, and the production URL for `NEXT_PUBLIC_ASSET_URL`. | Deployment and OG images. | Create the project at checkpoint 9. |
 | C15 | The imported articles keep the authors' em dashes (D18). Normalise them to the house style, or leave the published text as it is? | Rule 5 for the site's own copy; the blog is the authors' voice. | Leave as published unless the authors agree to an edit; one pass over `content/blog` does it. |
 | C16 | The terms of service (7) say prices are displayed in USD unless otherwise stated; the store shows AED with an approximate dollar figure. Which is the billing currency? Folded into C5. | Pricing and the legal hub's refund and shipping document. | As C5. |
+| C17 | Product release notes: does the team keep any (dates, what shipped)? The changelog carries only dated public events until then (D22). | `/changelog`, the community emails. | Send a list, even rough, and it goes on the timeline under a Product tag. |
+| C18 | The articles written in-house (D20) carry title-card covers. Approve them as they are, or fund photographs under C4? | `/blogs` cards and the Open Graph images of those ten posts. | Keep the title cards; they are honest and consistent. |
 
 ## Resolved by the walk-through
 

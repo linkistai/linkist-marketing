@@ -92,15 +92,18 @@ export function search(query: string, limit = 3): KnowledgeHit[] {
   if (!qt.length) return [];
   const hits: KnowledgeHit[] = [];
   for (const entry of CORPUS) {
+    // Questions match with synonyms; answers match on their own words only, otherwise a long
+    // answer that mentions "card" once outranks the question that is actually about cards.
     const qTok = new Set(tokens(entry.q));
-    const aTok = new Set(tokens(entry.a));
+    const aTok = new Set(rawTokens(entry.a));
     let score = 0;
     for (const t of qt) {
       if (qTok.has(t)) score += 3;
       else if (aTok.has(t)) score += 1;
       if (entry.q.toLowerCase().includes(query.toLowerCase().trim()) && query.trim().length > 6) score += 4;
     }
-    if (score > 0) hits.push({ entry, score: score / Math.sqrt(qTok.size + 1) });
+    // A question made only of stop words ("What is Linkist?") gets no free pass on the divisor.
+    if (score > 0) hits.push({ entry, score: score / Math.sqrt(Math.max(qTok.size, 3) + 1) });
   }
   return hits
     .filter((h) => h.score >= MIN_SCORE)

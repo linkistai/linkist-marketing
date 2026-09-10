@@ -23,6 +23,7 @@
     "review": "tsx scripts/review.ts",
     "og": "tsx scripts/og.ts",
     "import:blog": "tsx scripts/import-blog.ts",
+    "covers": "tsx scripts/covers.ts",
     "a11y": "tsx scripts/a11y.ts",
     "test": "vitest run"
   },

@@ -27,10 +27,12 @@ Changes from the brief's section 4 are marked. Every page: one job, one primary 
 | Route | Job | Status |
 | --- | --- | --- |
 | `/blogs`, `/blogs/[slug]` | The seven articles published on linkist.ai/blogs, imported verbatim at their existing addresses; `/learn` redirects here (D18) | Built |
-| `/learn`, `/learn/[slug]` | Ten launch articles written from the product | Checkpoint 5, to be added to the blog |
-| `/help` | Twelve categories, instant search, 80 to 120 Q&As | Checkpoint 5; the starter corpus (48 entries) already powers the assistant widget |
-| `/chat` | Full-page assistant | Checkpoint 5; the floating widget is live on every page |
-| `/changelog`, `/contact`, `/community` | | Checkpoint 5 and 6; the community sign-up lives on the home page at `/#community` for now |
+| Ten in-house articles at `/blogs/[slug]` | Written from the product with title-card covers (D20); `/learn` redirects to `/blogs` | Built |
+| `/help` | Twelve categories, instant search, 109 Q&As with sources, a Limits category (D21) | Built |
+| `/chat` | Full-page assistant over the same corpus, suggested questions, how it answers | Built |
+| `/changelog` | Dated public events, what is in the product today, what is announced (D22) | Built |
+| `/community` | The sign-up as a page, what members get, three channels, latest reads (D23) | Built |
+| `/contact` | Support, partnerships, press, security | Checkpoint 6 |
 
 ## Legal hub `/legal`
 
@@ -40,4 +42,4 @@ Terms, Privacy, Cookie Policy, Acceptable Use, Refund and Shipping, Sub-processo
 
 `/404` (built), `/500` (built), `/sitemap.xml`, `/robots.txt`, `/llms.txt`, `/manifest.webmanifest`, favicons and app icons (built), `/app`, `/sign-in` and `/start` redirect to the PRM app's unified screen, `/get-card` to the card product's sign-in, `/learn` and `/blog` to `/blogs` (built).
 
-Total today: 28 prerendered public routes plus 4 API routes (`/api/lead`, `/api/subscribe`, `/api/community`, `/api/chat`).
+Total today: 42 prerendered public routes plus 4 API routes (`/api/lead`, `/api/subscribe`, `/api/community`, `/api/chat`).

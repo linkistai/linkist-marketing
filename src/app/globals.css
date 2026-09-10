@@ -1048,3 +1048,8 @@ html[data-motion='off'] .ftabs__screen[data-active='false'] {
 .hero-copy .display-1 {
   font-size: min(var(--display-1), 10.3cqi);
 }
+
+/* Text links on a card ground use the ink coral (5.6:1 on cards, D3); plain coral only reaches 4.2:1 there. */
+.card .link {
+  color: var(--color-accent-ink);
+}
