@@ -5,40 +5,37 @@ Date: 11 September 2026. This is the document to read first. It says where the s
 ## Where it is
 
 - **Repository**: https://github.com/linkistai/linkist-marketing, branch `main`, conventional commits, no force pushes. This folder is the repository root. Pushing needs a GitHub login with write access to the `linkistai` organisation, and a push that adds or changes anything under `.github/workflows/` needs the `workflow` scope on that login (`gh auth refresh -h github.com -s workflow`, a one-time browser step); without it GitHub rejects the whole push.
-- **Vercel**: the Linkist account (linkistai@gmail.com, scope `drmhopes-projects`, the same account that hosts m.linkist.ai), project `linkist-marketing` (id `prj_L1nVgR7MY4bvzm7VSt92AREasOAp`), created on 11 September 2026 with the environment variables below (D33). The brief named the team `bettroi-website` by mistake; a project created there that morning was deleted the same day and nothing was deployed to it. Root directory `.`, framework Next.js, install and build commands at their defaults (`pnpm install`, `next build`), Node 22.x from the `engines` field in `package.json`. No deployment yet.
-- **First production deploy**: with the Vercel CLI logged in as the Linkist account (`vercel login linkistai@gmail.com`, a one-time email step, done on this machine on 11 September), one command from this folder, about 3 minutes. The build machine's assistant session was not permitted to publish, so the owner runs it:
+- **Vercel**: the Linkist account (linkistai@gmail.com, username `linkistai-2292`, scope `vivek-chandrans-projects-e6f77bb4`, which also hosts affiliate.linkist.ai and ineverleft.linkist.ai), project `linkist-marketing` (id `prj_O5bPQncg2wyppVhOKpfRInU3arQ0`), created by the owner on 10 September 2026 and connected to the GitHub repository, so every push to `main` deploys production on its own (D33). Root directory `.`, framework Next.js, install and build commands at their defaults, Node 22.x from the `engines` field in `package.json`. The brief named the team `bettroi-website` by mistake; a project created there on 11 September was deleted the same day with nothing deployed, as was one created on a second account by an accidental login.
+- **Production**: https://linkist-marketing.vercel.app, live since 10 September, redeployed on every push. Public, served over HTTP/2, the security headers present. From the deploy of 11 September (commit after the variables below were completed) every page carries `noindex` and `robots.txt` disallows everything until launch day (D27); the deploys before it were indexable for a few hours, which search engines are unlikely to have acted on.
+- **Releasing**: push to `main`. The CLI equivalent, with the CLI logged in as the Linkist account, is:
 
   ```bash
-  vercel deploy --prod --yes --scope drmhopes-projects
+  vercel deploy --prod --yes --scope vivek-chandrans-projects-e6f77bb4
   ```
 
-  It prints the production URL (expected `https://linkist-marketing.vercel.app`; Vercel adds a suffix if that name is taken). Production deployments on this team are public; preview deployments sit behind Vercel Authentication (the team's default protection). The URL is not indexed: every page carries `noindex` and `robots.txt` disallows everything until launch day (D27).
-- **After the first deploy**, three checks and two runs, from this folder with the printed URL:
+- **Checks against production**, from this folder:
 
   ```bash
-  curl -sI https://<production-url>/ | grep -i "content-security-policy\|x-robots-tag\|strict-transport"
-  ```
-
-  ```bash
-  REVIEW_BASE_URL=https://<production-url> pnpm seo
+  REVIEW_BASE_URL=https://linkist-marketing.vercel.app pnpm seo
   ```
 
   ```bash
-  REVIEW_BASE_URL=https://<production-url> pnpm lighthouse
+  REVIEW_BASE_URL=https://linkist-marketing.vercel.app pnpm lighthouse
   ```
 
-  The SEO run reports every page as `noindex` by design until launch; everything else must be 0 problems. The Lighthouse run is the measurement of record for mobile performance (checkpoint 8 recorded the local HTTP/1.1 simulation, D32); the Lighthouse SEO category will flag the `noindex` for the same reason. Then start the Browsers job in GitHub Actions against the URL (D34), which is the Firefox pass.
+  The SEO run reports every page as `noindex` by design until launch; everything else must be 0 problems. The Lighthouse run is the measurement of record for mobile performance (checkpoint 8 recorded the local HTTP/1.1 simulation, D32); its SEO category flags the `noindex` for the same reason. The Browsers job in GitHub Actions against the URL (D34) is the Firefox pass. Results of the first runs are in the addendum at the end of this document.
 - **Local**: `pnpm build && pnpm start` on port 3200, then any of the QA scripts. Never build while a QA run is reading the server. Local QA builds that must run in WebKit over plain http use `CSP_NO_UPGRADE=true pnpm build`; the deployed build keeps `upgrade-insecure-requests`.
-- **Another Vercel project?** On 10 September the owner showed a Vercel build log for this repository failing with `Invalid URL, input: ''` (fixed the same day, `coerceUrl` in `src/lib/site.ts`). No such project exists on the Linkist account (its projects are the card product, `linkist-prod-1806` at m.linkist.ai, and `staging-linkist`), so that log came from somewhere else. If it still exists, delete it, so there is one production site.
+- **The build log of 10 September** (`Invalid URL, input: ''`, fixed the same day with `coerceUrl` in `src/lib/site.ts`) was this project's first build, before the variables existed. The card product lives on a different Vercel account (m.linkist.ai, project `linkist-prod-1806`); that is expected and nothing to merge.
 
 ## Environment checklist
 
-Set in Vercel on 11 September 2026, in production, preview and development:
+Set in Vercel (the first three by the owner on 10 September, the last two on 11 September; production and preview, the later two in development as well):
 
 | Variable | Value | Note |
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | `https://linkist.ai` | Placeholder until the domain is decided (C1). Every canonical URL, the sitemap, JSON-LD and the OG `url` follow it. |
 | `NEXT_PUBLIC_APP_URL` | `https://prm.linkist.ai` | The PRM app. Get the App, Start free and Sign in land on `/UnifiedAuth` (R8). |
+| `CAPTURE_BASE_URL` | the app | Only the capture script reads it; harmless in a deployment. |
 | `NEXT_PUBLIC_CARD_APP_URL` | `https://m.linkist.ai` | The NFC card product. Get NFC Card lands on `/login` (R8, and C21 for its DNS). |
 | `NEXT_PUBLIC_NOINDEX` | `true` | Pre-launch switch: `noindex` on every page, `robots.txt` disallows all. Remove from production on launch day; keep on preview. |
 
@@ -66,7 +63,7 @@ When C1 is answered (the root of linkist.ai, or a subdomain):
 1. Add the domain to the Vercel project (Settings, Domains) and point DNS at it as Vercel instructs. If the new site replaces the root, the current linkist.ai pages, store link and legal documents move with it; the redirects for the old paths that are known today (`/blog`, `/learn/*`, `/privacy`, `/terms`, `/choose-plan`, `/digital-business-card`, `/app`, `/sign-in`, `/start`, `/get-card`) are in `next.config.ts`. Pull the old site's sitemap first and add a redirect for any other path that had traffic.
 2. Set `NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_ASSET_URL` to the domain in production.
 3. Remove `NEXT_PUBLIC_NOINDEX` from production only.
-4. Redeploy (`vercel deploy --prod --yes --scope drmhopes-projects`, or a push once the repository is connected, C23).
+4. Redeploy: any push to `main`, or the CLI command above.
 5. Check `https://<domain>/robots.txt` allows, `https://<domain>/sitemap.xml` lists the domain with real dates, `https://<domain>/llms.txt` answers, and a shared link renders its Open Graph card.
 6. Run `REVIEW_BASE_URL=https://<domain> pnpm seo` and `pnpm lighthouse`, and the Browsers job in GitHub Actions against the domain.
 7. Submit the sitemap in Google Search Console and, if the property exists, Bing Webmaster Tools.
@@ -114,23 +111,22 @@ When C1 is answered (the root of linkist.ai, or a subdomain):
 
 ## What is not done, plainly
 
-1. **The first production deploy** is the owner's one command above. Nothing is live yet.
+1. **Launch.** The site is live on its Vercel URL with `noindex`; the domain (C1) and the launch-day steps remain.
 2. **Real product screens.** Every phone frame shows the prototype's design preview until the owner signs in once on this machine (`pnpm capture:login`, then `pnpm capture`, `pnpm og`, build, deploy; C2). The pipeline is written and tested against the store's public pages.
 3. **Photography and 3D objects** are planned and priced, not generated (C4). The slots render nothing or a token glyph until a file is delivered.
-4. **Firefox** was not run on this machine (its Playwright binary cannot spawn here). The Browsers job in `.github/workflows/qa.yml` runs it on a Linux runner against the deployed site; start it after the first deploy.
-5. **Mobile Lighthouse on HTTP/2** is measured after the first deploy; the local number is recorded with its cause (D32).
+4. **Firefox** was not run on this machine (its Playwright binary cannot spawn here). The Browsers job in `.github/workflows/qa.yml` runs it on a Linux runner against the deployed site once that workflow is pushed (it needs the `workflow` scope on the GitHub token, above).
+5. **Mobile Lighthouse on HTTP/2**: see the addendum; the local number and its cause are D32.
 6. **Forms, analytics and Turnstile** cannot be verified live until the keys exist (C12). Their off behaviour is tested.
 7. **Legal drafts** need counsel and the company details (C13, C19); the 38 placeholders above.
 8. **About and customers** wait for the founder story, team names and any customer who consents (C10, C20).
 9. **Prices** wait for the billing currency and the Team plan's yearly unit (C5, C22); the Founders Circle bundle for its status (C7).
-10. **Automatic deploys from GitHub** wait for the Vercel GitHub app on the `linkistai` organisation (C23); until then every release is the CLI command.
-11. **The domain** (C1), and with it the launch-day steps.
+10. **The domain** (C1), and with it the launch-day steps.
 
 ## First three things to do next
 
-1. Run the deploy command, then the three checks and the Lighthouse and Browsers runs against the printed URL.
-2. Answer C1 and C5, then follow the launch-day steps.
-3. Sign in once for captures (C2) and choose an image option (C4); the site fills with real screens and people on the next build.
+1. Answer C1 and C5, then follow the launch-day steps.
+2. Sign in once for captures (C2) and choose an image option (C4); the site fills with real screens and people on the next push.
+3. Grant the `workflow` scope and push the CI commit, then run the Browsers job against production for the Firefox pass.
 
 ## Runbook
 

@@ -50,10 +50,10 @@ Every claim traces to `docs/01-audit.md`. Every product image is a real capture,
 
 ## Deploy
 
-The site deploys to the Vercel project `linkist-marketing` on the Linkist account, linkistai@gmail.com (D33). Environment variables are documented in `.env.example` and, as set today, in `docs/09-handover.md`. Until the GitHub connection exists (C23), a release is one command from this folder, with the CLI logged in as that account, after the QA scripts pass:
+The site deploys to the Vercel project `linkist-marketing` on the Linkist account, linkistai@gmail.com, at https://linkist-marketing.vercel.app (D33). The project is connected to this repository, so a push to `main` is a production release; run the QA scripts first. Environment variables are documented in `.env.example` and, as set today, in `docs/09-handover.md`. The CLI equivalent of a push, with the CLI logged in as that account:
 
 ```bash
-vercel deploy --prod --yes --scope drmhopes-projects
+vercel deploy --prod --yes --scope vivek-chandrans-projects-e6f77bb4
 ```
 
 `.github/workflows/qa.yml` runs tokens, types, lint, tests, spelling and a build on every push, and on demand the browser pass (Chromium, Firefox, WebKit, iPhone and Pixel) against a deployed site. Launch day, step by step, is in the handover document.
