@@ -16,7 +16,7 @@ import { object, person, screen } from '@/lib/screens';
 import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
-  'How Linkist works: capture and share, build relationships, act and grow',
+  'How Linkist works: capture, build, act',
   'The three-stage journey in depth. Capture the people you meet with their context, find the ones worth your attention, and know what to do next, each stage on a real screen.',
   '/how-it-works',
   { image: '/og/how-it-works.png' },

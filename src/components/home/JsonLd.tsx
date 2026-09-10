@@ -1,18 +1,30 @@
+import { CHANNELS } from '@/content/community';
+import { SUPPORT } from '@/content/company';
 import { CARD_TIERS, MATERIALS, PLANS } from '@/content/plans';
-import { COMPANY, SITE_URL } from '@/lib/site';
+import { COMPANY, SITE_URL, absoluteAsset } from '@/lib/site';
 
-/** Organization, SoftwareApplication with one offer per plan in USD, and a Product per card tier with an offer per material. */
+/** Organization (with the published channels and support address), WebSite, SoftwareApplication with one offer per plan in USD, and a Product per card tier with an offer per material. */
 export function HomeJsonLd() {
   const data = [
     {
       '@context': 'https://schema.org',
       '@type': 'Organization',
+      '@id': `${SITE_URL}/#organization`,
       name: 'Linkist',
       legalName: COMPANY,
       url: SITE_URL,
-      logo: `${SITE_URL}/icon-512.png`,
+      logo: absoluteAsset('/icon-512.png'),
       address: { '@type': 'PostalAddress', streetAddress: 'Dubai South Business Park, Building A3, 3rd Floor', addressLocality: 'Dubai South', addressRegion: 'Dubai', addressCountry: 'AE' },
-      sameAs: ['https://linkist.ai', 'https://prm.linkist.ai'],
+      contactPoint: [{ '@type': 'ContactPoint', contactType: 'customer support', email: SUPPORT, availableLanguage: 'en' }],
+      sameAs: ['https://linkist.ai', 'https://prm.linkist.ai', ...CHANNELS.map((c) => c.href)],
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'Linkist',
+      url: SITE_URL,
+      publisher: { '@id': `${SITE_URL}/#organization` },
+      inLanguage: 'en-GB',
     },
     {
       '@context': 'https://schema.org',

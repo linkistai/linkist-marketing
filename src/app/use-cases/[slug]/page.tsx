@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const u = useCaseBySlug(slug);
   if (!u) return {};
-  return pageMeta(u.title, u.description, `/use-cases/${u.slug}`, { image: '/og/use-cases.png' });
+  return pageMeta(`Use case: ${u.short}`, u.description, `/use-cases/${u.slug}`, { image: '/og/use-cases.png' });
 }
 
 export default async function UseCasePage({ params }: { params: Promise<{ slug: string }> }) {

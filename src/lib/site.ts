@@ -44,6 +44,11 @@ export const START_URL = GET_APP_URL;
 const vercelHost = envString(process.env['VERCEL_PROJECT_PRODUCTION_URL']);
 export const ASSET_URL = coerceUrl(process.env['NEXT_PUBLIC_ASSET_URL'], vercelHost ? `https://${vercelHost}` : SITE_URL);
 export const absoluteAsset = (path: string): string => (path.startsWith('http') ? path : `${ASSET_URL}${path}`);
+/**
+ * Set NEXT_PUBLIC_NOINDEX=true on a preview or on a deployment whose host is not yet the real
+ * domain: every page then carries noindex and robots.txt disallows everything (D27).
+ */
+export const NOINDEX_SITE = /^(1|true|yes)$/i.test((process.env['NEXT_PUBLIC_NOINDEX'] ?? '').trim());
 /** Dark ships by default (brief, Design system). Light is the backup theme. */
 export const THEME: 'dark' | 'light' = process.env['NEXT_PUBLIC_THEME'] === 'light' ? 'light' : 'dark';
 export const SITE_NAME = 'Linkist';
@@ -66,8 +71,23 @@ export interface PageMetaOptions {
   readonly locale?: string;
 }
 
+/**
+ * Search results show about 160 characters of a description. Longer ones are cut at the last
+ * sentence end inside the limit, or at a word boundary, never mid-word and never with an ellipsis (D28).
+ */
+export function clampDescription(text: string, max = 160): string {
+  const t = text.trim().replace(/\s+/g, ' ');
+  if (t.length <= max) return t;
+  const head = t.slice(0, max + 1);
+  const sentence = Math.max(head.lastIndexOf('. '), head.lastIndexOf('! '), head.lastIndexOf('? '));
+  if (sentence >= 60) return head.slice(0, sentence + 1);
+  const space = head.lastIndexOf(' ');
+  return head.slice(0, space > 0 ? space : max).replace(/[,;:]$/, '') + '.';
+}
+
 /** Every page calls this once. Title, description, canonical, Open Graph, Twitter. */
-export function pageMeta(title: string, description: string, path: string, opts: PageMetaOptions = {}): Metadata {
+export function pageMeta(title: string, longDescription: string, path: string, opts: PageMetaOptions = {}): Metadata {
+  const description = clampDescription(longDescription);
   const url = `${SITE_URL}${path === '/' ? '' : path}`;
   const image = absoluteAsset(opts.image ?? '/og/default.png');
   const fullTitle = path === '/' ? `${SITE_NAME}: ${title}` : `${title} | ${SITE_NAME}`;
@@ -76,7 +96,7 @@ export function pageMeta(title: string, description: string, path: string, opts:
     description,
     metadataBase: new URL(SITE_URL),
     alternates: { canonical: url },
-    robots: opts.noindex ? { index: false, follow: false } : { index: true, follow: true },
+    robots: opts.noindex || NOINDEX_SITE ? { index: false, follow: !opts.noindex } : { index: true, follow: true },
     openGraph: {
       type: opts.type ?? 'website',
       siteName: SITE_NAME,

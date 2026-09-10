@@ -26,6 +26,9 @@ Never build while the dev server runs.
 | `pnpm import:blog [slug]` | Import the articles published on linkist.ai/blogs into `content/blog` (Markdown with a JSON front matter block) and their images into `public/blog`. |
 | `pnpm review [routes] --widths 390,1440` | Full-page screenshots and a horizontal-overflow scan against a running site. |
 | `pnpm a11y [routes]` | axe-core, heading order, landmarks and a keyboard pass on every route, on the dark theme. |
+| `pnpm seo [routes]` | Status, titles, descriptions, canonical, robots, Open Graph, H1, JSON-LD, markers, links and images on every route, plus the 404 probe, against a running site. |
+| `pnpm import:legal` | Import the published terms and privacy policy from linkist.ai into `content/legal`, verbatim. |
+| `pnpm imagery [name]` | Deliver generated masters from `public/assets/masters/<kind>/` as 1x and 2x WebP under `public/assets/<kind>/`. |
 | `pnpm test`, `pnpm typecheck`, `pnpm lint` | Unit tests (tokens, markdown), TypeScript, ESLint. |
 
 ## Where things live
