@@ -209,6 +209,39 @@ html[data-motion='off'] .section--lifted::after {
 [data-theme='light'] .section--lifted::after {
   content: none;
 }
+/*
+ * The home page's single ground (D43): one swirl fixed behind the whole page, a little more blurred
+ * than the section swirls, drifting the same way; the home sections paint no ground of their own.
+ */
+.page-swirl {
+  position: fixed;
+  inset: -14%;
+  z-index: -1;
+  background: url('/assets/backgrounds/swirl-2.webp') center / cover no-repeat;
+  filter: blur(34px) brightness(0.85) contrast(1.15);
+  mix-blend-mode: screen;
+  opacity: 0.8;
+  pointer-events: none;
+  transform: scale(1.04);
+  animation: swirl-drift 36s ease-in-out infinite alternate;
+  will-change: transform;
+}
+[data-theme='light'] .page-swirl,
+html[data-motion='off'] .page-swirl {
+  animation: none;
+}
+[data-theme='light'] .page-swirl {
+  display: none;
+}
+[data-page='home'] .section--charcoal,
+[data-page='home'] .section--lifted {
+  background: transparent;
+  overflow: visible;
+}
+[data-page='home'] .section--charcoal::after,
+[data-page='home'] .section--lifted::after {
+  content: none;
+}
 /* One radial crimson glow rising from the bottom of a section, gradient as light (prototype). */
 .section--glow {
   position: relative;

@@ -35,7 +35,9 @@ export default function HomePage() {
   }));
 
   return (
-    <>
+    <div data-page="home" className="contents">
+      {/* One swirl behind the whole page (D43); the sections paint no ground of their own here. */}
+      <div className="page-swirl" aria-hidden="true" />
       <HomeJsonLd />
       <HeroCarousel screen={screen('proto-home')} screenAlt={PROTO_ALT['proto-home']} person={person('hero-1')} />
 
@@ -122,6 +124,6 @@ export default function HomePage() {
       <CommunityBand />
 
       <ClosingBand person={person('close-1')} personAlt="A person standing with a phone in hand, smiling at the camera" />
-    </>
+    </div>
   );
 }
