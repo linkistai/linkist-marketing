@@ -153,30 +153,51 @@ video {
  * Section grounds alternate near-black, a deeper black gradient and a slightly lifted charcoal
  * (brief 5; owner, 11 September: the alternate sections go blacker, as gradients rather than flats).
  */
+/* The alternate grounds are the same black as every other section; only the swirl distinguishes them. */
 .section--charcoal,
 .section--lifted {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background: linear-gradient(180deg, #0f0f0e 0%, #0a0a09 100%);
+  background: var(--color-bg);
 }
-/* The swirl (D40): a generated fluid form in black, charcoal and silver, blurred and dimmed to a soft deformation of the ground. */
+/*
+ * The swirl (D40, D41): a generated fluid form in black, charcoal and silver, blurred, then screened onto
+ * the ground so its dark parts vanish and only the pale ribbons remain, drifting slowly. Sized by
+ * width so a tall section shows it at the same scale as a short one; masked at the top and bottom.
+ */
 .section--charcoal::after,
 .section--lifted::after {
   content: '';
   position: absolute;
-  inset: -12%;
+  inset: -14%;
   z-index: -1;
-  /* Sized by width, not cover, so a tall section shows the swirl at the same scale as a short one; the mask fades its top and bottom into the ground. */
   background: url('/assets/backgrounds/swirl-2.webp') center / 140% auto no-repeat;
-  filter: blur(22px) brightness(0.95);
-  opacity: 0.85;
+  filter: blur(22px) brightness(0.85) contrast(1.15);
+  mix-blend-mode: screen;
+  opacity: 0.8;
   -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
   mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
   pointer-events: none;
+  transform: scaleX(var(--swirl-x, 1)) translate3d(0, 0, 0) scale(1.04);
+  animation: swirl-drift 36s ease-in-out infinite alternate;
+  will-change: transform;
 }
 .section--lifted::after {
-  transform: scaleX(-1);
+  --swirl-x: -1;
+  animation-delay: -18s;
+}
+@keyframes swirl-drift {
+  0% {
+    transform: scaleX(var(--swirl-x, 1)) translate3d(-2%, -1.5%, 0) scale(1.04) rotate(-0.6deg);
+  }
+  100% {
+    transform: scaleX(var(--swirl-x, 1)) translate3d(2%, 1.5%, 0) scale(1.1) rotate(0.6deg);
+  }
+}
+html[data-motion='off'] .section--charcoal::after,
+html[data-motion='off'] .section--lifted::after {
+  animation: none;
 }
 [data-theme='light'] .section--charcoal {
   background: var(--color-paper);
