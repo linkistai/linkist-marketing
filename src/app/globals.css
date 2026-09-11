@@ -154,10 +154,17 @@ video {
  * (brief 5; owner, 11 September: the alternate sections go blacker, as gradients rather than flats).
  */
 .section--charcoal {
-  background: linear-gradient(180deg, #0f0f0e 0%, #161615 45%, #121211 100%);
+  background:
+    radial-gradient(38% 42% at 68% 40%, rgba(214, 58, 87, 0.16) 0%, rgba(214, 58, 87, 0) 70%),
+    radial-gradient(40% 50% at 30% 65%, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 70%),
+    radial-gradient(50% 60% at 60% 85%, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0) 70%),
+    linear-gradient(180deg, #0f0f0e 0%, #0a0a09 100%);
 }
 .section--lifted {
-  background: radial-gradient(120% 90% at 50% 0%, #1e1e1d 0%, #151514 60%, #0f0f0e 100%);
+  background:
+    radial-gradient(45% 55% at 25% 30%, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0) 70%),
+    radial-gradient(35% 40% at 75% 75%, rgba(214, 58, 87, 0.12) 0%, rgba(214, 58, 87, 0) 70%),
+    linear-gradient(180deg, #0e0e0d 0%, #0b0b0a 100%);
 }
 [data-theme='light'] .section--charcoal {
   background: var(--color-paper);
@@ -352,12 +359,42 @@ video {
  * stays underneath as the fallback for browsers without backdrop-filter.
  */
 .card {
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.075) 0%, rgba(255, 255, 255, 0.03) 55%, rgba(255, 255, 255, 0.015) 100%), var(--color-surface);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.035) 50%, rgba(255, 255, 255, 0.02) 100%), var(--color-surface);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-2xl);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
     var(--shadow-card);
+}
+/* Shiny corners (D39): a 1 px gradient ring bright at the top-left and bottom-right corners, and a light source in the top-left. Featured cards keep their own conic ring (.sweep). */
+.card:not(.sweep)::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.12) 28%, rgba(255, 255, 255, 0.04) 50%, rgba(255, 255, 255, 0.12) 72%, rgba(255, 255, 255, 0.5) 100%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(60% 45% at 0% 0%, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
 }
 @supports (backdrop-filter: blur(1px)) {
   .card {
@@ -372,6 +409,10 @@ video {
   box-shadow: var(--shadow-card);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
+}
+[data-theme='light'] .card::before,
+[data-theme='light'] .card::after {
+  content: none;
 }
 .card--sm {
   border-radius: var(--radius-xl);
