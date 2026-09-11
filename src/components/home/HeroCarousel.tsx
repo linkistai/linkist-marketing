@@ -101,7 +101,9 @@ export function HeroCarousel({ screen, screenAlt, person }: { screen?: string; s
   };
 
   return (
-    <section className="section pt-10 sm:pt-14">
+    <section className="hero-block">
+      {/* The swirl lives behind the hero only (D43, D44) and scrolls with it. */}
+      <div className="page-swirl" aria-hidden="true" />
       <div className="container">
         {/* The page's one H1 never hides: a parked slide is invisible to assistive technology, so the slide headings are H2s. */}
         <h1 className="sr-only">{HERO.lines.join(' ')}</h1>
@@ -146,9 +148,6 @@ export function HeroCarousel({ screen, screenAlt, person }: { screen?: string; s
           </HeroIntro>
 
           <div className="hcar__controls" data-hero-text>
-            <button type="button" className="btn btn--ghost btn--sm !h-11 !w-11 !p-0" onClick={() => go(index - 1)} aria-label="Previous slide">
-              <ChevronLeft size={18} aria-hidden="true" />
-            </button>
             <div ref={tabsRef} role="tablist" aria-label="Choose a product" className="segtabs" onKeyDown={onTabKey}>
               <span className="segtabs__pill" style={{ left: pill.left, width: pill.width }} aria-hidden="true" />
               {HERO_SLIDES.map((s, i) => (
@@ -157,6 +156,9 @@ export function HeroCarousel({ screen, screenAlt, person }: { screen?: string; s
                 </button>
               ))}
             </div>
+            <button type="button" className="btn btn--ghost btn--sm !h-11 !w-11 !p-0" onClick={() => go(index - 1)} aria-label="Previous slide">
+              <ChevronLeft size={18} aria-hidden="true" />
+            </button>
             <button type="button" className="btn btn--ghost btn--sm !h-11 !w-11 !p-0" onClick={() => go(index + 1)} aria-label="Next slide">
               <ChevronRight size={18} aria-hidden="true" />
             </button>
@@ -166,7 +168,7 @@ export function HeroCarousel({ screen, screenAlt, person }: { screen?: string; s
           </div>
         </div>
 
-        <ul className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-body sm:mt-14" aria-label="Proof points" data-reveal="fade">
+        <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-body" aria-label="Proof points" data-reveal="fade">
           {HERO.proof.map((p) => (
             <li key={p} className="flex items-center gap-2">
               <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full" style={{ background: 'var(--brand-crimson)' }} />
@@ -182,15 +184,15 @@ export function HeroCarousel({ screen, screenAlt, person }: { screen?: string; s
 /** The PRM slide: the home screen in a phone with the three floating cards, and the hero person once the image plan produces one. */
 function AppStage({ screen, alt, person, priority }: { screen?: string; alt: string; person?: string; priority?: boolean }) {
   return (
-    <div className="hero-stage relative min-h-[460px] p-2 sm:min-h-[600px] sm:p-4">
+    <div className="hero-stage relative min-h-[420px] p-2 sm:min-h-[520px] sm:p-4">
       {person ? (
-        <div className="absolute bottom-0 left-0 hidden h-[92%] w-[270px] lg:block" data-hero-card="3">
+        <div className="absolute bottom-0 left-0 hidden h-[92%] w-[240px] lg:block" data-hero-card="3">
           <Person src={person} alt="A person holding a phone with the Linkist home screen towards the camera" hero bust priority sizes="300px" />
         </div>
       ) : null}
       <div className={`relative mx-auto mt-2 max-w-[560px] ${person ? 'lg:pl-40' : ''}`}>
         <div className="flex justify-center" data-hero-card="1">
-          <div className="w-full max-w-[300px]">
+          <div className="w-full max-w-[250px]">
             <ScreenFrame kind="phone" src={screen} alt={alt} priority={priority} preview full />
           </div>
         </div>
