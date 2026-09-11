@@ -35,7 +35,7 @@ export default function HomePage() {
   }));
 
   return (
-    <div data-page="home" className="contents">
+    <div data-page="home" className="relative isolate">
       {/* One swirl behind the whole page (D43); the sections paint no ground of their own here. */}
       <div className="page-swirl" aria-hidden="true" />
       <HomeJsonLd />

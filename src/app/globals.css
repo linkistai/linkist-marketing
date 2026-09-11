@@ -213,18 +213,34 @@ html[data-motion='off'] .section--lifted::after {
  * The home page's single ground (D43): one swirl fixed behind the whole page, a little more blurred
  * than the section swirls, drifting the same way; the home sections paint no ground of their own.
  */
+[data-page='home'] {
+  /* Sideways only, so the swirl's bleed never widens the page and the glow keeps its vertical bleed. */
+  overflow-x: clip;
+  overflow-y: visible;
+}
 .page-swirl {
-  position: fixed;
-  inset: -14%;
+  position: absolute;
+  left: -8%;
+  right: -8%;
+  top: 0;
+  bottom: 0;
   z-index: -1;
-  background: url('/assets/backgrounds/swirl-2.webp') center / cover no-repeat;
+  /* Scrolls with the page: the swirl repeats down the page, every second copy mirrored so the seam is a fold, not a cut. */
+  background: url('/assets/backgrounds/swirl-2.webp') center top / 116% auto repeat-y;
   filter: blur(34px) brightness(0.85) contrast(1.15);
   mix-blend-mode: screen;
   opacity: 0.8;
   pointer-events: none;
-  transform: scale(1.04);
-  animation: swirl-drift 36s ease-in-out infinite alternate;
-  will-change: transform;
+  animation: swirl-sway 36s ease-in-out infinite alternate;
+  will-change: background-position;
+}
+@keyframes swirl-sway {
+  from {
+    background-position: 48% 0;
+  }
+  to {
+    background-position: 52% 0;
+  }
 }
 [data-theme='light'] .page-swirl,
 html[data-motion='off'] .page-swirl {
