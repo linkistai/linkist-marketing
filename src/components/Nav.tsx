@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Wordmark } from './Logo';
 import { G } from '@/lib/glossary';
-import { GET_APP_URL, GET_CARD_URL, SIGN_IN_URL } from '@/lib/site';
+import { GET_APP_URL, GET_CARD_URL } from '@/lib/site';
 
 const LINKS = [
   { href: '/how-it-works', label: 'How it works' },
@@ -65,9 +65,6 @@ export function Nav() {
           ))}
         </nav>
         <div className="hidden items-center gap-2 xl:flex">
-          <a href={SIGN_IN_URL} className="nav__link">
-            {G.ctaSignIn}
-          </a>
           <a href={GET_CARD_URL} className="btn btn--secondary btn--sm">
             {G.ctaNfc}
           </a>
@@ -100,9 +97,6 @@ export function Nav() {
             </a>
             <a href={GET_CARD_URL} className="btn btn--secondary">
               {G.ctaNfc}
-            </a>
-            <a href={SIGN_IN_URL} className="btn btn--ghost">
-              {G.ctaSignIn}
             </a>
           </div>
         </div>

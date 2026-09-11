@@ -240,6 +240,7 @@
   }
   .cardring {
     position: relative;
+    z-index: 3;
     width: min(100%, 440px);
     aspect-ratio: 1 / 1;
     margin-inline: auto;
@@ -352,29 +353,14 @@
   }
 
   /*
-   * NFC cards page (D35): the three materials as a deck. The front card lifts, turns over and
-   * slides to the rear while the others step forward; 6 s per card, one 18 s cycle. The deck
-   * tilts towards the pointer on desktop (CardDeck sets --tx and --ty).
+   * NFC cards page (D38): the three materials revolve on a ring, a full turn every 24 s, fronts and
+   * backs passing by; nothing lifts, flips or pops. The ring tilts towards the pointer on desktop
+   * (CardDeck sets --tx and --ty).
    */
-  @property --dy {
-    syntax: '<length>';
-    inherits: false;
-    initial-value: 0px;
-  }
-  @property --dz {
-    syntax: '<length>';
-    inherits: false;
-    initial-value: 0px;
-  }
-  @property --ds {
-    syntax: '<number>';
-    inherits: false;
-    initial-value: 1;
-  }
   .carddeck {
     position: relative;
     width: min(100%, 440px);
-    aspect-ratio: 1.55;
+    aspect-ratio: 1 / 1;
     margin-inline: auto;
     perspective: 1100px;
   }
@@ -382,74 +368,41 @@
     position: absolute;
     inset: 0;
     transform-style: preserve-3d;
-    transform: rotateX(calc(6deg + var(--ty, 0deg))) rotateY(var(--tx, 0deg));
+    transform: rotateX(calc(-8deg + var(--ty, 0deg))) rotateY(var(--tx, 0deg));
     transition: transform 700ms var(--ease-out);
   }
-  .carddeck__card {
+  .carddeck__ring {
     position: absolute;
     inset: 0;
     transform-style: preserve-3d;
-    transform: translate3d(0, var(--dy), var(--dz)) scale(var(--ds)) rotateY(var(--flip));
-    animation: deck-cycle 18s cubic-bezier(0.65, 0, 0.35, 1) infinite;
-    animation-delay: var(--d);
+    animation: deck-revolve 24s linear infinite;
+  }
+  .carddeck__card {
+    position: absolute;
+    left: 15%;
+    top: 50%;
+    width: 70%;
+    transform-style: preserve-3d;
+    transform: translateY(-50%) rotateY(var(--a)) translateZ(170px);
   }
   .carddeck__card--1 {
-    --d: 0s;
+    --a: 0deg;
   }
   .carddeck__card--2 {
-    --d: -6s;
-    --dy: -64px;
-    --dz: -150px;
-    --ds: 0.9;
+    --a: 120deg;
   }
   .carddeck__card--3 {
-    --d: -12s;
-    --dy: -32px;
-    --dz: -75px;
-    --ds: 0.95;
+    --a: 240deg;
   }
-  @keyframes deck-cycle {
-    0%,
-    27% {
-      --dy: 0px;
-      --dz: 0px;
-      --ds: 1;
-      --flip: 0deg;
+  @keyframes deck-revolve {
+    from {
+      transform: rotateY(0deg);
     }
-    32% {
-      --dy: -110px;
-      --dz: 150px;
-      --ds: 1.05;
-      --flip: 100deg;
-    }
-    37% {
-      --dy: -84px;
-      --dz: -60px;
-      --ds: 0.95;
-      --flip: 180deg;
-    }
-    41%,
-    60% {
-      --dy: -64px;
-      --dz: -150px;
-      --ds: 0.9;
-      --flip: 180deg;
-    }
-    66%,
-    94% {
-      --dy: -32px;
-      --dz: -75px;
-      --ds: 0.95;
-      --flip: 360deg;
-    }
-    100% {
-      --dy: 0px;
-      --dz: 0px;
-      --ds: 1;
-      --flip: 360deg;
+    to {
+      transform: rotateY(-360deg);
     }
   }
-  html[data-motion='off'] .carddeck__card {
+  html[data-motion='off'] .carddeck__ring {
     animation: none;
   }
 
