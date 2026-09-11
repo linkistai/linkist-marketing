@@ -394,6 +394,11 @@
   .carddeck__card--3 {
     --a: 240deg;
   }
+  @media (max-width: 767px) {
+    .carddeck__card {
+      transform: translateY(-50%) rotateY(var(--a)) translateZ(120px);
+    }
+  }
   @keyframes deck-revolve {
     from {
       transform: rotateY(0deg);
@@ -848,5 +853,84 @@ html[data-motion='off'] .nfc::after {
   .preview-row__item:hover {
     position: relative;
     z-index: 2;
+  }
+}
+
+@layer components {
+  /* The active stage card (D42): a lift and a deeper shadow instead of the crimson ring. */
+  .flow__card {
+    transition:
+      transform 400ms var(--ease-out),
+      box-shadow 400ms var(--ease-out);
+  }
+  .flow__card--active {
+    transform: translateY(-8px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.14),
+      var(--shadow-float);
+  }
+
+  /*
+   * An upright card (D42): the landscape render turned a quarter inside a portrait box, the mark
+   * and the name laid over it upright. Used by the hero ring.
+   */
+  .nfc-portrait {
+    position: relative;
+    aspect-ratio: 1 / 1.55;
+    width: 100%;
+    container-type: inline-size;
+  }
+  .nfc-portrait__face {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 155%;
+  }
+  /* Outranks the ring's "no transform on cards" rule, which would otherwise undo the quarter turn. */
+  .cardring .nfc-portrait__face,
+  .cardring .nfc-portrait__face:hover,
+  .nfc-portrait__face,
+  .nfc-portrait__face:hover {
+    transform: translate(-50%, -50%) rotate(90deg) !important;
+  }
+  .nfc-portrait__mark {
+    position: absolute;
+    left: 11%;
+    top: 7%;
+    width: 17%;
+    height: auto;
+  }
+  .nfc-portrait__text {
+    position: absolute;
+    left: 11%;
+    right: 11%;
+    bottom: 26%;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .nfc-portrait__text .nfc__name,
+  .nfc-portrait__text .nfc__meta {
+    position: static;
+    font-size: clamp(11px, 6.4cqw, 20px);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+  }
+  .nfc-portrait__text .nfc__meta {
+    font-size: clamp(8px, 4.2cqw, 13px);
+  }
+  /* The ring with upright cards: narrower cards, each leaning a little, the leans alternating. */
+  .cardring--portrait .cardring__card {
+    left: 31%;
+    width: 38%;
+    transform: translateY(-50%) rotateY(var(--a)) translateZ(140px) translateZ(var(--pop)) rotateX(var(--tilt)) rotateY(var(--flip)) rotateZ(var(--lean, 0deg));
+  }
+  .cardring--portrait .cardring__card--1 {
+    --lean: -6deg;
+  }
+  .cardring--portrait .cardring__card--2 {
+    --lean: 5deg;
+  }
+  .cardring--portrait .cardring__card--3 {
+    --lean: -4deg;
   }
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ChevronLeft, ChevronRight, Nfc, Target } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Target } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from 'react';
 import { GetApp, GetCard } from '@/components/Button';
 import { FloatingCard } from '@/components/FloatingCard';
@@ -208,37 +208,28 @@ function AppStage({ screen, alt, person, priority }: { screen?: string; alt: str
   );
 }
 
-/** The NFC slide: the three rendered cards on a slow 3D ring, the front one flipping and coming forward (D35), with three floating cards. */
+/** The NFC slide: the three rendered cards standing upright and angled on a slow 3D ring, the front one flipping and coming forward (D35, D42). */
 const RING: readonly Material[] = ['pvc', 'metal', 'wood'];
 function CardStage() {
   return (
     <div className="hero-stage relative flex min-h-[420px] items-center p-2 sm:min-h-[560px] sm:p-4">
       <div className="relative mx-auto w-full max-w-[560px]">
-        <div className="cardring" data-hero-card="1" aria-label="Signature cards in PVC, brushed metal and cherry wood turning on a ring, example names" role="group">
+        <div className="cardring cardring--portrait" data-hero-card="1" aria-label="Signature cards in PVC, brushed metal and cherry wood standing on a ring, example names" role="group">
           <div className="cardring__scene">
             <div className="cardring__ring">
               {RING.map((m, i) => (
                 <div key={m} className={`cardring__card cardring__card--${i + 1}`}>
                   <div className="face3d">
-                    <NfcCard material={m} tier="signature" name="Olivia Jones" meta="NYU Abu Dhabi" sizes="(min-width: 640px) 400px, 70vw" />
+                    <NfcCard material={m} tier="signature" name="Olivia Jones" meta="NYU Abu Dhabi" sizes="(min-width: 640px) 400px, 70vw" portrait />
                   </div>
                   <div className="face3d face3d--back">
-                    <NfcCardBack material={m} sizes="(min-width: 640px) 400px, 70vw" />
+                    <NfcCardBack material={m} sizes="(min-width: 640px) 400px, 70vw" portrait />
                   </div>
                 </div>
               ))}
             </div>
           </div>
         </div>
-        <FloatingCard className="absolute -left-2 top-[3%] hidden p-1 sm:block lg:-left-6" variant={1} heroIndex={2} ariaLabel="Profile opened with one tap">
-          <MetricChip live text="Profile opened with one tap" />
-        </FloatingCard>
-        <FloatingCard className="absolute bottom-[3%] right-[6%] hidden p-1 sm:block" variant={2} delay={1.1} deep heroIndex={4} ariaLabel="Contact saved to Linkist: Olivia Jones, example">
-          <MetricChip initials="OJ" text="Contact saved: Olivia Jones" example />
-        </FloatingCard>
-        <FloatingCard className="absolute -right-2 top-[12%] hidden p-1 md:block lg:-right-6" variant={1} delay={0.5} ariaLabel="Every card includes PRM Essential">
-          <MetricChip icon={Nfc} label="Included" value="PRM Essential" />
-        </FloatingCard>
       </div>
     </div>
   );

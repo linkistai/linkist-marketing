@@ -76,26 +76,26 @@ export default function NfcCardsPage() {
 
       <Section tone="charcoal" glow>
         <SectionHead eyebrow="What a tap does" title={<>One tap replaces <span className="em-coral">the whole ritual</span>.</>} lede="No fumbling, no typing, no paper that gets thrown away." center />
-        <div className="mt-12 grid items-start gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
-          <ol className="grid gap-4 sm:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.08">
+        <div className="mt-12 grid items-center gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
+          <div className="grid gap-4 sm:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.08">
             {TAP.map((t, i) => (
-              <li key={t.title} className="card card--sm p-6">
+              <div key={t.title} className="card card--sm p-6">
                 <span className="chip__icon" aria-hidden="true">
                   <t.icon size={14} />
                 </span>
                 <p className="mt-3 text-xs font-semibold uppercase tracking-[0.04em] text-muted">Step {i + 1}</p>
                 <h3 className="display-3 mt-1 text-[20px]">{t.title}</h3>
                 <p className="mt-2 text-sm text-body">{t.body}</p>
-              </li>
+              </div>
             ))}
-          </ol>
-          <div className="flex flex-col items-center gap-6" data-reveal="rise">
-            <div className="w-full max-w-[260px]">
-              <ScreenFrame kind="phone" src={screen('proto-share')} alt={PROTO_ALT['proto-share']} preview full />
-            </div>
-            <div className="card w-full max-w-sm p-5">
+            <div className="card p-5 sm:col-span-2">
               <p className="font-semibold">The tap moment</p>
               <MiniMock mock={{ kind: 'tap', label: 'A card tapping a phone, then the profile is shared' }} />
+            </div>
+          </div>
+          <div className="flex justify-center" data-reveal="rise">
+            <div className="w-full max-w-[240px]">
+              <ScreenFrame kind="phone" src={screen('proto-share')} alt={PROTO_ALT['proto-share']} preview full />
             </div>
           </div>
         </div>

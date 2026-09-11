@@ -117,7 +117,7 @@ export function StageFlow({ stages }: { stages: readonly FlowStage[] }) {
 
       <div className="mt-12 grid gap-6 lg:grid-cols-3" data-reveal="rise" data-reveal-stagger="0.08">
         {stages.map((s, i) => (
-          <article key={s.n} className={`card card--hover flex flex-col gap-4 p-7 ${i === active ? 'sweep sweep--featured' : ''}`} aria-current={i === active ? 'step' : undefined}>
+          <article key={s.n} className={`card card--hover flow__card flex flex-col gap-4 p-7 ${i === active ? 'flow__card--active' : ''}`} aria-current={i === active ? 'step' : undefined}>
             <p className="eyebrow eyebrow--accent text-[12px]">
               {s.n} · {s.label}
             </p>
