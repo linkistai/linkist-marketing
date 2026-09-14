@@ -42,7 +42,7 @@ export const PRINCIPLES: readonly { title: string; body: string; source: string 
   { title: 'Relationships, not deals', body: 'A PRM keeps the person, the context and the next action together. Contact apps store people; CRMs manage deals.', source: 'The prototype, How Linkist works' },
   { title: 'AI you switch on, and off', body: 'Every AI feature is optional, consented to separately, assistive only, and off in Privacy Settings.', source: 'Privacy policy 8, 9' },
   { title: 'Your contacts are yours', body: 'Personal contacts stay with the person; only what is shared with a team stays with the company when someone leaves.', source: 'The Team plan' },
-  { title: 'With or without a card', body: 'The free plan needs no card, every card includes PRM Essential, and a card you already own can be activated free.', source: 'The store' },
+  { title: 'With or without an NFC card', body: 'The free plan needs no NFC card, every NFC card includes PRM Essential, and an NFC card you already own can be activated free.', source: 'The store' },
   { title: 'No password', body: 'Sign in with an email or mobile number and a one-time code. Nothing to reuse, nothing to phish.', source: 'The sign-in screens' },
   { title: 'Honest about limits', body: 'A web app until the store listings exist, Enterprise as interest only, no compliance badge without evidence, no named customer without consent.', source: 'This site, section 3.9 of the brief' },
 ];
@@ -51,5 +51,5 @@ export const PRINCIPLES: readonly { title: string; body: string; source: string 
 export const TIMELINE: readonly { date: string; text: string }[] = [
   { date: 'June 2026', text: 'Privacy policy and terms of service version 1.1 published. The first three guides appear on the blog.' },
   { date: 'July 2026', text: 'Four more articles on relationship capital, AI memory, digital identity and the tap-to-follow-up flow.' },
-  { date: 'September 2026', text: 'The store lists cards in PVC, wood and metal for 16 shipping regions, bring-your-own activation, and native apps in preparation. This website goes into preview.' },
+  { date: 'September 2026', text: 'The store lists NFC cards in PVC, wood and metal shipping within the UAE, bring-your-own activation at nfctools.linkist.ai, and native apps in preparation. This website goes into preview.' },
 ];

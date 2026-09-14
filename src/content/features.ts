@@ -54,7 +54,7 @@ export const FEATURES: readonly FeaturePage[] = [
       { label: 'Import formats', value: 'Phone, CSV, VCF' },
     ],
     tabs: [
-      { key: 'tap', title: 'NFC tap and QR', body: 'Tap a Linkist card to a phone, or show your QR code. The other person gets your live profile and you keep the meeting.', screen: 'share-phone', kind: 'phone', alt: 'Share Contact screen' },
+      { key: 'tap', title: 'NFC tap and QR', body: 'Tap a Linkist NFC card to a phone, or show your QR code. The other person gets your live profile and you keep the meeting.', screen: 'share-phone', kind: 'phone', alt: 'Share Contact screen' },
       { key: 'scan', title: 'Card scan', body: 'Point the camera at a paper business card and it becomes a contact record. 5 a month on Essential, 20 on Enhanced, unlimited on Pro.', screen: 'scan-phone', kind: 'phone', alt: 'Card scan screen' },
       { key: 'import', title: 'Import and add', body: 'Bring your phone contacts, a CSV or a VCF file, or add a person by hand. Tags and a voice note keep the context with them.', screen: 'import-phone', kind: 'phone', alt: 'Contact import screen' },
       { key: 'enrich', title: 'AI Enrichment', body: 'An incomplete record gets its missing professional details filled in. You see what was added and can change it.', screen: 'enrich-phone', kind: 'phone', alt: 'AI Enrichment on a contact record', plan: 'Pro' },
@@ -148,7 +148,7 @@ export const FEATURES: readonly FeaturePage[] = [
     ],
     tabs: [
       { key: 'card', title: 'Digital business card', body: 'Photo, name, role, company and the links that matter. One template on Essential, 3 on Enhanced, full customisation on Pro.', screen: 'profile-phone', kind: 'phone', alt: 'Digital business card' },
-      { key: 'url', title: 'Personal URL', body: 'A memorable address of your own under linkist.ai/me. It is on your card, in your email signature and on the QR code.', screen: 'url-phone', kind: 'phone', alt: 'Personal URL settings', plan: 'Enhanced' },
+      { key: 'url', title: 'Personal URL', body: 'A memorable address of your own under linkist.ai/me. It is on your NFC card, in your email signature and on the QR code.', screen: 'url-phone', kind: 'phone', alt: 'Personal URL settings', plan: 'Enhanced' },
       { key: 'profiles', title: 'Several profiles', body: 'A personal profile and business profiles for the hats you wear: 1 on Essential, 3 on Enhanced, 5 on Pro. Switch which one a card shares.', screen: 'profiles-phone', kind: 'phone', alt: 'Profiles list', plan: 'Enhanced' },
       { key: 'share', title: 'Sharing and wallet', body: 'Share by NFC tap, QR code, link, email or SMS, and add the card to Apple Wallet or Google Wallet.', screen: 'share-phone', kind: 'phone', alt: 'Share Contact screen' },
     ],

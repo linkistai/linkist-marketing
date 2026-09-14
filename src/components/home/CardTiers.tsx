@@ -10,7 +10,7 @@ import { formatMoney, type Currency } from '@/lib/glossary';
 /**
  * Starter and Signature by material with the prototype's USD/AED switch. The store prices in AED
  * and shows an approximate dollar figure; the switch decides which leads, both stay visible.
- * Signature is featured with the gradient ring. Every card includes PRM Essential.
+ * Signature is featured with the gradient ring. Every NFC card includes PRM Essential.
  */
 export function CardTiers({ cta = { href: '/nfc-cards', label: 'Explore NFC cards' }, headingLevel = 3 }: { cta?: { href: string; label: string } | null; headingLevel?: 2 | 3 }) {
   const [cur, setCur] = useState<Currency>('AED');
@@ -20,7 +20,7 @@ export function CardTiers({ cta = { href: '/nfc-cards', label: 'Explore NFC card
     <div>
       <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
         <CurrencySwitcher value={cur} onChange={setCur} label="Card prices in" />
-        <p className="text-sm text-muted">One-time prices. The store bills in AED; the dollar figure is approximate. Every card includes PRM Essential.</p>
+        <p className="text-sm text-muted">One-time prices. The store bills in AED; the dollar figure is approximate. Every NFC card includes PRM Essential.</p>
       </div>
       <div className="mx-auto mt-8 grid max-w-4xl gap-6 md:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.1">
         {CARD_TIERS.map((t) => {
@@ -59,7 +59,7 @@ export function CardTiers({ cta = { href: '/nfc-cards', label: 'Explore NFC card
       </div>
       {cta ? (
         <div className="mt-9 text-center" data-reveal="rise">
-          <p className="text-sm text-muted">Prefer to start without a physical card? Use Linkist PRM on its own and add a card any time.</p>
+          <p className="text-sm text-muted">Prefer to start without an NFC card? Use Linkist PRM on its own and add an NFC card any time.</p>
           <p className="mt-1 text-sm text-muted">Save by buying an NFC card bundled with PRM Pro. See the bundles below.</p>
           <Link href={cta.href} className="btn btn--secondary mt-6">
             {cta.label}

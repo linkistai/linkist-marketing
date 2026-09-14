@@ -14,7 +14,7 @@ export const HERO = {
   lines: ['Capture Contacts.', 'Remember Context.', 'Act at the right time.'] as const,
   lede: 'Linkist brings your contacts, meeting context and relationship opportunities into one place. Capture the people you meet, find who matters, and know what to do next.',
   subline: 'Turn the contacts you collect into relationships and opportunities you can act on.',
-  proof: ['Start free, no card required', 'Works with or without an NFC card', 'Every NFC card includes PRM Essential', 'Sign in with email or mobile', 'Ships to 16 countries, UAE shipping included'],
+  proof: ['Start free, no NFC card required', 'Works with or without an NFC card', 'Every NFC card includes PRM Essential', 'Sign in with email or mobile', 'Ships within the UAE, shipping included'],
 } as const;
 
 /**
@@ -22,7 +22,7 @@ export const HERO = {
  * button. Every line on the card slide traces to the store walk-through and the prototype's card
  * section (docs/01-audit.md): a tap opens the live profile, the other person saves the details,
  * Tap to Link captures theirs, three materials, PRM Essential included, one-time prices, free
- * activation of a card you already own.
+ * activation of an NFC card you already own.
  */
 export interface HeroSlide {
   readonly key: 'app' | 'card';
@@ -40,16 +40,16 @@ export const HERO_SLIDES: readonly HeroSlide[] = [
     eyebrow: HERO.eyebrow,
     lines: HERO.lines,
     lede: HERO.lede,
-    subline: 'Free plan. No card required. Add a card any time.',
+    subline: 'Free plan. No NFC card required. Add an NFC card any time.',
     secondary: { href: '/how-it-works', label: G.ctaSecondary },
   },
   {
     key: 'card',
     tab: 'NFC cards',
     eyebrow: 'Linkist NFC cards',
-    lines: ['Tap the card.', 'Share your profile.', 'Save the contact.'],
+    lines: ['Tap the NFC card.', 'Share your profile.', 'Save the contact.'],
     lede: 'A Linkist NFC card opens your live profile with one tap, so the person you meet can save your details and you can capture theirs into Linkist PRM. PVC, wood or metal, and every card includes PRM Essential.',
-    subline: 'One-time prices. Ships to 16 countries. Already own a card? Activate it free.',
+    subline: 'One-time prices. Ships within the UAE. Already own an NFC card? Activate it free.',
     secondary: { href: '/nfc-cards', label: 'Explore NFC cards' },
   },
 ];
@@ -198,7 +198,7 @@ export const FAQ: readonly FaqItem[] = [
   { q: 'What is Linkist?', a: 'Linkist is a Personal Relationship Manager paired with an optional NFC business card. It captures the people you meet, remembers the context, and tells you what to do next.' },
   { q: 'What is a Personal Relationship Manager (PRM)?', a: 'A PRM organises relationships rather than deals: your contacts, meeting context, priorities and follow-ups live in one place, focused on who matters and what deserves action.' },
   { q: 'How is Linkist different from a contact app or CRM?', a: 'Contact apps store people and CRMs manage deals. Linkist helps you manage relationships: who matters, who fits what you are looking for, and what to do next.' },
-  { q: 'Do I need an NFC card to use Linkist PRM?', a: 'No. You can start with the free PRM plan on its own and add a card any time.' },
+  { q: 'Do I need an NFC card to use Linkist PRM?', a: 'No. You can start with the free PRM plan on its own and add an NFC card any time.' },
   { q: 'Does every NFC card include PRM Essential?', a: 'Yes. Every Linkist NFC card includes the PRM Essential plan.' },
   { q: 'What happens to my contacts if I leave my company?', a: 'Your personal contacts stay yours. Team-shared contacts and their relationship history remain with the authorised team, so relationship value stays inside the company.' },
   { q: 'How does Linkist use AI and handle contact data?', a: 'AI enriches incomplete records, matches contacts against your ICPs and helps draft follow-ups. You review what it suggests. Contact data is handled under the privacy policy, written to the UAE Personal Data Protection Law, with encryption in transit and, where the policy applies it, at rest.' },

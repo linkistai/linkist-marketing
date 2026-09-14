@@ -122,7 +122,7 @@ export default function CustomersPage() {
         </ul>
       </Section>
 
-      <ClosingBand person={person('close-12')} line1="Be one of the first." line2="Start with an email or a mobile number." reassurance="Free plan, no card required. Nothing is published about you without consent." />
+      <ClosingBand person={person('close-12')} line1="Be one of the first." line2="Start with an email or a mobile number." reassurance="Free plan, no NFC card required. Nothing is published about you without consent." />
     </>
   );
 }

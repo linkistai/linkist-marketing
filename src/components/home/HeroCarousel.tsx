@@ -132,7 +132,8 @@ export function HeroCarousel({ screen, screenAlt, person }: { screen?: string; s
                       </p>
                       <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center" data-hero-text>
                         {s.key === 'app' ? <GetApp size="lg" /> : <GetCard size="lg" variant="primary" />}
-                        <Link href={s.secondary.href} className="btn btn--secondary btn--lg">
+                        {s.key === 'app' ? <GetCard size="lg" variant="secondary" /> : null}
+                        <Link href={s.secondary.href} className={`btn btn--lg ${s.key === 'app' ? 'btn--ghost' : 'btn--secondary'}`}>
                           {s.secondary.label}
                         </Link>
                       </div>

@@ -59,7 +59,7 @@ export default function PricingPage() {
       </Section>
 
       <Section tone="lifted" id="bundles">
-        <SectionHead eyebrow="Bundled offers" title={<>The card and PRM Pro <span className="em-coral">together</span>.</>} center />
+        <SectionHead eyebrow="Bundled offers" title={<>The NFC card and PRM Pro <span className="em-coral">together</span>.</>} center />
         <div className="mt-12">
           <Bundles />
         </div>

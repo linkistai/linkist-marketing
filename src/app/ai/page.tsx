@@ -146,7 +146,7 @@ export default function AiPage() {
         </div>
       </Section>
 
-      <ClosingBand person={person('close-6')} line1="Let the AI fill the gaps." line2="You keep the last word." reassurance="Optional, assistive, off in one switch. Free plan, no card required." />
+      <ClosingBand person={person('close-6')} line1="Let the AI fill the gaps." line2="You keep the last word." reassurance="Optional, assistive, off in one switch. Free plan, no NFC card required." />
     </>
   );
 }

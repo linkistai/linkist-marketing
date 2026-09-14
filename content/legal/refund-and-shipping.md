@@ -20,9 +20,9 @@ The store prices cards in AED and shows an approximate US dollar figure beside e
 
 ## 3. Where cards ship, and what it costs
 
-The store lists 16 shipping regions: the United Arab Emirates, Saudi Arabia, Bahrain, Kuwait, Oman, Qatar, India, the United Kingdom, the United States, Canada, Australia, Pakistan, the Philippines, Egypt, Jordan and Lebanon. Shipping is included in the UAE. Elsewhere the cost is shown at checkout.
+NFC cards ship within the United Arab Emirates only, with shipping included. Orders to other countries are not accepted at present.
 
-[PLACEHOLDER: delivery times by region, the carriers used, and who is responsible for customs duties and import taxes outside the UAE.]
+[PLACEHOLDER: delivery times within the UAE and the carriers used; the store's checkout still lists other regions and should be aligned with this policy.]
 
 ## 4. Changing or cancelling an order
 

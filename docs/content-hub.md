@@ -8,7 +8,7 @@ Copy-ready lines from the site, grouped by page, for social posts, listings, ema
 - Turn the contacts you collect into relationships and opportunities you can act on.
 - Contacts store people. Linkist helps you build trust and use relationship capital.
 - A Personal Relationship Manager, not a CRM: relationships, not deals.
-- Works with or without an NFC card. Start free, no card required.
+- Works with or without an NFC card. Start free, no NFC card required.
 - Tap the card. Share your profile. Save the contact.
 - Every Linkist NFC card includes PRM Essential.
 - Sign in with an email or a mobile number and a verification code. No password.
@@ -27,8 +27,8 @@ Copy-ready lines from the site, grouped by page, for social posts, listings, ema
 
 | Page | Headline | Lede |
 | --- | --- | --- |
-| Home, PRM slide | Capture Contacts. Remember Context. Act at the right time. | Linkist brings your contacts, meeting context and relationship opportunities into one place. Capture the people you meet, find who matters, and know what to do next. Subline: Free plan. No card required. Add a card any time. |
-| Home, NFC slide | Tap the card. Share your profile. Save the contact. | A Linkist NFC card opens your live profile with one tap, so the person you meet can save your details and you can capture theirs into Linkist PRM. PVC, wood or metal, and every card includes PRM Essential. Subline: One-time prices. Ships to 16 countries. Already own a card? Activate it free. |
+| Home, PRM slide | Capture Contacts. Remember Context. Act at the right time. | Linkist brings your contacts, meeting context and relationship opportunities into one place. Capture the people you meet, find who matters, and know what to do next. Subline: Free plan. No NFC card required. Add an NFC card any time. |
+| Home, NFC slide | Tap the NFC card. Share your profile. Save the contact. | A Linkist NFC card opens your live profile with one tap, so the person you meet can save your details and you can capture theirs into Linkist PRM. PVC, wood or metal, and every card includes PRM Essential. Subline: One-time prices. Ships within the UAE. Already own an NFC card? Activate it free. |
 | Home, how it works | Turn the contacts you collect into [opportunities]. | Linkist helps you capture the right people, understand who matters, and know what to do next. |
 | Home, use cases | See what Linkist looks like [in real life]. | The problem is rarely collecting contacts. It is knowing what to do with them afterwards. |
 | Home, more than | More than [organising contacts]. | Most tools stop once the contact is saved. Linkist helps you decide what to do with it. |
@@ -51,7 +51,7 @@ Copy-ready lines from the site, grouped by page, for social posts, listings, ema
 | NFC cards | Tap. Share. Make the [first impression] count. | A card that opens your live professional profile on any NFC phone, and by QR code on the rest, and remembers the meeting for you. Every card includes PRM Essential. |
 | NFC cards, what a tap does | One tap replaces [the whole ritual]. | No fumbling, no typing, no paper that gets thrown away. |
 | NFC cards, tiers | Two tiers, [three materials]. | Starter has no customisation. Signature carries your name and logo. One-time prices; every card includes PRM Essential. |
-| NFC cards, shipping | Ships to [16 countries]. | Card shipping is included in the UAE and shown at checkout for the other 15, with VAT upfront. |
+| NFC cards, shipping | Ships within [the UAE]. | NFC card shipping is included across the UAE, with VAT shown upfront at checkout. Other countries are not served yet. |
 | Bundles | Get the NFC card and PRM Pro [together], and save. | Bundles combine the physical Linkist card with the Pro plan in one purchase. You get the full Linkist experience immediately, for less than buying the card and Pro separately. |
 | Pricing | Start free. [Add more] when you need it. | 4 plans in US dollars, no NFC card required. Upgrade when you need richer contact management, AI matching and follow-up, or team collaboration. |
 | Pricing, comparison | Compare the plans [feature by feature]. | Enterprise: coming later, interest only. Single sign-on, CRM and HRMS integration and product customisation are planned for it. |
@@ -150,14 +150,14 @@ One-time prices; every card includes PRM Essential. Materials: premium PVC in wh
 | Signature Bundle | $100 | Any Signature card plus 1 year of PRM Pro |
 | Founders Circle Bundle | $150 once | Founders Circle card plus lifetime PRM Pro (status open, C7) |
 
-Shipping: United Arab Emirates, Saudi Arabia, Bahrain, Kuwait, Oman, Qatar, India, United Kingdom, United States, Canada, Australia, Pakistan, Philippines, Egypt, Jordan, Lebanon. Card shipping is included in the UAE and shown at checkout for the other 15, with VAT upfront.
+Shipping: the United Arab Emirates only, shipping included, VAT shown upfront at checkout (owner, 14 September). Other countries are not served yet.
 
 ## Social post starters
 
 Each under 50 words, one idea, one call to action. Pair with the picture named in brackets once imagery exists; until then the design-preview phone or a title card.
 
 1. (hero person) You leave an event with 30 new contacts. A week later they are names in your phone. Linkist keeps the context: where you met, what mattered, who to follow up first. Start free, no card required.
-2. (card stack) Tap the card. Share your profile. Save the contact. PVC, wood or metal, one-time prices, and every Linkist NFC card includes PRM Essential. Ships to 16 countries.
+2. (card stack) Tap the NFC card. Share your profile. Save the contact. PVC, wood or metal, one-time prices, and every Linkist NFC card includes PRM Essential. Ships within the UAE.
 3. (ICP object) Tell Linkist who you are looking for, and see who in your network already fits. ICP Matching is in Pro and Team.
 4. (nudge object) You met Julian at GITEX. Want to follow up? A nudge arrives before the moment passes. That is what a Personal Relationship Manager is for.
 5. (team scene) A key person leaves. The relationship does not. On the Team plan, shared contacts and their history stay with the company. Personal contacts stay personal.
@@ -182,16 +182,16 @@ Email subject lines:
 - Example networks: Written to show what the product does. Every name and figure is an example, not a customer and not a testimonial.
 - AI: AI suggestions are marked as such and you review them before relying on them. The AI features are optional, switched on with a separate consent, and switched off in Privacy Settings.
 - Currency: Plans are priced in US dollars. Card prices are in AED with an approximate dollar figure; the billing currency is being confirmed (C5).
-- Shipping: Card shipping is included in the UAE and shown at checkout for the other 15 countries, with VAT upfront.
+- Shipping: NFC cards ship within the UAE with shipping included. Other countries are not served yet.
 - Store apps: Linkist is a web app on your phone. App Store and Google Play listings are in preparation.
 - Assistant: Automated, not a live agent. Answers come from the help centre and the product facts, never from your data.
 - Forms: Messages go to the team by email and are not stored on this website.
 
 ## True proof points
 
-- Free plan with no card required; sign in with an email or a mobile number and a verification code (R1).
+- Free plan with no NFC card required; sign in with an email or a mobile number and a verification code (R1).
 - Every NFC card includes PRM Essential; Starter and Signature in PVC, wood and metal at one-time prices (R7).
-- Ships to 16 countries, UAE shipping included (C6 for costs elsewhere).
+- Ships within the UAE, shipping included.
 - 4 plans; Enhanced has a lifetime option; Team has a 5-user minimum.
 - Capture routes: NFC, QR, card scan, phone import, CSV, VCF and manual add.
 - The privacy policy and terms are published, version 1.1 of 1 June 2026, written to the UAE Personal Data Protection Law (Federal Decree-Law No. 45 of 2021), and name every AI capability, what it reads, how long results are kept (up to 6 months) and where the switch is (Privacy Settings).
@@ -202,7 +202,7 @@ Email subject lines:
 ## Do not say
 
 - GDPR, SOC 2, ISO 27001, "compliant", "bank-grade", "military-grade" (no evidence, R5).
-- "Worldwide" or "global shipping" (16 countries).
+- "Worldwide", "global shipping" or any country outside the UAE (UAE only).
 - The three statistics on the current linkist.ai home page (unsourced, R6).
 - "Prices in your currency" (one billing currency, not yet confirmed, C5).
 - "On the App Store" or "on Google Play" (in preparation, R3).

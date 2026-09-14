@@ -210,7 +210,7 @@ export default function SecurityPage() {
         </div>
       </Section>
 
-      <ClosingBand person={person('close-7')} line1="Your contacts, your rules." line2="Start with an email or a mobile number." reassurance="No password to leak. Free plan, no card required." />
+      <ClosingBand person={person('close-7')} line1="Your contacts, your rules." line2="Start with an email or a mobile number." reassurance="No password to leak. Free plan, no NFC card required." />
     </>
   );
 }

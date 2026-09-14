@@ -106,7 +106,7 @@ export const CARD_TIERS: readonly CardTier[] = [
   {
     key: 'signature',
     name: 'Signature',
-    blurb: 'Your name and logo on the card.',
+    blurb: 'Your name and logo on the NFC card.',
     badge: 'Most chosen',
     prices: { AED: { pvc: 95, wood: 115, metal: 225 }, USD: approxUsd({ pvc: 95, wood: 115, metal: 225 }) },
   },
@@ -119,8 +119,8 @@ export const CARD_OPTIONS = [
   { material: 'Metal', finish: 'Brushed metal', colours: ['Silver', 'Black'], patterns: ['Minimal', 'Geometric', 'Wave', 'Crystal'] },
 ] as const;
 
-/** Shipping regions the store lists (C6). */
-export const SHIPPING_REGIONS = ['United Arab Emirates', 'Saudi Arabia', 'Bahrain', 'Kuwait', 'Oman', 'Qatar', 'India', 'United Kingdom', 'United States', 'Canada', 'Australia', 'Pakistan', 'Philippines', 'Egypt', 'Jordan', 'Lebanon'] as const;
+/** Shipping: the UAE only, shipping included (owner, 14 September; the store's 16-region list is not offered). */
+export const SHIPPING_REGIONS = ['United Arab Emirates'] as const;
 
 export interface Bundle {
   readonly key: 'signature' | 'founders';
@@ -133,15 +133,15 @@ export interface Bundle {
 }
 
 export const BUNDLES: readonly Bundle[] = [
-  { key: 'signature', name: 'Signature Bundle', includes: 'Any Signature card plus 1 year of PRM Pro', price: 100, priceNote: 'bundle price', proYears: 1 },
-  { key: 'founders', name: 'Founders Circle Bundle', includes: 'Founders Circle card plus lifetime PRM Pro', price: 150, priceNote: 'one-time bundle price', featured: true, proYears: 'lifetime' },
+  { key: 'signature', name: 'Signature Bundle', includes: 'Any Signature NFC card plus 1 year of PRM Pro', price: 100, priceNote: 'bundle price', proYears: 1 },
+  { key: 'founders', name: 'Founders Circle Bundle', includes: 'Founders Circle NFC card plus lifetime PRM Pro', price: 150, priceNote: 'one-time bundle price', featured: true, proYears: 'lifetime' },
 ];
 
 export const BUNDLE_BENEFITS = [
-  { title: 'One purchase', body: 'Card and PRM Pro together.' },
-  { title: 'Better value', body: 'Pay less than the card and Pro bought separately.' },
+  { title: 'One purchase', body: 'NFC card and PRM Pro together.' },
+  { title: 'Better value', body: 'Pay less than the NFC card and Pro bought separately.' },
   { title: 'Start with the full system', body: 'Share by NFC and use Pro from day one.' },
-  { title: 'UAE shipping included', body: 'Card shipping is included in the UAE.' },
+  { title: 'UAE shipping included', body: 'NFC cards ship within the UAE, shipping included.' },
 ] as const;
 
 const PRO_YEAR = planByKey('pro').yearly ?? 100;

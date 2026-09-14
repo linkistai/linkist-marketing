@@ -76,3 +76,5 @@ cardring
 crawlable
 glassmorphism
 carddeck
+sitewide
+nfctools

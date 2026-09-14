@@ -29,6 +29,6 @@ describe('design tokens', () => {
     expect(css).toContain('--brand-crimson: #D63A57;');
     expect(css).toMatch(/:root, :root\[data-theme="dark"\][^}]*--color-bg: #141413;/s);
     expect(css).toMatch(/:root\[data-theme="light"\][^}]*--color-bg: #FFFFFF;/s);
-    expect(css).toContain('--shadow-glow: 0 8px 28px rgba(206,57,77,0.35);');
+    expect(css).toContain('--shadow-glow: 0 8px 28px rgba(214,58,87,0.35);');
   });
 });

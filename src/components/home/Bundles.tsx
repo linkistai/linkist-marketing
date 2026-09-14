@@ -109,9 +109,9 @@ export function Bundles({ headingLevel = 3 }: { headingLevel?: 2 | 3 }) {
         </div>
       </div>
       <p className="mx-auto mt-8 max-w-3xl text-center text-sm text-body" data-reveal="rise">
-        Why the bundles win: the Signature Bundle gives you a card plus a full year of Pro for the same $100 as Pro alone, and the Founders Circle Bundle locks in lifetime Pro for a one-time $150.
+        Why the bundles win: the Signature Bundle gives you an NFC card plus a full year of Pro for the same $100 as Pro alone, and the Founders Circle Bundle locks in lifetime Pro for a one-time $150.
       </p>
-      <p className="mt-2 text-center text-xs text-muted">Card shipping is included in the UAE. Savings are calculated from the approximate dollar prices on this page; the store bills cards in AED and the bundle prices are confirmed at checkout.</p>
+      <p className="mt-2 text-center text-xs text-muted">NFC cards ship within the UAE, shipping included. Savings are calculated from the approximate dollar prices on this page; the store bills cards in AED and the bundle prices are confirmed at checkout.</p>
     </div>
   );
 }

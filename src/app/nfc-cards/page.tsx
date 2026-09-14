@@ -13,20 +13,20 @@ import { HeroIntro } from '@/motion/HeroIntro';
 import { PROTO_ALT } from '@/content/design';
 import { CARD_OPTIONS, MATERIALS, SHIPPING_REGIONS } from '@/content/plans';
 import { person, screen } from '@/lib/screens';
-import { APP_URL, pageMeta } from '@/lib/site';
+import { APP_URL, NFC_TOOLS_URL, pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
   'NFC cards: Starter and Signature in PVC, wood and metal',
-  'A Linkist NFC card opens your live profile with one tap. Starter from AED 75 (about $20), Signature with your name and logo from AED 95 (about $26), in PVC, cherry wood or brushed metal. Every card includes PRM Essential.',
+  'A Linkist NFC card opens your live profile with one tap. Starter from AED 75 (about $20), Signature with your name and logo from AED 95 (about $26), in PVC, cherry wood or brushed metal. Every NFC card includes PRM Essential. Ships within the UAE.',
   '/nfc-cards',
   { image: '/og/nfc-cards.png' },
 );
 
 const TAP = [
-  { icon: Nfc, title: 'Tap', body: 'Hold the card to a phone with NFC switched on. No app is needed on their side.' },
+  { icon: Nfc, title: 'Tap', body: 'Hold the NFC card to a phone with NFC switched on. No app is needed on their side.' },
   { icon: UserCheck, title: 'Your profile opens', body: 'Your live digital business card, with your photo, details and links.' },
   { icon: QrCode, title: 'They save you', body: 'One tap saves your details. If they use Linkist, the meeting is captured on both sides.' },
-  { icon: RefreshCw, title: 'It stays current', body: 'Change your role or number once. Every card you ever tapped shows the new details.' },
+  { icon: RefreshCw, title: 'It stays current', body: 'Change your role or number once. Every NFC card you ever tapped shows the new details.' },
 ] as const;
 
 const FAQ = [
@@ -34,9 +34,9 @@ const FAQ = [
   { q: 'Which phones work?', a: 'Any phone with NFC, which is most iPhones and Android phones sold in recent years. The QR code on your profile covers the rest.' },
   { q: 'What is the difference between Starter and Signature?', a: 'Starter has no customisation. Signature carries your name and logo. Both come in PVC, cherry wood or brushed metal and both include PRM Essential.' },
   { q: 'Which currency are cards priced in?', a: 'The store prices in AED and shows an approximate dollar figure beside each card. VAT is shown upfront at checkout.' },
-  { q: 'Is shipping included?', a: 'Card shipping is included in the UAE. The store ships to 16 countries across the GCC, South Asia, North America, Europe and Australia; for the other 15 the cost is shown at checkout.' },
-  { q: 'Can I use a card I already own?', a: 'Yes, free. Tap your existing NFC card or sticker on your phone and Linkist writes your live profile onto it, or paste an old profile link. Encoding a chip needs an Android phone.' },
-  { q: 'Can I return a card?', a: 'Custom products are returnable where the product is defective, there was a production error, or it differs materially from the confirmed order, within 7 days of delivery.' },
+  { q: 'Is shipping included?', a: 'Yes. NFC cards ship within the UAE with shipping included. Other countries are not served yet.' },
+  { q: 'Can I use an NFC card I already own?', a: 'Yes, free. At nfctools.linkist.ai, tap your existing NFC card or sticker on your phone and Linkist writes your live profile onto it, or paste an old profile link. Encoding a chip needs an Android phone.' },
+  { q: 'Can I return an NFC card?', a: 'Custom products are returnable where the product is defective, there was a production error, or it differs materially from the confirmed order, within 7 days of delivery.' },
 ] as const;
 
 export default function NfcCardsPage() {
@@ -54,11 +54,11 @@ export default function NfcCardsPage() {
                 Tap. Share. Make the <span className="em-coral">first impression</span> count.
               </h1>
               <p className="lede mt-5" data-hero-text>
-                A card that opens your live professional profile on any NFC phone, and by QR code on the rest, and remembers the meeting for you. Every card includes PRM Essential.
+                An NFC card that opens your live professional profile on any NFC phone, and by QR code on the rest, and remembers the meeting for you. Every NFC card includes PRM Essential.
               </p>
               <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center" data-hero-text>
                 <Button href={`${APP_URL}/store`} size="lg">
-                  Get your card
+                  Get your NFC card
                 </Button>
                 <TextLink href="#tiers">Compare Starter and Signature</TextLink>
               </div>
@@ -102,7 +102,7 @@ export default function NfcCardsPage() {
       </Section>
 
       <Section id="tiers">
-        <SectionHead eyebrow="Starter and Signature" title={<>Two tiers, <span className="em-coral">three materials</span>.</>} lede="Starter has no customisation. Signature carries your name and logo. One-time prices; every card includes PRM Essential." center />
+        <SectionHead eyebrow="Starter and Signature" title={<>Two tiers, <span className="em-coral">three materials</span>.</>} lede="Starter has no customisation. Signature carries your name and logo. One-time prices; every NFC card includes PRM Essential." center />
         <div className="mt-12">
           <CardTiers cta={{ href: '/bundles', label: 'See the bundles' }} />
         </div>
@@ -124,13 +124,13 @@ export default function NfcCardsPage() {
           <div data-reveal="rise">
             <p className="eyebrow">Bring your own</p>
             <h2 className="display-2 mt-4">
-              Already have a card? <span className="em-coral">Make it live, free.</span>
+              Already have an NFC card? <span className="em-coral">Make it live, free.</span>
             </h2>
             <p className="lede mt-4">Keep your hardware and put Linkist on it. Tap an NFC card or sticker you already own and Linkist writes your live profile onto it, or paste an old profile link and your Linkist profile builds itself.</p>
             <p className="mt-4 text-sm text-muted">Free forever, no payment details. Encoding a chip needs an Android phone; the profile then works on every device.</p>
             <div className="mt-6">
-              <Button href={`${APP_URL}/store`} variant="secondary">
-                Activate what you already have
+              <Button href={NFC_TOOLS_URL} variant="secondary">
+                Activate the NFC card you already have
               </Button>
             </div>
           </div>
@@ -154,8 +154,8 @@ export default function NfcCardsPage() {
       </Section>
 
       <Section tight id="shipping">
-        <SectionHead eyebrow="Shipping" title={<>Ships to <span className="em-coral">16 countries</span>.</>} lede="Card shipping is included in the UAE and shown at checkout for the other 15, with VAT upfront." />
-        <ul className="mt-8 flex flex-wrap gap-2" aria-label="Shipping regions" data-reveal="fade">
+        <SectionHead eyebrow="Shipping" title={<>Ships within <span className="em-coral">the UAE</span>.</>} lede="NFC card shipping is included across the UAE, with VAT shown upfront at checkout. Other countries are not served yet." />
+        <ul className="mt-8 flex flex-wrap gap-2" aria-label="Shipping region" data-reveal="fade">
           {SHIPPING_REGIONS.map((r) => (
             <li key={r} className="tag">
               {r}
@@ -171,7 +171,7 @@ export default function NfcCardsPage() {
         </div>
       </Section>
 
-      <ClosingBand line1="Order a card, or start without one." line2="Every card includes PRM Essential." cta="Get your card" href={`${APP_URL}/store`} reassurance="UAE shipping included. Prefer to start free? The Essential plan needs no card." person={person('close-1')} />
+      <ClosingBand line1="Order an NFC card, or start without one." line2="Every NFC card includes PRM Essential." cta="Get your NFC card" href={`${APP_URL}/store`} reassurance="UAE shipping included. Prefer to start free? The Essential plan needs no card." person={person('close-1')} />
     </>
   );
 }
