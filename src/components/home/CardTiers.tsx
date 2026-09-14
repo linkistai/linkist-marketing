@@ -6,11 +6,13 @@ import { CurrencySwitcher } from '@/components/CurrencySwitcher';
 import { NfcCard } from '@/components/NfcCard';
 import { CARD_TIERS, MATERIALS } from '@/content/plans';
 import { formatMoney, type Currency } from '@/lib/glossary';
+import { STORE_URL } from '@/lib/site';
 
 /**
- * Starter and Signature by material with the prototype's USD/AED switch. The store prices in AED
- * and shows an approximate dollar figure; the switch decides which leads, both stay visible.
- * Signature is featured with the gradient ring. Every NFC card includes PRM Essential.
+ * NFC card pricing: Starter and Signature by material with the prototype's USD/AED switch. The
+ * store prices in AED and shows an approximate dollar figure; the switch decides which leads,
+ * both stay visible. Signature is featured with the gradient ring. Every NFC card includes PRM
+ * Essential. Each tier carries its own Get your NFC card button to the store (D48).
  */
 export function CardTiers({ cta = { href: '/nfc-cards', label: 'Explore NFC cards' }, headingLevel = 3 }: { cta?: { href: string; label: string } | null; headingLevel?: 2 | 3 }) {
   const [cur, setCur] = useState<Currency>('AED');
@@ -18,19 +20,19 @@ export function CardTiers({ cta = { href: '/nfc-cards', label: 'Explore NFC card
   const H = headingLevel === 2 ? 'h2' : 'h3';
   return (
     <div>
-      <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <CurrencySwitcher value={cur} onChange={setCur} label="Card prices in" />
-        <p className="text-sm text-muted">One-time prices. The store bills in AED; the dollar figure is approximate. Every NFC card includes PRM Essential.</p>
+      <div className="mx-auto flex max-w-4xl flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <CurrencySwitcher value={cur} onChange={setCur} label="NFC card prices in" />
+        <p className="text-sm text-muted sm:max-w-md sm:text-right">One-time prices. The store bills in AED; the dollar figure is approximate. Every NFC card includes PRM Essential.</p>
       </div>
-      <div className="mx-auto mt-8 grid max-w-4xl gap-6 md:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.1">
+      <div className="mx-auto mt-10 grid max-w-4xl gap-6 md:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.1">
         {CARD_TIERS.map((t) => {
           const featured = t.key === 'signature';
           return (
-            <div key={t.key} className={`card lift relative flex flex-col gap-5 p-6 sm:p-8 ${featured ? 'sweep sweep--featured' : 'sweep sweep--neutral'}`}>
+            <div key={t.key} className={`card lift relative flex flex-col gap-6 p-6 sm:p-8 ${featured ? 'sweep sweep--featured' : 'sweep sweep--neutral'}`}>
               {t.badge ? <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-white px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.04em] text-ground">{t.badge}</span> : null}
-              <div className="grid grid-cols-3 gap-3 pt-2">
+              <div className="grid grid-cols-3 gap-3 pt-3">
                 {MATERIALS.map((m) => (
-                  <NfcCard key={m.key} material={m.key} tier={t.key} name="Olivia Jones" meta="NYU Abu Dhabi" />
+                  <NfcCard key={m.key} material={m.key} tier={t.key} name="Olivia Jones" meta="NYU Abu Dhabi" sizes="(min-width: 768px) 140px, 28vw" />
                 ))}
               </div>
               <div>
@@ -52,15 +54,20 @@ export function CardTiers({ cta = { href: '/nfc-cards', label: 'Explore NFC card
                   </div>
                 ))}
               </dl>
-              <p className="text-xs italic text-muted">PRM Essential plan included</p>
+              <div className="mt-auto flex flex-col gap-3 pt-1">
+                <a href={STORE_URL} className={`btn ${featured ? 'btn--primary' : 'btn--secondary'} w-full`}>
+                  Get your {t.name} NFC card
+                </a>
+                <p className="text-center text-xs italic text-muted">PRM Essential plan included</p>
+              </div>
             </div>
           );
         })}
       </div>
       {cta ? (
-        <div className="mt-9 text-center" data-reveal="rise">
+        <div className="mt-10 text-center" data-reveal="rise">
           <p className="text-sm text-muted">Prefer to start without an NFC card? Use Linkist PRM on its own and add an NFC card any time.</p>
-          <p className="mt-1 text-sm text-muted">Save by buying an NFC card bundled with PRM Pro. See the bundles below.</p>
+          <p className="mt-1 text-sm text-muted">Save by buying an NFC card bundled with PRM Pro.</p>
           <Link href={cta.href} className="btn btn--secondary mt-6">
             {cta.label}
           </Link>

@@ -34,6 +34,8 @@ export const GET_APP_URL = coerceUrl(process.env['NEXT_PUBLIC_GET_APP_URL'], `${
 /** "Get NFC Card": the card product's sign-in, as the owner directed on 10 September 2026. */
 export const GET_CARD_URL = coerceUrl(process.env['NEXT_PUBLIC_GET_CARD_URL'], `${CARD_APP_URL}/login`);
 /** Bring-your-own: the NFC tools site that writes a live profile onto a card or sticker the visitor already owns (owner, 14 September). */
+/** The store, where NFC cards are bought (walk-through, 10 September). */
+export const STORE_URL = `${APP_URL}/store`;
 export const NFC_TOOLS_URL = coerceUrl(process.env['NEXT_PUBLIC_NFC_TOOLS_URL'], 'https://nfctools.linkist.ai');
 /** Sign in and Start free both land on the PRM app's unified screen (D7). */
 export const SIGN_IN_URL = GET_APP_URL;

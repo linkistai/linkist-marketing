@@ -16,7 +16,7 @@ Physical NFC cards ordered from the Linkist store, and paid subscriptions. The T
 
 ## 2. Prices, currency and tax
 
-The store prices cards in AED and shows an approximate US dollar figure beside each price. The Terms say prices are displayed in USD unless otherwise stated; the currency that applies is the one shown at checkout. [PLACEHOLDER: confirm the billing currency and whether the AED price or the USD price is contractual.] VAT is shown before you pay. Taxes, duties and shipping may be added at checkout depending on the product and the delivery country.
+The store prices cards in AED and shows an approximate US dollar figure beside each price. The Terms say prices are displayed in USD unless otherwise stated; the currency that applies is the one shown at checkout. [PLACEHOLDER: confirm the billing currency and whether the AED price or the USD price is contractual.] Taxes, duties and shipping may be added at checkout depending on the product and the delivery country.
 
 ## 3. Where cards ship, and what it costs
 

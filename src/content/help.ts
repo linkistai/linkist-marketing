@@ -115,7 +115,6 @@ export const HELP: readonly HelpEntry[] = [
   e('Plans and billing', 'Where do I manage my subscription?', 'In the billing hub at prm.linkist.ai, which handles plans, AI credit top-ups, invoices and card orders.'),
   e('Plans and billing', 'Do subscriptions renew automatically?', 'Unless stated otherwise at checkout, paid subscriptions renew until you cancel. Cancel before the renewal date if you do not want the next period.', [TERMS]),
   e('Plans and billing', 'Can the price of my plan change?', 'The terms allow changes with reasonable notice where the law requires it. A billing period you have already paid for is not affected unless you agree or the law requires it.', [TERMS]),
-  e('Plans and billing', 'Is VAT included?', 'The store shows VAT upfront at checkout. NFC cards ship within the UAE with shipping included.'),
   e('Plans and billing', 'Who processes payments?', 'Third-party payment providers such as Stripe. Linkist does not store full card numbers.', [PRIVACY]),
   e('Plans and billing', 'What are AI credits?', 'Some AI actions draw on credits, sold as top-ups in the billing hub. What one credit buys is not published yet; the app shows the figure when you buy.', [{ label: 'AI and your data', href: '/ai' }]),
   e('Plans and billing', 'Where are my invoices?', 'In the billing hub at prm.linkist.ai. The privacy policy notes that payment and invoice records are kept for the period UAE tax rules require.'),

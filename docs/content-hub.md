@@ -50,8 +50,8 @@ Copy-ready lines from the site, grouped by page, for social posts, listings, ema
 | Use cases | See what Linkist looks like [in real life]. | The problem is rarely collecting contacts. It is knowing what to do with them afterwards. 5 situations, each with the steps Linkist takes. |
 | NFC cards | Tap. Share. Make the [first impression] count. | A card that opens your live professional profile on any NFC phone, and by QR code on the rest, and remembers the meeting for you. Every card includes PRM Essential. |
 | NFC cards, what a tap does | One tap replaces [the whole ritual]. | No fumbling, no typing, no paper that gets thrown away. |
-| NFC cards, tiers | Two tiers, [three materials]. | Starter has no customisation. Signature carries your name and logo. One-time prices; every card includes PRM Essential. |
-| NFC cards, shipping | Ships within [the UAE]. | NFC card shipping is included across the UAE, with VAT shown upfront at checkout. Other countries are not served yet. |
+| NFC card pricing | Two tiers, [three materials]. | Starter has no customisation. Signature carries your name and logo. One-time prices; every card includes PRM Essential. |
+| NFC cards, shipping | Ships within [the UAE]. | NFC card shipping is included across the UAE. Other countries are not served yet. |
 | Bundles | Get the NFC card and PRM Pro [together], and save. | Bundles combine the physical Linkist card with the Pro plan in one purchase. You get the full Linkist experience immediately, for less than buying the card and Pro separately. |
 | Pricing | Start free. [Add more] when you need it. | 4 plans in US dollars, no NFC card required. Upgrade when you need richer contact management, AI matching and follow-up, or team collaboration. |
 | Pricing, comparison | Compare the plans [feature by feature]. | Enterprise: coming later, interest only. Single sign-on, CRM and HRMS integration and product customisation are planned for it. |
@@ -150,7 +150,7 @@ One-time prices; every card includes PRM Essential. Materials: premium PVC in wh
 | Signature Bundle | $100 | Any Signature card plus 1 year of PRM Pro |
 | Founders Circle Bundle | $150 once | Founders Circle card plus lifetime PRM Pro (status open, C7) |
 
-Shipping: the United Arab Emirates only, shipping included, VAT shown upfront at checkout (owner, 14 September). Other countries are not served yet.
+Shipping: the United Arab Emirates only, shipping included (owner, 14 September). Other countries are not served yet. No VAT wording anywhere (owner, 14 September).
 
 ## Social post starters
 

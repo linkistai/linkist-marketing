@@ -25,7 +25,7 @@ export const metadata: Metadata = pageMeta(
 const TAP = [
   { icon: Nfc, title: 'Tap', body: 'Hold the NFC card to a phone with NFC switched on. No app is needed on their side.' },
   { icon: UserCheck, title: 'Your profile opens', body: 'Your live digital business card, with your photo, details and links.' },
-  { icon: QrCode, title: 'They save you', body: 'One tap saves your details. If they use Linkist, the meeting is captured on both sides.' },
+  { icon: QrCode, title: 'They keep your details', body: 'Your contact card lands in their phone in one tap. If they use Linkist too, the meeting is saved on both sides.' },
   { icon: RefreshCw, title: 'It stays current', body: 'Change your role or number once. Every NFC card you ever tapped shows the new details.' },
 ] as const;
 
@@ -33,7 +33,7 @@ const FAQ = [
   { q: 'Does the other person need Linkist?', a: 'No. A tap opens your profile in their phone browser. If they use Linkist, both of you keep the context.' },
   { q: 'Which phones work?', a: 'Any phone with NFC, which is most iPhones and Android phones sold in recent years. The QR code on your profile covers the rest.' },
   { q: 'What is the difference between Starter and Signature?', a: 'Starter has no customisation. Signature carries your name and logo. Both come in PVC, cherry wood or brushed metal and both include PRM Essential.' },
-  { q: 'Which currency are cards priced in?', a: 'The store prices in AED and shows an approximate dollar figure beside each card. VAT is shown upfront at checkout.' },
+  { q: 'Which currency are cards priced in?', a: 'The store prices in AED and shows an approximate dollar figure beside each NFC card.' },
   { q: 'Is shipping included?', a: 'Yes. NFC cards ship within the UAE with shipping included. Other countries are not served yet.' },
   { q: 'Can I use an NFC card I already own?', a: 'Yes, free. At nfctools.linkist.ai, tap your existing NFC card or sticker on your phone and Linkist writes your live profile onto it, or paste an old profile link. Encoding a chip needs an Android phone.' },
   { q: 'Can I return an NFC card?', a: 'Custom products are returnable where the product is defective, there was a production error, or it differs materially from the confirmed order, within 7 days of delivery.' },
@@ -60,7 +60,7 @@ export default function NfcCardsPage() {
                 <Button href={`${APP_URL}/store`} size="lg">
                   Get your NFC card
                 </Button>
-                <TextLink href="#tiers">Compare Starter and Signature</TextLink>
+                <TextLink href="#tiers">See NFC card pricing</TextLink>
               </div>
             </div>
             <div className="hero-stage relative">
@@ -102,7 +102,7 @@ export default function NfcCardsPage() {
       </Section>
 
       <Section id="tiers">
-        <SectionHead eyebrow="Starter and Signature" title={<>Two tiers, <span className="em-coral">three materials</span>.</>} lede="Starter has no customisation. Signature carries your name and logo. One-time prices; every NFC card includes PRM Essential." center />
+        <SectionHead eyebrow="NFC card pricing" title={<>Two tiers, <span className="em-coral">three materials</span>.</>} lede="Starter has no customisation. Signature carries your name and logo. One-time prices; every NFC card includes PRM Essential." center />
         <div className="mt-12">
           <CardTiers cta={{ href: '/bundles', label: 'See the bundles' }} />
         </div>
@@ -154,7 +154,7 @@ export default function NfcCardsPage() {
       </Section>
 
       <Section tight id="shipping">
-        <SectionHead eyebrow="Shipping" title={<>Ships within <span className="em-coral">the UAE</span>.</>} lede="NFC card shipping is included across the UAE, with VAT shown upfront at checkout. Other countries are not served yet." />
+        <SectionHead eyebrow="Shipping" title={<>Ships within <span className="em-coral">the UAE</span>.</>} lede="NFC card shipping is included across the UAE. Other countries are not served yet." />
         <ul className="mt-8 flex flex-wrap gap-2" aria-label="Shipping region" data-reveal="fade">
           {SHIPPING_REGIONS.map((r) => (
             <li key={r} className="tag">

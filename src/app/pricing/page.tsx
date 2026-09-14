@@ -22,7 +22,7 @@ export const metadata: Metadata = pageMeta(
 const BILLING_FAQ = [
   { q: 'Do I need a card to start?', a: 'No. The Essential plan is free and needs no NFC card. Add a card any time.' },
   { q: 'How is yearly billed?', a: 'Enhanced is $12 a year or $25 for life. Pro is $100 a year. Team is $200 a year. Paid subscriptions may renew automatically until cancelled, as the terms say.' },
-  { q: 'Which currency am I billed in?', a: 'Plan prices are listed in US dollars. The store prices the cards in AED and shows an approximate dollar figure beside each; the terms say prices are displayed in USD unless stated otherwise, so the billing currency is being confirmed and the checkout shows it. VAT is shown upfront.' },
+  { q: 'Which currency am I billed in?', a: 'Plan prices are listed in US dollars. The store prices the cards in AED and shows an approximate dollar figure beside each; the terms say prices are displayed in USD unless stated otherwise, so the billing currency is being confirmed and the checkout shows it.' },
   { q: 'Can I cancel?', a: 'Yes. You are responsible for cancelling before the renewal date if you do not want a subscription to renew. What you have paid for runs to the end of its period.' },
   { q: 'Is there an Enterprise plan?', a: 'Not yet. Enterprise is coming later and is interest only. Single sign-on, CRM and HRMS integration and product customisation are planned for it.' },
   { q: 'Where do I buy?', a: 'Plans, cards, bundles, AI credit top-ups and invoices are handled in the browser at prm.linkist.ai, so the app stays focused on your relationships.' },
@@ -52,7 +52,7 @@ export default function PricingPage() {
       </Section>
 
       <Section id="cards">
-        <SectionHead eyebrow="Linkist NFC cards" title={<>Tap. Share. Make the <span className="em-coral">first impression</span> count.</>} lede="One-time prices for Starter and Signature in PVC, wood and metal. Every card includes PRM Essential." center />
+        <SectionHead eyebrow="NFC card pricing" title={<>Tap. Share. Make the <span className="em-coral">first impression</span> count.</>} lede="One-time prices for Starter and Signature in PVC, wood and metal. Every card includes PRM Essential." center />
         <div className="mt-12">
           <CardTiers cta={{ href: '/nfc-cards', label: 'Explore NFC cards' }} headingLevel={3} />
         </div>
