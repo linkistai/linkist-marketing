@@ -29,7 +29,7 @@ export function CardTiers({ cta = { href: '/nfc-cards', label: 'Explore NFC card
           const featured = t.key === 'signature';
           return (
             <div key={t.key} className={`card lift relative flex flex-col gap-6 p-6 sm:p-8 ${featured ? 'sweep sweep--featured' : 'sweep sweep--neutral'}`}>
-              {t.badge ? <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-white px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.04em] text-ground">{t.badge}</span> : null}
+              {t.badge ? <span className="absolute -top-3 left-1/2 z-[2] -translate-x-1/2 whitespace-nowrap rounded-full bg-white px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.04em] text-ground">{t.badge}</span> : null}
               <div className="grid grid-cols-3 gap-3 pt-3">
                 {MATERIALS.map((m) => (
                   <NfcCard key={m.key} material={m.key} tier={t.key} name="Olivia Jones" meta="NYU Abu Dhabi" sizes="(min-width: 768px) 140px, 28vw" />

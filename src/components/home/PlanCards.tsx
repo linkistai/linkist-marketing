@@ -17,7 +17,7 @@ export function PlanCards({ compact, headingLevel = 3 }: { compact?: boolean; he
           const featured = p.key === 'pro';
           return (
             <div key={p.key} className={`card lift relative flex flex-col p-6 ${featured ? 'sweep sweep--featured' : 'sweep sweep--neutral'}`}>
-              {p.badge ? <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-white px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.04em] text-ground">{p.badge}</span> : null}
+              {p.badge ? <span className="absolute -top-3 left-1/2 z-[2] -translate-x-1/2 whitespace-nowrap rounded-full bg-white px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.04em] text-ground">{p.badge}</span> : null}
               <div className="flex items-center justify-between gap-2">
                 <H className="eyebrow !text-body">{p.name}</H>
                 {p.key === 'essential' ? <span className="text-xs font-semibold text-muted">No NFC card required</span> : null}
