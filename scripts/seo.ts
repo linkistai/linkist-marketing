@@ -23,14 +23,14 @@ const base = (process.env['REVIEW_BASE_URL'] ?? 'http://localhost:3200').replace
 const FACTS = readFileSync(join(root, 'scripts/lib/seo-facts.js'), 'utf8');
 const only = process.argv.slice(2).filter((a) => a.startsWith('/'));
 
-/** Routes that may carry an em dash: the articles imported verbatim from linkist.ai (C15). */
+/** Routes that may carry an em dash: the articles imported verbatim from linkist.ai (C15), and the home page, whose hero lede is the owner's wording as supplied (D50). */
 const importedSlugs = readdirSync(join(root, 'content/blog'))
   .filter((f) => f.endsWith('.md'))
   .map((f) => readFileSync(join(root, 'content/blog', f), 'utf8'))
   .filter((s) => /"coverKind":\s*"photo"/.test(s) || /"source":\s*"https:\/\/www\.linkist\.ai\/blogs/.test(s))
   .map((s) => /"slug":\s*"([^"]+)"/.exec(s)?.[1] ?? '')
   .filter(Boolean);
-const emDashAllowed = new Set(importedSlugs.map((s) => `/blogs/${s}`));
+const emDashAllowed = new Set([...importedSlugs.map((s) => `/blogs/${s}`), '/']);
 
 const drafts = getLegal()
   .filter((d) => d.status === 'draft')

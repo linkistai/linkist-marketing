@@ -217,3 +217,58 @@
     padding-bottom: 88px;
   }
 }
+
+/* Store badges (D50): two-line app-store pills. Without a listing a badge is inert, dimmed and says Coming soon. */
+.storebadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 14px 0 12px;
+  border-radius: 10px;
+  border: 1px solid var(--color-line-strong);
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  line-height: 1;
+  transition:
+    transform 180ms var(--ease-out),
+    border-color 180ms;
+}
+a.storebadge:hover,
+a.storebadge:focus-visible {
+  transform: translateY(-1px);
+  border-color: #fff;
+}
+.storebadge__text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.storebadge__small {
+  font-size: 10px;
+  letter-spacing: 0.01em;
+  opacity: 0.85;
+}
+.storebadge__big {
+  font-size: 17px;
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.01em;
+}
+.storebadge--soon {
+  opacity: 0.72;
+}
+.storebadge__soon {
+  margin-left: 4px;
+  padding: 4px 7px;
+  border-radius: 999px;
+  font-size: 9px;
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.12);
+}
+:root[data-theme='light'] .storebadge {
+  background: #141413;
+  border-color: #141413;
+}

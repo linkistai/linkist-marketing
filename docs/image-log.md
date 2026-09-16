@@ -1,6 +1,6 @@
 # Image log
 
-Every picture the site uses, where it came from and on what terms, so any of them can be regenerated or replaced from its entry. Status on 11 September 2026: **the four NFC card faces are generated** (below, at the owner's request); the people, objects and scenes of `docs/image-plan.md` are priced and wait for the client's choice (C4). Everything else on the site is one of the kinds further down.
+Every picture the site uses, where it came from and on what terms, so any of them can be regenerated or replaced from its entry. Status on 17 September 2026: **the four NFC card faces and the home hero scene are generated** (below, at the owner's request); the people, objects and scenes of `docs/image-plan.md` are priced and wait for the client's choice (C4). Everything else on the site is one of the kinds further down.
 
 ## Generated imagery
 
@@ -13,6 +13,7 @@ Magnific project "Linkist", model Google Nano Banana 2 (`imagen-nano-banana-2-fl
 | NFC card front, metal | cards/metal | The same in brushed gunmetal stainless steel, etched wave, no chip | In use (third batch) | Background removed |
 | NFC card front, Founders Circle | cards/founders | The same in deep crimson-black PVC with a fine guilloche pattern and a thin polished dark-red border, no chip | In use (third batch) | Background removed |
 | NFC card back, four materials | cards/<material>-back | The back of each card: plain, a small NFC wave exactly centred, a thin engraved line across the lower third, no chip, no stripe, no logo, no text | In use | Background removed |
+| Home hero scene | scenes/hero-composite | Clean product photograph, square, dark studio: a phone upright and straight on with its whole screen a flat magenta (#FF00FF) chroma-key colour, a matte black PVC card standing to its left with no logo and no text, a plain white card mid-tap at its top right with a soft ring of light, no hands, near-black charcoal ground, soft key light and a faint crimson rim | In use (D50): the second of three 1:1 renders at 2K, 225 credits on 16 September 2026. `scripts/hero-composite.ts` places `public/screens/proto-home.png` on the magenta, composites `public/brand/mark.png` onto the card, turns the magenta spill crimson and crops to 1790 px; delivered by `pnpm imagery hero-composite` at 1200 px | Raw render in `masters/scenes-raw/hero-composite-raw.png`, master in `masters/scenes/hero-composite.png` |
 | Section swirl | backgrounds/swirl-2 | Abstract background: one large smooth fluid swirl of glossy liquid ribbons in near-black, charcoal and mid grey with silver-white highlights, 16:9, no text | In use behind the alternate section grounds, blurred (D40); two alternates (a second monochrome take and one with a crimson ribbon) kept as masters, 225 credits for the three | Delivered at 1920 px as WebP by hand (sharp resize), masters in `masters/backgrounds/` |
 | Second batch, four fronts with a contact chip | cards-raw/*-v2-raw.png | As the fronts above with a dark square contact chip top-right | Superseded on the owner's note that NFC chips are hidden inside a card; a content-aware erase of the chip on the cut-outs (4 attempts, 120 credits) left visible patches, so the fronts were regenerated without it | Not used |
 | First batch, four fronts with the mark generated in | cards-raw/*-raw.png | As the fronts above but with "the red logo mark from the reference image, top-left" | Superseded: the generated marks came out at different sizes; the wood card's first take was pale and was regenerated once | Not used |
@@ -25,9 +26,9 @@ Three phone screens cropped from the prototype's hero composite (`Linkist Landin
 
 | File | Shows | Used on |
 | --- | --- | --- |
-| `public/screens/proto-home.png` | Home: ICP Matches Found, a nudge about Julian at GITEX, Opportunity Radar, Network Pulse and Relationship Health | Home hero, stage 3, Act, use cases, most OG cards |
+| `public/screens/proto-home.png` | Home: ICP Matches Found, a nudge about Julian at GITEX, Opportunity Radar, Network Pulse and Relationship Health | Home hero (on the phone in the composite scene, D50), stage 3, Act, use cases, most OG cards |
 | `public/screens/proto-profile.png` | A public profile page with tags, a personal Linkist address and social links | Stage 2, Find, Profiles and cards |
-| `public/screens/proto-share.png` | Share Contact: a QR code and Tap to Link | Hero card slide, stage 1, Capture, NFC cards, bundles |
+| `public/screens/proto-share.png` | Share Contact: a QR code and Tap to Link | Stage 1, Capture, NFC cards, bundles |
 
 Real captures replace them the moment the owner signs in once on this machine (`pnpm capture:login`, then `pnpm capture`, C2). The frames and the OG script pick up the captured files by name; nothing else changes.
 

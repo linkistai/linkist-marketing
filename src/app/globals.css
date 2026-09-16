@@ -1105,12 +1105,38 @@ html[data-motion='off'] .ftabs__screen[data-active='false'] {
 .prose-lk .cards p { margin-top: 0.4em; font-size: var(--text-base); max-width: none; }
 
 /* Hero copy columns: the headline follows the column so a three-line headline with forced breaks never wraps (D16).
-   The widest line, "Act at the right time.", measures 9.54 px per pixel of font size in DM Sans 600 at -0.02em, so 10.3cqi leaves 2%. */
+   The widest line, "Follow up at the right time.", measures 12.26 px per pixel of font size in DM Sans 600 at -0.02em, so
+   7.9cqi leaves 3% (D50). The type never drops below the token's 36 px floor: on a phone the coral line balances onto
+   two lines instead, which reads better than a 28 px headline. */
 .hero-copy {
   container-type: inline-size;
 }
 .hero-copy .display-1 {
-  font-size: min(var(--display-1), 10.3cqi);
+  font-size: max(36px, min(var(--display-1), 7.9cqi));
+}
+.hero-copy .display-1 .em-coral {
+  display: inline-block;
+  text-wrap: balance;
+}
+/* The hero's foot (D50): store badges and the bring-your-own link under a hairline. */
+.hero-foot {
+  border-top: 1px solid var(--color-line);
+}
+/* The hero scene (D50): the composite product shot as a rounded photo card with the design-preview badge. */
+.hero-scene {
+  position: relative;
+  margin: 0 auto;
+  max-width: 560px;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-float);
+  background: #141413;
+}
+.hero-scene img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* Text links on a card ground use the ink coral (5.6:1 on cards, D3); plain coral only reaches 4.2:1 there. */

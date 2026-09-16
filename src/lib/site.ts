@@ -37,6 +37,12 @@ export const GET_CARD_URL = coerceUrl(process.env['NEXT_PUBLIC_GET_CARD_URL'], `
 /** The store, where NFC cards are bought (walk-through, 10 September). */
 export const STORE_URL = `${APP_URL}/store`;
 export const NFC_TOOLS_URL = coerceUrl(process.env['NEXT_PUBLIC_NFC_TOOLS_URL'], 'https://nfctools.linkist.ai');
+/**
+ * The native apps are in preparation and have no listings (R3, docs/01-audit.md). The hero's store
+ * badges link only once these are set; until then they are shown as coming soon (D50).
+ */
+export const APP_STORE_URL = envString(process.env['NEXT_PUBLIC_APP_STORE_URL']);
+export const PLAY_STORE_URL = envString(process.env['NEXT_PUBLIC_PLAY_STORE_URL']);
 /** Sign in and Start free both land on the PRM app's unified screen (D7). */
 export const SIGN_IN_URL = GET_APP_URL;
 export const START_URL = GET_APP_URL;

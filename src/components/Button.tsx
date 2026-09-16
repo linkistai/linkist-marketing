@@ -66,11 +66,11 @@ export function GetApp({ size = 'md', variant = 'primary', className = '' }: { s
   );
 }
 
-/** "Get NFC Card": the card product's sign-in (header, footer, hero). */
-export function GetCard({ size = 'md', variant = 'secondary', className = '' }: { size?: Size; variant?: Variant; className?: string }) {
+/** "Get NFC Card": the card product's sign-in (header, footer); the hero says "Get Linkist NFC" (D50). */
+export function GetCard({ size = 'md', variant = 'secondary', className = '', label }: { size?: Size; variant?: Variant; className?: string; label?: string }) {
   return (
     <Button href={GET_CARD_URL} size={size} variant={variant} className={className}>
-      {G.ctaNfc}
+      {label ?? G.ctaNfc}
     </Button>
   );
 }

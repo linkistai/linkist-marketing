@@ -41,7 +41,7 @@ Items the site cannot decide alone. Resolved items stay here with their answer s
 | --- | --- | --- |
 | R1 | Where does Start free land? | The app's unified sign-in, which is also where an account is created (email or mobile, then a verification code). No separate registration URL exists (D7). |
 | R2 | Is prm.linkist.ai the app? | No. It is the store and billing hub. The PRM app is mobile-only at m.linkist.ai. |
-| R3 | Store apps? | In preparation for the App Store and Google Play; no listings. The site says "web app on your phone". |
+| R3 | Store apps? | In preparation for the App Store and Google Play; no listings. The site says "web app on your phone". The home hero carries the two store badges from the owner's mockup (D50); each is inert and says "Coming soon" until its listing URL is set (`NEXT_PUBLIC_APP_STORE_URL`, `NEXT_PUBLIC_PLAY_STORE_URL`). |
 | R4 | Support and privacy addresses? | support@linkist.ai and privacy@linkist.ai, published in the terms and privacy policy. |
 | R5 | Compliance words? | No GDPR or SOC 2 evidence. The privacy policy is written to the UAE Personal Data Protection Law (Federal Decree-Law No. 45 of 2021). |
 | R6 | The three statistics on linkist.ai? | Unsourced; not used (D9). |

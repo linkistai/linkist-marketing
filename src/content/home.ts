@@ -2,57 +2,34 @@
  * Home page copy as data, in the prototype's section order (brief, Appendix A). Every sentence
  * lifted from the prototype has had its em dashes rewritten (rule 5). Every claim traces to the
  * Product Truth Sheet and carries a confirm-list item until the Phase 1 audit.
- * British English, no em dashes, digits for numbers, headlines with one coral phrase.
+ * British English, no em dashes (the hero lede is the owner's wording, D50), digits for numbers, headlines with one coral phrase.
  */
 import type { FaqItem } from '@/components/Faq';
 import type { MiniMockKind } from '@/components/mockups/MiniMock';
 import type { ProtoScreen } from '@/content/design';
-import { G } from '@/lib/glossary';
-
-export const HERO = {
-  eyebrow: 'Personal Relationship Manager',
-  lines: ['Capture Contacts.', 'Remember Context.', 'Act at the right time.'] as const,
-  lede: 'Linkist brings your contacts, meeting context and relationship opportunities into one place. Capture the people you meet, find who matters, and know what to do next.',
-  subline: 'Turn the contacts you collect into relationships and opportunities you can act on.',
-  proof: ['Start free, no NFC card required', 'Works with or without an NFC card', 'Every NFC card includes PRM Essential', 'Sign in with email or mobile', 'Ships within the UAE, shipping included'],
-} as const;
 
 /**
- * The hero carousel (D15): one slide for the PRM app, one for the NFC cards, each with its own
- * button. Every line on the card slide traces to the store walk-through and the prototype's card
- * section (docs/01-audit.md): a tap opens the live profile, the other person saves the details,
- * Tap to Link captures theirs, three materials, PRM Essential included, one-time prices, free
- * activation of an NFC card you already own.
+ * The home hero (D50): the owner's copy of 16 September 2026, word for word, in place of the two-slide
+ * product switcher. The lede keeps its em dash because the owner asked for the wording as supplied;
+ * scripts/seo.ts allows it on this one route. The store badges only link once the listings exist
+ * (R3, `APP_STORE_URL` and `PLAY_STORE_URL`); until then they say so.
  */
-export interface HeroSlide {
-  readonly key: 'app' | 'card';
-  readonly tab: string;
-  readonly eyebrow: string;
-  readonly lines: readonly [string, string, string];
-  readonly lede: string;
-  readonly subline: string;
-  readonly secondary: { readonly href: string; readonly label: string };
-}
-export const HERO_SLIDES: readonly HeroSlide[] = [
-  {
-    key: 'app',
-    tab: 'The PRM app',
-    eyebrow: HERO.eyebrow,
-    lines: HERO.lines,
-    lede: HERO.lede,
-    subline: 'Free plan. No NFC card required. Add an NFC card any time.',
-    secondary: { href: '/how-it-works', label: G.ctaSecondary },
+export const HERO = {
+  eyebrow: 'Personal Relationship Manager',
+  lines: ['Capture contacts.', 'Remember context.', 'Follow up at the right time.'] as const,
+  lede: 'Linkist is the AI-powered PRM that turns the people you meet into relationships you keep. Save contacts in seconds, get timely nudges, and never lose track of who matters — with or without an NFC card.',
+  primary: 'Create Free Profile',
+  secondary: 'Get Linkist NFC',
+  subline: 'Free to start · No NFC card required · Add one any time',
+  byo: 'Already have an NFC card? Bring your own',
+  stores: {
+    apple: { small: 'Download on the', big: 'App Store' },
+    google: { small: 'Get it on', big: 'Google Play' },
+    pending: 'Coming soon',
   },
-  {
-    key: 'card',
-    tab: 'NFC cards',
-    eyebrow: 'Linkist NFC cards',
-    lines: ['Tap the NFC card.', 'Share your profile.', 'Save the contact.'],
-    lede: 'A Linkist NFC card opens your live profile with one tap, so the person you meet can save your details and you can capture theirs into Linkist PRM. PVC, wood or metal, and every card includes PRM Essential.',
-    subline: 'One-time prices. Ships within the UAE. Already own an NFC card? Activate it free.',
-    secondary: { href: '/nfc-cards', label: 'Explore NFC cards' },
-  },
-];
+  /** The composite scene: a real design preview on the phone, the brand mark on the card (scripts/hero-composite.ts). */
+  imageAlt: 'Design preview of the Linkist home screen on a phone, with a black Linkist NFC card standing beside it and a plain white NFC card tapping the top of the phone',
+} as const;
 
 /**
  * Intent chips, now in "How Linkist works" (D17): each chip rewrites the scenario line, lights

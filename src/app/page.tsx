@@ -10,7 +10,7 @@ import { Bundles } from '@/components/home/Bundles';
 import { CapabilityGrid } from '@/components/home/CapabilityGrid';
 import { CardTiers } from '@/components/home/CardTiers';
 import { CommunityBand } from '@/components/home/CommunityBand';
-import { HeroCarousel } from '@/components/home/HeroCarousel';
+import { Hero } from '@/components/home/Hero';
 import { HomeJsonLd } from '@/components/home/JsonLd';
 import { PlanCards } from '@/components/home/PlanCards';
 import { StageFlow } from '@/components/home/StageFlow';
@@ -37,7 +37,7 @@ export default function HomePage() {
   return (
     <>
       <HomeJsonLd />
-      <HeroCarousel screen={screen('proto-home')} screenAlt={PROTO_ALT['proto-home']} person={person('hero-1')} />
+      <Hero scene={scene('hero-composite')} />
 
       <Section id="how" tone="charcoal" glow>
         <SectionHead eyebrow="How Linkist works" title={<>Turn the contacts you collect into <span className="em-coral">opportunities</span>.</>} lede="Linkist helps you capture the right people, understand who matters, and know what to do next." center />

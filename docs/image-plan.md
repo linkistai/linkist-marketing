@@ -32,7 +32,7 @@ Grownz used about 12,000 credits over six batches, mostly on regenerations after
 
 | Slot file | Page | Purpose | Size | Casting or subject |
 | --- | --- | --- | --- | --- |
-| `people/hero-1` | `/` hero, PRM slide | Waist-up, phone to camera | 3:4, 2K, cut out | An Emirati man in his thirties, charcoal blazer, white shirt, crimson lanyard; alternate B: a South Asian woman in her late twenties, warm grey blouse, crimson scarf |
+| `people/hero-1` | Retired (D50): the home hero shows the composite product scene, `scenes/hero-composite`, and resolves no person | Was: waist-up, phone to camera | 3:4, 2K, cut out | Kept here only so the casting is not lost if a person returns to the hero |
 | `people/close-1` | `/` closing band | Full figure, smiling at the camera, phone at her side | 3:4 | A woman in her forties, charcoal suit, white trainers |
 | `people/close-2` to `close-6` | how it works, features, use cases, NFC cards, AI | Full figures | 3:4 | A Filipino man with a conference badge; an older Gulf businessman in a kandura; a young woman scanning a paper card (waist-up); a man on a metro with the app open; a team of three around a table |
 | `people/close-7` to `close-12` | security, help, changelog, community, about, customers | Full figures | 3:4 | Six more castings in the same wardrobe, Gulf-first plus international |

@@ -107,115 +107,6 @@
     border-color: transparent;
   }
 
-  /* Segmented tabs with a tweening pill. */
-  .segtabs {
-    position: relative;
-    display: inline-flex;
-    gap: 2px;
-    padding: 4px;
-    border-radius: var(--radius-pill);
-    background: var(--color-surface2);
-    border: 1px solid var(--color-line);
-    max-width: 100%;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  .segtabs__pill {
-    position: absolute;
-    top: 4px;
-    height: calc(100% - 8px);
-    border-radius: var(--radius-pill);
-    background: var(--brand-crimson);
-    transition:
-      left 250ms var(--ease-out),
-      width 250ms var(--ease-out);
-  }
-  .segtabs__tab {
-    position: relative;
-    z-index: 1;
-    border: 0;
-    background: transparent;
-    border-radius: var(--radius-pill);
-    padding: 0 18px;
-    min-height: 44px;
-    font: inherit;
-    font-weight: var(--weight-semibold);
-    font-size: var(--text-base);
-    color: var(--color-muted);
-    cursor: pointer;
-    white-space: nowrap;
-    transition: color 160ms;
-  }
-  .segtabs__tab[aria-selected='true'] {
-    color: #fff;
-  }
-  .seggrid {
-    position: relative;
-  }
-  .seggrid__set {
-    transition:
-      opacity 200ms var(--ease-out),
-      transform 200ms var(--ease-out);
-  }
-  .seggrid__set[data-active='false'] {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transform: translateY(12px);
-    pointer-events: none;
-  }
-
-  /* Hero carousel (D15): two slides stacked in one grid cell that slide sideways and cross-fade. */
-  .hcar {
-    position: relative;
-  }
-  .hcar__slides {
-    display: grid;
-    touch-action: pan-y;
-    /* The parked slide sits 12% off to the side; clip sideways only so it never widens the page and the glow keeps its vertical bleed.
-       The clip edge sits one gutter out (where supported) so floating cards may overhang the column. */
-    overflow-x: clip;
-    overflow-y: visible;
-    overflow-clip-margin: var(--gutter);
-  }
-  .hcar__slide {
-    grid-area: 1 / 1;
-    transition:
-      transform 600ms var(--ease-out),
-      opacity 500ms var(--ease-out),
-      visibility 0s linear 600ms;
-  }
-  .hcar__slide[data-state='active'] {
-    transform: none;
-    opacity: 1;
-    visibility: visible;
-    transition-delay: 0s, 0s, 0s;
-  }
-  .hcar__slide[data-state='prev'] {
-    transform: translateX(-12%);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-  }
-  .hcar__slide[data-state='next'] {
-    transform: translateX(12%);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-  }
-  .hcar__controls {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 28px;
-  }
-  @media (min-width: 1024px) {
-    .hcar__controls {
-      justify-content: flex-start;
-    }
-  }
-
   /*
    * NFC hero (D35): the three rendered cards stand on a slow 3D ring. The ring turns a third at a
    * time and rests; while it rests, the card facing the visitor comes forward and flips over,
@@ -760,7 +651,6 @@
   }
 }
 
-html[data-motion='off'] .hcar__slide,
 html[data-motion='off'] .flow__phone,
 html[data-motion='off'] .flow__stage,
 html[data-motion='off'] .cardring__card,

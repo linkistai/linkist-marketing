@@ -17,3 +17,6 @@ test-results
 .vercel
 public/assets/masters/
 captures/browsers/
+
+# Local editor and preview settings
+.claude/

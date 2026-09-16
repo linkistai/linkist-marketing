@@ -27,6 +27,7 @@
     "import:legal": "tsx scripts/import-legal.ts",
     "seo": "tsx scripts/seo.ts",
     "imagery": "tsx scripts/imagery-process.ts",
+    "hero:composite": "tsx scripts/hero-composite.ts",
     "api": "tsx scripts/api-check.ts",
     "layout": "tsx scripts/layout-checks.ts",
     "lighthouse": "tsx scripts/lighthouse.ts",
