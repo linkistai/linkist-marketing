@@ -149,33 +149,16 @@ video {
 .section--tight {
   padding-block: calc(var(--section-y) * 0.6);
 }
-/*
- * Section grounds alternate near-black, a deeper black gradient and a slightly lifted charcoal
- * (brief 5; owner, 11 September: the alternate sections go blacker, as gradients rather than flats).
- */
-/* Section grounds (D45): the alternate tones return to a plain deeper black; the swirl lives in the home hero only. */
+/* Section grounds alternate near-black, charcoal and a slightly lifted charcoal (brief 5; the initial look, restored by D49). */
 .section--charcoal {
-  background: linear-gradient(180deg, #0f0f0e 0%, #0a0a09 100%);
-}
-.section--lifted {
-  background: radial-gradient(120% 90% at 50% 0%, #1a1a19 0%, #121211 60%, #0d0d0c 100%);
-}
-[data-theme='light'] .section--charcoal {
   background: var(--color-paper);
 }
-[data-theme='light'] .section--lifted {
+.section--lifted {
   background: color-mix(in srgb, var(--color-surface) 70%, var(--color-bg));
 }
-/*
- * The hero block (D44): one viewport tall, its content centred, the swirl behind it only (D43).
- * The swirl is an absolute layer, so it scrolls away with the hero; the section clips sideways so
- * the swirl's bleed never widens the page.
- */
+/* The hero block (D44): one viewport tall, its content centred. */
 .hero-block {
   position: relative;
-  isolation: isolate;
-  overflow-x: clip;
-  overflow-y: visible;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -187,38 +170,6 @@ video {
     min-height: calc(100svh - 88px);
     padding-block: 40px 56px;
   }
-}
-.page-swirl {
-  position: absolute;
-  left: -8%;
-  right: -8%;
-  top: -10%;
-  bottom: -10%;
-  z-index: -1;
-  background: url('/assets/backgrounds/swirl-2.webp') 50% 50% / cover no-repeat;
-  filter: blur(34px) brightness(0.85) contrast(1.15);
-  mix-blend-mode: screen;
-  opacity: 0.8;
-  pointer-events: none;
-  animation: swirl-sway 36s ease-in-out infinite alternate;
-  will-change: background-position;
-  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 78%, transparent 100%);
-  mask-image: linear-gradient(180deg, #000 0%, #000 78%, transparent 100%);
-}
-@keyframes swirl-sway {
-  from {
-    background-position: 47% 50%;
-  }
-  to {
-    background-position: 53% 50%;
-  }
-}
-[data-theme='light'] .page-swirl,
-html[data-motion='off'] .page-swirl {
-  animation: none;
-}
-[data-theme='light'] .page-swirl {
-  display: none;
 }
 /* One radial crimson glow rising from the bottom of a section, gradient as light (prototype). */
 .section--glow {

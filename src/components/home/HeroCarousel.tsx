@@ -102,8 +102,6 @@ export function HeroCarousel({ screen, screenAlt, person }: { screen?: string; s
 
   return (
     <section className="hero-block">
-      {/* The swirl lives behind the hero only (D43, D44) and scrolls with it. */}
-      <div className="page-swirl" aria-hidden="true" />
       <div className="container">
         {/* The page's one H1 never hides: a parked slide is invisible to assistive technology, so the slide headings are H2s. */}
         <h1 className="sr-only">{HERO.lines.join(' ')}</h1>
