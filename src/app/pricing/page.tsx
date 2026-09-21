@@ -14,14 +14,14 @@ import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
   'Pricing: Essential, Enhanced, Pro and Team',
-  'Linkist PRM starts free with no card required. Enhanced is $2 a month, Pro $10 a month, Team $4 per user a month with a minimum of 5 users. NFC cards from $20, bundles from $100.',
+  'Linkist PRM starts free with no card required. Enhanced is $2 a month, Pro $10 a month, Team $5 per user a month with a minimum of 5 users ($25 a month or $300 a year for 5). NFC cards from $20, bundles from $100.',
   '/pricing',
   { image: '/og/pricing.png' },
 );
 
 const BILLING_FAQ = [
   { q: 'Do I need a card to start?', a: 'No. The Essential plan is free and needs no NFC card. Add a card any time.' },
-  { q: 'How is yearly billed?', a: 'Enhanced is $12 a year or $25 for life. Pro is $100 a year. Team is $200 a year. Paid subscriptions may renew automatically until cancelled, as the terms say.' },
+  { q: 'How is yearly billed?', a: 'Enhanced is $12 a year or $25 for life. Pro is $100 a year. Team is $300 a year for 5 users (AED 1,000), then $5 a month for each additional user. Paid subscriptions may renew automatically until cancelled, as the terms say.' },
   { q: 'Which currency am I billed in?', a: 'Plan prices are listed in US dollars. The store prices the cards in AED and shows an approximate dollar figure beside each; the terms say prices are displayed in USD unless stated otherwise, so the billing currency is being confirmed and the checkout shows it.' },
   { q: 'Can I cancel?', a: 'Yes. You are responsible for cancelling before the renewal date if you do not want a subscription to renew. What you have paid for runs to the end of its period.' },
   { q: 'Is there an Enterprise plan?', a: 'Not yet. Enterprise is coming later and is interest only. Single sign-on, CRM and HRMS integration and product customisation are planned for it.' },

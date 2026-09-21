@@ -135,7 +135,7 @@ Prices as the site shows them on 11 September 2026: plans from the prototype, ca
 | Essential | Free | Your baseline Linkist identity. Free for as long as you like. Digital business card with photo, 1 personal profile, 1 card template, QR, URL, email and SMS sharing, card scan 5 a month, phone, CSV and VCF import. |
 | Enhanced | $2 a month, $12 a year, or $25 once for lifetime | For a profile that works as hard as you do. Personal URL and unlimited profile fields, 3 profiles, 3 card templates and a branded QR, card scan 20 a month, lead capture form, export. |
 | Pro | $10 a month or $100 a year | For anyone whose network is too big to hold in their head. 5 profiles, unlimited card scans, AI Enrichment and lead scoring, ICP Matching and Network Ask, Intelligent Nudges and Top Actions, AI voice notetaker and AI Follow-up, deal-tracking mini-CRM. Most popular. |
-| Team | $4 per user a month, $200 a year (unit to confirm, C22), 5 users minimum | For companies that want relationships to stay with the company. Everything in Pro teamwide, contact sharing, centralised admin console, company branding on cards, team directory. |
+| Team | $5 per user a month, minimum 5 users: $25 a month or $300 a year for 5 (AED 100 / AED 1,000), $5 a month per additional user (owner, 21 September 2026) | For companies that want relationships to stay with the company. Everything in Pro teamwide, contact sharing, centralised admin console, company branding on cards, team directory. |
 | Enterprise | Interest only | Coming later. Single sign-on, CRM and HRMS integration and product customisation are planned for it. |
 
 | Card | PVC | Wood | Metal | One line |

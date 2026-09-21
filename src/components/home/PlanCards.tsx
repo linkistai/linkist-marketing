@@ -42,7 +42,11 @@ export function PlanCards({ compact, headingLevel = 3 }: { compact?: boolean; he
                   {p.monthly ? <span className="text-sm text-body">{p.perUser ? '/user/month' : '/month'}</span> : null}
                 </p>
                 <p className="mt-1 text-xs text-muted">
-                  {p.monthly === 0 ? 'Free, for as long as you like' : [p.yearly ? `${formatMoney(p.yearly, 'USD')} paid annually` : null, p.lifetime ? `${formatMoney(p.lifetime, 'USD')} lifetime` : null, p.minUsers ? `minimum ${p.minUsers} users` : null].filter(Boolean).join(' · ')}
+                  {p.monthly === 0
+                    ? 'Free, for as long as you like'
+                    : p.team
+                      ? `${formatMoney(p.team.usd.monthly, 'USD')} a month or ${formatMoney(p.team.usd.yearly, 'USD')} a year for ${p.minUsers} users (${formatMoney(p.team.aed.monthly, 'AED')} / ${formatMoney(p.team.aed.yearly, 'AED')}) · minimum ${p.minUsers} users · ${formatMoney(p.monthly, 'USD')} a month for each additional user`
+                      : [p.yearly ? `${formatMoney(p.yearly, 'USD')} paid annually` : null, p.lifetime ? `${formatMoney(p.lifetime, 'USD')} lifetime` : null].filter(Boolean).join(' · ')}
                 </p>
                 <div className="mt-4">
                   <StartFree size="sm" variant={featured ? 'primary' : 'secondary'} className="w-full" />

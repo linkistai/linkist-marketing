@@ -105,10 +105,10 @@ export const HELP: readonly HelpEntry[] = [
   e('Teams', 'What happens to contacts when someone leaves?', 'Personal contacts stay with the person. Team-shared contacts and their relationship history remain with the authorised team, so relationship value stays inside the company.'),
   e('Teams', 'Who manages a team?', 'An administrator, through the centralised admin console listed in the plan comparison: members, shared contacts and company branding on every card.'),
   e('Teams', 'Can a team member keep private contacts?', 'Yes. Sharing is per contact, so personal relationships stay personal and only shared contacts are visible to the team.'),
-  e('Teams', 'How is a team billed?', 'Per user, with a minimum of 5 users, monthly or yearly. The pricing page shows the figures.', [{ label: 'Pricing', href: '/pricing' }]),
+  e('Teams', 'How is a team billed?', '$5 per user a month with a minimum of 5 users: $25 a month or $300 a year for 5 users (AED 100 or AED 1,000), then $5 a month for each additional user.', [{ label: 'Pricing', href: '/pricing' }]),
 
   // Plans and billing
-  e('Plans and billing', 'What do the plans cost?', 'Essential is free. Enhanced is $2 a month, $12 a year or $25 for life. Pro is $10 a month or $100 a year. Team is $4 per user a month or $200 a year, with a minimum of 5 users.', [{ label: 'Pricing', href: '/pricing' }]),
+  e('Plans and billing', 'What do the plans cost?', 'Essential is free. Enhanced is $2 a month, $12 a year or $25 for life. Pro is $10 a month or $100 a year. Team is $5 per user a month with a minimum of 5 users: $25 a month or $300 a year for 5 users, then $5 a month for each additional user.', [{ label: 'Pricing', href: '/pricing' }]),
   e('Plans and billing', 'Which plan has ICP Matching?', 'Pro and Team. Enhanced adds profiles, templates and lead capture; Pro adds the AI and relationship intelligence features.'),
   e('Plans and billing', 'Is there an Enterprise plan?', 'Not yet. Enterprise is coming later and is interest only today. Single sign-on and CRM or HRMS integration are listed for it.'),
   e('Plans and billing', 'Which currency am I billed in?', 'The store prices the cards in AED and shows an approximate US dollar figure beside each one. The terms say prices are displayed in USD unless stated otherwise, so check the currency at checkout.', [TERMS]),

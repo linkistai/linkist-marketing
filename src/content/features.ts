@@ -174,7 +174,7 @@ export const FEATURES: readonly FeaturePage[] = [
     heroAlt: 'Contacts with network health and exchanges',
     chips: [
       { label: 'Minimum', value: '5 users' },
-      { label: 'Per user', value: '$4 a month' },
+      { label: 'Per user', value: '$5 a month' },
       { label: 'Includes', value: 'Everything in Pro' },
     ],
     tabs: [
@@ -182,7 +182,7 @@ export const FEATURES: readonly FeaturePage[] = [
       { key: 'admin', title: 'Admin console', body: 'Add and remove users, manage who sees what, and keep company branding on every card from one place.', screen: 'team-admin-browser', kind: 'browser', alt: 'Admin console', plan: 'Team' },
       { key: 'directory', title: 'Team directory', body: 'Every colleague and their profiles in one directory, so the right person can be introduced fast.', screen: 'team-directory-browser', kind: 'browser', alt: 'Team directory', plan: 'Team' },
     ],
-    planNote: 'The Team plan is $4 per user a month or $200 a year, with a minimum of 5 users. It includes everything in Pro for every user.',
+    planNote: 'The Team plan is $5 per user a month with a minimum of 5 users: $25 a month or $300 a year for 5 users, then $5 a month for each additional user. It includes everything in Pro for every user.',
     faq: [
       { q: 'What happens to contacts when someone leaves?', a: 'Their personal contacts stay theirs. Team-shared contacts and the relationship history remain with the authorised team.' },
       { q: 'Can we brand the cards?', a: 'Yes. Company-wide branding on cards is part of the Team plan and managed from the admin console.' },

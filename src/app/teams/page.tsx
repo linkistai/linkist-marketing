@@ -16,7 +16,7 @@ import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
   'Linkist for teams: relationships that stay with the company',
-  'The Team plan: everything in Pro for every user, contact sharing across the team, a centralised admin console, company branding on cards and a team directory. $4 per user a month, minimum 5 users.',
+  'The Team plan: everything in Pro for every user, contact sharing across the team, a centralised admin console, company branding on cards and a team directory. $5 per user a month, minimum 5 users: $25 a month or $300 a year for 5 users.',
   '/teams',
   { image: '/og/teams.png' },
 );
@@ -52,7 +52,7 @@ export default function TeamsPage() {
                 <TextLink href="/features/teams">See the Team features</TextLink>
               </div>
               <p className="mt-6 text-sm text-body" data-hero-text>
-                {formatMoney(team.monthly, 'USD')} per user a month, or {formatMoney(team.yearly ?? 0, 'USD')} a year. Minimum {team.minUsers} users.
+                {formatMoney(team.monthly, 'USD')} per user a month, minimum {team.minUsers} users: {formatMoney(team.team!.usd.monthly, 'USD')} a month or {formatMoney(team.team!.usd.yearly, 'USD')} a year for {team.minUsers} users.
               </p>
             </div>
             <div className="hero-stage relative min-h-[360px]">
@@ -104,7 +104,7 @@ export default function TeamsPage() {
               <span className="text-body">per user a month</span>
             </p>
             <p className="mt-1 text-sm text-muted">
-              {formatMoney(team.yearly ?? 0, 'USD')} a year. Minimum {team.minUsers} users. Prices in US dollars.
+              Minimum {team.minUsers} users: {formatMoney(team.team!.usd.monthly, 'USD')} a month or {formatMoney(team.team!.usd.yearly, 'USD')} a year ({formatMoney(team.team!.aed.monthly, 'AED')} or {formatMoney(team.team!.aed.yearly, 'AED')}). Each additional user {formatMoney(team.monthly, 'USD')} a month.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-4">
               <StartFree size="md" />

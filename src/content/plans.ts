@@ -18,6 +18,8 @@ export interface Plan {
   readonly lifetime?: number;
   readonly perUser?: boolean;
   readonly minUsers?: number;
+  /** A per-user plan: the monthly and yearly price of the minimum team, in USD and AED (owner, 21 September 2026, D52). */
+  readonly team?: { readonly usd: { monthly: number; yearly: number }; readonly aed: { monthly: number; yearly: number } };
   readonly groups: readonly { heading: string; items: readonly string[] }[];
 }
 
@@ -60,10 +62,10 @@ export const PLANS: readonly Plan[] = [
     key: 'team',
     name: 'Team',
     fit: 'For companies that want relationships to stay with the company.',
-    monthly: 4,
-    yearly: 200,
+    monthly: 5,
     perUser: true,
     minUsers: 5,
+    team: { usd: { monthly: 25, yearly: 300 }, aed: { monthly: 100, yearly: 1000 } },
     groups: [
       { heading: 'Everything in Pro, teamwide', items: ['Contact sharing across the team', 'Centralised admin console', 'Company branding on cards', 'Team directory'] },
     ],
@@ -71,6 +73,9 @@ export const PLANS: readonly Plan[] = [
 ];
 
 export const planByKey = (key: PlanKey) => PLANS.find((p) => p.key === key)!;
+
+/** The Team plan in one sentence (owner, 21 September 2026): $5 per user a month, minimum 5 users; $25 a month or $300 a year for 5 (AED 100 / AED 1,000); $5 a month for each additional user. */
+export const TEAM_PRICE_LINE = '$5 per user a month, minimum 5 users: $25 a month or $300 a year for 5 users (AED 100 a month or AED 1,000 a year), then $5 a month for each additional user.';
 
 /** Enterprise is coming later and interest only (brief 3.9): a contact route, never a plan card. */
 export const ENTERPRISE_NOTE = 'Enterprise: coming later, interest only. Single sign-on, CRM and HRMS integration and product customisation are planned for it.';
