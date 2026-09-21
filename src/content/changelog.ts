@@ -48,14 +48,14 @@ export const CHANGELOG: readonly Change[] = [
     source: 'linkist.ai/blogs, dated June 2026',
   },
   {
-    date: '2026-09-14',
+    date: '2026-09-07',
     tag: 'Legal',
-    title: 'Privacy policy version 1.3 and terms of service version 1.2',
+    title: 'Linkist Terms and Privacy, version 1.0',
     items: [
-      'The privacy policy adds contact import from a connected Google or Microsoft account (read-only access, tokens stored encrypted, the contacts kept like any other import), a separate marketing-consent section with channel choices and withdrawal, and location as an optional aid at events.',
-      'The terms (7 August 2026) add the website and its public content, online purchasing and forms to the agreement, with two new sections on website use and optional communications.',
+      'One plain-language document for the Essential, Enhanced, Pro and Teams plans replaces all earlier terms of service and privacy policies: a short version, key words, Part 1 the terms of use in 20 sections, Part 2 privacy in 16.',
+      'AI features are off until switched on, every result shows its confidence, and no AI decision seriously affects people. Paid plans renew automatically with 30 days\' notice of price changes; payments already made are not refunded except in three listed cases. The Teams plan sets out roles, team versus personal contacts, and what happens when a team ends.',
     ],
-    source: 'Documents supplied by RatioX Labs DWC-LLC, reproduced at /legal/privacy and /legal/terms',
+    source: 'Documents supplied by RatioX Labs DWC-LLC, reproduced at /legal/terms and /legal/privacy',
   },
   {
     date: '2026-06-01',

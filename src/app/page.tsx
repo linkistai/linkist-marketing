@@ -34,7 +34,7 @@ export default function HomePage() {
   return (
     <>
       <HomeJsonLd />
-      <Hero profile={screen('profile-zayn')} card={asset('assets/cards/sample-zayn-2x.webp')} />
+      <Hero profile={screen('profile-rhea')} card={asset('assets/cards/sample-rhea-2x.webp')} />
 
       <Section id="how" tone="charcoal" glow>
         <SectionHead eyebrow="How Linkist works" title={<>Turn the contacts you collect into <span className="em-coral">opportunities</span>.</>} lede="Linkist helps you capture the right people, understand who matters, and know what to do next." center />

@@ -8,13 +8,13 @@ import { ScreenFrame } from '@/components/ScreenFrame';
 import { Section, SectionHead } from '@/components/Section';
 import { HeroIntro } from '@/motion/HeroIntro';
 import { PROTO_ALT, DESIGN_NOTE } from '@/content/design';
-import { AI_CAPABILITIES, AI_FAQ, AI_INPUTS, AI_NOT_PUBLISHED, AI_OUTPUTS, AI_RULES, POLICY_DATE, PRIVACY_EMAIL_PUBLISHED, PRIVACY_URL, TERMS_URL } from '@/content/trust';
+import { AI_CAPABILITIES, AI_FAQ, AI_INPUTS, AI_NOT_PUBLISHED, AI_OUTPUTS, AI_RULES, POLICY_DATE, POLICY_VERSION, PRIVACY_EMAIL_PUBLISHED, PRIVACY_URL, TERMS_URL } from '@/content/trust';
 import { person, screen } from '@/lib/screens';
 import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
   'AI and your data',
-  'What the AI in Linkist does, what it reads, what it keeps and for how long, and how to switch it off. Written from the published privacy policy and terms, with the gaps listed as gaps.',
+  'What the AI in Linkist does, what it reads, what it keeps and for how long, and how to switch it off. Written from the published Terms and Privacy, with the gaps listed as gaps.',
   '/ai',
   { image: '/og/ai.png' },
 );
@@ -40,7 +40,7 @@ export default function AiPage() {
                 <span className="em-coral">How to switch it off.</span>
               </h1>
               <p className="lede mt-6" data-hero-text>
-                Linkist&apos;s AI features are optional, assistive and switched on with a separate consent. This page says what they do, what they read, what is kept and for how long, taken from the privacy policy and terms published on {POLICY_DATE}. What is not published yet is listed as such.
+                Linkist&apos;s AI features are off until you switch them on, and every result shows how confident it is. This page says what they do, what they read, what is kept and for how long, taken from the Terms and Privacy, version {POLICY_VERSION}, effective {POLICY_DATE}. What is not published yet is listed as such.
               </p>
               <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center" data-hero-text>
                 <StartFree />
@@ -57,7 +57,7 @@ export default function AiPage() {
       </section>
 
       <Section tone="charcoal" id="capabilities" glow>
-        <SectionHead eyebrow="What it does" title={<>8 things, <span className="em-coral">each named in the policy</span>.</>} lede="The product's name first, the privacy policy's name second. Nothing here is padded: if a capability is not on this list, the policy does not describe it." center />
+        <SectionHead eyebrow="What it does" title={<>8 things, <span className="em-coral">four verbs in the document</span>.</>} lede="The product's name first, then the verb the Terms and Privacy uses for it: add public business information, summarise relationships, score relevance, suggest follow-ups or introductions. Nothing here is padded: if a capability does not fit one of those verbs, the document does not describe it." center />
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-reveal="rise" data-reveal-stagger="0.06">
           {AI_CAPABILITIES.map((c, i) => {
             const Icon = ICONS[i] ?? Sparkles;
@@ -67,7 +67,7 @@ export default function AiPage() {
                   <Icon size={18} aria-hidden="true" />
                 </span>
                 <h2 className="display-3 mt-4 text-[20px]">{c.title}</h2>
-                <p className="text-xs text-muted">Policy: {c.policyName}</p>
+                <p className="text-xs text-muted">Document: {c.policyName}</p>
                 <p className="mt-2 flex-1 text-sm text-body">{c.body}</p>
                 <p className="mt-3 font-mono text-[11px] text-muted">{c.source}</p>
               </article>
@@ -81,29 +81,29 @@ export default function AiPage() {
         <div className="grid gap-10 lg:grid-cols-2">
           <div className="card p-7" data-reveal="rise">
             <p className="eyebrow">What it reads</p>
-            <h2 className="display-3 mt-3">Only what you put in, plus public sources for enrichment.</h2>
+            <h2 className="display-3 mt-3">Only what you put in, plus three allowed sources for added information.</h2>
             <ul className="mt-5 flex flex-col gap-2 pl-5 text-md text-body" style={{ listStyle: 'disc' }}>
               {AI_INPUTS.map((i) => (
                 <li key={i}>{i}</li>
               ))}
             </ul>
-            <p className="mt-4 font-mono text-[11px] text-muted">Privacy policy 5, 9</p>
+            <p className="mt-4 font-mono text-[11px] text-muted">P 2; T 9</p>
           </div>
           <div className="card p-7" data-reveal="rise">
             <p className="eyebrow">What it produces</p>
-            <h2 className="display-3 mt-3">Suggestions, scores and summaries, all marked as such.</h2>
+            <h2 className="display-3 mt-3">Suggestions, scores and summaries, each with its confidence.</h2>
             <ul className="mt-5 flex flex-col gap-2 pl-5 text-md text-body" style={{ listStyle: 'disc' }}>
               {AI_OUTPUTS.map((i) => (
                 <li key={i}>{i}</li>
               ))}
             </ul>
-            <p className="mt-4 font-mono text-[11px] text-muted">Privacy policy 4.10</p>
+            <p className="mt-4 font-mono text-[11px] text-muted">P 2, 6</p>
           </div>
         </div>
       </Section>
 
       <Section tone="lifted" id="rules">
-        <SectionHead eyebrow="The rules" title={<>What the policy and terms <span className="em-coral">bind Linkist to</span>.</>} lede="Each rule cites its section. P is the privacy policy, T the terms of service." center />
+        <SectionHead eyebrow="The rules" title={<>What the Terms and Privacy <span className="em-coral">bind Linkist to</span>.</>} lede="Each rule cites its section. T is Part 1, the terms of use; P is Part 2, privacy." center />
         <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-reveal="rise" data-reveal-stagger="0.05">
           {AI_RULES.map((r) => (
             <li key={r.title} className="card card--hover p-6">
@@ -116,12 +116,12 @@ export default function AiPage() {
         </ul>
         <p className="mt-8 text-center text-sm text-muted">
           Read the{' '}
-          <a href={PRIVACY_URL} className="underline">
-            privacy policy
-          </a>{' '}
-          and the{' '}
           <a href={TERMS_URL} className="underline">
-            terms of service
+            Terms and Privacy
+          </a>
+          , or{' '}
+          <a href={PRIVACY_URL} className="underline">
+            Part 2, Privacy, on its own
           </a>
           . Questions and objections: {PRIVACY_EMAIL_PUBLISHED}.
         </p>

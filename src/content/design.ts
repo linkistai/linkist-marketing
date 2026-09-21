@@ -62,11 +62,11 @@ export const PROTO_CAPTIONS: Record<ProtoScreen, string> = {
   'v6-record': 'Record this meeting, transcribed on device',
   'v6-log': 'Log what happened, thirty seconds, done',
   'profile-zayn': 'A public profile: Zayn Rahman, Strategy and Partnerships Director, with social links and About Me',
-  'profile-maya': 'A public profile: Maya',
-  'profile-rhea': 'A public profile: Rhea',
-  'profile-luca': 'A public profile: Luca',
-  'profile-natalie': 'A public profile: Natalie',
-  'profile-john': 'A public profile: John Jameson',
+  'profile-maya': 'A public profile: Maya Middleton, Chief Product Officer',
+  'profile-rhea': 'A public profile: Rhea Desai, Head of Strategic Partnerships, with social links and About Me',
+  'profile-luca': 'A public profile: Luca Mercer, Partnerships and Experiences Director',
+  'profile-natalie': 'A public profile: Natalie Vale, a business student',
+  'profile-john': 'A public profile: John Jameson, Marketing Specialist',
 };
 
 export const PROTO_ALT: Record<ProtoScreen, string> = Object.fromEntries(Object.entries(PROTO_CAPTIONS).map(([k, v]) => [k, `Design preview. ${v}`])) as Record<ProtoScreen, string>;

@@ -6,22 +6,22 @@ import { ClosingBand } from '@/components/ClosingBand';
 import { Faq } from '@/components/Faq';
 import { Section, SectionHead } from '@/components/Section';
 import { HeroIntro } from '@/motion/HeroIntro';
-import { CONTACT_DATA, CONTROLLER, CONTROLS, DPO_EMAIL_PUBLISHED, POLICY_DATE, PRIVACY_EMAIL_PUBLISHED, PRIVACY_URL, PROVIDERS, RETENTION, RIGHTS, SECURITY_FAQ, SECURITY_NOT_PUBLISHED, SITE_CONTROLS, SUPPORT_EMAIL_PUBLISHED, TERMS_URL, TRANSFER_SAFEGUARDS } from '@/content/trust';
+import { CONTACT_DATA, CONTROLLER, CONTROLS, DPO_EMAIL_PUBLISHED, POLICY_DATE, POLICY_VERSION, PRIVACY_EMAIL_PUBLISHED, PRIVACY_URL, PROVIDERS, RETENTION, RIGHTS, SECURITY_FAQ, SECURITY_NOT_PUBLISHED, SITE_CONTROLS, SUPPORT_EMAIL_PUBLISHED, TERMS_URL, TRANSFER_SAFEGUARDS } from '@/content/trust';
 import { person } from '@/lib/screens';
 import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
   'Security and trust',
-  'Where your data lives, who can see it, how it is protected, what you can ask for, and what Linkist has not published yet. Written for a sceptical reader from the published policy and terms.',
+  'Where your data lives, who can see it, how it is protected, what you can ask for, and what Linkist has not published yet. Written for a sceptical reader from the published Terms and Privacy.',
   '/security',
   { image: '/og/security.png' },
 );
 
 const GLANCE = [
   ['Sign-in', 'Email or mobile plus a one-time code. No password.'],
-  ['Law', 'UAE Personal Data Protection Law, Federal Decree-Law No. 45 of 2021'],
-  ['Controller', CONTROLLER.name + ', Dubai'],
-  ['Named provider', 'Stripe, for payments'],
+  ['Law', 'The United Arab Emirates as applied in Dubai, plus your local consumer protection'],
+  ['Responsible', CONTROLLER.name + ', Dubai'],
+  ['Named providers', 'None yet; a list at linkist.ai/legal/providers is promised'],
   ['Attestations', 'None claimed'],
 ] as const;
 
@@ -41,7 +41,7 @@ export default function SecurityPage() {
                 <span className="em-coral">sceptical reader</span>.
               </h1>
               <p className="lede mt-6" data-hero-text>
-                Where your data lives, who can see it, how it is protected, what you can ask for, and what has not been published yet. Every line comes from the privacy policy and terms of {POLICY_DATE}, or from the product itself, and says which.
+                Where your data lives, who can see it, how it is protected, what you can ask for, and what has not been published yet. Every line comes from the Terms and Privacy, version {POLICY_VERSION}, effective {POLICY_DATE}, or from the product itself, and says which.
               </p>
               <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center" data-hero-text>
                 <StartFree />
@@ -61,7 +61,7 @@ export default function SecurityPage() {
       </section>
 
       <Section tone="charcoal" id="controls" glow>
-        <SectionHead eyebrow="10 controls" title={<>What protects your data, <span className="em-coral">and where it is written</span>.</>} lede="The policy's own list of technical and organisational measures, in plain words, plus what the sign-in screen shows. P is the privacy policy and the number its section." center />
+        <SectionHead eyebrow={`${CONTROLS.length} controls`} title={<>What protects your data, <span className="em-coral">and where it is written</span>.</>} lede="The measures the document names, in plain words, plus what the sign-in screen shows. T is Part 1 of the Terms and Privacy, P is Part 2, and the number is the section." center />
         <ol className="mt-12 grid gap-4 md:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.05">
           {CONTROLS.map((c, i) => (
             <li key={c.title} className="card sweep sweep--neutral lift p-6">
@@ -77,25 +77,25 @@ export default function SecurityPage() {
       </Section>
 
       <Section id="providers">
-        <SectionHead eyebrow="Who receives data" title={<>10 categories, <span className="em-coral">one name</span>.</>} lede="The policy lists the kinds of provider that process data on Linkist's behalf, under confidentiality and data processing terms. It names Stripe and no one else." center />
+        <SectionHead eyebrow="Who receives data" title={<>{PROVIDERS.length} categories, <span className="em-coral">no names yet</span>.</>} lede="Linkist never sells personal data. The document lists who it is shared with: service providers who may use it only to help run Linkist, and four others. It names no company; the providers list it points to, at linkist.ai/legal/providers, is not published yet." center />
         <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-5" data-reveal="rise" data-reveal-stagger="0.04">
           {PROVIDERS.map((p) => (
             <li key={p.role} className="card card--sm p-4">
               <p className="text-sm font-semibold">{p.role}</p>
-              <p className="mt-1 text-xs text-muted">{p.named ?? 'Not named in the policy'}</p>
+              <p className="mt-1 text-xs text-muted">{p.named ?? 'Not named in the document'}</p>
             </li>
           ))}
         </ul>
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
           <div className="card p-6" data-reveal="rise">
-            <h3 className="font-semibold">Transfers outside the UAE</h3>
-            <p className="mt-2 text-sm text-body">Some providers may be located outside the United Arab Emirates. Where required, the policy lists these safeguards:</p>
+            <h3 className="font-semibold">Data that moves between countries</h3>
+            <p className="mt-2 text-sm text-body">Service providers may be in other countries. When data moves between countries, the document says these protections are used:</p>
             <ul className="mt-3 flex flex-col gap-1 pl-5 text-sm text-body" style={{ listStyle: 'disc' }}>
               {TRANSFER_SAFEGUARDS.map((s) => (
                 <li key={s}>{s}</li>
               ))}
             </ul>
-            <p className="mt-3 font-mono text-[11px] text-muted">P 16</p>
+            <p className="mt-3 font-mono text-[11px] text-muted">P 9</p>
           </div>
           <div className="card p-6" data-reveal="rise">
             <h3 className="font-semibold">The people in your contacts</h3>
@@ -104,13 +104,13 @@ export default function SecurityPage() {
                 <li key={s}>{s}</li>
               ))}
             </ul>
-            <p className="mt-3 font-mono text-[11px] text-muted">P 10, 19</p>
+            <p className="mt-3 font-mono text-[11px] text-muted">T 7, 11; P 7</p>
           </div>
         </div>
       </Section>
 
       <Section tone="lifted" id="retention">
-        <SectionHead eyebrow="How long" title={<>Retention, <span className="em-coral">in one table</span>.</>} lede="Condensed from the policy's retention schedule. Longer periods apply only where tax, accounting, dispute or security rules require them." center />
+        <SectionHead eyebrow="How long" title={<>Retention, <span className="em-coral">in one table</span>.</>} lede="The document's own retention table. Payments and invoices stay as long as tax and accounting law requires." center />
         <div className="table-wrap mx-auto mt-10 max-w-3xl" tabIndex={0} role="region" aria-label="Retention table, scrolls sideways on small screens">
           <table className="table w-full text-sm">
             <thead>
@@ -131,7 +131,7 @@ export default function SecurityPage() {
             </tbody>
           </table>
         </div>
-        <p className="mt-4 text-center font-mono text-[11px] text-muted">P 18, 20</p>
+        <p className="mt-4 text-center font-mono text-[11px] text-muted">P 10</p>
       </Section>
 
       <Section id="rights">
@@ -149,7 +149,7 @@ export default function SecurityPage() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 text-sm text-muted">Linkist aims to answer within 30 days and may verify your identity first. P 19, 20.</p>
+            <p className="mt-5 text-sm text-muted">Use Settings, Privacy or email privacy@linkist.ai. Linkist may need to confirm who you are and replies within 30 days, or sooner if your local law requires. P 11.</p>
           </div>
           <div className="card self-start p-7" data-reveal="rise">
             <p className="eyebrow">Who is responsible</p>
@@ -162,17 +162,17 @@ export default function SecurityPage() {
               <br />
               Support: {SUPPORT_EMAIL_PUBLISHED}
             </p>
-            <p className="mt-4 text-sm text-body">Governing law: the United Arab Emirates as applied in Dubai. Framework: {CONTROLLER.law}.</p>
+            <p className="mt-4 text-sm text-body">Governing law: {CONTROLLER.law}.</p>
             <p className="mt-4 text-sm">
-              <a href={PRIVACY_URL} className="underline">
-                Privacy policy
+              <a href={TERMS_URL} className="underline">
+                Terms and Privacy
               </a>
               <span className="text-muted"> · </span>
-              <a href={TERMS_URL} className="underline">
-                Terms of service
+              <a href={PRIVACY_URL} className="underline">
+                Part 2, Privacy
               </a>
             </p>
-            <p className="mt-3 font-mono text-[11px] text-muted">P 2, 3, 25; T 29</p>
+            <p className="mt-3 font-mono text-[11px] text-muted">P 1, 16; T 19, 20</p>
           </div>
         </div>
       </Section>

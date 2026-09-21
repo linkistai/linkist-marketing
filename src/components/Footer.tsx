@@ -53,7 +53,7 @@ const COLUMNS: { title: string; links: { href: string; label: string; external?:
       { href: '/contact', label: 'Contact' },
       { href: '/legal', label: 'Legal' },
       { href: '/legal/privacy', label: 'Privacy' },
-      { href: '/legal/terms', label: 'Terms' },
+      { href: '/legal/terms', label: 'Terms and Privacy' },
     ],
   },
 ];

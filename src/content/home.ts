@@ -28,7 +28,7 @@ export const HERO = {
     pending: 'Coming soon',
   },
   /** The product on the right (D51): a public-profile sample on a phone and its Signature card. */
-  imageAlt: 'A Linkist public profile on a phone, with a black Signature NFC card leaning against it. Design preview; the person is an example.',
+  imageAlt: 'A Linkist public profile on a phone, Rhea Desai, with her black Signature NFC card leaning against it. Design preview; the person is an example.',
 } as const;
 
 /**
@@ -178,7 +178,7 @@ export const FAQ: readonly FaqItem[] = [
   { q: 'Do I need an NFC card to use Linkist PRM?', a: 'No. You can start with the free PRM plan on its own and add an NFC card any time.' },
   { q: 'Does every NFC card include PRM Essential?', a: 'Yes. Every Linkist NFC card includes the PRM Essential plan.' },
   { q: 'What happens to my contacts if I leave my company?', a: 'Your personal contacts stay yours. Team-shared contacts and their relationship history remain with the authorised team, so relationship value stays inside the company.' },
-  { q: 'How does Linkist use AI and handle contact data?', a: 'AI enriches incomplete records, matches contacts against your ICPs and helps draft follow-ups. You review what it suggests. Contact data is handled under the privacy policy, written to the UAE Personal Data Protection Law, with encryption in transit and, where the policy applies it, at rest.' },
+  { q: 'How does Linkist use AI and handle contact data?', a: 'AI enriches incomplete records, matches contacts against your ICPs and helps draft follow-ups. You review what it suggests. Contact data is handled under the Linkist Terms and Privacy: you decide how the contacts you save are used, Linkist stores and protects them, never sells them, and AI is off until you switch it on.' },
 ];
 
 export const COMMUNITY = {

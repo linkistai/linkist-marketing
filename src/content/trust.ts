@@ -1,15 +1,16 @@
 /**
  * The AI and security pages (brief 4, checkpoint 4). Every line traces to a published source:
- * the privacy policy (version 1.3, 14 September 2026, cited as P + section), the terms of
- * service (version 1.2, 7 August 2026, cited as T + section; both supplied by the company, D51), or the
- * product as walked through on 10 September 2026 (docs/01-audit.md). Nothing is claimed that
- * neither document nor the product states; the gaps are listed as gaps (C8, C9).
+ * the Linkist Terms and Privacy, version 1.0, effective 7 September 2026 (D53), cited as
+ * T + section for Part 1 (Terms of use) and P + section for Part 2 (Privacy), or the product as
+ * walked through on 10 September 2026 (docs/01-audit.md). Nothing is claimed that neither the
+ * document nor the product states; the gaps are listed as gaps (C8, C9).
  */
 import type { FaqItem } from '@/components/Faq';
 import { G } from '@/lib/glossary';
 
-/** The privacy policy's date; the terms are version 1.2 of 7 August 2026. */
-export const POLICY_DATE = '14 September 2026';
+/** The effective date of the Terms and Privacy, version 1.0. */
+export const POLICY_DATE = '7 September 2026';
+export const POLICY_VERSION = '1.0';
 export const PRIVACY_URL = '/legal/privacy';
 export const TERMS_URL = '/legal/terms';
 export const PRIVACY_EMAIL_PUBLISHED = 'privacy@linkist.ai';
@@ -18,7 +19,7 @@ export const SUPPORT_EMAIL_PUBLISHED = 'support@linkist.ai';
 export const CONTROLLER = {
   name: 'RatioX Labs DWC-LLC',
   address: 'Dubai South Business Park, Building A3, 3rd Floor, Dubai South, Dubai, United Arab Emirates',
-  law: 'Federal Decree-Law No. 45 of 2021 on the Protection of Personal Data (UAE)',
+  law: 'the laws of the United Arab Emirates as applied in Dubai, with the mandatory consumer protection of the country where you live (T 19)',
 } as const;
 
 /* ---------- AI ---------- */
@@ -31,23 +32,27 @@ export interface AiCapability {
   readonly source: string;
 }
 
-/** What the optional AI features do, in the product's names, with the name the policy uses (P 9). */
+/**
+ * What the optional AI features do, in the product's names. The document describes AI in four
+ * verbs (T 9, P 6): add public business information to contacts, summarise relationships, score
+ * relevance, and suggest follow-ups or introductions. Each capability names the verb it is.
+ */
 export const AI_CAPABILITIES: readonly AiCapability[] = [
-  { title: G.capabilities.enrichment, policyName: 'Contact enrichment', body: 'Fills the gaps in a saved contact from public or professional sources, where enabled and lawful.', href: '/features/capture', source: 'P 4.10, 5, 9' },
-  { title: G.capabilities.icp, policyName: 'ICP matching', body: 'Compares your contacts with the profile of who you are looking for and shows who fits.', href: '/features/find', source: 'P 6.1, 9' },
-  { title: G.capabilities.priority, policyName: 'Relationship scoring', body: 'Marks which relationships are active, going quiet or worth attention now.', href: '/features/find', source: 'P 4.3, 9' },
-  { title: G.capabilities.strength, policyName: 'Network scoring', body: 'Reads the shape and health of your network as a whole.', href: '/features/find', source: 'P 9' },
-  { title: G.capabilities.signals, policyName: 'Smart Signals', body: 'Notices changes that deserve a reaction and surfaces them.', href: '/features/act', source: 'P 4.10, 6.3, 9' },
-  { title: G.capabilities.intros, policyName: 'Smart Introductions', body: 'Suggests who in your network could introduce you, and to whom.', href: '/features/act', source: 'P 4.10, 9' },
-  { title: G.capabilities.followUp, policyName: 'Suggested follow-ups', body: 'Proposes the next action and can draft the message; you send it or not.', href: '/features/act', source: 'P 4.10, 6.3, 9' },
-  { title: 'Contact summaries', policyName: 'Profile or contact summaries', body: 'Condenses notes, context and history into a short read before a meeting.', href: '/features/capture', source: 'P 4.10, 9' },
+  { title: G.capabilities.enrichment, policyName: 'Add public business information', body: 'Fills the gaps in a saved contact from public business sources, users, and data providers Linkist has an agreement with.', href: '/features/capture', source: 'T 9; P 6' },
+  { title: G.capabilities.icp, policyName: 'Score relevance', body: 'Compares your contacts with the profile of who you are looking for and shows who fits.', href: '/features/find', source: 'T 9; P 2, 6' },
+  { title: G.capabilities.priority, policyName: 'Summarise relationships, score', body: 'Marks which relationships are active, going quiet or worth attention now.', href: '/features/find', source: 'T 9; P 6' },
+  { title: G.capabilities.strength, policyName: 'Score', body: 'Reads the shape and health of your network as a whole.', href: '/features/find', source: 'T 9; P 2' },
+  { title: G.capabilities.signals, policyName: 'Suggest follow-ups', body: 'Notices changes that deserve a reaction and surfaces them.', href: '/features/act', source: 'T 9; P 6' },
+  { title: G.capabilities.intros, policyName: 'Suggest introductions', body: 'Suggests who in your network could introduce you, and to whom.', href: '/features/act', source: 'T 9; P 6' },
+  { title: G.capabilities.followUp, policyName: 'Suggest follow-ups', body: 'Proposes the next action and can draft the message. A drafted message becomes yours when you send it.', href: '/features/act', source: 'T 9; P 6' },
+  { title: 'Contact summaries', policyName: 'Summarise relationships', body: 'Condenses notes, context and history into a short read before a meeting.', href: '/features/capture', source: 'T 9; P 6' },
 ];
 
-/** What the AI features read (P 9) and where enrichment looks (P 5). */
-export const AI_INPUTS: readonly string[] = ['Profile data', 'Contact details', 'Your notes', 'Connection history', 'Interaction context', 'Professional information', 'Public or professional sources, for enrichment only, where enabled and lawful'];
+/** What the AI features read: your own data (P 2) and, for added information, the three sources T 9 allows. */
+export const AI_INPUTS: readonly string[] = ['Your profile', 'The contacts you saved, scanned or imported', 'Where you met, your notes, reminders and tags', 'Public business sources', 'Information from users', 'Data providers Linkist has an agreement with'];
 
-/** What they produce (P 4.10). */
-export const AI_OUTPUTS: readonly string[] = ['Contact enrichment summaries', 'Relationship reminders', 'ICP or relevance scores', 'Smart Signals', 'Suggested introductions', 'Suggested follow-up actions', 'Contact priority indicators', 'Network insights', 'Profile or relationship summaries'];
+/** What they produce (P 2, P 6). */
+export const AI_OUTPUTS: readonly string[] = ['Added business information on a contact', 'Relationship summaries', 'Relevance scores', 'Suggested follow-ups', 'Suggested introductions', 'A confidence level and the reason, on every result', 'Credits used, and the corrections you make'];
 
 export interface Rule {
   readonly title: string;
@@ -55,49 +60,47 @@ export interface Rule {
   readonly source: string;
 }
 
-/** The rules the policy and terms set for the AI features. */
+/** The rules the Terms and Privacy set for the AI features. */
 export const AI_RULES: readonly Rule[] = [
-  { title: 'Optional, with its own consent', body: 'AI enablement is a separate consent, not bundled with the terms. Contact enrichment, Smart Signals, ICP and Smart Introductions are named in it.', source: 'P 8' },
-  { title: 'Assistive, never binding', body: 'Outputs are suggestions you review before relying on them. Linkist does not use AI to make legally binding decisions about you.', source: 'P 9, T 14' },
-  { title: 'Switch it off any time', body: 'Disable optional AI features, or object to automated profiling, in Privacy Settings or by writing to privacy@linkist.ai.', source: 'P 6.3, 9' },
-  { title: 'Kept for a bounded time', body: 'AI enrichment outputs are held for up to 6 months or until you delete your account, unless refreshed, deleted or legally retained.', source: 'P 18' },
-  { title: 'Not sold, not marketed to', body: 'Imported contact data is not sold and is not used to market to the people in it unless they opt in themselves.', source: 'P 6.4, 10' },
-  { title: 'Not used on minors', body: 'Linkist is for people aged 18 or over and does not knowingly run AI profiling on minors.', source: 'P 9, 21' },
-  { title: 'Sensitive data is out of scope', body: 'Health, financial, government-ID, biometric and other regulated records must not be put into Linkist; AI must not be used to infer sensitive characteristics.', source: 'T 14, 16' },
-  { title: 'Credits for some actions', body: 'Some AI actions draw on AI credits, sold as top-ups in the billing hub at prm.linkist.ai.', source: 'Product, 10 September 2026; T 22' },
+  { title: 'Off until you switch it on', body: 'AI features are off by default. You switch them on, and you can switch them off at any time, in Settings, Privacy or by writing to privacy@linkist.ai.', source: 'T 9; P 5, 6' },
+  { title: 'AI can be wrong', body: 'Check suggestions before you rely on them. You are responsible for checking; Linkist is responsible for showing how confident each suggestion is and why.', source: 'T 5, 9; P 6' },
+  { title: 'Uncertain results are not kept', body: 'Every result shows its confidence. Less certain results are saved only if you accept them.', source: 'P 6' },
+  { title: 'No decisions about people', body: 'Linkist does not use AI to make decisions that seriously affect people, and you must not make hiring, lending, insurance or similar decisions based only on Linkist.', source: 'P 6; T 8' },
+  { title: 'Companies shared, people not', body: 'Information about a company, such as its website or industry, may be reused for all users. Information about an individual stays in your account.', source: 'T 9; P 6' },
+  { title: 'No training on your data', body: 'Linkist does not let its AI providers use your data to train their own general AI models.', source: 'T 9' },
+  { title: 'Anyone can opt out', body: 'A person whose details were saved can ask what AI information was added about them, have it deleted or corrected, and ask that no more is added.', source: 'P 7' },
+  { title: 'Credits, and a bounded life', body: 'AI features use Credits; unused Credits do not roll over and have no cash value. AI results about people are kept up to 6 months unless refreshed, or until you delete them.', source: 'T 10; P 10' },
 ];
 
 /** Honest gaps for the AI page (C8). */
 export const AI_NOT_PUBLISHED: readonly string[] = [
-  'Which model provider processes AI requests. The policy names the category, "AI and large language model providers, where AI features are enabled", not the company.',
-  'Where those requests are processed. The policy says some providers may be outside the UAE and lists the safeguards used for transfers.',
-  'The credit price list: what one AI credit buys and what each action costs.',
+  'Which AI provider processes requests. The document points to a providers list at linkist.ai/legal/providers; that page is not published yet.',
+  'Where those requests are processed. The document says service providers may be in other countries and that the protections the law requires are used.',
+  'The Credits each plan includes and what each action costs. The document says the Pricing page shows them; it does not yet.',
   'Which plans include which AI features. Compare the plans on the pricing page; the app shows the definitive table.',
 ];
 
 export const AI_FAQ: readonly FaqItem[] = [
-  { q: 'Do I have to use the AI features?', a: 'No. They are optional and switched on with a separate consent. Linkist works as a Personal Relationship Manager without them.' },
-  { q: 'How do I switch the AI off?', a: 'In Privacy Settings in your account, or by writing to privacy@linkist.ai. Withdrawing consent does not undo processing that already happened.' },
-  { q: 'Does the AI decide anything for me?', a: 'No. Outputs are assistive: enrichment summaries, scores, signals and suggested follow-ups that you review. Linkist does not use AI for legally binding decisions.' },
-  { q: 'What happens to enrichment results?', a: 'They are kept for up to 6 months or until you delete your account, unless refreshed, deleted or legally retained.' },
-  { q: 'Can the people in my contacts object?', a: 'Yes. Anyone whose details were added to Linkist can ask for access, correction, restriction or deletion at privacy@linkist.ai.' },
-  { q: 'Which model does Linkist use?', a: 'Not published yet. The policy names the provider category only. Ask privacy@linkist.ai, or check this page again.' },
+  { q: 'Do I have to use the AI features?', a: 'No. They are off until you switch them on, and you can use Linkist without agreeing to them.' },
+  { q: 'How do I switch the AI off?', a: 'At any time, in Settings, Privacy in your account, or by writing to privacy@linkist.ai.' },
+  { q: 'Does the AI decide anything for me?', a: 'No. Results are suggestions, scores and summaries that you check before relying on them. Linkist does not use AI to make decisions that seriously affect people.' },
+  { q: 'What happens to AI results?', a: 'Results about people are kept for up to 6 months unless refreshed, or until you delete them. Less certain results are saved only if you accept them.' },
+  { q: 'Can the people in my contacts object?', a: 'Yes. Anyone can email privacy@linkist.ai to learn what AI information was added about them, have it deleted or corrected, or ask that no more is added.' },
+  { q: 'Which model does Linkist use?', a: 'Not published yet. The document refers to a providers list at linkist.ai/legal/providers, which is still to come. Ask privacy@linkist.ai, or check this page again.' },
 ];
 
 /* ---------- Security ---------- */
 
-/** Technical and organisational measures, as the policy lists them (P 17), plus what the product shows. */
+/** The measures the document names (P 12, P 14, T 13), plus what the product shows. */
 export const CONTROLS: readonly Rule[] = [
-  { title: 'Encryption in transit', body: 'Traffic between you and Linkist is encrypted.', source: 'P 16, 17' },
-  { title: 'Encryption at rest, where appropriate', body: 'Stored data is encrypted where the policy deems it appropriate; the policy does not say everywhere.', source: 'P 17' },
-  { title: 'No password to leak', body: 'You sign in with an email address or mobile number and a one-time code. There is no password to reuse or phish.', source: 'Product, 10 September 2026; P 4.1' },
-  { title: 'Code expiry and token handling', body: 'One-time codes expire and tokens are handled securely; limited security logs are kept.', source: 'P 17, 18' },
-  { title: 'Access controls and roles', body: 'Role-based permissions and restricted administrative access.', source: 'P 17' },
-  { title: 'Audit logging and monitoring', body: 'Audit logs and security monitoring, with logs usually kept up to 12 months.', source: 'P 17, 18' },
-  { title: 'Vendor review', body: 'Providers are reviewed for security and bound by data processing terms.', source: 'P 15, 16, 17' },
-  { title: 'Testing, where appropriate', body: 'Vulnerability assessment and penetration testing "where appropriate". No report is published.', source: 'P 17' },
-  { title: 'Staff obligations', body: 'Awareness training and confidentiality obligations for staff.', source: 'P 17' },
-  { title: 'Breach notification', body: 'Breaches are assessed, contained and, where the law requires, reported to the authority and to affected people.', source: 'P 22' },
+  { title: 'Encryption', body: 'Encryption is the first measure the privacy part lists, and one of the two protections named for data that moves between countries.', source: 'P 9, 12' },
+  { title: 'Access controls', body: 'Access to data is controlled. On the Teams plan, Team Admins cannot see personal contacts.', source: 'P 12; T 13.4' },
+  { title: 'Secure login, no password', body: 'You sign in with an email address or mobile number and a one-time code. There is no password to reuse or phish.', source: 'P 12; product, 10 September 2026' },
+  { title: 'Activity logs and monitoring', body: 'Activity is logged and monitored. Security logs are usually kept up to 12 months.', source: 'P 10, 12' },
+  { title: 'Service providers checked', body: 'Providers are checked, may use data only to help run Linkist, and Linkist remains responsible for their work on team contacts as if it were its own.', source: 'P 8, 12; T 13.7' },
+  { title: 'Breach response', body: 'A breach is contained quickly and reported to the authorities and the people affected where the law requires. A company on Teams is told within 48 hours of a breach affecting team contacts.', source: 'P 14; T 13.7' },
+  { title: 'Card scan photos expire', body: 'Photos of business cards are deleted after 30 days unless you keep them with the contact.', source: 'P 2, 10' },
+  { title: 'Admin actions logged', body: 'On Teams, Linkist keeps a log of admin actions and answers one reasonable security questionnaire a year.', source: 'T 13.2, 13.7' },
 ];
 
 export interface Provider {
@@ -105,59 +108,59 @@ export interface Provider {
   readonly named: string | null;
 }
 
-/** Who receives data (P 15). Only one provider is named in the policy. */
+/** Who receives data (P 8). The document names no provider; it points to a list at linkist.ai/legal/providers. */
 export const PROVIDERS: readonly Provider[] = [
-  { role: 'Hosting and infrastructure', named: null },
-  { role: 'Database and backend services', named: null },
-  { role: 'Payments', named: 'Stripe' },
-  { role: 'Email and one-time code delivery', named: null },
-  { role: 'Shipping and fulfilment of cards', named: null },
-  { role: 'Customer support tooling', named: null },
-  { role: 'Analytics', named: null },
-  { role: 'Security, monitoring and fraud prevention', named: null },
-  { role: 'AI and large language models, where enabled', named: null },
-  { role: 'Professional advisers; authorities where the law requires', named: null },
+  { role: 'Hosting', named: null },
+  { role: 'Payments', named: null },
+  { role: 'Email and SMS', named: null },
+  { role: 'AI', named: null },
+  { role: 'Card printing and delivery', named: null },
+  { role: 'Support and security', named: null },
+  { role: 'Your company, on the Teams plan (team data only)', named: null },
+  { role: 'Apps you choose to connect or export to', named: null },
+  { role: 'Advisers and authorities where the law requires', named: null },
+  { role: 'A company that takes over Linkist, under the same policy', named: null },
 ];
 
-/** Safeguards for transfers outside the UAE (P 16). */
-export const TRANSFER_SAFEGUARDS: readonly string[] = ['Data processing agreements', 'Standard contractual clauses or equivalent transfer terms', 'Contractual confidentiality commitments', 'Encryption in transit and at rest', 'Access controls', 'Vendor security assessments', 'Data minimisation'];
+/** Protections for data that moves between countries (P 9). */
+export const TRANSFER_SAFEGUARDS: readonly string[] = ['Data protection agreements', 'Encryption', 'Whatever else the law requires for the transfer'];
 
 export interface Retention {
   readonly what: string;
   readonly period: string;
 }
 
-/** Retention, condensed from the policy's table (P 18). */
+/** Retention, as the document's table has it (P 10). */
 export const RETENTION: readonly Retention[] = [
-  { what: 'Account and profile data', period: 'Life of the account, then up to 30 days' },
-  { what: 'Contacts you import that are not Linkist users', period: 'Only as long as the feature needs, then deleted or anonymised' },
-  { what: 'Contacts imported from a Google or Microsoft account', period: 'As an ordinary contact, until you delete it or the account' },
-  { what: 'AI enrichment outputs', period: 'Up to 6 months, or until account deletion' },
-  { what: 'One-time codes and tokens', period: 'Short expiry after use' },
-  { what: 'Security and audit logs', period: 'Usually up to 12 months' },
-  { what: 'Troubleshooting logs', period: 'Usually up to 90 days' },
-  { what: 'Card orders and invoices', period: '5 to 7 years, as tax and commercial rules require' },
-  { what: 'Consent records', period: 'Life of the account plus up to 7 years' },
+  { what: 'Account, profile and contacts', period: 'While your account is open, then up to 30 days' },
+  { what: 'Team contacts', period: 'While the team is active, then 30 days for download' },
+  { what: 'Card scan photos', period: '30 days, unless you keep them' },
+  { what: 'Visitor statistics', period: '13 months, then combined into totals' },
+  { what: 'AI results about people', period: 'Up to 6 months unless refreshed, or until you delete them' },
+  { what: 'Payments and invoices', period: 'As long as tax and accounting law requires' },
+  { what: 'Consent records', period: 'While your account is open, plus up to 7 years' },
+  { what: 'Security logs', period: 'Usually up to 12 months' },
 ];
 
-/** What you can do (P 19, 20). */
+/** What you can do (P 11). */
 export const RIGHTS: readonly string[] = [
-  'See the personal data Linkist holds about you',
+  'See your data',
+  'Download it',
   'Correct it',
-  'Delete your account from the app, the website or by email',
-  'Take your data with you in a machine-readable format',
-  'Restrict or object to processing, including automated profiling and direct marketing',
+  'Delete it, or close your account in Settings after downloading your data',
+  'Stop or limit some uses',
+  'Object to marketing or profiling',
   'Withdraw a consent you gave',
-  'Complain to the UAE Data Office',
+  'Complain to the data protection authority in your country',
 ];
 
-/** People you add to Linkist (P 10, 19). The Contact Data Notice in the legal hub will say the same at length. */
+/** People you add to Linkist (T 7, T 11, P 7). */
 export const CONTACT_DATA: readonly string[] = [
-  'Importing contacts is optional, and you confirm you have the right to bring them in.',
-  'A connected Google or Microsoft account is read-only: Linkist imports the contacts and never creates, changes or deletes anything in that account.',
-  'Imported contact data is used only for the features you choose, with data minimisation, and is not sold.',
-  'The people in your contacts are not marketed to unless they opt in themselves.',
-  'Anyone whose details were added can ask Linkist for access, correction, restriction or deletion.',
+  'You decide how the details you save, scan, import or collect are used, and you must have a fair and lawful reason to keep them.',
+  'Use them only for the professional follow-up the person would expect; no marketing lists or bulk messages without their consent.',
+  'Linkist does not sell their details, market to them, or send them automatic invitations.',
+  'A Visitor who sends you their details is told they go to you.',
+  'Anyone whose details were saved can write to privacy@linkist.ai to learn what AI added, have it deleted or corrected, or have the request passed to you.',
 ];
 
 /** What this website itself does, as distinct from the app (brief 7: the trust page says which controls belong to which). */
@@ -171,18 +174,18 @@ export const SITE_CONTROLS: readonly Rule[] = [
 
 /** Honest gaps for the security page (C9). */
 export const SECURITY_NOT_PUBLISHED: readonly string[] = [
-  'The hosting provider and the region where data lives. The policy says providers may be outside the UAE.',
-  'The sub-processor list by name. Stripe is the only provider the policy names.',
-  'Any third-party attestation. Linkist does not claim a SOC 2 report, an ISO 27001 certificate or GDPR compliance.',
+  'The hosting provider and the region where data lives. The document says service providers may be in other countries.',
+  'The providers list. The document points to linkist.ai/legal/providers, and to linkist.ai/legal/local for country-specific contacts; neither page is published yet.',
+  'Any third-party attestation. Linkist does not claim a SOC 2 report, an ISO 27001 certificate or GDPR compliance, and the document says no system is perfectly secure.',
   'A dedicated security contact. Until one is published, write to support@linkist.ai and it reaches the team.',
 ];
 
 export const SECURITY_FAQ: readonly FaqItem[] = [
-  { q: 'Is Linkist GDPR compliant or SOC 2 certified?', a: 'Linkist does not claim either. Its privacy policy is written to the UAE Personal Data Protection Law (Federal Decree-Law No. 45 of 2021). If that changes, the evidence appears on this page first.' },
-  { q: 'Where is my data hosted?', a: 'The provider and region are not published yet. The policy states that some providers may be outside the UAE and lists the safeguards used for those transfers.' },
+  { q: 'Is Linkist GDPR compliant or SOC 2 certified?', a: 'Linkist does not claim either. Its terms are governed by the laws of the United Arab Emirates as applied in Dubai, and the privacy part says that where the law of your country gives you more protection, you have it. If a certification arrives, the evidence appears on this page first.' },
+  { q: 'Where is my data hosted?', a: 'The provider and region are not published yet. The document says service providers may be in other countries and that data moving between countries has the protections the law requires, such as data protection agreements and encryption.' },
   { q: 'Is there a password?', a: 'No. You sign in with your email address or mobile number and a one-time code that expires.' },
-  { q: 'Can I export my data?', a: 'Yes. The policy gives you the right to portability in a machine-readable format. Ask in the app or at privacy@linkist.ai; Linkist aims to answer within 30 days.' },
-  { q: 'What happens when I delete my account?', a: 'Account data is deleted or anonymised, normally within 30 days, except what tax, fraud, dispute or legal rules require Linkist to keep. Backups clear on their ordinary cycle.' },
-  { q: 'What about the people in my contacts?', a: 'Their data is used only for the features you chose, is never sold, and they can ask for access or deletion themselves.' },
+  { q: 'Can I export my data?', a: 'Yes. You can ask to see and download your data, in Settings, Privacy or at privacy@linkist.ai, and you can download it before closing your account. Linkist replies within 30 days.' },
+  { q: 'What happens when I delete my account?', a: 'Your account, profile and contacts are kept while the account is open, then up to 30 days. Payments and invoices stay as long as tax and accounting law requires, and consent records up to 7 years.' },
+  { q: 'What about the people in my contacts?', a: 'You are responsible for having a fair reason to keep them and for using them only for the follow-up they would expect. Linkist never sells their details, never markets to them, and lets them ask what AI added, or have it removed.' },
   { q: 'How do I report a security problem?', a: 'Write to support@linkist.ai. A dedicated security address will be published here when it exists.' },
 ];

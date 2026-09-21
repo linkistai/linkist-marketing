@@ -80,7 +80,7 @@ export function CookieNotice() {
           <p className="mt-1 text-body">
             {noticeOnly ? 'This site uses Google Analytics to understand which pages help. You can switch it off here or later from the footer.' : 'This site uses Google Analytics only if you allow it. Nothing loads until you choose.'}{' '}
             <a href="/legal/privacy" className="underline">
-              Privacy policy
+              Privacy
             </a>
             .
           </p>

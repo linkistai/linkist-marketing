@@ -104,7 +104,7 @@ export default function TeamsPage() {
               <span className="text-body">per user a month</span>
             </p>
             <p className="mt-1 text-sm text-muted">
-              Minimum {team.minUsers} users: {formatMoney(team.team!.usd.monthly, 'USD')} a month or {formatMoney(team.team!.usd.yearly, 'USD')} a year ({formatMoney(team.team!.aed.monthly, 'AED')} or {formatMoney(team.team!.aed.yearly, 'AED')}). Each additional user {formatMoney(team.monthly, 'USD')} a month.
+              Minimum {team.minUsers} users: {formatMoney(team.team!.usd.monthly, 'USD')} a month or {formatMoney(team.team!.usd.yearly, 'USD')} a year ({formatMoney(team.team!.aed.monthly, 'AED')} or {formatMoney(team.team!.aed.yearly, 'AED')}). Each additional user {formatMoney(team.monthly, 'USD')} a month or {formatMoney(team.team!.extraYearly, 'USD')} a year.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-4">
               <StartFree size="md" />

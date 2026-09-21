@@ -56,7 +56,7 @@ export default async function LegalDocPage({ params }: { params: Promise<{ slug:
               <div className="card mt-5 p-4 text-sm" role="note" style={{ borderColor: 'color-mix(in srgb, var(--brand-coral) 50%, transparent)' }}>
                 <p className="font-semibold">Draft of {fmt(d.updated)}, not in force.</p>
                 <p className="mt-1 text-body">
-                  Written from the published terms and privacy policy, the store and the product. {d.placeholders} item{d.placeholders === 1 ? '' : 's'} marked for counsel. Until counsel signs it off, the published documents govern.
+                  Written from the earlier published terms and privacy policy, the store and the product. {d.placeholders} item{d.placeholders === 1 ? '' : 's'} marked for counsel. Until counsel signs it off, the published documents govern.
                 </p>
               </div>
             )}

@@ -1,422 +1,339 @@
 ---json
 {
   "slug": "terms",
-  "title": "Terms of Service",
-  "summary": "The agreement for using Linkist: the website, accounts, profiles, NFC card orders, subscriptions, AI features, acceptable use and liability.",
+  "title": "Terms and Privacy",
+  "summary": "One document for the Essential, Enhanced, Pro and Teams plans: the short version, key words, Part 1 the terms of use, Part 2 privacy. It replaces all earlier Linkist terms of service and privacy policies.",
   "status": "published",
-  "version": "1.2",
-  "effective": "2026-08-07",
-  "updated": "2026-08-07",
-  "supplied": "Linkist_Terms_of_Service_v1.2.docx, from RatioX Labs, 2026-09-21",
+  "version": "1.0",
+  "effective": "2026-09-07",
+  "updated": "2026-09-07",
+  "supplied": "Linkist_Terms_and_Privacy_v1.0.docx, from RatioX Labs, 2026-09-21",
   "imported": "2026-09-21"
 }
 ---
 
-## 1. Agreement to Terms
+For the Essential, Enhanced, Pro and Teams plans. Version 1.0. Effective date: [07 September 2026].
 
-These Terms of Service ("Terms") govern your access to and use of Linkist, including the Linkist website and its public content, online purchasing and account registration, mobile application, NFC card services, digital profile pages, QR code sharing, Personal Relationship Manager (PRM) features, AI-enabled relationship tools, subscriptions, customer support, and related products and services (collectively, the "Service").
+Published at linkist.ai/legal. Part 2 (Privacy) is also published on its own at linkist.ai/privacy.
 
-The Service is provided by RatioX Labs DWC-LLC, trading as Linkist ("Linkist", "we", "our", or "us").
+This version replaces all earlier Linkist terms of service and privacy policies.
 
-By creating an account, placing an order, using the website, using the app, sharing a Linkist profile, purchasing an NFC card, or otherwise using the Service, you agree to these Terms.
+## The short version
 
-If you do not agree to these Terms, you must not use the Service.
+- Linkist is a tool. You decide what you share, whom you collect, and what you do with it.
+- You are responsible for collecting other people’s details fairly and lawfully, and for any messages you send.
+- We look after your data, keep it secure, and never sell it.
+- AI features are off until you switch them on. Always check AI suggestions before you rely on them.
+- Paid plans renew automatically. You can cancel any time; cancelling stops the next payment. We do not refund payments already made, except in the few cases listed in section 12.
+- On the Teams plan, the company is responsible for its team. Contacts saved to the team stay with the company when someone leaves. Personal contacts stay with the person.
+- You can see, download, correct or delete your data. Section P11 explains how.
 
-## 2. About Linkist
+This summary is for convenience. The full terms below are what apply.
 
-Linkist provides digital and physical products and services for professional identity, networking, relationship management, and business connectivity. The Service may include:
+## Key words
 
-**Website and Online Services**
+| Word | What it means |
+| --- | --- |
+| Linkist, we, us | RatioX Labs DWC-LLC, the company that runs Linkist. |
+| You | The person using Linkist. On the Teams plan, "the company" means the organisation that pays for Teams. |
+| Pricing page | The page at linkist.ai/pricing, and the Plans screen in the app. It shows each plan’s price, what it includes and its limits. Prices live there, not in this document, because they can change. Section 12 explains how we tell you about price changes. |
+| Contacts | Details of other people that you save, scan, import or collect in Linkist. |
+| Visitor | Anyone who opens your Linkist profile, with or without a Linkist account. |
+| Card | A Linkist NFC card, or your own NFC tag set up to open your profile. |
+| Credits | Units that measure how much you use AI features. |
+| Service providers | Other companies we use to run Linkist, such as hosting, payment, email and AI providers. They are listed at linkist.ai/legal/providers. |
+| Team contacts | On the Teams plan, contacts saved to the company’s shared team space. |
+| Personal contacts | Contacts saved to a person’s own space. They are not shared with the company. |
 
-- Public Linkist website and informational pages
-- Product and service information
-- Online account registration and login
-- NFC card and other product purchasing
-- Subscription and plan information
-- Campaign, promotional, referral, affiliate, or event pages
-- Contact, enquiry, support, and registration forms
-- Blogs, guides, help content, and other Linkist resources
+## Part 1: Terms of use
 
-**Digital Identity and NFC Services**
+## 1. Who these terms apply to
 
-- NFC business cards
-- Digital business cards
-- QR code profile sharing
-- Public and private digital profile pages
-- Profile analytics
-- Custom NFC cards and related products
+These terms apply to everyone who uses Linkist on the Essential, Enhanced, Pro or Teams plan, and to anyone who buys a Card. By creating an account, joining a team, buying a plan or Card, or using Linkist, you agree to them. If you do not agree, please do not use Linkist.
 
-**Personal Relationship Management Services**
+Linkist Enterprise is sold under a separate signed agreement.
 
-- Contact and relationship management
-- Notes, reminders, tags, groups, and follow-up tools
-- Contact import and organisation
-- Relationship insights and network management
-- ICP matching, Smart Signals, Smart Introductions, or similar features
-- AI-enabled contact organisation and relationship assistance
+## 2. Our plans
 
-Linkist may also provide subscriptions, team or organisation features, community and event features, customer support, and other related services.
+| Plan | Who it is for | How it is paid |
+| --- | --- | --- |
+| Essential | Individuals who want a digital card and basic sharing | Free |
+| Enhanced | Individuals who want more features than Essential | Paid, monthly or yearly, as shown on the Pricing page |
+| Pro | Individuals who manage professional relationships, with AI features | Paid, monthly or yearly, as shown on the Pricing page |
+| Teams | Companies that want a shared team space, central control and Team Cards | Yearly, paid by the company |
 
-The exact products, services, and features available may depend on your location, selected plan, subscription, device, permissions, app version, account type, and service availability.
+What each plan includes, and its limits, are shown on the Pricing page.
 
-## 3. Eligibility
+## 3. Your account
 
-You must be at least 18 years old to use Linkist.
+- You must be at least 18.
+- One account is for one person. Do not share your login or let someone else use your account.
+- Keep your email, phone, passcodes and devices secure. Tell us at support@linkist.ai if you think someone else has accessed your account.
+- Your profile address (handle) is for your use while your account is active; you do not own it. We may change or take back a handle that is misleading, copies a brand or another person, or is left unused after an account closes.
 
-By using the Service, you confirm that:
+## 4. What Linkist is, and is not
 
-- You are at least 18 years old
-- You have legal capacity to enter into these Terms
-- The information you provide is accurate and complete
-- You will use the Service only for lawful purposes
-- If you use Linkist on behalf of a company or organization, you are authorised to bind that company or organization
+Linkist is a platform that gives you tools to share your profile, save contacts and get AI suggestions. We do not check that profiles are accurate or that users are who they say they are. We are not part of any relationship, meeting or deal between users, and we do not give legal, financial or employment advice. We do not send messages to your contacts unless you tell us to send a specific message.
 
-We may refuse, suspend, or terminate access if we believe these requirements are not met.
+## 5. Who is responsible for what
 
-## 4. Account Registration and Security
+|  | You are responsible for | Linkist is responsible for |
+| --- | --- | --- |
+| Your profile | Making it accurate and lawful | Hosting it and keeping it secure |
+| Contacts | Collecting them fairly and lawfully, and how you use them | Storing them securely and not selling them |
+| Messages | Anything you send, and to whom | Delivering messages you choose to send through Linkist |
+| AI suggestions | Checking them before you rely on them | Showing how confident the suggestion is and why |
+| Your account | Your login and devices | Our systems and service providers |
+| Cards | Deactivating a lost Card | Supplying Cards free from manufacturing defects |
 
-You may need an account to use certain features.
+## 6. Your content
 
-You agree to:
+You own what you put into Linkist. You allow us to store, display and process it only to run, protect, support and improve Linkist, as described in Part 2. You must have the right to use everything you upload, including photos and logos. We may remove content that breaks these terms or the law.
 
-- Provide accurate and current information
-- Keep your account information updated
-- Keep your login credentials, email, phone, OTP access, and devices secure
-- Notify us immediately of suspected unauthorised access
-- Be responsible for activity under your account unless caused by our breach of these Terms or applicable law
+## 7. Contacts you collect
 
-We may use OTP, email verification, phone verification, or other security methods to protect accounts.
+When you save, scan, import or collect details about another person, you decide how those details are used, and you are responsible for that. You must:
 
-## 5. Website Use and Public Content
+- have a fair and lawful reason to collect and keep them;
+- tell the person, where the law requires, that you hold their details or have used AI features on them;
+- use them only for professional follow-up that the person would expect;
+- not add them to marketing lists or send them bulk messages without their consent.
 
-Parts of the Linkist website may be accessed without creating a Linkist account.
+If someone asks us directly about their details in your account, we may delete what Linkist itself added (such as AI results), pass the request to you, and restrict or delete the data if the law requires it and you do not act.
 
-The website may contain information about Linkist products, services, plans, features, pricing, promotions, events, partnerships, educational materials, blog content, and other resources.
+## 8. Rules of use
 
-Website content is provided for general informational and commercial purposes. We aim to keep information accurate and current but do not guarantee that all website content will always be complete, current, error-free, or available in every location.
+Do not use Linkist to:
 
-We may update, correct, remove, replace, or modify website content, product information, feature descriptions, pricing, promotions, or availability at any time, subject to applicable consumer law and confirmed contractual obligations.
+- break the law, or pretend to be someone else;
+- publish false, offensive, harassing or infringing content;
+- send spam or unsolicited bulk messages;
+- collect, copy, sell or share other people’s data for purposes they would not expect;
+- track or build profiles of people, or make hiring, lending, insurance or similar decisions based only on Linkist;
+- upload sensitive data such as health, bank account, ID document, religious or children’s data;
+- attack, overload, copy or get around the limits of Linkist, or use bots to extract data;
+- write your profile link onto a card or tag that is not yours.
 
-You must not misuse the Linkist website, interfere with its operation or security, attempt unauthorised access, use automated systems to improperly extract content or data, or use the website for fraudulent, unlawful, or abusive purposes.
+## 9. AI features
 
-## 6. Forms, Enquiries, and Optional Communications
+- AI features are off until you switch them on, and you can switch them off at any time.
+- They may add public business information to your contacts, summarise relationships, score relevance and suggest follow-ups or introductions.
+- AI can be wrong. Check suggestions before you rely on them. Messages drafted by AI become your messages when you send them.
+- Information about companies (for example, a company’s website or industry) may be reused for all Linkist users. Information about individual people stays in your account and is not shared with other users.
+- We only use information from public business sources, from users, and from data providers we have an agreement with.
+- We do not let our AI providers use your data to train their own general AI models.
 
-The Linkist website may allow you to submit enquiries, request information, register interest, join waiting lists, participate in promotions, subscribe to updates, or provide other information through online forms.
+## 10. Fair use and Credits
 
-You are responsible for ensuring that information you submit is accurate and that you are authorised to provide it.
+AI features use Credits. Your plan’s monthly Credits are shown on the Pricing page. Unused Credits do not roll over and have no cash value. "Unlimited" features are for normal professional use by one person. Sharing an account, using bots, or using far more than normal may lead us to contact you, slow down or pause the feature. We will contact you first, except where there is a security risk.
 
-Personal data submitted through website forms is processed in accordance with our Privacy Policy.
+## 11. Sharing your profile and collecting contacts
 
-Where we offer the option to receive marketing communications, marketing consent is optional and is requested separately from your acceptance of these Terms and acknowledgement of our Privacy Policy. You may withdraw marketing consent in accordance with our Privacy Policy.
+- Anyone with your link, QR code or Card can see the parts of your profile you make public. You choose what is public.
+- Visitors can choose to send you their details. They are told that their details go to you. Use them only for the follow-up they would expect.
+- We do not send marketing or automatic Linkist invitations to your Visitors or contacts.
+- You can see how often your profile is opened, the city and the device type. You cannot see who opened it unless they send you their details.
+- When you save a contact to your phone or send it to another app, that copy is your responsibility.
 
-## 7. Digital Profiles, NFC Cards, and QR Sharing
+## 12. Payments, renewal and cancellation
 
-Linkist allows users to create and share digital profiles through URLs, QR codes, NFC cards, or other sharing methods.
+- Prices are shown on the Pricing page and at checkout. Taxes are added where they apply. Payments are handled by our payment provider.
+- Paid plans renew automatically for the same period unless you cancel. For yearly plans we remind you at least 30 days before renewal.
+- You can cancel any time in Settings. Cancelling stops the next renewal. You keep your paid features until the end of the period you have paid for.
+- **We do not refund payments already made**, including for unused time or seats, except: where the law requires a refund; where we close the service or your account for a reason that is not your fault; or where we remove a main feature of your paid plan and you cancel within 30 days. In those cases we refund the unused part.
+- We tell you at least 30 days before a price increase. It applies from your next renewal.
+- If a payment fails, we will remind you. If it is still unpaid after 14 days, we may move you to the Essential plan or pause the team. Your data is not deleted because a payment failed.
+- If your paid plan ends, you move to Essential. Your profile and contacts stay; paid features stop.
 
-You are responsible for the information you publish or share through your Linkist profile.
+## 13. The Teams plan
 
-You must not publish or share content that is:
+This section applies in addition to the rest of these terms when a company buys Teams.
 
-- False, misleading, or deceptive
-- Illegal or harmful
-- Infringing of intellectual property rights
-- Confidential or unauthorised
-- Defamatory, abusive, discriminatory, harassing, or threatening
-- Invasive of another person’s privacy
-- Containing personal data, you are not authorised to publish
-- Containing malware, phishing links, spam, or harmful code
+### 13.1 Who agrees
 
-Some profile information may be public or accessible by anyone with your profile link, QR code, or NFC card. You are responsible for reviewing your profile settings and shared content.
+The person who buys Teams agrees to these terms for the company and confirms they are allowed to do so. The company is then responsible for everyone it adds to its team. Each team member also agrees to these terms personally when they join.
 
-## 8. NFC Cards and Custom Products
+### 13.2 Roles
 
-Linkist may offer physical NFC cards and related products.
+| Role | Who | What they do and are responsible for |
+| --- | --- | --- |
+| The company | The organisation that pays | Pays for Teams. Responsible for everything its people do in Linkist. Decides how team contacts are used. |
+| Account Owner | The person who bought Teams, or their replacement | Manages billing, plan and seats. Appoints and removes Team Admins. Names a replacement before leaving the company. |
+| Team Admin | Appointed by the Account Owner | Adds and removes members. Tells members what the company can see. Removes access when someone leaves. Manages Team Cards. |
+| Member | Invited by a Team Admin | Uses Linkist under these terms and the company’s rules. |
+| Linkist | Us | Runs and secures Teams. Looks after team contacts only as the company instructs. Keeps a log of admin actions. Provides support. |
 
-Custom NFC cards may include names, titles, company details, logos, colours, QR codes, NFC profile links, or other information provided by you.
+### 13.3 Adding and removing members
 
-You are responsible for ensuring that all submitted content is accurate, lawful, and authorised.
+- Only Team Admins can add members. The company confirms it is allowed to give us each invited person’s email.
+- Team Admins can remove a member at any time. Access ends straight away.
+- When a member is removed: team contacts stay with the company; the member keeps their own account and personal contacts; their Team Card can be switched off or pointed to a company page.
+- Disagreements between the company and a member about contacts or Cards are for them to settle. We follow the company’s lawful instructions for team contacts.
 
-We may reject or cancel orders containing unlawful, offensive, infringing, misleading, or unauthorised content.
+### 13.4 Team contacts and personal contacts
 
-NFC functionality depends on compatible devices, device settings, operating system restrictions, network access, and correct usage. We do not guarantee that NFC cards will work with every device or in every technical environment.
+Contacts collected with a Team Business Card, created in the team space, or shared into it are **team contacts**. Everything else is **personal contacts**. The app shows members where each contact is saved. Team Admins cannot see personal contacts. If the company wants all work contacts saved to the team, it must tell members before they join.
 
-## 9. Orders, Pricing, Taxes, and Payment
+### 13.5 Seats and payment
 
-When you place an order, you make an offer to purchase the selected product or service. We may accept or reject an order for reasonable legal, operational, payment, compliance, or product availability reasons.
+Teams is paid yearly in advance. Seats added during the year are charged for the rest of that year. Seats removed stay paid until renewal. Section 12 applies to renewal, cancellation and refunds. When cancelled, the team runs until the end of the paid year.
 
-Prices are displayed in USD unless otherwise stated. Taxes, VAT, duties, shipping, and other charges may be included or added at checkout depending on the product, delivery location, and applicable law.
+### 13.6 When a team ends
 
-Payment is due at checkout unless otherwise agreed. Payments may be processed by third-party payment providers such as Stripe.
+The team space becomes read-only for 30 days so Team Admins can download team contacts. We then delete them, except what we must keep by law. Members keep their own accounts.
 
-We are not responsible for payment failures, bank charges, exchange rate charges, card issuer fees, or third-party payment provider issues outside our control.
+### 13.7 How we handle the company’s team data
 
-**Website Orders and Product Information**
+**Team contacts belong to the company.** The company decides how they are used. We only store and process them to run Teams, and only as the company instructs through the app.
 
-Products, plans, services, features, prices, discounts, availability, delivery estimates, and promotional offers displayed on the Linkist website may change from time to time.
+**Some data we look after ourselves, and we are directly responsible for it.** This is: login and billing details; security records; each member’s own account and personal contacts; and general information about companies (not people) that we use for all users.
 
-We take reasonable steps to ensure that product descriptions, images, specifications, pricing, and availability information are accurate. Where an obvious error occurs, we may correct the information and, where necessary, contact you before accepting or fulfilling an affected order.
+For team contacts, we will:
 
-Product images, colours, finishes, screen representations, and digital previews are illustrative and may vary slightly depending on device displays, manufacturing processes, customisation, or other reasonable factors.
+- keep them confidential and secure;
+- **use other companies only where needed to run Linkist.** They are listed at linkist.ai/legal/providers. We will email the Account Owner at least 14 days before adding a new one. If the company has a genuine privacy concern about it, it can cancel and receive a refund for the unused months. We remain responsible for their work as if it were our own;
+- move data between countries only with the protections the law requires;
+- help the company answer people’s requests about their data;
+- tell the company within 48 hours of finding a data breach that affects team contacts;
+- delete team contacts when the team ends, as described in 13.6;
+- answer one reasonable security questionnaire a year.
 
-Promotional codes, referral offers, discounts, introductory offers, and limited-time campaigns may be subject to additional eligibility requirements, validity periods, usage limits, geographic restrictions, or campaign-specific terms.
+## 14. Cards, Card Writer and your own NFC tags
 
-## 10. Subscriptions and Renewals
+- A Card opens your profile. It works only while your account is active.
+- You are responsible for the names, titles and logos printed on your Card, and for checking your proof before printing.
+- You can change or cancel an order within 24 hours. After printing starts, it may not be possible.
+- Tell us about a faulty, damaged or wrong Card within 7 days of delivery, or longer where the law allows. We will replace it or refund it.
+- We are not responsible for wear, bending, heat, phone cases, or phones that cannot read NFC.
+- Switch off a lost Card in the app straight away. Replacements are charged unless the loss was our fault.
+- **Card Writer and your own tags:** only write your profile link onto cards or tags you own. Never write onto bank, payment, access, transport or ID cards. Writing may erase what was on the tag. Locking a tag is permanent. We are not responsible for tags damaged or locked when you write them.
+- Cards and tags can be copied. Do not use them for payment, door access or proving identity.
+- If your account closes, your Card link shows a page saying the profile is unavailable. We never use it for advertising.
 
-Some Linkist services may be offered on a subscription basis.
+## 15. Pausing or closing accounts
 
-Subscription terms, billing frequency, features, limits, renewal rules, cancellation options, and fees will be shown at checkout or in the relevant plan description.
+We may pause or close an account, or a feature, if you seriously or repeatedly break these terms, put people or data at risk, do not pay, or if the law requires it. Where we can, we will warn you first and give you a chance to fix it. You can close your account at any time in Settings. Before closing, you can download your data.
 
-Unless stated otherwise, paid subscriptions may renew automatically until cancelled. You are responsible for cancelling before the renewal date if you do not want the subscription to renew.
+## 16. Our responsibility and its limits
 
-We may change subscription features or prices by giving reasonable notice where required by law. Confirmed billing periods already paid will not be affected unless required by law or agreed with you.
+We work hard to keep Linkist running, but we cannot promise it will always be available or error-free, that NFC will work on every phone, or that AI suggestions will be correct.
 
-## 11. Order Changes, Returns, and Refunds
+Nothing in these terms limits our responsibility for fraud, serious or deliberate wrongdoing, injury caused by our negligence, or anything else the law does not allow us to limit. It also does not remove rights you have under consumer law where you live.
 
-Because NFC cards and related products may be custom-made, changes or cancellations may not be possible once production has started.
+Otherwise: we are not responsible for lost profits, lost business or indirect losses, or for losses caused by your content, your contacts, your messages, your decisions, or services we do not control. Our total responsibility to you in any 12 months is limited to the greater of what you paid us in those 12 months or USD 100.
 
-You may request modification or cancellation within 24 hours of order placement, but we do not guarantee that changes can be made if production or fulfilment has begun.
+## 17. Your responsibility to us
 
-Custom products are returnable only where:
+If someone makes a claim against us because of your content, how you collected or used contacts, messages you sent, or your breach of these terms, you will cover our reasonable costs and losses, except where we caused the problem. On the Teams plan, the company is responsible for claims caused by its members.
 
-- The product is defective
-- We made a production error
-- The product materially differs from the confirmed order
-- Applicable consumer law requires a refund or replacement
+## 18. Changes to these terms
 
-You must contact support within 7 days of delivery for defective or incorrect products, unless a longer period is required by law.
+We will email you at least 30 days before a significant change. If you do not agree, you can cancel before it applies. Changes that make things worse for a paying customer apply from the next renewal, unless the law requires an earlier change.
 
-Approved refunds will usually be processed within 5 to 10 business days after approval, but bank or payment provider processing times may vary.
+## 19. Law and disputes
 
-## 12. User Content
+Please contact support@linkist.ai first; we aim to resolve complaints within 30 days.
 
-You retain ownership of content you submit to Linkist, including profile text, logos, photos, links, business details, contact notes, and other user-generated content.
+Because Linkist is run from Dubai, these terms are governed by the laws of the United Arab Emirates as applied in Dubai, and disputes may be taken to the courts of Dubai. If you are a consumer, you keep the protection of the mandatory laws of the country where you live, and you may bring a claim in your local courts where that law allows.
 
-By submitting content, you grant Linkist a limited, worldwide, non-exclusive, royalty-free licence to host, process, display, reproduce, format, transmit, and use that content only as necessary to provide, operate, secure, improve, and support the Service.
+## 20. General
 
-You confirm that you have the rights and permissions needed to provide the content to Linkist and to allow us to use it under these Terms.
+- Accepting online or by electronic signature is binding.
+- If one part of these terms cannot be enforced, the rest still applies.
+- We may transfer these terms to a company that takes over Linkist. We will tell you.
+- Neither of us is responsible for delays caused by events outside our control.
+- Contact: support@linkist.ai. RatioX Labs DWC-LLC, Dubai South Business Park, Building A3, 3rd Floor, Dubai South, Dubai, United Arab Emirates.
 
-We may remove or restrict content that violates these Terms, applicable law, third-party rights, or platform policies.
+## Part 2: Privacy
 
-## 13. Contact Import and Third-Party Data
+This part explains what personal data we collect, why, and your choices. It applies to all plans, and also to Visitors and to people whose details a user has saved in Linkist. Where the law of your country gives you more protection, you have that protection.
 
-Contact import is optional.
+## P1. Who is responsible for your data
 
-If you import contacts from your device, address book, email account, or another source, you confirm that you have the right, authority, consent, or legitimate reason to provide that information to Linkist for your own contact management and professional relationship purposes.
+| Data | Who is responsible |
+| --- | --- |
+| Your account, login, billing and security records | Linkist |
+| Your profile | You, for what you publish. Linkist, for hosting it. |
+| Contacts you save on Essential, Enhanced or Pro | You decide how they are used. Linkist stores and protects them. |
+| Team contacts on the Teams plan | The company. Linkist follows its instructions (section 13.7). |
+| Details a Visitor sends you | You (or your company), and Linkist for storing them securely |
+| General information about companies | Linkist |
 
-You must not import contact data that is unlawful, unauthorised, confidential, sensitive, excessive, or unrelated to your lawful use of the Service.
+## P2. What we collect
 
-Linkist may process imported contact data to provide contact organization, matching, reminders, PRM tools, AI features where enabled, duplicate detection, and related functionality.
+- **Account:** name, email, phone, login and passcode records, country and settings.
+- **Profile:** job title, company, photo, logo, bio, website and social links.
+- **Contacts and notes:** contacts you save, scan or import; where you met; notes, reminders and tags.
+- **Card scans:** photos of business cards and the text read from them. Photos are deleted after 30 days unless you keep them with the contact.
+- **Visitors:** when a profile is opened, the city (from the IP address), device type and time. Visitors’ details only if they choose to send them.
+- **Teams:** team membership, roles, admin actions and seat use.
+- **Cards:** Card and tag IDs, which profile each opens, who set it up and when, and delivery details.
+- **Payments:** plan, invoices and payment references. Our payment provider holds card numbers; we do not.
+- **AI:** AI results, scores, suggestions, Credits used and corrections you make.
+- **Technical:** IP address, device, app version, logs and crash reports.
+- **Location:** only if you allow it, for features that record where you met someone.
 
-Linkist may delete, restrict, anonymise, or stop processing imported contact data where required by law, by a data subject request, by these Terms, or by our Privacy Policy.
+## P3. Why we use it
 
-## 14. AI-Enabled Features
+To run your account and profile; to make NFC, QR and Cards work; to provide contact and relationship features; to provide AI features you switch on; to take payments; to give support; to keep Linkist secure and prevent misuse; to improve Linkist using combined or anonymised data; to send service messages; to send marketing if you agree; and to meet legal duties.
 
-Linkist may provide optional AI-enabled features, including contact enrichment, relationship summaries, ICP matching, Smart Signals, Smart Introductions, suggested follow-ups, scoring, and other relationship management assistance.
+## P4. Our legal reasons
 
-AI outputs are generated using available data and automated systems. They may be inaccurate, incomplete, outdated, biased, or unsuitable for your specific purpose.
+We use your data because: we need it to provide the service you signed up for; you have agreed (for example, marketing, AI features, contact import, location and analytics cookies); we must by law; or, where your local law allows it, we have a genuine business reason that does not override your rights (such as security). In countries where the law does not accept a genuine business reason, we rely on your agreement or another reason that local law allows.
 
-You agree that:
+## P5. Your choices
 
-- AI outputs are assistive and informational only
-- You remain responsible for reviewing AI outputs before using them
-- You will not rely on AI outputs as legal, financial, medical, employment, credit, compliance, or professional advice
-- You will not use AI features to make unlawful, discriminatory, harmful, or unfair decisions about individuals
-- You will not use AI features to infer sensitive personal characteristics unless expressly permitted by law and by Linkist
+We ask separately for each optional use, and you can use Linkist without agreeing to them. You can change your choices at any time in Settings > Privacy or by emailing privacy@linkist.ai.
 
-We may limit, suspend, or disable AI features for legal, technical, safety, cost, vendor, compliance, or product reasons.
+## P6. AI and added information
 
-## 15. Acceptable Use
+AI features are off until you switch them on. When on, they may add public business information to contacts, summarise, score and suggest. Each result shows how confident it is and why. Less certain results are saved only if you accept them. We do not use AI to make decisions that seriously affect people. Information about companies may be reused for all users; information about individuals is not. Anyone can ask us not to add AI information about them (see P7).
 
-You agree to use Linkist lawfully and responsibly.
+## P7. If someone saved your details in Linkist
 
-You must not:
+A Linkist user may have saved your details, for example after you exchanged cards. That user is responsible for having a fair reason to do so. We do not sell these details, send you marketing, or send you automatic invitations. You can email privacy@linkist.ai to ask us to: tell you what AI information we added about you; delete it and not add more in future; correct it; or pass your request to the user.
 
-- Use the Service for illegal, fraudulent, harmful, or deceptive purposes
-- Impersonate another person or organization
-- Upload false, misleading, unauthorised, or infringing content
-- Violate privacy, data protection, intellectual property, consumer protection, cybersecurity, or communications laws
-- Upload or distribute malware, spyware, phishing content, or harmful code
-- Scrape, harvest, sell, or misuse personal data
-- Spam, mass-message, or send unsolicited communications using Linkist
-- Attempt to gain unauthorised access to systems, accounts, or data
-- Reverse engineer, copy, resell, or misuse Linkist technology except where permitted by law
-- Interfere with service security, availability, or performance
-- Use automated tools to abuse, overload, or extract data from the Service
-- Use Linkist to profile, target, discriminate against, or harm individuals unlawfully
+## P8. Who we share data with
 
-## 16. Prohibited Data and Sensitive Use
+We never sell personal data. We share it only with: the service providers listed at linkist.ai/legal/providers (hosting, payments, email and SMS, AI, card printing and delivery, support and security), who may use it only to help us run Linkist; your company, if you use the Teams plan (team data only); apps you choose to connect or export to; advisers and authorities where the law requires; and a company that takes over Linkist, under this policy.
 
-Unless expressly permitted by Linkist and lawful under applicable law, you must not upload, import, or process through Linkist:
+## P9. Moving data between countries
 
-- Government identification documents
-- Financial account numbers unrelated to payment processing
-- Health or medical records
-- Children’s data
-- Biometric identifiers used for identification
-- Criminal records
-- Highly sensitive personal data
-- Confidential third-party information
-- Data obtained unlawfully
+Our service providers may be in other countries. When data moves between countries, we use the protections the law requires, such as data protection agreements and encryption.
 
-Linkist is not designed for storing regulated sensitive records, medical data, legal case files, financial compliance records, or confidential HR records.
+## P10. How long we keep data
 
-## 17. Third-Party Services
+| Data | How long |
+| --- | --- |
+| Account, profile and contacts | While your account is open, then up to 30 days |
+| Team contacts | While the team is active, then 30 days for download |
+| Card scan photos | 30 days, unless you keep them |
+| Visitor statistics | 13 months, then combined into totals |
+| AI results about people | Up to 6 months unless refreshed, or until you delete them |
+| Payments and invoices | As long as tax and accounting law requires |
+| Consent records | While your account is open, plus up to 7 years |
+| Security logs | Usually up to 12 months |
 
-Linkist websites, applications, profiles, products, and services may contain links to, integrate with, embed content from, or rely on third-party services, including payment providers, shipping providers, maps, social media platforms, messaging services, analytics tools, email providers, hosting providers, AI providers, app stores, and other technology or service providers.
+## P11. Your rights
 
-Third-party services are governed by their own terms and policies. We are not responsible for third-party services outside our control.
+You can ask to see, download, correct or delete your data, stop or limit some uses, object to marketing or profiling, and withdraw consent. You can also complain to the data protection authority in your country. Use Settings > Privacy or email privacy@linkist.ai. We may need to confirm who you are. We reply within 30 days, or sooner if your local law requires.
 
-We may change, replace, suspend, or remove third-party integrations at any time.
+## P12. Security
 
-## 18. Privacy and Data Protection
+We use encryption, access controls, secure login, activity logs and monitoring, and we check our service providers. No system is perfectly secure. Please keep your login safe.
 
-Our handling of personal data is described in our Privacy Policy.
+## P13. Children
 
-By using Linkist, you acknowledge that we process personal data as described in the Privacy Policy.
+Linkist is for people aged 18 and over. If we learn we hold a child’s data, we delete it.
 
-You agree to comply with applicable privacy and data protection laws when uploading, importing, sharing, or processing personal data through Linkist.
+## P14. Data breaches
 
-If you use Linkist on behalf of a company, team, event, or organization, you are responsible for ensuring that your use of Linkist complies with applicable privacy, employment, marketing, communications, and data protection requirements.
+If there is a data breach, we will act quickly to contain it and tell the authorities and the people affected where the law requires.
 
-## 19. Intellectual Property
+## P15. Changes
 
-Linkist, including its software, designs, trademarks, logos, brand elements, user interface, workflows, technology, content, documentation, and platform features, is owned by Linkist, RatioX Labs DWC-LLC, or its licensors.
+We will tell you about significant changes before they apply, and ask for your agreement again where needed.
 
-These Terms do not transfer ownership of Linkist intellectual property to you.
+## P16. Contact
 
-You may use the Service only as permitted by these Terms.
-
-You must not copy, modify, distribute, sell, lease, reverse engineer, or create derivative works from Linkist technology or content unless expressly permitted by us or applicable law.
-
-## 20. Feedback
-
-If you provide suggestions, ideas, bug reports, feature requests, or feedback, you grant us the right to use them without restriction or compensation, provided we do not disclose your personal data except as described in the Privacy Policy.
-
-## 21. Service Availability and Changes
-
-We aim to provide a reliable Service, but we do not guarantee uninterrupted or error-free operation.
-
-The Service may be unavailable due to maintenance, upgrades, outages, security incidents, third-party failures, internet disruption, app store restrictions, force majeure, or other reasons.
-
-We may change, suspend, remove, or limit features at any time for product, security, legal, compliance, operational, or business reasons.
-
-## 22. Beta, Pre-Launch, and Founding Member Features
-
-Some Linkist features, including pre-launch access, Founding Member benefits, AI credits, early NFC card offers, beta features, or limited-access services, may be experimental, invite-only, limited, or subject to change.
-
-Beta or pre-launch features may contain errors, limitations, downtime, or incomplete functionality.
-
-We may modify or discontinue beta features without liability, subject to applicable consumer rights.
-
-## 23. Suspension and Termination
-
-We may suspend or terminate access to Linkist if:
-
-- You breach these Terms
-- You violate applicable law
-- Your use creates security, privacy, legal, or operational risk
-- You misuse personal data or third-party data
-- Payment fails or remains unpaid
-- We are required to do so by law, court order, regulator, payment provider, app store, or platform provider
-- Your account is inactive for an extended period, subject to our policies
-
-You may stop using Linkist or request account deletion at any time.
-
-Upon termination, your right to use the Service ends. Certain provisions will survive termination, including intellectual property, payment obligations, privacy-related responsibilities, disclaimers, liability limits, indemnity, dispute terms, and provisions that by nature should survive.
-
-## 24. Effect of Account Deletion or Termination
-
-After account deletion or termination, we may delete, anonymise, restrict, or retain data in accordance with our Privacy Policy and applicable law.
-
-We may retain limited data where required for:
-
-- Tax and accounting records
-- Fraud prevention
-- Security investigations
-- Dispute resolution
-- Legal claims
-- Compliance records
-- Enforcement of these Terms
-
-Your public profile, QR code, or NFC card link may stop working after account deletion or termination.
-
-## 25. Disclaimers
-
-The Service is provided on an "as is" and "as available" basis to the maximum extent permitted by law.
-
-We do not guarantee that:
-
-- The Service will be uninterrupted or error-free
-- NFC will work with every device
-- QR links will always be available
-- AI outputs will be accurate or complete
-- Contact enrichment will be correct or current
-- Relationship scores or suggestions will produce business results
-- Profile analytics will be exact
-- Third-party services will remain available
-
-Nothing in these Terms excludes rights that cannot be excluded under applicable law.
-
-## 26. Limitation of Liability
-
-To the maximum extent permitted by applicable law, Linkist, RatioX Labs DWC-LLC, and their directors, officers, employees, contractors, suppliers, partners, and affiliates will not be liable for indirect, incidental, special, consequential, punitive, or exemplary damages, including loss of profits, business, goodwill, reputation, data, opportunity, or anticipated savings.
-
-To the maximum extent permitted by law, our total liability for claims arising out of or relating to the Service will not exceed the amount you paid to Linkist for the specific product or service giving rise to the claim during the 12 months before the claim arose.
-
-Nothing in these Terms limits liability that cannot be limited under applicable law.
-
-## 27. Indemnity
-
-You agree to indemnify and hold harmless Linkist, RatioX Labs DWC-LLC, and their directors, officers, employees, contractors, suppliers, partners, and affiliates from claims, losses, liabilities, damages, costs, and expenses arising from:
-
-- Your breach of these Terms
-- Your unlawful use of the Service
-- Your content
-- Your imported contacts or third-party data
-- Your violation of privacy, data protection, intellectual property, or other rights
-- Your misuse of AI features or automated outputs
-- Your violation of applicable law
-
-## 28. Consumer Rights
-
-Nothing in these Terms is intended to exclude or limit any mandatory consumer rights that apply under UAE law or other applicable law.
-
-Where required by law, mandatory consumer rights will prevail over inconsistent provisions in these Terms.
-
-## 29. Governing Law and Jurisdiction
-
-These Terms are governed by the laws of the United Arab Emirates as applicable in Dubai, without regard to conflict of law rules.
-
-Subject to applicable law, the courts of Dubai, United Arab Emirates shall have jurisdiction over disputes arising out of or relating to these Terms or the Service.
-
-## 30. Changes to These Terms
-
-We may update these Terms from time to time.
-
-If changes are material, we may notify users by email, in-app notice, website notice, or another appropriate method.
-
-The updated Terms will apply from the effective date stated above. Continued use of the Service after the effective date means you accept the updated Terms.
-
-## 31. Assignment
-
-You may not assign or transfer your rights or obligations under these Terms without our prior written consent.
-
-We may assign or transfer our rights and obligations to an affiliate, successor, acquirer, or as part of a merger, restructuring, sale of assets, or corporate transaction, subject to applicable law.
-
-## 32. Severability
-
-If any provision of these Terms is found invalid, unlawful, or unenforceable, the remaining provisions will remain in effect.
-
-## 33. No Waiver
-
-Our failure to enforce any provision of these Terms does not constitute a waiver of that provision or any other rights.
-
-## 34. Contact Information
-
-For questions about these Terms, contact:
-
-RatioX Labs DWC-LLC  
-Dubai South Business Park, Building A3, 3rd Floor  
-Dubai South, Dubai, United Arab Emirates  
-**Email:** support@linkist.ai  
-**Privacy:** privacy@linkist.ai
+Privacy questions and requests: privacy@linkist.ai. Data Protection Officer: dpo@linkist.ai. RatioX Labs DWC-LLC, Dubai South Business Park, Building A3, 3rd Floor, Dubai South, Dubai, United Arab Emirates.

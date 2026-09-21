@@ -129,7 +129,7 @@ export default function AboutPage() {
               <br />
               Data Protection Officer: {DPO}
             </p>
-            <p className="mt-4 text-sm text-body">Data controller under {DATA_LAW}. {GOVERNING_LAW}</p>
+            <p className="mt-4 text-sm text-body">Responsible for your data under {DATA_LAW}. {GOVERNING_LAW}</p>
             <p className="mt-4 text-sm">
               <Link href="/legal" className="link">
                 The legal documents

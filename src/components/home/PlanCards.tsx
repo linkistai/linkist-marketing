@@ -45,7 +45,7 @@ export function PlanCards({ compact, headingLevel = 3 }: { compact?: boolean; he
                   {p.monthly === 0
                     ? 'Free, for as long as you like'
                     : p.team
-                      ? `${formatMoney(p.team.usd.monthly, 'USD')} a month or ${formatMoney(p.team.usd.yearly, 'USD')} a year for ${p.minUsers} users (${formatMoney(p.team.aed.monthly, 'AED')} / ${formatMoney(p.team.aed.yearly, 'AED')}) · minimum ${p.minUsers} users · ${formatMoney(p.monthly, 'USD')} a month for each additional user`
+                      ? `${formatMoney(p.team.usd.monthly, 'USD')} a month or ${formatMoney(p.team.usd.yearly, 'USD')} a year for ${p.minUsers} users (${formatMoney(p.team.aed.monthly, 'AED')} / ${formatMoney(p.team.aed.yearly, 'AED')}) · minimum ${p.minUsers} users · each additional user ${formatMoney(p.monthly, 'USD')} a month or ${formatMoney(p.team.extraYearly, 'USD')} a year`
                       : [p.yearly ? `${formatMoney(p.yearly, 'USD')} paid annually` : null, p.lifetime ? `${formatMoney(p.lifetime, 'USD')} lifetime` : null].filter(Boolean).join(' · ')}
                 </p>
                 <div className="mt-4">

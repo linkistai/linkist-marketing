@@ -10,8 +10,8 @@ import { HERO } from '@/content/home';
 
 /**
  * The home hero (D50, D51): one static block in the owner's words, the copy on the left and the
- * product on the right: a phone showing one of the owner's public-profile samples, with the
- * matching Signature card leaning against it. No white card and no boxed container any more
+ * product on the right: a phone showing one of the owner's public-profile samples (Rhea since
+ * 22 September, the owner asked for a woman), with the matching Signature card leaning against it. No white card and no boxed container any more
  * (owner, 21 September 2026). `profile` and `card` are the delivered files, or undefined until
  * they exist, when the stage shows the pending state rather than a mock.
  */
@@ -53,7 +53,7 @@ export function Hero({ profile, card }: { profile?: string; card?: string }) {
           <div className="hero-stage relative" data-hero-card="1">
             <div className="hero-product" role="group" aria-label={HERO.imageAlt}>
               <div className="hero-product__phone">
-                <ScreenFrame kind="phone" src={profile} alt={PROTO_ALT['profile-zayn']} preview full priority />
+                <ScreenFrame kind="phone" src={profile} alt={PROTO_ALT['profile-rhea']} preview full priority />
               </div>
               {card ? (
                 <div className="hero-product__card" data-hero-card="2">

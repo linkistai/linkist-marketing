@@ -15,8 +15,8 @@ import { inflateRawSync } from 'node:zlib';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const META: Record<string, { title: string; summary: string }> = {
-  terms: { title: 'Terms of Service', summary: 'The agreement for using Linkist: the website, accounts, profiles, NFC card orders, subscriptions, AI features, acceptable use and liability.' },
-  privacy: { title: 'Privacy Policy', summary: 'What Linkist collects, why, where it goes, how long it is kept, and your rights. Written under the UAE Personal Data Protection Law.' },
+  terms: { title: 'Terms and Privacy', summary: 'One document for the Essential, Enhanced, Pro and Teams plans: the short version, key words, Part 1 the terms of use, Part 2 privacy. It replaces all earlier Linkist terms of service and privacy policies.' },
+  privacy: { title: 'Privacy', summary: 'Part 2 of the Linkist Terms and Privacy on its own: what personal data Linkist collects, why, your choices, who it is shared with, how long it is kept, and your rights.' },
 };
 
 /** Reads one entry out of a zip (a .docx is a zip) without a dependency: local headers, deflate or stored. */
@@ -66,32 +66,51 @@ interface Para {
   bold: boolean;
   list: boolean;
   lines: string[];
+  /** Word's Heading1, Heading2 or Heading3 style, when the paragraph has one. */
+  heading: 1 | 2 | 3 | null;
 }
 
 function paragraph(xml: string): Para {
   const runs = xml.split(/(?=<w:r[ >])/);
-  let text = '';
+  const segs: { t: string; b: boolean }[] = [];
   let boldChars = 0;
   let chars = 0;
   for (const r of runs) {
     const bold = /<w:b\/>|<w:b w:val="(1|true)"/.test(r) && !/<w:b w:val="(0|false)"/.test(r);
     const parts = r.match(/<w:t[^>]*>[^<]*<\/w:t>|<w:br\/>|<w:tab\/>/g) ?? [];
     for (const part of parts) {
-      if (part === '<w:br/>') text += '\n';
-      else if (part === '<w:tab/>') text += ' ';
+      if (part === '<w:br/>') segs.push({ t: '\n', b: false });
+      else if (part === '<w:tab/>') segs.push({ t: ' ', b: false });
       else {
         const t = decode(part.replace(/<[^>]+>/g, ''));
-        text += t;
+        segs.push({ t, b: bold });
         chars += t.trim().length;
         if (bold) boldChars += t.trim().length;
       }
     }
   }
+  const allBold = chars > 0 && boldChars / chars > 0.9;
+  // Merge runs, then mark bold stretches inline unless the whole paragraph is bold (a heading or label).
+  const merged: { t: string; b: boolean }[] = [];
+  for (const sg of segs) {
+    const last = merged[merged.length - 1];
+    if (last && last.b === sg.b) last.t += sg.t;
+    else merged.push({ ...sg });
+  }
+  const text = merged
+    .map((sg) => {
+      if (allBold || !sg.b || !sg.t.trim()) return sg.t;
+      const lead = /^\s*/.exec(sg.t)![0];
+      const trail = /\s*$/.exec(sg.t)![0];
+      return `${lead}**${sg.t.trim()}**${trail}`;
+    })
+    .join('');
   const lines = text
     .split('\n')
     .map((l) => l.replace(/\s+/g, ' ').trim())
     .filter(Boolean);
-  return { text: lines.join('\n'), bold: chars > 0 && boldChars / chars > 0.9, list: /<w:numPr>/.test(xml), lines };
+  const h = /<w:pStyle w:val="Heading([123])"/.exec(xml);
+  return { text: lines.join('\n'), bold: allBold, list: /<w:numPr>/.test(xml), lines, heading: h ? (Number(h[1]) as 1 | 2 | 3) : null };
 }
 
 function table(xml: string): string {
@@ -133,6 +152,18 @@ function convert(docx: Buffer): { body: string; version: string; effective: stri
     const d = /^Last updated:\s*(\d{1,2})-([A-Za-z]+)-(\d{4})$/i.exec(p.text);
     if (d) {
       effective = `${d[3]}-${months[d[2]!.toLowerCase()] ?? '01'}-${d[1]!.padStart(2, '0')}`;
+      continue;
+    }
+    // The 2026 format keeps the line in the body: "... Version 1.0. Effective date: [07 September 2026]."
+    const v2 = /\bVersion\s+(\d+(?:\.\d+)*)\./.exec(p.text);
+    const d2 = /Effective date:\s*\[?(\d{1,2}) ([A-Za-z]+) (\d{4})\]?/.exec(p.text);
+    if (v2 && !version) version = v2[1]!;
+    if (d2 && !effective) effective = `${d2[3]}-${months[d2[2]!.toLowerCase()] ?? '01'}-${d2[1]!.padStart(2, '0')}`;
+    if (p.heading) {
+      // Word heading styles: parts and sections both lead the contents list (h2); sub-sections are h3.
+      if (prevList) out.push('');
+      out.push(`${p.heading === 3 ? '###' : '##'} ${p.text}`, '');
+      prevList = false;
       continue;
     }
     if (p.list) {

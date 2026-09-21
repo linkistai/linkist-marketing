@@ -13,7 +13,7 @@ export interface OgPage {
 
 export const OG_PAGES: readonly OgPage[] = [
   { slug: 'default', title: 'Capture Contacts. Remember Context. Act at the right time.', eyebrow: 'Personal Relationship Manager', screen: 'v6-home' },
-  { slug: 'home', title: 'Capture Contacts. Remember Context. Act at the right time.', eyebrow: 'Personal Relationship Manager', screen: 'profile-zayn' },
+  { slug: 'home', title: 'Capture Contacts. Remember Context. Act at the right time.', eyebrow: 'Personal Relationship Manager', screen: 'profile-rhea' },
   { slug: 'how-it-works', title: 'Capture and share. Build relationships. Act and grow.', eyebrow: 'How Linkist works', screen: 'v6-shareready' },
   { slug: 'features', title: 'Simple to use. Smarter underneath.', eyebrow: 'Features', screen: 'v6-home' },
   { slug: 'features-capture', title: 'Save the contact. Save the context.', eyebrow: 'Capture', screen: 'v6-capture' },
