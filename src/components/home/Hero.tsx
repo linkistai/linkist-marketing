@@ -34,11 +34,11 @@ export function Hero({ profile, card }: { profile?: string; card?: string }) {
             <p className="lede mt-6" data-hero-text>
               {HERO.lede}
             </p>
-            <div className="mt-8 grid gap-3 sm:grid-cols-2" data-hero-text>
-              <StartFree label={HERO.primary} className="w-full" />
-              <GetCard size="lg" variant="secondary" label={HERO.secondary} className="w-full" />
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center" data-hero-text>
+              <StartFree label={HERO.primary} className="w-full sm:w-auto sm:min-w-[220px]" />
+              <GetCard size="lg" variant="secondary" label={HERO.secondary} className="w-full sm:w-auto sm:min-w-[220px]" />
             </div>
-            <p className="mt-4 text-center text-sm text-muted" data-hero-text>
+            <p className="mt-4 text-sm text-muted" data-hero-text>
               {HERO.subline}
             </p>
             <div className="hero-foot mt-8 flex flex-col gap-5 pt-6 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-8" data-hero-text>

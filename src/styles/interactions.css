@@ -700,6 +700,14 @@ html[data-motion='off'] .nfc::after {
 }
 
 /* Design previews (Grownz D23): one to three phones, fanned on wide screens, a snap strip on phones. */
+/* On a stage card the badge sits at the top, beside the number, not over the phone (D51). */
+.stagecard .stagecard__preview {
+  top: 28px;
+  right: 22px;
+  left: auto;
+  bottom: auto;
+  transform: none;
+}
 /* On a use-case crop the badge sits in the corner, out of the screen's title. */
 .uc__shot .preview-badge {
   left: auto;

@@ -28,7 +28,7 @@ export default function HomePage() {
     label: s.label,
     title: s.title,
     href: s.href,
-    frame: <ScreenFrame kind="phone" src={screen(s.screen)} alt={PROTO_ALT[s.screen]} preview full />,
+    frame: <ScreenFrame kind="phone" src={screen(s.screen)} alt={PROTO_ALT[s.screen]} preview full badgeOutside />,
   }));
 
   return (

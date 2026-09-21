@@ -23,6 +23,8 @@ const STEP_MS = 4000;
  * is on, and stop once a visitor picks a chip or a card. A chip rewrites the scenario line, lifts
  * the stage the moment belongs to and points at the matching use case. Each card links to its
  * feature page; the long bullets, outcomes and capability tags live there and on /how-it-works.
+ * The Design preview badge sits at the top of the card, in the space beside the number, not over
+ * the phone's tab bar (owner, 21 September).
  */
 export function StageFlow({ stages }: { stages: readonly FlowStage[] }) {
   const [intent, setIntent] = useState<number | null>(null);
@@ -96,6 +98,7 @@ export function StageFlow({ stages }: { stages: readonly FlowStage[] }) {
               <span className="stagecard__badge" aria-hidden="true">
                 {s.n}
               </span>
+              <span className="preview-badge stagecard__preview">Design preview</span>
               <div className="stagecard__phone">{s.frame}</div>
               <h3 className="stagecard__title">
                 {s.label}

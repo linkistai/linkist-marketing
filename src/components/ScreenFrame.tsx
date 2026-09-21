@@ -17,6 +17,7 @@ export function ScreenFrame({
   url = 'prm.linkist.ai',
   preview,
   full,
+  badgeOutside,
   children,
 }: {
   kind: 'phone' | 'browser';
@@ -29,6 +30,8 @@ export function ScreenFrame({
   preview?: boolean;
   /** The image includes its own status bar; fill the whole screen. */
   full?: boolean;
+  /** Leave the preview badge out of the screen because the parent draws it elsewhere (stage cards, D51). */
+  badgeOutside?: boolean;
   children?: ReactNode;
 }) {
   const img = src ? (
@@ -48,7 +51,7 @@ export function ScreenFrame({
         <div className="phone__notch" aria-hidden="true" />
         <div className="phone__screen">
           {src ? <div className={`phone__img ${full || preview ? 'phone__img--full' : ''}`}>{img}</div> : img}
-          {preview ? <span className="preview-badge">Design preview</span> : null}
+          {preview && !badgeOutside ? <span className="preview-badge">Design preview</span> : null}
           {children}
         </div>
       </div>
