@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ArrowRight, Brain, Inbox, Link2, Nfc, RefreshCw } from 'lucide-react';
+import { ArrowRight, Brain, Inbox, Nfc, RefreshCw } from 'lucide-react';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Button, TextLink } from '@/components/Button';
 import { ClosingBand } from '@/components/ClosingBand';
@@ -8,21 +8,20 @@ import { ScreenFrame } from '@/components/ScreenFrame';
 import { Section } from '@/components/Section';
 import { PROTO_ALT } from '@/content/design';
 import { person, screen } from '@/lib/screens';
-import { FREE_PROFILE_URL, NFC_TOOLS_URL, pageMeta } from '@/lib/site';
+import { NFC_TOOLS_URL, pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
-  'Bring your own NFC card, sticker or profile link',
-  'Already have an NFC card, a sticker or a profile link that has gone stale? Linkist takes it over in about a minute, free. You keep the hardware and get the intelligence.',
+  'Bring your own NFC',
+  'Already have an NFC card or sticker? Linkist takes it over in about a minute, free. You keep the hardware and get the intelligence.',
   '/bring-your-own',
   { image: '/og/bring-your-own.png' },
 );
 
 /**
  * Bring your own (D51, from linkist-bring-your-own-nfc-v1.html): the page behind "Already have an
- * NFC card? Bring your own" in the hero. Two paths and one final button. The card and sticker path
- * and the Activate button open the NFC tools site, which reads and writes the chip; the profile
- * link path starts with the free quick profile, since the profile has to exist before it can be
- * written anywhere (owner, 21 September 2026).
+ * NFC card? Bring your own" in the hero. One path, an NFC card or sticker, and one final button, both
+ * opening the NFC tools site, which reads and writes the chip. The prototype's second path, an
+ * existing profile link, was dropped: it only collected sign-up information (owner, 21 September 2026).
  */
 const PATHS = [
   {
@@ -36,14 +35,6 @@ const PATHS = [
     ],
     href: NFC_TOOLS_URL,
   },
-  {
-    key: 'link',
-    icon: Link2,
-    title: 'Any existing profile link',
-    body: 'A Linktree, a personal site, or an old card link. Paste it and watch your Linkist profile build itself.',
-    list: [],
-    href: FREE_PROFILE_URL,
-  },
 ] as const;
 
 const FEATURES = [
@@ -53,7 +44,7 @@ const FEATURES = [
 ] as const;
 
 const FAQ = [
-  { q: 'Does it cost anything?', a: 'No. Bringing your own card, sticker or link is free forever and asks for no payment details. Every profile includes the PRM Essential plan.' },
+  { q: 'Does it cost anything?', a: 'No. Bringing your own card or sticker is free forever and asks for no payment details. Every profile includes the PRM Essential plan.' },
   { q: 'Which cards and stickers work?', a: 'Any NFC card or sticker with a writable NTAG-type chip, which covers the cards most other digital-card brands ship. The NFC tools site reads the chip first and tells you if it cannot be written.' },
   { q: 'Do I need a particular phone?', a: 'Encoding a chip needs an Android phone with NFC. The profile written onto the card then opens on every phone, iPhone included.' },
   { q: 'What happens to the old link on the card?', a: 'It is replaced by your Linkist address. Anyone who taps the card from then on sees your live Linkist profile, and you can change what it shows at any time without touching the card again.' },
@@ -63,16 +54,16 @@ export default function BringYourOwnPage() {
   return (
     <>
       <Section tight className="pt-8 sm:pt-10">
-        <Breadcrumbs items={[{ label: 'NFC cards', href: '/nfc-cards' }, { label: 'Bring your own', href: '/bring-your-own' }]} />
+        <Breadcrumbs items={[{ label: 'NFC cards', href: '/nfc-cards' }, { label: 'Bring your own NFC', href: '/bring-your-own' }]} />
         <div className="mt-8 grid items-center gap-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
           <div>
-            <p className="eyebrow">Bring your own · Free</p>
+            <p className="eyebrow">Bring your own NFC</p>
             <h1 className="display-1 mt-5">
-              Already have a card, a sticker, or a link?
+              Already have a NFC card or sticker?
               <br />
               <span className="em-coral">Bring it. We will make it live.</span>
             </h1>
-            <p className="lede mt-6 max-w-2xl">You do not need to buy anything to start. If you already own an NFC card or sticker, or just have a profile link that has gone stale, Linkist takes it over in about a minute. You keep the hardware. You get the intelligence.</p>
+            <p className="lede mt-6 max-w-2xl">You do not need to buy anything to start. If you already own an NFC card or sticker, Linkist takes it over in about a minute. You keep the hardware. You get the intelligence.</p>
             <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
               <Button href={NFC_TOOLS_URL} size="lg">
                 Activate what I already have
@@ -91,7 +82,7 @@ export default function BringYourOwnPage() {
       </Section>
 
       <Section tone="charcoal" id="paths">
-        <div className="mx-auto grid max-w-4xl gap-5 md:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.1">
+        <div className="mx-auto grid max-w-2xl gap-5" data-reveal="rise" data-reveal-stagger="0.1">
           {PATHS.map((p) => (
             <a key={p.key} href={p.href} className="card lift flex flex-col p-8 no-underline">
               <span className="chip__icon" aria-hidden="true">
@@ -99,7 +90,7 @@ export default function BringYourOwnPage() {
               </span>
               <h2 className="display-3 mt-6">{p.title}</h2>
               <p className="mt-3 text-sm text-body">{p.body}</p>
-              {p.list.length ? (
+              {p.list.length > 0 ? (
                 <ul className="mt-4 flex flex-col gap-2 text-sm text-body">
                   {p.list.map(([lead, rest]) => (
                     <li key={lead} className="flex gap-2">

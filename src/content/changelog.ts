@@ -73,7 +73,7 @@ export const CHANGELOG: readonly Change[] = [
 export const IN_PRODUCT: readonly { title: string; body: string }[] = [
   { title: 'Sign in with a code', body: 'Email or mobile number and a one-time code on one screen that also creates the account. No password.' },
   { title: 'NFC cards in three materials', body: 'PVC and brushed metal in white or black with four patterns, and cherry wood, priced in AED with an approximate dollar figure. Every card includes PRM Essential.' },
-  { title: 'Bring your own NFC card', body: 'An NFC card or sticker you already own can be encoded with your live profile for free at nfctools.linkist.ai, or an existing profile link imported.' },
+  { title: 'Bring your own NFC card', body: 'An NFC card or sticker you already own can be encoded with your live profile for free at nfctools.linkist.ai.' },
     { title: 'A billing hub', body: 'Plans, AI credit top-ups, invoices and NFC card orders in one place at prm.linkist.ai.' },
 ];
 

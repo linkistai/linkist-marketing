@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Link2, Nfc, QrCode, RefreshCw, UserCheck } from 'lucide-react';
+import { Nfc, QrCode, RefreshCw, UserCheck } from 'lucide-react';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Button, TextLink } from '@/components/Button';
 import { ClosingBand } from '@/components/ClosingBand';
@@ -35,7 +35,7 @@ const FAQ = [
   { q: 'What is the difference between Starter and Signature?', a: 'Starter has no customisation. Signature carries your name and logo. Both come in PVC, cherry wood or brushed metal and both include PRM Essential.' },
   { q: 'Which currency are cards priced in?', a: 'The store prices in AED and shows an approximate dollar figure beside each NFC card.' },
   { q: 'Is shipping included?', a: 'Yes. NFC cards ship within the UAE with shipping included. Other countries are not served yet.' },
-  { q: 'Can I use an NFC card I already own?', a: 'Yes, free. At nfctools.linkist.ai, tap your existing NFC card or sticker on your phone and Linkist writes your live profile onto it, or paste an old profile link. Encoding a chip needs an Android phone.' },
+  { q: 'Can I use an NFC card I already own?', a: 'Yes, free. At nfctools.linkist.ai, tap your existing NFC card or sticker on your phone and Linkist writes your live profile onto it. Encoding a chip needs an Android phone.' },
   { q: 'Can I return an NFC card?', a: 'Custom products are returnable where the product is defective, there was a production error, or it differs materially from the confirmed order, within 7 days of delivery.' },
 ] as const;
 
@@ -122,11 +122,11 @@ export default function NfcCardsPage() {
       <Section tone="lifted" id="byo">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div data-reveal="rise">
-            <p className="eyebrow">Bring your own</p>
+            <p className="eyebrow">Bring your own NFC</p>
             <h2 className="display-2 mt-4">
               Already have an NFC card? <span className="em-coral">Make it live, free.</span>
             </h2>
-            <p className="lede mt-4">Keep your hardware and put Linkist on it. Tap an NFC card or sticker you already own and Linkist writes your live profile onto it, or paste an old profile link and your Linkist profile builds itself.</p>
+            <p className="lede mt-4">Keep your hardware and put Linkist on it. Tap an NFC card or sticker you already own and Linkist writes your live profile onto it.</p>
             <p className="mt-4 text-sm text-muted">Free forever, no payment details. Encoding a chip needs an Android phone; the profile then works on every device.</p>
             <div className="mt-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
               <Button href={NFC_TOOLS_URL} variant="secondary">
@@ -145,10 +145,10 @@ export default function NfcCardsPage() {
             </div>
             <div className="card card--sm p-6">
               <span className="chip__icon" aria-hidden="true">
-                <Link2 size={14} />
+                <RefreshCw size={14} />
               </span>
-              <h3 className="display-3 mt-3 text-[20px]">Any existing profile link</h3>
-              <p className="mt-2 text-sm text-body">A Linktree, a personal site, an old card link. Paste it and your Linkist profile builds itself.</p>
+              <h3 className="display-3 mt-3 text-[20px]">Change it forever</h3>
+              <p className="mt-2 text-sm text-body">Your details live behind one permanent address, so a new role never means a new card.</p>
             </div>
           </div>
         </div>
