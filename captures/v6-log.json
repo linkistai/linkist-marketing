@@ -1,0 +1,178 @@
+[
+  {
+    "name": "v6-home",
+    "source": "linkist_prm_v6.html (design prototype, not the live app)",
+    "open": "goTab('home')",
+    "caption": "Home: greeting, network counts, nudges (ICP match, going cold, a scheduled call)",
+    "size": "780x1688",
+    "at": "2026-09-21T08:09:51.618Z"
+  },
+  {
+    "name": "v6-contacts",
+    "source": "linkist_prm_v6.html (design prototype, not the live app)",
+    "open": "goTab('contacts')",
+    "caption": "Contacts: search, Linkist and imported filters, network health, exchanges, the list",
+    "size": "780x1688",
+    "at": "2026-09-21T08:09:52.152Z"
+  },
+  {
+    "name": "v6-detail",
+    "source": "linkist_prm_v6.html (design prototype, not the live app)",
+    "open": "openContact('biji')",
+    "caption": "A contact: John Jameson, COO, with interactions, company intelligence and labels",
+    "size": "780x1688",
+    "at": "2026-09-21T08:09:52.704Z"
+  },
+  {
+    "name": "v6-connect",
+    "source": "linkist_prm_v6.html (design prototype, not the live app)",
+    "open": "goTab('connect')",
+    "caption": "Connect: share, capture and exchange",
+    "size": "780x1688",
+    "at": "2026-09-21T08:09:53.219Z"
+  },
+  {
+    "name": "v6-cards",
+    "source": "linkist_prm_v6.html (design prototype, not the live app)",
+    "open": "goTab('cards')",
+    "caption": "Profiles: the cards and public profiles the person shares",
+    "size": "780x1688",
+    "at": "2026-09-21T08:09:53.739Z"
+  },
+  {
+    "name": "v6-share",
+    "source": "linkist_prm_v6.html (design prototype, not the live app)",
+    "open": "goScreen('share')",
+    "caption": "Share my card: the card, privacy summary and a personal line",
+    "size": "780x1688",
+    "at": "2026-09-21T08:09:54.248Z"
+  },
+  {
+    "name": "v6-shareready",
+    "source": "linkist_prm_v6.html (design prototype, not the live app)",
+    "open": "goScreen('shareready')",
+    "caption": "Share ready: QR code and tap to link",
+    "size": "780x1688",
+    "at": "2026-09-21T08:09:54.748Z"
+  },
+  {
+    "name": "v6-capture",
+    "source": "linkist_prm_v6.html (design prototype, not the live app)",
+    "open": "goScreen('capture')",
+    "caption": "Capture a card",
+    "size": "780x1688",
+    "at": "2026-09-21T08:09:55.238Z"
+  },
+  {
+    "name": "v6-scan",
+    "source": "linkist_prm_v6.html (design prototype, not the live app)",
+    "open": "goScreen('scan')",
+    "caption": "Scan a business card",
+    "size": "780x1688",
+    "at": "2026-09-21T08:09:55.740Z"
+  },
+  {
+    "name": "v6-quickadd",
+    "source": "linkist_prm_v6.html (design prototype, not the live app)",
+    "open": "goScreen('quickadd')",
+    "caption": "Quick add: a contact in seconds",
+    "size": "780x1688",
+    "at": "2026-09-21T08:09:56.241Z"
+  },
+  {
+    "name": "v6-enrich",
+    "source": "linkist_prm_v6.html (design prototype, not the live app)",
+    "open": "goScreen('enrichcontact')",
+    "caption": "AI Enrichment: fill the gaps in a record",
+    "size": "780x1688",
+    "at": "2026-09-21T08:09:56.769Z"
+  },
+  {
+    "name": "v6-icpbuilder",
+    "source": "linkist_prm_v6.html (design prototype, not the live app)",
+    "open": "goScreen('icpbuilder')",
+    "caption": "ICP builder: describe who you are looking for",
+    "size": "780x1688",
+    "at": "2026-09-21T08:09:57.247Z"
+  },
+  {
+    "name": "v6-icpdetail",
+    "source": "linkist_prm_v6.html (design prototype, not the live app)",
+    "open": "goScreen('icpdetail'); renderIcpDetail()",
+    "caption": "ICP detail: the people who fit",
+    "size": "780x1688",
+    "at": "2026-09-21T08:09:57.764Z"
+  },
+  {
+    "name": "v6-askdetail",
+    "source": "linkist_prm_v6.html (design prototype, not the live app)",
+    "open": "goScreen('askdetail'); renderAskDetail()",
+    "caption": "Network Ask: post what you need",
+    "size": "780x1688",
+    "at": "2026-09-21T08:09:58.269Z"
+  },
+  {
+    "name": "v6-intros",
+    "source": "linkist_prm_v6.html (design prototype, not the live app)",
+    "open": "renderIntros(); goScreen('intros')",
+    "caption": "Warm introductions",
+    "size": "780x1688",
+    "at": "2026-09-21T08:09:58.768Z"
+  },
+  {
+    "name": "v6-health",
+    "source": "linkist_prm_v6.html (design prototype, not the live app)",
+    "open": "goScreen('health')",
+    "caption": "Network health: active, warming, cooling",
+    "size": "780x1688",
+    "at": "2026-09-21T08:09:59.255Z"
+  },
+  {
+    "name": "v6-brief",
+    "source": "linkist_prm_v6.html (design prototype, not the live app)",
+    "open": "goScreen('brief')",
+    "caption": "Daily brief: what deserves attention today",
+    "size": "780x1688",
+    "at": "2026-09-21T08:09:59.740Z"
+  },
+  {
+    "name": "v6-exchanges",
+    "source": "linkist_prm_v6.html (design prototype, not the live app)",
+    "open": "goScreen('exchanges')",
+    "caption": "Exchanges: people who tapped or scanned your card",
+    "size": "780x1688",
+    "at": "2026-09-21T08:10:00.226Z"
+  },
+  {
+    "name": "v6-chat",
+    "source": "linkist_prm_v6.html (design prototype, not the live app)",
+    "open": "openLinkerChat('neeraj')",
+    "caption": "Linker chat: an AI-drafted reply to accept or edit",
+    "size": "780x1688",
+    "at": "2026-09-21T08:10:00.768Z"
+  },
+  {
+    "name": "v6-snapshot",
+    "source": "linkist_prm_v6.html (design prototype, not the live app)",
+    "open": "openContact('biji'); openIntelSnapshot(1)",
+    "caption": "Intelligence snapshot: ICP and network fit for a contact",
+    "size": "780x1688",
+    "at": "2026-09-21T08:10:01.293Z"
+  },
+  {
+    "name": "v6-record",
+    "source": "linkist_prm_v6.html (design prototype, not the live app)",
+    "open": "goScreen('record')",
+    "caption": "Voice note",
+    "size": "780x1688",
+    "at": "2026-09-21T08:10:01.791Z"
+  },
+  {
+    "name": "v6-log",
+    "source": "linkist_prm_v6.html (design prototype, not the live app)",
+    "open": "goScreen('log')",
+    "caption": "Log an interaction",
+    "size": "780x1688",
+    "at": "2026-09-21T08:10:02.310Z"
+  }
+]

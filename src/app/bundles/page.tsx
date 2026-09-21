@@ -7,7 +7,7 @@ import { Section, SectionHead } from '@/components/Section';
 import { Bundles } from '@/components/home/Bundles';
 import { BUNDLES } from '@/content/plans';
 import { person } from '@/lib/screens';
-import { APP_URL, pageMeta } from '@/lib/site';
+import { STORE_URL, pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
   'Bundles: Signature Bundle and Founders Circle Bundle',
@@ -31,7 +31,7 @@ export default function BundlesPage() {
         <div className="mt-8">
           <SectionHead as="h1" size={1} eyebrow="Bundled offers" title={<>Get the NFC card and PRM Pro <span className="em-coral">together</span>, and save.</>} lede="Bundles combine the physical Linkist card with the Pro plan in one purchase. You get the full Linkist experience immediately, for less than buying the card and Pro separately." />
           <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-            <Button href={`${APP_URL}/store`} size="lg">
+            <Button href={STORE_URL} size="lg">
               Get your NFC card
             </Button>
             <TextLink href="/pricing">Compare PRM plans</TextLink>
@@ -50,7 +50,7 @@ export default function BundlesPage() {
         </div>
       </Section>
 
-      <ClosingBand line1="An NFC card in your hand." line2="Pro in your pocket." cta="Get your NFC card" href={`${APP_URL}/store`} reassurance="One purchase. UAE shipping included. Prefer to start free? The Essential plan needs no card." person={person('close-2')} />
+      <ClosingBand line1="An NFC card in your hand." line2="Pro in your pocket." cta="Get your NFC card" href={STORE_URL} reassurance="One purchase. UAE shipping included. Prefer to start free? The Essential plan needs no card." person={person('close-2')} />
     </>
   );
 }

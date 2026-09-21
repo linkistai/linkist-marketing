@@ -13,7 +13,7 @@ import { HeroIntro } from '@/motion/HeroIntro';
 import { PROTO_ALT } from '@/content/design';
 import { CARD_OPTIONS, MATERIALS, SHIPPING_REGIONS } from '@/content/plans';
 import { person, screen } from '@/lib/screens';
-import { APP_URL, NFC_TOOLS_URL, pageMeta } from '@/lib/site';
+import { NFC_TOOLS_URL, STORE_URL, pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
   'NFC cards: Starter and Signature in PVC, wood and metal',
@@ -57,7 +57,7 @@ export default function NfcCardsPage() {
                 An NFC card that opens your live professional profile on any NFC phone, and by QR code on the rest, and remembers the meeting for you. Every NFC card includes PRM Essential.
               </p>
               <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center" data-hero-text>
-                <Button href={`${APP_URL}/store`} size="lg">
+                <Button href={STORE_URL} size="lg">
                   Get your NFC card
                 </Button>
                 <TextLink href="#tiers">See NFC card pricing</TextLink>
@@ -95,7 +95,7 @@ export default function NfcCardsPage() {
           </div>
           <div className="flex justify-center" data-reveal="rise">
             <div className="w-full max-w-[240px]">
-              <ScreenFrame kind="phone" src={screen('proto-share')} alt={PROTO_ALT['proto-share']} preview full />
+              <ScreenFrame kind="phone" src={screen('v6-share')} alt={PROTO_ALT['v6-share']} preview full />
             </div>
           </div>
         </div>
@@ -128,10 +128,11 @@ export default function NfcCardsPage() {
             </h2>
             <p className="lede mt-4">Keep your hardware and put Linkist on it. Tap an NFC card or sticker you already own and Linkist writes your live profile onto it, or paste an old profile link and your Linkist profile builds itself.</p>
             <p className="mt-4 text-sm text-muted">Free forever, no payment details. Encoding a chip needs an Android phone; the profile then works on every device.</p>
-            <div className="mt-6">
+            <div className="mt-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
               <Button href={NFC_TOOLS_URL} variant="secondary">
                 Activate the NFC card you already have
               </Button>
+              <TextLink href="/bring-your-own">How bring-your-own works</TextLink>
             </div>
           </div>
           <div className="grid gap-4 sm:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.1">
@@ -171,7 +172,7 @@ export default function NfcCardsPage() {
         </div>
       </Section>
 
-      <ClosingBand line1="Order an NFC card, or start without one." line2="Every NFC card includes PRM Essential." cta="Get your NFC card" href={`${APP_URL}/store`} reassurance="UAE shipping included. Prefer to start free? The Essential plan needs no card." person={person('close-1')} />
+      <ClosingBand line1="Order an NFC card, or start without one." line2="Every NFC card includes PRM Essential." cta="Get your NFC card" href={STORE_URL} reassurance="UAE shipping included. Prefer to start free? The Essential plan needs no card." person={person('close-1')} />
     </>
   );
 }

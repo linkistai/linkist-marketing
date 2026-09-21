@@ -97,7 +97,7 @@ export default function SystemPage() {
         <SectionHead eyebrow="Frames, floating cards, objects" title="The stage for every screen" lede="Real captures drop into the frames; prototype crops carry the design-preview badge; until then the frame says so." />
         <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_1.4fr]">
           <div className="hero-stage relative mx-auto w-full max-w-[280px] py-6">
-            <ScreenFrame kind="phone" src={screen('proto-home')} alt="Home, design preview" preview full />
+            <ScreenFrame kind="phone" src={screen('v6-home')} alt="Home, design preview" preview full />
             <FloatingCard className="absolute -left-4 top-10 p-1" ariaLabel="Contact captured">
               <MetricChip live text="Contact captured, context saved" />
             </FloatingCard>

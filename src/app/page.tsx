@@ -17,7 +17,7 @@ import { StageFlow } from '@/components/home/StageFlow';
 import { UseCaseGrid } from '@/components/home/UseCaseGrid';
 import { PROTO_ALT, DESIGN_NOTE } from '@/content/design';
 import { FAQ, MORE_THAN, MORE_THAN_LINE, STAGES } from '@/content/home';
-import { person, scene, screen } from '@/lib/screens';
+import { asset, person, scene, screen } from '@/lib/screens';
 import { DEFAULT_DESCRIPTION, TAGLINE, pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(TAGLINE, DEFAULT_DESCRIPTION, '/', { image: '/og/home.png' });
@@ -27,24 +27,21 @@ export default function HomePage() {
     n: s.n,
     label: s.label,
     title: s.title,
-    bullets: s.bullets,
-    outcome: s.outcome,
-    chips: s.chips,
     href: s.href,
-    frame: <ScreenFrame kind="phone" src={screen(s.screen)} alt={PROTO_ALT[s.screen]} preview full className="!max-w-none" />,
+    frame: <ScreenFrame kind="phone" src={screen(s.screen)} alt={PROTO_ALT[s.screen]} preview full />,
   }));
 
   return (
     <>
       <HomeJsonLd />
-      <Hero scene={scene('hero-composite')} />
+      <Hero profile={screen('profile-zayn')} card={asset('assets/cards/sample-zayn-2x.webp')} />
 
       <Section id="how" tone="charcoal" glow>
         <SectionHead eyebrow="How Linkist works" title={<>Turn the contacts you collect into <span className="em-coral">opportunities</span>.</>} lede="Linkist helps you capture the right people, understand who matters, and know what to do next." center />
         <div className="mt-12">
           <StageFlow stages={stages} />
         </div>
-        <p className="disclaimer mx-auto mt-8 max-w-2xl text-center">{DESIGN_NOTE}</p>
+        <p className="disclaimer mx-auto mt-10 max-w-2xl text-center">{DESIGN_NOTE}</p>
       </Section>
 
       <Section id="use-cases">

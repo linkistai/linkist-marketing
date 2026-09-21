@@ -22,6 +22,8 @@ export interface LegalDoc {
   readonly updated: string;
   /** Where the document is published, for the two imported ones. */
   readonly source?: string;
+  /** The file the company supplied when the document did not come from a public URL (D51). */
+  readonly supplied?: string;
   readonly imported?: string;
   readonly body: string;
 }

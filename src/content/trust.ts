@@ -1,14 +1,15 @@
 /**
  * The AI and security pages (brief 4, checkpoint 4). Every line traces to a published source:
- * the privacy policy (linkist.ai/privacy, version 1.1, 1 June 2026, cited as P + section), the
- * terms of service (linkist.ai/terms, version 1.1, 1 June 2026, cited as T + section), or the
+ * the privacy policy (version 1.3, 14 September 2026, cited as P + section), the terms of
+ * service (version 1.2, 7 August 2026, cited as T + section; both supplied by the company, D51), or the
  * product as walked through on 10 September 2026 (docs/01-audit.md). Nothing is claimed that
  * neither document nor the product states; the gaps are listed as gaps (C8, C9).
  */
 import type { FaqItem } from '@/components/Faq';
 import { G } from '@/lib/glossary';
 
-export const POLICY_DATE = '1 June 2026';
+/** The privacy policy's date; the terms are version 1.2 of 7 August 2026. */
+export const POLICY_DATE = '14 September 2026';
 export const PRIVACY_URL = '/legal/privacy';
 export const TERMS_URL = '/legal/terms';
 export const PRIVACY_EMAIL_PUBLISHED = 'privacy@linkist.ai';
@@ -57,13 +58,13 @@ export interface Rule {
 /** The rules the policy and terms set for the AI features. */
 export const AI_RULES: readonly Rule[] = [
   { title: 'Optional, with its own consent', body: 'AI enablement is a separate consent, not bundled with the terms. Contact enrichment, Smart Signals, ICP and Smart Introductions are named in it.', source: 'P 8' },
-  { title: 'Assistive, never binding', body: 'Outputs are suggestions you review before relying on them. Linkist does not use AI to make legally binding decisions about you.', source: 'P 9, T 12' },
+  { title: 'Assistive, never binding', body: 'Outputs are suggestions you review before relying on them. Linkist does not use AI to make legally binding decisions about you.', source: 'P 9, T 14' },
   { title: 'Switch it off any time', body: 'Disable optional AI features, or object to automated profiling, in Privacy Settings or by writing to privacy@linkist.ai.', source: 'P 6.3, 9' },
-  { title: 'Kept for a bounded time', body: 'AI enrichment outputs are held for up to 6 months or until you delete your account, unless refreshed, deleted or legally retained.', source: 'P 17' },
+  { title: 'Kept for a bounded time', body: 'AI enrichment outputs are held for up to 6 months or until you delete your account, unless refreshed, deleted or legally retained.', source: 'P 18' },
   { title: 'Not sold, not marketed to', body: 'Imported contact data is not sold and is not used to market to the people in it unless they opt in themselves.', source: 'P 6.4, 10' },
-  { title: 'Not used on minors', body: 'Linkist is for people aged 18 or over and does not knowingly run AI profiling on minors.', source: 'P 9, 20' },
-  { title: 'Sensitive data is out of scope', body: 'Health, financial, government-ID, biometric and other regulated records must not be put into Linkist; AI must not be used to infer sensitive characteristics.', source: 'T 12, 14' },
-  { title: 'Credits for some actions', body: 'Some AI actions draw on AI credits, sold as top-ups in the billing hub at prm.linkist.ai.', source: 'Product, 10 September 2026; T 20' },
+  { title: 'Not used on minors', body: 'Linkist is for people aged 18 or over and does not knowingly run AI profiling on minors.', source: 'P 9, 21' },
+  { title: 'Sensitive data is out of scope', body: 'Health, financial, government-ID, biometric and other regulated records must not be put into Linkist; AI must not be used to infer sensitive characteristics.', source: 'T 14, 16' },
+  { title: 'Credits for some actions', body: 'Some AI actions draw on AI credits, sold as top-ups in the billing hub at prm.linkist.ai.', source: 'Product, 10 September 2026; T 22' },
 ];
 
 /** Honest gaps for the AI page (C8). */
@@ -85,18 +86,18 @@ export const AI_FAQ: readonly FaqItem[] = [
 
 /* ---------- Security ---------- */
 
-/** Technical and organisational measures, as the policy lists them (P 16), plus what the product shows. */
+/** Technical and organisational measures, as the policy lists them (P 17), plus what the product shows. */
 export const CONTROLS: readonly Rule[] = [
-  { title: 'Encryption in transit', body: 'Traffic between you and Linkist is encrypted.', source: 'P 15, 16' },
-  { title: 'Encryption at rest, where appropriate', body: 'Stored data is encrypted where the policy deems it appropriate; the policy does not say everywhere.', source: 'P 16' },
+  { title: 'Encryption in transit', body: 'Traffic between you and Linkist is encrypted.', source: 'P 16, 17' },
+  { title: 'Encryption at rest, where appropriate', body: 'Stored data is encrypted where the policy deems it appropriate; the policy does not say everywhere.', source: 'P 17' },
   { title: 'No password to leak', body: 'You sign in with an email address or mobile number and a one-time code. There is no password to reuse or phish.', source: 'Product, 10 September 2026; P 4.1' },
-  { title: 'Code expiry and token handling', body: 'One-time codes expire and tokens are handled securely; limited security logs are kept.', source: 'P 16, 17' },
-  { title: 'Access controls and roles', body: 'Role-based permissions and restricted administrative access.', source: 'P 16' },
-  { title: 'Audit logging and monitoring', body: 'Audit logs and security monitoring, with logs usually kept up to 12 months.', source: 'P 16, 17' },
-  { title: 'Vendor review', body: 'Providers are reviewed for security and bound by data processing terms.', source: 'P 14, 15, 16' },
-  { title: 'Testing, where appropriate', body: 'Vulnerability assessment and penetration testing "where appropriate". No report is published.', source: 'P 16' },
-  { title: 'Staff obligations', body: 'Awareness training and confidentiality obligations for staff.', source: 'P 16' },
-  { title: 'Breach notification', body: 'Breaches are assessed, contained and, where the law requires, reported to the authority and to affected people.', source: 'P 21' },
+  { title: 'Code expiry and token handling', body: 'One-time codes expire and tokens are handled securely; limited security logs are kept.', source: 'P 17, 18' },
+  { title: 'Access controls and roles', body: 'Role-based permissions and restricted administrative access.', source: 'P 17' },
+  { title: 'Audit logging and monitoring', body: 'Audit logs and security monitoring, with logs usually kept up to 12 months.', source: 'P 17, 18' },
+  { title: 'Vendor review', body: 'Providers are reviewed for security and bound by data processing terms.', source: 'P 15, 16, 17' },
+  { title: 'Testing, where appropriate', body: 'Vulnerability assessment and penetration testing "where appropriate". No report is published.', source: 'P 17' },
+  { title: 'Staff obligations', body: 'Awareness training and confidentiality obligations for staff.', source: 'P 17' },
+  { title: 'Breach notification', body: 'Breaches are assessed, contained and, where the law requires, reported to the authority and to affected people.', source: 'P 22' },
 ];
 
 export interface Provider {
@@ -104,7 +105,7 @@ export interface Provider {
   readonly named: string | null;
 }
 
-/** Who receives data (P 14). Only one provider is named in the policy. */
+/** Who receives data (P 15). Only one provider is named in the policy. */
 export const PROVIDERS: readonly Provider[] = [
   { role: 'Hosting and infrastructure', named: null },
   { role: 'Database and backend services', named: null },
@@ -118,7 +119,7 @@ export const PROVIDERS: readonly Provider[] = [
   { role: 'Professional advisers; authorities where the law requires', named: null },
 ];
 
-/** Safeguards for transfers outside the UAE (P 15). */
+/** Safeguards for transfers outside the UAE (P 16). */
 export const TRANSFER_SAFEGUARDS: readonly string[] = ['Data processing agreements', 'Standard contractual clauses or equivalent transfer terms', 'Contractual confidentiality commitments', 'Encryption in transit and at rest', 'Access controls', 'Vendor security assessments', 'Data minimisation'];
 
 export interface Retention {
@@ -126,10 +127,11 @@ export interface Retention {
   readonly period: string;
 }
 
-/** Retention, condensed from the policy's table (P 17). */
+/** Retention, condensed from the policy's table (P 18). */
 export const RETENTION: readonly Retention[] = [
   { what: 'Account and profile data', period: 'Life of the account, then up to 30 days' },
   { what: 'Contacts you import that are not Linkist users', period: 'Only as long as the feature needs, then deleted or anonymised' },
+  { what: 'Contacts imported from a Google or Microsoft account', period: 'As an ordinary contact, until you delete it or the account' },
   { what: 'AI enrichment outputs', period: 'Up to 6 months, or until account deletion' },
   { what: 'One-time codes and tokens', period: 'Short expiry after use' },
   { what: 'Security and audit logs', period: 'Usually up to 12 months' },
@@ -138,7 +140,7 @@ export const RETENTION: readonly Retention[] = [
   { what: 'Consent records', period: 'Life of the account plus up to 7 years' },
 ];
 
-/** What you can do (P 18, 19). */
+/** What you can do (P 19, 20). */
 export const RIGHTS: readonly string[] = [
   'See the personal data Linkist holds about you',
   'Correct it',
@@ -149,9 +151,10 @@ export const RIGHTS: readonly string[] = [
   'Complain to the UAE Data Office',
 ];
 
-/** People you add to Linkist (P 10, 18). The Contact Data Notice in the legal hub will say the same at length. */
+/** People you add to Linkist (P 10, 19). The Contact Data Notice in the legal hub will say the same at length. */
 export const CONTACT_DATA: readonly string[] = [
   'Importing contacts is optional, and you confirm you have the right to bring them in.',
+  'A connected Google or Microsoft account is read-only: Linkist imports the contacts and never creates, changes or deletes anything in that account.',
   'Imported contact data is used only for the features you choose, with data minimisation, and is not sold.',
   'The people in your contacts are not marketed to unless they opt in themselves.',
   'Anyone whose details were added can ask Linkist for access, correction, restriction or deletion.',

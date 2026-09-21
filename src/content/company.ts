@@ -1,6 +1,6 @@
 /**
  * Company facts for the about, contact and customers pages (checkpoint 6). Every line traces to
- * the published privacy policy and terms (version 1.1, 1 June 2026), the current linkist.ai
+ * the privacy policy (version 1.3) and terms (version 1.2), the current linkist.ai
  * footer, or the product as walked through on 10 September 2026. The team is not named until
  * the client confirms names and roles (C10).
  */
@@ -51,5 +51,5 @@ export const PRINCIPLES: readonly { title: string; body: string; source: string 
 export const TIMELINE: readonly { date: string; text: string }[] = [
   { date: 'June 2026', text: 'Privacy policy and terms of service version 1.1 published. The first three guides appear on the blog.' },
   { date: 'July 2026', text: 'Four more articles on relationship capital, AI memory, digital identity and the tap-to-follow-up flow.' },
-  { date: 'September 2026', text: 'The store lists NFC cards in PVC, wood and metal shipping within the UAE, bring-your-own activation at nfctools.linkist.ai, and native apps in preparation. This website goes into preview.' },
+  { date: 'September 2026', text: 'The store lists NFC cards in PVC, wood and metal shipping within the UAE, bring-your-own activation at nfctools.linkist.ai, and native apps in preparation. Privacy policy version 1.3 and terms version 1.2. This website goes into preview.' },
 ];

@@ -95,7 +95,7 @@ export default function SecurityPage() {
                 <li key={s}>{s}</li>
               ))}
             </ul>
-            <p className="mt-3 font-mono text-[11px] text-muted">P 15</p>
+            <p className="mt-3 font-mono text-[11px] text-muted">P 16</p>
           </div>
           <div className="card p-6" data-reveal="rise">
             <h3 className="font-semibold">The people in your contacts</h3>
@@ -104,7 +104,7 @@ export default function SecurityPage() {
                 <li key={s}>{s}</li>
               ))}
             </ul>
-            <p className="mt-3 font-mono text-[11px] text-muted">P 10, 18</p>
+            <p className="mt-3 font-mono text-[11px] text-muted">P 10, 19</p>
           </div>
         </div>
       </Section>
@@ -131,7 +131,7 @@ export default function SecurityPage() {
             </tbody>
           </table>
         </div>
-        <p className="mt-4 text-center font-mono text-[11px] text-muted">P 17, 19</p>
+        <p className="mt-4 text-center font-mono text-[11px] text-muted">P 18, 20</p>
       </Section>
 
       <Section id="rights">
@@ -149,7 +149,7 @@ export default function SecurityPage() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 text-sm text-muted">Linkist aims to answer within 30 days and may verify your identity first. P 18, 19.</p>
+            <p className="mt-5 text-sm text-muted">Linkist aims to answer within 30 days and may verify your identity first. P 19, 20.</p>
           </div>
           <div className="card self-start p-7" data-reveal="rise">
             <p className="eyebrow">Who is responsible</p>
@@ -172,7 +172,7 @@ export default function SecurityPage() {
                 Terms of service
               </a>
             </p>
-            <p className="mt-3 font-mono text-[11px] text-muted">P 2, 3, 24; T 27</p>
+            <p className="mt-3 font-mono text-[11px] text-muted">P 2, 3, 25; T 29</p>
           </div>
         </div>
       </Section>

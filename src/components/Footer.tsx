@@ -4,7 +4,7 @@ import { Newsletter } from './forms/Newsletter';
 import { CookieChoicesLink } from './CookieChoicesLink';
 import { MotionToggle } from './MotionToggle';
 import { G } from '@/lib/glossary';
-import { COMPANY, GET_APP_URL, GET_CARD_URL, SIGN_IN_URL } from '@/lib/site';
+import { COMPANY, FREE_PROFILE_URL, GET_CARD_URL, SIGN_IN_URL } from '@/lib/site';
 
 const COLUMNS: { title: string; links: { href: string; label: string; external?: boolean }[] }[] = [
   {
@@ -33,6 +33,7 @@ const COLUMNS: { title: string; links: { href: string; label: string; external?:
     links: [
       { href: '/nfc-cards', label: 'NFC cards' },
       { href: '/bundles', label: 'Bundles' },
+      { href: '/bring-your-own', label: 'Bring your own NFC' },
       { href: '/pricing#compare', label: 'Compare PRM plans' },
       { href: GET_CARD_URL, label: G.ctaNfc, external: true },
     ],
@@ -70,7 +71,7 @@ export function Footer() {
           <Wordmark size={22} />
           <p className="max-w-xs text-sm text-body">Capture Contacts. Remember Context. Act at the right time. A Personal Relationship Manager with an optional NFC card, built in Dubai.</p>
           <div className="flex flex-wrap gap-2">
-            <a href={GET_APP_URL} className="btn btn--primary btn--sm">
+            <a href={FREE_PROFILE_URL} className="btn btn--primary btn--sm">
               {G.ctaApp}
             </a>
             <a href={GET_CARD_URL} className="btn btn--secondary btn--sm">
@@ -100,7 +101,7 @@ export function Footer() {
       </div>
       <div className="container flex flex-col gap-3 border-t border-line py-6 text-xs text-muted md:flex-row md:items-center md:justify-between">
         <p>
-          © {new Date().getFullYear()} {COMPANY}. All rights reserved. Linkist PRM is a web app at prm.linkist.ai; NFC card profiles live at m.linkist.ai.
+          © {new Date().getFullYear()} {COMPANY}. All rights reserved. Linkist PRM is a web app at prm.linkist.ai.
         </p>
         <p className="flex flex-wrap gap-4">
           <CookieChoicesLink />

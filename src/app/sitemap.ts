@@ -14,6 +14,7 @@ export const ROUTES: readonly string[] = [
   '/use-cases',
   ...USE_CASES.map((u) => `/use-cases/${u.slug}`),
   '/nfc-cards',
+  '/bring-your-own',
   '/bundles',
   '/pricing',
   '/teams',

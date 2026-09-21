@@ -49,7 +49,7 @@ export default function AiPage() {
             </div>
             <div className="hero-stage relative flex justify-center" data-hero-card="1">
               <div className="w-full max-w-[280px]">
-                <ScreenFrame kind="phone" src={screen('proto-home')} alt={PROTO_ALT['proto-home']} preview full priority />
+                <ScreenFrame kind="phone" src={screen('v6-enrich')} alt={PROTO_ALT['v6-enrich']} preview full priority />
               </div>
             </div>
           </HeroIntro>

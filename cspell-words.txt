@@ -79,3 +79,14 @@ carddeck
 sitewide
 nfctools
 storebadge
+Luca
+luca
+askdetail
+icpbuilder
+icpdetail
+quickadd
+shareready
+stagecard
+docx
+Linktree
+NTAG

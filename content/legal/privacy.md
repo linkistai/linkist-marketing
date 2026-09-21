@@ -4,11 +4,11 @@
   "title": "Privacy Policy",
   "summary": "What Linkist collects, why, where it goes, how long it is kept, and your rights. Written under the UAE Personal Data Protection Law.",
   "status": "published",
-  "version": "1.1",
-  "effective": "2026-06-01",
-  "updated": "2026-06-01",
-  "source": "https://www.linkist.ai/privacy",
-  "imported": "2026-09-10"
+  "version": "1.3",
+  "effective": "2026-09-14",
+  "updated": "2026-09-14",
+  "supplied": "Linkist_Privacy_Policy_v1.3.docx, from RatioX Labs, 2026-09-21",
+  "imported": "2026-09-21"
 }
 ---
 
@@ -26,13 +26,10 @@ This Privacy Policy should be read together with our Terms of Service.
 
 For the purposes of applicable data protection laws, the data controller responsible for your personal data is:
 
-RatioX Labs DWC-LLC
-
-Dubai South Business Park, Building A3, 3rd Floor
-
-Dubai South, Dubai, United Arab Emirates
-
-Email: privacy@linkist.ai
+RatioX Labs DWC-LLC  
+Dubai South Business Park, Building A3, 3rd Floor  
+Dubai South, Dubai, United Arab Emirates  
+**Email:** privacy@linkist.ai
 
 Where Linkist processes contact data imported by a user from their own device, that user may also be responsible for ensuring that the import and use of such contact data is lawful.
 
@@ -40,8 +37,7 @@ Where Linkist processes contact data imported by a user from their own device, t
 
 Linkist has designated a privacy contact responsible for handling privacy requests, data subject rights, and privacy governance.
 
-**Privacy contact:** privacy@linkist.ai
-
+**Privacy contact:** privacy@linkist.ai  
 **Data Protection Officer contact:** dpo@linkist.ai
 
 Users may contact us using the above details for privacy questions, rights requests, complaints, data deletion, consent withdrawal, or concerns about imported contact data.
@@ -94,7 +90,7 @@ This may include:
 
 ### 4.4 Imported contact data
 
-If you choose to import contacts from your device, address book, email account, or another permitted source, we may process information such as:
+If you choose to import contacts from your device, address book, email account, or another permitted source, including by connecting a Google account (Google Contacts) or a Microsoft account (Outlook contacts), we may process information such as:
 
 - Contact names
 - Email addresses
@@ -104,6 +100,8 @@ If you choose to import contacts from your device, address book, email account, 
 - Contact notes or other fields, only where imported and necessary for the selected feature
 
 Contact import is optional. You should not import contact information unless you have the right, consent, authority, or legitimate reason to do so.
+
+Where you choose to connect a Google or Microsoft account, we import contact records using the account access you grant. Access is read-only: Linkist does not create, modify, or delete contacts in your Google or Microsoft account, and does not access any other data in that account. Data obtained through Google Contacts or Microsoft Outlook integration is used solely to provide contact import and organisation within Linkist. This data is not used for advertising or ad targeting, is not sold or transferred to third parties except as necessary to provide the Service or as required by law, and is not used to train generalised artificial intelligence or machine learning models. You may disconnect Google or Microsoft contact import at any time through Linkist Privacy Settings, or by removing Linkist’s access directly in your Google or Microsoft account permissions. Disconnecting stops future imports; contact records already imported remain in your Linkist account as ordinary contacts unless you delete them separately.
 
 ### 4.5 NFC card, QR, order, and fulfilment data
 
@@ -181,7 +179,7 @@ We collect personal data:
 
 - Directly from you when you create an account, profile, order, or support request
 - When you use Linkist features, including QR, NFC, PRM, contact management, AI tools, and reminders
-- When you import or sync contacts
+- When you import or sync contacts, including from a connected Google or Microsoft account
 - When another user shares, imports, tags, or records your contact details in Linkist
 - From payment, shipping, analytics, communication, and customer support providers
 - From public or professional sources where AI enrichment is enabled and lawful
@@ -243,7 +241,7 @@ Where enabled, we use imported contact data to:
 - Suggest follow-ups
 - Support PRM features
 - Prevent duplicate entries
-- Invite and add contacts to user's Linkist address book
+- Invite and add contacts to user’s Linkist address book
 
 We do not sell imported contact data. We do not use imported non-user contact data for marketing unless the individual has independently opted in.
 
@@ -320,6 +318,8 @@ Separate consent may be requested for:
 - Analytics cookies
 - Push notifications
 - Device contact import
+- Google Contacts import
+- Microsoft/Outlook contacts import
 - Geolocation capture
 - AI enablement for Contact enrichment, Smart Signals, ICP and Smart Introductions
 
@@ -364,7 +364,7 @@ We do not sell imported contacts. We do not send marketing communications to imp
 
 ## 11. Location Data
 
-Some Linkist features may use location to record or verify where a professional connection occurred. Location information may also be helpful when attending an event or conference to connect with like-minded contacts for business purposes.
+Some Linkist features may use location to record or verify where a professional connection occurred. Location information may also be helpful when attending an event or conference to connect with like minded contacts for business purposes.
 
 We will request permission before collecting precise location data. You may refuse location access, but some location-based features may not work.
 
@@ -388,7 +388,39 @@ These may be used to measure campaigns or provide relevant content. We use marke
 
 You can manage cookie preferences through our cookie banner, Privacy Settings, or browser settings.
 
-## 13. Marketing Communications
+## 13. Marketing Consent and Communications
+
+Linkist may send you marketing communications only where you have provided consent or where another lawful basis permits us to do so.
+
+Marketing communications may include:
+
+- Product news and feature updates
+- Promotional offers and discounts
+- New product or service announcements
+- Early-access or beta opportunities
+- Event, community, or campaign communications
+- Founders Circle or similar programme communications
+- Other Linkist news that may be relevant to you
+
+Where consent is required, we will request it separately from your acceptance of our Terms of Service and acknowledgement of this Privacy Policy. Choosing not to provide marketing consent will not prevent you from creating or using your Linkist account or purchasing Linkist products or services.
+
+Where available, you may choose which marketing channels you wish to receive communications through, such as email, SMS, WhatsApp, or promotional push notifications.
+
+We may maintain records of your marketing preferences and consent, including the type of consent provided, the method through which it was provided, the date and time of consent, and any subsequent withdrawal or change to your preferences.
+
+You may withdraw your marketing consent or change your marketing preferences at any time by:
+
+- Using the unsubscribe or opt-out option included in a marketing communication
+- Updating your preferences through Linkist Privacy Settings, where available
+- Contacting us at privacy@linkist.ai
+
+Withdrawal of consent will apply to future marketing communications and will not affect the lawfulness of processing carried out before your consent was withdrawn.
+
+We do not send Linkist marketing communications to contacts imported by another user unless that individual has independently provided the appropriate consent.
+
+Transactional and service-related communications, including OTPs, account security alerts, order confirmations, shipping updates, payment or subscription notices, important service notices, and legally required communications, are not marketing communications and may continue to be sent where necessary to provide or secure the Service.
+
+## 14. Marketing Communications
 
 We send marketing communications only where we have consent or another lawful basis.
 
@@ -396,9 +428,9 @@ Marketing may include product updates, promotional offers, early access announce
 
 You may opt out at any time by using the unsubscribe link, changing Privacy Settings, or contacting privacy@linkist.ai.
 
-Transactional messages, such as OTPs, order confirmations, payment notices, security alerts, service updates, and subscription plan related updates, are not marketing and may still be sent where necessary.
+Transactional messages, such as OTPs, order confirmations, payment notices, security alerts, and service updates, subscription plan related updates, are not marketing and may still be sent where necessary.
 
-## 14. Sharing Personal Data
+## 15. Sharing Personal Data
 
 We do not sell personal data.
 
@@ -418,7 +450,7 @@ We may share personal data with trusted service providers and partners where nec
 
 All processors are expected to process personal data only under our instructions and subject to appropriate confidentiality, security, and data processing terms.
 
-## 15. International Data Transfers
+## 16. International Data Transfers
 
 Some of our service providers may be located outside the United Arab Emirates. Personal data may be transferred to countries where our hosting, payment, communication, analytics, AI, support, or other service providers operate.
 
@@ -432,7 +464,7 @@ Where required, we use appropriate safeguards, which may include:
 - Vendor security assessments
 - Data minimisation
 
-## 16. Data Security
+## 17. Data Security
 
 We use technical and organisational measures designed to protect personal data, including:
 
@@ -442,6 +474,7 @@ We use technical and organisational measures designed to protect personal data, 
 - Secure authentication
 - OTP expiry and secure token handling
 - Audit logging
+- Encrypted storage of third-party integration access and refresh tokens, such as those used for Google or Microsoft contact import, with restricted internal access
 - Security monitoring
 - Restricted administrative access
 - Vendor security review
@@ -450,9 +483,11 @@ We use technical and organisational measures designed to protect personal data, 
 
 No system is completely secure. Users are responsible for keeping their account access, email, devices, and login methods secure.
 
-## 17. Data Retention
+## 18. Data Retention
 
 We retain personal data only for as long as necessary for the purpose for which it was collected, unless a longer period is required for legal, accounting, tax, dispute, security, or legitimate business purposes.
+
+Indicative retention periods are:
 
 | Data category | Retention period |
 | --- | --- |
@@ -461,6 +496,7 @@ We retain personal data only for as long as necessary for the purpose for which 
 | Payment and invoice records | Minimum period required by UAE tax and accounting rules |
 | Consent records | Account duration plus up to 7 years for legal defence and compliance records |
 | Imported non-user contact data | Retained only as necessary for the selected feature, then deleted or anonymised according to our retention schedule |
+| Google/Microsoft-imported contact data | Retained as an ordinary Linkist contact until deleted by the user or the account is deleted, consistent with other imported contact data |
 | AI enrichment outputs | Up to 6 months or until account deletion, unless refreshed, deleted, or legally retained |
 | Authentication tokens and OTPs | Short expiry after issuance or use, with limited security logs retained as needed |
 | Security and audit logs | Usually up to 12 months, unless needed for investigation or legal defence |
@@ -468,7 +504,7 @@ We retain personal data only for as long as necessary for the purpose for which 
 
 When retention is no longer necessary, we delete, anonymise, or securely archive personal data.
 
-## 18. Your Privacy Rights
+## 19. Your Privacy Rights
 
 Subject to applicable law, you may have the following rights:
 
@@ -488,7 +524,7 @@ To exercise your rights, contact privacy@linkist.ai or use the Privacy Settings 
 
 We may need to verify your identity before responding. We aim to respond within 30 days unless a different period applies under law or the request is complex.
 
-## 19. Account Deletion
+## 20. Account Deletion
 
 Users may request account deletion through the app, website, or by contacting privacy@linkist.ai.
 
@@ -504,7 +540,7 @@ After account deletion, we will delete or anonymise account data unless retentio
 
 Some data may remain in backup systems for a limited period before deletion through ordinary backup cycles.
 
-## 20. Children and Minors
+## 21. Children and Minors
 
 Linkist is intended only for users aged 18 or above.
 
@@ -512,34 +548,32 @@ We do not knowingly allow users under 18 to create accounts. We do not knowingly
 
 If we become aware that we have collected personal data from a person under 18 without valid authorisation, we will delete it or take other appropriate action.
 
-## 21. Data Breach Notification
+## 22. Data Breach Notification
 
 If a personal data breach occurs, we will assess the nature and impact of the breach and take appropriate steps to contain, investigate, and remediate it.
 
 Where required by applicable law, we will notify the competent authority and affected individuals. Notification may include the nature of the breach, categories of data affected, likely consequences, and steps taken or proposed to address the breach.
 
-## 22. Third-Party Links and Services
+## 23. Third-Party Links and Services
 
 Linkist profiles may include links to third-party websites, social media pages, messaging services, payment providers, or other external services. We are not responsible for the privacy practices, content, security, or accuracy of third-party services.
 
 Users should review the privacy policies of third-party services before using them.
 
-## 23. Changes to This Privacy Policy
+Where you connect a Google or Microsoft account to Linkist for contact import, your use of that account remains subject to Google’s or Microsoft’s own privacy policy and terms of service.
+
+## 24. Changes to This Privacy Policy
 
 We may update this Privacy Policy from time to time. If changes are material, we may notify users by email, in-app notice, website notice, or another appropriate method.
 
 The updated Privacy Policy will apply from the effective date stated above. Continued use of Linkist after the effective date means you acknowledge the updated policy.
 
-## 24. Contact Us
+## 25. Contact Us
 
-### For privacy questions, complaints, or rights requests, contact:
+For privacy questions, complaints, or rights requests, contact:
 
-RatioX Labs DWC-LLC
-
-Dubai South Business Park, Building A3, 3rd Floor
-
-Dubai South, Dubai, United Arab Emirates
-
-**Email:** privacy@linkist.ai
-
+RatioX Labs DWC-LLC  
+Dubai South Business Park, Building A3, 3rd Floor  
+Dubai South, Dubai, United Arab Emirates  
+**Email:** privacy@linkist.ai  
 **Support:** support@linkist.ai

@@ -1,38 +1,35 @@
 'use client';
 
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { TextLink } from '@/components/Button';
-import { Outcome, Tags } from '@/components/Section';
 import { INTENTS } from '@/content/home';
 
 export interface FlowStage {
   readonly n: 1 | 2 | 3;
   readonly label: string;
   readonly title: string;
-  readonly bullets: readonly string[];
-  readonly outcome: string;
-  readonly chips: readonly string[];
   readonly href: string;
   readonly frame: ReactNode;
 }
 
-const STEP_MS = 3600;
+const STEP_MS = 4000;
 
 /**
- * "How Linkist works" (D17): the intent chips from the hero sit above a flow of the three stage
- * screens joined by a rail. One stage is lit at a time and the rail fills towards the next; the
- * flow steps by itself while in view and motion is on, and stops once a visitor picks a chip or a
- * stage. Each chip rewrites the scenario line, lights the stage the moment belongs to and points at
- * the matching use case. The three stage cards below follow the same active stage.
+ * "How Linkist works" (D51, from linkist-homepage-v1.html): the intent chips, then three stage
+ * cards, each a numbered badge, the stage's screen in a phone, the stage name and one line. One
+ * card is lifted at a time; the stages take turns every 4 s while the block is in view and motion
+ * is on, and stop once a visitor picks a chip or a card. A chip rewrites the scenario line, lifts
+ * the stage the moment belongs to and points at the matching use case. Each card links to its
+ * feature page; the long bullets, outcomes and capability tags live there and on /how-it-works.
  */
 export function StageFlow({ stages }: { stages: readonly FlowStage[] }) {
   const [intent, setIntent] = useState<number | null>(null);
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(1);
   const [manual, setManual] = useState(false);
   const [inView, setInView] = useState(false);
   const [motion, setMotion] = useState(true);
-  const [tick, setTick] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -46,7 +43,7 @@ export function StageFlow({ stages }: { stages: readonly FlowStage[] }) {
       setInView(true);
       return () => mo.disconnect();
     }
-    const io = new IntersectionObserver(([e]) => setInView(!!e?.isIntersecting), { threshold: 0.35 });
+    const io = new IntersectionObserver(([e]) => setInView(!!e?.isIntersecting), { threshold: 0.25 });
     io.observe(el);
     return () => {
       mo.disconnect();
@@ -60,7 +57,6 @@ export function StageFlow({ stages }: { stages: readonly FlowStage[] }) {
     const id = window.setInterval(() => {
       if (document.visibilityState !== 'visible') return;
       setActive((a) => (a + 1) % stages.length);
-      setTick((t) => t + 1);
     }, STEP_MS);
     return () => window.clearInterval(id);
   }, [stepping, stages.length]);
@@ -73,7 +69,7 @@ export function StageFlow({ stages }: { stages: readonly FlowStage[] }) {
   const chosen = intent === null ? null : (INTENTS[intent] ?? null);
 
   return (
-    <div ref={ref} className="flow" data-in={inView} data-stepping={stepping}>
+    <div ref={ref} className="flow" data-in={inView}>
       <div className="mx-auto max-w-3xl text-center" data-reveal="rise">
         <p className="text-xs font-semibold uppercase tracking-[0.04em] text-muted">Where are you right now?</p>
         <div className="mt-3 flex flex-wrap justify-center gap-2" role="group" aria-label="Pick your situation">
@@ -83,60 +79,33 @@ export function StageFlow({ stages }: { stages: readonly FlowStage[] }) {
             </button>
           ))}
         </div>
-        <p className="lede mx-auto mt-5 min-h-[3.2em]" aria-live="polite">
+        <p className="mx-auto mt-4 min-h-[2.6em] max-w-xl text-sm text-body" aria-live="polite">
           {chosen ? chosen.lede : 'Pick the moment you are in and see which stage of Linkist answers it, or watch the three stages take turns.'}
         </p>
         {chosen ? (
-          <p className="mt-2 text-sm">
+          <p className="mt-1 text-sm">
             <TextLink href={chosen.href}>Read this use case</TextLink>
           </p>
         ) : null}
       </div>
 
-      <ol className="flow__stages mt-12" aria-label="The three stages">
-        {stages.map((s, i) => {
-          const state = i === active ? 'active' : 'idle';
-          const seg = i < stages.length - 1 ? (i < active ? 'done' : i === active ? (stepping ? 'filling' : 'todo') : 'todo') : null;
-          return (
-            <li key={s.n} className="flow__stage" data-state={state} style={{ '--i': i } as CSSProperties}>
-              <div className="flow__phone" onClick={() => { setActive(i); setManual(true); }}>
-                {s.frame}
-              </div>
-              {seg ? <span className="flow__seg" data-state={seg} key={`${seg}-${tick}`} style={{ '--dur': `${STEP_MS}ms` } as CSSProperties} aria-hidden="true" /> : null}
-              <button type="button" className="flow__label" aria-pressed={i === active} onClick={() => { setActive(i); setManual(true); }}>
-                <span className="flow__num">{s.n}</span>
-                <span>
-                  <span className="block font-semibold">{s.label}</span>
-                  <span className="block text-sm text-muted">{s.title}</span>
-                </span>
-              </button>
-            </li>
-          );
-        })}
-      </ol>
-
-      <div className="mt-12 grid gap-6 lg:grid-cols-3" data-reveal="rise" data-reveal-stagger="0.08">
+      <ol className="stages mt-14" aria-label="The three stages">
         {stages.map((s, i) => (
-          <article key={s.n} className={`card card--hover flow__card flex flex-col gap-4 p-7 ${i === active ? 'flow__card--active' : ''}`} aria-current={i === active ? 'step' : undefined}>
-            <p className="eyebrow eyebrow--accent text-[12px]">
-              {s.n} · {s.label}
-            </p>
-            <h3 className="display-3">{s.title}</h3>
-            <ul className="flex flex-col gap-2 pl-5 text-md text-body" style={{ listStyle: 'disc' }}>
-              {s.bullets.map((b) => (
-                <li key={b}>{b}</li>
-              ))}
-            </ul>
-            <div className="mt-auto">
-              <Outcome>{s.outcome}</Outcome>
-            </div>
-            <Tags items={s.chips} />
-            <Link href={s.href} className="link text-sm">
-              {s.label} in depth
+          <li key={s.n} className="stages__item" style={{ '--i': i } as CSSProperties}>
+            <Link href={s.href} className="stagecard no-underline" data-active={i === active} aria-current={i === active ? 'step' : undefined} onMouseEnter={() => { setActive(i); setManual(true); }} onFocus={() => { setActive(i); setManual(true); }}>
+              <span className="stagecard__badge" aria-hidden="true">
+                {s.n}
+              </span>
+              <div className="stagecard__phone">{s.frame}</div>
+              <h3 className="stagecard__title">
+                {s.label}
+                <ArrowRight size={16} aria-hidden="true" className="stagecard__arrow" />
+              </h3>
+              <p className="stagecard__desc">{s.title}</p>
             </Link>
-          </article>
+          </li>
         ))}
-      </div>
+      </ol>
     </div>
   );
 }

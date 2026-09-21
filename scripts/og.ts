@@ -25,10 +25,10 @@ const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 function html(og: OgPage) {
   const { title, eyebrow, screen, person, image } = og;
   const mark = data(join(root, 'public/brand/mark.png'));
-  const shot = screen ? data(join(root, 'public/screens', `${screen}.png`)) : '';
+  const shot = screen ? data(join(root, 'public/screens', `${screen}.png`)) || data(join(root, 'public/screens', `${screen}.webp`)) : '';
   const cut = person ? data(join(root, 'public/assets/people', `${person}-2x.webp`)) : '';
   const pic = image ? data(join(root, 'public', image.replace(/^\//, ''))) : '';
-  const preview = screen?.startsWith('proto-');
+  const preview = !!screen && /^(proto|v6|profile)-/.test(screen);
   const aside = !!(shot || cut || pic);
   const size = title.length > 72 ? 46 : title.length > 44 ? 58 : 70;
   return `<!doctype html><html><head><meta charset="utf-8">

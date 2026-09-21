@@ -336,3 +336,8 @@ Template: Photorealistic still life on a dark charcoal surface, top-down, [objec
 ### Open Graph persons
 
 The OG script draws the closing-band cut-outs at the right edge of each card; no separate generation is needed. If a distinct person per card is wanted, reuse the closing-band template with new castings and save them as `people/og-<slug>`.
+
+
+## Added 21 September 2026 (D51)
+
+`/bring-your-own` ...

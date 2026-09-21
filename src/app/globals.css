@@ -1122,18 +1122,33 @@ html[data-motion='off'] .ftabs__screen[data-active='false'] {
 .hero-foot {
   border-top: 1px solid var(--color-line);
 }
-/* The hero scene (D50): the composite product shot as a rounded photo card with the design-preview badge. */
-.hero-scene {
+/* The hero product (D51): a phone with a public-profile sample, the matching Signature card leaning against it, no container.
+   Everything is a share of the group's width, so the pair scales from a 358px phone column to the desktop stage. */
+.hero-product {
   position: relative;
-  margin: 0 auto;
-  max-width: 560px;
-  border-radius: var(--radius-2xl);
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: var(--shadow-float);
-  background: #141413;
+  width: min(100%, 520px);
+  margin-inline: auto;
+  padding: 12px 0 8%;
 }
-.hero-scene img {
+.hero-product__phone {
+  position: relative;
+  width: 62%;
+  z-index: 2;
+}
+.hero-product__phone .phone {
+  max-width: none;
+}
+.hero-product__card {
+  position: absolute;
+  left: 42%;
+  bottom: 4%;
+  width: 60%;
+  transform: rotate(-10deg);
+  transform-origin: bottom right;
+  filter: drop-shadow(0 24px 32px rgba(0, 0, 0, 0.55));
+  z-index: 3;
+}
+.hero-product__card img {
   display: block;
   width: 100%;
   height: auto;

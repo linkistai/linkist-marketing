@@ -27,8 +27,8 @@ export const HERO = {
     google: { small: 'Get it on', big: 'Google Play' },
     pending: 'Coming soon',
   },
-  /** The composite scene: a real design preview on the phone, the brand mark on the card (scripts/hero-composite.ts). */
-  imageAlt: 'Design preview of the Linkist home screen on a phone, with a black Linkist NFC card standing beside it and a plain white NFC card tapping the top of the phone',
+  /** The product on the right (D51): a public-profile sample on a phone and its Signature card. */
+  imageAlt: 'A Linkist public profile on a phone, with a black Signature NFC card leaning against it. Design preview; the person is an example.',
 } as const;
 
 /**
@@ -49,7 +49,7 @@ export const INTENTS: readonly Intent[] = [
     key: 'event',
     chip: 'I just came back from an event',
     lede: 'Capture the people you met with tags and voice notes, let AI Enrichment fill the gaps, and see who fits what you are looking for before the week is out.',
-    screen: 'proto-home',
+    screen: 'v6-contacts',
     href: '/use-cases/after-the-event',
     stage: 1,
   },
@@ -57,7 +57,7 @@ export const INTENTS: readonly Intent[] = [
     key: 'find',
     chip: 'I need to find the right person',
     lede: 'Describe who you need in plain words. Natural-Language Search and ICP Matching find the people who fit, or a trusted path to them.',
-    screen: 'proto-profile',
+    screen: 'v6-icpdetail',
     href: '/use-cases/find-the-right-person',
     stage: 2,
   },
@@ -65,7 +65,7 @@ export const INTENTS: readonly Intent[] = [
     key: 'many',
     chip: 'I have too many relationships to track',
     lede: 'Start the day with Top Actions, get nudged before a follow-up slips, and plan the conversations that matter this week.',
-    screen: 'proto-home',
+    screen: 'v6-home',
     href: '/use-cases/too-many-relationships',
     stage: 3,
   },
@@ -73,7 +73,7 @@ export const INTENTS: readonly Intent[] = [
     key: 'team',
     chip: 'I run a team',
     lede: 'Share contacts across the team, brand every card, and keep the relationship history with the company when people move on.',
-    screen: 'proto-share',
+    screen: 'v6-exchanges',
     href: '/teams',
     stage: 1,
   },
@@ -98,7 +98,7 @@ export const STAGES: readonly Stage[] = [
     bullets: ['Capture through NFC, QR, card scan, phone import, CSV or VCF, or manual add', 'Fill missing details with AI Enrichment', 'Save where you met and what mattered', 'Share your live profile with one tap'],
     outcome: 'every useful contact becomes more than a name and number.',
     chips: ['AI Enrichment', 'Card Scan', 'Contact Import', 'Voice Notes'],
-    screen: 'proto-share',
+    screen: 'v6-shareready',
     href: '/features/capture',
   },
   {
@@ -108,7 +108,7 @@ export const STAGES: readonly Stage[] = [
     bullets: ['Search using what you remember', 'Define who you are looking for and see who fits', 'See which relationships are active or going quiet', 'Post what you need and find relevant people or trusted paths'],
     outcome: 'know who matters, who fits, and who can help.',
     chips: ['Natural-Language Search', 'ICP Matching', 'Relationship Priority', 'Network Ask'],
-    screen: 'proto-profile',
+    screen: 'v6-icpdetail',
     href: '/features/find',
   },
   {
@@ -118,7 +118,7 @@ export const STAGES: readonly Stage[] = [
     bullets: ['Start the day with your most important actions', 'Plan relationships and opportunities for the week', 'Get useful nudges before follow-ups slip away', 'Reach out or ask for a warm introduction'],
     outcome: 'stay on top of the right relationships and act before the moment passes.',
     chips: ['Top Actions', 'Intelligent Nudges', 'Warm Introductions'],
-    screen: 'proto-home',
+    screen: 'v6-home',
     href: '/features/act',
   },
 ];

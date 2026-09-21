@@ -29,13 +29,15 @@ export const SITE_URL = coerceUrl(process.env['NEXT_PUBLIC_SITE_URL'], 'https://
 export const APP_URL = coerceUrl(process.env['NEXT_PUBLIC_APP_URL'], 'https://prm.linkist.ai');
 /** The NFC card product: profiles, card activation and the card-holder sign-in (D15). */
 export const CARD_APP_URL = coerceUrl(process.env['NEXT_PUBLIC_CARD_APP_URL'], 'https://m.linkist.ai');
-/** "Get the App": the PRM app's unified sign-in and registration screen. */
+/** "Get the App" and Sign in: the PRM app's unified sign-in and registration screen. */
 export const GET_APP_URL = coerceUrl(process.env['NEXT_PUBLIC_GET_APP_URL'], `${APP_URL}/UnifiedAuth`);
-/** "Get NFC Card": the card product's sign-in, as the owner directed on 10 September 2026. */
-export const GET_CARD_URL = coerceUrl(process.env['NEXT_PUBLIC_GET_CARD_URL'], `${CARD_APP_URL}/login`);
+/** "Create Free Profile" / Start free: the quick-profile flow in the PRM app (owner, 21 September 2026, sitewide). */
+export const FREE_PROFILE_URL = coerceUrl(process.env['NEXT_PUBLIC_FREE_PROFILE_URL'], `${APP_URL}/quick-profile`);
+/** "Get Linkist NFC" / Get NFC Card: the store's start page in the PRM app (owner, 21 September 2026, sitewide). */
+export const GET_CARD_URL = coerceUrl(process.env['NEXT_PUBLIC_GET_CARD_URL'], `${APP_URL}/store/start`);
+/** The store, where NFC cards are bought (walk-through, 10 September); tier buttons go to the same start page. */
+export const STORE_URL = GET_CARD_URL;
 /** Bring-your-own: the NFC tools site that writes a live profile onto a card or sticker the visitor already owns (owner, 14 September). */
-/** The store, where NFC cards are bought (walk-through, 10 September). */
-export const STORE_URL = `${APP_URL}/store`;
 export const NFC_TOOLS_URL = coerceUrl(process.env['NEXT_PUBLIC_NFC_TOOLS_URL'], 'https://nfctools.linkist.ai');
 /**
  * The native apps are in preparation and have no listings (R3, docs/01-audit.md). The hero's store
@@ -43,9 +45,9 @@ export const NFC_TOOLS_URL = coerceUrl(process.env['NEXT_PUBLIC_NFC_TOOLS_URL'],
  */
 export const APP_STORE_URL = envString(process.env['NEXT_PUBLIC_APP_STORE_URL']);
 export const PLAY_STORE_URL = envString(process.env['NEXT_PUBLIC_PLAY_STORE_URL']);
-/** Sign in and Start free both land on the PRM app's unified screen (D7). */
+/** Sign in lands on the unified screen (D7); Start free is the quick profile (21 September 2026). */
 export const SIGN_IN_URL = GET_APP_URL;
-export const START_URL = GET_APP_URL;
+export const START_URL = FREE_PROFILE_URL;
 /**
  * Where static assets such as OG images really live. The canonical domain (SITE_URL) is a
  * placeholder until C1 is answered, so social previews must point at the deployment that

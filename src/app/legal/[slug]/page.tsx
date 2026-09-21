@@ -39,17 +39,18 @@ export default async function LegalDocPage({ params }: { params: Promise<{ slug:
             <p className="lede mt-5">{d.summary}</p>
             {d.status === 'published' ? (
               <p className="mt-4 text-sm text-muted">
-                Version {d.version || '1'}, effective {fmt(d.effective)}. Reproduced as published by RatioX Labs DWC-LLC
+                Version {d.version || '1'}, effective {fmt(d.effective)}.{' '}
                 {d.source ? (
                   <>
-                    {' '}
-                    at{' '}
+                    Reproduced as published by RatioX Labs DWC-LLC at{' '}
                     <a href={d.source} className="underline" rel="noopener noreferrer" target="_blank">
                       {d.source.replace(/^https?:\/\/(www\.)?/, '')}
                     </a>
+                    ; the published version prevails if the two differ.
                   </>
-                ) : null}
-                ; the published version prevails if the two differ.
+                ) : (
+                  <>Issued by RatioX Labs DWC-LLC and reproduced here in full.</>
+                )}
               </p>
             ) : (
               <div className="card mt-5 p-4 text-sm" role="note" style={{ borderColor: 'color-mix(in srgb, var(--brand-coral) 50%, transparent)' }}>

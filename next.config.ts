@@ -39,9 +39,9 @@ const nextConfig: NextConfig = {
     return [{ source: '/(.*)', headers: securityHeaders }];
   },
   async redirects() {
-    // The only integration with the product (brief, scope): Start free, Sign in and Get the App land
-    // on the PRM app's unified screen ("Sign in or create your account"); Get NFC Card lands on the
-    // card product's sign-in (D15). The brief's /learn path lives at /blogs, the old site's URL (D18).
+    // The only integration with the product (brief, scope): Sign in and Get the App land on the PRM
+    // app's unified screen; Start free is the quick profile and Get NFC Card the store's start page
+    // (owner, 21 September 2026, D51). The brief's /learn path lives at /blogs, the old site's URL (D18).
     // Empty or unparsable values fall back, as in src/lib/site.ts (a dashboard can hold an empty variable).
     const url = (value: string | undefined, fallback: string) => {
       const v = (value ?? '').trim();
@@ -54,11 +54,12 @@ const nextConfig: NextConfig = {
     };
     const app = url(process.env['NEXT_PUBLIC_APP_URL'], 'https://prm.linkist.ai');
     const appAuth = url(process.env['NEXT_PUBLIC_GET_APP_URL'], `${app}/UnifiedAuth`);
-    const card = url(process.env['NEXT_PUBLIC_GET_CARD_URL'], `${url(process.env['NEXT_PUBLIC_CARD_APP_URL'], 'https://m.linkist.ai')}/login`);
+    const card = url(process.env['NEXT_PUBLIC_GET_CARD_URL'], `${app}/store/start`);
+    const profile = url(process.env['NEXT_PUBLIC_FREE_PROFILE_URL'], `${app}/quick-profile`);
     return [
       { source: '/app', destination: appAuth, permanent: false },
       { source: '/sign-in', destination: appAuth, permanent: false },
-      { source: '/start', destination: appAuth, permanent: false },
+      { source: '/start', destination: profile, permanent: false },
       { source: '/get-card', destination: card, permanent: false },
       { source: '/learn', destination: '/blogs', permanent: true },
       { source: '/learn/:slug', destination: '/blogs/:slug', permanent: true },

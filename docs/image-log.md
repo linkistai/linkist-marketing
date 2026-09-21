@@ -52,6 +52,10 @@ The NFC cards on the site are the generated faces above with the name and compan
 
 42 cards at 1200 x 630 in `public/og/`, rendered by `pnpm og` from the brand fonts, the tokens and either a design preview in a phone frame or an article cover. No person appears on any card yet; the OG script draws one at the right edge as soon as a cut-out exists in `public/assets/people/` (option 3, C4).
 
+## Owner-supplied imagery, 21 September 2026
+
+Six public-profile mockups and six Signature card renders from the owner's "Profile and Card Samples" folder (John Jameson, Luca, Maya, Natalie, Rhea, Zayn), supplied as PNG. The profiles are resized to 780 x 1688 WebP in `public/screens/profile-*.webp` and shown only inside a phone frame with the Design preview badge; the cards are trimmed and resized to `public/assets/cards/sample-*-1x/-2x.webp`. Masters under `public/assets/masters/samples/` (git-ignored). The people are examples; the card logos are the sample companies', not customers. No credits were spent. The Nano Banana composite hero scene of 17 September (D50) is retired with D51.
+
 ## Stock and third-party imagery
 
 None. No stock photographs, icon packs or third-party illustrations are used; the icons are Lucide (ISC licence) rendered inline.

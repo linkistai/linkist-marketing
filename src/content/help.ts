@@ -1,7 +1,7 @@
 /**
  * Help centre corpus (brief 4, checkpoint 5). Every answer is one to three sentences and traces
  * to a source: the product's public screens and store (walked through on 10 September 2026,
- * docs/01-audit.md), the privacy policy and terms of service (version 1.1, 1 June 2026), the
+ * docs/01-audit.md), the privacy policy (version 1.3, 14 September 2026) and terms of service (version 1.2, 7 August 2026), the
  * prototype's plan comparison, or the owner's instructions (D15). Where the signed-in app has
  * not been seen yet (C2) the answer says what is confirmed and what is not. The Limits category
  * states the known gaps of section 3.9 plainly. British English, no em dashes, digits for numbers.
@@ -48,9 +48,9 @@ const TERMS = { label: 'Terms of service', href: 'https://www.linkist.ai/terms' 
 
 export const HELP: readonly HelpEntry[] = [
   // Getting started
-  e('Getting started', 'How do I create an account?', 'Press Get the App. The PRM app opens its unified screen at prm.linkist.ai/UnifiedAuth: enter your email or mobile number, accept the terms, confirm you are 18 or older and press Continue. Signing in and creating an account are the same screen.', [{ label: 'Get the App', href: '/start' }]),
+  e('Getting started', 'How do I create an account?', 'Press Create Free Profile or Get the App. The PRM app opens its quick-profile page at prm.linkist.ai/quick-profile, where the free profile and the account that goes with it are created. Sign in afterwards at prm.linkist.ai/UnifiedAuth with your email or mobile number.', [{ label: 'Get the App', href: '/start' }]),
   e('Getting started', 'Do I need a password?', 'No. The sign-in screens ask for your email address or mobile number and send a one-time code that expires. There is no password to remember or leak.'),
-  e('Getting started', 'Where do I sign in?', 'The PRM app signs in at prm.linkist.ai/UnifiedAuth, which is where Get the App and Sign in lead. The NFC card product has its own sign-in at m.linkist.ai/login, which is where Get NFC Card leads.', [{ label: 'Get NFC Card', href: '/get-card' }]),
+  e('Getting started', 'Where do I sign in?', 'The PRM app signs in at prm.linkist.ai/UnifiedAuth, which is where Sign in leads. Get NFC Card opens the store at prm.linkist.ai/store/start.', [{ label: 'Get NFC Card', href: '/get-card' }]),
   e('Getting started', 'Should I use my email or my mobile number?', 'Either works. The card product’s sign-in screen suggests email for people outside the UAE and India, because the code arrives more smoothly by email there.'),
   e('Getting started', 'Do I need a card to start?', 'No. The Essential plan is free and needs no NFC card. You can add a card any time.', [{ label: 'Pricing', href: '/pricing' }]),
   e('Getting started', 'Is Linkist free?', 'The Essential plan is free for as long as you like. Enhanced, Pro and Team are paid, and every NFC card includes PRM Essential.', [{ label: 'Compare PRM plans', href: '/pricing#compare' }]),

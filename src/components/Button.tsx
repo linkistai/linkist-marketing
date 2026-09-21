@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { G } from '@/lib/glossary';
-import { GET_APP_URL, GET_CARD_URL, START_URL } from '@/lib/site';
+import { FREE_PROFILE_URL, GET_CARD_URL, START_URL } from '@/lib/site';
 
 type Variant = 'primary' | 'secondary' | 'ghost';
 type Size = 'sm' | 'md' | 'lg';
@@ -57,16 +57,16 @@ export function StartFree({ size = 'lg', variant = 'primary', className = '', la
   );
 }
 
-/** "Get the App": the PRM app's unified sign-in and registration screen (header, footer, hero). */
+/** "Get the App" (header, footer): the quick profile, like Start free (owner, 21 September 2026). */
 export function GetApp({ size = 'md', variant = 'primary', className = '' }: { size?: Size; variant?: Variant; className?: string }) {
   return (
-    <Button href={GET_APP_URL} size={size} variant={variant} className={className}>
+    <Button href={FREE_PROFILE_URL} size={size} variant={variant} className={className}>
       {G.ctaApp}
     </Button>
   );
 }
 
-/** "Get NFC Card": the card product's sign-in (header, footer); the hero says "Get Linkist NFC" (D50). */
+/** "Get NFC Card": the store's start page (header, footer, pricing); the hero says "Get Linkist NFC" (D50). */
 export function GetCard({ size = 'md', variant = 'secondary', className = '', label }: { size?: Size; variant?: Variant; className?: string; label?: string }) {
   return (
     <Button href={GET_CARD_URL} size={size} variant={variant} className={className}>

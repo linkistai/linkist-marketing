@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Wordmark } from './Logo';
 import { G } from '@/lib/glossary';
-import { GET_APP_URL, GET_CARD_URL } from '@/lib/site';
+import { FREE_PROFILE_URL, GET_CARD_URL } from '@/lib/site';
 
 const LINKS = [
   { href: '/how-it-works', label: 'How it works' },
@@ -68,12 +68,12 @@ export function Nav() {
           <a href={GET_CARD_URL} className="btn btn--secondary btn--sm">
             {G.ctaNfc}
           </a>
-          <a href={GET_APP_URL} className="btn btn--primary btn--sm">
+          <a href={FREE_PROFILE_URL} className="btn btn--primary btn--sm">
             {G.ctaApp}
           </a>
         </div>
         <div className="flex items-center gap-2 xl:hidden">
-          <a href={GET_APP_URL} className="btn btn--primary btn--sm">
+          <a href={FREE_PROFILE_URL} className="btn btn--primary btn--sm">
             {G.ctaApp}
           </a>
           <button type="button" className="btn btn--ghost btn--sm !px-3" aria-expanded={open} aria-controls="mobile-nav" onClick={() => setOpen((v) => !v)}>
@@ -92,7 +92,7 @@ export function Nav() {
             ))}
           </nav>
           <div className="mt-4 flex flex-col gap-2">
-            <a href={GET_APP_URL} className="btn btn--primary">
+            <a href={FREE_PROFILE_URL} className="btn btn--primary">
               {G.ctaApp}
             </a>
             <a href={GET_CARD_URL} className="btn btn--secondary">

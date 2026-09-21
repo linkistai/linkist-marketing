@@ -96,9 +96,9 @@ export default function HowItWorksPage() {
             The screens behind the <span className="em-coral">three stages</span>.
           </>
         }
-        body="Share Contact with a QR and Tap to Link, a public profile with tags and a personal address, and a home screen that opens on ICP matches, a nudge, Opportunity Radar, Network Pulse and Relationship Health."
-        bullets={['Share by tap, QR, link, email or SMS', 'A profile that updates wherever it has been shared', 'A home screen that says what to do next']}
-        screens={['proto-share', 'proto-profile', 'proto-home']}
+        body="Your QR, WhatsApp, email and a copy link when you are ready to share; a connection profile that describes who you are looking for and shows who fits; and a home screen that opens on the nudges that need action."
+        bullets={['Share by tap, QR, link, WhatsApp or email', 'Describe your ideal contact once and see who matches', 'A home screen that says what to do next']}
+        screens={['v6-shareready', 'v6-icpdetail', 'v6-home']}
         tone="lifted"
       />
 
