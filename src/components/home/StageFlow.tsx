@@ -3,8 +3,6 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
-import { TextLink } from '@/components/Button';
-import { INTENTS } from '@/content/home';
 
 export interface FlowStage {
   readonly n: 1 | 2 | 3;
@@ -17,16 +15,14 @@ export interface FlowStage {
 const STEP_MS = 4000;
 
 /**
- * "How Linkist works" (D51, from linkist-homepage-v1.html): the intent chips, then three stage
- * cards, each a numbered badge with the stage name and one line at the top, then the stage's
+ * "How Linkist works" (D51, from linkist-homepage-v1.html): three stage cards, each a numbered badge with the stage name and one line at the top, then the stage's
  * screen in a phone (owner, 24 September 2026: title first, no preview chip). One
  * card is lifted at a time; the stages take turns every 4 s while the block is in view and motion
- * is on, and stop once a visitor picks a chip or a card. A chip rewrites the scenario line, lifts
- * the stage the moment belongs to and points at the matching use case. Each card links to its
+ * is on, and stop once a visitor points at a card. The "Where are you right now?" chips were
+ * removed on 24 September 2026 at the owner's request. Each card links to its
  * feature page; the long bullets, outcomes and capability tags live there and on /how-it-works.
  */
 export function StageFlow({ stages }: { stages: readonly FlowStage[] }) {
-  const [intent, setIntent] = useState<number | null>(null);
   const [active, setActive] = useState(1);
   const [manual, setManual] = useState(false);
   const [inView, setInView] = useState(false);
@@ -62,35 +58,9 @@ export function StageFlow({ stages }: { stages: readonly FlowStage[] }) {
     return () => window.clearInterval(id);
   }, [stepping, stages.length]);
 
-  const pick = (i: number) => {
-    setIntent(i);
-    setActive((INTENTS[i]?.stage ?? 1) - 1);
-    setManual(true);
-  };
-  const chosen = intent === null ? null : (INTENTS[intent] ?? null);
-
   return (
     <div ref={ref} className="flow" data-in={inView}>
-      <div className="mx-auto max-w-3xl text-center" data-reveal="rise">
-        <p className="text-xs font-semibold uppercase tracking-[0.04em] text-muted">Where are you right now?</p>
-        <div className="mt-3 flex flex-wrap justify-center gap-2" role="group" aria-label="Pick your situation">
-          {INTENTS.map((it, i) => (
-            <button key={it.key} type="button" className="intent" aria-pressed={i === intent} onClick={() => pick(i)}>
-              {it.chip}
-            </button>
-          ))}
-        </div>
-        <p className="mx-auto mt-4 min-h-[2.6em] max-w-xl text-sm text-body" aria-live="polite">
-          {chosen ? chosen.lede : 'Pick the moment you are in and see which stage of Linkist answers it, or watch the three stages take turns.'}
-        </p>
-        {chosen ? (
-          <p className="mt-1 text-sm">
-            <TextLink href={chosen.href}>Read this use case</TextLink>
-          </p>
-        ) : null}
-      </div>
-
-      <ol className="stages mt-14" aria-label="The three stages">
+      <ol className="stages" aria-label="The three stages">
         {stages.map((s, i) => (
           <li key={s.n} className="stages__item" style={{ '--i': i } as CSSProperties}>
             <Link href={s.href} className="stagecard no-underline" data-active={i === active} aria-current={i === active ? 'step' : undefined} onMouseEnter={() => { setActive(i); setManual(true); }} onFocus={() => { setActive(i); setManual(true); }}>

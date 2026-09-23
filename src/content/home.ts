@@ -30,54 +30,6 @@ export const HERO = {
   imageAlt: 'Linkist on a phone with a Signature NFC card beside it, cycling through two public profiles and the app dashboard. Design preview; the people are examples.',
 } as const;
 
-/**
- * Intent chips, now in "How Linkist works" (D17): each chip rewrites the scenario line, lights
- * the stage of the journey it belongs to and points at its use case. The CTA never changes.
- */
-export interface Intent {
-  readonly key: string;
-  readonly chip: string;
-  readonly lede: string;
-  readonly screen: ProtoScreen;
-  readonly href: string;
-  /** The stage of the three-stage journey the moment belongs to. */
-  readonly stage: 1 | 2 | 3;
-}
-export const INTENTS: readonly Intent[] = [
-  {
-    key: 'event',
-    chip: 'I just came back from an event',
-    lede: 'Capture the people you met with tags and voice notes, let AI Enrichment fill the gaps, and see who fits what you are looking for before the week is out.',
-    screen: 'v6-contacts',
-    href: '/use-cases/after-the-event',
-    stage: 1,
-  },
-  {
-    key: 'find',
-    chip: 'I need to find the right person',
-    lede: 'Describe who you need in plain words. Natural-Language Search and ICP Matching find the people who fit, or a trusted path to them.',
-    screen: 'v6-icpdetail',
-    href: '/use-cases/find-the-right-person',
-    stage: 2,
-  },
-  {
-    key: 'many',
-    chip: 'I have too many relationships to track',
-    lede: 'Start the day with Top Actions, get nudged before a follow-up slips, and plan the conversations that matter this week.',
-    screen: 'v6-home',
-    href: '/use-cases/too-many-relationships',
-    stage: 3,
-  },
-  {
-    key: 'team',
-    chip: 'I run a team',
-    lede: 'Share contacts across the team, brand every card, and keep the relationship history with the company when people move on.',
-    screen: 'v6-exchanges',
-    href: '/teams',
-    stage: 1,
-  },
-];
-
 /** The three-stage journey, the prototype's spine (brief 3.2). One screen per stage in the deck. */
 export interface Stage {
   readonly n: 1 | 2 | 3;

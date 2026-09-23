@@ -74,7 +74,7 @@
     pointer-events: none;
   }
 
-  /* Intent chips in the hero. */
+  /* Pill chips: the blog category filters and the assistant suggestions (the home intent chips are gone, D56). */
   .intent {
     display: inline-flex;
     align-items: center;
