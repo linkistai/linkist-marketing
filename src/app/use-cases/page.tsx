@@ -21,7 +21,7 @@ export default function UseCasesHub() {
       <Section tight className="pt-8 sm:pt-10">
         <Breadcrumbs items={[{ label: 'Use cases', href: '/use-cases' }]} />
         <div className="mt-8">
-          <SectionHead as="h1" size={1} eyebrow="Built for real working days" title={<>See what Linkist looks like <span className="em-coral">in real life</span>.</>} lede="The problem is rarely collecting contacts. It is knowing what to do with them afterwards. 5 situations, each with the steps Linkist takes." />
+          <SectionHead as="h1" size={1} eyebrow="Built for real connections" title={<>See Linkist <span className="em-coral">at work</span>.</>} lede="The problem is rarely collecting contacts. It is knowing what to do with them afterwards. 5 situations, each with the steps Linkist takes." />
         </div>
       </Section>
       <Section tone="charcoal" tight>

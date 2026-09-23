@@ -52,7 +52,7 @@ export default function HomePage() {
       </Section>
 
       <Section id="use-cases">
-        <SectionHead eyebrow="Built for real working days" title={<>See what Linkist looks like <span className="em-coral">in real life</span>.</>} lede="The problem is rarely collecting contacts. It is knowing what to do with them afterwards." center />
+        <SectionHead eyebrow="Built for real connections" title={<>See Linkist <span className="em-coral">at work</span>.</>} lede="The problem is rarely collecting contacts. It is knowing what to do with them afterwards." center />
         <div className="mt-12">
           <UseCaseGrid />
         </div>

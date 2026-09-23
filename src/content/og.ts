@@ -21,7 +21,7 @@ export const OG_PAGES: readonly OgPage[] = [
   { slug: 'features-act', title: 'Know what to do next.', eyebrow: 'Act', screen: 'v6-home' },
   { slug: 'features-profiles', title: 'One live profile. Every way to share it.', eyebrow: 'Profiles and cards', screen: 'profile-zayn' },
   { slug: 'features-teams', title: 'Relationships that stay with the company.', eyebrow: 'Teams', screen: 'v6-contacts' },
-  { slug: 'use-cases', title: 'Built for real working days.', eyebrow: 'Use cases', screen: 'v6-home' },
+  { slug: 'use-cases', title: 'See Linkist at work.', eyebrow: 'Built for real connections', screen: 'v6-home' },
   { slug: 'nfc-cards', title: 'Tap. Share. Make the first impression count.', eyebrow: 'Linkist NFC cards', screen: 'v6-share' },
   { slug: 'bring-your-own', title: 'Already have a NFC card or sticker? Bring it. We will make it live.', eyebrow: 'Bring your own NFC', screen: 'v6-shareready' },
   { slug: 'bundles', title: 'The NFC card and PRM Pro together.', eyebrow: 'Bundled offers', screen: 'v6-share' },
