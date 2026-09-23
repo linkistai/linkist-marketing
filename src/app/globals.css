@@ -566,9 +566,12 @@ html[data-motion='on'] .dot-live {
   position: relative;
   width: 100%;
   max-width: 320px;
-  aspect-ratio: 390 / 844;
+  /* The outer frame is sized so the screen inside the 3.125% bezel is exactly 390 x 844, the
+     proportion of every capture; a 390/844 outer box squeezed the screen and cropped its sides
+     (owner, 23 September 2026). Outer: 390 / 0.9375 = 416 wide, 844 + 2 x 13 = 870 tall. */
+  aspect-ratio: 416 / 870;
   container-type: inline-size;
-  border-radius: 13.75% / 6.354%;
+  border-radius: 13.75% / 6.575%;
   background: #0b0b0b;
   padding: 3.125%;
   box-shadow:
@@ -1122,13 +1125,63 @@ html[data-motion='off'] .ftabs__screen[data-active='false'] {
 .hero-foot {
   border-top: 1px solid var(--color-line);
 }
+/* The hero product (D51, D54): the phone and the Signature card beside it, cycling together, no container.
+   Each slide is a stacked layer that crossfades. */
+.hero-product__layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 700ms var(--ease-out);
+}
+.hero-product__layer[data-active='true'] {
+  opacity: 1;
+}
+.hero-product__card {
+  aspect-ratio: 1200 / 758;
+}
+.hero-product__dots {
+  position: absolute;
+  left: 31%;
+  bottom: -18px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0;
+  z-index: 4;
+}
+.hero-product__dot {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.hero-product__dot::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--color-line-strong);
+  transition:
+    width 300ms var(--ease-out),
+    background-color 300ms;
+}
+.hero-product__dot[aria-selected='true']::before {
+  width: 22px;
+  background: var(--brand-crimson);
+}
+html[data-motion='off'] .hero-product__layer {
+  transition-duration: 0ms;
+}
 /* The hero product (D51): a phone with a public-profile sample, the matching Signature card leaning against it, no container.
    Everything is a share of the group's width, so the pair scales from a 358px phone column to the desktop stage. */
 .hero-product {
   position: relative;
   width: min(100%, 520px);
   margin-inline: auto;
-  padding: 12px 0 8%;
+  padding: 12px 0 calc(8% + 24px);
 }
 .hero-product__phone {
   position: relative;

@@ -47,11 +47,11 @@
 }
 ---
 
-The UAE hosts a constant flow of conferences, exhibitions, investor gatherings, trade shows, founder meetups and industry events. These environments create valuable opportunities — but simply attending does not guarantee meaningful connections.
+The UAE hosts a constant flow of conferences, exhibitions, investor gatherings, trade shows, founder meetups and industry events. These environments create valuable opportunities, but simply attending does not guarantee meaningful connections.
 
 Many professionals leave events with a collection of business cards, LinkedIn requests and names they can barely remember. The most effective networkers approach events differently. They prepare with intention, hold better conversations, capture useful context and follow up while the interaction is still fresh.
 
-Successful networking is not about speaking to the largest number of people. It is about creating a smaller number of relevant connections that have a reason to continue. This guide explains how to network more effectively at business events in Dubai, Abu Dhabi and across the UAE — and how to make sure the people you meet remember you afterwards.
+Successful networking is not about speaking to the largest number of people. It is about creating a smaller number of relevant connections that have a reason to continue. This guide explains how to network more effectively at business events in Dubai, Abu Dhabi and across the UAE, and how to make sure the people you meet remember you afterwards.
 
 ## Before the event: decide what success looks like
 
@@ -165,11 +165,11 @@ Capture context
 Follow up
 ::
 
-1. **Prepare** — Understand the event, define your objectives and identify the people or industries most relevant to you.
-2. **Introduce** — Explain clearly who you are and what you do without delivering a long pitch.
-3. **Exchange** — Share contact details in a way that is quick, professional and easy for the other person to access later.
-4. **Capture context** — Record where you met, what you discussed and why the person may be relevant.
-5. **Follow up** — Reconnect with a personalised message while the interaction is still memorable.
+1. **Prepare**: Understand the event, define your objectives and identify the people or industries most relevant to you.
+2. **Introduce**: Explain clearly who you are and what you do without delivering a long pitch.
+3. **Exchange**: Share contact details in a way that is quick, professional and easy for the other person to access later.
+4. **Capture context**: Record where you met, what you discussed and why the person may be relevant.
+5. **Follow up**: Reconnect with a personalised message while the interaction is still memorable.
 
 ::note
 Most professionals complete the first three stages. The greatest value is often created in the final two.
@@ -230,7 +230,7 @@ The value of an event usually appears after the event. Send a short, personalise
 “Hi Sarah, it was great meeting you at the Dubai hospitality event yesterday. I enjoyed our conversation about improving guest engagement across hotel teams. Here is the report I mentioned. I would be happy to continue the discussion next week.”
 ::
 
-This is stronger than “Great meeting you. Let’s stay connected.” — which gives the recipient no reason to respond.
+This is stronger than “Great meeting you. Let’s stay connected.”, which gives the recipient no reason to respond.
 
 ## Common networking mistakes to avoid
 

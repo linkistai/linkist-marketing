@@ -1,8 +1,12 @@
-import { NfcCard } from '@/components/NfcCard';
+import Image from 'next/image';
 import { BUNDLES, BUNDLE_BENEFITS, IMMEDIATE_SAVINGS, THREE_YEAR } from '@/content/plans';
 import { formatMoney } from '@/lib/glossary';
 
-/** Bundled offers: four benefits, two offer cards (Founders Circle featured), the savings table and the three-year view, all derived from the plan and card prices. */
+/** Bundled offers: four benefits, two offer cards (Founders Circle featured), the savings table and the three-year view, all derived from the plan and card prices. Each offer card shows the owner's product render: a profile on a phone with its card (D54). */
+const SHOT: Record<string, { src: string; alt: string }> = {
+  signature: { src: '/assets/bundles/signature-2x.webp', alt: 'A phone showing Zayn Rahman’s Linkist profile, with his black Signature NFC card standing beside it. The person is an example.' },
+  founders: { src: '/assets/bundles/founders-2x.webp', alt: 'A phone showing Rhea Desai’s Linkist profile, with the front and back of a brushed-metal Founders Circle NFC card. The person is an example.' },
+};
 export function Bundles({ headingLevel = 3 }: { headingLevel?: 2 | 3 }) {
   const H = headingLevel === 2 ? 'h2' : 'h3';
   return (
@@ -18,8 +22,8 @@ export function Bundles({ headingLevel = 3 }: { headingLevel?: 2 | 3 }) {
       <div className="mt-6 grid gap-6 md:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.1">
         {BUNDLES.map((b) => (
           <div key={b.key} className={`card lift relative flex flex-col items-center p-8 text-center ${b.featured ? 'sweep sweep--featured' : 'sweep sweep--neutral'}`}>
-            <div className="w-40">
-              <NfcCard material={b.key === 'founders' ? 'founders' : 'metal'} tier={b.key === 'founders' ? 'founders' : 'signature'} name="Olivia Jones" meta={b.key === 'founders' ? 'Founding member' : 'NYU Abu Dhabi'} />
+            <div className="relative aspect-[1400/1120] w-full max-w-sm overflow-hidden rounded-xl">
+              <Image src={SHOT[b.key]!.src} alt={SHOT[b.key]!.alt} fill sizes="(min-width: 768px) 384px, 90vw" className="object-cover" />
             </div>
             <H className="eyebrow mt-6 justify-center !text-body">{b.name}</H>
             <p className="mt-3 text-body">{b.includes}</p>

@@ -1,9 +1,9 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { CurrencySwitcher } from '@/components/CurrencySwitcher';
-import { NfcCard } from '@/components/NfcCard';
 import { CARD_TIERS, MATERIALS } from '@/content/plans';
 import { formatMoney, type Currency } from '@/lib/glossary';
 import { STORE_URL } from '@/lib/site';
@@ -12,8 +12,14 @@ import { STORE_URL } from '@/lib/site';
  * NFC card pricing: Starter and Signature by material with the prototype's USD/AED switch. The
  * store prices in AED and shows an approximate dollar figure; the switch decides which leads,
  * both stay visible. Signature is featured with the gradient ring. Every NFC card includes PRM
- * Essential. Each tier carries its own Get your NFC card button to the store (D48).
+ * Essential. Each tier carries its own Get your NFC card button to the store (D48). Each tier's
+ * picture is the owner's card arc render (23 September 2026, D54): Starter plain, Signature with
+ * the name and logo placeholders.
  */
+const ARC: Record<string, { src: string; alt: string }> = {
+  starter: { src: '/assets/tiers/starter-arc-2x.webp', alt: 'Starter NFC cards fanned in an arc: black and silver patterned fronts with the NFC mark, and the Linkist mark on the card in the middle' },
+  signature: { src: '/assets/tiers/signature-arc-2x.webp', alt: 'Signature NFC cards fanned in an arc, each showing where your name and logo go, with the Linkist mark on the card in the middle' },
+};
 export function CardTiers({ cta = { href: '/nfc-cards', label: 'Explore NFC cards' }, headingLevel = 3 }: { cta?: { href: string; label: string } | null; headingLevel?: 2 | 3 }) {
   const [cur, setCur] = useState<Currency>('AED');
   const other: Currency = cur === 'AED' ? 'USD' : 'AED';
@@ -30,10 +36,8 @@ export function CardTiers({ cta = { href: '/nfc-cards', label: 'Explore NFC card
           return (
             <div key={t.key} className={`card lift relative flex flex-col gap-6 p-6 sm:p-8 ${featured ? 'sweep sweep--featured' : 'sweep sweep--neutral'}`}>
               {t.badge ? <span className="absolute -top-3 left-1/2 z-[2] -translate-x-1/2 whitespace-nowrap rounded-full bg-white px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.04em] text-ground">{t.badge}</span> : null}
-              <div className="grid grid-cols-3 gap-3 pt-3">
-                {MATERIALS.map((m) => (
-                  <NfcCard key={m.key} material={m.key} tier={t.key} name="Olivia Jones" meta="NYU Abu Dhabi" sizes="(min-width: 768px) 140px, 28vw" />
-                ))}
+              <div className="relative mt-3 aspect-[1400/797] overflow-hidden rounded-xl">
+                <Image src={ARC[t.key]!.src} alt={ARC[t.key]!.alt} fill sizes="(min-width: 768px) 420px, 90vw" className="object-cover" />
               </div>
               <div>
                 <H className="display-3">{t.name}</H>

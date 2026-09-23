@@ -53,7 +53,7 @@
 
 A professional introduction often begins with a simple exchange. A handshake. A short conversation. A card tap. A QR scan. A LinkedIn request. A WhatsApp message.
 
-The exchange itself may take less than a minute — but the opportunity behind it may take weeks, months or even years to develop. This makes what happens *after* the first exchange, how quickly you share your details and remember the context, the most important part of modern networking.
+The exchange itself may take less than a minute, but the opportunity behind it may take weeks, months or even years to develop. This makes what happens *after* the first exchange, how quickly you share your details and remember the context, the most important part of modern networking.
 
 Near Field Communication (NFC) makes the first step easier. A smart card can open a professional profile instantly on someone’s phone. But NFC alone does not remember the conversation, identify relevance, suggest next steps or help you follow up with the right message.
 
@@ -99,17 +99,17 @@ Context is added
 AI organises it
 ::
 
-1. **The profile opens** — the recipient sees who the person is, what they do, how to contact them and which links or actions are relevant.
-2. **The recipient acts** — they may save the contact, send their own details, submit an enquiry or continue the conversation through another channel.
-3. **The interaction creates a record** — the source of the connection, the time, the sharing method and any information voluntarily exchanged.
-4. **The professional adds context** — a short note, a voice memo, a tag, a meeting location, an event name or a reminder.
+1. **The profile opens**: the recipient sees who the person is, what they do, how to contact them and which links or actions are relevant.
+2. **The recipient acts**: they may save the contact, send their own details, submit an enquiry or continue the conversation through another channel.
+3. **The interaction creates a record**: the source of the connection, the time, the sharing method and any information voluntarily exchanged.
+4. **The professional adds context**: a short note, a voice memo, a tag, a meeting location, an event name or a reminder.
 5. **AI helps organise that information** into something useful.
 
-Here a smart card begins to become part of a smarter relationship workflow. Without this layer, an NFC card is only a faster doorway. With this layer, the tap can become the start of a remembered relationship — a much more productive way to manage a contact.
+Here a smart card begins to become part of a smarter relationship workflow. Without this layer, an NFC card is only a faster doorway. With this layer, the tap can become the start of a remembered relationship, a much more productive way to manage a contact.
 
 ## Why context is the missing data layer in networking
 
-Most contact systems are built around static details — name, company, job title, email, phone number, website, LinkedIn profile. Those fields are useful, but they do not explain the relationship.
+Most contact systems are built around static details: name, company, job title, email, phone number, website, LinkedIn profile. Those fields are useful, but they do not explain the relationship.
 
 For example, two contacts may both be founders. One may be a potential customer. One may be a possible investor. One may have asked for an introduction. One may have mentioned an expansion plan. One may have no immediate relevance but could become important later. The difference here is context.
 
@@ -128,11 +128,11 @@ AI can act as your personal assistant, turning fragmented signals into structure
 
 ## What AI can actually do in smarter networking
 
-The phrase “AI-powered networking” can sound vague if it is not explained properly. A practical system does not promise magic — it should perform clear jobs that reduce manual effort and improve follow-through.
+The phrase “AI-powered networking” can sound vague if it is not explained properly. A practical system does not promise magic; it should perform clear jobs that reduce manual effort and improve follow-through.
 
 ### 1. Clean and structure contact information
 
-Contact data often arrives in messy formats. One person writes their title as “Founder & CEO”. Another writes “Managing Partner”. Company names may appear differently across emails, websites and social profiles. AI can help standardise this information so contacts are easier to search, filter and understand — classifying job function, seniority, industry, company type, region and possible relevance. The best systems allow users to review and correct AI-generated fields; a wrong classification can be worse than no classification at all.
+Contact data often arrives in messy formats. One person writes their title as “Founder & CEO”. Another writes “Managing Partner”. Company names may appear differently across emails, websites and social profiles. AI can help standardise this information so contacts are easier to search, filter and understand, classifying job function, seniority, industry, company type, region and possible relevance. The best systems allow users to review and correct AI-generated fields; a wrong classification can be worse than no classification at all.
 
 ### 2. Capture meeting context
 
@@ -140,11 +140,11 @@ Contact data often arrives in messy formats. One person writes their title as �
 “Met at Abu Dhabi fintech event. Leads partnerships for a payment platform. Interested in merchant onboarding. Asked me to send a short deck next week.”
 ::
 
-That single note gives far more value than a phone number. AI can help convert short notes, voice memos or quick prompts into a structured contact summary — identifying meeting location, conversation topic, potential need, promised follow-up, suggested next action and relevant tags.
+That single note gives far more value than a phone number. AI can help convert short notes, voice memos or quick prompts into a structured contact summary, identifying meeting location, conversation topic, potential need, promised follow-up, suggested next action and relevant tags.
 
 ### 3. Identify relevance
 
-Not every new contact deserves the same level of attention. A professional may meet twenty people in one afternoon — some immediately relevant, some useful later, some simply pleasant conversations with no obvious next step. AI can help prioritise contacts based on defined goals, using concepts such as Ideal Customer Profile, role matching, industry matching and relationship scoring. The point is not to reduce people to scores, but to give contacts layers and depth so valuable conversations do not disappear into a flat contact list.
+Not every new contact deserves the same level of attention. A professional may meet twenty people in one afternoon: some immediately relevant, some useful later, some simply pleasant conversations with no obvious next step. AI can help prioritise contacts based on defined goals, using concepts such as Ideal Customer Profile, role matching, industry matching and relationship scoring. The point is not to reduce people to scores, but to give contacts layers and depth so valuable conversations do not disappear into a flat contact list.
 
 ### 4. Suggest the next best action
 
@@ -172,7 +172,7 @@ This is polite, but it gives the recipient very little reason to respond. A bett
 “It was good meeting you at the Dubai retail technology session. I enjoyed your point about improving post-purchase engagement. I am sharing the article we discussed, and I would be happy to continue the conversation next week.”
 ::
 
-When AI saves the context of your contact, it can help draft messages that carry the relevant details and get a suitable response — you review and edit rather than dig through memory. Sincerity cannot be outsourced entirely; a message that pretends to be personal while feeling automated does more harm than good. The strongest use of AI is not to send more messages. It is to send better ones.
+When AI saves the context of your contact, it can help draft messages that carry the relevant details and get a suitable response; you review and edit rather than dig through memory. Sincerity cannot be outsourced entirely; a message that pretends to be personal while feeling automated does more harm than good. The strongest use of AI is not to send more messages. It is to send better ones.
 
 ### 6. Remind at the right time
 
@@ -197,7 +197,7 @@ A useful contact record should not read like a technical specification. It shoul
 “Met at a Dubai business event. Discussed customer-experience technology. Promised to share a short case study next week.”
 ::
 
-That single note is more useful than a long list of disconnected fields because it explains why the person matters and what should happen next. The aim is not to turn every introduction into a complex database entry — it is to make important relationships easier to recognise, continue and act on with judgement.
+That single note is more useful than a long list of disconnected fields because it explains why the person matters and what should happen next. The aim is not to turn every introduction into a complex database entry; it is to make important relationships easier to recognise, continue and act on with judgement.
 
 ## Why NFC and AI work well together
 
@@ -214,7 +214,7 @@ A tap may start the interaction. Context gives the interaction a chance to conti
 
 ## AI should support judgement, not replace it
 
-This is an important boundary. AI should not make professional relationships feel automated, impersonal or invasive. A useful AI-enabled networking experience should support human judgement — helping professionals remember, organise and prepare, while leaving the final decision, tone and timing with the person using the tool.
+This is an important boundary. AI should not make professional relationships feel automated, impersonal or invasive. A useful AI-enabled networking experience should support human judgement, helping professionals remember, organise and prepare, while leaving the final decision, tone and timing with the person using the tool.
 
 Good principles include:
 
@@ -234,7 +234,7 @@ Imagine a founder attending a business event in Dubai. She meets several people 
 
 Later, instead of relying entirely on memory, the founder records a short note about the discussion. That note helps her remember the setting, the topic and the reason the contact may be worth continuing.
 
-A smart networking tool could then help her prepare a more relevant follow-up by reminding her what was discussed and helping her shape the message. The final message would still sound like her — reflecting her judgement, her tone and the genuine context of the conversation.
+A smart networking tool could then help her prepare a more relevant follow-up by reminding her what was discussed and helping her shape the message. The final message would still sound like her, reflecting her judgement, her tone and the genuine context of the conversation.
 
 ::note
 The value is simple: the professional does not lose the thread between meeting someone and following up properly.
@@ -251,23 +251,23 @@ Recruiters | May forget a strong candidate from an earlier conversation.
 Consultants | May miss a referral opportunity because context was never captured.
 ::
 
-This does not mean every contact should become company property — that would be neither practical nor trustworthy. However, for business relationships that clearly belong to a team workflow, preserving appropriate context can help organisations avoid starting from zero every time responsibility changes hands. For teams, the smart follow-up goal is continuity, not surveillance.
+This does not mean every contact should become company property; that would be neither practical nor trustworthy. However, for business relationships that clearly belong to a team workflow, preserving appropriate context can help organisations avoid starting from zero every time responsibility changes hands. For teams, the smart follow-up goal is continuity, not surveillance.
 
 ## What to look for in an AI-enabled networking tool
 
 When evaluating a smart networking platform, do not look only at the physical card design. The card matters, but the experience after the exchange matters more. Consider whether the platform helps with the following:
 
-1. **Simple sharing** — can professionals share their identity through NFC, QR codes and direct profile links?
-2. **Current information** — can profile details be updated without replacing the physical card?
-3. **Useful memory** — does the experience help users preserve the context of important interactions?
-4. **Better follow-up** — does it support timely, relevant follow-up rather than generic outreach?
-5. **User control** — are AI suggestions reviewable and editable?
-6. **Privacy** — are permissions, visibility and data use clear?
-7. **Professional trust** — does it support better human interaction rather than replacing it?
-8. **Team readiness** — can it support consistency as more people in an organisation adopt it?
+1. **Simple sharing**: can professionals share their identity through NFC, QR codes and direct profile links?
+2. **Current information**: can profile details be updated without replacing the physical card?
+3. **Useful memory**: does the experience help users preserve the context of important interactions?
+4. **Better follow-up**: does it support timely, relevant follow-up rather than generic outreach?
+5. **User control**: are AI suggestions reviewable and editable?
+6. **Privacy**: are permissions, visibility and data use clear?
+7. **Professional trust**: does it support better human interaction rather than replacing it?
+8. **Team readiness**: can it support consistency as more people in an organisation adopt it?
 
 ::note
-The most important question is not whether a tool can share contact details — many tools can do that. The more useful question is whether it helps professionals continue the relationships that are actually worth continuing.
+The most important question is not whether a tool can share contact details; many tools can do that. The more useful question is whether it helps professionals continue the relationships that are actually worth continuing.
 ::
 
 ## From smart card to smarter relationship-building

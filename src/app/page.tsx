@@ -34,7 +34,13 @@ export default function HomePage() {
   return (
     <>
       <HomeJsonLd />
-      <Hero profile={screen('profile-rhea')} card={asset('assets/cards/sample-rhea-2x.webp')} />
+      <Hero
+        slides={[
+          { key: 'rhea', screen: screen('profile-rhea'), alt: PROTO_ALT['profile-rhea'], card: asset('assets/cards/sample-rhea-2x.webp'), cardAlt: 'Rhea Desai’s Signature NFC card in brushed metal' },
+          { key: 'luca', screen: screen('profile-luca'), alt: PROTO_ALT['profile-luca'], card: asset('assets/cards/sample-luca-2x.webp'), cardAlt: 'Luca Mercer’s Signature NFC card' },
+          { key: 'dashboard', screen: screen('v6-home'), alt: PROTO_ALT['v6-home'], card: asset('assets/cards/sample-zayn-2x.webp'), cardAlt: 'Zayn Rahman’s black Signature NFC card' },
+        ]}
+      />
 
       <Section id="how" tone="charcoal" glow>
         <SectionHead eyebrow="How Linkist works" title={<>Turn the contacts you collect into <span className="em-coral">opportunities</span>.</>} lede="Linkist helps you capture the right people, understand who matters, and know what to do next." center />

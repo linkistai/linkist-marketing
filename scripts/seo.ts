@@ -4,13 +4,13 @@
  * that are present, unique across the site and sensibly sized; a canonical; the robots meta on
  * routes that must not be indexed; Open Graph and Twitter tags with an image that resolves at
  * 1200 x 630; exactly one H1; JSON-LD that parses and declares a type; no unresolved markers
- * (CONFIRM, lorem, PLACEHOLDER outside the legal drafts); no em dashes outside the imported
- * articles (C15); and every internal link and image resolving. Exit 1 on any problem.
+ * (CONFIRM, lorem, PLACEHOLDER outside the legal drafts); no em dashes on any route, articles
+ * included (owner, 23 September 2026); and every internal link and image resolving. Exit 1 on any problem.
  *
  *   pnpm seo              all routes
  *   pnpm seo /pricing     one route
  */
-import { readdirSync, readFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from '@playwright/test';
@@ -22,15 +22,6 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const base = (process.env['REVIEW_BASE_URL'] ?? 'http://localhost:3200').replace(/\/$/, '');
 const FACTS = readFileSync(join(root, 'scripts/lib/seo-facts.js'), 'utf8');
 const only = process.argv.slice(2).filter((a) => a.startsWith('/'));
-
-/** Routes that may carry an em dash: the articles imported verbatim from linkist.ai (C15), and the home page, whose hero lede is the owner's wording as supplied (D50). */
-const importedSlugs = readdirSync(join(root, 'content/blog'))
-  .filter((f) => f.endsWith('.md'))
-  .map((f) => readFileSync(join(root, 'content/blog', f), 'utf8'))
-  .filter((s) => /"coverKind":\s*"photo"/.test(s) || /"source":\s*"https:\/\/www\.linkist\.ai\/blogs/.test(s))
-  .map((s) => /"slug":\s*"([^"]+)"/.exec(s)?.[1] ?? '')
-  .filter(Boolean);
-const emDashAllowed = new Set([...importedSlugs.map((s) => `/blogs/${s}`), '/']);
 
 const drafts = getLegal()
   .filter((d) => d.status === 'draft')
@@ -116,7 +107,7 @@ async function main() {
     if (/\[CONFIRM/i.test(f.text)) p('[CONFIRM] marker on the page');
     if (/lorem ipsum/i.test(f.text)) p('lorem ipsum on the page');
     if (/\[PLACEHOLDER/i.test(f.text) && !drafts.includes(route)) p('[PLACEHOLDER] marker outside the legal drafts');
-    if (f.text.includes('—') && !emDashAllowed.has(route)) p('em dash on the page');
+    if (f.text.includes('—')) p('em dash on the page');
 
     // The Open Graph image must resolve and be 1200 x 630 wherever it is hosted.
     const ogImage = f.og['og:image'] ?? '';

@@ -51,7 +51,7 @@ Most professionals do not have a contact problem. They have a relationship probl
 
 Their phones contain hundreds or even thousands of names. LinkedIn adds more connections every month. Business cards sit in drawers, spreadsheets become outdated and important conversations disappear inside email threads or messaging apps. The information exists, but the context is missing.
 
-You may remember someone’s name but forget where you met. You may recognise a company but not the opportunity you discussed. You may intend to follow up but lose track of the right moment. Personal Relationship Management is a more intentional way to solve this problem — it helps professionals move beyond storing contact details and begin managing the context, actions and value behind their relationships.
+You may remember someone’s name but forget where you met. You may recognise a company but not the opportunity you discussed. You may intend to follow up but lose track of the right moment. Personal Relationship Management is a more intentional way to solve this problem: it helps professionals move beyond storing contact details and begin managing the context, actions and value behind their relationships.
 
 ## What is Personal Relationship Management?
 
@@ -86,7 +86,7 @@ Traditional contact management answers “How can I reach this person?” Person
 
 ## Why do professional relationships become difficult to manage?
 
-Professional networks grow across many different environments — conferences, client meetings, introductions, workplaces, alumni groups, industry communities, email, LinkedIn, WhatsApp, referrals and business travel. Each channel captures only part of the relationship. As the network grows, several problems appear.
+Professional networks grow across many different environments: conferences, client meetings, introductions, workplaces, alumni groups, industry communities, email, LinkedIn, WhatsApp, referrals and business travel. Each channel captures only part of the relationship. As the network grows, several problems appear.
 
 - • **Context disappears** You remember the person but forget the discussion.
 - • **Follow-ups are missed** You intend to reconnect but become busy with more immediate work.
@@ -166,7 +166,7 @@ Relationships weaken when every conversation begins from zero. Continuity means 
 
 ### 4. Contribution
 
-Strong relationships grow through contribution — making an introduction, sharing useful information, promoting someone’s work or connecting them with an opportunity. A good PRM habit asks: what can I contribute to this relationship?
+Strong relationships grow through contribution: making an introduction, sharing useful information, promoting someone’s work or connecting them with an opportunity. A good PRM habit asks: what can I contribute to this relationship?
 
 ### 5. Timing
 
@@ -216,13 +216,13 @@ The goal is not to record every person you encounter. The goal is to preserve th
 
 Technology can help, but good PRM begins with behaviour.
 
-1. **Decide which relationships matter** — prioritise people based on genuine relevance, shared interests and long-term value, not only immediate commercial potential.
-2. **Capture context immediately** — after an important conversation, record the essential details while they are still clear.
-3. **Record your commitments** — capture anything you promised to do. Reliability strengthens relationships.
-4. **Define the next meaningful action** — avoid “follow up sometime”; use a specific next step.
-5. **Follow up with context** — remind the recipient why the conversation matters.
-6. **Create value before making requests** — do not let every interaction begin with an ask.
-7. **Review your network regularly** — a short weekly review prevents valuable connections from disappearing.
+1. **Decide which relationships matter**: prioritise people based on genuine relevance, shared interests and long-term value, not only immediate commercial potential.
+2. **Capture context immediately**: after an important conversation, record the essential details while they are still clear.
+3. **Record your commitments**: capture anything you promised to do. Reliability strengthens relationships.
+4. **Define the next meaningful action**: avoid “follow up sometime”; use a specific next step.
+5. **Follow up with context**: remind the recipient why the conversation matters.
+6. **Create value before making requests**: do not let every interaction begin with an ask.
+7. **Review your network regularly**: a short weekly review prevents valuable connections from disappearing.
 
 ::note
 “Met at a Dubai fintech event. Leads partnerships for a regional platform. Discussed enterprise onboarding. Interested in reconnecting after the summer.” This note takes less than a minute and may save significant time later.
@@ -248,7 +248,7 @@ A useful system may include:
 - Actions promised by you and by the contact, with follow-up dates
 
 ::note
-The system should record what helps you maintain the relationship — not collect unnecessary personal information.
+The system should record what helps you maintain the relationship, not collect unnecessary personal information.
 ::
 
 ## Privacy and professional boundaries
@@ -265,7 +265,7 @@ Trust is more valuable than a perfectly organised database.
 
 ## From digital identity to relationship intelligence
 
-A digital identity helps someone understand who you are. Personal Relationship Management helps you remember who they are — and why the connection matters. The two ideas naturally complement one another.
+A digital identity helps someone understand who you are. Personal Relationship Management helps you remember who they are, and why the connection matters. The two ideas naturally complement one another.
 
 The first interaction may begin through a meeting, an introduction, an NFC tap, a shared profile, a QR code or a LinkedIn conversation. But the long-term value depends on what happens next.
 

@@ -135,7 +135,7 @@ LinkedIn is powerful, but it is not designed for every introduction. Here are th
 
 ### 1. It can be too broad
 
-LinkedIn contains a lot of information. That is useful when someone wants to understand your full background, but not always ideal when you have only a few seconds to make an impression. At a networking event, client meeting or sales conversation, the other person may not need your entire career history — just who you are, what you do, and how to contact you. A focused digital identity makes this easier.
+LinkedIn contains a lot of information. That is useful when someone wants to understand your full background, but not always ideal when you have only a few seconds to make an impression. At a networking event, client meeting or sales conversation, the other person may not need your entire career history: just who you are, what you do, and how to contact you. A focused digital identity makes this easier.
 
 ### 2. It keeps the relationship inside another platform
 
@@ -143,7 +143,7 @@ When you share your LinkedIn profile, the experience happens inside LinkedIn. Th
 
 ### 3. It is not always the smoothest offline sharing tool
 
-If you meet someone at an event, you may say “Find me on LinkedIn.” Then the other person has to search your name, identify the correct profile, connect and possibly remember the conversation later. That process creates friction. A digital identity can be opened directly through an NFC tap, QR scan or link — the fewer steps involved, the more likely the connection is to continue.
+If you meet someone at an event, you may say “Find me on LinkedIn.” Then the other person has to search your name, identify the correct profile, connect and possibly remember the conversation later. That process creates friction. A digital identity can be opened directly through an NFC tap, QR scan or link; the fewer steps involved, the more likely the connection is to continue.
 
 ### 4. It may not show the most relevant action
 
@@ -173,14 +173,14 @@ This does not mean LinkedIn is less important. In fact, LinkedIn remains one of 
 - • Public proof of expertise
 
 ::note
-A digital identity should not fight LinkedIn. It should make LinkedIn easier to access when it is relevant. Your Linkist profile can include your LinkedIn profile as one of the key links — so someone can first understand your focused identity and then explore your broader professional background if they want to go deeper.
+A digital identity should not fight LinkedIn. It should make LinkedIn easier to access when it is relevant. Your Linkist profile can include your LinkedIn profile as one of the key links, so someone can first understand your focused identity and then explore your broader professional background if they want to go deeper.
 ::
 
 ## When to use each one
 
-**Use LinkedIn** when the goal is professional depth — when someone wants to review your career history, read your posts, see mutual connections, check recommendations or evaluate your credibility over time. If you are hiring, fundraising, applying for a role or building industry visibility, LinkedIn is extremely useful.
+**Use LinkedIn** when the goal is professional depth, when someone wants to review your career history, read your posts, see mutual connections, check recommendations or evaluate your credibility over time. If you are hiring, fundraising, applying for a role or building industry visibility, LinkedIn is extremely useful.
 
-**Use a digital identity** when the goal is immediate clarity and action — when you are meeting someone at a business event, introducing yourself to a client, sharing your details through WhatsApp, adding a profile link to your email signature, presenting at a conference or sharing an NFC card.
+**Use a digital identity** when the goal is immediate clarity and action, when you are meeting someone at a business event, introducing yourself to a client, sharing your details through WhatsApp, adding a profile link to your email signature, presenting at a conference or sharing an NFC card.
 
 ::note
 A digital identity works best when the recipient does not need to search, scroll or guess what to do next.
@@ -188,7 +188,7 @@ A digital identity works best when the recipient does not need to search, scroll
 
 ## Why this matters in the UAE
 
-Professional networking in the UAE often happens quickly and across many different settings — business events in Dubai, industry conferences in Abu Dhabi, real-estate viewings, investor gatherings, startup meetups, free-zone communities and trade exhibitions.
+Professional networking in the UAE often happens quickly and across many different settings: business events in Dubai, industry conferences in Abu Dhabi, real-estate viewings, investor gatherings, startup meetups, free-zone communities and trade exhibitions.
 
 In these situations, first impressions matter. A professional may be meeting people from different countries, industries and cultures. The easier it is to present a clear identity, the easier it becomes for the other person to remember and reconnect.
 
@@ -202,10 +202,10 @@ Together, they give UAE professionals a stronger way to introduce themselves and
 ## Digital identity by role
 
 ::cards
-Founders | A digital identity can show the company, founder role, pitch link, contact details, website, LinkedIn profile and booking option in one focused place — shared instantly with investors, customers, partners and talent.
-Consultants | A digital identity can present area of expertise, contact details, services, case studies and a booking link. LinkedIn supports credibility; the digital identity supports conversion — moving a consultant from being remembered to being contacted.
-Sales professionals | A strong digital identity can include contact details, product links, a meeting booking link and WhatsApp or email action — reducing friction after the introduction with every prospect met.
-Recruiters | A digital identity can include work email, LinkedIn profile, hiring focus, active roles, company page and a calendar link — especially useful at career fairs, interviews and industry events.
+Founders | A digital identity can show the company, founder role, pitch link, contact details, website, LinkedIn profile and booking option in one focused place, shared instantly with investors, customers, partners and talent.
+Consultants | A digital identity can present area of expertise, contact details, services, case studies and a booking link. LinkedIn supports credibility; the digital identity supports conversion, moving a consultant from being remembered to being contacted.
+Sales professionals | A strong digital identity can include contact details, product links, a meeting booking link and WhatsApp or email action, reducing friction after the introduction with every prospect met.
+Recruiters | A digital identity can include work email, LinkedIn profile, hiring focus, active roles, company page and a calendar link, especially useful at career fairs, interviews and industry events.
 Teams | A professional identity platform can help create a consistent experience across every customer-facing employee: correct job title, updated company information, approved branding and a clear customer action.
 ::
 
@@ -238,23 +238,23 @@ Avoid crowding the page with too many links. A focused profile is usually strong
 
 The strongest approach is not LinkedIn or Linkist. It is LinkedIn plus Linkist.
 
-1. **Use LinkedIn for credibility** — keep your profile updated with experience, role, content, recommendations and professional activity.
-2. **Use Linkist for instant sharing** — when meeting people, sending quick introductions, sharing through WhatsApp or connecting through NFC.
-3. **Add LinkedIn to your Linkist profile** — make your LinkedIn easy to access from your digital identity.
-4. **Add Linkist to your email signature** — let every email become a path to your focused professional profile.
-5. **Use Linkist at events** — share through NFC, QR code or a direct link during in-person interactions.
-6. **Keep both profiles aligned** — your title, company, contact details and positioning should not contradict each other. Consistency builds trust.
+1. **Use LinkedIn for credibility**: keep your profile updated with experience, role, content, recommendations and professional activity.
+2. **Use Linkist for instant sharing**: when meeting people, sending quick introductions, sharing through WhatsApp or connecting through NFC.
+3. **Add LinkedIn to your Linkist profile**: make your LinkedIn easy to access from your digital identity.
+4. **Add Linkist to your email signature**: let every email become a path to your focused professional profile.
+5. **Use Linkist at events**: share through NFC, QR code or a direct link during in-person interactions.
+6. **Keep both profiles aligned**: your title, company, contact details and positioning should not contradict each other. Consistency builds trust.
 
 ## Common mistakes to avoid
 
 | Mistake | Why it hurts |
 | --- | --- |
 | **Treating LinkedIn as your only digital identity** | Not every professional moment should send people into a large social platform. |
-| **No clear action on your profile** | A profile should guide the visitor — save your contact, book a meeting, message you or view your work? |
+| **No clear action on your profile** | A profile should guide the visitor: save your contact, book a meeting, message you or view your work? |
 | **Adding too many links** | More links do not always create a better profile. Too many choices can weaken action. |
 | **Not updating your information** | An outdated profile damages trust. |
 | **Making the profile too generic** | Your digital identity should clearly reflect your current role, value and audience. |
-| **Forgetting the relationship after the share** | Sharing is only the first step — the real value comes from continuing the connection with context. |
+| **Forgetting the relationship after the share** | Sharing is only the first step; the real value comes from continuing the connection with context. |
 
 ## The future of professional identity is focused and portable
 

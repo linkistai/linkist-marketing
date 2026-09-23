@@ -90,3 +90,5 @@ stagecard
 docx
 Linktree
 NTAG
+crossfading
+crossfades

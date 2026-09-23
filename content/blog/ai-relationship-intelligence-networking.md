@@ -79,7 +79,7 @@ They meet people at events, offices, conferences, introductions, business lunche
 A name saved in a phone does not preserve a relationship. A LinkedIn connection does not automatically preserve context. A business card does not remind you why the conversation mattered.
 
 ::note
-This is where AI and relationship intelligence become interesting — not because they can replace the relationship, but because they can help protect the context around it.
+This is where AI and relationship intelligence become interesting, not because they can replace the relationship, but because they can help protect the context around it.
 ::
 
 ## What AI can help professionals remember
@@ -224,13 +224,13 @@ AI can help maintain that network, but only when it is built around context, tru
 
 A good AI-powered relationship system should follow a few principles.
 
-1. **User control** — the professional should control their identity, relationship information and communication decisions. AI should suggest, not silently act.
-2. **Context first** — the system should prioritise meaningful relationship context over generic automation. The question should be “What should I remember?”, not only “What message should I send?”
-3. **Privacy by design** — relationship data should be handled with clear privacy standards, access controls and user choice.
-4. **Human-centred follow-up** — AI should help users follow up with relevance, not generate mass outreach that pretends to be personal.
-5. **Value creation** — the system should encourage professionals to create value, make useful introductions, honour commitments and maintain trust.
-6. **Simplicity** — the experience should not feel like managing another complex database. The system should reduce effort, not create more work.
-7. **Transparency** — users should understand what AI is doing, why it is making a suggestion and how they can change or ignore it.
+1. **User control**: the professional should control their identity, relationship information and communication decisions. AI should suggest, not silently act.
+2. **Context first**: the system should prioritise meaningful relationship context over generic automation. The question should be “What should I remember?”, not only “What message should I send?”
+3. **Privacy by design**: relationship data should be handled with clear privacy standards, access controls and user choice.
+4. **Human-centred follow-up**: AI should help users follow up with relevance, not generate mass outreach that pretends to be personal.
+5. **Value creation**: the system should encourage professionals to create value, make useful introductions, honour commitments and maintain trust.
+6. **Simplicity**: the experience should not feel like managing another complex database. The system should reduce effort, not create more work.
+7. **Transparency**: users should understand what AI is doing, why it is making a suggestion and how they can change or ignore it.
 
 These principles are important because professional relationships are not just business records. They are built through credibility, timing, trust and human intention.
 

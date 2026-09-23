@@ -2,7 +2,7 @@
  * Home page copy as data, in the prototype's section order (brief, Appendix A). Every sentence
  * lifted from the prototype has had its em dashes rewritten (rule 5). Every claim traces to the
  * Product Truth Sheet and carries a confirm-list item until the Phase 1 audit.
- * British English, no em dashes (the hero lede is the owner's wording, D50), digits for numbers, headlines with one coral phrase.
+ * British English, no em dashes anywhere (owner, 23 September 2026), digits for numbers, headlines with one coral phrase.
  */
 import type { FaqItem } from '@/components/Faq';
 import type { MiniMockKind } from '@/components/mockups/MiniMock';
@@ -10,17 +10,16 @@ import type { ProtoScreen } from '@/content/design';
 
 /**
  * The home hero (D50): the owner's copy of 16 September 2026, word for word, in place of the two-slide
- * product switcher. The lede keeps its em dash because the owner asked for the wording as supplied;
- * scripts/seo.ts allows it on this one route. The store badges only link once the listings exist
+ * product switcher. The lede was rewritten without its em dash on 23 September 2026, at the owner's
+ * request, and names the Personal Relationship Manager in full. The store badges only link once the listings exist
  * (R3, `APP_STORE_URL` and `PLAY_STORE_URL`); until then they say so.
  */
 export const HERO = {
   eyebrow: 'Personal Relationship Manager',
   lines: ['Capture contacts.', 'Remember context.', 'Follow up at the right time.'] as const,
-  lede: 'Linkist is the AI-powered PRM that turns the people you meet into relationships you keep. Save contacts in seconds, get timely nudges, and never lose track of who matters — with or without an NFC card.',
+  lede: 'Linkist is the AI-powered Personal Relationship Manager (PRM) that turns the people you meet into relationships you keep. Save contacts in seconds, get timely nudges and never lose track of who matters. It works with or without an NFC card.',
   primary: 'Create Free Profile',
   secondary: 'Get Linkist NFC',
-  subline: 'Free to start · No NFC card required · Add one any time',
   byo: 'Already have an NFC card? Bring your own',
   stores: {
     apple: { small: 'Download on the', big: 'App Store' },
@@ -28,7 +27,7 @@ export const HERO = {
     pending: 'Coming soon',
   },
   /** The product on the right (D51): a public-profile sample on a phone and its Signature card. */
-  imageAlt: 'A Linkist public profile on a phone, Rhea Desai, with her black Signature NFC card leaning against it. Design preview; the person is an example.',
+  imageAlt: 'Linkist on a phone with a Signature NFC card beside it, cycling through two public profiles and the app dashboard. Design preview; the people are examples.',
 } as const;
 
 /**

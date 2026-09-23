@@ -53,7 +53,7 @@
 
 A professional network is often measured by numbers: contacts saved, followers gained, connections made or business cards collected. But numbers reveal very little about the actual value of a network.
 
-A person may have thousands of contacts and still struggle to find someone willing to make an introduction, share useful advice or support an important business goal. Another person may have a much smaller network built on trust, credibility and mutual value — and be able to activate it when it matters.
+A person may have thousands of contacts and still struggle to find someone willing to make an introduction, share useful advice or support an important business goal. Another person may have a much smaller network built on trust, credibility and mutual value, and be able to activate it when it matters.
 
 The difference is relationship capital.
 
@@ -91,7 +91,7 @@ Context is what turns a contact into a relationship. Knowing someone’s name, j
 
 It is tempting to assume that a bigger network automatically creates more value. In practice, the quality, relevance and diversity of relationships matter as much as volume.
 
-Strong relationships provide trust, depth and dependable support. More distant relationships — sometimes described as weak ties — can also be valuable because they connect us to different industries, communities and sources of information.
+Strong relationships provide trust, depth and dependable support. More distant relationships (sometimes described as weak ties) can also be valuable because they connect us to different industries, communities and sources of information.
 
 Sociologist Mark Granovetter’s influential work on the strength of weak ties showed how acquaintances can connect people to information and opportunities beyond their immediate circles. Strong ties and weak ties therefore serve different purposes: one provides depth, while the other can provide reach and discovery.
 
@@ -179,7 +179,7 @@ A large portion of relationship value is lost through delay. Someone may fully i
 
 ### 5. It can reveal trusted pathways through a network
 
-Relationship capital is not limited to direct contacts. Sometimes the person who can help is connected through someone already known and trusted. Linkist’s Ask-based networking direction is intended to help users identify relevant direct and second-degree relationships while encouraging introductions through trusted, consent-aware pathways — fundamentally different from indiscriminate cold outreach.
+Relationship capital is not limited to direct contacts. Sometimes the person who can help is connected through someone already known and trusted. Linkist’s Ask-based networking direction is intended to help users identify relevant direct and second-degree relationships while encouraging introductions through trusted, consent-aware pathways, fundamentally different from indiscriminate cold outreach.
 
 ### 6. It helps relationship knowledge become actionable
 
@@ -187,7 +187,7 @@ A professional may already have valuable contacts but be unable to see patterns 
 
 ### 7. It can support relationship continuity across teams
 
-For organisations, Linkist’s longer-term value extends beyond individual productivity. Appropriately shared relationship context can help teams identify existing connections, avoid duplicate or conflicting outreach and preserve continuity when responsibilities change — without treating every private relationship as company property. Effective relationship management must combine usefulness with consent, privacy and appropriate access controls.
+For organisations, Linkist’s longer-term value extends beyond individual productivity. Appropriately shared relationship context can help teams identify existing connections, avoid duplicate or conflicting outreach and preserve continuity when responsibilities change, without treating every private relationship as company property. Effective relationship management must combine usefulness with consent, privacy and appropriate access controls.
 
 ::note
 In simple terms: the Linkist Smart NFC Card starts the connection; the Linkist PRM helps preserve the context, identify relevance and support the next action.
@@ -197,11 +197,11 @@ In simple terms: the Linkist Smart NFC Card starts the connection; the Linkist P
 
 Relationship capital cannot be created merely by installing an app. It still depends on behaviour. A useful starting point is to adopt five simple habits.
 
-1. **Record context while it is fresh** — after a meaningful conversation, note why the person matters, what was discussed and whether a next step was agreed.
-2. **Follow through on small commitments** — sending the promised article or making the introduction may seem minor, but reliability is built from repeated small actions.
-3. **Offer value without forcing a transaction** — share useful knowledge, relevant opportunities or thoughtful introductions when there is a genuine reason to do so.
-4. **Reconnect with relevance** — do not contact someone merely to remain visible. Reach out because there is a meaningful update, shared interest or reason to continue the conversation.
-5. **Respect trust and consent** — never treat access to someone as a commodity. Ask before making introductions, protect private information and recognise that a professional relationship belongs to the people in it.
+1. **Record context while it is fresh**: after a meaningful conversation, note why the person matters, what was discussed and whether a next step was agreed.
+2. **Follow through on small commitments**: sending the promised article or making the introduction may seem minor, but reliability is built from repeated small actions.
+3. **Offer value without forcing a transaction**: share useful knowledge, relevant opportunities or thoughtful introductions when there is a genuine reason to do so.
+4. **Reconnect with relevance**: do not contact someone merely to remain visible. Reach out because there is a meaningful update, shared interest or reason to continue the conversation.
+5. **Respect trust and consent**: never treat access to someone as a commodity. Ask before making introductions, protect private information and recognise that a professional relationship belongs to the people in it.
 
 ## A network becomes valuable when it can support meaningful action
 

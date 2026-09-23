@@ -1,21 +1,19 @@
-import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { GetCard, StartFree } from '@/components/Button';
-import { ScreenFrame } from '@/components/ScreenFrame';
 import { StoreBadges } from '@/components/StoreBadges';
 import { HeroIntro } from '@/motion/HeroIntro';
-import { PROTO_ALT } from '@/content/design';
 import { HERO } from '@/content/home';
+import { HeroProduct, type HeroSlide } from './HeroProduct';
 
 /**
- * The home hero (D50, D51): one static block in the owner's words, the copy on the left and the
- * product on the right: a phone showing one of the owner's public-profile samples (Rhea since
- * 22 September, the owner asked for a woman), with the matching Signature card leaning against it. No white card and no boxed container any more
- * (owner, 21 September 2026). `profile` and `card` are the delivered files, or undefined until
- * they exist, when the stage shows the pending state rather than a mock.
+ * The home hero (D50, D51, D54): one static block in the owner's words, the copy on the left and the
+ * product on the right, with no white card and no boxed container. The product is a carousel
+ * (HeroProduct): the phone and the Signature card beside it cycle through Rhea's and Luca's public
+ * profiles and the app dashboard with Zayn's card. The bring-your-own link sits straight under the
+ * two buttons (owner, 23 September 2026); the store badges close the block.
  */
-export function Hero({ profile, card }: { profile?: string; card?: string }) {
+export function Hero({ slides }: { slides: readonly HeroSlide[] }) {
   return (
     <section className="hero-block">
       <div className="container">
@@ -38,29 +36,19 @@ export function Hero({ profile, card }: { profile?: string; card?: string }) {
               <StartFree label={HERO.primary} className="w-full sm:w-auto sm:min-w-[220px]" />
               <GetCard size="lg" variant="secondary" label={HERO.secondary} className="w-full sm:w-auto sm:min-w-[220px]" />
             </div>
-            <p className="mt-4 text-sm text-muted" data-hero-text>
-              {HERO.subline}
-            </p>
-            <div className="hero-foot mt-8 flex flex-col gap-5 pt-6 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-8" data-hero-text>
-              <StoreBadges />
+            <p className="mt-5" data-hero-text>
               <Link href="/bring-your-own" className="link">
                 {HERO.byo}
                 <ArrowRight size={16} aria-hidden="true" />
               </Link>
+            </p>
+            <div className="hero-foot mt-8 pt-6" data-hero-text>
+              <StoreBadges />
             </div>
           </div>
 
           <div className="hero-stage relative" data-hero-card="1">
-            <div className="hero-product" role="group" aria-label={HERO.imageAlt}>
-              <div className="hero-product__phone">
-                <ScreenFrame kind="phone" src={profile} alt={PROTO_ALT['profile-rhea']} preview full priority />
-              </div>
-              {card ? (
-                <div className="hero-product__card" data-hero-card="2">
-                  <Image src={card} alt="" width={1200} height={758} priority sizes="(min-width: 1024px) 300px, 60vw" />
-                </div>
-              ) : null}
-            </div>
+            <HeroProduct slides={slides} label={HERO.imageAlt} />
           </div>
         </HeroIntro>
       </div>

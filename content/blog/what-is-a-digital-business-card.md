@@ -17,11 +17,11 @@
   "faq": [
     {
       "q": "Do digital business cards require an app?",
-      "a": "No. With Linkist, the person you share with does not need to download anything. Your profile opens directly in their phone's browser — whether they tap your NFC card, scan your QR code, or click your profile link."
+      "a": "No. With Linkist, the person you share with does not need to download anything. Your profile opens directly in their phone's browser, whether they tap your NFC card, scan your QR code, or click your profile link."
     },
     {
       "q": "Does an NFC business card work on every phone?",
-      "a": "Most modern smartphones — including iPhones from the 7 onwards and virtually all current Android devices — support NFC. For older devices, your QR code and profile link work as a universal fallback."
+      "a": "Most modern smartphones (including iPhones from the 7 onwards and virtually all current Android devices) support NFC. For older devices, your QR code and profile link work as a universal fallback."
     },
     {
       "q": "Can I update my card after it has been printed or ordered?",
@@ -53,7 +53,7 @@
     },
     {
       "q": "What happens if I lose my NFC card?",
-      "a": "Your profile still exists online. You can share it via QR code or link while you order a replacement card. Your profile URL and all your data remain safe — you simply order a new NFC card and it is programmed to the same profile."
+      "a": "Your profile still exists online. You can share it via QR code or link while you order a replacement card. Your profile URL and all your data remain safe; you simply order a new NFC card and it is programmed to the same profile."
     }
   ]
 }
@@ -61,7 +61,7 @@
 
 ## What is a digital business card?
 
-A digital business card is an online profile that holds your professional contact information and can be shared instantly — via a tap, a scan, or a link. Unlike a paper card, it lives on the internet and can be updated at any time without printing a new batch.
+A digital business card is an online profile that holds your professional contact information and can be shared instantly, via a tap, a scan, or a link. Unlike a paper card, it lives on the internet and can be updated at any time without printing a new batch.
 
 At its core, a digital business card typically includes:
 
@@ -75,7 +75,7 @@ At its core, a digital business card typically includes:
 ::note
 **Your Linkist profile URL looks like this:**
 `m.linkist.ai/me/john-doe`
-Anyone who visits this URL on any device sees your full, up-to-date professional profile — no app required.
+Anyone who visits this URL on any device sees your full, up-to-date professional profile, no app required.
 ::
 
 ## How does a digital business card work?
@@ -94,7 +94,7 @@ The recipient never needs an account or app. Your profile is a standard web page
 
 ## What is an NFC business card?
 
-An NFC business card is a physical card — typically metal or PVC — embedded with a Near Field Communication (NFC) chip. When someone taps their smartphone against the card, the chip instantly opens your digital profile in their browser.
+An NFC business card is a physical card (typically metal or PVC) embedded with a Near Field Communication (NFC) chip. When someone taps their smartphone against the card, the chip instantly opens your digital profile in their browser.
 
 It is important to distinguish between the two terms:
 
@@ -105,7 +105,7 @@ It is important to distinguish between the two terms:
 
 Linkist combines both: your digital profile exists online and can be shared via link or QR code, while the optional Linkist NFC card gives you a premium physical card that taps to the same profile.
 
-![NFC business card tap demonstration](/blog/what-is-a-digital-business-card/figure-1.jpg "A Linkist NFC card being tapped to an iPhone — the profile opens instantly, no app needed.")
+![NFC business card tap demonstration](/blog/what-is-a-digital-business-card/figure-1.jpg "A Linkist NFC card being tapped to an iPhone; the profile opens instantly, no app needed.")
 
 ## NFC, QR code or profile link: which is better?
 
@@ -114,11 +114,11 @@ Linkist supports three sharing methods, each suited to different situations.
 ::cards
 NFC Tap | Best at in-person events. One tap on a modern smartphone opens your profile instantly. No camera needed, fastest possible exchange.
 QR Code | Best for slide decks, email signatures, printed materials, and older iPhones that may not have NFC unlocked by default.
-Profile Link | Best for remote introductions — email, WhatsApp, video calls, LinkedIn messages, or anywhere you need to share digitally.
+Profile Link | Best for remote introductions: email, WhatsApp, video calls, LinkedIn messages, or anywhere you need to share digitally.
 ::
 
 ::note
-**Pro tip:** You do not need to choose just one. Linkist gives you all three simultaneously — your NFC card, a QR code, and a permanent profile link — so you are covered in every situation.
+**Pro tip:** You do not need to choose just one. Linkist gives you all three simultaneously: your NFC card, a QR code, and a permanent profile link, so you are covered in every situation.
 ::
 
 ## Why are professionals moving beyond paper business cards?
@@ -128,8 +128,8 @@ Paper cards have served professionals for centuries. But in a world where people
 - ♻️ **Always up to date** Update your number, title, or links any time. Everyone who taps or scans your card sees the current version automatically.
 - 📊 **Analytics and insights** See who viewed your profile, when, and which links they clicked. Paper cards give zero data.
 - 🌍 **Never run out** You can share with an unlimited number of people without running out of stock or worrying about printing costs.
-- 🔗 **Clickable links** Every element on your Linkist profile is clickable — people can call, email, or connect in one tap.
-- 💾 **Saved instantly** Recipients can save your contact directly to their phone's address book — no typing, no lost card.
+- 🔗 **Clickable links** Every element on your Linkist profile is clickable; people can call, email, or connect in one tap.
+- 💾 **Saved instantly** Recipients can save your contact directly to their phone's address book, no typing, no lost card.
 - 🌱 **Eco-friendly** No paper waste, no printing, no chemicals. A single Linkist NFC card replaces thousands of paper cards.
 
 The professional journey has evolved too. The best networkers now think of every interaction as a five-step flow:
@@ -142,21 +142,21 @@ Relationship
 Opportunity
 ::
 
-Digital cards with analytics and CRM features — like Linkist — support the entire flow, not just the first handshake.
+Digital cards with analytics and CRM features, like Linkist, support the entire flow, not just the first handshake.
 
 ## Why digital business cards are particularly relevant in the UAE
 
-The UAE has one of the most internationally mobile professional populations in the world. Dubai and Abu Dhabi are home to founders, executives, and professionals from over 180 nationalities — many of whom are meeting contacts from different countries every week.
+The UAE has one of the most internationally mobile professional populations in the world. Dubai and Abu Dhabi are home to founders, executives, and professionals from over 180 nationalities, many of whom are meeting contacts from different countries every week.
 
-![Dubai business district skyline](/blog/what-is-a-digital-business-card/figure-2.jpg "Dubai is a global hub for business networking — and digital-first tools are rapidly becoming the standard.")
+![Dubai business district skyline](/blog/what-is-a-digital-business-card/figure-2.jpg "Dubai is a global hub for business networking, and digital-first tools are rapidly becoming the standard.")
 
 Several factors make the UAE especially suited for digital business cards:
 
-- **High smartphone penetration** — UAE has one of the highest smartphone usage rates globally, meaning nearly every contact can receive a digital card.
-- **WhatsApp-first culture** — Professionals routinely share their profile link directly in WhatsApp, the dominant communication channel in the region.
-- **English and Arabic interfaces** — Linkist profiles work in both languages, reflecting the multilingual nature of UAE business.
-- **Event-heavy business culture** — GITEX, Arab Health, Cityscape, and dozens of other major events make in-person networking central to business development.
-- **Sustainability commitments** — The UAE's national sustainability goals align with the eco-friendly nature of digital cards.
+- **High smartphone penetration**: UAE has one of the highest smartphone usage rates globally, meaning nearly every contact can receive a digital card.
+- **WhatsApp-first culture**: Professionals routinely share their profile link directly in WhatsApp, the dominant communication channel in the region.
+- **English and Arabic interfaces**: Linkist profiles work in both languages, reflecting the multilingual nature of UAE business.
+- **Event-heavy business culture**: GITEX, Arab Health, Cityscape, and dozens of other major events make in-person networking central to business development.
+- **Sustainability commitments**: The UAE's national sustainability goals align with the eco-friendly nature of digital cards.
 
 ::note
 Linkist was built with UAE professionals in mind. From the first tap at a Dubai networking event to a follow-up on WhatsApp, the entire experience is optimised for the way business actually works in the region.
@@ -200,7 +200,7 @@ Linkist was built with UAE professionals in mind. From the first tap at a Dubai 
 ### What to avoid
 
 - Too many social links (curate to the platforms you actually use professionally)
-- Outdated information (the main advantage of digital is it stays current — use it)
+- Outdated information (the main advantage of digital is it stays current; use it)
 - Generic profile photos (a professional headshot builds more trust)
 - Missing a call to action (give people a next step)
 
@@ -212,7 +212,7 @@ Your profile photo is often the first visual impression. A clear, well-lit heads
 
 ### A clear headline
 
-Your title should tell people what you do and who you help. "Founder at Acme" is less effective than "Founder & CEO — B2B SaaS for logistics."
+Your title should tell people what you do and who you help. "Founder at Acme" is less effective than "Founder & CEO: B2B SaaS for logistics."
 
 ### The right links
 
@@ -255,14 +255,14 @@ This is particularly valuable for companies with sales teams attending multiple 
 
 Not all digital business card platforms are equal. When evaluating a platform, check for the following:
 
-1. **No-app experience for recipients** — if the person you share with needs to download an app, many will not bother. Your profile should open in a browser.
-2. **NFC card option** — the physical component makes a real difference in face-to-face settings.
-3. **Custom branding** — your own colours, logo, and profile URL matter for professional credibility.
-4. **Contact save functionality** — recipients should be able to add you to their contacts in one tap.
-5. **Analytics** — you should know when someone viewed your card and what they clicked.
-6. **Team management** — if you have more than one person, centralised control is essential.
-7. **Reliable uptime** — your card URL needs to load every time, at every event.
-8. **Fair pricing** — look for transparent pricing with no hidden costs for updates or contacts.
+1. **No-app experience for recipients**: if the person you share with needs to download an app, many will not bother. Your profile should open in a browser.
+2. **NFC card option**: the physical component makes a real difference in face-to-face settings.
+3. **Custom branding**: your own colours, logo, and profile URL matter for professional credibility.
+4. **Contact save functionality**: recipients should be able to add you to their contacts in one tap.
+5. **Analytics**: you should know when someone viewed your card and what they clicked.
+6. **Team management**: if you have more than one person, centralised control is essential.
+7. **Reliable uptime**: your card URL needs to load every time, at every event.
+8. **Fair pricing**: look for transparent pricing with no hidden costs for updates or contacts.
 
 Linkist meets all eight criteria and is built specifically for professionals in the UAE and across the GCC region.
 
@@ -272,7 +272,7 @@ Creating your Linkist profile takes less than five minutes:
 
 1. Go to [linkist.ai/choose-plan](/pricing) and choose your plan.
 2. Enter your name and claim your profile URL.
-3. Add your contact details — phone, email, and website.
+3. Add your contact details: phone, email, and website.
 4. Upload a profile photo and company logo.
 5. Add your social links (LinkedIn, Instagram, WhatsApp, etc.).
 6. Customise colours and layout to match your brand.
@@ -285,9 +285,9 @@ Creating your Linkist profile takes less than five minutes:
 
 ## Beyond the card: building relationships with Linkist
 
-A business card — paper or digital — is only the start. The real value is in what comes after the initial exchange: the follow-up, the context, and the ongoing relationship.
+A business card (paper or digital) is only the start. The real value is in what comes after the initial exchange: the follow-up, the context, and the ongoing relationship.
 
-Linkist is building the tools that sit between the first tap and the long-term professional relationship. With Linkist PRM (Personal Relationship Manager), you can log notes about every contact, set follow-up reminders, and track where each relationship stands — all tied to the moment they scanned your card.
+Linkist is building the tools that sit between the first tap and the long-term professional relationship. With Linkist PRM (Personal Relationship Manager), you can log notes about every contact, set follow-up reminders, and track where each relationship stands, all tied to the moment they scanned your card.
 
 ::flow
 They tap your card
@@ -297,15 +297,15 @@ You log context
 Relationship grows
 ::
 
-The goal is not just a smarter business card — it is a smarter way to build and maintain the professional relationships that drive your career and business forward.
+The goal is not just a smarter business card; it is a smarter way to build and maintain the professional relationships that drive your career and business forward.
 
 ## Frequently asked questions
 
 ### Do digital business cards require an app?
-No. With Linkist, the person you share with does not need to download anything. Your profile opens directly in their phone's browser — whether they tap your NFC card, scan your QR code, or click your profile link.
+No. With Linkist, the person you share with does not need to download anything. Your profile opens directly in their phone's browser, whether they tap your NFC card, scan your QR code, or click your profile link.
 
 ### Does an NFC business card work on every phone?
-Most modern smartphones — including iPhones from the 7 onwards and virtually all current Android devices — support NFC. For older devices, your QR code and profile link work as a universal fallback.
+Most modern smartphones (including iPhones from the 7 onwards and virtually all current Android devices) support NFC. For older devices, your QR code and profile link work as a universal fallback.
 
 ### Can I update my card after it has been printed or ordered?
 Yes. Your NFC card is programmed to open your Linkist profile URL. You can update your phone number, title, social links, or any other information at any time without replacing the physical card.
@@ -329,4 +329,4 @@ Linkist offers a free plan to get started. Paid plans unlock premium features in
 Yes. Your Linkist profile URL can be added to your email signature, LinkedIn bio, WhatsApp status, presentation slides, and proposals. Many users find that they share their digital card most often in everyday digital communication, not just at events.
 
 ### What happens if I lose my NFC card?
-Your profile still exists online. You can share it via QR code or link while you order a replacement card. Your profile URL and all your data remain safe — you simply order a new NFC card and it is programmed to the same profile.
+Your profile still exists online. You can share it via QR code or link while you order a replacement card. Your profile URL and all your data remain safe; you simply order a new NFC card and it is programmed to the same profile.
