@@ -5,6 +5,7 @@ import { StartFree, TextLink } from '@/components/Button';
 import { ClosingBand } from '@/components/ClosingBand';
 import { ScreenFrame } from '@/components/ScreenFrame';
 import { Outcome, Section, SectionHead, Tags } from '@/components/Section';
+import { PreviewNote } from '@/components/PreviewNote';
 import { HeroIntro } from '@/motion/HeroIntro';
 import { PROTO_ALT } from '@/content/design';
 import { USE_CASES, useCaseBySlug } from '@/content/usecases';
@@ -55,6 +56,7 @@ export default async function UseCasePage({ params }: { params: Promise<{ slug: 
               </div>
             </div>
           </HeroIntro>
+          <PreviewNote />
         </div>
       </section>
 

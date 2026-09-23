@@ -18,13 +18,12 @@ const STEP_MS = 4000;
 
 /**
  * "How Linkist works" (D51, from linkist-homepage-v1.html): the intent chips, then three stage
- * cards, each a numbered badge, the stage's screen in a phone, the stage name and one line. One
+ * cards, each a numbered badge with the stage name and one line at the top, then the stage's
+ * screen in a phone (owner, 24 September 2026: title first, no preview chip). One
  * card is lifted at a time; the stages take turns every 4 s while the block is in view and motion
  * is on, and stop once a visitor picks a chip or a card. A chip rewrites the scenario line, lifts
  * the stage the moment belongs to and points at the matching use case. Each card links to its
  * feature page; the long bullets, outcomes and capability tags live there and on /how-it-works.
- * The Design preview badge sits at the top of the card, in the space beside the number, not over
- * the phone's tab bar (owner, 21 September).
  */
 export function StageFlow({ stages }: { stages: readonly FlowStage[] }) {
   const [intent, setIntent] = useState<number | null>(null);
@@ -95,16 +94,19 @@ export function StageFlow({ stages }: { stages: readonly FlowStage[] }) {
         {stages.map((s, i) => (
           <li key={s.n} className="stages__item" style={{ '--i': i } as CSSProperties}>
             <Link href={s.href} className="stagecard no-underline" data-active={i === active} aria-current={i === active ? 'step' : undefined} onMouseEnter={() => { setActive(i); setManual(true); }} onFocus={() => { setActive(i); setManual(true); }}>
-              <span className="stagecard__badge" aria-hidden="true">
-                {s.n}
-              </span>
-              <span className="preview-badge stagecard__preview">Design preview</span>
+              <div className="stagecard__head">
+                <span className="stagecard__badge" aria-hidden="true">
+                  {s.n}
+                </span>
+                <div>
+                  <h3 className="stagecard__title">
+                    {s.label}
+                    <ArrowRight size={16} aria-hidden="true" className="stagecard__arrow" />
+                  </h3>
+                  <p className="stagecard__desc">{s.title}</p>
+                </div>
+              </div>
               <div className="stagecard__phone">{s.frame}</div>
-              <h3 className="stagecard__title">
-                {s.label}
-                <ArrowRight size={16} aria-hidden="true" className="stagecard__arrow" />
-              </h3>
-              <p className="stagecard__desc">{s.title}</p>
             </Link>
           </li>
         ))}

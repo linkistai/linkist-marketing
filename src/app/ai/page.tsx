@@ -6,8 +6,9 @@ import { ClosingBand } from '@/components/ClosingBand';
 import { Faq } from '@/components/Faq';
 import { ScreenFrame } from '@/components/ScreenFrame';
 import { Section, SectionHead } from '@/components/Section';
+import { PreviewNote } from '@/components/PreviewNote';
 import { HeroIntro } from '@/motion/HeroIntro';
-import { PROTO_ALT, DESIGN_NOTE } from '@/content/design';
+import { PROTO_ALT } from '@/content/design';
 import { AI_CAPABILITIES, AI_FAQ, AI_INPUTS, AI_NOT_PUBLISHED, AI_OUTPUTS, AI_RULES, POLICY_DATE, POLICY_VERSION, PRIVACY_EMAIL_PUBLISHED, PRIVACY_URL, TERMS_URL } from '@/content/trust';
 import { person, screen } from '@/lib/screens';
 import { pageMeta } from '@/lib/site';
@@ -53,6 +54,7 @@ export default function AiPage() {
               </div>
             </div>
           </HeroIntro>
+          <PreviewNote />
         </div>
       </section>
 
@@ -74,7 +76,7 @@ export default function AiPage() {
             );
           })}
         </div>
-        <p className="disclaimer mx-auto mt-8 max-w-2xl text-center">{DESIGN_NOTE}</p>
+        <PreviewNote />
       </Section>
 
       <Section id="data">

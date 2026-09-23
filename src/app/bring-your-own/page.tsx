@@ -6,6 +6,7 @@ import { ClosingBand } from '@/components/ClosingBand';
 import { Faq } from '@/components/Faq';
 import { ScreenFrame } from '@/components/ScreenFrame';
 import { Section } from '@/components/Section';
+import { PreviewNote } from '@/components/PreviewNote';
 import { PROTO_ALT } from '@/content/design';
 import { person, screen } from '@/lib/screens';
 import { NFC_TOOLS_URL, pageMeta } from '@/lib/site';
@@ -79,6 +80,7 @@ export default function BringYourOwnPage() {
             </div>
           </div>
         </div>
+        <PreviewNote />
       </Section>
 
       <Section tone="charcoal" id="paths">

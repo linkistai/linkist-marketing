@@ -67,7 +67,6 @@ export function HeroProduct({ slides, label }: { slides: readonly HeroSlide[]; l
                 </div>
               ) : null,
             )}
-            <span className="preview-badge">Design preview</span>
           </div>
         </div>
       </div>

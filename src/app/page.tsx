@@ -15,7 +15,8 @@ import { HomeJsonLd } from '@/components/home/JsonLd';
 import { PlanCards } from '@/components/home/PlanCards';
 import { StageFlow } from '@/components/home/StageFlow';
 import { UseCaseGrid } from '@/components/home/UseCaseGrid';
-import { PROTO_ALT, DESIGN_NOTE } from '@/content/design';
+import { PreviewNote } from '@/components/PreviewNote';
+import { PROTO_ALT } from '@/content/design';
 import { FAQ, MORE_THAN, MORE_THAN_LINE, STAGES } from '@/content/home';
 import { asset, person, scene, screen } from '@/lib/screens';
 import { DEFAULT_DESCRIPTION, TAGLINE, pageMeta } from '@/lib/site';
@@ -28,7 +29,7 @@ export default function HomePage() {
     label: s.label,
     title: s.title,
     href: s.href,
-    frame: <ScreenFrame kind="phone" src={screen(s.screen)} alt={PROTO_ALT[s.screen]} preview full badgeOutside />,
+    frame: <ScreenFrame kind="phone" src={screen(s.screen)} alt={PROTO_ALT[s.screen]} preview full />,
   }));
 
   return (
@@ -47,7 +48,7 @@ export default function HomePage() {
         <div className="mt-12">
           <StageFlow stages={stages} />
         </div>
-        <p className="disclaimer mx-auto mt-10 max-w-2xl text-center">{DESIGN_NOTE}</p>
+        <PreviewNote />
       </Section>
 
       <Section id="use-cases">
@@ -58,6 +59,7 @@ export default function HomePage() {
         <div className="mt-8 flex justify-center">
           <TextLink href="/use-cases">All 5 use cases</TextLink>
         </div>
+        <PreviewNote />
       </Section>
 
       <Section id="different" tone="lifted">

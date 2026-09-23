@@ -20,7 +20,6 @@ export function UseCaseGrid() {
             <Link href={`/use-cases/${u.slug}`} className="uc no-underline">
               <div className="uc__shot">
                 {src ? <Image src={src} alt={PROTO_ALT[u.screen]} fill sizes="(min-width: 1024px) 340px, (min-width: 640px) 45vw, 90vw" /> : <span className="screen-pending" />}
-                <span className="preview-badge">Design preview</span>
               </div>
               <h3 className="uc__title">
                 {u.short}

@@ -1,7 +1,8 @@
 /**
  * Prototype-derived design previews (brief, rule 2; Grownz D23). None of these is a capture of the
- * live app, so each is shown only inside a phone frame with a "Design preview" badge until real
- * captures from prm.linkist.ai replace them (C2).
+ * live app, so each is shown only inside a phone frame, and every section that shows one ends with
+ * the DESIGN_NOTE line (PreviewNote; the per-image chip was dropped on 24 September 2026, D55) until
+ * real captures from prm.linkist.ai replace them (C2).
  *
  * - `v6-*`: screens of the Linkist PRM v6 prototype (linkist_prm_v6.html), captured in the dark
  *   theme by scripts/capture-v6.ts into public/screens/v6-*.png (owner, 21 September 2026, D51).

@@ -2,6 +2,7 @@ import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { GetCard, StartFree } from '@/components/Button';
 import { StoreBadges } from '@/components/StoreBadges';
+import { PreviewNote } from '@/components/PreviewNote';
 import { HeroIntro } from '@/motion/HeroIntro';
 import { HERO } from '@/content/home';
 import { HeroProduct, type HeroSlide } from './HeroProduct';
@@ -51,6 +52,7 @@ export function Hero({ slides }: { slides: readonly HeroSlide[] }) {
             <HeroProduct slides={slides} label={HERO.imageAlt} />
           </div>
         </HeroIntro>
+        <PreviewNote />
       </div>
     </section>
   );

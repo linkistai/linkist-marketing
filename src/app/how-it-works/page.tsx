@@ -8,6 +8,7 @@ import { MiniMock } from '@/components/mockups/MiniMock';
 import { Obj } from '@/components/Person';
 import { ScreenFrame } from '@/components/ScreenFrame';
 import { Outcome, Section, SectionHead, Tags } from '@/components/Section';
+import { PreviewNote } from '@/components/PreviewNote';
 import { HeroIntro } from '@/motion/HeroIntro';
 import { PROTO_ALT } from '@/content/design';
 import { FEATURES } from '@/content/features';
@@ -84,6 +85,7 @@ export default function HowItWorksPage() {
                 </div>
               </div>
             </div>
+            <PreviewNote />
           </Section>
         );
       })}

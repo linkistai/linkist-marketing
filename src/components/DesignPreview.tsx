@@ -2,7 +2,8 @@ import { Check } from 'lucide-react';
 import type { CSSProperties, ReactNode } from 'react';
 import { ScreenFrame } from '@/components/ScreenFrame';
 import { Section } from '@/components/Section';
-import { DESIGN_NOTE, PROTO_ALT, PROTO_CAPTIONS, type ProtoScreen } from '@/content/design';
+import { PreviewNote } from '@/components/PreviewNote';
+import { PROTO_ALT, PROTO_CAPTIONS, type ProtoScreen } from '@/content/design';
 import { screen } from '@/lib/screens';
 
 /**
@@ -25,12 +26,12 @@ export function DesignPreview({ id, eyebrow, title, body, bullets, screens, tone
               </li>
             ))}
           </ul>
-          <p className="disclaimer mt-6">{DESIGN_NOTE}</p>
         </div>
         <div className="py-2 sm:py-6" data-reveal="rise">
           <ProtoRow screens={screens} />
         </div>
       </div>
+      <PreviewNote />
     </Section>
   );
 }

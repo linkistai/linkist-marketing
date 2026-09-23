@@ -9,6 +9,7 @@ import { MiniMock } from '@/components/mockups/MiniMock';
 import { ScreenFrame } from '@/components/ScreenFrame';
 import { Section, SectionHead } from '@/components/Section';
 import { CardTiers } from '@/components/home/CardTiers';
+import { PreviewNote } from '@/components/PreviewNote';
 import { HeroIntro } from '@/motion/HeroIntro';
 import { PROTO_ALT } from '@/content/design';
 import { CARD_OPTIONS, MATERIALS, SHIPPING_REGIONS } from '@/content/plans';
@@ -99,6 +100,7 @@ export default function NfcCardsPage() {
             </div>
           </div>
         </div>
+        <PreviewNote />
       </Section>
 
       <Section id="tiers">

@@ -28,7 +28,6 @@ function html(og: OgPage) {
   const shot = screen ? data(join(root, 'public/screens', `${screen}.png`)) || data(join(root, 'public/screens', `${screen}.webp`)) : '';
   const cut = person ? data(join(root, 'public/assets/people', `${person}-2x.webp`)) : '';
   const pic = image ? data(join(root, 'public', image.replace(/^\//, ''))) : '';
-  const preview = !!screen && /^(proto|v6|profile)-/.test(screen);
   const aside = !!(shot || cut || pic);
   const size = title.length > 72 ? 46 : title.length > 44 ? 58 : 70;
   return `<!doctype html><html><head><meta charset="utf-8">
@@ -48,7 +47,6 @@ function html(og: OgPage) {
   .phone{position:absolute;right:88px;top:96px;width:262px;height:567px;border-radius:40px;background:#0b0b0b;padding:8px;box-shadow:0 30px 70px rgba(0,0,0,.55),inset 0 0 0 2px #3a3a3b}
   .phone .screen{position:relative;width:100%;height:100%;border-radius:32px;overflow:hidden;background:#141413}
   .phone img{width:100%;height:100%;object-fit:cover;object-position:top}
-  .badge{position:absolute;left:50%;top:16px;transform:translateX(-50%);padding:6px 10px;border-radius:999px;background:rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.18);font:600 11px/1 Inter;letter-spacing:.06em;text-transform:uppercase;color:#fff;white-space:nowrap}
   .person{position:absolute;right:56px;bottom:0;max-height:600px;max-width:520px;width:auto;height:auto;filter:drop-shadow(0 24px 40px rgba(0,0,0,.5))}
   .pic{position:absolute;right:72px;top:150px;width:400px;height:300px;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.16);box-shadow:0 30px 70px rgba(0,0,0,.5);transform:rotate(3deg)}
   .pic img{width:100%;height:100%;object-fit:cover}
@@ -60,7 +58,7 @@ function html(og: OgPage) {
     <h1>${esc(title)}</h1></div>
   <p class="foot">Personal Relationship Manager. Free plan, no card required. Add an NFC card any time.</p>
 </div>
-${shot ? `<div class="phone"><div class="screen"><img src="${shot}" alt="">${preview ? '<span class="badge">Design preview</span>' : ''}</div></div>` : ''}
+${shot ? `<div class="phone"><div class="screen"><img src="${shot}" alt=""></div></div>` : ''}
 ${cut ? `<img class="person" src="${cut}" alt="">` : ''}
 ${pic ? `<div class="pic"><img src="${pic}" alt=""></div>` : ''}
 </body></html>`;

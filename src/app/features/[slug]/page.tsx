@@ -11,6 +11,7 @@ import { MiniMock } from '@/components/mockups/MiniMock';
 import { Obj, Person } from '@/components/Person';
 import { ScreenFrame } from '@/components/ScreenFrame';
 import { Section, SectionHead } from '@/components/Section';
+import { PreviewNote } from '@/components/PreviewNote';
 import { HeroIntro } from '@/motion/HeroIntro';
 import { PROTO_ALT, type ProtoScreen } from '@/content/design';
 import { FEATURES, featureBySlug } from '@/content/features';
@@ -91,6 +92,7 @@ export default async function FeaturePage({ params }: { params: Promise<{ slug: 
               </div>
             </div>
           </HeroIntro>
+          <PreviewNote />
         </div>
       </section>
 
@@ -100,6 +102,7 @@ export default async function FeaturePage({ params }: { params: Promise<{ slug: 
           <FeatureTabs tabs={tabs} label={`${f.name} features`} />
         </div>
         <p className="mt-8 max-w-3xl text-sm text-body">{f.planNote}</p>
+        <PreviewNote />
       </Section>
 
       <Section id="live" glow>

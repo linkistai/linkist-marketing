@@ -345,12 +345,18 @@
       var(--shadow-float);
     z-index: 1;
   }
+  .stagecard__head {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
   .stagecard__badge {
     display: inline-grid;
+    flex: none;
     place-items: center;
     width: 28px;
     height: 28px;
-    margin-bottom: 18px;
     border-radius: 50%;
     border: 1px solid var(--color-line-strong);
     color: var(--color-muted);
@@ -370,7 +376,7 @@
   .stagecard__phone {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-top: auto;
   }
   .stagecard__phone .phone {
     max-width: 240px;
@@ -700,38 +706,6 @@ html[data-motion='off'] .nfc::after {
 }
 
 /* Design previews (Grownz D23): one to three phones, fanned on wide screens, a snap strip on phones. */
-/* On a stage card the badge sits at the top, beside the number, not over the phone (D51). */
-.stagecard .stagecard__preview {
-  top: 28px;
-  right: 22px;
-  left: auto;
-  bottom: auto;
-  transform: none;
-}
-/* On a use-case crop the badge sits in the corner, out of the screen's title. */
-.uc__shot .preview-badge {
-  left: auto;
-  right: 10px;
-  bottom: 10px;
-  transform: none;
-}
-.preview-badge {
-  position: absolute;
-  left: 50%;
-  bottom: 14px;
-  transform: translateX(-50%);
-  z-index: 3;
-  padding: 5px 10px;
-  border-radius: 999px;
-  background: color-mix(in srgb, #000 70%, transparent);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: #fff;
-  font: 600 10px/1 var(--font-body, Inter, system-ui, sans-serif);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  backdrop-filter: blur(6px);
-}
 .preview-row {
   display: flex;
   gap: 14px;

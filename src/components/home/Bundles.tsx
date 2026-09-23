@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { PreviewNote } from '@/components/PreviewNote';
 import { BUNDLES, BUNDLE_BENEFITS, IMMEDIATE_SAVINGS, THREE_YEAR } from '@/content/plans';
 import { formatMoney } from '@/lib/glossary';
 
@@ -116,6 +117,7 @@ export function Bundles({ headingLevel = 3 }: { headingLevel?: 2 | 3 }) {
         Why the bundles win: the Signature Bundle gives you an NFC card plus a full year of Pro for the same $100 as Pro alone, and the Founders Circle Bundle locks in lifetime Pro for a one-time $150.
       </p>
       <p className="mt-2 text-center text-xs text-muted">NFC cards ship within the UAE, shipping included. Savings are calculated from the approximate dollar prices on this page; the store bills cards in AED and the bundle prices are confirmed at checkout.</p>
+      <PreviewNote className="!mt-3" />
     </div>
   );
 }
