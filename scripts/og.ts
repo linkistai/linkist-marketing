@@ -35,17 +35,17 @@ function html(og: OgPage) {
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@600;700&family=Inter:wght@500;600&display=block" rel="stylesheet">
 <style>
   html,body{margin:0;width:1200px;height:630px;overflow:hidden}
-  body{background:#141413;color:#fff;font-family:Inter,system-ui,sans-serif;position:relative}
-  .glow{position:absolute;left:50%;bottom:-360px;width:1100px;height:700px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(206,57,77,.34),transparent)}
+  body{background:#050505;color:#fff;font-family:Inter,system-ui,sans-serif;position:relative}
+  .glow{position:absolute;left:50%;bottom:-360px;width:1100px;height:700px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(163,22,45,.42),transparent)}
   .wrap{position:absolute;inset:0;padding:64px 72px;display:flex;flex-direction:column;justify-content:space-between}
   .brand{display:inline-flex;align-items:center;gap:12px;font-family:'DM Sans';font-weight:700;font-size:38px;letter-spacing:-.02em}
   .brand img{width:40px;height:40px}
-  .eyebrow{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#D1CDC7}
-  .eyebrow::before{content:'';width:9px;height:9px;border-radius:50%;background:#CE394D}
+  .eyebrow{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#EE5064}
+  .eyebrow::before{content:'';width:9px;height:9px;border-radius:50%;background:#D41A38}
   h1{font-family:'DM Sans';font-weight:600;font-size:${size}px;line-height:1.04;letter-spacing:-.02em;margin:18px 0 0;max-width:${aside ? 660 : 960}px;text-wrap:balance}
-  .foot{font-size:22px;color:#D1CDC7;max-width:${aside ? 620 : 960}px}
+  .foot{font-size:22px;color:#C9C5BF;max-width:${aside ? 620 : 960}px}
   .phone{position:absolute;right:88px;top:96px;width:262px;height:567px;border-radius:40px;background:#0b0b0b;padding:8px;box-shadow:0 30px 70px rgba(0,0,0,.55),inset 0 0 0 2px #3a3a3b}
-  .phone .screen{position:relative;width:100%;height:100%;border-radius:32px;overflow:hidden;background:#141413}
+  .phone .screen{position:relative;width:100%;height:100%;border-radius:32px;overflow:hidden;background:#050505}
   .phone img{width:100%;height:100%;object-fit:cover;object-position:top}
   .person{position:absolute;right:56px;bottom:0;max-height:600px;max-width:520px;width:auto;height:auto;filter:drop-shadow(0 24px 40px rgba(0,0,0,.5))}
   .pic{position:absolute;right:72px;top:150px;width:400px;height:300px;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.16);box-shadow:0 30px 70px rgba(0,0,0,.5);transform:rotate(3deg)}
@@ -56,7 +56,7 @@ function html(og: OgPage) {
   <div><span class="brand">${mark ? `<img src="${mark}" alt="">` : ''}Linkist</span>
     <p class="eyebrow" style="margin-top:44px">${esc(eyebrow)}</p>
     <h1>${esc(title)}</h1></div>
-  <p class="foot">Personal Relationship Manager. Free plan, no card required. Add an NFC card any time.</p>
+  <p class="foot">Personal Relationship Manager. Free plan, no NFC card needed. Add one any time.</p>
 </div>
 ${shot ? `<div class="phone"><div class="screen"><img src="${shot}" alt=""></div></div>` : ''}
 ${cut ? `<img class="person" src="${cut}" alt="">` : ''}
