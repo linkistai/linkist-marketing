@@ -32,6 +32,9 @@ const CASES: readonly (readonly [string, string])[] = [
   ['What happens to contacts when someone leaves my team?', 'team'],
   ['Is there an iPhone app?', 'web app'],
   ['How do I contact support?', 'support@linkist.ai'],
+  ['Is there a lifetime plan?', 'Not at the moment'],
+  ['How much is an extra team user?', '$50'],
+  ['Is Linkist SOC 2 certified?', 'planned for the upcoming Enterprise'],
 ];
 
 describe('site assistant', () => {
