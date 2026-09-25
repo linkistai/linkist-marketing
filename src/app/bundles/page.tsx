@@ -1,12 +1,11 @@
 import type { Metadata } from 'next';
-import { Breadcrumbs } from '@/components/Breadcrumbs';
+import Image from 'next/image';
 import { Button, TextLink } from '@/components/Button';
 import { ClosingBand } from '@/components/ClosingBand';
 import { Faq } from '@/components/Faq';
-import { Section, SectionHead } from '@/components/Section';
+import { PageHero } from '@/components/PageHero';
 import { Bundles } from '@/components/home/Bundles';
 import { BUNDLES } from '@/content/plans';
-import { person } from '@/lib/screens';
 import { STORE_URL, pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
@@ -17,40 +16,53 @@ export const metadata: Metadata = pageMeta(
 );
 
 const FAQ = [
-  { q: 'What is in the Signature Bundle?', a: 'Any Signature card, in PVC, wood or metal, plus 1 year of PRM Pro, for $100. That is the same $100 as Pro alone for a year.' },
-  { q: 'What is in the Founders Circle Bundle?', a: 'The Founders Circle NFC card plus lifetime PRM Pro for a one-time $150, with early-supporter recognition. Availability is limited; the store confirms whether it is still open.' },
-  { q: 'What happens after the first year of the Signature Bundle?', a: 'Pro renews at its yearly price of $100 unless you cancel. The card is yours either way and keeps PRM Essential.' },
-  { q: 'Is shipping included?', a: 'Yes. NFC cards ship within the UAE with shipping included. Other countries are not served yet.' },
+  { q: 'What is in the Signature Bundle?', a: 'Any Signature card plus 1 year of Pro, for $100, the price of Pro alone.' },
+  { q: 'What is in the Founders Circle Bundle?', a: 'The Founders Circle card plus lifetime Pro for a one-time $150. Limited availability.' },
+  { q: 'What happens after the first year of the Signature Bundle?', a: 'Pro renews at $100 a year unless you cancel. The card keeps PRM Essential.' },
+  { q: 'Is shipping included?', a: 'Yes, within the UAE.' },
 ] as const;
 
 export default function BundlesPage() {
   return (
     <>
-      <Section tight className="pt-8 sm:pt-10">
-        <Breadcrumbs items={[{ label: 'Bundles', href: '/bundles' }]} />
-        <div className="mt-8">
-          <SectionHead as="h1" size={1} eyebrow="Bundled offers" title={<>Get the NFC card and PRM Pro <span className="em-coral">together</span>, and save.</>} lede="Bundles combine the physical Linkist card with the Pro plan in one purchase. You get the full Linkist experience immediately, for less than buying the card and Pro separately." />
-          <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+      <PageHero
+        crumbs={[{ label: 'Bundles', href: '/bundles' }]}
+        eyebrow="Bundled offers"
+        title={
+          <>
+            Get the NFC card and PRM Pro <span className="em-coral">together</span>, and save.
+          </>
+        }
+        lede="Your card and Pro in one purchase, for less than buying both."
+        ctas={
+          <>
             <Button href={STORE_URL} size="lg">
               Get your NFC card
             </Button>
             <TextLink href="/pricing">Compare PRM plans</TextLink>
+          </>
+        }
+        side={
+          <div className="relative w-[min(100%,480px)]">
+            <div className="v2-glow left-[-10%] top-[-10%] w-[120%]" aria-hidden="true" />
+            <Image src="/assets/gen/hero-tap.webp" alt="A hand tapping a Linkist NFC card on a phone" width={928} height={1152} priority sizes="(min-width: 1024px) 480px, 90vw" className="home-hero__photo v2-float relative" />
           </div>
+        }
+      />
+
+      <section className="section !pt-0">
+        <div className="container">
+          <Bundles headingLevel={2} />
         </div>
-      </Section>
+      </section>
 
-      <Section tone="charcoal" glow>
-        <Bundles headingLevel={2} />
-      </Section>
-
-      <Section tight id="faq">
-        <SectionHead eyebrow="Questions" title={<>About the {BUNDLES.length} bundles.</>} />
-        <div className="mt-10 max-w-3xl">
-          <Faq items={FAQ} jsonLd />
+      <section id="faq" className="section section--charcoal">
+        <div className="container">
+          <Faq items={FAQ} jsonLd eyebrow="Questions" title={<>About the {BUNDLES.length} bundles.</>} />
         </div>
-      </Section>
+      </section>
 
-      <ClosingBand line1="An NFC card in your hand." line2="Pro in your pocket." cta="Get your NFC card" href={STORE_URL} reassurance="One purchase. UAE shipping included. Prefer to start free? The Essential plan needs no card." person={person('close-2')} />
+      <ClosingBand line1="An NFC card in your hand." line2="Pro in your pocket." cta="Get your NFC card" href={STORE_URL} reassurance="One purchase, free UAE shipping. Essential needs no card." />
     </>
   );
 }

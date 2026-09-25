@@ -2583,3 +2583,24 @@ html[data-motion='off'] .uccard {
     font-weight: 600;
   }
 }
+
+/* v2 comparison table: sticky header inside its own scroll box, Pro tinted. */
+@layer components {
+  .compare {
+    max-height: min(78vh, 900px);
+    overflow: auto;
+  }
+  .compare thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: var(--v2-surface-2);
+  }
+  .compare .compare__pro {
+    background-color: rgba(163, 22, 45, 0.08);
+  }
+  .compare thead th.compare__pro {
+    background: #1a0b0f;
+    color: #fff;
+  }
+}

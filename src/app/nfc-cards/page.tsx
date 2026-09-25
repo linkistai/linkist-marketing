@@ -1,19 +1,16 @@
 import type { Metadata } from 'next';
-import { Nfc, QrCode, RefreshCw, UserCheck } from 'lucide-react';
-import { Breadcrumbs } from '@/components/Breadcrumbs';
+import Image from 'next/image';
 import { Button, TextLink } from '@/components/Button';
 import { ClosingBand } from '@/components/ClosingBand';
 import { Faq } from '@/components/Faq';
-import { CardDeck } from '@/components/CardDeck';
-import { MiniMock } from '@/components/mockups/MiniMock';
-import { ScreenFrame } from '@/components/ScreenFrame';
-import { Section, SectionHead } from '@/components/Section';
-import { CardTiers } from '@/components/home/CardTiers';
+import { PageHero } from '@/components/PageHero';
+import { PhoneStage } from '@/components/PhoneStage';
 import { PreviewNote } from '@/components/PreviewNote';
-import { HeroIntro } from '@/motion/HeroIntro';
+import { SectionHead } from '@/components/Section';
+import { CardTiers } from '@/components/home/CardTiers';
 import { PROTO_ALT } from '@/content/design';
 import { CARD_OPTIONS, MATERIALS, SHIPPING_REGIONS } from '@/content/plans';
-import { person, screen } from '@/lib/screens';
+import { screen } from '@/lib/screens';
 import { NFC_TOOLS_URL, STORE_URL, pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
@@ -24,157 +21,174 @@ export const metadata: Metadata = pageMeta(
 );
 
 const TAP = [
-  { icon: Nfc, title: 'Tap', body: 'Hold the NFC card to a phone with NFC switched on. No app is needed on their side.' },
-  { icon: UserCheck, title: 'Your profile opens', body: 'Your live digital business card, with your photo, details and links.' },
-  { icon: QrCode, title: 'They keep your details', body: 'Your contact card lands in their phone in one tap. If they use Linkist too, the meeting is saved on both sides.' },
-  { icon: RefreshCw, title: 'It stays current', body: 'Change your role or number once. Every NFC card you ever tapped shows the new details.' },
+  { title: 'Tap', body: 'Hold the card to an NFC phone. They need no app.' },
+  { title: 'Your profile opens', body: 'Your live digital card: photo, details, links.' },
+  { title: 'They keep your details', body: 'Your details land in their phone. If they use Linkist, both of you keep the meeting.' },
+  { title: 'It stays current', body: 'Update once. Every card you ever tapped shows the change.' },
 ] as const;
 
 const FAQ = [
-  { q: 'Does the other person need Linkist?', a: 'No. A tap opens your profile in their phone browser. If they use Linkist, both of you keep the context.' },
-  { q: 'Which phones work?', a: 'Any phone with NFC, which is most iPhones and Android phones sold in recent years. The QR code on your profile covers the rest.' },
-  { q: 'What is the difference between Starter and Signature?', a: 'Starter has no customisation. Signature carries your name and logo. Both come in PVC, cherry wood or brushed metal and both include PRM Essential.' },
-  { q: 'Which currency are cards priced in?', a: 'The store prices in AED and shows an approximate dollar figure beside each NFC card.' },
-  { q: 'Is shipping included?', a: 'Yes. NFC cards ship within the UAE with shipping included. Other countries are not served yet.' },
-  { q: 'Can I use an NFC card I already own?', a: 'Yes, free. At nfctools.linkist.ai, tap your existing NFC card or sticker on your phone and Linkist writes your live profile onto it. Encoding a chip needs an Android phone.' },
-  { q: 'Can I return an NFC card?', a: 'Custom products are returnable where the product is defective, there was a production error, or it differs materially from the confirmed order, within 7 days of delivery.' },
+  { q: 'Does the other person need Linkist?', a: 'No. A tap opens your profile in their browser.' },
+  { q: 'Which phones work?', a: 'Most recent iPhones and Android phones. Your QR code covers the rest.' },
+  { q: 'What is the difference between Starter and Signature?', a: 'Signature adds your name and logo. Both come in PVC, wood or metal with PRM Essential.' },
+  { q: 'Which currency are cards priced in?', a: 'AED, with an approximate dollar figure.' },
+  { q: 'Is shipping included?', a: 'Yes, within the UAE. Other countries are not served yet.' },
+  { q: 'Can I use an NFC card I already own?', a: 'Yes, free, at nfctools.linkist.ai. Encoding needs an Android phone.' },
+  { q: 'Can I return an NFC card?', a: 'Yes, within 7 days, if it is defective, misprinted or differs from your order.' },
 ] as const;
+
+/** Product with an AggregateOffer across the six store prices (v2 SEO: AED 75 to 225). */
+const PRODUCT_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Linkist NFC card',
+  description: 'An NFC business card that opens your live Linkist profile with one tap. Starter or Signature, in PVC, cherry wood or brushed metal. Every card includes PRM Essential.',
+  brand: { '@type': 'Brand', name: 'Linkist' },
+  offers: { '@type': 'AggregateOffer', priceCurrency: 'AED', lowPrice: 75, highPrice: 225, offerCount: 6, availability: 'https://schema.org/InStock', areaServed: 'AE' },
+};
+
+const floatSlow = { ['--float-dur' as string]: '9s' };
+const ripple = { ['--ripple-size' as string]: '120px', ['--ripple-gap' as string]: '0.6s' };
 
 export default function NfcCardsPage() {
   return (
     <>
-      <section className="section pt-8 sm:pt-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PRODUCT_LD) }} />
+      <PageHero
+        crumbs={[{ label: 'NFC cards', href: '/nfc-cards' }]}
+        eyebrow="Linkist NFC cards"
+        title={
+          <>
+            Tap. Share. Make the <span className="em-coral">first impression</span> count.
+          </>
+        }
+        lede="A card that opens your live profile on any NFC phone, or by QR, and remembers the meeting. Includes PRM Essential."
+        ctas={
+          <>
+            <Button href={STORE_URL} size="lg">
+              Get your NFC card
+            </Button>
+            <TextLink href="#tiers">See NFC card pricing</TextLink>
+          </>
+        }
+        side={
+          <div className="relative flex w-full flex-col items-center">
+            <div className="v2-glow w-[90%]" aria-hidden="true" />
+            <Image src="/assets/gen/cards-cut.webp" alt="Linkist NFC cards in brushed metal, cherry wood and PVC" width={1024} height={1024} priority sizes="(min-width: 1024px) 460px, 80vw" className="v2-float relative w-[min(100%,460px)] [filter:drop-shadow(0_30px_40px_rgba(0,0,0,.7))]" style={floatSlow} />
+            <p className="mt-2 font-mono text-xs uppercase tracking-[0.14em] text-body">{MATERIALS.map((m) => m.name).join(', ')}</p>
+            <p className="disclaimer mt-1 text-center">Renders with an example name.</p>
+          </div>
+        }
+      />
+
+      <section className="section section--charcoal">
         <div className="container">
-          <Breadcrumbs items={[{ label: 'NFC cards', href: '/nfc-cards' }]} />
-          <HeroIntro className="mt-8 grid items-center gap-12 lg:grid-cols-[minmax(0,6fr)_minmax(0,6fr)]">
-            <div className="max-w-xl">
-              <p className="eyebrow" data-hero-text>
-                Linkist NFC cards
-              </p>
-              <h1 className="display-1 mt-5" data-hero-text>
-                Tap. Share. Make the <span className="em-coral">first impression</span> count.
-              </h1>
-              <p className="lede mt-5" data-hero-text>
-                An NFC card that opens your live professional profile on any NFC phone, and by QR code on the rest, and remembers the meeting for you. Every NFC card includes PRM Essential.
-              </p>
-              <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center" data-hero-text>
-                <Button href={STORE_URL} size="lg">
-                  Get your NFC card
-                </Button>
-                <TextLink href="#tiers">See NFC card pricing</TextLink>
-              </div>
+          <SectionHead eyebrow="What a tap does" title={<>One tap replaces <span className="em-coral">the whole ritual</span>.</>} lede="No typing, no paper." center />
+          <div className="mt-[clamp(40px,5vw,64px)] grid items-center gap-[clamp(32px,5vw,72px)] [grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))]">
+            <ol className="m-0 grid list-none gap-3.5 p-0 sm:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.08">
+              {TAP.map((t, i) => (
+                <li key={t.title} className="card flex flex-col gap-7 p-[clamp(22px,2.6vw,28px)]">
+                  <span aria-hidden="true" className="font-mono text-[13px] text-coral">
+                    /{String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-muted">Step {i + 1}</p>
+                    <h3 className="display-3 mt-1">{t.title}</h3>
+                    <p className="mt-2 text-sm leading-normal text-body">{t.body}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <div className="relative flex justify-center" data-reveal="rise">
+              <PhoneStage src={screen('v6-share')} alt={PROTO_ALT['v6-share']} width={260} />
+              <span className="v2-ripple absolute left-1/2 top-[18%] h-0 w-0" style={ripple} aria-hidden="true">
+                <span />
+                <span />
+                <span />
+              </span>
             </div>
-            <div className="hero-stage relative">
-              <div className="px-2 pt-10 sm:px-8" data-hero-card="1">
-                <CardDeck />
-              </div>
-              <p className="mt-8 text-center text-xs font-semibold uppercase tracking-[0.04em] text-body">{MATERIALS.map((m) => m.name).join(', ')}</p>
-              <p className="disclaimer mt-2 text-center">Rendered from the brand mark, example name. Product photographs replace these renders when they arrive.</p>
-            </div>
-          </HeroIntro>
+          </div>
+          <PreviewNote />
         </div>
       </section>
 
-      <Section tone="charcoal" glow>
-        <SectionHead eyebrow="What a tap does" title={<>One tap replaces <span className="em-coral">the whole ritual</span>.</>} lede="No fumbling, no typing, no paper that gets thrown away." center />
-        <div className="mt-12 grid items-center gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
-          <div className="grid gap-4 sm:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.08">
-            {TAP.map((t, i) => (
-              <div key={t.title} className="card card--sm p-6">
-                <span className="chip__icon" aria-hidden="true">
-                  <t.icon size={14} />
-                </span>
-                <p className="mt-3 text-xs font-semibold uppercase tracking-[0.04em] text-muted">Step {i + 1}</p>
-                <h3 className="display-3 mt-1 text-[20px]">{t.title}</h3>
-                <p className="mt-2 text-sm text-body">{t.body}</p>
-              </div>
+      <section id="tiers" className="section scroll-mt-[90px]">
+        <div className="container">
+          <SectionHead eyebrow="NFC card pricing" title={<>Two tiers, <span className="em-coral">three materials</span>.</>} lede="Signature adds your name and logo. One-time prices, PRM Essential included." center />
+          <div className="mt-[clamp(40px,5vw,64px)]">
+            <CardTiers cta={{ href: '/bundles', label: 'See the bundles' }} />
+          </div>
+          <ul className="m-0 mt-12 grid list-none gap-3.5 p-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))]" data-reveal="rise" data-reveal-stagger="0.06">
+            {CARD_OPTIONS.map((o) => (
+              <li key={o.material} className="card p-[22px]">
+                <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-coral">{o.finish}</p>
+                <h3 className="display-3 mt-2">{o.material}</h3>
+                <p className="mt-2 text-sm text-body">
+                  {o.colours.join(' or ')}. {o.patterns.length > 1 ? `${o.patterns.join(', ')} patterns.` : `${o.patterns[0]} finish.`}
+                </p>
+              </li>
             ))}
-            <div className="card p-5 sm:col-span-2">
-              <p className="font-semibold">The tap moment</p>
-              <MiniMock mock={{ kind: 'tap', label: 'A card tapping a phone, then the profile is shared' }} />
-            </div>
-          </div>
-          <div className="flex justify-center" data-reveal="rise">
-            <div className="w-full max-w-[240px]">
-              <ScreenFrame kind="phone" src={screen('v6-share')} alt={PROTO_ALT['v6-share']} preview full />
-            </div>
-          </div>
+          </ul>
         </div>
-        <PreviewNote />
-      </Section>
+      </section>
 
-      <Section id="tiers">
-        <SectionHead eyebrow="NFC card pricing" title={<>Two tiers, <span className="em-coral">three materials</span>.</>} lede="Starter has no customisation. Signature carries your name and logo. One-time prices; every NFC card includes PRM Essential." center />
-        <div className="mt-12">
-          <CardTiers cta={{ href: '/bundles', label: 'See the bundles' }} />
-        </div>
-        <div className="mx-auto mt-12 grid max-w-4xl gap-4 sm:grid-cols-3" data-reveal="rise" data-reveal-stagger="0.06">
-          {CARD_OPTIONS.map((o) => (
-            <div key={o.material} className="card card--sm p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.04em] text-muted">{o.finish}</p>
-              <h3 className="display-3 mt-1 text-[20px]">{o.material}</h3>
-              <p className="mt-2 text-sm text-body">
-                {o.colours.join(' or ')}. {o.patterns.length > 1 ? `${o.patterns.join(', ')} patterns.` : `${o.patterns[0]} finish.`}
-              </p>
+      <section id="byo" className="section section--charcoal">
+        <div className="container">
+          <div className="grid items-center gap-[clamp(32px,5vw,72px)] [grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))]">
+            <div data-reveal="rise">
+              <p className="eyebrow eyebrow--plain">Bring your own NFC</p>
+              <h2 className="display-2 mt-4">
+                Already have an NFC card? <span className="em-coral">Make it live, free.</span>
+              </h2>
+              <p className="lede mt-5">Tap a card or sticker you own and Linkist writes your live profile onto it.</p>
+              <p className="mt-4 text-[13px] text-muted">Free forever. Encoding needs Android; the profile works everywhere.</p>
+              <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3">
+                <Button href={NFC_TOOLS_URL} variant="secondary">
+                  Activate the NFC card you already have
+                </Button>
+                <TextLink href="/bring-your-own">How bring-your-own works</TextLink>
+              </div>
             </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section tone="lifted" id="byo">
-        <div className="grid items-center gap-10 lg:grid-cols-2">
-          <div data-reveal="rise">
-            <p className="eyebrow">Bring your own NFC</p>
-            <h2 className="display-2 mt-4">
-              Already have an NFC card? <span className="em-coral">Make it live, free.</span>
-            </h2>
-            <p className="lede mt-4">Keep your hardware and put Linkist on it. Tap an NFC card or sticker you already own and Linkist writes your live profile onto it.</p>
-            <p className="mt-4 text-sm text-muted">Free forever, no payment details. Encoding a chip needs an Android phone; the profile then works on every device.</p>
-            <div className="mt-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-              <Button href={NFC_TOOLS_URL} variant="secondary">
-                Activate the NFC card you already have
-              </Button>
-              <TextLink href="/bring-your-own">How bring-your-own works</TextLink>
-            </div>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.1">
-            <div className="card card--sm p-6">
-              <span className="chip__icon" aria-hidden="true">
-                <Nfc size={14} />
-              </span>
-              <h3 className="display-3 mt-3 text-[20px]">An NFC card or sticker</h3>
-              <p className="mt-2 text-sm text-body">Tap it on your phone. Linkist shows what is on the chip, then writes your live profile onto it.</p>
-            </div>
-            <div className="card card--sm p-6">
-              <span className="chip__icon" aria-hidden="true">
-                <RefreshCw size={14} />
-              </span>
-              <h3 className="display-3 mt-3 text-[20px]">Change it forever</h3>
-              <p className="mt-2 text-sm text-body">Your details live behind one permanent address, so a new role never means a new card.</p>
-            </div>
+            <ul className="m-0 grid list-none gap-3.5 p-0 sm:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.1">
+              {[
+                ['An NFC card or sticker', 'Tap it. Linkist reads the chip, then writes your profile.'],
+                ['Change it forever', 'One permanent address. A new role never needs a new card.'],
+              ].map(([t, b], i) => (
+                <li key={t} className="card flex flex-col gap-7 p-6">
+                  <span aria-hidden="true" className="font-mono text-[13px] text-coral">
+                    /{String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <h3 className="display-3">{t}</h3>
+                    <p className="mt-2 text-sm text-body">{b}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      </Section>
+      </section>
 
-      <Section tight id="shipping">
-        <SectionHead eyebrow="Shipping" title={<>Ships within <span className="em-coral">the UAE</span>.</>} lede="NFC card shipping is included across the UAE. Other countries are not served yet." />
-        <ul className="mt-8 flex flex-wrap gap-2" aria-label="Shipping region" data-reveal="fade">
-          {SHIPPING_REGIONS.map((r) => (
-            <li key={r} className="tag">
-              {r}
-            </li>
-          ))}
-        </ul>
-      </Section>
-
-      <Section tone="charcoal" tight id="faq">
-        <SectionHead eyebrow="Questions" title="About the cards." />
-        <div className="mt-10 max-w-3xl">
-          <Faq items={FAQ} jsonLd />
+      <section id="shipping" className="section">
+        <div className="container">
+          <SectionHead eyebrow="Shipping" title={<>Ships within <span className="em-coral">the UAE</span>.</>} lede="Free across the UAE. Other countries are not served yet." />
+          <ul className="mt-8 flex flex-wrap gap-2" aria-label="Shipping region" data-reveal="fade">
+            {SHIPPING_REGIONS.map((r) => (
+              <li key={r} className="tag">
+                {r}
+              </li>
+            ))}
+          </ul>
         </div>
-      </Section>
+      </section>
 
-      <ClosingBand line1="Order an NFC card, or start without one." line2="Every NFC card includes PRM Essential." cta="Get your NFC card" href={STORE_URL} reassurance="UAE shipping included. Prefer to start free? The Essential plan needs no card." person={person('close-1')} />
+      <section id="faq" className="section section--charcoal">
+        <div className="container">
+          <Faq items={FAQ} jsonLd eyebrow="Questions" title="About the cards." />
+        </div>
+      </section>
+
+      <ClosingBand line1="Order a card, or start without one." line2="PRM Essential included." cta="Get your NFC card" href={STORE_URL} reassurance="Free UAE shipping. Essential needs no card." />
     </>
   );
 }

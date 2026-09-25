@@ -1,14 +1,10 @@
 import type { Metadata } from 'next';
 import { ArrowRight, Brain, Inbox, Nfc, RefreshCw } from 'lucide-react';
-import { Breadcrumbs } from '@/components/Breadcrumbs';
+import Image from 'next/image';
 import { Button, TextLink } from '@/components/Button';
 import { ClosingBand } from '@/components/ClosingBand';
 import { Faq } from '@/components/Faq';
-import { ScreenFrame } from '@/components/ScreenFrame';
-import { Section } from '@/components/Section';
-import { PreviewNote } from '@/components/PreviewNote';
-import { PROTO_ALT } from '@/content/design';
-import { person, screen } from '@/lib/screens';
+import { PageHero } from '@/components/PageHero';
 import { NFC_TOOLS_URL, pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
@@ -29,7 +25,7 @@ const PATHS = [
     key: 'nfc',
     icon: Nfc,
     title: 'An NFC card or sticker',
-    body: 'Tap it on your phone to see what is on the chip today. Then write your Linkist profile onto it:',
+    body: 'Tap it to see what is on the chip, then write your Linkist profile:',
     list: [
       ['Already have a Linkist profile?', 'Write it straight to the card.'],
       ['Starting fresh?', 'Create your Linkist digital profile first, then write it.'],
@@ -39,99 +35,101 @@ const PATHS = [
 ] as const;
 
 const FEATURES = [
-  { icon: RefreshCw, title: 'Change it forever', body: 'Your details live behind one permanent address, so a new role never means a new card.' },
-  { icon: Inbox, title: 'Keep who you meet', body: 'Everyone who taps you arrives in your exchange inbox instead of vanishing.' },
-  { icon: Brain, title: 'It remembers', body: 'Linkist holds the context of the conversation, not just the contact details.' },
+  { icon: RefreshCw, title: 'Change it forever', body: 'One permanent address. A new role never needs a new card.' },
+  { icon: Inbox, title: 'Keep who you meet', body: 'Everyone who taps you lands in your exchange inbox.' },
+  { icon: Brain, title: 'It remembers', body: 'Linkist keeps the context, not just the details.' },
 ] as const;
 
 const FAQ = [
-  { q: 'Does it cost anything?', a: 'No. Bringing your own card or sticker is free forever and asks for no payment details. Every profile includes the PRM Essential plan.' },
-  { q: 'Which cards and stickers work?', a: 'Any NFC card or sticker with a writable NTAG-type chip, which covers the cards most other digital-card brands ship. The NFC tools site reads the chip first and tells you if it cannot be written.' },
-  { q: 'Do I need a particular phone?', a: 'Encoding a chip needs an Android phone with NFC. The profile written onto the card then opens on every phone, iPhone included.' },
-  { q: 'What happens to the old link on the card?', a: 'It is replaced by your Linkist address. Anyone who taps the card from then on sees your live Linkist profile, and you can change what it shows at any time without touching the card again.' },
+  { q: 'Does it cost anything?', a: 'No. Free forever, no payment details. Every profile includes PRM Essential.' },
+  { q: 'Which cards and stickers work?', a: 'Any writable NTAG-type NFC card or sticker. The tools site checks the chip first.' },
+  { q: 'Do I need a particular phone?', a: 'Encoding needs an Android phone with NFC. The profile then opens on every phone.' },
+  { q: 'What happens to the old link on the card?', a: 'It is replaced by your Linkist address, which you can update any time without touching the card.' },
 ] as const;
 
 export default function BringYourOwnPage() {
   return (
     <>
-      <Section tight className="pt-8 sm:pt-10">
-        <Breadcrumbs items={[{ label: 'NFC cards', href: '/nfc-cards' }, { label: 'Bring your own NFC', href: '/bring-your-own' }]} />
-        <div className="mt-8 grid items-center gap-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
-          <div>
-            <p className="eyebrow">Bring your own NFC</p>
-            <h1 className="display-1 mt-5">
-              Already have a NFC card or sticker?
-              <br />
-              <span className="em-coral">Bring it. We will make it live.</span>
-            </h1>
-            <p className="lede mt-6 max-w-2xl">You do not need to buy anything to start. If you already own an NFC card or sticker, Linkist takes it over in about a minute. You keep the hardware. You get the intelligence.</p>
-            <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-              <Button href={NFC_TOOLS_URL} size="lg">
-                Activate what I already have
-                <ArrowRight size={16} aria-hidden="true" />
-              </Button>
-              <TextLink href="/nfc-cards">Or get a Linkist NFC card</TextLink>
-            </div>
-            <p className="mt-4 text-sm text-muted">Free forever · No payment details · Encoding a chip needs an Android phone; your profile works on every device</p>
+      <PageHero
+        crumbs={[
+          { label: 'NFC cards', href: '/nfc-cards' },
+          { label: 'Bring your own NFC', href: '/bring-your-own' },
+        ]}
+        eyebrow="Bring your own NFC"
+        title={
+          <>
+            Already have a NFC card or sticker? <span className="em-coral">Bring it. We will make it live.</span>
+          </>
+        }
+        lede="Nothing to buy. Linkist takes over the card or sticker you own in about a minute. Keep the hardware, get the intelligence."
+        ctas={
+          <>
+            <Button href={NFC_TOOLS_URL} size="lg">
+              Activate what I already have
+              <ArrowRight size={16} aria-hidden="true" />
+            </Button>
+            <TextLink href="/nfc-cards">Or get a Linkist NFC card</TextLink>
+          </>
+        }
+        note={<p className="mt-4 text-[13px] text-muted">Free forever · No payment details · Encode on Android, works everywhere</p>}
+        side={
+          <div className="relative aspect-[4/5] w-[min(100%,440px)] overflow-hidden rounded-[28px] border border-line">
+            <Image src="/assets/gen/hero-tap.webp" alt="A hand tapping an NFC card to a phone" fill priority sizes="(min-width: 1024px) 440px, 90vw" className="object-cover" />
           </div>
-          <div className="flex justify-center" data-reveal="rise">
-            <div className="w-full max-w-[280px]">
-              <ScreenFrame kind="phone" src={screen('v6-shareready')} alt={PROTO_ALT['v6-shareready']} preview full priority />
-            </div>
+        }
+      />
+
+      <section id="paths" className="section section--charcoal">
+        <div className="container">
+          <div className="mx-auto grid max-w-2xl gap-5" data-reveal="rise">
+            {PATHS.map((p) => (
+              <a key={p.key} href={p.href} className="card flex flex-col p-8 no-underline">
+                <span aria-hidden="true" className="font-mono text-[13px] text-coral">
+                  /01
+                </span>
+                <h2 className="display-3 mt-6">{p.title}</h2>
+                <p className="mt-3 text-sm text-body">{p.body}</p>
+                {p.list.length > 0 ? (
+                  <ul className="mt-4 flex flex-col gap-2 text-sm text-body">
+                    {p.list.map(([lead, rest]) => (
+                      <li key={lead} className="flex gap-2">
+                        <span aria-hidden="true" className="mt-2 h-1 w-1 flex-none rounded-full bg-red-bright" />
+                        <span>
+                          <strong className="font-medium text-white">{lead}</strong> {rest}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+                <span className="mt-auto inline-flex items-center gap-1.5 pt-6 text-sm font-medium text-coral">
+                  Start with this <ArrowRight size={14} aria-hidden="true" />
+                </span>
+              </a>
+            ))}
           </div>
+          <ul className="m-0 mt-12 grid list-none gap-3.5 p-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))]" data-reveal="rise" data-reveal-stagger="0.08">
+            {FEATURES.map((f, i) => (
+              <li key={f.title} className="card flex flex-col gap-7 p-[clamp(22px,2.6vw,28px)]">
+                <span aria-hidden="true" className="font-mono text-[13px] text-coral">
+                  /{String(i + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <h3 className="display-3">{f.title}</h3>
+                  <p className="mt-2 text-sm text-body">{f.body}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
-        <PreviewNote />
-      </Section>
+      </section>
 
-      <Section tone="charcoal" id="paths">
-        <div className="mx-auto grid max-w-2xl gap-5" data-reveal="rise" data-reveal-stagger="0.1">
-          {PATHS.map((p) => (
-            <a key={p.key} href={p.href} className="card lift flex flex-col p-8 no-underline">
-              <span className="chip__icon" aria-hidden="true">
-                <p.icon size={16} />
-              </span>
-              <h2 className="display-3 mt-6">{p.title}</h2>
-              <p className="mt-3 text-sm text-body">{p.body}</p>
-              {p.list.length > 0 ? (
-                <ul className="mt-4 flex flex-col gap-2 text-sm text-body">
-                  {p.list.map(([lead, rest]) => (
-                    <li key={lead} className="flex gap-2">
-                      <span aria-hidden="true" className="mt-2 h-1 w-1 flex-none rounded-full bg-crimson" />
-                      <span>
-                        <strong className="font-medium text-text">{lead}</strong> {rest}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              ) : null}
-              <span className="mt-auto inline-flex items-center gap-1 pt-6 text-sm font-medium">
-                Start with this <ArrowRight size={14} aria-hidden="true" className="text-coral" />
-              </span>
-            </a>
-          ))}
+      <section id="faq" className="section">
+        <div className="container">
+          <Faq items={FAQ} jsonLd eyebrow="Questions" title="Before you tap." />
         </div>
-        <div className="mx-auto mt-12 grid max-w-4xl gap-8 border-t border-line pt-10 sm:grid-cols-3" data-reveal="rise" data-reveal-stagger="0.08">
-          {FEATURES.map((f) => (
-            <div key={f.title}>
-              <f.icon size={18} aria-hidden="true" className="text-crimson" />
-              <h3 className="mt-3 text-md font-semibold">{f.title}</h3>
-              <p className="mt-2 text-sm text-body">{f.body}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
+      </section>
 
-      <Section tight id="faq">
-        <div className="mx-auto max-w-3xl">
-          <p className="eyebrow">Questions</p>
-          <h2 className="display-2 mt-4">Before you tap.</h2>
-          <div className="mt-8">
-            <Faq items={FAQ} jsonLd />
-          </div>
-        </div>
-      </Section>
-
-      <ClosingBand line1="Keep the card." line2="Get the intelligence." cta="Activate what I already have" href={NFC_TOOLS_URL} reassurance="Free forever. No payment details. Works with the NFC card or sticker you already own." person={person('close-2')} />
+      <ClosingBand line1="Keep the card." line2="Get the intelligence." cta="Activate what I already have" href={NFC_TOOLS_URL} reassurance="Free forever. Works with the card or sticker you own." />
     </>
   );
 }

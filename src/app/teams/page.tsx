@@ -1,16 +1,12 @@
 import type { Metadata } from 'next';
-import { Check } from 'lucide-react';
-import { Breadcrumbs } from '@/components/Breadcrumbs';
+import Image from 'next/image';
 import { Button, StartFree, TextLink } from '@/components/Button';
 import { ClosingBand } from '@/components/ClosingBand';
 import { Faq } from '@/components/Faq';
-import { MiniMock } from '@/components/mockups/MiniMock';
-import { Obj, Person } from '@/components/Person';
-import { Section, SectionHead } from '@/components/Section';
-import { HeroIntro } from '@/motion/HeroIntro';
+import { PageHero } from '@/components/PageHero';
+import { Bullets, SectionHead } from '@/components/Section';
 import { featureBySlug } from '@/content/features';
 import { planByKey } from '@/content/plans';
-import { object, person } from '@/lib/screens';
 import { formatMoney } from '@/lib/glossary';
 import { pageMeta } from '@/lib/site';
 
@@ -22,10 +18,10 @@ export const metadata: Metadata = pageMeta(
 );
 
 const KEEPS = [
-  { title: 'Shared Contacts', body: 'Contacts and their context shared with the authorised team, so a colleague can pick up a relationship with the history in place.' },
-  { title: 'Relationship History', body: 'When a person leaves, team-shared contacts and their history stay with the company. Personal contacts stay with the person.' },
-  { title: 'Admin console', body: 'Add and remove users, manage who sees what, and keep company branding on every card from one place.' },
-  { title: 'Team directory', body: 'Every colleague and their profiles in one directory, so the right introduction happens fast.' },
+  { title: 'Shared Contacts', body: 'Contacts and context shared with the authorised team, history in place.' },
+  { title: 'Relationship History', body: 'Team-shared contacts and history stay with the company. Personal contacts stay personal.' },
+  { title: 'Admin console', body: 'Users, permissions and card branding in one place.' },
+  { title: 'Team directory', body: 'Every colleague and profile in one directory, for fast introductions.' },
 ] as const;
 
 export default function TeamsPage() {
@@ -33,105 +29,95 @@ export default function TeamsPage() {
   const f = featureBySlug('teams')!;
   return (
     <>
-      <section className="section pt-8 sm:pt-10">
+      <PageHero
+        crumbs={[{ label: 'Teams', href: '/teams' }]}
+        eyebrow="Linkist for teams"
+        title={
+          <>
+            Relationships that <span className="em-coral">stay with the company</span>.
+          </>
+        }
+        lede="Shared contacts, branded cards, and history that stays when people move on. Everything in Pro, for every user."
+        ctas={
+          <>
+            <StartFree />
+            <TextLink href="/features/teams">See the Team features</TextLink>
+          </>
+        }
+        note={
+          <p className="mt-6 text-sm text-body">
+            {formatMoney(team.monthly, 'USD')} per user a month, minimum {team.minUsers} users: {formatMoney(team.team!.usd.monthly, 'USD')} a month or {formatMoney(team.team!.usd.yearly, 'USD')} a year for {team.minUsers} users.
+          </p>
+        }
+        side={
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[28px] border border-line">
+            <Image src="/assets/gen/uc-leave.webp" alt="A person leaving an office carrying a box of belongings" fill priority sizes="(min-width: 1024px) 560px, 90vw" className="object-cover" />
+          </div>
+        }
+      />
+
+      <section className="section section--charcoal">
         <div className="container">
-          <Breadcrumbs items={[{ label: 'Teams', href: '/teams' }]} />
-          <HeroIntro className="mt-8 grid items-center gap-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
-            <div className="max-w-xl">
-              <p className="eyebrow" data-hero-text>
-                Linkist for teams
-              </p>
-              <h1 className="display-1 mt-5" data-hero-text>
-                Relationships that <span className="em-coral">stay with the company</span>.
-              </h1>
-              <p className="lede mt-5" data-hero-text>
-                Share contacts across the team, brand every card, and keep the relationship history when someone moves on. Everything in Pro, for every user.
-              </p>
-              <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center" data-hero-text>
-                <StartFree />
-                <TextLink href="/features/teams">See the Team features</TextLink>
-              </div>
-              <p className="mt-6 text-sm text-body" data-hero-text>
-                {formatMoney(team.monthly, 'USD')} per user a month, minimum {team.minUsers} users: {formatMoney(team.team!.usd.monthly, 'USD')} a month or {formatMoney(team.team!.usd.yearly, 'USD')} a year for {team.minUsers} users.
-              </p>
-            </div>
-            <div className="hero-stage relative min-h-[360px]">
-              <div className="card card--object mx-auto w-full max-w-md p-6" data-hero-card="1">
-                <div className="flex items-center gap-3">
-                  <Obj name="team" src={object('team')} size={56} className="card__obj" />
-                  <p className="font-semibold">Two contact cards, one shared with the team</p>
+          <SectionHead eyebrow="What stays with the company" title={<>A key person leaves. <span className="em-coral">The relationship does not.</span></>} lede="Business context lives in personal phones and inboxes. The Team plan keeps it with the company." />
+          <ul className="m-0 mt-[clamp(40px,5vw,64px)] grid list-none gap-3.5 p-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))]" data-reveal="rise" data-reveal-stagger="0.08">
+            {KEEPS.map((k, i) => (
+              <li key={k.title} className="card flex flex-col gap-9 p-[clamp(22px,2.6vw,32px)]">
+                <span aria-hidden="true" className="font-mono text-[13px] text-coral">
+                  /{String(i + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <h3 className="display-3">{k.title}</h3>
+                  <p className="mt-2.5 text-[15px] leading-normal text-body">{k.body}</p>
                 </div>
-                <MiniMock mock={f.mock} />
-              </div>
-              <div className="absolute bottom-0 right-0 hidden h-[80%] w-[200px] lg:block" data-hero-card="2">
-                <Person src={person('teams')} alt="A team member holding a phone with Linkist open towards the camera" hero bust sizes="220px" />
-              </div>
-            </div>
-          </HeroIntro>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      <Section tone="charcoal" glow>
-        <SectionHead eyebrow="What stays with the company" title={<>A key person leaves. <span className="em-coral">The relationship does not.</span></>} lede="Important business context often lives inside individual phones, inboxes and memories. The Team plan keeps it where the company can use it." />
-        <div className="mt-12 grid gap-4 sm:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.08">
-          {KEEPS.map((k) => (
-            <div key={k.title} className="card card--hover p-7">
-              <h3 className="display-3 text-[21px]">{k.title}</h3>
-              <p className="mt-2 text-sm text-body">{k.body}</p>
+      <section id="plan" className="section">
+        <div className="container">
+          <div className="grid items-start gap-[clamp(32px,5vw,72px)] [grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))]">
+            <div data-reveal="rise">
+              <p className="eyebrow eyebrow--plain">The Team plan</p>
+              <h2 className="display-2 mt-4">
+                Everything in Pro, <span className="em-coral">teamwide</span>.
+              </h2>
+              <p className="lede mt-4">{team.fit}</p>
+              <Bullets items={team.groups.flatMap((g) => g.items)} className="mt-6" />
+              <p className="mt-7 flex items-baseline gap-2">
+                <span className="font-mono text-[34px] font-semibold tracking-[-0.03em] tabular">{formatMoney(team.monthly, 'USD')}</span>
+                <span className="text-body">per user a month</span>
+              </p>
+              <p className="mt-1 text-sm text-muted">
+                Minimum {team.minUsers} users: {formatMoney(team.team!.usd.monthly, 'USD')}/month or {formatMoney(team.team!.usd.yearly, 'USD')}/year ({formatMoney(team.team!.aed.monthly, 'AED')} or {formatMoney(team.team!.aed.yearly, 'AED')}). Extra users {formatMoney(team.monthly, 'USD')}/month or {formatMoney(team.team!.extraYearly, 'USD')}/year.
+              </p>
+              <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3">
+                <StartFree />
+                <TextLink href="/pricing#compare">Compare PRM plans</TextLink>
+              </div>
             </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section id="plan">
-        <div className="grid items-start gap-10 lg:grid-cols-2">
-          <div data-reveal="rise">
-            <p className="eyebrow">The Team plan</p>
-            <h2 className="display-2 mt-4">
-              Everything in Pro, <span className="em-coral">teamwide</span>.
-            </h2>
-            <p className="lede mt-4">{team.fit}</p>
-            <ul className="mt-6 flex flex-col gap-2 text-md text-body">
-              {team.groups.flatMap((g) => g.items).map((i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <Check size={16} aria-hidden="true" className="mt-1 flex-none text-coral" />
-                  {i}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 flex items-baseline gap-2">
-              <span className="font-mono text-4xl font-semibold tabular">{formatMoney(team.monthly, 'USD')}</span>
-              <span className="text-body">per user a month</span>
-            </p>
-            <p className="mt-1 text-sm text-muted">
-              Minimum {team.minUsers} users: {formatMoney(team.team!.usd.monthly, 'USD')} a month or {formatMoney(team.team!.usd.yearly, 'USD')} a year ({formatMoney(team.team!.aed.monthly, 'AED')} or {formatMoney(team.team!.aed.yearly, 'AED')}). Each additional user {formatMoney(team.monthly, 'USD')} a month or {formatMoney(team.team!.extraYearly, 'USD')} a year.
-            </p>
-            <div className="mt-6 flex flex-wrap items-center gap-4">
-              <StartFree size="md" />
-              <TextLink href="/pricing#compare">Compare PRM plans</TextLink>
-            </div>
-          </div>
-          <div className="card p-7" data-reveal="rise">
-            <p className="eyebrow">Enterprise</p>
-            <h3 className="display-3 mt-3">Coming later. Interest only today.</h3>
-            <p className="mt-3 text-sm text-body">Single sign-on, CRM and HRMS integration, product customisation and dedicated support are planned for Enterprise. There is no plan card to buy yet. If that is what your company needs, tell us and we will keep you posted.</p>
-            <div className="mt-6">
-              <Button href="mailto:support@linkist.ai?subject=Enterprise%20interest" variant="secondary">
-                Register interest
-              </Button>
+            <div className="card card--featured p-[clamp(24px,3vw,36px)]" data-reveal="rise">
+              <p className="eyebrow eyebrow--plain">Enterprise</p>
+              <h3 className="display-3 mt-3 !text-[26px]">Coming later. Interest only today.</h3>
+              <p className="mt-3 text-[15px] leading-relaxed text-body">SSO, CRM and HRMS integration, customisation and dedicated support are planned. Nothing to buy yet; tell us if you need it.</p>
+              <div className="mt-6">
+                <Button href="mailto:support@linkist.ai?subject=Enterprise%20interest" variant="secondary">
+                  Register interest
+                </Button>
+              </div>
             </div>
           </div>
         </div>
-      </Section>
+      </section>
 
-      <Section tone="charcoal" tight id="faq">
-        <SectionHead eyebrow="Questions" title="About teams." />
-        <div className="mt-10 max-w-3xl">
-          <Faq items={f.faq} jsonLd />
+      <section id="faq" className="section section--charcoal">
+        <div className="container">
+          <Faq items={f.faq} jsonLd eyebrow="Questions" title="About teams." />
         </div>
-      </Section>
+      </section>
 
-      <ClosingBand line1="Keep the relationships." line2="Even when people move on." person={person('close-3')} />
+      <ClosingBand line1="Keep the relationships." line2="Even when people move on." />
     </>
   );
 }
