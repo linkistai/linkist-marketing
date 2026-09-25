@@ -1002,6 +1002,9 @@ html[data-motion='on'] [data-hero-card='4'] {
 
 /* Tables */
 .table-wrap {
+  /* Positioned, so absolutely placed children (the screen-reader "Yes" and "No" in table cells)
+     are clipped by this scroll box instead of widening the page. */
+  position: relative;
   overflow-x: auto;
   border: 1px solid var(--color-line);
   border-radius: var(--radius-2xl);

@@ -2,7 +2,8 @@
 /*
  * Runs inside a page (scripts/layout-checks.ts evaluates this file as a string). Measures the
  * controls smaller than 44 x 44 px (inline links in running text exempt), the assistant
- * launcher, the footer's last row, the hero carousel controls and the footer newsletter input.
+ * launcher, the footer's last row, the hero carousel controls and the footer newsletter input,
+ * and how far the page can be scrolled sideways (it must not be).
  */
 (() => {
   const rect = (el) => {
@@ -53,7 +54,7 @@
   const footer = document.querySelector('footer');
   const footerRow = footer ? footer.lastElementChild : null;
   const footerControls = footerRow ? Array.from(footerRow.querySelectorAll('a, button')).filter(visible).map((el) => ({ name: (el.textContent || '').trim().slice(0, 24), ...rect(el) })) : [];
-  const heroControls = Array.from(document.querySelectorAll('.hcar__controls button')).filter(visible).map((el) => ({ name: (el.getAttribute('aria-label') || el.textContent || '').trim().slice(0, 24), ...rect(el) }));
+  const heroControls = Array.from(document.querySelectorAll('.hero-product__dot, .home-hero__strip .storebadge, .home-hero__ctas a, .herotabs__tab')).filter(visible).map((el) => ({ name: (el.getAttribute('aria-label') || el.textContent || '').trim().slice(0, 24), ...rect(el) }));
   const newsletter = footer ? footer.querySelector('input[type="email"]') : null;
   return {
     small,
@@ -62,5 +63,6 @@
     footerControls,
     heroControls,
     newsletter: newsletter ? Math.round(newsletter.getBoundingClientRect().width) : null,
+    sideways: document.documentElement.scrollWidth - document.documentElement.clientWidth,
   };
 })();

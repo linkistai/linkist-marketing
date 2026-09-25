@@ -6,7 +6,7 @@
   "status": "draft",
   "version": "0.1",
   "effective": "2026-09-10",
-  "updated": "2026-09-10"
+  "updated": "2026-09-25"
 }
 ---
 
@@ -30,7 +30,8 @@ This website is built so that nothing non-essential loads before you choose.
 | --- | --- | --- | --- |
 | linkist-consent (local storage) | Essential | Remembers the choice you made in the cookie notice | Until you clear it or change your choice |
 | linkist-country (cookie) | Essential | Remembers which consent rules apply to your region so the notice is shown correctly | [PLACEHOLDER: retention period] |
-| linkist-motion (local storage) | Essential | Remembers whether you switched animation off in the footer | Until you clear it |
+| linkist-motion-2 (local storage) | Essential | Remembers whether you switched animation off in the footer | Until you clear it |
+| lk-currency (local storage) | Essential | Remembers whether you chose US dollars or UAE dirhams for prices | Until you clear it |
 | Google Analytics 4 (cookies set by Google) | Analytics | Page views and interactions, in aggregate, through Google Consent Mode. Loads only after you accept analytics and only when a measurement id is configured | [PLACEHOLDER: retention as configured in the Google Analytics property] |
 | Cloudflare Turnstile (cookies set by Cloudflare) | Essential | Distinguishes people from scripts on the contact and sign-up forms, when the check is enabled | Set by Cloudflare; see its policy |
 

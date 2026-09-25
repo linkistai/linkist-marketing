@@ -46,11 +46,11 @@ Linkist sells two tiers in three materials, each including the PRM Essential pla
 | Card | Starter | Signature |
 | --- | --- | --- |
 | Customisation | None | Your name and logo |
-| PVC, white or black, 4 patterns | AED 75 | AED 95 |
-| Cherry wood | AED 95 | AED 115 |
-| Brushed metal, silver or black, 4 patterns | AED 195 | AED 225 |
+| PVC, white or black, 4 patterns | AED 75 ($20) | AED 95 ($25) |
+| Cherry wood | AED 95 ($25) | AED 125 ($35) |
+| Brushed metal, silver or black, 4 patterns | AED 200 ($55) | AED 240 ($65) |
 
-Prices are one-time and in AED; the store shows an approximate dollar figure beside each. Shipping is included in the UAE and shown at checkout for the other 15 shipping regions. The [NFC cards](/nfc-cards) page has the full detail, and the [bundles](/bundles) pair a Signature card with a year of Pro.
+Prices are one-time, in AED with US dollars in brackets; the store checks out in AED. Shipping is included within the UAE, the only region served for now. The [NFC cards](/nfc-cards) page has the full detail, and the [bundles](/bundles) pair a Signature card with a year of Pro.
 
 ::note
 Already own an NFC card or sticker? The store's bring-your-own route writes your live profile onto it for free. Encoding the chip needs an Android phone; the profile then opens on any device.

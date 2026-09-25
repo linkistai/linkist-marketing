@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useState, type FormEvent } from 'react';
+import { useCallback, useId, useState, type FormEvent } from 'react';
 import { Turnstile } from './Turnstile';
 
 /**
@@ -14,7 +14,8 @@ export function Newsletter({ endpoint = '/api/subscribe', label = 'Product notes
   const [token, setToken] = useState('');
   const [resetSignal, setResetSignal] = useState(0);
   const onToken = useCallback((t: string) => setToken(t), []);
-  const id = endpoint.replace(/[^a-z]/g, '') + '-email';
+  // Unique per form: a page can carry two (the blog's subscribe band and the footer), and a shared id would tie both labels to one field.
+  const id = `${endpoint.replace(/[^a-z]/g, '')}-email-${useId().replace(/:/g, '')}`;
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);

@@ -15,7 +15,8 @@ const Assistant = dynamic(() => import('./Assistant').then((m) => m.Assistant), 
  * Floating assistant on every page except /chat and /system. Same brain as the chat page. The
  * launcher is icon-only on small screens and the footer keeps clearance for it at every width, so
  * it never covers footer links or hero controls (Grownz audit finding). On phones it appears after
- * the first scroll so it does not sit on the fold's last button. Keyboard: opening moves focus to
+ * the first scroll so it does not sit on the fold's last button, and so does it on the home page
+ * at every width, where the one-screen hero ends in the store badges. Keyboard: opening moves focus to
  * the question, Escape or Close returns it to the launcher, and the panel follows the launcher in
  * the tab order (it is drawn above it with a reversed column).
  */
@@ -39,9 +40,13 @@ export function ChatWidget() {
   }, []);
 
   useEffect(() => {
-    // Phones: wait for the first scroll so the launcher does not cover the last control above the fold.
-    const small = window.matchMedia('(max-width: 639px)').matches;
-    if (!small) return;
+    // Phones, and the home page at every width (its one-screen hero ends in the strip of store
+    // badges under the launcher): wait for the first scroll so the launcher covers nothing above the fold.
+    const wait = path === '/' || window.matchMedia('(max-width: 639px)').matches;
+    if (!wait) {
+      setShown(true);
+      return;
+    }
     setShown(window.scrollY > 120);
     const onScroll = () => {
       if (window.scrollY > 120) {
@@ -51,7 +56,7 @@ export function ChatWidget() {
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [path]);
 
   useEffect(() => {
     if (open) document.getElementById('chat-q-widget')?.focus();

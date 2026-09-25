@@ -34,7 +34,7 @@ export default function ChangelogPage() {
 
       <Section tone="charcoal" tight>
         <ol className="relative mx-auto max-w-3xl border-l border-line pl-8">
-          {CHANGELOG.map((c, i) => (
+          {[...CHANGELOG].sort((a, b) => b.date.localeCompare(a.date)).map((c, i) => (
             <li key={`${c.date}-${i}`} className="relative pb-10 last:pb-0" data-reveal="rise">
               <span aria-hidden="true" className="absolute -left-[37px] top-1.5 h-4 w-4 rounded-full border-4" style={{ background: TONE[c.tag], borderColor: 'var(--color-bg-alt, #0a0a0b)', boxShadow: `0 0 14px ${TONE[c.tag]}` }} />
               <p className="flex flex-wrap items-center gap-3 text-sm text-muted">

@@ -32,6 +32,8 @@ interface Scan {
   footerControls: (Box & { name: string })[];
   heroControls: (Box & { name: string })[];
   newsletter: number | null;
+  /** How far the page scrolls sideways; anything over a pixel is a layout bug. */
+  sideways: number;
 }
 
 const overlaps = (a: Box | null, b: Box | null) => !!a && !!b && a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y;
@@ -48,6 +50,7 @@ async function main() {
       await page.goto(`${base}${route}?motion=off`, { waitUntil: 'load', timeout: 60_000 });
       await page.waitForTimeout(400);
       const top = await page.evaluate<Scan>(SCAN);
+      if (top.sideways > 1) problems.push(`${route} @${width}: the page scrolls ${top.sideways} px sideways`);
       if (top.small.length) warnings.push(`${route} @${width}: ${top.small.length} control(s) under 44 px: ${top.small.slice(0, 4).map((s) => `${s.tag} "${s.name}" ${s.w}x${s.h}`).join('; ')}${top.small.length > 4 ? '; ...' : ''}`);
       for (const c of top.heroControls) if (overlaps(top.launcher, c)) problems.push(`${route} @${width}: the assistant launcher covers the hero control "${c.name}"`);
       if (width >= 768 && top.newsletter !== null && top.newsletter < 200) problems.push(`${route} @${width}: footer newsletter input is ${top.newsletter} px wide`);

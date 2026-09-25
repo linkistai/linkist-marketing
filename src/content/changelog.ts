@@ -15,6 +15,17 @@ export interface Change {
 
 export const CHANGELOG: readonly Change[] = [
   {
+    date: '2026-09-25',
+    tag: 'Website',
+    title: 'A new design, and prices in AED and US dollars',
+    items: [
+      'Every page in the new Linkist design: near-black grounds, the deeper red, a one-screen home hero with For teams and For individuals, and motion on by default with a switch in the footer.',
+      'Every plan, NFC card and bundle price in UAE dirhams and US dollars, with one USD / AED switch that the pricing blocks share and your device remembers.',
+      'The plan comparison lists every feature plan by plan, the how-it-works screens come from the latest app design, and the assistant answers from the whole site, prices included.',
+    ],
+    source: 'This site, docs/decision-log.md (D57 to D59)',
+  },
+  {
     date: '2026-09-10',
     tag: 'Website',
     title: 'The new Linkist website, in preview',
@@ -72,9 +83,9 @@ export const CHANGELOG: readonly Change[] = [
 /** In the product today; the store and public pages say so, but no launch date is published. */
 export const IN_PRODUCT: readonly { title: string; body: string }[] = [
   { title: 'Sign in with a code', body: 'Email or mobile number and a one-time code on one screen that also creates the account. No password.' },
-  { title: 'NFC cards in three materials', body: 'PVC and brushed metal in white or black with four patterns, and cherry wood, priced in AED with an approximate dollar figure. Every card includes PRM Essential.' },
+  { title: 'NFC cards in three materials', body: 'PVC and brushed metal in white or black with four patterns, and cherry wood, priced in AED and US dollars, from AED 75 ($20). Every card includes PRM Essential.' },
   { title: 'Bring your own NFC card', body: 'An NFC card or sticker you already own can be encoded with your live profile for free at nfctools.linkist.ai.' },
-    { title: 'A billing hub', body: 'Plans, AI credit top-ups, invoices and NFC card orders in one place at prm.linkist.ai.' },
+  { title: 'A billing hub', body: 'Plans, AI credit top-ups, invoices and NFC card orders in one place at prm.linkist.ai.' },
 ];
 
 /** Announced by the product as coming; not available today. */

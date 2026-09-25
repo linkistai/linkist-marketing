@@ -83,7 +83,7 @@ export default function TeamsPage() {
               <Bullets items={team.groups.flatMap((g) => g.items)} className="mt-6" />
               <TeamPrice variant="block" />
               <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3">
-                <StartFree />
+                <StartFree label="Start Here" />
                 <TextLink href="/pricing#compare">Compare PRM plans</TextLink>
               </div>
             </div>
