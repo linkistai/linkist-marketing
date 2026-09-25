@@ -1,7 +1,7 @@
 'use client';
 
 import { CurrencySwitch, useCurrency } from '@/components/Currency';
-import { AED_PER_USD, planByKey } from '@/content/plans';
+import { planByKey } from '@/content/plans';
 import { formatMoney } from '@/lib/glossary';
 
 /** The Team plan price on /teams, in the shared currency: a one-line `note` for the hero or the priced `block` with its switch. */
@@ -13,7 +13,8 @@ export function TeamPrice({ variant }: { variant: 'note' | 'block' }) {
   const perUser = formatMoney(usd ? team.monthly : team.aed.monthly, cur);
   const month = formatMoney(usd ? t.usd.monthly : t.aed.monthly, cur);
   const year = formatMoney(usd ? t.usd.yearly : t.aed.yearly, cur);
-  const extraYear = usd ? formatMoney(t.extraYearly, 'USD') : `about ${formatMoney(Math.round(t.extraYearly * AED_PER_USD), 'AED')}`;
+  const extraMonth = formatMoney(usd ? t.extra.usd.monthly : t.extra.aed.monthly, cur);
+  const extraYear = formatMoney(usd ? t.extra.usd.yearly : t.extra.aed.yearly, cur);
   if (variant === 'note') {
     return (
       <p className="mt-6 text-sm text-body">
@@ -29,7 +30,7 @@ export function TeamPrice({ variant }: { variant: 'note' | 'block' }) {
         <span className="text-body">per user a month</span>
       </p>
       <p className="mt-1 text-sm text-muted">
-        Minimum {team.minUsers} users: {month} a month or {year} a year. Each additional user {perUser} a month or {extraYear} a year.
+        Minimum {team.minUsers} users: {month} a month or {year} a year. Each additional user {extraMonth} a month or {extraYear} a year.
       </p>
     </div>
   );

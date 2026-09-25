@@ -21,10 +21,10 @@ export const metadata: Metadata = pageMeta(
 
 const BILLING_FAQ = [
   { q: 'Do I need a card to start?', a: 'No. The Essential plan is free and needs no NFC card. Add a card any time.' },
-  { q: 'How is yearly billed?', a: 'Enhanced is $20 (AED 80) a year or $25 for life. Pro is $100 (AED 400) a year. Team is $250 (AED 1,000) a year for 5 users, then $5 a month or $60 a year for each additional user. Paid subscriptions may renew automatically until cancelled, as the terms say.' },
+  { q: 'How is yearly billed?', a: 'Enhanced is $20 (AED 80) a year. Pro is $100 (AED 400) a year. Team is $250 (AED 1,000) a year for 5 users, then $5 (AED 20) a month or $50 (AED 200) a year for each additional user. Paid subscriptions may renew automatically until cancelled, as the terms say.' },
   { q: 'Which currency am I billed in?', a: 'Every price is listed in US dollars and UAE dirhams; the USD / AED switch beside the prices shows either. The store checks out NFC cards in AED, and the checkout shows the billing currency.' },
   { q: 'Can I cancel?', a: 'Yes. You are responsible for cancelling before the renewal date if you do not want a subscription to renew. What you have paid for runs to the end of its period.' },
-  { q: 'Is there an Enterprise plan?', a: 'Not yet. Enterprise is coming later and is interest only. Single sign-on, CRM and HRMS integration and product customisation are planned for it.' },
+  { q: 'Is there an Enterprise plan?', a: 'Not yet. Enterprise is upcoming and interest only today. Single sign-on, CRM and HRMS integration, product customisation, and GDPR and SOC 2 Type 2 data security are planned for it.' },
   { q: 'Where do I buy?', a: 'Plans, cards, bundles, AI credit top-ups and invoices are handled in the browser at prm.linkist.ai, so the app stays focused on your relationships.' },
 ] as const;
 
@@ -54,7 +54,7 @@ export default function PricingPage() {
         }
       />
 
-      <section className="section !pt-0">
+      <section id="plans" className="section scroll-mt-[90px] !pt-0">
         <div className="container">
           <PlanCards headingLevel={2} />
         </div>

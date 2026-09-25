@@ -3,21 +3,19 @@
 import { Check } from 'lucide-react';
 import { StartFree, TextLink } from '@/components/Button';
 import { CurrencySwitch, useCurrency } from '@/components/Currency';
-import { AED_PER_USD, ENTERPRISE_NOTE, PLANS, type Plan } from '@/content/plans';
+import { PlanPromo } from '@/components/Promotions';
+import { ENTERPRISE_NOTE, PLANS, type Plan } from '@/content/plans';
 import { formatMoney, type Currency } from '@/lib/glossary';
 
-/** A dollar figure the owner has not priced in dirhams is shown converted at the peg, marked "about". */
-const aboutAed = (usd: number) => `about ${formatMoney(Math.round(usd * AED_PER_USD), 'AED')}`;
-
-/** The line under the price: yearly and lifetime, or the Team plan's minimum and extra users. */
+/** The line under the price: the yearly price, or the Team plan's minimum and extra users. */
 function priceLine(p: Plan, cur: Currency): string {
-  const m = (usd: number, aed?: number) => (cur === 'USD' ? formatMoney(usd, 'USD') : aed !== undefined ? formatMoney(aed, 'AED') : aboutAed(usd));
+  const m = (usd: number, aed: number) => (cur === 'USD' ? formatMoney(usd, 'USD') : formatMoney(aed, 'AED'));
   if (p.monthly === 0) return 'Free, for as long as you like';
   if (p.team) {
     const t = p.team;
-    return `${m(t.usd.monthly, t.aed.monthly)} a month or ${m(t.usd.yearly, t.aed.yearly)} a year for ${p.minUsers} users · minimum ${p.minUsers} users · each additional user ${m(p.monthly, p.aed.monthly)} a month or ${m(t.extraYearly)} a year`;
+    return `${m(t.usd.monthly, t.aed.monthly)} a month or ${m(t.usd.yearly, t.aed.yearly)} a year for ${p.minUsers} users · minimum ${p.minUsers} users · each additional user ${m(t.extra.usd.monthly, t.extra.aed.monthly)} a month or ${m(t.extra.usd.yearly, t.extra.aed.yearly)} a year`;
   }
-  return [p.yearly ? `${m(p.yearly, p.aed.yearly)} paid annually` : null, p.lifetime ? `${m(p.lifetime)} lifetime` : null].filter(Boolean).join(' · ');
+  return p.yearly && p.aed.yearly !== undefined ? `${m(p.yearly, p.aed.yearly)} paid annually` : '';
 }
 
 /**
@@ -58,6 +56,7 @@ export function PlanCards({ compact, headingLevel = 3 }: { compact?: boolean; he
                 </div>
               ))}
               <div className="mt-auto pt-[26px]">
+                <PlanPromo plan={p.key} />
                 <p className="flex items-baseline gap-1">
                   <span className="font-mono text-[34px] font-semibold tracking-[-0.03em] tabular">{formatMoney(cur === 'USD' ? p.monthly : p.aed.monthly, cur)}</span>
                   {p.monthly ? <span className="text-sm text-body">{p.perUser ? '/user/month' : '/month'}</span> : null}

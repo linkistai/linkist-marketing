@@ -105,12 +105,12 @@ export const HELP: readonly HelpEntry[] = [
   e('Teams', 'What happens to contacts when someone leaves?', 'Personal contacts stay with the person. Team-shared contacts and their relationship history remain with the authorised team, so relationship value stays inside the company.'),
   e('Teams', 'Who manages a team?', 'An administrator, through the centralised admin console listed in the plan comparison: members, shared contacts and company branding on every card.'),
   e('Teams', 'Can a team member keep private contacts?', 'Yes. Sharing is per contact, so personal relationships stay personal and only shared contacts are visible to the team.'),
-  e('Teams', 'How is a team billed?', '$5 (AED 20) per user a month with a minimum of 5 users: $25 a month or $250 a year for 5 users (AED 100 or AED 1,000), then $5 a month or $60 a year for each additional user.', [{ label: 'Pricing', href: '/pricing' }]),
+  e('Teams', 'How is a team billed?', '$5 (AED 20) per user a month with a minimum of 5 users: $25 a month or $250 a year for 5 users (AED 100 or AED 1,000), then $5 (AED 20) a month or $50 (AED 200) a year for each additional user.', [{ label: 'Pricing', href: '/pricing' }]),
 
   // Plans and billing
-  e('Plans and billing', 'What do the plans cost?', 'Essential is free. Enhanced is $2 (AED 8) a month, $20 (AED 80) a year or $25 for life. Pro is $10 (AED 40) a month or $100 (AED 400) a year. Team is $5 (AED 20) per user a month with a minimum of 5 users: $25 (AED 100) a month or $250 (AED 1,000) a year for 5 users, then $5 a month or $60 a year for each additional user.', [{ label: 'Pricing', href: '/pricing' }]),
+  e('Plans and billing', 'What do the plans cost?', 'Essential is free. Enhanced is $2 (AED 8) a month or $20 (AED 80) a year. Pro is $10 (AED 40) a month or $100 (AED 400) a year. Team is $5 (AED 20) per user a month with a minimum of 5 users: $25 (AED 100) a month or $250 (AED 1,000) a year for 5 users, then $5 (AED 20) a month or $50 (AED 200) a year for each additional user.', [{ label: 'Pricing', href: '/pricing' }]),
   e('Plans and billing', 'Which plan has ICP Matching?', 'Pro and Team. Enhanced adds profiles, templates and lead capture; Pro adds the AI and relationship intelligence features.'),
-  e('Plans and billing', 'Is there an Enterprise plan?', 'Not yet. Enterprise is coming later and is interest only today. Single sign-on and CRM or HRMS integration are listed for it.'),
+  e('Plans and billing', 'Is there an Enterprise plan?', 'Not yet. Enterprise is upcoming and interest only today. Single sign-on, CRM and HRMS integration, product customisation, and GDPR and SOC 2 Type 2 data security are planned for it.'),
   e('Plans and billing', 'Which currency am I billed in?', 'Prices are listed in AED and US dollars; the USD / AED switch beside the prices shows either, and the store checks out NFC cards in AED. The terms say prices are shown on the Pricing page and at checkout, with taxes added where they apply (T 12), so check the currency at checkout.', [TERMS]),
   e('Plans and billing', 'Where do I manage my subscription?', 'In the billing hub at prm.linkist.ai, which handles plans, AI credit top-ups, invoices and card orders.'),
   e('Plans and billing', 'Do subscriptions renew automatically?', 'Unless stated otherwise at checkout, paid subscriptions renew until you cancel. Cancel before the renewal date if you do not want the next period.', [TERMS]),
@@ -171,9 +171,9 @@ export const HELP: readonly HelpEntry[] = [
 
   // Limits and roadmap
   e('Limits and roadmap', 'Are there store apps?', 'Not linked from the product today. Linkist is a web app on your phone until the listings are live; the product says native apps are in final preparation.'),
-  e('Limits and roadmap', 'Is Enterprise available?', 'No. It is interest only. Contact us if you want to talk about it.'),
+  e('Limits and roadmap', 'Is Enterprise available?', 'Not yet. It is upcoming and interest only today. Contact us if you want to talk about it.'),
   e('Limits and roadmap', 'Are there integrations or an API?', 'Not today. CRM and HRMS integration and single sign-on are listed for the future Enterprise plan.'),
-  e('Limits and roadmap', 'Is Linkist GDPR or SOC 2 certified?', 'This site does not claim either. The Terms and Privacy state the security measures and say no system is perfectly secure (P 12); certifications appear here only with evidence.'),
+  e('Limits and roadmap', 'Is Linkist GDPR or SOC 2 certified?', 'Not today, and this site does not claim either. GDPR and SOC 2 Type 2 data security are planned for the upcoming Enterprise plan. The Terms and Privacy state the security measures and say no system is perfectly secure (P 12); certifications appear here only with evidence.'),
   e('Limits and roadmap', 'Are there customer case studies?', 'Not yet. Linkist names customers only with their written consent.'),
   e('Limits and roadmap', 'Is Linkist available in other languages?', 'The product and this site are in English. Other languages are not announced.'),
   e('Limits and roadmap', 'Which model powers the AI, and what does a credit cost?', 'Neither is published yet. The AI page lists both as open questions and will say when they are answered.', [{ label: 'AI and your data', href: '/ai' }]),

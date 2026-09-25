@@ -111,3 +111,5 @@ hrefs
 icpintro
 tapmoment
 cardlayers
+promobar
+planpromo

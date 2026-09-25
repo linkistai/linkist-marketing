@@ -176,12 +176,12 @@ export const SITE_CONTROLS: readonly Rule[] = [
 export const SECURITY_NOT_PUBLISHED: readonly string[] = [
   'The hosting provider and the region where data lives. The document says service providers may be in other countries.',
   'The providers list. The document points to linkist.ai/legal/providers, and to linkist.ai/legal/local for country-specific contacts; neither page is published yet.',
-  'Any third-party attestation. Linkist does not claim a SOC 2 report, an ISO 27001 certificate or GDPR compliance, and the document says no system is perfectly secure.',
+  'Any third-party attestation. Linkist does not claim a SOC 2 report, an ISO 27001 certificate or GDPR compliance today; GDPR and SOC 2 Type 2 data security are planned for the upcoming Enterprise plan. The document says no system is perfectly secure.',
   'A dedicated security contact. Until one is published, write to support@linkist.ai and it reaches the team.',
 ];
 
 export const SECURITY_FAQ: readonly FaqItem[] = [
-  { q: 'Is Linkist GDPR compliant or SOC 2 certified?', a: 'Linkist does not claim either. Its terms are governed by the laws of the United Arab Emirates as applied in Dubai, and the privacy part says that where the law of your country gives you more protection, you have it. If a certification arrives, the evidence appears on this page first.' },
+  { q: 'Is Linkist GDPR compliant or SOC 2 certified?', a: 'Not today, and Linkist does not claim either; GDPR and SOC 2 Type 2 data security are planned for the upcoming Enterprise plan. Its terms are governed by the laws of the United Arab Emirates as applied in Dubai, and the privacy part says that where the law of your country gives you more protection, you have it. If a certification arrives, the evidence appears on this page first.' },
   { q: 'Where is my data hosted?', a: 'The provider and region are not published yet. The document says service providers may be in other countries and that data moving between countries has the protections the law requires, such as data protection agreements and encryption.' },
   { q: 'Is there a password?', a: 'No. You sign in with your email address or mobile number and a one-time code that expires.' },
   { q: 'Can I export my data?', a: 'Yes. You can ask to see and download your data, in Settings, Privacy or at privacy@linkist.ai, and you can download it before closing your account. Linkist replies within 30 days.' },

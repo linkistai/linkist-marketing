@@ -49,8 +49,8 @@ function priceEntries(): HelpEntry[] {
     p.monthly === 0
       ? `${p.name} is free, for as long as you like.`
       : p.team
-        ? `${p.name} is ${both(p.monthly, p.aed.monthly)} per user a month with a minimum of ${p.minUsers} users: ${both(p.team.usd.monthly, p.team.aed.monthly)} a month or ${both(p.team.usd.yearly, p.team.aed.yearly)} a year for ${p.minUsers} users.`
-        : `${p.name} is ${both(p.monthly, p.aed.monthly)} a month${p.yearly ? `, or ${both(p.yearly, p.aed.yearly)} a year` : ''}${p.lifetime ? `, or ${formatMoney(p.lifetime, 'USD')} for life` : ''}.`;
+        ? `${p.name} is ${both(p.monthly, p.aed.monthly)} per user a month with a minimum of ${p.minUsers} users: ${both(p.team.usd.monthly, p.team.aed.monthly)} a month or ${both(p.team.usd.yearly, p.team.aed.yearly)} a year for ${p.minUsers} users, then ${both(p.team.extra.usd.monthly, p.team.extra.aed.monthly)} a month or ${both(p.team.extra.usd.yearly, p.team.extra.aed.yearly)} a year for each additional user.`
+        : `${p.name} is ${both(p.monthly, p.aed.monthly)} a month${p.yearly ? `, or ${both(p.yearly, p.aed.yearly)} a year` : ''}.`;
   out.push({ id: 'price-plans', category: 'Plans and billing', q: 'How much does Linkist cost? Plan prices', a: PLANS.map(planLine).join(' '), links: [{ label: 'Pricing', href: '/pricing' }] });
   for (const p of PLANS) out.push({ id: `price-${p.key}`, category: 'Plans and billing', q: `How much is the ${p.name} plan? ${p.name} price`, a: `${planLine(p)} ${p.fit}`, links: [{ label: 'Pricing', href: '/pricing' }] });
   const tierLine = (t: (typeof CARD_TIERS)[number]) => `${t.name}: ${MATERIALS.map((m) => `${m.name} ${both(t.prices.USD[m.key], t.prices.AED[m.key])}`).join(', ')}.`;

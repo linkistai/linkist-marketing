@@ -189,11 +189,11 @@ export const FEATURES: readonly FeaturePage[] = [
       { key: 'admin', title: 'Admin console', body: 'Add and remove users, manage who sees what, and keep company branding on every card from one place.', screen: 'team-admin-browser', kind: 'browser', alt: 'Admin console', plan: 'Team' },
       { key: 'directory', title: 'Team directory', body: 'Every colleague and their profiles in one directory, so the right person can be introduced fast.', screen: 'team-directory-browser', kind: 'browser', alt: 'Team directory', plan: 'Team' },
     ],
-    planNote: 'The Team plan is $5 (AED 20) per user a month with a minimum of 5 users: $25 (AED 100) a month or $250 (AED 1,000) a year for 5 users, then $5 a month or $60 a year for each additional user. It includes everything in Pro for every user.',
+    planNote: 'The Team plan is $5 (AED 20) per user a month with a minimum of 5 users: $25 (AED 100) a month or $250 (AED 1,000) a year for 5 users, then $5 (AED 20) a month or $50 (AED 200) a year for each additional user. It includes everything in Pro for every user.',
     faq: [
       { q: 'What happens to contacts when someone leaves?', a: 'Their personal contacts stay theirs. Team-shared contacts and the relationship history remain with the authorised team.' },
       { q: 'Can we brand the cards?', a: 'Yes. Company-wide branding on cards is part of the Team plan and managed from the admin console.' },
-      { q: 'Is there an Enterprise plan?', a: 'Not yet. Enterprise is interest only; single sign-on and CRM or HRMS integration are planned for it. Contact us to talk.' },
+      { q: 'Is there an Enterprise plan?', a: 'Not yet. Enterprise is upcoming and interest only today; single sign-on, CRM and HRMS integration, and GDPR and SOC 2 Type 2 data security are planned for it. Contact us to talk.' },
     ],
     hubBlurb: 'Shared contacts, admin console, company branding and a team directory.',
     object: 'team',

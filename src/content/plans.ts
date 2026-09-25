@@ -12,16 +12,20 @@ export interface Plan {
   readonly name: string;
   readonly fit: string;
   readonly badge?: string;
-  /** US dollars: a month (per user for Team), a year, for life. */
+  /** US dollars: a month (per user for Team) and a year. A one-time lifetime price is a launch promotion, not a plan price (src/content/promotions.ts). */
   readonly monthly: number;
   readonly yearly?: number;
-  readonly lifetime?: number;
   /** The same prices in UAE dirhams (owner's price table, 25 September 2026). */
   readonly aed: { readonly monthly: number; readonly yearly?: number };
   readonly perUser?: boolean;
   readonly minUsers?: number;
   /** A per-user plan: the monthly and yearly price of the minimum team, in USD and AED (owner, 21 September 2026, D52). */
-  readonly team?: { readonly usd: { monthly: number; yearly: number }; readonly aed: { monthly: number; yearly: number }; /** Each user beyond the minimum on the yearly plan, USD (owner, 22 September). */ readonly extraYearly: number };
+  readonly team?: {
+    readonly usd: { monthly: number; yearly: number };
+    readonly aed: { monthly: number; yearly: number };
+    /** Each user beyond the minimum: $5 a month or $50 a year (owner, 25 September); the dirham figures are the 5-user prices divided by 5. */
+    readonly extra: { readonly usd: { monthly: number; yearly: number }; readonly aed: { monthly: number; yearly: number } };
+  };
   readonly groups: readonly { heading: string; items: readonly string[] }[];
 }
 
@@ -43,7 +47,6 @@ export const PLANS: readonly Plan[] = [
     fit: 'For a profile that works as hard as you do.',
     monthly: 2,
     yearly: 20,
-    lifetime: 25,
     aed: { monthly: 8, yearly: 80 },
     groups: [
       { heading: 'Everything in Essential, plus', items: ['Personal URL and unlimited profile fields', 'Bio, socials, services, products, certifications', '3 profiles: 1 personal, 2 business', '3 card templates and a branded QR'] },
@@ -71,7 +74,7 @@ export const PLANS: readonly Plan[] = [
     aed: { monthly: 20 },
     perUser: true,
     minUsers: 5,
-    team: { usd: { monthly: 25, yearly: 250 }, aed: { monthly: 100, yearly: 1000 }, extraYearly: 60 },
+    team: { usd: { monthly: 25, yearly: 250 }, aed: { monthly: 100, yearly: 1000 }, extra: { usd: { monthly: 5, yearly: 50 }, aed: { monthly: 20, yearly: 200 } } },
     groups: [
       { heading: 'Everything in Pro, teamwide', items: ['Contact sharing across the team', 'Centralised admin console', 'Company branding on cards', 'Team directory'] },
     ],
@@ -80,11 +83,11 @@ export const PLANS: readonly Plan[] = [
 
 export const planByKey = (key: PlanKey) => PLANS.find((p) => p.key === key)!;
 
-/** The Team plan in one sentence (owner, 21 and 25 September 2026): $5 (AED 20) per user a month, minimum 5 users; $25 a month or $250 a year for 5 (AED 100 / AED 1,000); $5 a month or $60 a year for each additional user (22 September). */
-export const TEAM_PRICE_LINE = '$5 (AED 20) per user a month, minimum 5 users: $25 a month or $250 a year for 5 users (AED 100 a month or AED 1,000 a year), then $5 a month, or $60 a year, for each additional user.';
+/** The Team plan in one sentence (owner, 21 and 25 September 2026): $5 (AED 20) per user a month, minimum 5 users; $25 a month or $250 a year for 5 (AED 100 / AED 1,000); $5 (AED 20) a month or $50 (AED 200) a year for each additional user. */
+export const TEAM_PRICE_LINE = '$5 (AED 20) per user a month, minimum 5 users: $25 a month or $250 a year for 5 users (AED 100 a month or AED 1,000 a year), then $5 (AED 20) a month, or $50 (AED 200) a year, for each additional user.';
 
-/** Enterprise is coming later and interest only (brief 3.9): a contact route, never a plan card. */
-export const ENTERPRISE_NOTE = 'Enterprise: coming later, interest only. Single sign-on, CRM and HRMS integration and product customisation are planned for it.';
+/** Enterprise is upcoming and interest only today (brief 3.9, owner 25 September 2026): a contact route, never a plan card. */
+export const ENTERPRISE_NOTE = 'Enterprise: upcoming, interest only today. Single sign-on, CRM and HRMS integration, product customisation, and GDPR and SOC 2 Type 2 data security are planned for it.';
 
 export type Material = 'pvc' | 'wood' | 'metal';
 export const MATERIALS: readonly { key: Material; name: string }[] = [
@@ -184,8 +187,9 @@ export type CompareRow = { readonly group: string } | { readonly label: string; 
 /**
  * The plan comparison, feature by feature, from the owner's "Linkist Plan Comparison" sheet of
  * 25 September 2026 (D58). Rows marked * are Enterprise extras at cost or custom pricing; the
- * footnote sits under the table. The sheet's "GDPR and SOC 2 Type 2 data security" row is held
- * back until evidence is supplied, because /security states that no such certification is claimed.
+ * footnote sits under the table. The sheet's "GDPR and SOC 2 Type 2 data security" row is an
+ * Enterprise feature (owner, 25 September), and Enterprise is marked upcoming, so it is ticked for
+ * Enterprise only; nothing is claimed for the plans on sale today.
  */
 export const COMPARE_HEADERS = ['Essential', 'Enhanced', 'Pro', 'Team', 'Enterprise'] as const;
 export const COMPARE_FOOTNOTE = '* Available at cost or custom pricing (Enterprise).';
@@ -240,5 +244,6 @@ export const COMPARE_ROWS: readonly CompareRow[] = [
   { label: 'HRMS integration*', cells: ['No', 'No', 'No', 'No', 'Yes'] },
   { label: 'Product Customisation*', cells: ['No', 'No', 'No', 'No', 'Yes'] },
   { group: 'Security and support' },
+  { label: 'GDPR and SOC 2 Type 2 data security', cells: ['No', 'No', 'No', 'No', 'Yes'] },
   { label: 'Support level', cells: ['Community / AI help centre', 'Plus Email (standard SLA)', 'Priority email (24 hrs)', 'Priority email (6 hrs)', 'Dedicated support'] },
 ];

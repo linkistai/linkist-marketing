@@ -54,7 +54,7 @@ export const HERO = {
   switchToIndividuals: { lead: 'Buying just for yourself?', link: 'Switch to individuals' },
   byo: 'Already have an NFC card? Bring your own',
   /** The five capabilities under the buttons, with their icons. */
-  pillars: ['Smart NFC Cards', 'Contact Enrichment', 'ICP Matching', 'AI Recommendations', 'Smart Follow-ups'] as const,
+  pillars: ['Smart NFC Cards', 'Contact Enrichment', 'ICP Matching', 'AI-Powered Nudges', 'Smart Follow-ups'] as const,
   stores: {
     apple: { small: 'Download on the', big: 'App Store' },
     google: { small: 'Get it on', big: 'Google Play' },

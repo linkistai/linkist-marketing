@@ -4,7 +4,8 @@ import { COMPARE_FOOTNOTE, COMPARE_HEADERS, COMPARE_ROWS } from '@/content/plans
 /**
  * The plan comparison, feature by feature (v2): a scrollable region at least 860 px wide with a
  * sticky header, groups as full-width rows, ticks and dashes for yes and no (with text for
- * screen readers), and the Pro column tinted. Enterprise is interest only.
+ * screen readers), and the Pro column tinted. Enterprise is marked upcoming: every tick in its
+ * column is planned, not on sale.
  */
 export function CompareTable() {
   const pro = COMPARE_HEADERS.indexOf('Pro');
@@ -34,7 +35,7 @@ export function CompareTable() {
               {COMPARE_HEADERS.map((h, j) => (
                 <th key={h} scope="col" className={`text-center font-mono !text-[12px] uppercase !tracking-[0.1em] ${j === pro ? 'compare__pro' : ''}`}>
                   {h}
-                  {h === 'Enterprise' ? <span className="block font-body text-[10px] normal-case tracking-normal text-muted">interest only</span> : null}
+                  {h === 'Enterprise' ? <span className="mx-auto mt-1 block w-fit rounded-full border border-[rgba(238,80,100,0.45)] px-2 py-0.5 font-mono text-[9.5px] tracking-[0.12em] text-coral">Upcoming</span> : null}
                 </th>
               ))}
             </tr>

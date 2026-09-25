@@ -45,7 +45,7 @@ export const PRINCIPLES: readonly { title: string; body: string; source: string 
   { title: 'Your contacts are yours', body: 'Personal contacts stay with the person; only what is shared with a team stays with the company when someone leaves.', source: 'The Team plan' },
   { title: 'With or without an NFC card', body: 'The free plan needs no NFC card, every NFC card includes PRM Essential, and an NFC card you already own can be activated free.', source: 'The store' },
   { title: 'No password', body: 'Sign in with an email or mobile number and a one-time code. Nothing to reuse, nothing to phish.', source: 'The sign-in screens' },
-  { title: 'Honest about limits', body: 'A web app until the store listings exist, Enterprise as interest only, no compliance badge without evidence, no named customer without consent.', source: 'This site, section 3.9 of the brief' },
+  { title: 'Honest about limits', body: 'A web app until the store listings exist, Enterprise marked as upcoming, no compliance badge without evidence, no named customer without consent.', source: 'This site, section 3.9 of the brief' },
 ];
 
 /** Dated events with a public source (about page). */
