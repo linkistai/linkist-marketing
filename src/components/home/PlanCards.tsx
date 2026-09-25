@@ -4,60 +4,60 @@ import { ENTERPRISE_NOTE, PLANS } from '@/content/plans';
 import { formatMoney } from '@/lib/glossary';
 
 /**
- * Four PRM plan cards with Pro featured (a gradient ring and the glow, "Most popular"), grouped
- * inclusions and honest fine print (brief 5). Prices are in US dollars; the AED display option is
- * being confirmed with the app, so the cards say so rather than promise it.
+ * Four PRM plan cards (v2): Essential, Enhanced, Pro featured (red border, a dark red wash and a
+ * white "Most popular" badge on the top edge) and Team. Each card lists its groups, then pins the
+ * price block and its CTA to the bottom. Prices are in US dollars.
  */
 export function PlanCards({ compact, headingLevel = 3 }: { compact?: boolean; headingLevel?: 2 | 3 }) {
   const H = headingLevel === 2 ? 'h2' : 'h3';
   return (
     <div>
-      <div className="grid items-stretch gap-4 md:grid-cols-2 xl:grid-cols-4" data-reveal="rise" data-reveal-stagger="0.08">
+      <div className="grid items-stretch gap-3.5 [grid-template-columns:repeat(auto-fit,minmax(min(100%,265px),1fr))]" data-reveal="rise" data-reveal-stagger="0.08">
         {PLANS.map((p) => {
           const featured = p.key === 'pro';
           return (
-            <div key={p.key} className={`card lift relative flex flex-col p-6 ${featured ? 'sweep sweep--featured' : 'sweep sweep--neutral'}`}>
-              {p.badge ? <span className="absolute -top-3 left-1/2 z-[2] -translate-x-1/2 whitespace-nowrap rounded-full bg-white px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.04em] text-ground">{p.badge}</span> : null}
+            <article key={p.key} className={`card card--panel relative flex flex-col !rounded-[24px] p-[26px] ${featured ? 'card--featured' : ''}`}>
+              {p.badge ? <span className="plan-badge">{p.badge}</span> : null}
               <div className="flex items-center justify-between gap-2">
-                <H className="eyebrow !text-body">{p.name}</H>
+                <H className="font-mono text-[13px] font-normal uppercase tracking-[0.14em] text-soft-2">{p.name}</H>
                 {p.key === 'essential' ? <span className="text-xs font-semibold text-muted">No NFC card required</span> : null}
               </div>
-              <p className="mt-2 text-sm italic text-muted">{p.fit}</p>
+              <p className="mt-2.5 text-sm italic text-[#9a968f]">{p.fit}</p>
               {p.groups.map((g) => (
-                <div key={g.heading} className="mt-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.04em] text-muted">{g.heading}</p>
-                  <ul className="mt-2 flex flex-col gap-1.5 text-sm text-body">
+                <div key={g.heading} className="mt-[18px]">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-muted">{g.heading}</p>
+                  <ul className="mt-2 flex flex-col gap-[7px] text-sm text-soft">
                     {g.items.map((line) => (
                       <li key={line} className="flex items-start gap-2">
-                        <Check size={15} aria-hidden="true" className="mt-0.5 flex-none text-coral" />
+                        <Check size={15} strokeWidth={2.5} aria-hidden="true" className="mt-[3px] flex-none text-coral" />
                         {line}
                       </li>
                     ))}
                   </ul>
                 </div>
               ))}
-              <div className="mt-auto pt-6">
+              <div className="mt-auto pt-[26px]">
                 <p className="flex items-baseline gap-1">
-                  <span className="font-mono text-3xl font-semibold tabular">{formatMoney(p.monthly, 'USD')}</span>
+                  <span className="font-mono text-[34px] font-semibold tracking-[-0.03em] tabular">{formatMoney(p.monthly, 'USD')}</span>
                   {p.monthly ? <span className="text-sm text-body">{p.perUser ? '/user/month' : '/month'}</span> : null}
                 </p>
-                <p className="mt-1 text-xs text-muted">
+                <p className="mt-1 text-xs leading-normal text-muted">
                   {p.monthly === 0
                     ? 'Free, for as long as you like'
                     : p.team
-                      ? `${formatMoney(p.team.usd.monthly, 'USD')} a month or ${formatMoney(p.team.usd.yearly, 'USD')} a year for ${p.minUsers} users (${formatMoney(p.team.aed.monthly, 'AED')} / ${formatMoney(p.team.aed.yearly, 'AED')}) · minimum ${p.minUsers} users · each additional user ${formatMoney(p.monthly, 'USD')} a month or ${formatMoney(p.team.extraYearly, 'USD')} a year`
+                      ? `${formatMoney(p.team.usd.monthly, 'USD')}/month or ${formatMoney(p.team.usd.yearly, 'USD')}/year for ${p.minUsers} users (${formatMoney(p.team.aed.monthly, 'AED')} / ${formatMoney(p.team.aed.yearly, 'AED')}). Extra users ${formatMoney(p.monthly, 'USD')}/month or ${formatMoney(p.team.extraYearly, 'USD')}/year.`
                       : [p.yearly ? `${formatMoney(p.yearly, 'USD')} paid annually` : null, p.lifetime ? `${formatMoney(p.lifetime, 'USD')} lifetime` : null].filter(Boolean).join(' · ')}
                 </p>
                 <div className="mt-4">
-                  <StartFree size="sm" variant={featured ? 'primary' : 'secondary'} className="w-full" />
+                  <StartFree size="sm" variant={featured ? 'primary' : 'secondary'} className="w-full !min-h-[46px] !shadow-none" />
                 </div>
               </div>
-            </div>
+            </article>
           );
         })}
       </div>
-      <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <p className="max-w-3xl text-xs text-muted">Software subscription in US dollars. No NFC card required. {ENTERPRISE_NOTE}</p>
+      <div className="mt-[22px] flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
+        <p className="max-w-[760px] text-xs leading-normal text-muted">Billed in USD. No NFC card required. {ENTERPRISE_NOTE}</p>
         {compact ? <TextLink href="/pricing#compare">Compare PRM plans</TextLink> : null}
       </div>
     </div>

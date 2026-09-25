@@ -72,4 +72,4 @@ export const PROTO_CAPTIONS: Record<ProtoScreen, string> = {
 
 export const PROTO_ALT: Record<ProtoScreen, string> = Object.fromEntries(Object.entries(PROTO_CAPTIONS).map(([k, v]) => [k, `Design preview. ${v}`])) as Record<ProtoScreen, string>;
 
-export const DESIGN_NOTE = 'Design preview from the approved prototype. Layout, copy and figures can change before the screens ship; every figure shown is an example.';
+export const DESIGN_NOTE = 'Design preview. Screens and figures are examples and may change.';

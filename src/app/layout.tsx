@@ -12,9 +12,9 @@ import './globals.css';
 // DM Sans for display and headings, Inter for body and UI, JetBrains Mono for figures (brief, Design
 // system), self-hosted through next/font. The display face uses font-display optional so a slow
 // first load keeps the adjusted fallback instead of reflowing headlines (Grownz D18).
-const display = DM_Sans({ subsets: ['latin'], weight: ['500', '600', '700'], variable: '--font-display-next', display: 'optional' });
+const display = DM_Sans({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-display-next', display: 'optional' });
 const body = Inter({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-body-next', display: 'swap' });
-const mono = JetBrains_Mono({ subsets: ['latin'], weight: ['600'], variable: '--font-mono-next', display: 'swap' });
+const mono = JetBrains_Mono({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-mono-next', display: 'swap' });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: THEME === 'dark' ? '#141413' : '#FFFFFF',
+  themeColor: THEME === 'dark' ? '#050505' : '#FFFFFF',
   width: 'device-width',
   initialScale: 1,
 };
@@ -36,7 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Decides motion before first paint so the hero animates without waiting for hydration (brief 6). */}
         <script
           dangerouslySetInnerHTML={{
-            __html: "(function(){try{var f=new URLSearchParams(location.search).get('motion');var s=null;try{s=localStorage.getItem('linkist-motion')}catch(e){}document.documentElement.dataset.motion=f==='on'?'on':f==='off'?'off':s==='off'?'off':'on';}catch(e){document.documentElement.dataset.motion='on'}})();",
+            __html: "(function(){try{var f=new URLSearchParams(location.search).get('motion');var s=null;try{s=localStorage.getItem('linkist-motion')}catch(e){}var r=false;try{r=matchMedia('(prefers-reduced-motion: reduce)').matches}catch(e){}document.documentElement.dataset.motion=f==='on'?'on':f==='off'?'off':s==='off'?'off':s==='on'?'on':r?'off':'on';}catch(e){document.documentElement.dataset.motion='on'}})();",
           }}
         />
         <MotionProvider />

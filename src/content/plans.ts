@@ -27,7 +27,7 @@ export const PLANS: readonly Plan[] = [
   {
     key: 'essential',
     name: 'Essential',
-    fit: 'Your baseline Linkist identity. Free for as long as you like.',
+    fit: 'Your Linkist identity. Free forever.',
     monthly: 0,
     groups: [
       { heading: 'Share', items: ['Digital business card with photo', '1 personal profile', '1 card template', 'QR, URL, email and SMS sharing'] },
@@ -37,7 +37,7 @@ export const PLANS: readonly Plan[] = [
   {
     key: 'enhanced',
     name: 'Enhanced',
-    fit: 'For a profile that works as hard as you do.',
+    fit: 'A profile that works as hard as you do.',
     monthly: 2,
     yearly: 12,
     lifetime: 25,
@@ -49,7 +49,7 @@ export const PLANS: readonly Plan[] = [
   {
     key: 'pro',
     name: 'Pro',
-    fit: 'For anyone whose network is too big to hold in their head.',
+    fit: 'For networks too big to hold in your head.',
     badge: 'Most popular',
     monthly: 10,
     yearly: 100,
@@ -61,7 +61,7 @@ export const PLANS: readonly Plan[] = [
   {
     key: 'team',
     name: 'Team',
-    fit: 'For companies that want relationships to stay with the company.',
+    fit: 'Keep relationships with the company.',
     monthly: 5,
     perUser: true,
     minUsers: 5,
@@ -78,7 +78,7 @@ export const planByKey = (key: PlanKey) => PLANS.find((p) => p.key === key)!;
 export const TEAM_PRICE_LINE = '$5 per user a month, minimum 5 users: $25 a month or $300 a year for 5 users (AED 100 a month or AED 1,000 a year), then $5 a month, or $60 a year, for each additional user.';
 
 /** Enterprise is coming later and interest only (brief 3.9): a contact route, never a plan card. */
-export const ENTERPRISE_NOTE = 'Enterprise: coming later, interest only. Single sign-on, CRM and HRMS integration and product customisation are planned for it.';
+export const ENTERPRISE_NOTE = 'Enterprise is coming later, with SSO and CRM and HRMS integration.';
 
 export type Material = 'pvc' | 'wood' | 'metal';
 export const MATERIALS: readonly { key: Material; name: string }[] = [
@@ -144,7 +144,7 @@ export const BUNDLES: readonly Bundle[] = [
 
 export const BUNDLE_BENEFITS = [
   { title: 'One purchase', body: 'NFC card and PRM Pro together.' },
-  { title: 'Better value', body: 'Pay less than the NFC card and Pro bought separately.' },
+  { title: 'Better value', body: 'Pay less than buying both separately.' },
   { title: 'Start with the full system', body: 'Share by NFC and use Pro from day one.' },
   { title: 'UAE shipping included', body: 'NFC cards ship within the UAE, shipping included.' },
 ] as const;

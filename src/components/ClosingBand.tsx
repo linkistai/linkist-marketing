@@ -1,11 +1,13 @@
+import Image from 'next/image';
 import { Button } from '@/components/Button';
-import { Person } from '@/components/Person';
 import { G } from '@/lib/glossary';
 import { START_URL } from '@/lib/site';
 
 /**
- * Closing band (brief 5): a two-line imperative over a near-black panel with a crimson glow, a
- * person standing at the right, one CTA and one reassurance line.
+ * The v2 closing band: a 36 px panel lit by a red glow from the lower right. Left, a two-line H2
+ * with the second line in red, one primary CTA and a reassurance line; right, a floating cutout,
+ * decorative: the metal, wood and PVC cards by default, or the person cutout on the home page.
+ * (`person` and `personAlt` are kept for callers of the v1 band and are ignored.)
  */
 export function ClosingBand({
   line1 = 'Capture the people you meet.',
@@ -13,39 +15,41 @@ export function ClosingBand({
   reassurance = G.reassurance,
   cta = G.ctaPrimary,
   href = START_URL,
-  person,
-  personAlt = '',
+  image = 'cards',
 }: {
   line1?: string;
   line2?: string;
   reassurance?: string;
   cta?: string;
   href?: string;
+  image?: 'cards' | 'portrait';
   person?: string;
   personAlt?: string;
 }) {
   return (
-    <section className="section section--tight">
+    <section className="pb-[clamp(80px,10vw,120px)] pt-[clamp(40px,6vw,80px)]">
       <div className="container">
-        <div className="band band--person relative overflow-hidden p-8 text-center sm:p-14 lg:p-20 lg:text-left">
-          <div className="relative z-[1] lg:max-w-[58%]">
-            <h2 className="display-2 mx-auto max-w-2xl lg:mx-0">
+        <div className="closing" data-reveal="rise" data-image={image}>
+          <div className="relative z-[2]">
+            <h2 className="display-2 !text-[clamp(34px,4.6vw,64px)]">
               {line1}
               <br />
-              {line2}
+              <span className="em-coral">{line2}</span>
             </h2>
-            <div className="mt-8 flex justify-center lg:justify-start">
+            <div className="mt-8">
               <Button href={href} variant="primary" size="lg">
                 {cta}
               </Button>
             </div>
             <p className="mt-4 text-sm text-body">{reassurance}</p>
           </div>
-          {person ? (
-            <div className="band__person" aria-hidden="true">
-              <Person src={person} alt={personAlt} hero sizes="360px" />
-            </div>
-          ) : null}
+          <div className="closing__art" aria-hidden="true">
+            {image === 'portrait' ? (
+              <Image src="/assets/gen/portrait-cut.webp" alt="" width={896} height={1200} sizes="(min-width: 1024px) 440px, 60vw" className="closing__portrait" />
+            ) : (
+              <Image src="/assets/gen/cards-cut.webp" alt="" width={1024} height={1024} sizes="(min-width: 1024px) 340px, 60vw" className="closing__cards v2-float" style={{ ['--float-dur' as string]: '9s' }} />
+            )}
+          </div>
         </div>
       </div>
     </section>

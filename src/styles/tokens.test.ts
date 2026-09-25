@@ -12,13 +12,13 @@ describe('design tokens', () => {
     expect(createHash('sha256').update(json).digest('hex')).toBe(sum);
   });
 
-  it('carries the prototype palette and both themes', () => {
+  it('carries the v2 palette and both themes', () => {
     const t = JSON.parse(readFileSync(join(dir, 'tokens.json'), 'utf8'));
-    expect(t.color.brand.crimson).toBe('#D63A57');
-    expect(t.color.brand.crimsonDeep).toBe('#B93049');
-    expect(t.color.brand.coral).toBe('#F2606B');
-    expect(t.color.brand.ground).toBe('#141413');
-    expect(t.color.dark.surface).toBe('#262627');
+    expect(t.color.brand.crimson).toBe('#A3162D');
+    expect(t.color.brand.crimsonDeep).toBe('#870F24');
+    expect(t.color.brand.coral).toBe('#EE5064');
+    expect(t.color.brand.ground).toBe('#050505');
+    expect(t.color.dark.surface).toBe('#0C0C0D');
     expect(Object.keys(t.color.light)).toEqual(Object.keys(t.color.dark));
     expect(t.font.display).toContain('DM Sans');
     expect(t.radius['2xl']).toBe('24px');
@@ -26,9 +26,9 @@ describe('design tokens', () => {
 
   it('generated css makes dark the default and light the backup', () => {
     const css = readFileSync(join(dir, 'tokens.css'), 'utf8');
-    expect(css).toContain('--brand-crimson: #D63A57;');
-    expect(css).toMatch(/:root, :root\[data-theme="dark"\][^}]*--color-bg: #141413;/s);
+    expect(css).toContain('--brand-crimson: #A3162D;');
+    expect(css).toMatch(/:root, :root\[data-theme="dark"\][^}]*--color-bg: #050505;/s);
     expect(css).toMatch(/:root\[data-theme="light"\][^}]*--color-bg: #FFFFFF;/s);
-    expect(css).toContain('--shadow-glow: 0 8px 28px rgba(214,58,87,0.35);');
+    expect(css).toContain('--shadow-glow: 0 14px 40px rgba(163,22,45,0.35);');
   });
 });

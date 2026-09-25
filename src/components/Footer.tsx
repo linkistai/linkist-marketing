@@ -1,5 +1,5 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import { Wordmark } from './Logo';
 import { Newsletter } from './forms/Newsletter';
 import { CookieChoicesLink } from './CookieChoicesLink';
 import { MotionToggle } from './MotionToggle';
@@ -59,17 +59,18 @@ const COLUMNS: { title: string; links: { href: string; label: string; external?:
 ];
 
 /**
- * Footer: the two product buttons (Get the App, Get NFC Card), four columns, the newsletter, the
- * motion switch (brief 6), cookie choices and the company line. The newsletter keeps its own row
- * below the tablet breakpoint (Grownz audit finding).
+ * The v2 footer: an auto-fit grid where the brand block (lockup, blurb, the two product buttons and
+ * the newsletter) spans two columns beside Product, Features, Cards and Company. Under the columns
+ * a giant outlined "Linkist" wordmark, decorative; then the copyright bar with the cookie choices
+ * and the motion switch (brief 6).
  */
 export function Footer() {
   return (
     <footer className="footer-clearance border-t border-line" style={{ background: 'var(--color-bg)' }}>
-      <div className="container grid gap-12 py-16 lg:grid-cols-[minmax(300px,1.4fr)_repeat(4,1fr)]">
-        <div className="flex flex-col gap-4">
-          <Wordmark size={22} />
-          <p className="max-w-xs text-sm text-body">Capture Contacts. Remember Context. Act at the right time. A Personal Relationship Manager with an optional NFC card, built in Dubai.</p>
+      <div className="container grid gap-10 py-16 [grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))]">
+        <div className="flex min-w-[min(100%,300px)] flex-col gap-4 sm:col-span-2">
+          <Image src="/brand/lockup.png" alt="Linkist" width={1352} height={422} className="h-[26px] w-auto self-start" />
+          <p className="max-w-xs text-sm leading-relaxed text-body">A Personal Relationship Manager with an optional NFC card. Built in Dubai.</p>
           <div className="flex flex-wrap gap-2">
             <a href={FREE_PROFILE_URL} className="btn btn--primary btn--sm">
               {G.ctaApp}
@@ -78,20 +79,20 @@ export function Footer() {
               {G.ctaNfc}
             </a>
           </div>
-          <div className="mt-4 max-w-sm">
+          <div className="mt-3 max-w-[340px]">
             <Newsletter stacked />
           </div>
         </div>
         {COLUMNS.map((c) => (
-          <nav key={c.title} aria-label={c.title} className="flex flex-col gap-2 text-sm">
-            <h2 className="mb-1 text-xs font-semibold uppercase tracking-[0.04em] text-muted">{c.title}</h2>
+          <nav key={c.title} aria-label={c.title} className="flex flex-col gap-[9px] text-sm">
+            <h2 className="mb-1 font-body text-xs font-semibold uppercase tracking-[0.06em] text-muted">{c.title}</h2>
             {c.links.map((l) =>
               l.external ? (
-                <a key={l.label} href={l.href} className="no-underline hover:underline">
+                <a key={l.label} href={l.href} className="text-soft no-underline hover:text-white">
                   {l.label}
                 </a>
               ) : (
-                <Link key={l.label} href={l.href} className="no-underline hover:underline">
+                <Link key={l.label} href={l.href} className="text-soft no-underline hover:text-white">
                   {l.label}
                 </Link>
               ),
@@ -99,14 +100,19 @@ export function Footer() {
           </nav>
         ))}
       </div>
-      <div className="container flex flex-col gap-3 border-t border-line py-6 text-xs text-muted md:flex-row md:items-center md:justify-between">
-        <p>
-          © {new Date().getFullYear()} {COMPANY}. All rights reserved. Linkist PRM is a web app at prm.linkist.ai.
-        </p>
-        <p className="flex flex-wrap gap-4">
-          <CookieChoicesLink />
-          <MotionToggle />
-        </p>
+      <div aria-hidden="true" className="container overflow-hidden">
+        <p className="footer-wordmark">Linkist</p>
+      </div>
+      <div className="border-t border-line">
+        <div className="container flex flex-col gap-3 py-[22px] text-xs text-muted md:flex-row md:items-center md:justify-between">
+          <p>
+            © {new Date().getFullYear()} {COMPANY}. All rights reserved. Linkist PRM is a web app at prm.linkist.ai.
+          </p>
+          <p className="flex flex-wrap gap-4">
+            <CookieChoicesLink />
+            <MotionToggle />
+          </p>
+        </div>
       </div>
     </footer>
   );

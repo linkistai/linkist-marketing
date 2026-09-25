@@ -19,7 +19,8 @@ export function MotionProvider() {
       } catch {
         /* ignore */
       }
-      html.dataset['motion'] = force === 'on' ? 'on' : force === 'off' ? 'off' : saved === 'off' ? 'off' : 'on';
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      html.dataset['motion'] = force === 'on' ? 'on' : force === 'off' ? 'off' : saved === 'off' ? 'off' : saved === 'on' ? 'on' : reduced ? 'off' : 'on';
     }
     const on = html.dataset['motion'] === 'on';
     let stop: (() => void) | undefined;

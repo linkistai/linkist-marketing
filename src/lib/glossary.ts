@@ -24,7 +24,7 @@ export const G = {
   card: 'NFC card',
   cardTiers: { starter: 'Starter', signature: 'Signature', founders: 'Founders Circle' } as const,
   bundles: { signature: 'Signature Bundle', founders: 'Founders Circle Bundle' } as const,
-  reassurance: 'Free plan. No NFC card required. Add an NFC card any time.',
+  reassurance: 'Free plan. No NFC card needed, add one any time.',
   capabilities: {
     enrichment: 'AI Enrichment',
     scan: 'Card Scan',

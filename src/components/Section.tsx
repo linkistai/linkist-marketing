@@ -40,25 +40,67 @@ export function Lede({ children, className = '' }: { children: ReactNode; classN
   return <p className={`lede mt-4 ${className}`}>{children}</p>;
 }
 
-/** Eyebrow + headline + lede block, optionally centred. */
-export function SectionHead({ eyebrow, title, lede, center, as, size }: { eyebrow?: string; title: ReactNode; lede?: ReactNode; center?: boolean; as?: 'h1' | 'h2' | 'h3'; size?: 1 | 2 | 3 }) {
+/**
+ * Section head (v2): mono eyebrow (with an optional section number), H2 and lede. Centred, or split:
+ * eyebrow and H2 on the left, the lede on the right, bottom-aligned. Page-level H1 heads keep the
+ * stacked layout.
+ */
+export function SectionHead({ eyebrow, title, lede, center, as, size, num, id }: { eyebrow?: string; title: ReactNode; lede?: ReactNode; center?: boolean; as?: 'h1' | 'h2' | 'h3'; size?: 1 | 2 | 3; num?: string; id?: string }) {
+  const Tag = as ?? 'h2';
+  const eyebrowEl = eyebrow ? (
+    <p className={`eyebrow ${num ? 'eyebrow--plain' : ''} ${center ? 'justify-center' : ''}`}>
+      {num ? <span className="eyebrow__num">{num}</span> : null}
+      {eyebrow}
+    </p>
+  ) : null;
+  const heading = (
+    <Tag id={id} className={`display-${size ?? (Tag === 'h1' ? 1 : 2)} ${eyebrow ? 'mt-[18px]' : ''}`}>
+      {title}
+    </Tag>
+  );
+  if (center || Tag === 'h1' || !lede) {
+    return (
+      <div className={center ? 'mx-auto max-w-[860px] text-center [&_.lede]:mx-auto' : 'max-w-[900px]'} data-reveal="rise">
+        {eyebrowEl}
+        {heading}
+        {lede ? <p className="lede mt-[22px]">{lede}</p> : null}
+      </div>
+    );
+  }
   return (
-    <div className={`max-w-3xl ${center ? 'mx-auto text-center [&_.lede]:mx-auto' : ''}`} data-reveal="rise">
-      {eyebrow ? <Eyebrow className={center ? 'justify-center' : ''}>{eyebrow}</Eyebrow> : null}
-      <Headline as={as} size={size}>
-        {title}
-      </Headline>
-      {lede ? <Lede>{lede}</Lede> : null}
+    <div className="grid items-end gap-x-16 gap-y-6 [grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))]" data-reveal="rise">
+      <div>
+        {eyebrowEl}
+        {heading}
+      </div>
+      <p className="lede max-w-[560px]">{lede}</p>
     </div>
   );
 }
 
-/** The outcome line that closes every stage and use case (brief 9). */
+/** The outcome box that closes every stage and use case (v2: red-tinted panel, mono label). */
 export function Outcome({ label = 'Outcome', children }: { label?: string; children: ReactNode }) {
   return (
-    <p className="text-sm text-body">
-      <strong className="text-accent">{label}:</strong> {children}
+    <p className="outcome">
+      <span className="outcome__label">{label}</span>
+      {children}
     </p>
+  );
+}
+
+/** Check-mark bullets (v2). */
+export function Bullets({ items, className = '' }: { items: readonly ReactNode[]; className?: string }) {
+  return (
+    <ul className={`bullets ${className}`}>
+      {items.map((b, i) => (
+        <li key={i}>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M20 6 9 17l-5-5" />
+          </svg>
+          <span>{b}</span>
+        </li>
+      ))}
+    </ul>
   );
 }
 

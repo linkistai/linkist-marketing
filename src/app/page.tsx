@@ -1,132 +1,215 @@
 import type { Metadata } from 'next';
-import { Sparkles } from 'lucide-react';
+import Image from 'next/image';
 import { TextLink } from '@/components/Button';
 import { ClosingBand } from '@/components/ClosingBand';
 import { Faq } from '@/components/Faq';
-import { Scene } from '@/components/Person';
-import { ScreenFrame } from '@/components/ScreenFrame';
-import { Section, SectionHead } from '@/components/Section';
+import { MiniMock } from '@/components/mockups/MiniMock';
+import { PreviewNote } from '@/components/PreviewNote';
+import { SectionHead } from '@/components/Section';
 import { Bundles } from '@/components/home/Bundles';
-import { CapabilityGrid } from '@/components/home/CapabilityGrid';
 import { CardTiers } from '@/components/home/CardTiers';
 import { CommunityBand } from '@/components/home/CommunityBand';
-import { Hero } from '@/components/home/Hero';
+import { HomeHero } from '@/components/home/HomeHero';
 import { HomeJsonLd } from '@/components/home/JsonLd';
 import { PlanCards } from '@/components/home/PlanCards';
-import { StageFlow } from '@/components/home/StageFlow';
-import { UseCaseGrid } from '@/components/home/UseCaseGrid';
-import { PreviewNote } from '@/components/PreviewNote';
+import { StageSwitcher } from '@/components/home/StageSwitcher';
+import { UseCaseCards } from '@/components/home/UseCaseCards';
 import { PROTO_ALT } from '@/content/design';
-import { FAQ, MORE_THAN, MORE_THAN_LINE, STAGES } from '@/content/home';
-import { asset, person, scene, screen } from '@/lib/screens';
+import { CAPABILITIES, FAQ, MORE_THAN, MORE_THAN_LINE, STAGES } from '@/content/home';
+import { USE_CASES } from '@/content/usecases';
+import { screen } from '@/lib/screens';
 import { DEFAULT_DESCRIPTION, TAGLINE, pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(TAGLINE, DEFAULT_DESCRIPTION, '/', { image: '/og/home.png' });
 
-export default function HomePage() {
-  const stages = STAGES.map((s) => ({
-    n: s.n,
-    label: s.label,
-    title: s.title,
-    href: s.href,
-    frame: <ScreenFrame kind="phone" src={screen(s.screen)} alt={PROTO_ALT[s.screen]} preview full />,
-  }));
+/** The capabilities that scroll under the hero (v2 marquee), in glossary spelling. */
+const MARQUEE = ['AI Enrichment', 'Card Scan', 'Contact Import', 'Voice Notes', 'Natural-Language Search', 'ICP Matching', 'Relationship Priority', 'Network Ask', 'Top Actions', 'Intelligent Nudges', 'Warm Introductions'];
 
+/** The answer-first definitions (v2): real text, for readers and for answer engines. */
+const DEFINITIONS = [
+  { term: 'Linkist', def: FAQ[0]!.a },
+  { term: 'Personal Relationship Manager (PRM)', def: FAQ[1]!.a },
+  { term: 'NFC card', def: 'A tap-to-share card linked to your live profile. Every card includes PRM Essential.' },
+];
+
+export default function HomePage() {
+  const [linePlain, lineRest] = splitLine(MORE_THAN_LINE);
   return (
     <>
       <HomeJsonLd />
-      <Hero
-        slides={[
-          { key: 'rhea', screen: screen('profile-rhea'), alt: PROTO_ALT['profile-rhea'], card: asset('assets/cards/sample-rhea-2x.webp'), cardAlt: 'Rhea Desai’s Signature NFC card in brushed metal' },
-          { key: 'luca', screen: screen('profile-luca'), alt: PROTO_ALT['profile-luca'], card: asset('assets/cards/sample-luca-2x.webp'), cardAlt: 'Luca Mercer’s Signature NFC card' },
-          { key: 'dashboard', screen: screen('v6-home'), alt: PROTO_ALT['v6-home'], card: asset('assets/cards/sample-zayn-2x.webp'), cardAlt: 'Zayn Rahman’s black Signature NFC card' },
-        ]}
-      />
+      <HomeHero />
 
-      <Section id="how" tone="charcoal" glow>
-        <SectionHead eyebrow="How Linkist works" title={<>Turn the contacts you collect into <span className="em-coral">opportunities</span>.</>} lede="Linkist helps you capture the right people, understand who matters, and know what to do next." center />
-        <div className="mt-12">
-          <StageFlow stages={stages} />
+      <div aria-hidden="true" className="marquee">
+        <div className="marquee__mask">
+          <div className="v2-marquee marquee__track">
+            {[...MARQUEE, ...MARQUEE].map((m, i) => (
+              <span key={`${m}-${i}`} className="inline-flex items-center gap-10">
+                {m}
+                <Image src="/brand/mark.png" alt="" width={18} height={18} className="h-[18px] w-auto opacity-90" />
+              </span>
+            ))}
+          </div>
         </div>
-        <PreviewNote />
-      </Section>
+      </div>
 
-      <Section id="use-cases">
-        <SectionHead eyebrow="Built for real connections" title={<>See Linkist <span className="em-coral">at work</span>.</>} lede="The problem is rarely collecting contacts. It is knowing what to do with them afterwards." center />
-        <div className="mt-12">
-          <UseCaseGrid />
-        </div>
-        <div className="mt-8 flex justify-center">
-          <TextLink href="/use-cases">All 5 use cases</TextLink>
-        </div>
-        <PreviewNote />
-      </Section>
-
-      <Section id="different" tone="lifted">
-        <SectionHead eyebrow="More than an organised address book" title={<>More than <span className="em-coral">organising contacts</span>.</>} lede="Most tools stop once the contact is saved. Linkist helps you decide what to do with it." center />
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-reveal="rise" data-reveal-stagger="0.08">
-          {MORE_THAN.map((m) => (
-            <div key={m.title} className="card card--hover p-7">
-              <h3 className="display-3 text-[20px]">{m.title}</h3>
-              <p className="mt-2 text-sm text-body">{m.body}</p>
+      <section id="what" aria-labelledby="what-title" className="scroll-mt-[90px] pb-[clamp(40px,6vw,80px)] pt-[clamp(80px,11vw,140px)]">
+        <div className="container">
+          <div className="overflow-hidden rounded-[28px] border border-line bg-bg-alt" data-reveal="rise">
+            <div className="relative h-[clamp(220px,30vw,380px)]">
+              <Image src="/assets/gen/event.webp" alt="Professionals exchanging contacts on their phones at an evening event in Dubai" fill sizes="(min-width: 1240px) 1160px, 100vw" className="object-cover" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,10,11,0)_30%,#0a0a0b)]" aria-hidden="true" />
             </div>
-          ))}
+            <div className="grid gap-[clamp(24px,4vw,56px)] p-[clamp(28px,4vw,56px)] [grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))]">
+              <h2 id="what-title" className="font-display text-[clamp(34px,4.4vw,56px)] font-semibold leading-none tracking-[-0.035em]">
+                What is Linkist?
+              </h2>
+              <dl className="m-0 flex min-w-0 flex-col gap-[22px] md:col-span-2">
+                {DEFINITIONS.map((d, i) => (
+                  <div key={d.term} className={`grid gap-x-6 gap-y-2 [grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr))] ${i < DEFINITIONS.length - 1 ? 'border-b border-line pb-[22px]' : ''}`}>
+                    <dt className="pt-1 font-mono text-xs uppercase tracking-[0.12em] text-coral">{d.term}</dt>
+                    <dd className="m-0 text-[17px] leading-relaxed text-soft-2 [text-wrap:pretty] sm:col-span-2">{d.def}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
         </div>
-        <p className="mt-8 text-center text-md text-body" data-reveal="rise">
-          {MORE_THAN_LINE}
-        </p>
-      </Section>
+      </section>
 
-      <Section id="features" glow>
-        <SectionHead
-          eyebrow="What powers Linkist"
-          title={
-            <>
-              Simple to use. <span className="em-coral">Smarter underneath.</span> <Sparkles size={22} aria-label="AI-assisted" className="ml-1 inline align-baseline text-crimson" />
-            </>
-          }
-          lede="A few of the capabilities working behind the three-stage journey. Replayed here with example figures; the real screens are on the feature pages."
-          center
-        />
-        <div className="mt-12">
-          <CapabilityGrid />
+      <section id="how" aria-labelledby="how-title" className="section bg-[linear-gradient(180deg,#050505,#0a0a0b_50%,#050505)]">
+        <div className="container">
+          <SectionHead id="how-title" num="01" eyebrow="How Linkist works" title={<>Turn the contacts you collect into <span className="em-coral">opportunities</span>.</>} lede="Capture the right people, see who matters, know what to do next." />
+          <StageSwitcher
+            stages={STAGES.map((s) => ({ n: s.n, label: s.label, title: s.title, bullets: s.bullets, chips: s.chips, href: s.href, screen: screen(s.screen), alt: PROTO_ALT[s.screen] }))}
+          />
+          <PreviewNote className="!mt-12" />
         </div>
-        <div className="mt-8 flex justify-center">
-          <TextLink href="/features">See more features</TextLink>
-        </div>
-      </Section>
+      </section>
 
-      <Section id="pricing" tone="charcoal">
-        <SectionHead eyebrow="Linkist PRM" title={<>Start free. <span className="em-coral">Add more</span> when you need it.</>} lede="Use Linkist PRM without an NFC card. Start with the free plan and upgrade when you need richer contact management, AI matching and follow-up, or team collaboration." center />
-        <div className="mt-12">
-          <PlanCards compact />
+      <section id="use-cases" aria-labelledby="uc-title" className="section">
+        <div className="container">
+          <SectionHead id="uc-title" num="02" eyebrow="Built for real connections" title={<>See Linkist <span className="em-coral">at work</span>.</>} lede="Collecting contacts is easy. Knowing what to do next is the hard part." />
+          <UseCaseCards items={USE_CASES.map((u) => ({ slug: u.slug, short: u.short, title: u.title, problem: u.problem, steps: u.steps, result: u.result, chips: u.chips, img: u.scene, alt: u.sceneAlt }))} />
+          <div className="mt-8 flex justify-center">
+            <TextLink href="/use-cases">All 5 use cases</TextLink>
+          </div>
         </div>
-      </Section>
+      </section>
 
-      <Section id="cards">
-        <SectionHead eyebrow="Linkist NFC cards" title={<>Tap. Share. Make the <span className="em-coral">first impression</span> count.</>} lede="Choose a Linkist NFC card that connects instantly to your live professional profile. Every card includes PRM Essential." center />
-        <div className="mt-12">
-          <CardTiers />
+      <section id="different" aria-labelledby="diff-title" className="section section--charcoal">
+        <div className="container">
+          <div className="max-w-[860px]" data-reveal="rise">
+            <p className="eyebrow eyebrow--plain">
+              <span className="eyebrow__num">03</span>More than an organised address book
+            </p>
+            <h2 id="diff-title" className="display-2 mt-[18px]">
+              More than <span className="em-coral">organising contacts</span>.
+            </h2>
+            <p className="lede mt-[22px] max-w-[560px]">Most tools stop at saving the contact. Linkist tells you what to do with it.</p>
+          </div>
+          <div className="quad mt-[clamp(40px,5vw,64px)]" data-reveal="rise" data-reveal-stagger="0.08">
+            {MORE_THAN.map((m, i) => (
+              <div key={m.title} className="quad__cell">
+                <span aria-hidden="true" className="font-mono text-[13px] text-coral">
+                  /{String(i + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <h3 className="font-display text-2xl font-semibold tracking-[-0.02em]">{m.title}</h3>
+                  <p className="mt-2.5 text-[15px] leading-normal text-body">{m.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="mx-auto mt-[clamp(40px,5vw,64px)] max-w-[900px] text-center font-display text-[clamp(24px,3vw,38px)] font-medium leading-[1.2] tracking-[-0.025em] text-muted [text-wrap:balance]" data-reveal="rise">
+            {linePlain} <span className="text-white">{lineRest}</span>
+          </p>
         </div>
-      </Section>
+      </section>
 
-      <Section id="bundles" tone="lifted">
-        <SectionHead eyebrow="Bundled offers" title={<>Get the NFC card and PRM Pro <span className="em-coral">together</span>, and save.</>} lede="Bundles combine the physical Linkist card with the Pro plan in one purchase, for less than buying the card and Pro separately." center />
-        <div className="mt-12">
-          <Bundles />
+      <section id="features" aria-labelledby="feat-title" className="section relative isolate overflow-hidden">
+        <Image src="/assets/gen/abstract.webp" alt="" aria-hidden="true" fill sizes="100vw" className="-z-10 object-cover opacity-60" />
+        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#050505,rgba(5,5,5,.4)_30%,rgba(5,5,5,.4)_70%,#050505)]" />
+        <div className="container">
+          <SectionHead
+            id="feat-title"
+            num="04"
+            eyebrow="What powers Linkist"
+            center
+            title={
+              <>
+                Simple to use. <span className="em-coral">Smarter underneath.</span> <span role="img" aria-label="AI-assisted" className="ai-diamond" />
+              </>
+            }
+            lede="The capabilities behind the three-stage journey, shown with example figures."
+          />
+          <div className="mt-[clamp(40px,5vw,64px)] grid gap-3.5 [grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr))]" data-reveal="rise" data-reveal-stagger="0.08">
+            {CAPABILITIES.map((c) => (
+              <article key={c.title} className="capcard">
+                <div className="capcard__well">
+                  <MiniMock mock={c.mock} />
+                </div>
+                <div>
+                  <h3 className="font-display text-[21px] font-semibold tracking-[-0.02em]">{c.title}</h3>
+                  <p className="mt-2 text-sm leading-normal text-body">{c.body}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="mt-8 flex justify-center">
+            <TextLink href="/features">See more features</TextLink>
+          </div>
         </div>
-      </Section>
+      </section>
 
-      <Section tight id="faq">
-        <SectionHead eyebrow="FAQ" title="Frequently asked questions" center />
-        <div className="mx-auto mt-10 max-w-4xl">
-          <Faq items={FAQ} jsonLd aside={scene('faq-home') ? <Scene src={scene('faq-home')} alt="A person at an event holding a phone with Linkist open" /> : undefined} />
+      <section id="pricing" aria-labelledby="price-title" className="section section--charcoal !border-b-0">
+        <div className="container">
+          <SectionHead id="price-title" num="05" eyebrow="Linkist PRM" title={<>Start free. <span className="em-coral">Add more</span> when you need it.</>} lede="No NFC card needed. Start free, then upgrade for richer contacts, AI matching and follow-up, or teams." />
+          <div className="mt-[clamp(40px,5vw,64px)]">
+            <PlanCards compact />
+          </div>
         </div>
-      </Section>
+      </section>
+
+      <section id="cards" aria-labelledby="cards-title" className="section relative overflow-hidden">
+        <div className="container">
+          <CardTiers intro={{ num: '06', eyebrow: 'Linkist NFC cards', id: 'cards-title', title: <>Tap. Share. Make the <span className="em-coral">first impression</span> count.</>, lede: 'A card that opens your live profile in one tap. Every card includes PRM Essential.' }} cta={{ href: '/nfc-cards', label: 'Explore NFC cards' }} />
+        </div>
+      </section>
+
+      <section id="bundles" aria-labelledby="bundles-title" className="section section--charcoal">
+        <div className="container">
+          <SectionHead id="bundles-title" num="07" eyebrow="Bundled offers" title={<>Get the NFC card and PRM Pro <span className="em-coral">together</span>, and save.</>} lede="Your Linkist card and the Pro plan in one purchase, for less than buying both." />
+          <div className="mt-[clamp(40px,5vw,64px)]">
+            <Bundles />
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" aria-labelledby="faq-title" className="section">
+        <div className="container">
+          <Faq
+            items={FAQ}
+            jsonLd
+            num="08"
+            title="Frequently asked questions"
+            aside={
+              <div className="relative aspect-[4/3] overflow-hidden rounded-[22px] border border-line">
+                <Image src="/assets/gen/event.webp" alt="A person at an event holding a phone with Linkist open" fill sizes="(min-width: 768px) 520px, 90vw" className="object-cover [object-position:60%_50%]" />
+              </div>
+            }
+          />
+        </div>
+      </section>
 
       <CommunityBand />
 
-      <ClosingBand person={person('close-1')} personAlt="A person standing with a phone in hand, smiling at the camera" />
+      <ClosingBand image="portrait" />
     </>
   );
+}
+
+/** "Contacts store people. Linkist builds ..." as the muted first sentence and the white second. */
+function splitLine(line: string): [string, string] {
+  const i = line.indexOf('. ');
+  return i < 0 ? ['', line] : [line.slice(0, i + 1), line.slice(i + 2)];
 }
