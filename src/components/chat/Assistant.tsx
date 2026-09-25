@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { Bot, Send } from 'lucide-react';
 import { useEffect, useRef, useState, type FormEvent } from 'react';
-import { FALLBACK, SUGGESTED, search, type KnowledgeHit } from '@/lib/knowledge';
+import { FALLBACK, SUGGESTED, search, smallTalk, type KnowledgeHit } from '@/lib/knowledge';
 import { START_URL } from '@/lib/site';
 
 interface Turn {
@@ -43,16 +43,19 @@ export function Assistant({ compact }: { compact?: boolean }) {
     setTurns((t) => [...t, { who: 'you', text: question }]);
     busyRef.current = true;
     setBusy(true);
-    const hits = search(question, 3);
-    let answer = hits.length ? hits[0]!.entry.a : FALLBACK;
-    try {
-      const res = await fetch('/api/chat', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ question }) });
-      if (res.ok) {
-        const data = (await res.json()) as { answer?: string };
-        if (data.answer) answer = data.answer;
+    const chat = smallTalk(question);
+    const hits = chat ? [] : search(question, 3);
+    let answer = chat ?? (hits.length ? hits[0]!.entry.a : FALLBACK);
+    if (!chat && hits.length) {
+      try {
+        const res = await fetch('/api/chat', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ question }) });
+        if (res.ok) {
+          const data = (await res.json()) as { answer?: string };
+          if (data.answer) answer = data.answer;
+        }
+      } catch {
+        /* offline or unconfigured: the retrieved answer stands */
       }
-    } catch {
-      /* offline or unconfigured: the retrieved answer stands */
     }
     setTurns((t) => [...t, { who: 'linkist', text: answer, hits }]);
     busyRef.current = false;

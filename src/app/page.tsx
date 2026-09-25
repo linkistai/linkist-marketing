@@ -17,7 +17,7 @@ import { UseCaseCards } from '@/components/home/UseCaseCards';
 import { PROTO_ALT, TALL_SCREENS } from '@/content/design';
 import { FAQ, STAGES } from '@/content/home';
 import { USE_CASES } from '@/content/usecases';
-import { screen } from '@/lib/screens';
+import { asset, screen } from '@/lib/screens';
 import { DEFAULT_DESCRIPTION, TAGLINE, pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(TAGLINE, DEFAULT_DESCRIPTION, '/', { image: '/og/home.png' });
@@ -36,7 +36,13 @@ export default function HomePage() {
   return (
     <>
       <HomeJsonLd />
-      <HomeHero />
+      <HomeHero
+        slides={[
+          { key: 'rhea', screen: screen('profile-rhea'), alt: PROTO_ALT['profile-rhea'], card: asset('assets/cards/sample-rhea-2x.webp'), cardAlt: 'Rhea Desai’s Signature NFC card in brushed metal' },
+          { key: 'luca', screen: screen('profile-luca'), alt: PROTO_ALT['profile-luca'], card: asset('assets/cards/sample-luca-2x.webp'), cardAlt: 'Luca Mercer’s Signature NFC card' },
+          { key: 'dashboard', screen: screen('v6-home'), alt: PROTO_ALT['v6-home'], card: asset('assets/cards/sample-zayn-2x.webp'), cardAlt: 'Zayn Rahman’s black Signature NFC card' },
+        ]}
+      />
 
       <div aria-hidden="true" className="marquee">
         <div className="marquee__mask">

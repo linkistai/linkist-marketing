@@ -3,12 +3,13 @@ import Image from 'next/image';
 import { Button, TextLink } from '@/components/Button';
 import { ClosingBand } from '@/components/ClosingBand';
 import { Faq } from '@/components/Faq';
+import { NfcCardLayers } from '@/components/NfcCardLayers';
 import { PageHero } from '@/components/PageHero';
 import { PhoneStage } from '@/components/PhoneStage';
 import { SectionHead } from '@/components/Section';
 import { CardTiers } from '@/components/home/CardTiers';
 import { PROTO_ALT } from '@/content/design';
-import { CARD_OPTIONS, CARD_TIERS, MATERIALS, SHIPPING_REGIONS } from '@/content/plans';
+import { CARD_OPTIONS, CARD_TIERS, SHIPPING_REGIONS } from '@/content/plans';
 import { screen } from '@/lib/screens';
 import { NFC_TOOLS_URL, STORE_URL, pageMeta } from '@/lib/site';
 
@@ -30,7 +31,7 @@ const FAQ = [
   { q: 'Does the other person need Linkist?', a: 'No. A tap opens your profile in their browser.' },
   { q: 'Which phones work?', a: 'Most recent iPhones and Android phones. Your QR code covers the rest.' },
   { q: 'What is the difference between Starter and Signature?', a: 'Signature adds your name and logo. Both come in PVC, wood or metal with PRM Essential.' },
-  { q: 'Which currency are cards priced in?', a: 'AED, with an approximate dollar figure.' },
+  { q: 'Which currency are cards priced in?', a: 'AED and US dollars; the USD / AED switch shows either. The store checks out in AED.' },
   { q: 'Is shipping included?', a: 'Yes, within the UAE. Other countries are not served yet.' },
   { q: 'Can I use an NFC card I already own?', a: 'Yes, free, at nfctools.linkist.ai. Encoding needs an Android phone.' },
   { q: 'Can I return an NFC card?', a: 'Yes, within 7 days, if it is defective, misprinted or differs from your order.' },
@@ -46,7 +47,6 @@ const PRODUCT_LD = {
   offers: { '@type': 'AggregateOffer', priceCurrency: 'AED', lowPrice: Math.min(...CARD_TIERS.flatMap((t) => Object.values(t.prices.AED))), highPrice: Math.max(...CARD_TIERS.flatMap((t) => Object.values(t.prices.AED))), offerCount: 6, availability: 'https://schema.org/InStock', areaServed: 'AE' },
 };
 
-const floatSlow = { ['--float-dur' as string]: '9s' };
 export default function NfcCardsPage() {
   return (
     <>
@@ -71,9 +71,8 @@ export default function NfcCardsPage() {
         side={
           <div className="relative flex w-full flex-col items-center">
             <div className="v2-glow w-[90%]" aria-hidden="true" />
-            <Image src="/assets/gen/cards-cut.webp" alt="Linkist NFC cards in brushed metal, cherry wood and PVC" width={1024} height={1024} priority sizes="(min-width: 1024px) 460px, 80vw" className="v2-float relative w-[min(100%,460px)] [filter:drop-shadow(0_30px_40px_rgba(0,0,0,.7))]" style={floatSlow} />
-            <p className="mt-2 font-mono text-xs uppercase tracking-[0.14em] text-body">{MATERIALS.map((m) => m.name).join(', ')}</p>
-            <p className="disclaimer mt-1 text-center">Renders with an example name.</p>
+            <NfcCardLayers className="relative" />
+            <p className="mt-2 font-mono text-xs uppercase tracking-[0.14em] text-body">Inside a Linkist NFC card</p>
           </div>
         }
       />

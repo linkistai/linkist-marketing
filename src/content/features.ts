@@ -57,7 +57,7 @@ export const FEATURES: readonly FeaturePage[] = [
       { label: 'Import formats', value: 'Phone, CSV, VCF' },
     ],
     tabs: [
-      { key: 'tap', title: 'NFC tap and QR', body: 'Tap a Linkist NFC card to a phone, or show your QR code. The other person gets your live profile and you keep the meeting.', screen: 'v6-shareready', kind: 'phone', alt: 'Share Contact screen' },
+      { key: 'tap', title: 'NFC tap and QR', body: 'Tap a Linkist NFC card to a phone, or show your QR code. The other person gets your live profile and you keep the meeting.', screen: 'v12-shareready', kind: 'phone', alt: 'Share Contact screen' },
       { key: 'scan', title: 'Card scan', body: 'Point the camera at a paper business card and it becomes a contact record. 5 a month on Essential, 20 on Enhanced, unlimited on Pro.', screen: 'v6-scan', kind: 'phone', alt: 'Card scan screen' },
       { key: 'import', title: 'Import and add', body: 'Bring your phone contacts, a CSV or a VCF file, or add a person by hand. Tags and a voice note keep the context with them.', screen: 'v6-quickadd', kind: 'phone', alt: 'Contact import screen' },
       { key: 'enrich', title: 'AI Enrichment', body: 'An incomplete record gets its missing professional details filled in. You see what was added and can change it.', screen: 'v6-enrich', kind: 'phone', alt: 'AI Enrichment on a contact record', plan: 'Pro' },

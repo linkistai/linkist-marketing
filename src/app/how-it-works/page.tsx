@@ -82,7 +82,7 @@ export default function HowItWorksPage() {
         }
         body="Share by QR, WhatsApp, email or link; describe who you want and see who fits; open on the nudges that need action."
         items={[
-          { screen: 'v6-shareready', title: 'Share by tap, QR, link, WhatsApp or email' },
+          { screen: 'v12-shareready', title: 'Share by tap, QR, link, WhatsApp or email' },
           { screen: 'v6-icpdetail', title: 'Describe your ideal contact once and see who matches' },
           { screen: 'v6-home', title: 'A home screen that says what to do next' },
         ]}

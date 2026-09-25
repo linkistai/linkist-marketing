@@ -14,7 +14,7 @@ export interface OgPage {
 export const OG_PAGES: readonly OgPage[] = [
   { slug: 'default', title: 'Capture Contacts. Remember Context. Act at the right time.', eyebrow: 'Personal Relationship Manager', screen: 'v6-home' },
   { slug: 'home', title: 'Capture Contacts. Remember Context. Act at the right time.', eyebrow: 'Personal Relationship Manager', screen: 'profile-rhea' },
-  { slug: 'how-it-works', title: 'Capture and share. Build relationships. Act and grow.', eyebrow: 'How Linkist works', screen: 'v6-shareready' },
+  { slug: 'how-it-works', title: 'Capture and share. Build relationships. Act and grow.', eyebrow: 'How Linkist works', screen: 'v12-shareready' },
   { slug: 'features', title: 'Simple to use. Smarter underneath.', eyebrow: 'Features', screen: 'v6-home' },
   { slug: 'features-capture', title: 'Save the contact. Save the context.', eyebrow: 'Capture', screen: 'v6-capture' },
   { slug: 'features-find', title: 'Find the people worth your attention.', eyebrow: 'Find', screen: 'v6-icpdetail' },
@@ -23,7 +23,7 @@ export const OG_PAGES: readonly OgPage[] = [
   { slug: 'features-teams', title: 'Relationships that stay with the company.', eyebrow: 'Teams', screen: 'v6-contacts' },
   { slug: 'use-cases', title: 'See Linkist at work.', eyebrow: 'Built for real connections', screen: 'v6-home' },
   { slug: 'nfc-cards', title: 'Tap. Share. Make the first impression count.', eyebrow: 'Linkist NFC cards', screen: 'v6-share' },
-  { slug: 'bring-your-own', title: 'Already have a NFC card or sticker? Bring it. We will make it live.', eyebrow: 'Bring your own NFC', screen: 'v6-shareready' },
+  { slug: 'bring-your-own', title: 'Already have a NFC card or sticker? Bring it. We will make it live.', eyebrow: 'Bring your own NFC', screen: 'v12-shareready' },
   { slug: 'bundles', title: 'The NFC card and PRM Pro together.', eyebrow: 'Bundled offers', screen: 'v6-share' },
   { slug: 'pricing', title: 'Start free. Add more when you need it.', eyebrow: 'Linkist PRM pricing', screen: 'v6-home' },
   { slug: 'teams', title: 'Relationships that stay with the company.', eyebrow: 'Linkist for teams', screen: 'v6-contacts' },

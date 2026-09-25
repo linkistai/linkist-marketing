@@ -60,7 +60,7 @@ export const HERO = {
     google: { small: 'Get it on', big: 'Google Play' },
     pending: 'Coming soon',
   },
-  imageAlt: 'A hand taps a Linkist NFC card on a phone, which opens the Linkist app.',
+  imageAlt: 'Linkist profiles and the app dashboard on a phone, each with its Signature NFC card',
 } as const;
 
 /** The three-stage journey, the prototype's spine (brief 3.2). One screen per stage in the deck. */

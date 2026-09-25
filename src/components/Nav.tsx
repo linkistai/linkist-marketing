@@ -63,7 +63,7 @@ export function Nav() {
       <header className="v2nav">
         <div className="v2nav__pill" data-scrolled={scrolled}>
           <Link href="/" aria-label="Linkist home" className="inline-flex min-h-[44px] items-center no-underline">
-            <Image src="/brand/lockup.png" alt="Linkist" width={1352} height={422} priority className="h-[22px] w-auto" />
+            <Image src="/brand/lockup.png" alt="Linkist" width={1352} height={422} priority className="h-[30px] w-auto" />
           </Link>
           <nav aria-label="Primary" className="hidden items-center gap-0.5 min-[1180px]:flex">
             {LINKS.map((l) => (

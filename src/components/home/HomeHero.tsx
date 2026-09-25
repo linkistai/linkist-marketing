@@ -7,6 +7,7 @@ import { useRef, useState, type KeyboardEvent, type MouseEvent } from 'react';
 import { Button } from '@/components/Button';
 import { StoreBadges } from '@/components/StoreBadges';
 import { HERO } from '@/content/home';
+import { HeroProduct, type HeroSlide } from './HeroProduct';
 import { Parallax } from '@/motion/Parallax';
 import { FREE_PROFILE_URL, GET_CARD_URL } from '@/lib/site';
 
@@ -23,7 +24,7 @@ const go = (href: string) => (href === 'free-profile' ? FREE_PROFILE_URL : href 
  * and a slow-turning giant brand mark. Everything decorative is aria-hidden; with motion off the
  * lines, ripples and float stand still.
  */
-export function HomeHero() {
+export function HomeHero({ slides }: { slides: readonly HeroSlide[] }) {
   const spot = useRef<HTMLDivElement>(null);
   const [mode, setMode] = useState(0);
   const m = HERO.modes[mode]!;
@@ -133,19 +134,9 @@ export function HomeHero() {
           </div>
         </div>
 
-        <div className="home-hero__stage" role="img" aria-label={HERO.imageAlt}>
+        <div className="home-hero__stage">
           <div className="v2-glow w-[80%] blur-[14px]" style={{ background: 'radial-gradient(circle, rgba(163,22,45,.5), rgba(163,22,45,0) 64%)' }} aria-hidden="true" />
-          <Parallax k={0.1} className="home-hero__cards" style={{ position: 'absolute' }}>
-            <Image src="/assets/gen/cards-cut.webp" alt="" aria-hidden="true" width={1024} height={1024} sizes="160px" className="v2-float w-full blur-[2px]" style={{ ['--float-dur' as string]: '9s' }} />
-          </Parallax>
-          <Parallax k={-0.05} className="relative w-[min(100%,560px)]">
-            <Image src="/assets/gen/hero-tap.webp" alt="" aria-hidden="true" width={928} height={1152} priority sizes="(min-width: 1024px) 560px, 90vw" className="home-hero__photo v2-float" />
-            <span className="v2-ripple absolute left-[52%] top-[30%] h-0 w-0" style={{ ['--ripple-gap' as string]: '0.5s' }} aria-hidden="true">
-              <span />
-              <span />
-              <span />
-            </span>
-          </Parallax>
+          <HeroProduct slides={slides} label={HERO.imageAlt} />
         </div>
       </div>
       <div className="container">
