@@ -12,7 +12,7 @@ export function PageHero({ crumbs, eyebrow, title, lede, ctas, note, side, wide 
   return (
     <section className="page-hero" aria-labelledby="page-title">
       <Parallax k={0.1} className="page-hero__mark">
-        <Image src="/brand/mark.png" alt="" width={256} height={256} aria-hidden="true" className="v2-spin h-auto w-full" priority={false} />
+        <Image src="/brand/mark.png" alt="" width={256} height={256} aria-hidden="true" className="v2-spin h-auto w-full" priority />
       </Parallax>
       <div className="container">
         {crumbs ? (

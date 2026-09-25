@@ -52,7 +52,7 @@ export function HomeHero({ slides }: { slides: readonly HeroSlide[] }) {
       <div className="home-hero__floor" aria-hidden="true" />
       <Image src="/assets/gen/abstract.webp" alt="" aria-hidden="true" fill priority sizes="100vw" className="home-hero__field" />
       <Parallax k={0.12} className="home-hero__mark">
-        <Image src="/brand/mark.png" alt="" aria-hidden="true" width={256} height={256} className="v2-spin h-auto w-full" />
+        <Image src="/brand/mark.png" alt="" aria-hidden="true" width={256} height={256} priority className="v2-spin h-auto w-full" />
       </Parallax>
 
       <div className="container home-hero__grid">

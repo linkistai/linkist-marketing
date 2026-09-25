@@ -40,7 +40,7 @@ export default function FeaturesHub() {
               <li key={f.slug} className={i === 0 ? 'lg:col-span-2' : ''}>
                 <Link href={`/features/${f.slug}`} className="card flex h-full flex-col overflow-hidden no-underline">
                   <span className={`relative block overflow-hidden ${i === 0 ? 'aspect-[16/7]' : 'aspect-[16/10]'} ${f.scene.square ? 'bg-bg-alt' : ''}`}>
-                    <Image src={f.scene.src} alt={f.scene.alt} fill sizes={i === 0 ? '(min-width: 1024px) 800px, 90vw' : '(min-width: 1024px) 400px, 90vw'} className={f.scene.square ? 'object-contain p-4' : 'object-cover'} />
+                    <Image src={f.scene.src} alt={f.scene.alt} fill priority={i === 0} sizes={i === 0 ? '(min-width: 1024px) 800px, 90vw' : '(min-width: 1024px) 400px, 90vw'} className={f.scene.square ? 'object-contain p-4' : 'object-cover'} />
                   </span>
                   <span className="flex flex-1 flex-col p-[clamp(22px,2.6vw,28px)]">
                     <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-coral">{f.stage}</span>

@@ -29,7 +29,7 @@ export default function BlogsPage() {
     <>
       <section className="page-hero" aria-labelledby="page-title">
         <Parallax k={0.1} className="page-hero__mark">
-          <Image src="/brand/mark.png" alt="" width={256} height={256} aria-hidden="true" className="v2-spin h-auto w-full" />
+          <Image src="/brand/mark.png" alt="" width={256} height={256} aria-hidden="true" priority className="v2-spin h-auto w-full" />
         </Parallax>
         <div className="container">
           <div className="mb-7">

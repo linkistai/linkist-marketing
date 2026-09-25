@@ -35,7 +35,7 @@ export default function UseCasesHub() {
               <li key={u.slug}>
                 <Link href={`/use-cases/${u.slug}`} className="card flex h-full flex-col overflow-hidden no-underline">
                   <span className="relative block aspect-[16/10] overflow-hidden">
-                    <Image src={u.scene} alt={u.sceneAlt} fill sizes="(min-width: 1024px) 400px, 90vw" className="object-cover" />
+                    <Image src={u.scene} alt={u.sceneAlt} fill priority={i === 0} sizes="(min-width: 1024px) 400px, 90vw" className="object-cover" />
                     <span className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,5,5,0)_50%,rgba(5,5,5,.85))]" aria-hidden="true" />
                     <span className="absolute bottom-3 left-4 font-mono text-[11px] tracking-[0.1em] text-body">
                       {String(i + 1).padStart(2, '0')} · {u.short}
