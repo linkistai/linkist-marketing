@@ -17,3 +17,16 @@ export const initials = (name: string) =>
     .join('')
     .slice(0, 2)
     .toUpperCase();
+
+/**
+ * The v2 category image used for blog cards and article heroes (handoff README, "Blog covers"):
+ * one scene from `public/assets/gen/` per category. The per-article cover stays in the front matter
+ * and still feeds the Article JSON-LD and the Open Graph image.
+ */
+export const CATEGORY_IMAGE: Record<BlogCategory, { src: string; alt: string }> = {
+  networking: { src: '/assets/gen/event.webp', alt: 'Professionals talking at an evening networking event in Dubai' },
+  uae: { src: '/assets/gen/event.webp', alt: 'Professionals talking at an evening networking event in Dubai' },
+  crm: { src: '/assets/gen/uc-many.webp', alt: 'A busy professional walking through an airport checking her phone' },
+  nfc: { src: '/assets/gen/hero-tap.webp', alt: 'A hand taps a Linkist NFC card on a phone' },
+  product: { src: '/assets/gen/uc-find.webp', alt: 'A professional in a hotel lobby searching on his phone' },
+};

@@ -21,16 +21,19 @@ export function Toc({ chapters, title = 'Chapters' }: { chapters: readonly Chapt
   }, [chapters]);
   if (!chapters.length) return null;
   return (
-    <nav aria-label={title} className="card card--sm p-4">
-      <p className="text-xs font-semibold uppercase tracking-[0.04em] text-muted">{title}</p>
-      <ol className="mt-3 flex flex-col gap-1 text-sm">
-        {chapters.map((c) => (
-          <li key={c.id} className={c.level === 3 ? 'pl-3' : ''}>
-            <a href={`#${c.id}`} className="flex min-h-[44px] items-center rounded-md px-2 py-1 no-underline" style={active === c.id ? { background: 'var(--color-surface2)', fontWeight: 600 } : { color: 'var(--color-muted)' }} aria-current={active === c.id ? 'location' : undefined}>
-              {c.text}
-            </a>
-          </li>
-        ))}
+    <nav aria-label={title}>
+      <p className="text-xs font-semibold uppercase tracking-[0.06em] text-muted">{title}</p>
+      <ol className="mt-3.5 flex flex-col border-l border-line">
+        {chapters.map((c) => {
+          const on = active === c.id;
+          return (
+            <li key={c.id} className={c.level === 3 ? 'pl-3' : ''}>
+              <a href={`#${c.id}`} className={`-ml-px flex min-h-[44px] items-center border-l py-1.5 pl-4 text-sm leading-[1.4] no-underline transition-colors hover:border-red-bright hover:text-white ${on ? 'border-red-bright font-medium text-white' : 'border-transparent text-body'}`} aria-current={on ? 'location' : undefined}>
+                {c.text}
+              </a>
+            </li>
+          );
+        })}
       </ol>
     </nav>
   );

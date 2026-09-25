@@ -6,10 +6,10 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { GetApp, GetCard } from '@/components/Button';
 import { AuthorRow, BlogCard } from '@/components/blog/BlogList';
 import { ClosingBand } from '@/components/ClosingBand';
-import { Section } from '@/components/Section';
 import { ShareRow } from '@/components/ShareRow';
 import { Toc } from '@/components/Toc';
 import { getPost, getPosts, related, renderPost } from '@/lib/blog';
+import { CATEGORY_IMAGE } from '@/lib/blog-shared';
 import { COMPANY, SITE_URL, absoluteAsset, pageMeta } from '@/lib/site';
 
 export const dynamicParams = false;
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return pageMeta(p.title, p.excerpt, `/blogs/${p.slug}`, { type: 'article', image: `/og/blogs-${p.slug}.png`, publishedTime: p.date, modifiedTime: p.date });
 }
 
-/** One article, in the structure of the old site's post page (D18): header, cover, chapters at the side, the body, FAQ JSON-LD, related reads. */
+/** One article (v2): H1, excerpt and byline, the 16:8 category scene, the 760 px body with a sticky contents and read-next sidebar, share row, related reads and the closing band. Article and FAQPage JSON-LD as before. */
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const raw = getPost(slug);
@@ -60,33 +60,40 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         ]
       : []),
   ];
+  const img = CATEGORY_IMAGE[post.category];
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <section className="section section--tight section--glow pt-8 sm:pt-10">
+      <section className="page-hero !pb-[clamp(28px,4vw,48px)]" aria-labelledby="page-title">
         <div className="container">
-          <Breadcrumbs items={[{ label: 'Blog', href: '/blogs' }, { label: post.title, href: `/blogs/${post.slug}` }]} />
-          <header className="mt-8 max-w-4xl">
-            <p className="eyebrow">{post.categoryLabel}</p>
-            <h1 className="display-2 mt-5">{post.title}</h1>
-            <p className="lede mt-5">{post.excerpt}</p>
-            <div className="mt-6">
+          <div className="mb-7">
+            <Breadcrumbs items={[{ label: 'Blog', href: '/blogs' }, { label: post.title, href: `/blogs/${post.slug}` }]} />
+          </div>
+          <header className="max-w-[900px]">
+            <p className="font-mono text-xs uppercase tracking-[0.16em] text-coral" data-hero-text>
+              {post.categoryLabel}
+            </p>
+            <h1 id="page-title" className="mt-5 font-display text-[clamp(34px,4.6vw,64px)] font-semibold leading-[1.04] tracking-[-0.04em] [text-wrap:balance]" data-hero-text>
+              {post.title}
+            </h1>
+            <p className="lede mt-5 max-w-[760px]" data-hero-text>
+              {post.excerpt}
+            </p>
+            <div className="mt-7" data-hero-text>
               <AuthorRow author={post.author} dateLabel={`Published ${post.dateLabel}`} minutes={post.minutes} size="md" />
             </div>
           </header>
-          {post.coverKind === 'card' ? null : (
-            <figure className="relative mt-10 aspect-[16/9] w-full overflow-hidden rounded-3xl border border-line">
-              <Image src={post.cover} alt={post.coverAlt} fill priority sizes="(max-width: 1280px) 100vw, 1280px" style={{ objectFit: 'cover' }} />
-            </figure>
-          )}
+          <figure className="relative mt-[clamp(32px,5vw,56px)] aspect-[16/8] w-full overflow-hidden rounded-[28px] border border-line bg-bg-alt">
+            <Image src={img.src} alt={img.alt} fill priority sizes="(max-width: 1280px) 100vw, 1280px" className="object-cover" />
+          </figure>
         </div>
       </section>
 
-      <Section tone="charcoal" tight>
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_280px]">
-          <article className="prose-lk min-w-0 max-w-3xl">
-            <div dangerouslySetInnerHTML={{ __html: post.html }} />
-            <div className="mt-12 flex flex-col items-start gap-5 border-t border-line pt-8 sm:flex-row sm:items-center sm:justify-between">
+      <section className="section !pt-[clamp(24px,4vw,48px)]">
+        <div className="container grid gap-[clamp(40px,6vw,88px)] lg:grid-cols-[minmax(0,760px)_280px] lg:justify-between">
+          <article className="min-w-0">
+            <div className="prose-lk" dangerouslySetInnerHTML={{ __html: post.html }} />
+            <div className="mt-14 flex flex-col items-start gap-5 border-t border-line pt-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
               <div className="flex flex-wrap gap-3">
                 <GetApp />
                 <GetCard />
@@ -94,35 +101,39 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               <ShareRow url={url} title={post.title} />
             </div>
           </article>
-          <aside className="lg:sticky lg:top-24 lg:self-start">
+          <aside className="lg:sticky lg:top-[110px] lg:self-start">
             <Toc chapters={post.chapters.filter((c) => c.level === 2)} title="In this article" />
-            <div className="mt-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.04em] text-muted">Read next</p>
-              <ul className="mt-3 flex flex-col gap-3 text-sm">
+            <nav aria-label="Read next" className="mt-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.06em] text-muted">Read next</p>
+              <ul className="mt-3 flex flex-col gap-1">
                 {others.map((o) => (
                   <li key={o.slug}>
-                    <Link href={`/blogs/${o.slug}`} className="font-semibold no-underline hover:underline">
+                    <Link href={`/blogs/${o.slug}`} className="flex min-h-[44px] items-center text-sm font-medium leading-snug text-soft no-underline transition-colors hover:text-white">
                       {o.title}
                     </Link>
                   </li>
                 ))}
               </ul>
-            </div>
+            </nav>
           </aside>
         </div>
-      </Section>
+      </section>
 
-      <Section tight id="related">
-        <p className="eyebrow">More from the blog</p>
-        <h2 className="display-2 mt-4">Related reading.</h2>
-        <ul className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal="rise" data-reveal-stagger="0.05">
-          {others.map((o) => (
-            <li key={o.slug} className="flex">
-              <BlogCard post={o} />
-            </li>
-          ))}
-        </ul>
-      </Section>
+      <section className="section bg-bg-alt" id="related" aria-labelledby="related-title">
+        <div className="container">
+          <p className="eyebrow">More from the blog</p>
+          <h2 id="related-title" className="display-2 mt-4">
+            Related <span className="em-coral">reading</span>.
+          </h2>
+          <ul className="mt-10 grid gap-[18px] [grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr))]" data-reveal="rise" data-reveal-stagger="0.05">
+            {others.map((o) => (
+              <li key={o.slug} className="flex">
+                <BlogCard post={o} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       <ClosingBand />
     </>

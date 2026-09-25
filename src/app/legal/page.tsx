@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { Breadcrumbs } from '@/components/Breadcrumbs';
-import { Section, SectionHead } from '@/components/Section';
+import { PageHero } from '@/components/PageHero';
 import { getLegal } from '@/lib/legal';
 import { pageMeta } from '@/lib/site';
 
@@ -22,47 +21,55 @@ export default function LegalIndex() {
   const drafts = docs.filter((d) => d.status === 'draft');
   return (
     <>
-      <Section tight className="pt-8 sm:pt-10">
-        <Breadcrumbs items={[{ label: 'Legal', href: '/legal' }]} />
-        <div className="mt-8">
-          <SectionHead as="h1" size={1} eyebrow="Legal" title={<>The documents, <span className="em-coral">dated</span>.</>} lede="The Terms and Privacy v1.0 is in force, with Part 2, Privacy, also on its own. Eight drafts await counsel and are not in force." />
+      <PageHero
+        crumbs={[{ label: 'Legal', href: '/legal' }]}
+        eyebrow="Legal"
+        title={
+          <>
+            The documents, <span className="em-coral">dated</span>.
+          </>
+        }
+        lede="The Terms and Privacy v1.0 is in force, with Part 2, Privacy, also on its own. Eight drafts await counsel and are not in force."
+      />
+      <section className="section !pt-0" aria-labelledby="in-force">
+        <div className="container">
+          <h2 id="in-force" className="font-display text-[clamp(26px,2.6vw,34px)] font-semibold tracking-[-0.03em]">
+            In force
+          </h2>
+          <ul className="mt-6 grid gap-[18px] [grid-template-columns:repeat(auto-fill,minmax(min(100%,360px),1fr))]">
+            {published.map((d) => (
+            <li key={d.slug} className="flex">
+              <Link href={`/legal/${d.slug}`} className="card card--panel group flex w-full flex-col p-[26px] no-underline transition-[border-color,transform] duration-300 hover:-translate-y-1 hover:border-[rgba(238,80,100,0.35)]">
+                <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted">Version {d.version || '1'}, effective {fmt(d.effective)}</p>
+                <h3 className="mt-3 font-display text-[22px] font-semibold leading-[1.2] tracking-[-0.02em] text-text">{d.title}</h3>
+                <p className="mt-2 flex-1 text-sm leading-[1.55] text-body">{d.summary}</p>
+                <span className="mt-5 inline-flex min-h-[24px] items-center gap-1.5 text-sm font-medium text-coral transition-colors group-hover:text-white">
+                  Read <ArrowRight size={14} aria-hidden="true" />
+                </span>
+              </Link>
+            </li>
+            ))}
+          </ul>
+          <h2 id="drafts" className="mt-16 font-display text-[clamp(26px,2.6vw,34px)] font-semibold tracking-[-0.03em]">
+            Drafts for counsel
+          </h2>
+          <p className="mt-2 max-w-2xl text-sm text-body">Written before the Terms and Privacy of 7 September 2026. None is in force.</p>
+          <ul className="mt-6 grid gap-[18px] [grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))]">
+            {drafts.map((d) => (
+            <li key={d.slug} className="flex">
+              <Link href={`/legal/${d.slug}`} className="card card--panel group flex w-full flex-col p-[26px] no-underline transition-[border-color,transform] duration-300 hover:-translate-y-1 hover:border-[rgba(238,80,100,0.35)]">
+                <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted">Draft of {fmt(d.updated)}</p>
+                <h3 className="mt-3 font-display text-[22px] font-semibold leading-[1.2] tracking-[-0.02em] text-text">{d.title}</h3>
+                <p className="mt-2 flex-1 text-sm leading-[1.55] text-body">{d.summary}</p>
+                <span className="mt-5 inline-flex min-h-[24px] items-center gap-1.5 text-sm font-medium text-coral transition-colors group-hover:text-white">
+                  Read <ArrowRight size={14} aria-hidden="true" />
+                </span>
+              </Link>
+            </li>
+            ))}
+          </ul>
         </div>
-      </Section>
-      <Section tone="charcoal" tight>
-        <h2 className="display-3">In force</h2>
-        <ul className="mt-5 grid gap-4 md:grid-cols-2">
-          {published.map((d) => (
-            <li key={d.slug}>
-              <Link href={`/legal/${d.slug}`} className="card sweep sweep--neutral lift flex h-full flex-col p-6 no-underline">
-                <p className="text-xs text-muted">
-                  Version {d.version || '1'}, effective {fmt(d.effective)}
-                </p>
-                <h3 className="display-3 mt-2 text-[22px]">{d.title}</h3>
-                <p className="mt-2 flex-1 text-sm text-body">{d.summary}</p>
-                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold">
-                  Read <ArrowRight size={14} aria-hidden="true" />
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <h2 className="display-3 mt-12">Drafts for counsel</h2>
-        <p className="mt-2 max-w-2xl text-sm text-body">Written before the Terms and Privacy of 7 September 2026. None is in force.</p>
-        <ul className="mt-5 grid gap-4 md:grid-cols-2">
-          {drafts.map((d) => (
-            <li key={d.slug}>
-              <Link href={`/legal/${d.slug}`} className="card sweep sweep--neutral lift flex h-full flex-col p-6 no-underline">
-                <p className="text-xs text-muted">Draft of {fmt(d.updated)}</p>
-                <h3 className="display-3 mt-2 text-[22px]">{d.title}</h3>
-                <p className="mt-2 flex-1 text-sm text-body">{d.summary}</p>
-                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold">
-                  Read <ArrowRight size={14} aria-hidden="true" />
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </Section>
+      </section>
     </>
   );
 }

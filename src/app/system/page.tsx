@@ -18,23 +18,26 @@ import { pageMeta } from '@/lib/site';
 export const metadata: Metadata = pageMeta('Design system', 'Internal: tokens, components and motion primitives for the Linkist website.', '/system', { noindex: true });
 
 const SWATCHES = [
-  ['ground', '#141413'],
-  ['surface', '#262627'],
-  ['raised', '#2F2F30'],
-  ['crimson', '#D63A57'],
-  ['deep crimson', '#B93049'],
-  ['coral', '#F2606B'],
-  ['warm grey', '#D1CDC7'],
-  ['muted', '#9A968F'],
-  ['green', '#4D9078'],
-  ['teal', '#377F86'],
+  ['bg', '#050505'],
+  ['bg alt', '#0A0A0B'],
+  ['surface', '#0C0C0D'],
+  ['surface 2', '#0E0E0F'],
+  ['surface 3', '#141415'],
+  ['red', '#A3162D'],
+  ['red hover', '#870F24'],
+  ['red bright', '#D41A38'],
+  ['coral', '#EE5064'],
+  ['coral soft', '#F3B5BD'],
+  ['body', '#C9C5BF'],
+  ['muted', '#8E8A84'],
+  ['success', '#7FD1AE'],
 ] as const;
 
 export default function SystemPage() {
   return (
     <>
       <Section tight>
-        <SectionHead as="h1" size={1} eyebrow="Internal, noindex" title="Linkist website design system" lede="Tokens measured from the approved prototype, the site's display scale on top, every component the pages use, and the motion primitives with their motion-off states." />
+        <SectionHead as="h1" size={1} eyebrow="Internal, noindex" title="Linkist website design system" lede="The v2 tokens from the design handoff, the site's display scale on top, every component the pages use, and the motion primitives with their motion-off states." />
         <p className="mt-6 text-sm text-muted">
           Append <code className="font-mono">?motion=off</code> to see the end states, or <code className="font-mono">?motion=on</code> to force motion on.
         </p>

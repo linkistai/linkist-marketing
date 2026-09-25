@@ -1,11 +1,9 @@
 import type { Metadata } from 'next';
+import { PageHero } from '@/components/PageHero';
 import Link from 'next/link';
-import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { ClosingBand } from '@/components/ClosingBand';
 import { HelpCentre } from '@/components/help/HelpCentre';
-import { Section, SectionHead } from '@/components/Section';
 import { HELP, HELP_CATEGORIES } from '@/content/help';
-import { person } from '@/lib/screens';
 import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
@@ -19,23 +17,31 @@ export const metadata: Metadata = pageMeta(
 export default function HelpPage() {
   return (
     <>
-      <Section tight className="pt-8 sm:pt-10">
-        <Breadcrumbs items={[{ label: 'Help centre', href: '/help' }]} />
-        <div className="mt-8">
-          <SectionHead as="h1" size={1} eyebrow="Help centre" title={<>Answers, <span className="em-coral">with their sources</span>.</>} lede={`${HELP.length} questions in ${HELP_CATEGORIES.length} categories, including the limits Linkist has today. Search as you type; every answer says where it comes from when the app has not confirmed it yet.`} />
+      <PageHero
+        crumbs={[{ label: 'Help centre', href: '/help' }]}
+        eyebrow="Help centre"
+        title={
+          <>
+            Answers, <span className="em-coral">with their sources</span>.
+          </>
+        }
+        lede={`${HELP.length} answers in ${HELP_CATEGORIES.length} categories, limits included. Search as you type.`}
+        note={
           <p className="mt-5 text-sm text-muted">
             Prefer to ask?{' '}
-            <Link href="/chat" className="link">
+            <Link href="/chat" className="underline underline-offset-4 hover:text-white">
               The assistant answers from these same entries
             </Link>
             . For anything else, email support@linkist.ai.
           </p>
+        }
+      />
+      <section className="section !pt-0">
+        <div className="container">
+          <HelpCentre />
         </div>
-      </Section>
-      <Section tone="charcoal" tight>
-        <HelpCentre />
-      </Section>
-      <ClosingBand person={person('close-8')} line1="Still stuck?" line2="Ask the assistant, or start free." reassurance="The assistant is automated. Free, no card needed." />
+      </section>
+      <ClosingBand line1="Still stuck?" line2="Ask the assistant, or start free." reassurance="The assistant is automated. Free, no card needed." />
     </>
   );
 }

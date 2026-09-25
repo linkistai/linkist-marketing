@@ -1744,7 +1744,7 @@ html[data-motion='on'] .display-1[data-hero-text] {
     margin-top: 32px;
     scroll-margin-top: 100px;
   }
-  .prose-lk a {
+  .prose-lk a:not(.btn) {
     color: var(--brand-coral);
     text-underline-offset: 3px;
   }
@@ -2602,5 +2602,25 @@ html[data-motion='off'] .uccard {
   .compare thead th.compare__pro {
     background: #1a0b0f;
     color: #fff;
+  }
+}
+
+/* v2 help search */
+@layer components {
+  .helpsearch {
+    width: 100%;
+    min-height: 60px;
+    padding: 0 22px 0 52px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--v2-surface);
+    color: #fff;
+    font: inherit;
+    font-size: 16px;
+  }
+  .helpsearch:focus {
+    border-color: var(--brand-red-bright);
+    outline: 2px solid var(--brand-red-bright);
+    outline-offset: 3px;
   }
 }

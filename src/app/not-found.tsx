@@ -8,8 +8,10 @@ export default function NotFound() {
   return (
     <Section>
       <div className="mx-auto max-w-xl text-center">
-        <p className="eyebrow justify-center">404</p>
-        <h1 className="display-1 mt-5">That page is not here.</h1>
+        <p className="eyebrow eyebrow--pulse justify-center">404</p>
+        <h1 className="display-1 mt-5">
+          That page is <span className="em-coral">not here</span>.
+        </h1>
         <p className="lede mx-auto mt-5">The address may be wrong or the page may have moved. Everything on the site is one link away.</p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Button href="/">Home</Button>
