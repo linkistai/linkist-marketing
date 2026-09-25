@@ -4,14 +4,14 @@ import { useEffect, useRef, type CSSProperties, type ReactNode } from 'react';
 
 /**
  * Parallax (v2): moves its box by -k times the distance of its centre from the viewport centre, on
- * scroll, with translate3d. Off when motion is off (html[data-motion]) or reduced motion is set.
+ * scroll, with translate3d. Off when motion is off (html[data-motion]), which the footer switch sets.
  */
 export function Parallax({ k = 0.08, className = '', style, children }: { k?: number; className?: string; style?: CSSProperties; children?: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (document.documentElement.dataset['motion'] === 'off' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (document.documentElement.dataset['motion'] === 'off') return;
     let raf = 0;
     const update = () => {
       raf = 0;

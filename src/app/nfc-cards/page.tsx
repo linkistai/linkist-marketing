@@ -187,7 +187,7 @@ export default function NfcCardsPage() {
         </div>
       </section>
 
-      <ClosingBand line1="Order a card, or start without one." line2="PRM Essential included." cta="Get your NFC card" href={STORE_URL} reassurance="Free UAE shipping. Essential needs no card." />
+      <ClosingBand image="tap" line1="Order a card, or start without one." line2="PRM Essential included." cta="Get your NFC card" href={STORE_URL} reassurance="Free UAE shipping. Essential needs no card." />
     </>
   );
 }

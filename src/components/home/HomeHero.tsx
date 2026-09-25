@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, CalendarCheck, CreditCard, Database, Sparkles, Target } from 'lucide-react';
-import { useRef, useState, type KeyboardEvent, type MouseEvent } from 'react';
+import { Fragment, useRef, useState, type KeyboardEvent, type MouseEvent } from 'react';
 import { Button } from '@/components/Button';
 import { StoreBadges } from '@/components/StoreBadges';
 import { HERO } from '@/content/home';
@@ -18,7 +18,9 @@ const go = (href: string) => (href === 'free-profile' ? FREE_PROFILE_URL : href 
 /**
  * The v2 home hero, with a For teams / For individuals switcher on the left (owner, 25 September
  * 2026) that swaps the H1, lede, buttons and the line under them; the five capability icons and the
- * store badges stay. The rest: a full-viewport block. A 640 px red spotlight follows the pointer (a CSS
+ * store badges stay, in a strip along the bottom edge. The hero is one screen tall (100svh): the
+ * H1, lede and spacing scale with the viewport height and the phone is sized to the room left, so
+ * the whole block fits on common desktop screens (owner, 25 September 2026). The rest: A 640 px red spotlight follows the pointer (a CSS
  * variable pair, no re-render), the three H1 lines rise into view behind a mask, 140 ms apart, and
  * the right side is the hand-tapping-a-card photograph with NFC ripples, over a crimson light field
  * and a slow-turning giant brand mark. Everything decorative is aria-hidden; with motion off the
@@ -53,12 +55,12 @@ export function HomeHero({ slides }: { slides: readonly HeroSlide[] }) {
         <Image src="/brand/mark.png" alt="" aria-hidden="true" width={256} height={256} className="v2-spin h-auto w-full" />
       </Parallax>
 
-      <div className="container grid items-center gap-[clamp(24px,4vw,56px)] [grid-template-columns:repeat(auto-fit,minmax(min(100%,500px),1fr))]">
-        <div className="min-w-0 [container-type:inline-size]">
+      <div className="container home-hero__grid">
+        <div className="home-hero__copy">
           <p className="eyebrow eyebrow--pulse" data-reveal="fade">
             {HERO.eyebrow}
           </p>
-          <div role="tablist" aria-label="Linkist for" className="herotabs mt-6" onKeyDown={onTabKey}>
+          <div role="tablist" aria-label="Linkist for" className="herotabs" onKeyDown={onTabKey}>
             {HERO.modes.map((x, i) => (
               <button
                 key={x.key}
@@ -88,19 +90,19 @@ export function HomeHero({ slides }: { slides: readonly HeroSlide[] }) {
                 </span>
               ))}
             </h1>
-            <p className="lede mt-7 max-w-[600px] !text-[clamp(16px,1.35vw,18px)]">
+            <p className="lede home-hero__lede">
               {m.lede}
               {'ledeStrong' in m && m.ledeStrong ? <strong className="font-semibold text-white"> {m.ledeStrong}</strong> : null}
             </p>
-            <div className="mt-[34px] flex flex-wrap gap-3">
-              <Button href={go(m.primary.href)} size="lg" className="min-w-[220px] !min-h-[56px]">
+            <div className="home-hero__ctas">
+              <Button href={go(m.primary.href)} size="lg" className="min-w-[210px] !min-h-[54px]">
                 {m.primary.label}
               </Button>
-              <Button href={go(m.secondary.href)} size="lg" variant="secondary" className="min-w-[220px] !min-h-[56px]">
+              <Button href={go(m.secondary.href)} size="lg" variant="secondary" className="min-w-[210px] !min-h-[54px]">
                 {m.secondary.label}
               </Button>
             </div>
-            <div className="mt-7 border-t border-line pt-4">
+            <div className="home-hero__aside">
               {m.key === 'teams' ? (
                 <p className="text-[15px] text-body">
                   {HERO.switchToIndividuals.lead}{' '}
@@ -116,22 +118,6 @@ export function HomeHero({ slides }: { slides: readonly HeroSlide[] }) {
               )}
             </div>
           </div>
-          <ul className="heropillars mt-4" aria-label="What Linkist does">
-            {HERO.pillars.map((p, i) => {
-              const Icon = PILLAR_ICONS[i]!;
-              return (
-                <li key={p}>
-                  <span className="heropillars__icon" aria-hidden="true">
-                    <Icon size={20} strokeWidth={1.6} />
-                  </span>
-                  <span>{p}</span>
-                </li>
-              );
-            })}
-          </ul>
-          <div className="mt-6 border-t border-line pt-6">
-            <StoreBadges />
-          </div>
         </div>
 
         <div className="home-hero__stage">
@@ -139,7 +125,31 @@ export function HomeHero({ slides }: { slides: readonly HeroSlide[] }) {
           <HeroProduct slides={slides} label={HERO.imageAlt} />
         </div>
       </div>
+
       <div className="container">
+        <div className="home-hero__strip">
+          <ul className="heropillars" aria-label="What Linkist does">
+            {HERO.pillars.map((p, i) => {
+              const Icon = PILLAR_ICONS[i]!;
+              return (
+                <li key={p}>
+                  <span className="heropillars__icon" aria-hidden="true">
+                    <Icon size={18} strokeWidth={1.6} />
+                  </span>
+                  <span className="heropillars__label">
+                    {p.split(' ').map((w, j) => (
+                      <Fragment key={w}>
+                        {j ? ' ' : null}
+                        <span className="whitespace-nowrap">{w}</span>
+                      </Fragment>
+                    ))}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+          <StoreBadges />
+        </div>
       </div>
     </section>
   );

@@ -6,7 +6,8 @@ import { START_URL } from '@/lib/site';
 /**
  * The v2 closing band: a 36 px panel lit by a red glow from the lower right. Left, a two-line H2
  * with the second line in red, one primary CTA and a reassurance line; right, a floating cutout,
- * decorative: the metal, wood and PVC cards by default, or the person cutout on the home page.
+ * decorative: the metal, wood and PVC cards by default, the person cutout on the home page, or
+ * `tap`, the hand tapping a card on a phone with NFC rings (owner, 25 September 2026, /nfc-cards).
  * (`person` and `personAlt` are kept for callers of the v1 band and are ignored.)
  */
 export function ClosingBand({
@@ -22,7 +23,7 @@ export function ClosingBand({
   reassurance?: string;
   cta?: string;
   href?: string;
-  image?: 'cards' | 'portrait';
+  image?: 'cards' | 'portrait' | 'tap';
   person?: string;
   personAlt?: string;
 }) {
@@ -46,6 +47,18 @@ export function ClosingBand({
           <div className="closing__art" aria-hidden="true">
             {image === 'portrait' ? (
               <Image src="/assets/gen/portrait-cut.webp" alt="" width={896} height={1200} sizes="(min-width: 1024px) 440px, 60vw" className="closing__portrait" />
+            ) : image === 'tap' ? (
+              <div className="closing__tap">
+                <Image src="/assets/gen/cards-cut.webp" alt="" width={1024} height={1024} sizes="160px" className="closing__tap-cards v2-float" style={{ ['--float-dur' as string]: '10s' }} />
+                <div className="closing__tap-photo v2-float" style={{ ['--float-dur' as string]: '7s' }}>
+                  <Image src="/assets/gen/hero-tap.webp" alt="" width={928} height={1152} sizes="(min-width: 1024px) 400px, 70vw" className="home-hero__photo h-full w-auto" />
+                  <span className="v2-ripple absolute left-[53%] top-[33%] h-0 w-0" style={{ ['--ripple-gap' as string]: '0.5s' }}>
+                    <span />
+                    <span />
+                    <span />
+                  </span>
+                </div>
+              </div>
             ) : (
               <Image src="/assets/gen/cards-cut.webp" alt="" width={1024} height={1024} sizes="(min-width: 1024px) 340px, 60vw" className="closing__cards v2-float" style={{ ['--float-dur' as string]: '9s' }} />
             )}

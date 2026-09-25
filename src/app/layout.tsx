@@ -34,10 +34,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-GB" data-theme={THEME} className={`${display.variable} ${body.variable} ${mono.variable}`} suppressHydrationWarning>
       <body>
-        {/* Decides motion before first paint so the hero animates without waiting for hydration (brief 6). */}
+        {/* Decides motion before first paint so the hero animates without waiting for hydration (brief 6). On by default for everyone (owner, 25 September 2026, D59); ?motion=off or the footer switch turns it off. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: "(function(){try{var f=new URLSearchParams(location.search).get('motion');var s=null;try{s=localStorage.getItem('linkist-motion')}catch(e){}var r=false;try{r=matchMedia('(prefers-reduced-motion: reduce)').matches}catch(e){}document.documentElement.dataset.motion=f==='on'?'on':f==='off'?'off':s==='off'?'off':s==='on'?'on':r?'off':'on';}catch(e){document.documentElement.dataset.motion='on'}})();",
+            __html: "(function(){try{var f=new URLSearchParams(location.search).get('motion');var s=null;try{s=localStorage.getItem('linkist-motion-2')}catch(e){}document.documentElement.dataset.motion=f==='off'?'off':f==='on'?'on':s==='off'?'off':'on';}catch(e){document.documentElement.dataset.motion='on'}})();",
           }}
         />
         <MotionProvider />

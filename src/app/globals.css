@@ -2937,3 +2937,211 @@ html[data-motion='off'] .uccard {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-8px) rotate(-0.6deg); }
 }
+
+@layer components {
+  /* Home hero, one screen tall (owner, 25 September 2026): copy and phone side by side from
+     1024 px, the capability icons and store badges in a strip on the bottom edge. Type, gaps and
+     the phone scale with the viewport height, so the block fits common desktop screens; on short
+     screens it grows rather than clipping. */
+  .home-hero {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: clamp(92px, 12vh, 124px) 0 clamp(14px, 2.4vh, 28px);
+  }
+  .home-hero__grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(24px, 3vw, 56px);
+  }
+  @media (min-width: 1024px) {
+    .home-hero__grid {
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+    }
+  }
+  /* The red line may use the column's full width, so "Follow up at the right time." stays on one line. */
+  .home-hero .home-hero__line.em-coral {
+    max-width: none;
+  }
+  .home-hero__copy {
+    min-width: 0;
+    container-type: inline-size;
+  }
+  .home-hero .herotabs {
+    display: flex;
+    width: fit-content;
+    margin-top: clamp(12px, 2.2vh, 22px);
+  }
+  .home-hero__title {
+    margin-top: clamp(14px, 2.4vh, 26px);
+    font-size: clamp(36px, min(8.6cqi, 7.2vh), 76px);
+  }
+  .home-hero__lede {
+    margin-top: clamp(12px, 2.2vh, 24px);
+    max-width: 640px;
+    font-size: clamp(15px, min(1.25vw, 2.15vh), 18px);
+    line-height: 1.55;
+  }
+  .home-hero__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: clamp(16px, 3vh, 32px);
+  }
+  .home-hero__aside {
+    margin-top: clamp(4px, 1.2vh, 14px);
+  }
+  .home-hero__stage {
+    height: auto;
+    min-height: 0;
+  }
+  .home-hero .hero-product {
+    width: min(100%, 500px, max(260px, calc((100svh - 290px) / 1.38)));
+  }
+  .home-hero__strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 28px;
+    margin-top: clamp(10px, 2vh, 26px);
+    padding-top: clamp(10px, 1.6vh, 18px);
+    border-top: 1px solid var(--color-line);
+  }
+  .home-hero__strip .heropillars {
+    flex: 1 1 auto;
+  }
+  .heropillars__label {
+    max-width: 7.5em;
+  }
+  @media (min-width: 768px) {
+    .home-hero__strip .heropillars {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 0;
+      padding: 0;
+      border-top: 0;
+    }
+    .home-hero__strip .heropillars li {
+      flex-direction: row;
+      gap: 10px;
+      padding: 0 16px;
+      text-align: left;
+      font-size: 13.5px;
+      line-height: 1.25;
+    }
+    .home-hero__strip .heropillars li:first-child {
+      padding-left: 0;
+    }
+    .home-hero__strip .heropillars__icon {
+      width: 36px;
+      height: 36px;
+      flex: none;
+    }
+  }
+  @media (max-width: 767px) {
+    .home-hero__strip .heropillars {
+      width: 100%;
+      border-top: 0;
+      padding-top: 4px;
+    }
+  }
+}
+
+@layer components {
+  /* Closing band with the tap scene (owner, 25 September 2026): the hand-tap photo floats with its
+     NFC rings, three cards drift behind, as in the earlier v2 home hero. */
+  .closing[data-image='tap'] .closing__art {
+    height: clamp(340px, 40vw, 540px);
+  }
+  .closing__tap {
+    position: relative;
+    height: 100%;
+  }
+  .closing__tap-photo {
+    position: relative;
+    height: 100%;
+  }
+  .closing__tap-cards {
+    position: absolute;
+    left: -22%;
+    top: 34%;
+    width: 36%;
+    height: auto;
+    opacity: 0.45;
+    filter: blur(2px);
+  }
+}
+
+/* Unlayered on purpose: the v1 .hero-product width rule above is unlayered too, so a layered
+   override would lose. The phone is sized to the height the one-screen home hero leaves it. */
+.home-hero .hero-product {
+  width: min(100%, 500px, max(240px, calc((100svh - 300px) / 1.38)));
+}
+
+@layer components {
+  /* One-row strip: compact capability items beside the store badges when the width allows. */
+  @media (min-width: 768px) {
+    .home-hero__strip .heropillars li {
+      gap: 8px;
+      padding: 0 12px;
+      font-size: 12.5px;
+    }
+    .home-hero__strip .heropillars__icon {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+/* Unlayered like the base .storebadge rules in extras.css: compact badges in the hero strip. */
+.home-hero__strip .storebadge {
+  min-height: 44px;
+  gap: 8px;
+  padding: 0 10px;
+}
+.home-hero__strip .storebadge svg {
+  width: 18px;
+  height: 18px;
+}
+.home-hero__strip .storebadge__big {
+  font-size: 15px;
+}
+
+@layer components {
+  @media (min-width: 768px) {
+    .home-hero__strip .heropillars li {
+      gap: 7px;
+      padding: 0 8px;
+    }
+    .home-hero__strip .heropillars__icon {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+.home-hero__strip .storebadge {
+  padding: 0 9px;
+}
+.home-hero__strip .storebadge__soon {
+  margin-left: 2px;
+  padding: 3px 6px;
+}
+@layer components {
+  .home-hero__strip {
+    column-gap: 16px;
+  }
+}
+@layer components {
+  /* The photo's black ground melts into the band: lighten keeps the hands, phone and card, and the
+     softer mask removes the frame edge. */
+  .closing__tap-photo {
+    mix-blend-mode: lighten;
+  }
+  .closing__tap-photo .home-hero__photo {
+    -webkit-mask-image: radial-gradient(ellipse 52% 50% at 50% 46%, #000 62%, transparent 100%);
+    mask-image: radial-gradient(ellipse 52% 50% at 50% 46%, #000 62%, transparent 100%);
+  }
+}

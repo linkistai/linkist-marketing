@@ -4,9 +4,10 @@ import { useEffect } from 'react';
 import { initReveals } from './reveal';
 
 /**
- * Motion is on by default (brief 6, Grownz D24). The inline script in layout.tsx decides
- * html[data-motion] before first paint from `?motion=on|off` and the footer switch's saved
- * choice; this is the fallback, and it starts the scroll reveals when motion is on.
+ * Motion is on by default for everyone, whatever the device's reduced-motion setting (owner,
+ * 25 September 2026, D59). The inline script in layout.tsx decides html[data-motion] before first
+ * paint from `?motion=on|off` and the footer switch's saved choice; this is the fallback, and it
+ * starts the scroll reveals when motion is on.
  */
 export function MotionProvider() {
   useEffect(() => {
@@ -15,12 +16,11 @@ export function MotionProvider() {
       const force = new URLSearchParams(window.location.search).get('motion');
       let saved: string | null = null;
       try {
-        saved = localStorage.getItem('linkist-motion');
+        saved = localStorage.getItem('linkist-motion-2');
       } catch {
         /* ignore */
       }
-      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      html.dataset['motion'] = force === 'on' ? 'on' : force === 'off' ? 'off' : saved === 'off' ? 'off' : saved === 'on' ? 'on' : reduced ? 'off' : 'on';
+      html.dataset['motion'] = force === 'off' ? 'off' : force === 'on' ? 'on' : saved === 'off' ? 'off' : 'on';
     }
     const on = html.dataset['motion'] === 'on';
     let stop: (() => void) | undefined;

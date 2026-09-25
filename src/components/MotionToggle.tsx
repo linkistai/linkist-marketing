@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-const KEY = 'linkist-motion';
+const KEY = 'linkist-motion-2';
 
 /**
  * Footer switch for motion (brief 6, Grownz D24). Motion is on by default; this lets a visitor
