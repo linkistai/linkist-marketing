@@ -102,3 +102,11 @@ tierarc
 tierrow
 uccard
 ucdrawer
+curswitch
+dirham
+dirhams
+heropillars
+herotabs
+hrefs
+icpintro
+tapmoment

@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react';
-import { PreviewNote } from '@/components/PreviewNote';
 import { ScreenFrame } from '@/components/ScreenFrame';
 import { SectionHead } from '@/components/Section';
 import { PROTO_ALT, PROTO_CAPTIONS, type ProtoScreen } from '@/content/design';
@@ -27,7 +26,6 @@ export function DesignPreview({ id, eyebrow, title, body, items, tone = 'bg' }: 
             </li>
           ))}
         </ul>
-        <PreviewNote />
       </div>
     </section>
   );

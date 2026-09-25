@@ -4,7 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, type ReactNode } from 'react';
 import { CARD_TIERS, MATERIALS, type Material } from '@/content/plans';
-import { formatMoney, type Currency } from '@/lib/glossary';
+import { CurrencySwitch, useCurrency } from '@/components/Currency';
+import { formatMoney } from '@/lib/glossary';
 import { STORE_URL } from '@/lib/site';
 
 const ARC: Record<string, { src: string; alt: string }> = {
@@ -33,8 +34,8 @@ function Seg<T extends string>({ label, options, value, onChange, mono, visibleL
 }
 
 /**
- * NFC card pricing (v2): an AED/USD toggle and a PVC/Wood/Metal toggle drive both tiers. Rows show
- * `AED 75 / about $20`, or `$20 / AED 75 at the store` in USD; the chosen material's row is lit.
+ * NFC card pricing (v2): the shared USD / AED switch and a PVC/Wood/Metal toggle drive both tiers;
+ * the chosen material's row is lit.
  * Each tier shows the owner's card-arc render (zooms a little on hover) and its own button to the
  * store. With `intro`, the block opens with the section head, the toggles and a card that tilts in
  * a slow 3D loop and swaps to the chosen material, sharing the same state as the tiers below.
@@ -48,16 +49,16 @@ export function CardTiers({
   headingLevel?: 2 | 3;
   intro?: { eyebrow: string; num?: string; title: ReactNode; lede: ReactNode; id?: string };
 }) {
-  const [cur, setCur] = useState<Currency>('AED');
+  const { currency: cur } = useCurrency();
   const [mat, setMat] = useState<Material>('metal');
   const H = headingLevel === 2 ? 'h2' : 'h3';
   const toggles = (
     <div className="flex flex-wrap items-center gap-x-7 gap-y-4">
-      <Seg label="NFC card prices in" visibleLabel="NFC card prices in" options={[['AED', 'AED'], ['USD', 'USD']] as const} value={cur} onChange={setCur} mono />
+      <CurrencySwitch label="Show NFC card prices in" />
       <Seg label="Material" options={MATERIALS.map((m) => [m.key, m.name] as const)} value={mat} onChange={setMat} />
     </div>
   );
-  const note = <p className="text-[13px] leading-normal text-muted">One-time prices, billed in AED. Dollar figures are approximate.</p>;
+  const note = <p className="text-[13px] leading-normal text-muted">One-time prices.</p>;
   return (
     <div>
       {intro ? (
@@ -109,7 +110,6 @@ export function CardTiers({
       <div className="mt-[clamp(28px,5vw,64px)] grid gap-[18px] [grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr))]" data-reveal="rise" data-reveal-stagger="0.08">
         {CARD_TIERS.map((t) => {
           const featured = t.key === 'signature';
-          const other: Currency = cur === 'AED' ? 'USD' : 'AED';
           return (
             <article key={t.key} className={`card card--panel relative flex flex-col gap-[22px] p-[clamp(20px,2.6vw,30px)] ${featured ? 'card--featured' : ''}`}>
               {t.badge ? <span className="plan-badge">{t.badge}</span> : null}
@@ -126,11 +126,6 @@ export function CardTiers({
                     <dt className="text-sm text-soft">{m.name}</dt>
                     <dd className="m-0 text-right">
                       <span className="font-mono text-[15px] font-semibold tabular">{formatMoney(t.prices[cur][m.key], cur)}</span>
-                      <span className="ml-2 text-xs text-muted">
-                        {other === 'USD' ? 'about ' : ''}
-                        {formatMoney(t.prices[other][m.key], other)}
-                        {other === 'AED' ? ' at the store' : ''}
-                      </span>
                     </dd>
                   </div>
                 ))}

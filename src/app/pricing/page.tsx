@@ -14,18 +14,18 @@ import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
   'Pricing: Essential, Enhanced, Pro and Team',
-  'Linkist PRM starts free with no card required. Enhanced is $2 a month, Pro $10 a month, Team $5 per user a month with a minimum of 5 users ($25 a month or $300 a year for 5). NFC cards from $20, bundles from $100.',
+  'Linkist PRM starts free with no card required. Enhanced is $2 (AED 8) a month, Pro $10 (AED 40), Team $5 (AED 20) per user with a minimum of 5 users. NFC cards from AED 75 ($20), bundles from AED 369 ($100).',
   '/pricing',
   { image: '/og/pricing.png' },
 );
 
 const BILLING_FAQ = [
-  { q: 'Do I need a card to start?', a: 'No. Essential is free with no card. Add one any time.' },
-  { q: 'How is yearly billed?', a: 'Enhanced: $12 a year or $25 for life. Pro: $100 a year. Team: $300 a year for 5 users (AED 1,000), plus $60 a year per extra user. Paid plans may auto-renew until cancelled.' },
-  { q: 'Which currency am I billed in?', a: 'Plans are in US dollars. Cards are priced in AED with an approximate dollar figure. Checkout confirms the billing currency.' },
-  { q: 'Can I cancel?', a: 'Yes. Cancel before the renewal date. Paid time runs to the end of its period.' },
-  { q: 'Is there an Enterprise plan?', a: 'Not yet. Enterprise, with SSO and CRM and HRMS integration, is coming later.' },
-  { q: 'Where do I buy?', a: 'Plans, cards, bundles, AI credits and invoices are all handled at prm.linkist.ai in the browser.' },
+  { q: 'Do I need a card to start?', a: 'No. The Essential plan is free and needs no NFC card. Add a card any time.' },
+  { q: 'How is yearly billed?', a: 'Enhanced is $20 (AED 80) a year or $25 for life. Pro is $100 (AED 400) a year. Team is $250 (AED 1,000) a year for 5 users, then $5 a month or $60 a year for each additional user. Paid subscriptions may renew automatically until cancelled, as the terms say.' },
+  { q: 'Which currency am I billed in?', a: 'Every price is listed in US dollars and UAE dirhams; the USD / AED switch beside the prices shows either. The store checks out NFC cards in AED, and the checkout shows the billing currency.' },
+  { q: 'Can I cancel?', a: 'Yes. You are responsible for cancelling before the renewal date if you do not want a subscription to renew. What you have paid for runs to the end of its period.' },
+  { q: 'Is there an Enterprise plan?', a: 'Not yet. Enterprise is coming later and is interest only. Single sign-on, CRM and HRMS integration and product customisation are planned for it.' },
+  { q: 'Where do I buy?', a: 'Plans, cards, bundles, AI credit top-ups and invoices are handled in the browser at prm.linkist.ai, so the app stays focused on your relationships.' },
 ] as const;
 
 export default function PricingPage() {
@@ -39,7 +39,7 @@ export default function PricingPage() {
             Start free. <span className="em-coral">Add more</span> when you need it.
           </>
         }
-        lede="4 plans in US dollars, no NFC card needed. Upgrade for richer contacts, AI matching and follow-up, or teams."
+        lede="4 plans in US dollars or UAE dirhams, no NFC card required. Upgrade when you need richer contact management, AI matching and follow-up, or team collaboration."
         ctas={
           <>
             <StartFree />
@@ -71,7 +71,7 @@ export default function PricingPage() {
 
       <section id="cards" className="section">
         <div className="container">
-          <SectionHead eyebrow="NFC card pricing" title={<>Tap. Share. Make the <span className="em-coral">first impression</span> count.</>} lede="One-time prices for Starter and Signature in PVC, wood and metal." center />
+          <SectionHead eyebrow="NFC card pricing" title={<>Tap. Share. Make the <span className="em-coral">first impression</span> count.</>} lede="One-time prices for Starter and Signature in PVC, wood and metal. Every card includes PRM Essential." center />
           <div className="mt-[clamp(40px,5vw,64px)]">
             <CardTiers cta={{ href: '/nfc-cards', label: 'Explore NFC cards' }} headingLevel={3} />
           </div>
@@ -89,7 +89,7 @@ export default function PricingPage() {
 
       <section id="faq" className="section">
         <div className="container">
-          <Faq items={BILLING_FAQ} jsonLd eyebrow="Billing questions" title="Paying, answered." />
+          <Faq items={BILLING_FAQ} jsonLd eyebrow="Billing questions" title="Straight answers about paying." />
         </div>
       </section>
 

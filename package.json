@@ -20,6 +20,7 @@
     "capture": "tsx scripts/capture.ts",
     "capture:prototype": "tsx scripts/capture-prototype.ts",
     "capture:v6": "tsx scripts/capture-v6.ts",
+    "capture:v12": "tsx scripts/capture-v12.ts",
     "capture:all": "pnpm capture && pnpm og && pnpm build && vercel deploy --prod --yes",
     "review": "tsx scripts/review.ts",
     "og": "tsx scripts/og.ts",

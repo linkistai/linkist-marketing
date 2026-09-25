@@ -10,15 +10,15 @@ import { STORE_URL, pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
   'Bundles: Signature Bundle and Founders Circle Bundle',
-  'The Signature Bundle is any Signature NFC card plus 1 year of PRM Pro for $100. The Founders Circle Bundle is the Founders Circle NFC card plus lifetime Pro for $150, one time. Ships within the UAE, shipping included.',
+  'The Signature Bundle is any Signature NFC card plus 1 year of PRM Pro for AED 369 ($100). The Founders Circle Bundle is the Founders Circle NFC card plus lifetime Pro for AED 549 ($150), one time. UAE shipping included.',
   '/bundles',
   { image: '/og/bundles.png' },
 );
 
 const FAQ = [
-  { q: 'What is in the Signature Bundle?', a: 'Any Signature card plus 1 year of Pro, for $100, the price of Pro alone.' },
-  { q: 'What is in the Founders Circle Bundle?', a: 'The Founders Circle card plus lifetime Pro for a one-time $150. Limited availability.' },
-  { q: 'What happens after the first year of the Signature Bundle?', a: 'Pro renews at $100 a year unless you cancel. The card keeps PRM Essential.' },
+  { q: 'What is in the Signature Bundle?', a: 'Any Signature card plus 1 year of Pro, for AED 369 ($100): less than a year of Pro alone in dirhams (AED 400), the same in dollars ($100).' },
+  { q: 'What is in the Founders Circle Bundle?', a: 'The Founders Circle card plus lifetime Pro for a one-time AED 549 ($150). Limited availability.' },
+  { q: 'What happens after the first year of the Signature Bundle?', a: 'Pro renews at AED 400 ($100) a year unless you cancel. The card keeps PRM Essential.' },
   { q: 'Is shipping included?', a: 'Yes, within the UAE.' },
 ] as const;
 

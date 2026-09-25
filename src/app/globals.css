@@ -1695,7 +1695,8 @@ html[data-motion='on'] .display-1[data-hero-text] {
   /* Phone frame (v2): a 9 px gradient bezel, 46 / 38 px corners at 280 px wide. The screen inside
      stays exactly 390 x 844, the proportion of every capture. */
   .phone {
-    border-radius: 16.4cqw / 7.85%;
+    /* Percentages of the phone's own box: cqw here would measure the section around it and warp the corners. */
+    border-radius: 16.4% / 7.85%;
     padding: 3.2%;
     aspect-ratio: 416 / 870;
     background: linear-gradient(160deg, #2a2a2c, #0e0e0f 40%, #1c1c1e);
@@ -2431,7 +2432,12 @@ html[data-motion='on'] .v2-ripple > span:nth-child(3) {
     background: none;
     border: 0;
     box-shadow: none;
-    padding: 0;
+    /* Room above for the EXAMPLE tag and at the sides so the first letters are not clipped. */
+    padding: 24px 4px 4px;
+  }
+  .capcard__well .mini__example {
+    top: 0;
+    right: 4px;
   }
   .ai-diamond {
     display: inline-block;
@@ -2622,5 +2628,235 @@ html[data-motion='off'] .uccard {
     border-color: var(--brand-red-bright);
     outline: 2px solid var(--brand-red-bright);
     outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* USD / AED switch (owner, 25 September 2026): a dark pill with the chosen currency in red. */
+  .curswitch {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    padding: 4px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #1c1c1e;
+  }
+  .curswitch__btn {
+    min-width: 64px;
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: 999px;
+    border: 0;
+    background: transparent;
+    color: var(--color-muted);
+    font: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+      background-color 0.2s,
+      color 0.2s;
+  }
+  .curswitch__btn:hover {
+    color: #fff;
+  }
+  .curswitch__btn[aria-pressed='true'] {
+    background: var(--brand-red-bright);
+    color: #fff;
+  }
+  .curswitch__btn:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* A full-length screen that scrolls inside the phone (the ICP Studio intro, owner 25 September 2026). */
+  .phone__scroll {
+    position: absolute;
+    inset: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+  }
+  .phone__scroll::-webkit-scrollbar {
+    display: none;
+  }
+  .phone__scroll:focus-visible {
+    outline: 2px solid var(--brand-red-bright);
+    outline-offset: -2px;
+  }
+}
+@layer components {
+  .stage-screen:not([data-active='true']) {
+    pointer-events: none;
+  }
+}
+
+@layer components {
+  /* The tap moment on /nfc-cards (owner, 25 September 2026): a metal card sweeps in, rests against
+     the top of the phone, rings fire at the touch, and the card leaves. Motion off: the card rests
+     at the touch and the rings are still. */
+  .tapmoment__card {
+    position: absolute;
+    left: 50%;
+    top: 3%;
+    width: 170px;
+    filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.6));
+    transform: translate(-8%, -10%) rotate(-14deg);
+    z-index: 2;
+    pointer-events: none;
+  }
+  .tapmoment__card img {
+    border-radius: 10px;
+  }
+  .tapmoment__rings {
+    position: absolute;
+    left: 50%;
+    top: 12%;
+    width: 0;
+    height: 0;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .tapmoment__rings > span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(238, 80, 100, 0.85);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.2);
+  }
+  html[data-motion='on'] .tapmoment__card {
+    animation: tap-card 4.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  }
+  html[data-motion='on'] .tapmoment__rings > span {
+    animation: tap-ring 4.8s cubic-bezier(0.2, 0.7, 0.2, 1) infinite;
+  }
+  html[data-motion='on'] .tapmoment__rings > span:nth-child(2) {
+    animation-delay: 0.28s;
+  }
+  html[data-motion='on'] .tapmoment__rings > span:nth-child(3) {
+    animation-delay: 0.56s;
+  }
+}
+@keyframes tap-card {
+  0% {
+    opacity: 0;
+    transform: translate(-120%, -70%) rotate(-32deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  30%,
+  64% {
+    opacity: 1;
+    transform: translate(-8%, -10%) rotate(-14deg);
+  }
+  84%,
+  100% {
+    opacity: 0;
+    transform: translate(40%, -80%) rotate(4deg);
+  }
+}
+@keyframes tap-ring {
+  0%,
+  29% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.2);
+  }
+  32% {
+    opacity: 1;
+  }
+  58%,
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+}
+
+@layer components {
+  /* Hero switcher (owner, 25 September 2026): a dark pill; the open side is red with a white ring. */
+  .herotabs {
+    display: inline-flex;
+    gap: 2px;
+    padding: 4px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #161617;
+  }
+  .herotabs__tab {
+    min-height: 48px;
+    padding: 0 22px;
+    border-radius: 999px;
+    border: 0;
+    background: transparent;
+    color: var(--color-body);
+    font: inherit;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition:
+      background-color 0.2s,
+      color 0.2s,
+      box-shadow 0.2s;
+  }
+  .herotabs__tab:hover {
+    color: #fff;
+  }
+  .herotabs__tab[aria-selected='true'] {
+    background: var(--brand-red-bright);
+    color: #fff;
+    box-shadow:
+      0 0 0 2px #050505,
+      0 0 0 4px rgba(255, 255, 255, 0.92);
+  }
+  .herotabs__tab:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+  }
+  .heropillars {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    margin: 0;
+    padding: 20px 0 0;
+    list-style: none;
+    border-top: 1px solid var(--color-line);
+  }
+  .heropillars li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 0 6px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.3;
+    color: var(--color-soft);
+  }
+  .heropillars li + li {
+    border-left: 1px solid var(--color-line);
+  }
+  .heropillars__icon {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #1c1c1e;
+    color: var(--color-soft);
+  }
+  @media (max-width: 560px) {
+    .heropillars {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      row-gap: 18px;
+    }
+    .heropillars li:nth-child(4) {
+      border-left: 0;
+    }
   }
 }

@@ -5,6 +5,7 @@ import { Nav } from '@/components/Nav';
 import { ChatWidget } from '@/components/chat/ChatWidget';
 import { CookieNotice } from '@/components/CookieNotice';
 import { MotionProvider } from '@/motion/MotionProvider';
+import { CurrencyProvider } from '@/components/Currency';
 import { SmoothScroll } from '@/motion/SmoothScroll';
 import { DEFAULT_DESCRIPTION, SITE_NAME, SITE_URL, TAGLINE, THEME } from '@/lib/site';
 import './globals.css';
@@ -45,7 +46,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <Nav />
-        <main id="main">{children}</main>
+        <main id="main">
+          <CurrencyProvider>{children}</CurrencyProvider>
+        </main>
         <Footer />
         <ChatWidget />
         <CookieNotice />

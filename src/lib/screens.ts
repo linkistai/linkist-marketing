@@ -22,7 +22,7 @@ export function crop(name: string): string | undefined {
 }
 
 /** v6- and profile- screens are prototype previews (D51); anything else in public/screens is a real capture. */
-export const isPreview = (name: string) => /^(proto|v6|profile)-/.test(name);
+export const isPreview = (name: string) => /^(proto|v6|v12|profile)-/.test(name);
 
 /** A generated asset under public, or undefined until the image plan produces it (brief 8). */
 export function asset(path: string): string | undefined {

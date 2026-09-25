@@ -7,12 +7,12 @@ import { PageHero } from '@/components/PageHero';
 import { Bullets, SectionHead } from '@/components/Section';
 import { featureBySlug } from '@/content/features';
 import { planByKey } from '@/content/plans';
-import { formatMoney } from '@/lib/glossary';
+import { TeamPrice } from '@/components/TeamPrice';
 import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
   'Linkist for teams: relationships that stay with the company',
-  'The Team plan: everything in Pro for every user, contact sharing across the team, a centralised admin console, company branding on cards and a team directory. $5 per user a month, minimum 5 users: $25 a month or $300 a year for 5 users.',
+  'The Team plan: everything in Pro for every user, contact sharing across the team, a centralised admin console, company branding on cards and a team directory. $5 (AED 20) per user a month, minimum 5 users.',
   '/teams',
   { image: '/og/teams.png' },
 );
@@ -44,11 +44,7 @@ export default function TeamsPage() {
             <TextLink href="/features/teams">See the Team features</TextLink>
           </>
         }
-        note={
-          <p className="mt-6 text-sm text-body">
-            {formatMoney(team.monthly, 'USD')} per user a month, minimum {team.minUsers} users: {formatMoney(team.team!.usd.monthly, 'USD')} a month or {formatMoney(team.team!.usd.yearly, 'USD')} a year for {team.minUsers} users.
-          </p>
-        }
+        note={<TeamPrice variant="note" />}
         side={
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[28px] border border-line">
             <Image src="/assets/gen/uc-leave.webp" alt="A person leaving an office carrying a box of belongings" fill priority sizes="(min-width: 1024px) 560px, 90vw" className="object-cover" />
@@ -85,13 +81,7 @@ export default function TeamsPage() {
               </h2>
               <p className="lede mt-4">{team.fit}</p>
               <Bullets items={team.groups.flatMap((g) => g.items)} className="mt-6" />
-              <p className="mt-7 flex items-baseline gap-2">
-                <span className="font-mono text-[34px] font-semibold tracking-[-0.03em] tabular">{formatMoney(team.monthly, 'USD')}</span>
-                <span className="text-body">per user a month</span>
-              </p>
-              <p className="mt-1 text-sm text-muted">
-                Minimum {team.minUsers} users: {formatMoney(team.team!.usd.monthly, 'USD')}/month or {formatMoney(team.team!.usd.yearly, 'USD')}/year ({formatMoney(team.team!.aed.monthly, 'AED')} or {formatMoney(team.team!.aed.yearly, 'AED')}). Extra users {formatMoney(team.monthly, 'USD')}/month or {formatMoney(team.team!.extraYearly, 'USD')}/year.
-              </p>
+              <TeamPrice variant="block" />
               <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3">
                 <StartFree />
                 <TextLink href="/pricing#compare">Compare PRM plans</TextLink>

@@ -14,6 +14,8 @@ export interface SwitcherStage {
   readonly href: string;
   readonly screen?: string;
   readonly alt: string;
+  /** A full-length capture that scrolls inside the phone (pixel size). */
+  readonly tall?: { readonly w: number; readonly h: number };
 }
 
 const STEP_MS = 4500;
@@ -113,7 +115,11 @@ export function StageSwitcher({ stages }: { stages: readonly SwitcherStage[] }) 
         <div className="phone relative !w-[280px] !max-w-full">
           <div className="phone__screen">
             {stages.map((s, i) =>
-              s.screen ? (
+              s.screen && s.tall ? (
+                <div key={s.n} className="stage-screen phone__scroll" data-active={i === active} aria-hidden={i !== active} inert={i !== active} tabIndex={i === active ? 0 : -1} role="region" aria-label={`${s.alt}. Scrolls.`} data-lenis-prevent>
+                  <Image src={s.screen} alt={i === active ? s.alt : ''} width={s.tall.w} height={s.tall.h} sizes="280px" className="block h-auto w-full" />
+                </div>
+              ) : s.screen ? (
                 <Image key={s.n} src={s.screen} alt={i === active ? s.alt : ''} aria-hidden={i !== active} fill sizes="280px" className="stage-screen" data-active={i === active} />
               ) : null,
             )}

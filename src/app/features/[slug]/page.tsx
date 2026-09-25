@@ -10,7 +10,6 @@ import { FeatureTabs } from '@/components/FeatureTabs';
 import { PageHero } from '@/components/PageHero';
 import { ScreenFrame } from '@/components/ScreenFrame';
 import { SectionHead } from '@/components/Section';
-import { PreviewNote } from '@/components/PreviewNote';
 import { PROTO_ALT, type ProtoScreen } from '@/content/design';
 import { FEATURES, featureBySlug } from '@/content/features';
 import { isPreview, screen } from '@/lib/screens';
@@ -101,7 +100,6 @@ export default async function FeaturePage({ params }: { params: Promise<{ slug: 
             <FeatureTabs tabs={tabs} label={`${f.name} features`} />
           </div>
           <p className="mt-10 max-w-3xl text-[13px] leading-normal text-muted">{f.planNote}</p>
-          <PreviewNote />
         </div>
       </section>
 

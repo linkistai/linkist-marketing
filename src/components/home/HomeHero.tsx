@@ -2,16 +2,22 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
-import { useRef, type MouseEvent } from 'react';
-import { GetCard, StartFree } from '@/components/Button';
-import { PreviewNote } from '@/components/PreviewNote';
+import { ArrowRight, CalendarCheck, CreditCard, Database, Sparkles, Target } from 'lucide-react';
+import { useRef, useState, type KeyboardEvent, type MouseEvent } from 'react';
+import { Button } from '@/components/Button';
 import { StoreBadges } from '@/components/StoreBadges';
 import { HERO } from '@/content/home';
 import { Parallax } from '@/motion/Parallax';
+import { FREE_PROFILE_URL, GET_CARD_URL } from '@/lib/site';
+
+const PILLAR_ICONS = [CreditCard, Database, Target, Sparkles, CalendarCheck];
+/** Content hrefs: two keywords for the app's sign-up and store, anything else is a site path. */
+const go = (href: string) => (href === 'free-profile' ? FREE_PROFILE_URL : href === 'get-card' ? GET_CARD_URL : href);
 
 /**
- * The v2 home hero: a full-viewport block. A 640 px red spotlight follows the pointer (a CSS
+ * The v2 home hero, with a For teams / For individuals switcher on the left (owner, 25 September
+ * 2026) that swaps the H1, lede, buttons and the line under them; the five capability icons and the
+ * store badges stay. The rest: a full-viewport block. A 640 px red spotlight follows the pointer (a CSS
  * variable pair, no re-render), the three H1 lines rise into view behind a mask, 140 ms apart, and
  * the right side is the hand-tapping-a-card photograph with NFC ripples, over a crimson light field
  * and a slow-turning giant brand mark. Everything decorative is aria-hidden; with motion off the
@@ -19,6 +25,17 @@ import { Parallax } from '@/motion/Parallax';
  */
 export function HomeHero() {
   const spot = useRef<HTMLDivElement>(null);
+  const [mode, setMode] = useState(0);
+  const m = HERO.modes[mode]!;
+  const tabs = useRef<(HTMLButtonElement | null)[]>([]);
+  const onTabKey = (e: KeyboardEvent<HTMLDivElement>) => {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft' && e.key !== 'Home' && e.key !== 'End') return;
+    e.preventDefault();
+    const n = HERO.modes.length;
+    const next = e.key === 'Home' ? 0 : e.key === 'End' ? n - 1 : (mode + (e.key === 'ArrowRight' ? 1 : n - 1)) % n;
+    setMode(next);
+    tabs.current[next]?.focus();
+  };
   const onMove = (e: MouseEvent<HTMLElement>) => {
     const el = spot.current;
     if (!el) return;
@@ -40,26 +57,77 @@ export function HomeHero() {
           <p className="eyebrow eyebrow--pulse" data-reveal="fade">
             {HERO.eyebrow}
           </p>
-          <h1 id="hero-title" className="home-hero__title">
-            {HERO.lines.map((line, i) => (
-              <span key={line} className="home-hero__mask">
-                <span className={`home-hero__line ${i === 2 ? 'em-coral' : ''}`} style={{ animationDelay: `${150 + i * 140}ms` }}>
-                  {line}
-                </span>
-              </span>
+          <div role="tablist" aria-label="Linkist for" className="herotabs mt-6" onKeyDown={onTabKey}>
+            {HERO.modes.map((x, i) => (
+              <button
+                key={x.key}
+                ref={(el) => {
+                  tabs.current[i] = el;
+                }}
+                type="button"
+                role="tab"
+                id={`hero-tab-${x.key}`}
+                aria-selected={i === mode}
+                aria-controls="hero-panel"
+                tabIndex={i === mode ? 0 : -1}
+                className="herotabs__tab"
+                onClick={() => setMode(i)}
+              >
+                {x.tab}
+              </button>
             ))}
-          </h1>
-          <p className="lede mt-7 max-w-[560px] !text-[clamp(16px,1.35vw,18px)]">{HERO.lede}</p>
-          <div className="mt-[34px] flex flex-wrap gap-3">
-            <StartFree label={HERO.primary} className="min-w-[220px] !min-h-[56px]" />
-            <GetCard size="lg" variant="secondary" label={HERO.secondary} className="min-w-[220px] !min-h-[56px]" />
           </div>
-          <p className="mt-5">
-            <Link href="/bring-your-own" className="link">
-              {HERO.byo}
-              <ArrowRight size={16} aria-hidden="true" />
-            </Link>
-          </p>
+          <div id="hero-panel" role="tabpanel" aria-labelledby={`hero-tab-${m.key}`}>
+            <h1 id="hero-title" className="home-hero__title" key={m.key}>
+              {m.lines.map((line, i) => (
+                <span key={line} className="home-hero__mask">
+                  <span className={`home-hero__line ${i >= m.lines.length - m.em ? 'em-coral' : ''}`} style={{ animationDelay: `${150 + i * 140}ms` }}>
+                    {line}
+                  </span>
+                </span>
+              ))}
+            </h1>
+            <p className="lede mt-7 max-w-[600px] !text-[clamp(16px,1.35vw,18px)]">
+              {m.lede}
+              {'ledeStrong' in m && m.ledeStrong ? <strong className="font-semibold text-white"> {m.ledeStrong}</strong> : null}
+            </p>
+            <div className="mt-[34px] flex flex-wrap gap-3">
+              <Button href={go(m.primary.href)} size="lg" className="min-w-[220px] !min-h-[56px]">
+                {m.primary.label}
+              </Button>
+              <Button href={go(m.secondary.href)} size="lg" variant="secondary" className="min-w-[220px] !min-h-[56px]">
+                {m.secondary.label}
+              </Button>
+            </div>
+            <div className="mt-7 border-t border-line pt-4">
+              {m.key === 'teams' ? (
+                <p className="text-[15px] text-body">
+                  {HERO.switchToIndividuals.lead}{' '}
+                  <button type="button" className="inline-flex min-h-[44px] items-center text-white underline underline-offset-4 hover:text-coral" onClick={() => setMode(HERO.modes.findIndex((x) => x.key === 'individuals'))}>
+                    {HERO.switchToIndividuals.link}
+                  </button>
+                </p>
+              ) : (
+                <Link href="/bring-your-own" className="link min-h-[44px]">
+                  {HERO.byo}
+                  <ArrowRight size={16} aria-hidden="true" />
+                </Link>
+              )}
+            </div>
+          </div>
+          <ul className="heropillars mt-4" aria-label="What Linkist does">
+            {HERO.pillars.map((p, i) => {
+              const Icon = PILLAR_ICONS[i]!;
+              return (
+                <li key={p}>
+                  <span className="heropillars__icon" aria-hidden="true">
+                    <Icon size={20} strokeWidth={1.6} />
+                  </span>
+                  <span>{p}</span>
+                </li>
+              );
+            })}
+          </ul>
           <div className="mt-6 border-t border-line pt-6">
             <StoreBadges />
           </div>
@@ -81,7 +149,6 @@ export function HomeHero() {
         </div>
       </div>
       <div className="container">
-        <PreviewNote align="left" className="!mt-7 !max-w-none" />
       </div>
     </section>
   );

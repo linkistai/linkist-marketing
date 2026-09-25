@@ -28,6 +28,8 @@ export type ProtoScreen =
   | 'v6-health'
   | 'v6-brief'
   | 'v6-exchanges'
+  | 'v12-shareready'
+  | 'v12-icpintro'
   | 'v6-chat'
   | 'v6-snapshot'
   | 'v6-record'
@@ -58,6 +60,8 @@ export const PROTO_CAPTIONS: Record<ProtoScreen, string> = {
   'v6-health': 'Network health: profile completeness, contacts, companies, countries and where you have depth',
   'v6-brief': 'Pre-meeting brief: what you should know before you walk in',
   'v6-exchanges': 'Exchanges: the details people sent back to you',
+  'v12-shareready': 'Share my card: your QR code, then WhatsApp, email and the copy link',
+  'v12-icpintro': 'ICP Studio: know who you want to meet, and how an Ideal Connection Profile works',
   'v6-chat': 'Linker chat: an AI-drafted reply to accept or edit',
   'v6-snapshot': 'Intelligence snapshot: ICP and network fit, individual and company intelligence, public signals',
   'v6-record': 'Record this meeting, transcribed on device',
@@ -72,4 +76,7 @@ export const PROTO_CAPTIONS: Record<ProtoScreen, string> = {
 
 export const PROTO_ALT: Record<ProtoScreen, string> = Object.fromEntries(Object.entries(PROTO_CAPTIONS).map(([k, v]) => [k, `Design preview. ${v}`])) as Record<ProtoScreen, string>;
 
-export const DESIGN_NOTE = 'Design preview. Screens and figures are examples and may change.';
+/** Screens captured at full scroll length (pnpm capture:v12): shown scrolling inside the phone, at their pixel size. */
+export const TALL_SCREENS: Partial<Record<ProtoScreen, { readonly w: number; readonly h: number }>> = { 'v12-icpintro': { w: 780, h: 2040 } };
+
+export const DESIGN_NOTE = 'Screens shown are for illustration only and may change.';

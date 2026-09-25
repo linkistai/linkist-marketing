@@ -14,20 +14,53 @@ import type { ProtoScreen } from '@/content/design';
  * request, and names the Personal Relationship Manager in full. The store badges only link once the listings exist
  * (R3, `APP_STORE_URL` and `PLAY_STORE_URL`); until then they say so.
  */
+/** One side of the hero switcher (owner, 25 September 2026): the H1 in lines, the last `em` lines in red. */
+export interface HeroMode {
+  readonly key: 'teams' | 'individuals';
+  readonly tab: string;
+  readonly lines: readonly string[];
+  readonly em: number;
+  readonly lede: string;
+  /** A closing sentence set in bold white after the lede. */
+  readonly ledeStrong?: string;
+  readonly primary: { readonly label: string; readonly href: string };
+  readonly secondary: { readonly label: string; readonly href: string };
+}
+
 export const HERO = {
-  eyebrow: 'Personal Relationship Manager',
-  lines: ['Capture contacts.', 'Remember context.', 'Follow up on time.'] as const,
-  lede: 'Linkist is the AI-powered Personal Relationship Manager (PRM). Save contacts in seconds, get timely nudges and keep the relationships that matter. With or without an NFC card.',
-  primary: 'Create Free Profile',
-  secondary: 'Get Linkist NFC',
-  byo: 'Have an NFC card? Bring your own',
+  eyebrow: 'Personal Relationship Manager (PRM)',
+  /** The hero switcher: For teams first and open by default, as in the owner's screens. */
+  modes: [
+    {
+      key: 'teams',
+      tab: 'For teams',
+      lines: ['Turn your team’s network', 'into business intelligence.'],
+      em: 1,
+      lede: 'Give your team an intelligent relationship platform that remembers who they meet, enriches every contact, identifies ICP matches and recommends the relationships worth developing.',
+      ledeStrong: 'Reduce customer acquisition time and cost.',
+      primary: { label: 'Set up your team', href: 'free-profile' },
+      secondary: { label: 'Explore Teams', href: '/teams' },
+    },
+    {
+      key: 'individuals',
+      tab: 'For individuals',
+      lines: ['Capture contacts.', 'Remember context.', 'Follow up at the right time.'],
+      em: 1,
+      lede: 'Linkist is the AI-powered Personal Relationship Manager (PRM) that turns the people you meet into relationships you keep. Save contacts in seconds, get timely nudges and never lose track of who matters. It works with or without an NFC card.',
+      primary: { label: 'Create Free Profile', href: 'free-profile' },
+      secondary: { label: 'Get Linkist NFC', href: 'get-card' },
+    },
+  ] as const satisfies readonly HeroMode[],
+  switchToIndividuals: { lead: 'Buying just for yourself?', link: 'Switch to individuals' },
+  byo: 'Already have an NFC card? Bring your own',
+  /** The five capabilities under the buttons, with their icons. */
+  pillars: ['Smart NFC Cards', 'Contact Enrichment', 'ICP Matching', 'AI Recommendations', 'Smart Follow-ups'] as const,
   stores: {
     apple: { small: 'Download on the', big: 'App Store' },
     google: { small: 'Get it on', big: 'Google Play' },
     pending: 'Coming soon',
   },
-  /** The product on the right (D51): a public-profile sample on a phone and its Signature card. */
-  imageAlt: 'A hand taps a Linkist NFC card on a phone, which opens the Linkist app. Design preview.',
+  imageAlt: 'A hand taps a Linkist NFC card on a phone, which opens the Linkist app.',
 } as const;
 
 /** The three-stage journey, the prototype's spine (brief 3.2). One screen per stage in the deck. */
@@ -52,7 +85,7 @@ export const STAGES: readonly Stage[] = [
     bulletsShort: ['Capture by NFC, QR, card scan, import or manual add', 'Fill gaps with AI Enrichment', 'Save where you met and what mattered', 'Share your live profile in one tap'],
     outcome: 'Every useful contact becomes more than a name and number.',
     chips: ['AI Enrichment', 'Card Scan', 'Contact Import', 'Voice Notes'],
-    screen: 'v6-shareready',
+    screen: 'v12-shareready',
     href: '/features/capture',
   },
   {
@@ -63,7 +96,7 @@ export const STAGES: readonly Stage[] = [
     bulletsShort: ['Search by what you remember', 'Define who you want and see who fits', 'See which relationships are active or quiet', 'Post a need, find people or trusted paths'],
     outcome: 'Know who matters, who fits, and who can help.',
     chips: ['Natural-Language Search', 'ICP Matching', 'Relationship Priority', 'Network Ask'],
-    screen: 'v6-icpdetail',
+    screen: 'v12-icpintro',
     href: '/features/find',
   },
   {
@@ -79,14 +112,6 @@ export const STAGES: readonly Stage[] = [
   },
 ];
 
-/** "More than an organised address book": four cards and the closing line. */
-export const MORE_THAN = [
-  { title: 'Keeps the context', body: 'Know why they mattered, not just their number.' },
-  { title: 'Finds the right people', body: 'Search, match and find opportunities in your existing network.' },
-  { title: 'Tells you what needs attention', body: 'Spot key relationships and actions before they slip.' },
-  { title: 'Helps you act', body: 'Follow up, reconnect or get a warm intro, with context ready.' },
-] as const;
-export const MORE_THAN_LINE = 'Contacts store people. Linkist builds trust and relationship capital.';
 
 /** "What powers Linkist": four capability cards, each with a 3D object slot and an animated mini mockup (Grownz D26). */
 export interface Capability {

@@ -2,7 +2,9 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { CapabilityCards } from '@/components/CapabilityCards';
 import { ClosingBand } from '@/components/ClosingBand';
+import { SectionHead } from '@/components/Section';
 import { PageHero } from '@/components/PageHero';
 import { FEATURES } from '@/content/features';
 import { pageMeta } from '@/lib/site';
@@ -52,6 +54,26 @@ export default function FeaturesHub() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+      <section id="what-powers-linkist" aria-labelledby="powers-title" className="section relative isolate overflow-hidden">
+        <Image src="/assets/gen/abstract.webp" alt="" aria-hidden="true" fill sizes="100vw" className="-z-10 object-cover opacity-60" />
+        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#050505,rgba(5,5,5,.4)_30%,rgba(5,5,5,.4)_70%,#050505)]" />
+        <div className="container">
+          <SectionHead
+            id="powers-title"
+            eyebrow="What powers Linkist"
+            center
+            title={
+              <>
+                The AI <span className="em-coral">under every stage</span>. <span role="img" aria-label="AI-assisted" className="ai-diamond" />
+              </>
+            }
+            lede="The capabilities behind the three-stage journey, shown with example figures."
+          />
+          <div className="mt-[clamp(40px,5vw,64px)]">
+            <CapabilityCards />
+          </div>
         </div>
       </section>
       <ClosingBand />

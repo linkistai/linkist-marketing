@@ -1,17 +1,38 @@
+'use client';
+
 import { Check } from 'lucide-react';
 import { StartFree, TextLink } from '@/components/Button';
-import { ENTERPRISE_NOTE, PLANS } from '@/content/plans';
-import { formatMoney } from '@/lib/glossary';
+import { CurrencySwitch, useCurrency } from '@/components/Currency';
+import { AED_PER_USD, ENTERPRISE_NOTE, PLANS, type Plan } from '@/content/plans';
+import { formatMoney, type Currency } from '@/lib/glossary';
+
+/** A dollar figure the owner has not priced in dirhams is shown converted at the peg, marked "about". */
+const aboutAed = (usd: number) => `about ${formatMoney(Math.round(usd * AED_PER_USD), 'AED')}`;
+
+/** The line under the price: yearly and lifetime, or the Team plan's minimum and extra users. */
+function priceLine(p: Plan, cur: Currency): string {
+  const m = (usd: number, aed?: number) => (cur === 'USD' ? formatMoney(usd, 'USD') : aed !== undefined ? formatMoney(aed, 'AED') : aboutAed(usd));
+  if (p.monthly === 0) return 'Free, for as long as you like';
+  if (p.team) {
+    const t = p.team;
+    return `${m(t.usd.monthly, t.aed.monthly)} a month or ${m(t.usd.yearly, t.aed.yearly)} a year for ${p.minUsers} users · minimum ${p.minUsers} users · each additional user ${m(p.monthly, p.aed.monthly)} a month or ${m(t.extraYearly)} a year`;
+  }
+  return [p.yearly ? `${m(p.yearly, p.aed.yearly)} paid annually` : null, p.lifetime ? `${m(p.lifetime)} lifetime` : null].filter(Boolean).join(' · ');
+}
 
 /**
  * Four PRM plan cards (v2): Essential, Enhanced, Pro featured (red border, a dark red wash and a
  * white "Most popular" badge on the top edge) and Team. Each card lists its groups, then pins the
- * price block and its CTA to the bottom. Prices are in US dollars.
+ * price block and its CTA to the bottom. Prices follow the shared USD / AED switch (AED by default).
  */
 export function PlanCards({ compact, headingLevel = 3 }: { compact?: boolean; headingLevel?: 2 | 3 }) {
   const H = headingLevel === 2 ? 'h2' : 'h3';
+  const { currency: cur } = useCurrency();
   return (
     <div>
+      <div className="mb-6 flex justify-end">
+        <CurrencySwitch label="Show plan prices in" />
+      </div>
       <div className="grid items-stretch gap-3.5 [grid-template-columns:repeat(auto-fit,minmax(min(100%,265px),1fr))]" data-reveal="rise" data-reveal-stagger="0.08">
         {PLANS.map((p) => {
           const featured = p.key === 'pro';
@@ -38,18 +59,12 @@ export function PlanCards({ compact, headingLevel = 3 }: { compact?: boolean; he
               ))}
               <div className="mt-auto pt-[26px]">
                 <p className="flex items-baseline gap-1">
-                  <span className="font-mono text-[34px] font-semibold tracking-[-0.03em] tabular">{formatMoney(p.monthly, 'USD')}</span>
+                  <span className="font-mono text-[34px] font-semibold tracking-[-0.03em] tabular">{formatMoney(cur === 'USD' ? p.monthly : p.aed.monthly, cur)}</span>
                   {p.monthly ? <span className="text-sm text-body">{p.perUser ? '/user/month' : '/month'}</span> : null}
                 </p>
-                <p className="mt-1 text-xs leading-normal text-muted">
-                  {p.monthly === 0
-                    ? 'Free, for as long as you like'
-                    : p.team
-                      ? `${formatMoney(p.team.usd.monthly, 'USD')}/month or ${formatMoney(p.team.usd.yearly, 'USD')}/year for ${p.minUsers} users (${formatMoney(p.team.aed.monthly, 'AED')} / ${formatMoney(p.team.aed.yearly, 'AED')}). Extra users ${formatMoney(p.monthly, 'USD')}/month or ${formatMoney(p.team.extraYearly, 'USD')}/year.`
-                      : [p.yearly ? `${formatMoney(p.yearly, 'USD')} paid annually` : null, p.lifetime ? `${formatMoney(p.lifetime, 'USD')} lifetime` : null].filter(Boolean).join(' · ')}
-                </p>
+<p className="mt-1 text-xs leading-normal text-muted">{priceLine(p, cur)}</p>
                 <div className="mt-4">
-                  <StartFree size="sm" variant={featured ? 'primary' : 'secondary'} className="w-full !min-h-[46px] !shadow-none" />
+                  <StartFree label="Start Here" size="sm" variant={featured ? 'primary' : 'secondary'} className="w-full !min-h-[46px] !shadow-none" />
                 </div>
               </div>
             </article>
@@ -57,7 +72,7 @@ export function PlanCards({ compact, headingLevel = 3 }: { compact?: boolean; he
         })}
       </div>
       <div className="mt-[22px] flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
-        <p className="max-w-[760px] text-xs leading-normal text-muted">Billed in USD. No NFC card required. {ENTERPRISE_NOTE}</p>
+        <p className="max-w-[760px] text-xs leading-normal text-muted">Software subscription in US dollars or UAE dirhams. No NFC card required. {ENTERPRISE_NOTE}</p>
         {compact ? <TextLink href="/pricing#compare">Compare PRM plans</TextLink> : null}
       </div>
     </div>

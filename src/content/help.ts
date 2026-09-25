@@ -105,10 +105,10 @@ export const HELP: readonly HelpEntry[] = [
   e('Teams', 'What happens to contacts when someone leaves?', 'Personal contacts stay with the person. Team-shared contacts and their relationship history remain with the authorised team, so relationship value stays inside the company.'),
   e('Teams', 'Who manages a team?', 'An administrator, through the centralised admin console listed in the plan comparison: members, shared contacts and company branding on every card.'),
   e('Teams', 'Can a team member keep private contacts?', 'Yes. Sharing is per contact, so personal relationships stay personal and only shared contacts are visible to the team.'),
-  e('Teams', 'How is a team billed?', '$5 per user a month with a minimum of 5 users: $25 a month or $300 a year for 5 users (AED 100 or AED 1,000), then $5 a month or $60 a year for each additional user.', [{ label: 'Pricing', href: '/pricing' }]),
+  e('Teams', 'How is a team billed?', '$5 (AED 20) per user a month with a minimum of 5 users: $25 a month or $250 a year for 5 users (AED 100 or AED 1,000), then $5 a month or $60 a year for each additional user.', [{ label: 'Pricing', href: '/pricing' }]),
 
   // Plans and billing
-  e('Plans and billing', 'What do the plans cost?', 'Essential is free. Enhanced is $2 a month, $12 a year or $25 for life. Pro is $10 a month or $100 a year. Team is $5 per user a month with a minimum of 5 users: $25 a month or $300 a year for 5 users, then $5 a month or $60 a year for each additional user.', [{ label: 'Pricing', href: '/pricing' }]),
+  e('Plans and billing', 'What do the plans cost?', 'Essential is free. Enhanced is $2 (AED 8) a month, $20 (AED 80) a year or $25 for life. Pro is $10 (AED 40) a month or $100 (AED 400) a year. Team is $5 (AED 20) per user a month with a minimum of 5 users: $25 (AED 100) a month or $250 (AED 1,000) a year for 5 users, then $5 a month or $60 a year for each additional user.', [{ label: 'Pricing', href: '/pricing' }]),
   e('Plans and billing', 'Which plan has ICP Matching?', 'Pro and Team. Enhanced adds profiles, templates and lead capture; Pro adds the AI and relationship intelligence features.'),
   e('Plans and billing', 'Is there an Enterprise plan?', 'Not yet. Enterprise is coming later and is interest only today. Single sign-on and CRM or HRMS integration are listed for it.'),
   e('Plans and billing', 'Which currency am I billed in?', 'The store prices the cards in AED and shows an approximate US dollar figure beside each one. The terms say prices are shown on the Pricing page and at checkout, with taxes added where they apply (T 12), so check the currency at checkout.', [TERMS]),
@@ -120,7 +120,7 @@ export const HELP: readonly HelpEntry[] = [
   e('Plans and billing', 'Where are my invoices?', 'In the billing hub at prm.linkist.ai. The document keeps payments and invoices as long as tax and accounting law requires (P 10).'),
 
   // NFC cards and shipping
-  e('NFC cards and shipping', 'Which NFC cards are there?', 'Starter, with no customisation, at AED 75 in PVC, AED 95 in cherry wood or AED 195 in brushed metal, about $20, $26 and $53. Signature, with your name and logo, at AED 95, 115 or 225, about $26, $31 and $61. Every card includes PRM Essential.', [{ label: 'NFC cards', href: '/nfc-cards' }]),
+  e('NFC cards and shipping', 'Which NFC cards are there?', 'Starter, with no customisation, at AED 75 ($20) in PVC, AED 95 ($25) in cherry wood or AED 200 ($55) in brushed metal. Signature, with your name and logo, at AED 95 ($25), AED 125 ($35) or AED 240 ($65). Every card includes PRM Essential.', [{ label: 'NFC cards', href: '/nfc-cards' }]),
   e('NFC cards and shipping', 'Which materials, colours and patterns?', 'PVC in white or black with four patterns (Minimal, Geometric, Wave and Crystal), cherry wood, and brushed metal in silver or black with the same four patterns.'),
   e('NFC cards and shipping', 'What is printed on a Signature NFC card?', 'Your name and logo. You are responsible for the names, titles and logos printed on your card and for checking the proof before printing (T 14). Orders can be changed or cancelled within 24 hours; after printing starts it may not be possible.', [TERMS]),
   e('NFC cards and shipping', 'What does a tap do?', 'The NFC card opens your live profile on the other person’s phone. They save your details and, if they use Linkist, you keep the context of the meeting too.'),
@@ -131,7 +131,7 @@ export const HELP: readonly HelpEntry[] = [
   e('NFC cards and shipping', 'Can I change or cancel an order?', 'Ask within 24 hours of ordering. Because cards are custom made, a change is not guaranteed once production has started.', [TERMS]),
   e('NFC cards and shipping', 'Can I return an NFC card?', 'Custom products are returnable where the product is defective, there was a production error, or it differs materially from the confirmed order. Contact support within 7 days of delivery; approved refunds usually take 5 to 10 business days.', [TERMS]),
   e('NFC cards and shipping', 'Can I use an NFC card or sticker I already own?', 'Yes, free. At nfctools.linkist.ai, tap the card or sticker on your phone and Linkist writes your live profile onto it. Encoding a chip needs an Android phone; the profile then works on every device.'),
-  e('NFC cards and shipping', 'What are the bundles?', 'The Signature Bundle is any Signature NFC card plus 1 year of Pro for $100. The Founders Circle Bundle is the Founders Circle NFC card plus lifetime Pro for $150, one time.', [{ label: 'Bundles', href: '/bundles' }]),
+  e('NFC cards and shipping', 'What are the bundles?', 'The Signature Bundle is any Signature NFC card plus 1 year of Pro for AED 369 ($100). The Founders Circle Bundle is the Founders Circle NFC card plus lifetime Pro for AED 549 ($150), one time.', [{ label: 'Bundles', href: '/bundles' }]),
   e('NFC cards and shipping', 'What is the Founders Circle?', 'A limited early-supporter offer described on linkist.ai: an NFC card, a Founders Circle badge, lifetime Pro and early-member perks. Whether it is still open is confirmed with the team; the bundle page says so when it closes.'),
 
   // AI and data

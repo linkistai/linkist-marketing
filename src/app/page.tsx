@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { TextLink } from '@/components/Button';
+import { CapabilityCards } from '@/components/CapabilityCards';
 import { ClosingBand } from '@/components/ClosingBand';
 import { Faq } from '@/components/Faq';
-import { MiniMock } from '@/components/mockups/MiniMock';
 import { PreviewNote } from '@/components/PreviewNote';
 import { SectionHead } from '@/components/Section';
 import { Bundles } from '@/components/home/Bundles';
@@ -14,8 +14,8 @@ import { HomeJsonLd } from '@/components/home/JsonLd';
 import { PlanCards } from '@/components/home/PlanCards';
 import { StageSwitcher } from '@/components/home/StageSwitcher';
 import { UseCaseCards } from '@/components/home/UseCaseCards';
-import { PROTO_ALT } from '@/content/design';
-import { CAPABILITIES, FAQ, MORE_THAN, MORE_THAN_LINE, STAGES } from '@/content/home';
+import { PROTO_ALT, TALL_SCREENS } from '@/content/design';
+import { FAQ, STAGES } from '@/content/home';
 import { USE_CASES } from '@/content/usecases';
 import { screen } from '@/lib/screens';
 import { DEFAULT_DESCRIPTION, TAGLINE, pageMeta } from '@/lib/site';
@@ -33,7 +33,6 @@ const DEFINITIONS = [
 ];
 
 export default function HomePage() {
-  const [linePlain, lineRest] = splitLine(MORE_THAN_LINE);
   return (
     <>
       <HomeJsonLd />
@@ -80,7 +79,7 @@ export default function HomePage() {
         <div className="container">
           <SectionHead id="how-title" num="01" eyebrow="How Linkist works" title={<>Turn the contacts you collect into <span className="em-coral">opportunities</span>.</>} lede="Capture the right people, see who matters, know what to do next." />
           <StageSwitcher
-            stages={STAGES.map((s) => ({ n: s.n, label: s.label, title: s.title, bullets: s.bulletsShort, chips: s.chips, href: s.href, screen: screen(s.screen), alt: PROTO_ALT[s.screen] }))}
+            stages={STAGES.map((s) => ({ n: s.n, label: s.label, title: s.title, bullets: s.bulletsShort, chips: s.chips, href: s.href, screen: screen(s.screen), alt: PROTO_ALT[s.screen], tall: TALL_SCREENS[s.screen] }))}
           />
           <PreviewNote className="!mt-12" />
         </div>
@@ -96,43 +95,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="different" aria-labelledby="diff-title" className="section section--charcoal">
-        <div className="container">
-          <div className="max-w-[860px]" data-reveal="rise">
-            <p className="eyebrow eyebrow--plain">
-              <span className="eyebrow__num">03</span>More than an organised address book
-            </p>
-            <h2 id="diff-title" className="display-2 mt-[18px]">
-              More than <span className="em-coral">organising contacts</span>.
-            </h2>
-            <p className="lede mt-[22px] max-w-[560px]">Most tools stop at saving the contact. Linkist tells you what to do with it.</p>
-          </div>
-          <div className="quad mt-[clamp(40px,5vw,64px)]" data-reveal="rise" data-reveal-stagger="0.08">
-            {MORE_THAN.map((m, i) => (
-              <div key={m.title} className="quad__cell">
-                <span aria-hidden="true" className="font-mono text-[13px] text-coral">
-                  /{String(i + 1).padStart(2, '0')}
-                </span>
-                <div>
-                  <h3 className="font-display text-2xl font-semibold tracking-[-0.02em]">{m.title}</h3>
-                  <p className="mt-2.5 text-[15px] leading-normal text-body">{m.body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <p className="mx-auto mt-[clamp(40px,5vw,64px)] max-w-[900px] text-center font-display text-[clamp(24px,3vw,38px)] font-medium leading-[1.2] tracking-[-0.025em] text-muted [text-wrap:balance]" data-reveal="rise">
-            {linePlain} <span className="text-white">{lineRest}</span>
-          </p>
-        </div>
-      </section>
-
       <section id="features" aria-labelledby="feat-title" className="section relative isolate overflow-hidden">
         <Image src="/assets/gen/abstract.webp" alt="" aria-hidden="true" fill sizes="100vw" className="-z-10 object-cover opacity-60" />
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#050505,rgba(5,5,5,.4)_30%,rgba(5,5,5,.4)_70%,#050505)]" />
         <div className="container">
           <SectionHead
             id="feat-title"
-            num="04"
+            num="03"
             eyebrow="What powers Linkist"
             center
             title={
@@ -142,18 +111,8 @@ export default function HomePage() {
             }
             lede="The capabilities behind the three-stage journey, shown with example figures."
           />
-          <div className="mt-[clamp(40px,5vw,64px)] grid gap-3.5 [grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr))]" data-reveal="rise" data-reveal-stagger="0.08">
-            {CAPABILITIES.map((c) => (
-              <article key={c.title} className="capcard">
-                <div className="capcard__well">
-                  <MiniMock mock={c.mock} />
-                </div>
-                <div>
-                  <h3 className="font-display text-[21px] font-semibold tracking-[-0.02em]">{c.title}</h3>
-                  <p className="mt-2 text-sm leading-normal text-body">{c.body}</p>
-                </div>
-              </article>
-            ))}
+          <div className="mt-[clamp(40px,5vw,64px)]">
+            <CapabilityCards />
           </div>
           <div className="mt-8 flex justify-center">
             <TextLink href="/features">See more features</TextLink>
@@ -163,7 +122,7 @@ export default function HomePage() {
 
       <section id="pricing" aria-labelledby="price-title" className="section section--charcoal !border-b-0">
         <div className="container">
-          <SectionHead id="price-title" num="05" eyebrow="Linkist PRM" title={<>Start free. <span className="em-coral">Add more</span> when you need it.</>} lede="No NFC card needed. Start free, then upgrade for richer contacts, AI matching and follow-up, or teams." />
+          <SectionHead id="price-title" num="04" eyebrow="Linkist PRM" title={<>Start free. <span className="em-coral">Add more</span> when you need it.</>} lede="No NFC card needed. Start free, then upgrade for richer contacts, AI matching and follow-up, or teams." />
           <div className="mt-[clamp(40px,5vw,64px)]">
             <PlanCards compact />
           </div>
@@ -172,13 +131,13 @@ export default function HomePage() {
 
       <section id="cards" aria-labelledby="cards-title" className="section relative overflow-hidden">
         <div className="container">
-          <CardTiers intro={{ num: '06', eyebrow: 'Linkist NFC cards', id: 'cards-title', title: <>Tap. Share. Make the <span className="em-coral">first impression</span> count.</>, lede: 'A card that opens your live profile in one tap. Every card includes PRM Essential.' }} cta={{ href: '/nfc-cards', label: 'Explore NFC cards' }} />
+          <CardTiers intro={{ num: '05', eyebrow: 'Linkist NFC cards', id: 'cards-title', title: <>Tap. Share. Make the <span className="em-coral">first impression</span> count.</>, lede: 'A card that opens your live profile in one tap. Every card includes PRM Essential.' }} cta={{ href: '/nfc-cards', label: 'Explore NFC cards' }} />
         </div>
       </section>
 
       <section id="bundles" aria-labelledby="bundles-title" className="section section--charcoal">
         <div className="container">
-          <SectionHead id="bundles-title" num="07" eyebrow="Bundled offers" title={<>Get the NFC card and PRM Pro <span className="em-coral">together</span>, and save.</>} lede="Your Linkist card and the Pro plan in one purchase, for less than buying both." />
+          <SectionHead id="bundles-title" num="06" eyebrow="Bundled offers" title={<>Get the NFC card and PRM Pro <span className="em-coral">together</span>, and save.</>} lede="Your Linkist card and the Pro plan in one purchase, for less than buying both." />
           <div className="mt-[clamp(40px,5vw,64px)]">
             <Bundles />
           </div>
@@ -190,7 +149,7 @@ export default function HomePage() {
           <Faq
             items={FAQ}
             jsonLd
-            num="08"
+            num="07"
             title="Frequently asked questions"
             aside={
               <div className="relative aspect-[4/3] overflow-hidden rounded-[22px] border border-line">
@@ -206,10 +165,4 @@ export default function HomePage() {
       <ClosingBand image="portrait" />
     </>
   );
-}
-
-/** "Contacts store people. Linkist builds ..." as the muted first sentence and the white second. */
-function splitLine(line: string): [string, string] {
-  const i = line.indexOf('. ');
-  return i < 0 ? ['', line] : [line.slice(0, i + 1), line.slice(i + 2)];
 }

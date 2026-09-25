@@ -1,6 +1,9 @@
+'use client';
+
 import Image from 'next/image';
-import { PreviewNote } from '@/components/PreviewNote';
-import { BUNDLES, BUNDLE_BENEFITS, IMMEDIATE_SAVINGS, THREE_YEAR } from '@/content/plans';
+import { Fragment } from 'react';
+import { CurrencySwitch, useCurrency } from '@/components/Currency';
+import { BUNDLES, BUNDLE_BENEFITS, planByKey, immediateSavings, threeYear } from '@/content/plans';
 import { formatMoney } from '@/lib/glossary';
 
 /** Bundled offers: four benefits, two offer cards (Founders Circle featured), the savings table and the three-year view, all derived from the plan and card prices. Each offer card shows the owner's product render: a profile on a phone with its card (D54). */
@@ -10,8 +13,17 @@ const SHOT: Record<string, { src: string; alt: string }> = {
 };
 export function Bundles({ headingLevel = 3 }: { headingLevel?: 2 | 3 }) {
   const H = headingLevel === 2 ? 'h2' : 'h3';
+  const { currency: cur } = useCurrency();
+  const IMMEDIATE_SAVINGS = immediateSavings(cur);
+  const THREE_YEAR = threeYear(cur);
+  const pro = planByKey('pro');
+  const proYear = cur === 'USD' ? (pro.yearly ?? 0) : (pro.aed.yearly ?? 0);
+  const [sig, founders] = BUNDLES;
   return (
     <div>
+      <div className="mb-6 flex justify-end">
+        <CurrencySwitch label="Show bundle prices in" />
+      </div>
       <ul className="m-0 grid list-none gap-0 overflow-hidden rounded-[18px] border border-line p-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))]" data-reveal="rise" data-reveal-stagger="0.06">
         {BUNDLE_BENEFITS.map((b) => (
           <li key={b.title} className="border-line bg-surface2 p-[22px] [&:not(:first-child)]:border-l">
@@ -29,7 +41,7 @@ export function Bundles({ headingLevel = 3 }: { headingLevel?: 2 | 3 }) {
             <div>
               <H className="font-mono text-[13px] font-normal uppercase tracking-[0.14em] text-soft-2">{b.name}</H>
               <p className="mt-3 text-base leading-normal text-soft">{b.includes}</p>
-              <p className="mt-[18px] font-mono text-[48px] font-semibold leading-none tracking-[-0.03em] tabular">{formatMoney(b.price, 'USD')}</p>
+              <p className="mt-[18px] font-mono text-[48px] font-semibold leading-none tracking-[-0.03em] tabular">{formatMoney(b.price[cur], cur)}</p>
               <p className="mt-1 text-xs text-muted">{b.priceNote}</p>
             </div>
           </article>
@@ -52,16 +64,16 @@ export function Bundles({ headingLevel = 3 }: { headingLevel?: 2 | 3 }) {
               <tr>
                 <th scope="row">Bought separately</th>
                 {IMMEDIATE_SAVINGS.map((r) => (
-                  <td key={r.material} className="text-center font-mono tabular">
-                    {formatMoney(r.separately, 'USD')}
+                  <td key={r.material} className="whitespace-nowrap text-center font-mono tabular">
+                    {formatMoney(r.separately, cur)}
                   </td>
                 ))}
               </tr>
               <tr>
                 <th scope="row">Signature Bundle</th>
                 {IMMEDIATE_SAVINGS.map((r) => (
-                  <td key={r.material} className="text-center font-mono tabular">
-                    {formatMoney(r.bundle, 'USD')}
+                  <td key={r.material} className="whitespace-nowrap text-center font-mono tabular">
+                    {formatMoney(r.bundle, cur)}
                   </td>
                 ))}
               </tr>
@@ -70,8 +82,8 @@ export function Bundles({ headingLevel = 3 }: { headingLevel?: 2 | 3 }) {
                   Immediate saving
                 </th>
                 {IMMEDIATE_SAVINGS.map((r) => (
-                  <td key={r.material} className="yes text-center font-mono tabular">
-                    {formatMoney(r.saving, 'USD')}
+                  <td key={r.material} className="yes whitespace-nowrap text-center font-mono tabular">
+                    {formatMoney(r.saving, cur)}
                   </td>
                 ))}
               </tr>
@@ -96,30 +108,29 @@ export function Bundles({ headingLevel = 3 }: { headingLevel?: 2 | 3 }) {
             </thead>
             <tbody>
               {THREE_YEAR.filter((r) => r.material === 'Metal').map((r) => (
-                <>
-                  <tr key={`${r.material}-s`}>
+                <Fragment key={r.material}>
+                  <tr>
                     <th scope="row">Signature Bundle, then Pro yearly</th>
-                    <td className="text-center font-mono tabular">{formatMoney(r.signatureRoute, 'USD')}</td>
-                    <td className="text-center font-mono tabular">{formatMoney(r.separately, 'USD')}</td>
-                    <td className="yes text-center font-mono tabular">{formatMoney(r.signatureSaving, 'USD')}</td>
+                    <td className="whitespace-nowrap text-center font-mono tabular">{formatMoney(r.signatureRoute, cur)}</td>
+                    <td className="whitespace-nowrap text-center font-mono tabular">{formatMoney(r.separately, cur)}</td>
+                    <td className="yes whitespace-nowrap text-center font-mono tabular">{formatMoney(r.signatureSaving, cur)}</td>
                   </tr>
-                  <tr key={`${r.material}-f`}>
+                  <tr>
                     <th scope="row">Founders Circle Bundle, lifetime Pro</th>
-                    <td className="text-center font-mono tabular">{formatMoney(r.foundersRoute, 'USD')}</td>
-                    <td className="text-center font-mono tabular">{formatMoney(r.separately, 'USD')}</td>
-                    <td className="yes text-center font-mono tabular">{formatMoney(r.foundersSaving, 'USD')}</td>
+                    <td className="whitespace-nowrap text-center font-mono tabular">{formatMoney(r.foundersRoute, cur)}</td>
+                    <td className="whitespace-nowrap text-center font-mono tabular">{formatMoney(r.separately, cur)}</td>
+                    <td className="yes whitespace-nowrap text-center font-mono tabular">{formatMoney(r.foundersSaving, cur)}</td>
                   </tr>
-                </>
+                </Fragment>
               ))}
             </tbody>
           </table>
         </div>
       </div>
       <p className="mx-auto mt-8 max-w-[760px] text-center text-[15px] leading-relaxed text-soft" data-reveal="rise">
-        Signature Bundle: a card plus a year of Pro for $100, the price of Pro alone. Founders Circle Bundle: lifetime Pro for a one-time $150.
+        Signature Bundle: a card plus a year of Pro for {formatMoney(sig!.price[cur], cur)}, {sig!.price[cur] < proYear ? 'less than' : 'the price of'} Pro alone ({formatMoney(proYear, cur)}). Founders Circle Bundle: lifetime Pro for a one-time {formatMoney(founders!.price[cur], cur)}.
       </p>
-      <p className="mx-auto mt-2 max-w-[760px] text-center text-xs leading-normal text-muted">Free UAE shipping. Savings use approximate dollar prices; cards bill in AED and bundle prices are confirmed at checkout.</p>
-      <PreviewNote className="!mt-2.5" />
+      <p className="mx-auto mt-2 max-w-[760px] text-center text-xs leading-normal text-muted">Free UAE shipping. Bundle prices are confirmed at checkout.</p>
     </div>
   );
 }

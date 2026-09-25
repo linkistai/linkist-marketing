@@ -5,17 +5,16 @@ import { ClosingBand } from '@/components/ClosingBand';
 import { Faq } from '@/components/Faq';
 import { PageHero } from '@/components/PageHero';
 import { PhoneStage } from '@/components/PhoneStage';
-import { PreviewNote } from '@/components/PreviewNote';
 import { SectionHead } from '@/components/Section';
 import { CardTiers } from '@/components/home/CardTiers';
 import { PROTO_ALT } from '@/content/design';
-import { CARD_OPTIONS, MATERIALS, SHIPPING_REGIONS } from '@/content/plans';
+import { CARD_OPTIONS, CARD_TIERS, MATERIALS, SHIPPING_REGIONS } from '@/content/plans';
 import { screen } from '@/lib/screens';
 import { NFC_TOOLS_URL, STORE_URL, pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
   'NFC cards: Starter and Signature in PVC, wood and metal',
-  'A Linkist NFC card opens your live profile with one tap. Starter from AED 75 (about $20), Signature with your name and logo from AED 95 (about $26), in PVC, cherry wood or brushed metal. Every NFC card includes PRM Essential. Ships within the UAE.',
+  'A Linkist NFC card opens your live profile with one tap. Starter from AED 75 ($20), Signature with your name and logo from AED 95 ($25), in PVC, cherry wood or brushed metal. Every NFC card includes PRM Essential. Ships within the UAE.',
   '/nfc-cards',
   { image: '/og/nfc-cards.png' },
 );
@@ -37,19 +36,17 @@ const FAQ = [
   { q: 'Can I return an NFC card?', a: 'Yes, within 7 days, if it is defective, misprinted or differs from your order.' },
 ] as const;
 
-/** Product with an AggregateOffer across the six store prices (v2 SEO: AED 75 to 225). */
+/** Product with an AggregateOffer across the six store prices (AED 75 to 240). */
 const PRODUCT_LD = {
   '@context': 'https://schema.org',
   '@type': 'Product',
   name: 'Linkist NFC card',
   description: 'An NFC business card that opens your live Linkist profile with one tap. Starter or Signature, in PVC, cherry wood or brushed metal. Every card includes PRM Essential.',
   brand: { '@type': 'Brand', name: 'Linkist' },
-  offers: { '@type': 'AggregateOffer', priceCurrency: 'AED', lowPrice: 75, highPrice: 225, offerCount: 6, availability: 'https://schema.org/InStock', areaServed: 'AE' },
+  offers: { '@type': 'AggregateOffer', priceCurrency: 'AED', lowPrice: Math.min(...CARD_TIERS.flatMap((t) => Object.values(t.prices.AED))), highPrice: Math.max(...CARD_TIERS.flatMap((t) => Object.values(t.prices.AED))), offerCount: 6, availability: 'https://schema.org/InStock', areaServed: 'AE' },
 };
 
 const floatSlow = { ['--float-dur' as string]: '9s' };
-const ripple = { ['--ripple-size' as string]: '120px', ['--ripple-gap' as string]: '0.6s' };
-
 export default function NfcCardsPage() {
   return (
     <>
@@ -99,16 +96,19 @@ export default function NfcCardsPage() {
                 </li>
               ))}
             </ol>
-            <div className="relative flex justify-center" data-reveal="rise">
+            <div className="tapmoment relative flex justify-center" data-reveal="rise">
               <PhoneStage src={screen('v6-share')} alt={PROTO_ALT['v6-share']} width={260} />
-              <span className="v2-ripple absolute left-1/2 top-[18%] h-0 w-0" style={ripple} aria-hidden="true">
+              {/* The tap moment: a card comes in, touches the top of the phone, and the NFC rings fire at the touch. */}
+              <div className="tapmoment__card" aria-hidden="true">
+                <Image src="/assets/cards/card-metal.webp" alt="" width={1200} height={780} sizes="170px" className="h-auto w-full" />
+              </div>
+              <span className="tapmoment__rings" aria-hidden="true">
                 <span />
                 <span />
                 <span />
               </span>
             </div>
           </div>
-          <PreviewNote />
         </div>
       </section>
 

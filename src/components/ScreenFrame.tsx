@@ -17,6 +17,7 @@ export function ScreenFrame({
   url = 'prm.linkist.ai',
   preview,
   full,
+  tall,
   children,
 }: {
   kind: 'phone' | 'browser';
@@ -29,6 +30,8 @@ export function ScreenFrame({
   preview?: boolean;
   /** The image includes its own status bar; fill the whole screen. */
   full?: boolean;
+  /** A full-length capture (pixel size): it scrolls inside the phone instead of being cropped. */
+  tall?: { readonly w: number; readonly h: number };
   children?: ReactNode;
 }) {
   const img = src ? (
@@ -47,7 +50,11 @@ export function ScreenFrame({
       <div className={`phone ${className}`}>
         <div className="phone__notch" aria-hidden="true" />
         <div className="phone__screen">
-          {src ? <div className={`phone__img ${full || preview ? 'phone__img--full' : ''}`}>{img}</div> : img}
+          {src && tall ? (
+            <div className="phone__scroll" tabIndex={0} role="region" aria-label={`${alt}. Scrolls.`} data-lenis-prevent>
+              <Image src={src} alt={alt} width={tall.w} height={tall.h} sizes="(max-width: 640px) 80vw, 320px" priority={priority} className="block h-auto w-full" />
+            </div>
+          ) : src ? <div className={`phone__img ${full || preview ? 'phone__img--full' : ''}`}>{img}</div> : img}
           {children}
         </div>
       </div>

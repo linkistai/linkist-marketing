@@ -17,7 +17,7 @@ export const metadata: Metadata = pageMeta(
 );
 
 const SHOW = [
-  ['Every product screen labelled', 'Design previews from the approved prototype until the real captures land, each badged, never a mock passed off as the app.'],
+  ['Every product screen labelled', 'Screens come from the approved prototype until the real captures land, and the home page says they are illustrations.'],
   ['The security page, cited', 'The controls, providers, retention and rights from the published policy, with the section beside each, and the gaps listed as gaps.'],
   ['109 help answers with sources', 'Written from the product, the store and the legal documents; each says when the app has not yet confirmed it.'],
   ['A changelog with dates', 'Only events with a public source. No release is given a date it does not have.'],

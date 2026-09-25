@@ -6,9 +6,8 @@ import { DesignPreview } from '@/components/DesignPreview';
 import { Faq } from '@/components/Faq';
 import { PageHero } from '@/components/PageHero';
 import { PhoneStage } from '@/components/PhoneStage';
-import { PreviewNote } from '@/components/PreviewNote';
 import { Bullets, Outcome, Tags } from '@/components/Section';
-import { PROTO_ALT } from '@/content/design';
+import { PROTO_ALT, TALL_SCREENS } from '@/content/design';
 import { FAQ, STAGES } from '@/content/home';
 import { screen } from '@/lib/screens';
 import { pageMeta } from '@/lib/site';
@@ -66,10 +65,9 @@ export default function HowItWorksPage() {
                 </div>
               </div>
               <div className="min-w-0" data-reveal="rise">
-                <PhoneStage src={screen(s.screen)} alt={PROTO_ALT[s.screen]} priority={i === 0} />
+                <PhoneStage src={screen(s.screen)} alt={PROTO_ALT[s.screen]} tall={TALL_SCREENS[s.screen]} priority={i === 0} />
               </div>
             </div>
-            <PreviewNote />
           </div>
         </section>
       ))}

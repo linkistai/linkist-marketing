@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
 import { ArrowRight, Brain, Inbox, Nfc, RefreshCw } from 'lucide-react';
-import Image from 'next/image';
-import { Button, TextLink } from '@/components/Button';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { Button } from '@/components/Button';
 import { ClosingBand } from '@/components/ClosingBand';
 import { Faq } from '@/components/Faq';
-import { PageHero } from '@/components/PageHero';
 import { NFC_TOOLS_URL, pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
@@ -15,29 +14,23 @@ export const metadata: Metadata = pageMeta(
 );
 
 /**
- * Bring your own (D51, from linkist-bring-your-own-nfc-v1.html): the page behind "Already have an
- * NFC card? Bring your own" in the hero. One path, an NFC card or sticker, and one final button, both
- * opening the NFC tools site, which reads and writes the chip. The prototype's second path, an
- * existing profile link, was dropped: it only collected sign-up information (owner, 21 September 2026).
+ * Bring your own NFC, laid out after the owner's reference (linkist-bring-your-own-nfc-v1.html,
+ * 25 September 2026): the heading in two tones, one path card, three reasons in a row, then the
+ * one button with its small print. The path opens the NFC tools site, which reads and writes the
+ * chip. The reference's second path, an existing profile link, stays out: it only collected
+ * sign-up information (owner, 21 September 2026).
  */
-const PATHS = [
-  {
-    key: 'nfc',
-    icon: Nfc,
-    title: 'An NFC card or sticker',
-    body: 'Tap it to see what is on the chip, then write your Linkist profile:',
-    list: [
-      ['Already have a Linkist profile?', 'Write it straight to the card.'],
-      ['Starting fresh?', 'Create your Linkist digital profile first, then write it.'],
-    ],
-    href: NFC_TOOLS_URL,
-  },
-] as const;
+const PATH = {
+  icon: Nfc,
+  title: 'An NFC card or sticker',
+  body: 'Tap it on your phone. We will show you what is on the chip, then write your live Linkist profile onto it.',
+  href: NFC_TOOLS_URL,
+} as const;
 
 const FEATURES = [
-  { icon: RefreshCw, title: 'Change it forever', body: 'One permanent address. A new role never needs a new card.' },
-  { icon: Inbox, title: 'Keep who you meet', body: 'Everyone who taps you lands in your exchange inbox.' },
-  { icon: Brain, title: 'It remembers', body: 'Linkist keeps the context, not just the details.' },
+  { icon: RefreshCw, title: 'Change it forever', body: 'Your details live behind one permanent address, so a new role never means a new card.' },
+  { icon: Inbox, title: 'Keep who you meet', body: 'Everyone who taps you arrives in your exchange inbox instead of vanishing.' },
+  { icon: Brain, title: 'It remembers', body: 'Linkist holds the context of the conversation, not just the contact details.' },
 ] as const;
 
 const FAQ = [
@@ -48,78 +41,62 @@ const FAQ = [
 ] as const;
 
 export default function BringYourOwnPage() {
+  const Icon = PATH.icon;
   return (
     <>
-      <PageHero
-        crumbs={[
-          { label: 'NFC cards', href: '/nfc-cards' },
-          { label: 'Bring your own NFC', href: '/bring-your-own' },
-        ]}
-        eyebrow="Bring your own NFC"
-        title={
-          <>
-            Already have a NFC card or sticker? <span className="em-coral">Bring it. We will make it live.</span>
-          </>
-        }
-        lede="Nothing to buy. Linkist takes over the card or sticker you own in about a minute. Keep the hardware, get the intelligence."
-        ctas={
-          <>
+      <section className="page-hero" aria-labelledby="page-title">
+        <div className="container">
+          <div className="mb-7">
+            <Breadcrumbs
+              items={[
+                { label: 'NFC cards', href: '/nfc-cards' },
+                { label: 'Bring your own NFC', href: '/bring-your-own' },
+              ]}
+            />
+          </div>
+          <p className="eyebrow eyebrow--pulse" data-hero-text>
+            Bring your own NFC · Free
+          </p>
+          <h1 id="page-title" className="display-1 mt-5 max-w-[1000px]" data-hero-text>
+            Already have a NFC card or sticker? <span className="text-muted">Bring it. We will make it live.</span>
+          </h1>
+          <p className="lede mt-6 max-w-[760px]" data-hero-text>
+            You do not need to buy anything to start. If you already own an NFC card or sticker, Linkist takes it over in about a minute. You keep the hardware. You get the intelligence.
+          </p>
+
+          <a href={PATH.href} className="card card--panel group mt-[clamp(40px,5vw,56px)] flex max-w-[600px] flex-col p-[clamp(24px,3vw,32px)] no-underline transition-[border-color,transform] duration-300 hover:-translate-y-1 hover:border-[rgba(238,80,100,0.35)]" data-reveal="rise">
+            <span aria-hidden="true" className="grid h-14 w-14 place-items-center rounded-2xl border border-line bg-surface2 text-soft">
+              <Icon size={22} />
+            </span>
+            <h2 className="mt-7 font-display text-[24px] font-semibold tracking-[-0.02em] text-white">{PATH.title}</h2>
+            <p className="mt-3 text-[15px] leading-relaxed text-body">{PATH.body}</p>
+            <span className="mt-7 inline-flex min-h-[24px] items-center gap-1.5 text-sm font-semibold text-white transition-colors group-hover:text-coral">
+              Start with this <ArrowRight size={15} aria-hidden="true" />
+            </span>
+          </a>
+
+          <ul className="m-0 mt-[clamp(40px,5vw,56px)] grid list-none gap-x-10 gap-y-8 border-t border-line p-0 pt-[clamp(32px,4vw,48px)] [grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))]" data-reveal="rise" data-reveal-stagger="0.08">
+            {FEATURES.map((f) => {
+              const FIcon = f.icon;
+              return (
+                <li key={f.title} className="flex gap-4">
+                  <FIcon size={20} aria-hidden="true" className="mt-0.5 flex-none text-red-bright" />
+                  <div>
+                    <h3 className="text-[17px] font-semibold text-white">{f.title}</h3>
+                    <p className="mt-2 text-[15px] leading-relaxed text-body">{f.body}</p>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="mt-[clamp(40px,5vw,56px)] flex flex-wrap items-center gap-x-6 gap-y-4" data-reveal="rise">
             <Button href={NFC_TOOLS_URL} size="lg">
               Activate what I already have
               <ArrowRight size={16} aria-hidden="true" />
             </Button>
-            <TextLink href="/nfc-cards">Or get a Linkist NFC card</TextLink>
-          </>
-        }
-        note={<p className="mt-4 text-[13px] text-muted">Free forever · No payment details · Encode on Android, works everywhere</p>}
-        side={
-          <div className="relative aspect-[4/5] w-[min(100%,440px)] overflow-hidden rounded-[28px] border border-line">
-            <Image src="/assets/gen/hero-tap.webp" alt="A hand tapping an NFC card to a phone" fill priority sizes="(min-width: 1024px) 440px, 90vw" className="object-cover" />
+            <p className="text-[13px] text-muted">Free forever · No payment details · Encoding a chip needs an Android phone, your profile works on every device</p>
           </div>
-        }
-      />
-
-      <section id="paths" className="section section--charcoal">
-        <div className="container">
-          <div className="mx-auto grid max-w-2xl gap-5" data-reveal="rise">
-            {PATHS.map((p) => (
-              <a key={p.key} href={p.href} className="card flex flex-col p-8 no-underline">
-                <span aria-hidden="true" className="font-mono text-[13px] text-coral">
-                  /01
-                </span>
-                <h2 className="display-3 mt-6">{p.title}</h2>
-                <p className="mt-3 text-sm text-body">{p.body}</p>
-                {p.list.length > 0 ? (
-                  <ul className="mt-4 flex flex-col gap-2 text-sm text-body">
-                    {p.list.map(([lead, rest]) => (
-                      <li key={lead} className="flex gap-2">
-                        <span aria-hidden="true" className="mt-2 h-1 w-1 flex-none rounded-full bg-red-bright" />
-                        <span>
-                          <strong className="font-medium text-white">{lead}</strong> {rest}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-                <span className="mt-auto inline-flex items-center gap-1.5 pt-6 text-sm font-medium text-coral">
-                  Start with this <ArrowRight size={14} aria-hidden="true" />
-                </span>
-              </a>
-            ))}
-          </div>
-          <ul className="m-0 mt-12 grid list-none gap-3.5 p-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))]" data-reveal="rise" data-reveal-stagger="0.08">
-            {FEATURES.map((f, i) => (
-              <li key={f.title} className="card flex flex-col gap-7 p-[clamp(22px,2.6vw,28px)]">
-                <span aria-hidden="true" className="font-mono text-[13px] text-coral">
-                  /{String(i + 1).padStart(2, '0')}
-                </span>
-                <div>
-                  <h3 className="display-3">{f.title}</h3>
-                  <p className="mt-2 text-sm text-body">{f.body}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 

@@ -8,7 +8,6 @@ import { ClosingBand } from '@/components/ClosingBand';
 import { PageHero } from '@/components/PageHero';
 import { PhoneStage } from '@/components/PhoneStage';
 import { Outcome, SectionHead, Tags } from '@/components/Section';
-import { PreviewNote } from '@/components/PreviewNote';
 import { PROTO_ALT } from '@/content/design';
 import { USE_CASES, useCaseBySlug } from '@/content/usecases';
 import { screen } from '@/lib/screens';
@@ -79,7 +78,6 @@ export default async function UseCasePage({ params }: { params: Promise<{ slug: 
               <PhoneStage src={screen(u.screen)} alt={PROTO_ALT[u.screen]} width={240} />
             </div>
           </div>
-          <PreviewNote />
         </div>
       </section>
 

@@ -6,7 +6,6 @@ import { StartFree, TextLink } from '@/components/Button';
 import { ClosingBand } from '@/components/ClosingBand';
 import { Faq } from '@/components/Faq';
 import { Section, SectionHead } from '@/components/Section';
-import { PreviewNote } from '@/components/PreviewNote';
 import { AI_CAPABILITIES, AI_FAQ, AI_INPUTS, AI_NOT_PUBLISHED, AI_OUTPUTS, AI_RULES, POLICY_DATE, POLICY_VERSION, PRIVACY_EMAIL_PUBLISHED, PRIVACY_URL, TERMS_URL } from '@/content/trust';
 import { pageMeta } from '@/lib/site';
 
@@ -66,7 +65,6 @@ export default function AiPage() {
             );
           })}
         </div>
-        <PreviewNote />
       </Section>
 
       <Section id="data">
