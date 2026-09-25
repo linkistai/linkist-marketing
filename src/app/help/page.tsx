@@ -35,7 +35,7 @@ export default function HelpPage() {
       <Section tone="charcoal" tight>
         <HelpCentre />
       </Section>
-      <ClosingBand person={person('close-8')} line1="Still stuck?" line2="Ask the assistant, or start free." reassurance="The assistant is automated, not a live agent. Free plan, no NFC card required." />
+      <ClosingBand person={person('close-8')} line1="Still stuck?" line2="Ask the assistant, or start free." reassurance="The assistant is automated. Free, no card needed." />
     </>
   );
 }

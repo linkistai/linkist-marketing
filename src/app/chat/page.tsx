@@ -27,7 +27,7 @@ export default function ChatPage() {
       <Section tight className="pt-8 sm:pt-10">
         <Breadcrumbs items={[{ label: 'Ask the assistant', href: '/chat' }]} />
         <div className="mt-8">
-          <SectionHead as="h1" size={1} eyebrow="Ask the assistant" title={<>Ask anything <span className="em-coral">the help centre knows</span>.</>} lede="Automated, not a live agent. It answers from the same entries as the help centre and hands you to Start free when you are ready." />
+          <SectionHead as="h1" size={1} eyebrow="Ask the assistant" title={<>Ask anything <span className="em-coral">the help centre knows</span>.</>} lede="Automated. It answers from the help centre and hands you to Start free." />
         </div>
         <div className="mt-10 grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_300px]">
           <Assistant />

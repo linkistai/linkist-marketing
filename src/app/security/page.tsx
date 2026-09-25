@@ -1,13 +1,11 @@
 import type { Metadata } from 'next';
+import { PageHero } from '@/components/PageHero';
 import { ShieldCheck } from 'lucide-react';
-import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { StartFree, TextLink } from '@/components/Button';
 import { ClosingBand } from '@/components/ClosingBand';
 import { Faq } from '@/components/Faq';
 import { Section, SectionHead } from '@/components/Section';
-import { HeroIntro } from '@/motion/HeroIntro';
-import { CONTACT_DATA, CONTROLLER, CONTROLS, DPO_EMAIL_PUBLISHED, POLICY_DATE, POLICY_VERSION, PRIVACY_EMAIL_PUBLISHED, PRIVACY_URL, PROVIDERS, RETENTION, RIGHTS, SECURITY_FAQ, SECURITY_NOT_PUBLISHED, SITE_CONTROLS, SUPPORT_EMAIL_PUBLISHED, TERMS_URL, TRANSFER_SAFEGUARDS } from '@/content/trust';
-import { person } from '@/lib/screens';
+import { CONTACT_DATA, CONTROLLER, CONTROLS, DPO_EMAIL_PUBLISHED, PRIVACY_EMAIL_PUBLISHED, PRIVACY_URL, PROVIDERS, RETENTION, RIGHTS, SECURITY_FAQ, SECURITY_NOT_PUBLISHED, SITE_CONTROLS, SUPPORT_EMAIL_PUBLISHED, TERMS_URL, TRANSFER_SAFEGUARDS } from '@/content/trust';
 import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
@@ -28,40 +26,35 @@ const GLANCE = [
 export default function SecurityPage() {
   return (
     <>
-      <section className="section pt-8 sm:pt-10">
-        <div className="container">
-          <Breadcrumbs items={[{ label: 'Security', href: '/security' }]} />
-          <HeroIntro className="mt-8 grid items-center gap-12 lg:grid-cols-[7fr_5fr]">
-            <div className="max-w-3xl">
-              <p className="eyebrow" data-hero-text>
-                Security and trust
-              </p>
-              <h1 className="display-1 mt-5" data-hero-text>
-                Written for a<br />
-                <span className="em-coral">sceptical reader</span>.
-              </h1>
-              <p className="lede mt-6" data-hero-text>
-                Where your data lives, who can see it, how it is protected, what you can ask for, and what has not been published yet. Every line comes from the Terms and Privacy, version {POLICY_VERSION}, effective {POLICY_DATE}, or from the product itself, and says which.
-              </p>
-              <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center" data-hero-text>
-                <StartFree />
-                <TextLink href="#not-yet">What is not published yet</TextLink>
+      <PageHero
+        crumbs={[{ label: 'Security', href: '/security' }]}
+        eyebrow="Security and trust"
+        title={
+          <>
+            Written for a <span className="em-coral">sceptical reader</span>.
+          </>
+        }
+        lede="Where your data lives, who sees it, how it is protected, your rights, and what is not published yet. Every line is sourced."
+        ctas={
+          <>
+            <StartFree />
+            <TextLink href="#not-yet">What is not published yet</TextLink>
+          </>
+        }
+        side={
+          <dl className="card card--panel w-full divide-y divide-line p-2">
+            {GLANCE.map(([k, v]) => (
+              <div key={k} className="grid grid-cols-[120px_1fr] gap-3 px-4 py-3.5 text-sm">
+                <dt className="text-muted">{k}</dt>
+                <dd className="font-medium">{v}</dd>
               </div>
-            </div>
-            <dl className="card divide-y divide-line p-2" data-hero-card="1">
-              {GLANCE.map(([k, v]) => (
-                <div key={k} className="grid grid-cols-[110px_1fr] gap-3 px-4 py-3 text-sm">
-                  <dt className="text-muted">{k}</dt>
-                  <dd className="font-medium">{v}</dd>
-                </div>
-              ))}
-            </dl>
-          </HeroIntro>
-        </div>
-      </section>
+            ))}
+          </dl>
+        }
+      />
 
       <Section tone="charcoal" id="controls" glow>
-        <SectionHead eyebrow={`${CONTROLS.length} controls`} title={<>What protects your data, <span className="em-coral">and where it is written</span>.</>} lede="The measures the document names, in plain words, plus what the sign-in screen shows. T is Part 1 of the Terms and Privacy, P is Part 2, and the number is the section." center />
+        <SectionHead eyebrow={`${CONTROLS.length} controls`} title={<>What protects your data, <span className="em-coral">and where it is written</span>.</>} lede="The measures the document names, plus the sign-in screen. T is Part 1, P is Part 2." center />
         <ol className="mt-12 grid gap-4 md:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.05">
           {CONTROLS.map((c, i) => (
             <li key={c.title} className="card sweep sweep--neutral lift p-6">
@@ -77,7 +70,7 @@ export default function SecurityPage() {
       </Section>
 
       <Section id="providers">
-        <SectionHead eyebrow="Who receives data" title={<>{PROVIDERS.length} categories, <span className="em-coral">no names yet</span>.</>} lede="Linkist never sells personal data. The document lists who it is shared with: service providers who may use it only to help run Linkist, and four others. It names no company; the providers list it points to, at linkist.ai/legal/providers, is not published yet." center />
+        <SectionHead eyebrow="Who receives data" title={<>{PROVIDERS.length} categories, <span className="em-coral">no names yet</span>.</>} lede="Linkist never sells personal data. The document lists who receives it but names no company yet." center />
         <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-5" data-reveal="rise" data-reveal-stagger="0.04">
           {PROVIDERS.map((p) => (
             <li key={p.role} className="card card--sm p-4">
@@ -110,7 +103,7 @@ export default function SecurityPage() {
       </Section>
 
       <Section tone="lifted" id="retention">
-        <SectionHead eyebrow="How long" title={<>Retention, <span className="em-coral">in one table</span>.</>} lede="The document's own retention table. Payments and invoices stay as long as tax and accounting law requires." center />
+        <SectionHead eyebrow="How long" title={<>Retention, <span className="em-coral">in one table</span>.</>} lede="Payments and invoices stay as long as tax law requires." center />
         <div className="table-wrap mx-auto mt-10 max-w-3xl" tabIndex={0} role="region" aria-label="Retention table, scrolls sideways on small screens">
           <table className="table w-full text-sm">
             <thead>
@@ -178,7 +171,7 @@ export default function SecurityPage() {
       </Section>
 
       <Section tone="lifted" id="this-website">
-        <SectionHead eyebrow="This website" title={<>What belongs to <span className="em-coral">this site</span>, not the app.</>} lede="The controls above are the product's. These five are the marketing site's own, so nobody confuses the two." center />
+        <SectionHead eyebrow="This website" title={<>What belongs to <span className="em-coral">this site</span>, not the app.</>} lede="The five controls that belong to this marketing site." center />
         <ul className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-5" data-reveal="rise" data-reveal-stagger="0.05">
           {SITE_CONTROLS.map((c) => (
             <li key={c.title} className="card card--hover p-5">
@@ -192,7 +185,7 @@ export default function SecurityPage() {
       </Section>
 
       <Section tone="charcoal" id="not-yet">
-        <SectionHead eyebrow="Not published yet" title={<>What Linkist <span className="em-coral">does not claim</span>, in plain words.</>} lede="A trust page that only lists strengths is marketing. These are the gaps today." center />
+        <SectionHead eyebrow="Not published yet" title={<>What Linkist <span className="em-coral">does not claim</span>, in plain words.</>} lede="The gaps today." center />
         <ul className="mx-auto mt-10 grid max-w-4xl gap-4 md:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.06">
           {SECURITY_NOT_PUBLISHED.map((n) => (
             <li key={n} className="card flex gap-3 p-5">
@@ -203,14 +196,13 @@ export default function SecurityPage() {
         </ul>
       </Section>
 
-      <Section tight id="faq">
-        <SectionHead eyebrow="FAQ" title="Security, answered." center />
-        <div className="mx-auto mt-10 max-w-4xl">
-          <Faq items={SECURITY_FAQ} name="security-faq" jsonLd />
+      <section id="faq" className="section">
+        <div className="container">
+          <Faq items={SECURITY_FAQ} name="security-faq" jsonLd title="Security, answered." />
         </div>
-      </Section>
+      </section>
 
-      <ClosingBand person={person('close-7')} line1="Your contacts, your rules." line2="Start with an email or a mobile number." reassurance="No password to leak. Free plan, no NFC card required." />
+      <ClosingBand line1="Your contacts, your rules." line2="Start with an email or a mobile number." reassurance="No password. Free, no card needed." />
     </>
   );
 }

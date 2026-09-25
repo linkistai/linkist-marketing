@@ -12,7 +12,7 @@ import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
   'Blog: Linkist Insights',
-  'Practical guides, product updates and expert perspectives on digital networking, NFC business cards, relationship management and building meaningful professional connections.',
+  'Guides, product updates and perspectives on networking, NFC cards and relationship management.',
   '/blogs',
   { image: '/og/blogs.png' },
 );
@@ -41,7 +41,7 @@ export default function BlogsPage() {
               </h1>
             </div>
             <p className="lede lg:pb-2" data-hero-text>
-              Practical guides, product updates and expert perspectives on digital networking, NFC business cards, relationship management and building meaningful professional connections.
+              Guides, product updates and perspectives on networking, NFC cards and relationship management.
             </p>
           </HeroIntro>
 
@@ -79,7 +79,7 @@ export default function BlogsPage() {
         <div className="band mx-auto max-w-3xl p-8 text-center sm:p-12">
           <p className="eyebrow justify-center">Stay updated</p>
           <h2 className="display-2 mt-4">Insights straight to your inbox.</h2>
-          <p className="lede mx-auto mt-4">Networking, NFC and relationship-building guides, about once a month.</p>
+          <p className="lede mx-auto mt-4">Guides, about once a month.</p>
           <div className="mx-auto mt-8 max-w-md">
             <Newsletter large label="Email address" />
           </div>

@@ -25,7 +25,7 @@ export default function LegalIndex() {
       <Section tight className="pt-8 sm:pt-10">
         <Breadcrumbs items={[{ label: 'Legal', href: '/legal' }]} />
         <div className="mt-8">
-          <SectionHead as="h1" size={1} eyebrow="Legal" title={<>The documents, <span className="em-coral">dated</span>.</>} lede="The Linkist Terms and Privacy, version 1.0, is in force as issued by RatioX Labs DWC-LLC; Part 2, Privacy, is published on its own as well. Eight are drafts written from the earlier documents and the product, marked where counsel must decide, and not in force until reviewed." />
+          <SectionHead as="h1" size={1} eyebrow="Legal" title={<>The documents, <span className="em-coral">dated</span>.</>} lede="The Terms and Privacy v1.0 is in force, with Part 2, Privacy, also on its own. Eight drafts await counsel and are not in force." />
         </div>
       </Section>
       <Section tone="charcoal" tight>
@@ -47,7 +47,7 @@ export default function LegalIndex() {
           ))}
         </ul>
         <h2 className="display-3 mt-12">Drafts for counsel</h2>
-        <p className="mt-2 max-w-2xl text-sm text-body">Written from the earlier published documents, the store and the product, before the Terms and Privacy of 7 September 2026. Each shows how many items counsel must supply, and none is in force.</p>
+        <p className="mt-2 max-w-2xl text-sm text-body">Written before the Terms and Privacy of 7 September 2026. None is in force.</p>
         <ul className="mt-5 grid gap-4 md:grid-cols-2">
           {drafts.map((d) => (
             <li key={d.slug}>

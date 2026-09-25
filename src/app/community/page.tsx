@@ -1,14 +1,13 @@
 import type { Metadata } from 'next';
+import { PageHero } from '@/components/PageHero';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
-import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { ClosingBand } from '@/components/ClosingBand';
 import { Newsletter } from '@/components/forms/Newsletter';
-import { Section, SectionHead } from '@/components/Section';
+import { Section } from '@/components/Section';
 import { CHANNELS, WHAT_YOU_GET } from '@/content/community';
 import { COMMUNITY } from '@/content/home';
 import { getPosts } from '@/lib/blog';
-import { person } from '@/lib/screens';
 import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta('Join the Linkist community', 'Product notes, new articles and event invitations by email, occasionally, with no tracking. Follow Linkist on LinkedIn, Instagram and X.', '/community', { image: '/og/community.png' });
@@ -18,19 +17,25 @@ export default function CommunityPage() {
   const latest = getPosts().slice(0, 3);
   return (
     <>
-      <Section tight className="pt-8 sm:pt-10">
-        <Breadcrumbs items={[{ label: 'Community', href: '/community' }]} />
-        <div className="mt-8 grid items-start gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
-          <SectionHead as="h1" size={1} eyebrow={COMMUNITY.eyebrow} title={<>Join the Linkist <span className="em-coral">community</span>.</>} lede={COMMUNITY.body} />
-          <div className="card p-6 sm:p-8" data-hero-card="1">
+      <PageHero
+        crumbs={[{ label: 'Community', href: '/community' }]}
+        eyebrow={COMMUNITY.eyebrow}
+        title={
+          <>
+            Join the Linkist <span className="em-coral">community</span>.
+          </>
+        }
+        lede="Product notes, invitations and events in Dubai and online. Occasional, no tracking."
+        side={
+          <div className="card card--panel w-full max-w-[440px] p-6 sm:p-8">
             <p className="font-semibold">Email address</p>
             <p className="mt-1 text-sm text-body">Occasional. No tracking. Unsubscribe with one click.</p>
             <div className="mt-4">
               <Newsletter endpoint="/api/community" label="Email address" placeholder="Email address" button="Join" note="No spam. Unsubscribe any time." large />
             </div>
           </div>
-        </div>
-      </Section>
+        }
+      />
 
       <Section tone="charcoal" tight>
         <ul className="grid gap-4 md:grid-cols-3" data-reveal="rise" data-reveal-stagger="0.06">
@@ -89,7 +94,7 @@ export default function CommunityPage() {
         </div>
       </Section>
 
-      <ClosingBand person={person('close-10')} line1="Meet people. Remember them." line2="Start with an email or a mobile number." />
+      <ClosingBand line1="Meet people. Remember them." line2="Start with an email or a mobile number." />
     </>
   );
 }

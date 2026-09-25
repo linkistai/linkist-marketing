@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
+import { PageHero } from '@/components/PageHero';
 import Link from 'next/link';
-import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { ContactForm } from '@/components/forms/ContactForm';
-import { Section, SectionHead } from '@/components/Section';
+import { Section } from '@/components/Section';
 import { ADDRESS_LINES, CONTACT_ROUTES, LEGAL_NAME, PHONE } from '@/content/company';
 import { pageMeta } from '@/lib/site';
 
@@ -17,12 +17,16 @@ export const metadata: Metadata = pageMeta(
 export default function ContactPage() {
   return (
     <>
-      <Section tight className="pt-8 sm:pt-10">
-        <Breadcrumbs items={[{ label: 'Contact', href: '/contact' }]} />
-        <div className="mt-8">
-          <SectionHead as="h1" size={1} eyebrow="Contact" title={<>Talk to <span className="em-coral">a person</span>.</>} lede="Linkist is self-serve and free to start, so there is no sales call. For everything else, these routes reach a real inbox." />
-        </div>
-      </Section>
+      <PageHero
+        crumbs={[{ label: 'Contact', href: '/contact' }]}
+        eyebrow="Contact"
+        title={
+          <>
+            Talk to <span className="em-coral">a person</span>.
+          </>
+        }
+        lede="Self-serve and free, so no sales call. Everything else reaches a real inbox."
+      />
       <Section tone="charcoal" tight>
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
           <div className="flex flex-col gap-4">

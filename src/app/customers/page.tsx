@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
+import { PageHero } from '@/components/PageHero';
 import Link from 'next/link';
-import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Button, TextLink } from '@/components/Button';
 import { ClosingBand } from '@/components/ClosingBand';
 import { MiniMock, type MiniMockKind } from '@/components/mockups/MiniMock';
 import { Section, SectionHead } from '@/components/Section';
 import { USE_CASES } from '@/content/usecases';
-import { person } from '@/lib/screens';
 import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
@@ -48,12 +48,21 @@ const EXAMPLES: readonly { title: string; who: string; body: string; mock: MiniM
 export default function CustomersPage() {
   return (
     <>
-      <Section tight className="pt-8 sm:pt-10">
-        <Breadcrumbs items={[{ label: 'Customers', href: '/customers' }]} />
-        <div className="mt-8">
-          <SectionHead as="h1" size={1} eyebrow="Customers" title={<>No named customers yet. <span className="em-coral">Here is why.</span></>} lede="Linkist names a customer only with their written consent, and none has given it yet. This page will not invent a quote to fill the space. It shows what can be shown, and asks for help with the rest." />
-        </div>
-      </Section>
+      <PageHero
+        crumbs={[{ label: 'Customers', href: '/customers' }]}
+        eyebrow="Customers"
+        title={
+          <>
+            No named customers yet. <span className="em-coral">Here is why.</span>
+          </>
+        }
+        lede="Linkist names customers only with written consent, and none has given it yet. No invented quotes, just what can be shown."
+        side={
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[28px] border border-line">
+            <Image src="/assets/gen/event.webp" alt="Professionals exchanging contacts on their phones at an evening event in Dubai" fill priority sizes="(min-width: 1024px) 560px, 90vw" className="object-cover" />
+          </div>
+        }
+      />
 
       <Section tone="charcoal">
         <div className="grid gap-10 lg:grid-cols-2">
@@ -75,7 +84,7 @@ export default function CustomersPage() {
           <div className="card sweep sweep--featured self-start p-6 sm:p-8" data-reveal="rise">
             <p className="eyebrow">Design partners</p>
             <h2 className="display-3 mt-3">Help shape what ships next.</h2>
-            <p className="mt-3 text-body">Linkist is looking for a small number of professionals and teams, in the UAE and beyond, who meet a lot of people and will use Linkist weekly, say what is wrong, and, only if they choose, be named here later.</p>
+            <p className="mt-3 text-body">Linkist wants a few professionals and teams who meet many people, will use it weekly, say what is wrong, and only if they choose, be named later.</p>
             <ul className="mt-4 flex flex-col gap-2 text-sm text-body">
               <li>A short call a month, no more.</li>
               <li>A direct line to the team for what you find.</li>
@@ -93,7 +102,7 @@ export default function CustomersPage() {
       </Section>
 
       <Section>
-        <SectionHead eyebrow="Example networks" title={<>Three people, <span className="em-coral">three weeks</span>.</>} lede="Written to show what the product does. Every name and figure is an example, not a customer and not a testimonial." center />
+        <SectionHead eyebrow="Example networks" title={<>Three people, <span className="em-coral">three weeks</span>.</>} lede="Every name and figure is an example, not a customer." center />
         <ul className="mt-12 grid gap-4 md:grid-cols-3" data-reveal="rise" data-reveal-stagger="0.08">
           {EXAMPLES.map((e) => (
             <li key={e.title} className="card flex flex-col gap-4 p-6">
@@ -109,7 +118,7 @@ export default function CustomersPage() {
       </Section>
 
       <Section tone="lifted" tight>
-        <SectionHead eyebrow="The situations" title="Built for five real working days." lede="If one of these is your week, the use case walks through it step by step." />
+        <SectionHead eyebrow="The situations" title="Built for five real working days." lede="Pick the one that is your week." />
         <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3" data-reveal="rise" data-reveal-stagger="0.05">
           {USE_CASES.map((u) => (
             <li key={u.slug}>
@@ -122,7 +131,7 @@ export default function CustomersPage() {
         </ul>
       </Section>
 
-      <ClosingBand person={person('close-12')} line1="Be one of the first." line2="Start with an email or a mobile number." reassurance="Free plan, no NFC card required. Nothing is published about you without consent." />
+      <ClosingBand line1="Be one of the first." line2="Start with an email or a mobile number." reassurance="Free, no card needed. Nothing published without consent." />
     </>
   );
 }

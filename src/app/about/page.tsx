@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
+import { PageHero } from '@/components/PageHero';
 import Link from 'next/link';
-import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { TextLink } from '@/components/Button';
 import { ClosingBand } from '@/components/ClosingBand';
 import { Section, SectionHead } from '@/components/Section';
 import { ADDRESS_LINES, DATA_LAW, DPO, GOVERNING_LAW, LEGAL_NAME, PRINCIPLES, PRIVACY, SUPPORT, TIMELINE } from '@/content/company';
 import { STAGES } from '@/content/home';
-import { person } from '@/lib/screens';
 import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
@@ -20,12 +20,21 @@ export const metadata: Metadata = pageMeta(
 export default function AboutPage() {
   return (
     <>
-      <Section tight className="pt-8 sm:pt-10">
-        <Breadcrumbs items={[{ label: 'About', href: '/about' }]} />
-        <div className="mt-8">
-          <SectionHead as="h1" size={1} eyebrow="About Linkist" title={<>Made in Dubai for <span className="em-coral">the people you meet</span>.</>} lede="Linkist is a Personal Relationship Manager built by RatioX Labs DWC-LLC in Dubai South. It captures the people you meet, remembers the context and tells you what to do next, with or without an NFC card." />
-        </div>
-      </Section>
+      <PageHero
+        crumbs={[{ label: 'About', href: '/about' }]}
+        eyebrow="About Linkist"
+        title={
+          <>
+            Made in Dubai for <span className="em-coral">the people you meet</span>.
+          </>
+        }
+        lede="A Personal Relationship Manager built by RatioX Labs DWC-LLC in Dubai South. It captures who you meet, remembers the context and says what to do next."
+        side={
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[28px] border border-line">
+            <Image src="/assets/gen/event.webp" alt="Professionals exchanging contacts on their phones at an evening event in Dubai" fill priority sizes="(min-width: 1024px) 560px, 90vw" className="object-cover" />
+          </div>
+        }
+      />
 
       <Section tone="charcoal">
         <div className="grid items-start gap-10 lg:grid-cols-2">
@@ -34,8 +43,8 @@ export default function AboutPage() {
             <h2 className="display-2 mt-4">
               Contacts store people. <span className="em-coral">A PRM keeps the relationship.</span>
             </h2>
-            <p className="mt-4 max-w-prose text-lg leading-relaxed text-body">A phone book holds a name and a number. A CRM holds a deal. Neither holds the reason a person mattered, what you promised, or when to follow up. A Personal Relationship Manager starts from the person and keeps three things with them: the context, who fits what you are looking for, and the next action.</p>
-            <p className="mt-4 max-w-prose text-lg leading-relaxed text-body">The optional NFC card is the fastest way to start a connection. The PRM is what keeps it.</p>
+            <p className="mt-4 max-w-prose text-lg leading-relaxed text-body">A phone book holds a number. A CRM holds a deal. A Personal Relationship Manager keeps the person with their context, their fit and the next action.</p>
+            <p className="mt-4 max-w-prose text-lg leading-relaxed text-body">The NFC card starts the connection. The PRM keeps it.</p>
             <div className="mt-6">
               <TextLink href="/blogs/what-a-prm-is-and-is-not">What a PRM is, and what it is not</TextLink>
             </div>
@@ -55,7 +64,7 @@ export default function AboutPage() {
       </Section>
 
       <Section>
-        <SectionHead eyebrow="How we work" title={<>6 things Linkist <span className="em-coral">holds itself to</span>.</>} lede="Each one points at where it is written: the published documents, the store, the sign-in screens, or this site." center />
+        <SectionHead eyebrow="How we work" title={<>6 things Linkist <span className="em-coral">holds itself to</span>.</>} lede="Each points to where it is written." center />
         <ul className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3" data-reveal="rise" data-reveal-stagger="0.06">
           {PRINCIPLES.map((p) => (
             <li key={p.title} className="card sweep sweep--neutral lift p-6">
@@ -85,7 +94,7 @@ export default function AboutPage() {
             <h2 className="display-2 mt-4">
               A web app, <span className="em-coral">on your phone</span>.
             </h2>
-            <p className="mt-4 max-w-prose text-lg leading-relaxed text-body">The PRM app runs in the browser at prm.linkist.ai, with its billing hub for plans, AI credits, invoices and card orders. Public profiles live at addresses of the form /me/yourname. The product says native iOS and Android apps are in final preparation; until they are listed, Linkist is a web app on your phone. The security page lists the controls the policy states and the gaps it does not close yet.</p>
+            <p className="mt-4 max-w-prose text-lg leading-relaxed text-body">The app runs at prm.linkist.ai, with billing for plans, credits, invoices and cards. Profiles live at /me/yourname. Native apps are in final preparation.</p>
             <div className="mt-6">
               <TextLink href="/security">The security page</TextLink>
             </div>
@@ -143,7 +152,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <ClosingBand person={person('close-11')} line1="Capture the people you meet." line2="Remember why they mattered." />
+      <ClosingBand line1="Capture the people you meet." line2="Remember why they mattered." />
     </>
   );
 }

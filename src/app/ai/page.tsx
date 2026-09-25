@@ -1,16 +1,13 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
+import { PageHero } from '@/components/PageHero';
 import { Bell, Handshake, Radar, Search, ShieldCheck, Sparkles, Target, Users, type LucideIcon } from 'lucide-react';
-import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { StartFree, TextLink } from '@/components/Button';
 import { ClosingBand } from '@/components/ClosingBand';
 import { Faq } from '@/components/Faq';
-import { ScreenFrame } from '@/components/ScreenFrame';
 import { Section, SectionHead } from '@/components/Section';
 import { PreviewNote } from '@/components/PreviewNote';
-import { HeroIntro } from '@/motion/HeroIntro';
-import { PROTO_ALT } from '@/content/design';
 import { AI_CAPABILITIES, AI_FAQ, AI_INPUTS, AI_NOT_PUBLISHED, AI_OUTPUTS, AI_RULES, POLICY_DATE, POLICY_VERSION, PRIVACY_EMAIL_PUBLISHED, PRIVACY_URL, TERMS_URL } from '@/content/trust';
-import { person, screen } from '@/lib/screens';
 import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
@@ -25,41 +22,34 @@ const ICONS: readonly LucideIcon[] = [Sparkles, Target, Radar, Users, Bell, Hand
 export default function AiPage() {
   return (
     <>
-      <section className="section pt-8 sm:pt-10">
-        <div className="container">
-          <Breadcrumbs items={[{ label: 'AI and your data', href: '/ai' }]} />
-          <HeroIntro className="mt-8 grid items-center gap-12 lg:grid-cols-[7fr_5fr]">
-            <div className="hero-copy max-w-3xl">
-              <p className="eyebrow" data-hero-text>
-                AI and your data
-              </p>
-              <h1 className="display-1 mt-5" data-hero-text>
-                What the AI does.
-                <br />
-                What it sees.
-                <br />
-                <span className="em-coral">How to switch it off.</span>
-              </h1>
-              <p className="lede mt-6" data-hero-text>
-                Linkist&apos;s AI features are off until you switch them on, and every result shows how confident it is. This page says what they do, what they read, what is kept and for how long, taken from the Terms and Privacy, version {POLICY_VERSION}, effective {POLICY_DATE}. What is not published yet is listed as such.
-              </p>
-              <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center" data-hero-text>
-                <StartFree />
-                <TextLink href="#rules">Read the rules</TextLink>
-              </div>
-            </div>
-            <div className="hero-stage relative flex justify-center" data-hero-card="1">
-              <div className="w-full max-w-[280px]">
-                <ScreenFrame kind="phone" src={screen('v6-enrich')} alt={PROTO_ALT['v6-enrich']} preview full priority />
-              </div>
-            </div>
-          </HeroIntro>
-          <PreviewNote />
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: 'AI and your data', href: '/ai' }]}
+        eyebrow="AI and your data"
+        title={
+          <>
+            What the AI does.
+            <br />
+            What it sees.
+            <br />
+            <span className="em-coral">How to switch it off.</span>
+          </>
+        }
+        lede={`AI is off until you switch it on, and every result shows its confidence. What it does, reads and keeps, from the Terms and Privacy v${POLICY_VERSION} of ${POLICY_DATE}.`}
+        ctas={
+          <>
+            <StartFree />
+            <TextLink href="#rules">Read the rules</TextLink>
+          </>
+        }
+        side={
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[28px] border border-line">
+            <Image src="/assets/gen/uc-find.webp" alt="A professional in a hotel lobby checking his contacts on his phone" fill priority sizes="(min-width: 1024px) 560px, 90vw" className="object-cover" />
+          </div>
+        }
+      />
 
       <Section tone="charcoal" id="capabilities" glow>
-        <SectionHead eyebrow="What it does" title={<>8 things, <span className="em-coral">four verbs in the document</span>.</>} lede="The product's name first, then the verb the Terms and Privacy uses for it: add public business information, summarise relationships, score relevance, suggest follow-ups or introductions. Nothing here is padded: if a capability does not fit one of those verbs, the document does not describe it." center />
+        <SectionHead eyebrow="What it does" title={<>8 things, <span className="em-coral">four verbs in the document</span>.</>} lede="Each capability, then the verb the Terms and Privacy uses for it: add information, summarise, score, or suggest." center />
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-reveal="rise" data-reveal-stagger="0.06">
           {AI_CAPABILITIES.map((c, i) => {
             const Icon = ICONS[i] ?? Sparkles;
@@ -130,7 +120,7 @@ export default function AiPage() {
       </Section>
 
       <Section tone="charcoal" id="not-yet">
-        <SectionHead eyebrow="Not published yet" title={<>What this page <span className="em-coral">cannot tell you</span> today.</>} lede="A page that only lists reassurances is marketing. These are the open questions; each one is with the team." center />
+        <SectionHead eyebrow="Not published yet" title={<>What this page <span className="em-coral">cannot tell you</span> today.</>} lede="The open questions, each with the team." center />
         <ul className="mx-auto mt-10 grid max-w-4xl gap-4 md:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.06">
           {AI_NOT_PUBLISHED.map((n) => (
             <li key={n} className="card flex gap-3 p-5">
@@ -141,14 +131,13 @@ export default function AiPage() {
         </ul>
       </Section>
 
-      <Section tight id="faq">
-        <SectionHead eyebrow="FAQ" title="AI and data, answered." center />
-        <div className="mx-auto mt-10 max-w-4xl">
-          <Faq items={AI_FAQ} name="ai-faq" jsonLd />
+      <section id="faq" className="section">
+        <div className="container">
+          <Faq items={AI_FAQ} name="ai-faq" jsonLd title="AI and data, answered." />
         </div>
-      </Section>
+      </section>
 
-      <ClosingBand person={person('close-6')} line1="Let the AI fill the gaps." line2="You keep the last word." reassurance="Optional, assistive, off in one switch. Free plan, no NFC card required." />
+      <ClosingBand line1="Let the AI fill the gaps." line2="You keep the last word." reassurance="Optional, off in one switch. Free, no card needed." />
     </>
   );
 }
