@@ -1,13 +1,10 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { ClosingBand } from '@/components/ClosingBand';
-import { MiniMock } from '@/components/mockups/MiniMock';
-import { Obj } from '@/components/Person';
-import { Section, SectionHead } from '@/components/Section';
+import { PageHero } from '@/components/PageHero';
 import { FEATURES } from '@/content/features';
-import { object, person } from '@/lib/screens';
 import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
@@ -17,37 +14,47 @@ export const metadata: Metadata = pageMeta(
   { image: '/og/features.png' },
 );
 
+/**
+ * The features hub (v2): a bento of five picture cards, Capture spanning two columns, each with
+ * its v2 scene, the stage it belongs to, the name, a line and a link to its page.
+ */
 export default function FeaturesHub() {
   return (
     <>
-      <Section tight className="pt-8 sm:pt-10">
-        <Breadcrumbs items={[{ label: 'Features', href: '/features' }]} />
-        <div className="mt-8">
-          <SectionHead as="h1" size={1} eyebrow="Features" title={<>Simple to use. <span className="em-coral">Smarter underneath.</span></>} lede="5 families of capability behind the three-stage journey. Pick one, and every screen on its page is a real capture or a labelled design preview." />
+      <PageHero
+        crumbs={[{ label: 'Features', href: '/features' }]}
+        eyebrow="Features"
+        title={
+          <>
+            Simple to use. <span className="em-coral">Smarter underneath.</span>
+          </>
+        }
+        lede="5 families of capability behind the three-stage journey. Pick one to see it on screen."
+      />
+      <section className="section !pt-0">
+        <div className="container">
+          <ul className="m-0 grid list-none gap-3.5 p-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))] lg:grid-cols-3" data-reveal="rise" data-reveal-stagger="0.06">
+            {FEATURES.map((f, i) => (
+              <li key={f.slug} className={i === 0 ? 'lg:col-span-2' : ''}>
+                <Link href={`/features/${f.slug}`} className="card flex h-full flex-col overflow-hidden no-underline">
+                  <span className={`relative block overflow-hidden ${i === 0 ? 'aspect-[16/7]' : 'aspect-[16/10]'} ${f.scene.square ? 'bg-bg-alt' : ''}`}>
+                    <Image src={f.scene.src} alt={f.scene.alt} fill sizes={i === 0 ? '(min-width: 1024px) 800px, 90vw' : '(min-width: 1024px) 400px, 90vw'} className={f.scene.square ? 'object-contain p-4' : 'object-cover'} />
+                  </span>
+                  <span className="flex flex-1 flex-col p-[clamp(22px,2.6vw,28px)]">
+                    <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-coral">{f.stage}</span>
+                    <h2 className="mt-2 font-display text-[26px] font-semibold tracking-[-0.025em]">{f.name}</h2>
+                    <span className="mt-2 text-sm leading-normal text-body">{f.hubBlurb}</span>
+                    <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-medium text-coral">
+                      {f.name} in full <ArrowRight size={14} aria-hidden="true" />
+                    </span>
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
-      </Section>
-      <Section tone="charcoal" tight>
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal="rise" data-reveal-stagger="0.06">
-          {FEATURES.map((f) => (
-            <Link key={f.slug} href={`/features/${f.slug}`} className="card card--object sweep sweep--neutral lift flex flex-col p-6 no-underline">
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <p className="eyebrow eyebrow--accent text-[11px]">{f.stage}</p>
-                  <h2 className="display-3 mt-2">{f.name}</h2>
-                </div>
-                <Obj name={f.object} src={object(f.object)} size={64} className="card__obj -mr-2 -mt-2 flex-none" />
-              </div>
-              <p className="mt-2 text-sm text-body">{f.hubBlurb}</p>
-              <MiniMock mock={f.mock} />
-              <span className="flex-1" />
-              <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-coral">
-                Explore {f.name} <ArrowRight size={14} aria-hidden="true" />
-              </span>
-            </Link>
-          ))}
-        </div>
-      </Section>
-      <ClosingBand person={person('close-3')} />
+      </section>
+      <ClosingBand />
     </>
   );
 }

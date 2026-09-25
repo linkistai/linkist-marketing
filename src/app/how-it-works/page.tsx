@@ -1,19 +1,16 @@
 import type { Metadata } from 'next';
-import { Breadcrumbs } from '@/components/Breadcrumbs';
+import Image from 'next/image';
 import { StartFree, TextLink } from '@/components/Button';
 import { ClosingBand } from '@/components/ClosingBand';
 import { DesignPreview } from '@/components/DesignPreview';
 import { Faq } from '@/components/Faq';
-import { MiniMock } from '@/components/mockups/MiniMock';
-import { Obj } from '@/components/Person';
-import { ScreenFrame } from '@/components/ScreenFrame';
-import { Outcome, Section, SectionHead, Tags } from '@/components/Section';
+import { PageHero } from '@/components/PageHero';
+import { PhoneStage } from '@/components/PhoneStage';
 import { PreviewNote } from '@/components/PreviewNote';
-import { HeroIntro } from '@/motion/HeroIntro';
+import { Bullets, Outcome, Tags } from '@/components/Section';
 import { PROTO_ALT } from '@/content/design';
-import { FEATURES } from '@/content/features';
 import { FAQ, STAGES } from '@/content/home';
-import { object, person, screen } from '@/lib/screens';
+import { screen } from '@/lib/screens';
 import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
@@ -23,72 +20,59 @@ export const metadata: Metadata = pageMeta(
   { image: '/og/how-it-works.png' },
 );
 
-const STAGE_FEATURE = ['capture', 'find', 'act'] as const;
-
 export default function HowItWorksPage() {
+  const faq = FAQ.slice(0, 5);
   return (
     <>
-      <section className="section pt-8 sm:pt-10">
-        <div className="container">
-          <Breadcrumbs items={[{ label: 'How it works', href: '/how-it-works' }]} />
-          <HeroIntro className="mt-8 max-w-3xl">
-            <p className="eyebrow" data-hero-text>
-              How Linkist works
-            </p>
-            <h1 className="display-1 mt-5" data-hero-text>
-              Three stages. <span className="em-coral">One place</span> for every relationship.
-            </h1>
-            <p className="lede mt-5" data-hero-text>
-              Capture and share, build relationships, act and grow. Each stage has its own screens and its own capabilities, and each one feeds the next.
-            </p>
-            <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center" data-hero-text>
-              <StartFree />
-              <TextLink href="#stage-1">Start at stage 1</TextLink>
-            </div>
-          </HeroIntro>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: 'How it works', href: '/how-it-works' }]}
+        eyebrow="How Linkist works"
+        title={
+          <>
+            Three stages. <span className="em-coral">One place</span> for every relationship.
+          </>
+        }
+        lede="Capture and share, build relationships, act and grow. Each stage feeds the next."
+        ctas={
+          <>
+            <StartFree />
+            <TextLink href="#stage-1">Start at stage 1</TextLink>
+          </>
+        }
+        side={
+          <div className="relative w-[min(100%,520px)]">
+            <div className="v2-glow left-[-10%] top-[-10%] w-[120%]" aria-hidden="true" />
+            <Image src="/assets/gen/hero-tap.webp" alt="A hand tapping a Linkist NFC card on a phone that shows the Linkist app" width={928} height={1152} priority sizes="(min-width: 1024px) 520px, 90vw" className="home-hero__photo v2-float relative" />
+          </div>
+        }
+      />
 
-      {STAGES.map((s, i) => {
-        const f = FEATURES.find((x) => x.slug === STAGE_FEATURE[i])!;
-        return (
-          <Section key={s.n} id={`stage-${s.n}`} tone={i % 2 ? 'bg' : 'charcoal'} glow={i === 1}>
-            <div className={`grid items-center gap-12 lg:grid-cols-[minmax(0,6fr)_minmax(0,6fr)] ${i % 2 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
-              <div data-reveal="rise">
-                <p className="eyebrow eyebrow--accent">
+      {STAGES.map((s, i) => (
+        <section key={s.n} id={`stage-${s.n}`} className={`section scroll-mt-[90px] ${i % 2 === 0 ? 'section--charcoal' : ''}`}>
+          <div className="container">
+            <div className="grid items-center gap-[clamp(32px,5vw,72px)] [grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))]">
+              <div className={`min-w-0 ${i % 2 ? 'md:order-2' : ''}`} data-reveal="rise">
+                <p className="eyebrow eyebrow--plain">
                   {s.n} · {s.label}
                 </p>
                 <h2 className="display-2 mt-4">{s.title}</h2>
-                <ul className="mt-6 flex flex-col gap-2 pl-5 text-md text-body" style={{ listStyle: 'disc' }}>
-                  {s.bullets.map((b) => (
-                    <li key={b}>{b}</li>
-                  ))}
-                </ul>
-                <div className="mt-6">
+                <Bullets items={s.bullets} className="mt-[22px]" />
+                <div className="mt-[22px]">
                   <Outcome>{s.outcome}</Outcome>
                 </div>
-                <Tags items={s.chips} className="mt-4" />
-                <div className="card card--object mt-8 max-w-sm p-5">
-                  <div className="flex items-center gap-3">
-                    <Obj name={f.object} src={object(f.object)} size={48} className="card__obj" />
-                    <p className="text-sm font-semibold">{f.name}, replayed with example figures</p>
-                  </div>
-                  <MiniMock mock={f.mock} />
-                </div>
-                <div className="mt-8">
-                  <TextLink href={s.href}>{f.name} in full</TextLink>
+                <Tags items={s.chips} className="mt-[18px]" />
+                <div className="mt-6">
+                  <TextLink href={s.href}>{featureName(s.href)} in full</TextLink>
                 </div>
               </div>
-              <div className="flex justify-center" data-reveal="rise">
-                <div className="w-full max-w-[300px]">
-                  <ScreenFrame kind="phone" src={screen(s.screen)} alt={PROTO_ALT[s.screen]} preview full priority={i === 0} />
-                </div>
+              <div className="min-w-0" data-reveal="rise">
+                <PhoneStage src={screen(s.screen)} alt={PROTO_ALT[s.screen]} priority={i === 0} />
               </div>
             </div>
             <PreviewNote />
-          </Section>
-        );
-      })}
+          </div>
+        </section>
+      ))}
 
       <DesignPreview
         id="design"
@@ -98,20 +82,27 @@ export default function HowItWorksPage() {
             The screens behind the <span className="em-coral">three stages</span>.
           </>
         }
-        body="Your QR, WhatsApp, email and a copy link when you are ready to share; a connection profile that describes who you are looking for and shows who fits; and a home screen that opens on the nudges that need action."
-        bullets={['Share by tap, QR, link, WhatsApp or email', 'Describe your ideal contact once and see who matches', 'A home screen that says what to do next']}
-        screens={['v6-shareready', 'v6-icpdetail', 'v6-home']}
-        tone="lifted"
+        body="Share by QR, WhatsApp, email or link; describe who you want and see who fits; open on the nudges that need action."
+        items={[
+          { screen: 'v6-shareready', title: 'Share by tap, QR, link, WhatsApp or email' },
+          { screen: 'v6-icpdetail', title: 'Describe your ideal contact once and see who matches' },
+          { screen: 'v6-home', title: 'A home screen that says what to do next' },
+        ]}
       />
 
-      <Section tight id="faq">
-        <SectionHead eyebrow="Questions" title="Straight answers." />
-        <div className="mt-10 max-w-3xl">
-          <Faq items={FAQ.slice(0, 5)} jsonLd />
+      <section id="faq" className="section section--charcoal">
+        <div className="container">
+          <Faq items={faq} jsonLd eyebrow="Questions" title="Straight answers." />
         </div>
-      </Section>
+      </section>
 
-      <ClosingBand line1="Capture the people you meet." line2="Then act at the right time." person={person('close-2')} />
+      <ClosingBand line1="Capture the people you meet." line2="Then act at the right time." />
     </>
   );
+}
+
+/** '/features/find' becomes 'Find'. */
+function featureName(href: string): string {
+  const slug = href.split('/').pop() ?? '';
+  return slug.charAt(0).toUpperCase() + slug.slice(1);
 }

@@ -80,7 +80,7 @@ export default function HomePage() {
         <div className="container">
           <SectionHead id="how-title" num="01" eyebrow="How Linkist works" title={<>Turn the contacts you collect into <span className="em-coral">opportunities</span>.</>} lede="Capture the right people, see who matters, know what to do next." />
           <StageSwitcher
-            stages={STAGES.map((s) => ({ n: s.n, label: s.label, title: s.title, bullets: s.bullets, chips: s.chips, href: s.href, screen: screen(s.screen), alt: PROTO_ALT[s.screen] }))}
+            stages={STAGES.map((s) => ({ n: s.n, label: s.label, title: s.title, bullets: s.bulletsShort, chips: s.chips, href: s.href, screen: screen(s.screen), alt: PROTO_ALT[s.screen] }))}
           />
           <PreviewNote className="!mt-12" />
         </div>

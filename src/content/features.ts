@@ -28,6 +28,8 @@ export interface FeaturePage {
   readonly lede: string;
   readonly heroScreen: string;
   readonly heroAlt: string;
+  /** The v2 hero picture (public/assets/gen), its alt text and its frame shape. */
+  readonly scene: { readonly src: string; readonly alt: string; readonly square?: boolean };
   readonly chips: readonly { label: string; value: string }[];
   readonly tabs: readonly FeatureTabContent[];
   readonly planNote: string;
@@ -45,9 +47,10 @@ export const FEATURES: readonly FeaturePage[] = [
     title: 'Capture: NFC, QR, card scan, import and AI Enrichment',
     description: 'Every way to get a contact into Linkist with its context: an NFC tap, a QR code, a business-card scan, phone, CSV and VCF import, voice notes, tags and AI Enrichment for the gaps.',
     headline: ['Save the contact. ', 'Save the context', '.'],
-    lede: 'Capture people any way they arrive, note where you met and what mattered, and let AI Enrichment fill in the rest.',
+    lede: 'Capture people however they arrive, note the context, and let AI fill the gaps.',
     heroScreen: 'v6-capture',
     heroAlt: 'Capture their card: their Linkist QR, a paper card, or what they told you',
+    scene: { src: '/assets/gen/hero-tap.webp', alt: 'A hand tapping a Linkist NFC card on a phone' },
     chips: [
       { label: 'Ways to capture', value: '6' },
       { label: 'Card scans on Pro', value: 'Unlimited' },
@@ -79,6 +82,7 @@ export const FEATURES: readonly FeaturePage[] = [
     lede: 'Search in plain words, define who you are looking for, see who fits, and know which relationships are going quiet.',
     heroScreen: 'v6-icpdetail',
     heroAlt: 'A connection profile: the ideal customer described and matched',
+    scene: { src: '/assets/gen/uc-find.webp', alt: 'A professional in a hotel lobby searching his contacts on his phone' },
     chips: [
       { label: 'Search', value: 'Plain words' },
       { label: 'Matching', value: 'Against your ICPs' },
@@ -110,6 +114,7 @@ export const FEATURES: readonly FeaturePage[] = [
     lede: 'The day opens with your most important actions, the week has a plan, and nothing slips without a nudge.',
     heroScreen: 'v6-home',
     heroAlt: 'Home screen with the nudges that need action',
+    scene: { src: '/assets/gen/uc-many.webp', alt: 'A busy professional walking through an airport checking her phone' },
     chips: [
       { label: 'Every morning', value: 'Top Actions' },
       { label: 'Every week', value: 'Weekly Planner' },
@@ -141,6 +146,7 @@ export const FEATURES: readonly FeaturePage[] = [
     lede: 'Your digital business card updates wherever it has been shared. Add a personal URL, more profiles and your branding as you grow.',
     heroScreen: 'profile-zayn',
     heroAlt: 'A public Linkist profile page',
+    scene: { src: '/assets/gen/cards-cut.webp', alt: 'Linkist NFC cards in metal, wood and PVC', square: true },
     chips: [
       { label: 'Profiles on Pro', value: '5' },
       { label: 'Personal URL', value: 'linkist.ai/me/you' },
@@ -172,6 +178,7 @@ export const FEATURES: readonly FeaturePage[] = [
     lede: 'Share contacts across the team, brand every card, and keep the relationship history when someone moves on.',
     heroScreen: 'v6-contacts',
     heroAlt: 'Contacts with network health and exchanges',
+    scene: { src: '/assets/gen/uc-leave.webp', alt: 'A person leaving an office carrying a box of belongings' },
     chips: [
       { label: 'Minimum', value: '5 users' },
       { label: 'Per user', value: '$5 a month' },

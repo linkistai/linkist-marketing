@@ -2531,3 +2531,55 @@ html[data-motion='off'] .uccard {
     padding: 20px;
   }
 }
+
+/* v2 pill tabs and key-fact chips */
+@layer components {
+  .pilltab {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: transparent;
+    color: var(--color-body);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition:
+      background-color 0.25s,
+      border-color 0.25s,
+      color 0.25s;
+  }
+  .pilltab:hover {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  .pilltab[aria-selected='true'],
+  .pilltab[aria-pressed='true'] {
+    background: var(--brand-crimson);
+    border-color: var(--brand-crimson);
+    color: #fff;
+  }
+  .factchip {
+    padding: 12px 16px;
+    border-radius: 16px;
+    border: 1px solid var(--color-line);
+    background: var(--v2-surface);
+  }
+  .factchip__label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .factchip__value {
+    display: block;
+    margin-top: 2px;
+    font-family: var(--font-mono);
+    font-size: 17px;
+    font-weight: 600;
+  }
+}

@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { Breadcrumbs } from '@/components/Breadcrumbs';
+import Image from 'next/image';
 import { ClosingBand } from '@/components/ClosingBand';
-import { Outcome, Section, SectionHead, Tags } from '@/components/Section';
+import { PageHero } from '@/components/PageHero';
 import { USE_CASES } from '@/content/usecases';
-import { person } from '@/lib/screens';
 import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
@@ -15,44 +14,47 @@ export const metadata: Metadata = pageMeta(
   { image: '/og/use-cases.png' },
 );
 
+/** The use-case hub (v2): five scene cards, each with its number, short name, title, problem and a link. */
 export default function UseCasesHub() {
   return (
     <>
-      <Section tight className="pt-8 sm:pt-10">
-        <Breadcrumbs items={[{ label: 'Use cases', href: '/use-cases' }]} />
-        <div className="mt-8">
-          <SectionHead as="h1" size={1} eyebrow="Built for real connections" title={<>See Linkist <span className="em-coral">at work</span>.</>} lede="The problem is rarely collecting contacts. It is knowing what to do with them afterwards. 5 situations, each with the steps Linkist takes." />
+      <PageHero
+        crumbs={[{ label: 'Use cases', href: '/use-cases' }]}
+        eyebrow="Built for real connections"
+        title={
+          <>
+            See Linkist <span className="em-coral">at work</span>.
+          </>
+        }
+        lede="Collecting contacts is easy. Knowing what to do next is hard. 5 situations, step by step."
+      />
+      <section className="section !pt-0">
+        <div className="container">
+          <ul className="m-0 grid list-none gap-3.5 p-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))]" data-reveal="rise" data-reveal-stagger="0.06">
+            {USE_CASES.map((u, i) => (
+              <li key={u.slug}>
+                <Link href={`/use-cases/${u.slug}`} className="card flex h-full flex-col overflow-hidden no-underline">
+                  <span className="relative block aspect-[16/10] overflow-hidden">
+                    <Image src={u.scene} alt={u.sceneAlt} fill sizes="(min-width: 1024px) 400px, 90vw" className="object-cover" />
+                    <span className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,5,5,0)_50%,rgba(5,5,5,.85))]" aria-hidden="true" />
+                    <span className="absolute bottom-3 left-4 font-mono text-[11px] tracking-[0.1em] text-body">
+                      {String(i + 1).padStart(2, '0')} · {u.short}
+                    </span>
+                  </span>
+                  <span className="flex flex-1 flex-col p-[clamp(22px,2.6vw,28px)]">
+                    <h2 className="font-display text-[22px] font-semibold leading-[1.2] tracking-[-0.02em]">{u.title}</h2>
+                    <span className="mt-2 text-sm leading-normal text-body">{u.problem}</span>
+                    <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-medium text-coral">
+                      {u.short} <ArrowRight size={14} aria-hidden="true" />
+                    </span>
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
-      </Section>
-      <Section tone="charcoal" tight>
-        <div className="flex flex-col gap-5" data-reveal="rise" data-reveal-stagger="0.06">
-          {USE_CASES.map((u) => (
-            <Link key={u.slug} href={`/use-cases/${u.slug}`} className="card sweep sweep--neutral lift grid gap-6 p-7 no-underline md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:p-9">
-              <div>
-                <p className="eyebrow eyebrow--accent text-[11px]">{u.short}</p>
-                <h2 className="display-3 mt-3">{u.title}</h2>
-                <p className="mt-2 text-md text-body">{u.problem}</p>
-                <div className="mt-4">
-                  <Outcome label="Result">{u.result}</Outcome>
-                </div>
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.04em] text-body">With Linkist</p>
-                <ul className="mt-3 flex flex-col gap-2 pl-5 text-md text-body" style={{ listStyle: 'disc' }}>
-                  {u.steps.map((s) => (
-                    <li key={s}>{s}</li>
-                  ))}
-                </ul>
-                <Tags items={u.chips} className="mt-5" />
-                <span className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-coral">
-                  Read the use case <ArrowRight size={14} aria-hidden="true" />
-                </span>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </Section>
-      <ClosingBand person={person('close-4')} />
+      </section>
+      <ClosingBand />
     </>
   );
 }

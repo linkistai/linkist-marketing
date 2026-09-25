@@ -36,6 +36,8 @@ export interface Stage {
   readonly label: string;
   readonly title: string;
   readonly bullets: readonly string[];
+  /** The shorter bullets the v2 home page shows in its stage switcher. */
+  readonly bulletsShort: readonly string[];
   readonly outcome: string;
   readonly chips: readonly string[];
   readonly screen: ProtoScreen;
@@ -46,7 +48,8 @@ export const STAGES: readonly Stage[] = [
     n: 1,
     label: 'Capture and share',
     title: 'Save the contact. Save the context.',
-    bullets: ['Capture by NFC, QR, card scan, import or manual add', 'Fill gaps with AI Enrichment', 'Save where you met and what mattered', 'Share your live profile in one tap'],
+    bullets: ['Capture through NFC, QR, card scan, phone import, CSV or VCF, or manual add', 'Fill missing details with AI Enrichment', 'Save where you met and what mattered', 'Share your live profile with one tap'],
+    bulletsShort: ['Capture by NFC, QR, card scan, import or manual add', 'Fill gaps with AI Enrichment', 'Save where you met and what mattered', 'Share your live profile in one tap'],
     outcome: 'Every useful contact becomes more than a name and number.',
     chips: ['AI Enrichment', 'Card Scan', 'Contact Import', 'Voice Notes'],
     screen: 'v6-shareready',
@@ -56,8 +59,9 @@ export const STAGES: readonly Stage[] = [
     n: 2,
     label: 'Build relationships',
     title: 'Find the people worth your attention.',
-    bullets: ['Search by what you remember', 'Define who you want and see who fits', 'See which relationships are active or quiet', 'Post a need, find people or trusted paths'],
-    outcome: 'Know who matters, who fits and who can help.',
+    bullets: ['Search using what you remember', 'Define who you are looking for and see who fits', 'See which relationships are active or going quiet', 'Post what you need and find relevant people or trusted paths'],
+    bulletsShort: ['Search by what you remember', 'Define who you want and see who fits', 'See which relationships are active or quiet', 'Post a need, find people or trusted paths'],
+    outcome: 'Know who matters, who fits, and who can help.',
     chips: ['Natural-Language Search', 'ICP Matching', 'Relationship Priority', 'Network Ask'],
     screen: 'v6-icpdetail',
     href: '/features/find',
@@ -66,7 +70,8 @@ export const STAGES: readonly Stage[] = [
     n: 3,
     label: 'Act and grow',
     title: 'Know what to do next.',
-    bullets: ['Start the day with your top actions', 'Plan the week’s relationships', 'Get nudged before follow-ups slip', 'Reach out or ask for a warm intro'],
+    bullets: ['Start the day with your most important actions', 'Plan relationships and opportunities for the week', 'Get useful nudges before follow-ups slip away', 'Reach out or ask for a warm introduction'],
+    bulletsShort: ['Start the day with your top actions', 'Plan the week’s relationships', 'Get nudged before follow-ups slip', 'Reach out or ask for a warm intro'],
     outcome: 'Stay on top of the right relationships and act before the moment passes.',
     chips: ['Top Actions', 'Intelligent Nudges', 'Warm Introductions'],
     screen: 'v6-home',
