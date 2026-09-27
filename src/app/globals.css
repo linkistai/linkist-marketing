@@ -3323,3 +3323,13 @@ html[data-motion='off'] .uccard {
     }
   }
 }
+@layer components {
+  /* Narrow phones: the hero eyebrow stays on one line. */
+  @media (max-width: 400px) {
+    .home-hero .eyebrow {
+      gap: 8px;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+    }
+  }
+}
