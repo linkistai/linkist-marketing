@@ -29,7 +29,7 @@ export default function ChatPage() {
         eyebrow="Ask the assistant"
         title={
           <>
-            Ask anything <span className="em-coral">the help centre knows</span>.
+            Ask anything the <span className="em-coral">help centre</span> knows.
           </>
         }
         lede="Automated. It answers from the help centre and hands you to Start free."

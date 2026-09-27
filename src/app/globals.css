@@ -3248,3 +3248,78 @@ html[data-motion='off'] .uccard {
     color: var(--brand-coral);
   }
 }
+
+@layer components {
+  /* Less red (owner, 27 September 2026): text links are white, with a soft coral on hover. */
+  .link,
+  .card .link {
+    color: #fff;
+  }
+  .link:hover {
+    color: var(--brand-coral-soft);
+  }
+  /* Six capabilities: two even rows of three on phones, one row beside the badges on desktop. */
+  .heropillars {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .heropillars__label {
+    max-width: 5.8em;
+  }
+  @media (max-width: 560px) {
+    .heropillars,
+    .home-hero__strip .heropillars {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .heropillars li:nth-child(4) {
+      border-left: 1px solid var(--color-line);
+    }
+    .heropillars li:nth-child(3n + 1) {
+      border-left: 0;
+    }
+  }
+  @media (min-width: 768px) {
+    .home-hero__strip .heropillars li {
+      gap: 7px;
+      padding: 0 7px;
+    }
+    .home-hero__strip .heropillars__icon {
+      width: 28px;
+      height: 28px;
+    }
+  }
+}
+/* Unlayered, so it outranks the base button rules: buttons on phones are one size sitewide, small
+   enough that a pair sits on one row (owner, 27 September 2026). */
+@media (max-width: 639px) {
+  .btn,
+  .btn.btn--lg {
+    min-height: 48px;
+    padding: 0 16px;
+    font-size: 15px;
+  }
+  .btn.btn--sm {
+    min-height: 44px;
+    padding: 0 14px;
+    font-size: 14px;
+  }
+  .home-hero__ctas {
+    gap: 10px;
+  }
+}
+@media (max-width: 380px) {
+  .btn,
+  .btn.btn--lg {
+    padding: 0 12px;
+    font-size: 14px;
+  }
+}
+@layer components {
+  @media (min-width: 768px) {
+    .home-hero__strip .heropillars li {
+      padding: 0 6px;
+    }
+    .home-hero__strip .heropillars__label {
+      max-width: 5.5em;
+    }
+  }
+}

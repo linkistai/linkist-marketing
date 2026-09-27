@@ -5,7 +5,7 @@ import { START_URL } from '@/lib/site';
 
 /**
  * The v2 closing band: a 36 px panel lit by a red glow from the lower right. Left, a two-line H2
- * with the second line in red, one primary CTA and a reassurance line; right, a floating cutout,
+ * with the second line in grey (less red, owner 27 September 2026), one primary CTA and a reassurance line; right, a floating cutout,
  * decorative: the metal, wood and PVC cards by default, the person cutout on the home page, or
  * `tap`, the hand tapping a card on a phone with NFC rings (owner, 25 September 2026, /nfc-cards).
  * (`person` and `personAlt` are kept for callers of the v1 band and are ignored.)
@@ -35,7 +35,7 @@ export function ClosingBand({
             <h2 className="display-2 !text-[clamp(34px,4.6vw,64px)]">
               {line1}
               <br />
-              <span className="em-coral">{line2}</span>
+              <span className="text-muted">{line2}</span>
             </h2>
             <div className="mt-8">
               <Button href={href} variant="primary" size="lg">

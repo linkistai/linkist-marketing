@@ -16,7 +16,7 @@
   "source": "Written from the product for the Linkist website, checkpoint 5",
   "imported": "2026-09-10",
   "faq": [
-    { "q": "Is there an Enterprise plan?", "a": "Not yet. Enterprise is upcoming and interest only today; single sign-on, CRM and HRMS integration, and GDPR and SOC 2 Type 2 data security are planned for it." },
+    { "q": "Is there an Enterprise plan?", "a": "Not yet. Enterprise is upcoming; single sign-on and CRM or HRMS integration are planned for it." },
     { "q": "Does buying a card change my plan?", "a": "Every NFC card includes PRM Essential. The bundles add Pro: the Signature Bundle for a year, the Founders Circle Bundle for life." },
     { "q": "Do paid plans renew automatically?", "a": "Unless stated otherwise at checkout, yes, until you cancel. Cancel before the renewal date if you do not want the next period." }
   ]
@@ -51,7 +51,7 @@ A rule of thumb: if you can name every relationship that matters and remember it
 
 $5 (AED 20) per user a month, minimum 5 users: $25 (AED 100) a month or $250 (AED 1,000) a year for 5 users. Everything in Pro for every user, plus contact sharing across the team, a centralised admin console, company branding on cards and a team directory. Personal contacts stay with the person; team-shared contacts and their history stay with the company when someone leaves.
 
-Enterprise is not a plan yet. It is upcoming and interest only today, with single sign-on, CRM and HRMS integration, product customisation, and GDPR and SOC 2 Type 2 data security planned for it.
+Enterprise is not a plan yet. It is upcoming, with single sign-on, CRM and HRMS integration and product customisation planned for it.
 
 ## What a card adds
 

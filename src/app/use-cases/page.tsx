@@ -44,7 +44,7 @@ export default function UseCasesHub() {
                   <span className="flex flex-1 flex-col p-[clamp(22px,2.6vw,28px)]">
                     <h2 className="font-display text-[22px] font-semibold leading-[1.2] tracking-[-0.02em]">{u.title}</h2>
                     <span className="mt-2 text-sm leading-normal text-body">{u.problem}</span>
-                    <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-medium text-coral">
+                    <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-medium text-white">
                       {u.short} <ArrowRight size={14} aria-hidden="true" />
                     </span>
                   </span>

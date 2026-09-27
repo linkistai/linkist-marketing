@@ -89,7 +89,7 @@ export default function BlogsPage() {
             <div className="v2-glow left-1/2 top-0 w-[120%] -translate-x-1/2 -translate-y-1/2" style={{ background: 'radial-gradient(circle, rgba(163,22,45,.35), transparent 62%)' }} aria-hidden="true" />
             <p className="eyebrow relative justify-center">Stay updated</p>
             <h2 id="subscribe-title" className="display-2 relative mt-4">
-              Insights straight <span className="em-coral">to your inbox</span>.
+              Insights straight to <span className="em-coral">your inbox</span>.
             </h2>
             <p className="lede relative mx-auto mt-4">Guides, about once a month.</p>
             <div className="relative mx-auto mt-8 max-w-md">

@@ -79,7 +79,7 @@ export default function NfcCardsPage() {
 
       <section className="section section--charcoal">
         <div className="container">
-          <SectionHead eyebrow="What a tap does" title={<>One tap replaces <span className="em-coral">the whole ritual</span>.</>} lede="No typing, no paper." center />
+          <SectionHead eyebrow="What a tap does" title={<>One tap replaces the <span className="em-coral">whole ritual</span>.</>} lede="No typing, no paper." center />
           <div className="mt-[clamp(40px,5vw,64px)] grid items-center gap-[clamp(32px,5vw,72px)] [grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))]">
             <ol className="m-0 grid list-none gap-3.5 p-0 sm:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.08">
               {TAP.map((t, i) => (
@@ -137,7 +137,7 @@ export default function NfcCardsPage() {
             <div data-reveal="rise">
               <p className="eyebrow eyebrow--plain">Bring your own NFC</p>
               <h2 className="display-2 mt-4">
-                Already have an NFC card? <span className="em-coral">Make it live, free.</span>
+                Already have an NFC card? Make it live, <span className="em-coral">free</span>.
               </h2>
               <p className="lede mt-5">Tap a card or sticker you own and Linkist writes your live profile onto it.</p>
               <p className="mt-4 text-[13px] text-muted">Free forever. Encoding needs Android; the profile works everywhere.</p>

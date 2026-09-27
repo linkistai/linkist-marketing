@@ -46,7 +46,7 @@ export default function FeaturesHub() {
                     <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-coral">{f.stage}</span>
                     <h2 className="mt-2 font-display text-[26px] font-semibold tracking-[-0.025em]">{f.name}</h2>
                     <span className="mt-2 text-sm leading-normal text-body">{f.hubBlurb}</span>
-                    <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-medium text-coral">
+                    <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-medium text-white">
                       {f.name} in full <ArrowRight size={14} aria-hidden="true" />
                     </span>
                   </span>
@@ -66,7 +66,7 @@ export default function FeaturesHub() {
             center
             title={
               <>
-                The AI <span className="em-coral">under every stage</span>. <span role="img" aria-label="AI-assisted" className="ai-diamond" />
+                The AI under <span className="em-coral">every stage</span>. <span role="img" aria-label="AI-assisted" className="ai-diamond" />
               </>
             }
             lede="The capabilities behind the three-stage journey, shown with example figures."

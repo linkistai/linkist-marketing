@@ -22,7 +22,7 @@ export default function HelpPage() {
         eyebrow="Help centre"
         title={
           <>
-            Answers, <span className="em-coral">with their sources</span>.
+            Answers, with <span className="em-coral">their sources</span>.
           </>
         }
         lede={`${HELP.length} answers in ${HELP_CATEGORIES.length} categories, limits included. Search as you type.`}

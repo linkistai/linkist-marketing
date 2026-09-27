@@ -54,7 +54,7 @@ export default function SecurityPage() {
       />
 
       <Section tone="charcoal" id="controls" glow>
-        <SectionHead eyebrow={`${CONTROLS.length} controls`} title={<>What protects your data, <span className="em-coral">and where it is written</span>.</>} lede="The measures the document names, plus the sign-in screen. T is Part 1, P is Part 2." center />
+        <SectionHead eyebrow={`${CONTROLS.length} controls`} title={<>What protects your data, and where it is <span className="em-coral">written</span>.</>} lede="The measures the document names, plus the sign-in screen. T is Part 1, P is Part 2." center />
         <ol className="mt-12 grid gap-4 md:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.05">
           {CONTROLS.map((c, i) => (
             <li key={c.title} className="card sweep sweep--neutral lift p-6">
@@ -70,7 +70,7 @@ export default function SecurityPage() {
       </Section>
 
       <Section id="providers">
-        <SectionHead eyebrow="Who receives data" title={<>{PROVIDERS.length} categories, <span className="em-coral">no names yet</span>.</>} lede="Linkist never sells personal data. The document lists who receives it but names no company yet." center />
+        <SectionHead eyebrow="Who receives data" title={<>{PROVIDERS.length} categories, <span className="em-coral">no names</span> yet.</>} lede="Linkist never sells personal data. The document lists who receives it but names no company yet." center />
         <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-5" data-reveal="rise" data-reveal-stagger="0.04">
           {PROVIDERS.map((p) => (
             <li key={p.role} className="card card--sm p-4">
@@ -103,7 +103,7 @@ export default function SecurityPage() {
       </Section>
 
       <Section tone="lifted" id="retention">
-        <SectionHead eyebrow="How long" title={<>Retention, <span className="em-coral">in one table</span>.</>} lede="Payments and invoices stay as long as tax law requires." center />
+        <SectionHead eyebrow="How long" title={<>Retention, in <span className="em-coral">one table</span>.</>} lede="Payments and invoices stay as long as tax law requires." center />
         <div className="table-wrap mx-auto mt-10 max-w-3xl" tabIndex={0} role="region" aria-label="Retention table, scrolls sideways on small screens">
           <table className="table w-full text-sm">
             <thead>
@@ -185,7 +185,7 @@ export default function SecurityPage() {
       </Section>
 
       <Section tone="charcoal" id="not-yet">
-        <SectionHead eyebrow="Not published yet" title={<>What Linkist <span className="em-coral">does not claim</span>, in plain words.</>} lede="The gaps today." center />
+        <SectionHead eyebrow="Not published yet" title={<>What Linkist does <span className="em-coral">not claim</span>, in plain words.</>} lede="The gaps today." center />
         <ul className="mx-auto mt-10 grid max-w-4xl gap-4 md:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.06">
           {SECURITY_NOT_PUBLISHED.map((n) => (
             <li key={n} className="card flex gap-3 p-5">

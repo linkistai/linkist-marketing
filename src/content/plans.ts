@@ -86,8 +86,8 @@ export const planByKey = (key: PlanKey) => PLANS.find((p) => p.key === key)!;
 /** The Team plan in one sentence (owner, 21 and 25 September 2026): $5 (AED 20) per user a month, minimum 5 users; $25 a month or $250 a year for 5 (AED 100 / AED 1,000); $5 (AED 20) a month or $50 (AED 200) a year for each additional user. */
 export const TEAM_PRICE_LINE = '$5 (AED 20) per user a month, minimum 5 users: $25 a month or $250 a year for 5 users (AED 100 a month or AED 1,000 a year), then $5 (AED 20) a month, or $50 (AED 200) a year, for each additional user.';
 
-/** Enterprise is upcoming and interest only today (brief 3.9, owner 25 September 2026): a contact route, never a plan card. */
-export const ENTERPRISE_NOTE = 'Enterprise: upcoming, interest only today. Single sign-on, CRM and HRMS integration, product customisation, and GDPR and SOC 2 Type 2 data security are planned for it.';
+/** Enterprise is upcoming (brief 3.9, owner 25 and 27 September 2026): a contact route, never a plan card. */
+export const ENTERPRISE_NOTE = 'Enterprise: upcoming. Single sign-on, CRM and HRMS integration and product customisation are planned for it.';
 
 export type Material = 'pvc' | 'wood' | 'metal';
 export const MATERIALS: readonly { key: Material; name: string }[] = [
@@ -187,9 +187,9 @@ export type CompareRow = { readonly group: string } | { readonly label: string; 
 /**
  * The plan comparison, feature by feature, from the owner's "Linkist Plan Comparison" sheet of
  * 25 September 2026 (D58). Rows marked * are Enterprise extras at cost or custom pricing; the
- * footnote sits under the table. The sheet's "GDPR and SOC 2 Type 2 data security" row is an
- * Enterprise feature (owner, 25 September), and Enterprise is marked upcoming, so it is ticked for
- * Enterprise only; nothing is claimed for the plans on sale today.
+ * footnote sits under the table. "GDPR and SOC 2 Type 2 data security" will cover the whole product
+ * (owner, 27 September 2026) and is not in place yet, so every plan reads Planned; it becomes a tick
+ * when the evidence exists.
  */
 export const COMPARE_HEADERS = ['Essential', 'Enhanced', 'Pro', 'Team', 'Enterprise'] as const;
 export const COMPARE_FOOTNOTE = '* Available at cost or custom pricing (Enterprise).';
@@ -244,6 +244,6 @@ export const COMPARE_ROWS: readonly CompareRow[] = [
   { label: 'HRMS integration*', cells: ['No', 'No', 'No', 'No', 'Yes'] },
   { label: 'Product Customisation*', cells: ['No', 'No', 'No', 'No', 'Yes'] },
   { group: 'Security and support' },
-  { label: 'GDPR and SOC 2 Type 2 data security', cells: ['No', 'No', 'No', 'No', 'Yes'] },
+  { label: 'GDPR and SOC 2 Type 2 data security', cells: ['Planned', 'Planned', 'Planned', 'Planned', 'Planned'] },
   { label: 'Support level', cells: ['Community / AI help centre', 'Plus Email (standard SLA)', 'Priority email (24 hrs)', 'Priority email (6 hrs)', 'Dedicated support'] },
 ];

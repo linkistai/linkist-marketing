@@ -30,7 +30,7 @@ export default function AiPage() {
             <br />
             What it sees.
             <br />
-            <span className="em-coral">How to switch it off.</span>
+            How to <span className="em-coral">switch it off</span>.
           </>
         }
         lede={`AI is off until you switch it on, and every result shows its confidence. What it does, reads and keeps, from the Terms and Privacy v${POLICY_VERSION} of ${POLICY_DATE}.`}
@@ -48,7 +48,7 @@ export default function AiPage() {
       />
 
       <Section tone="charcoal" id="capabilities" glow>
-        <SectionHead eyebrow="What it does" title={<>8 things, <span className="em-coral">four verbs in the document</span>.</>} lede="Each capability, then the verb the Terms and Privacy uses for it: add information, summarise, score, or suggest." center />
+        <SectionHead eyebrow="What it does" title={<>8 things, <span className="em-coral">four verbs</span> in the document.</>} lede="Each capability, then the verb the Terms and Privacy uses for it: add information, summarise, score, or suggest." center />
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-reveal="rise" data-reveal-stagger="0.06">
           {AI_CAPABILITIES.map((c, i) => {
             const Icon = ICONS[i] ?? Sparkles;
@@ -93,7 +93,7 @@ export default function AiPage() {
       </Section>
 
       <Section tone="lifted" id="rules">
-        <SectionHead eyebrow="The rules" title={<>What the Terms and Privacy <span className="em-coral">bind Linkist to</span>.</>} lede="Each rule cites its section. T is Part 1, the terms of use; P is Part 2, privacy." center />
+        <SectionHead eyebrow="The rules" title={<>What the Terms and Privacy <span className="em-coral">bind</span> Linkist to.</>} lede="Each rule cites its section. T is Part 1, the terms of use; P is Part 2, privacy." center />
         <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-reveal="rise" data-reveal-stagger="0.05">
           {AI_RULES.map((r) => (
             <li key={r.title} className="card card--hover p-6">
@@ -118,7 +118,7 @@ export default function AiPage() {
       </Section>
 
       <Section tone="charcoal" id="not-yet">
-        <SectionHead eyebrow="Not published yet" title={<>What this page <span className="em-coral">cannot tell you</span> today.</>} lede="The open questions, each with the team." center />
+        <SectionHead eyebrow="Not published yet" title={<>What this page <span className="em-coral">cannot</span> tell you today.</>} lede="The open questions, each with the team." center />
         <ul className="mx-auto mt-10 grid max-w-4xl gap-4 md:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.06">
           {AI_NOT_PUBLISHED.map((n) => (
             <li key={n} className="card flex gap-3 p-5">

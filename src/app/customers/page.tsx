@@ -53,7 +53,7 @@ export default function CustomersPage() {
         eyebrow="Customers"
         title={
           <>
-            No named customers yet. <span className="em-coral">Here is why.</span>
+            No named customers yet. Here is <span className="em-coral">why</span>.
           </>
         }
         lede="Linkist names customers only with written consent, and none has given it yet. No invented quotes, just what can be shown."

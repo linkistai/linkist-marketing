@@ -23,7 +23,7 @@ export function CapabilityCards() {
               <h3 className="font-display text-[21px] font-semibold tracking-[-0.02em]">{c.title}</h3>
               <p className="mt-2 text-sm leading-normal text-body">{c.body}</p>
               {feature ? (
-                <Link href={c.href} className="mt-auto inline-flex min-h-[44px] items-center gap-1.5 pt-3 text-sm font-medium text-coral no-underline transition-colors hover:text-white">
+                <Link href={c.href} className="mt-auto inline-flex min-h-[44px] items-center gap-1.5 pt-3 text-sm font-medium text-white no-underline transition-colors hover:text-coral-soft">
                   In {feature.name} <ArrowRight size={14} aria-hidden="true" />
                 </Link>
               ) : null}

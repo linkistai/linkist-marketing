@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, CalendarCheck, CreditCard, Database, Sparkles, Target } from 'lucide-react';
+import { ArrowRight, BookUser, CreditCard, Database, Network, Sparkles, Target } from 'lucide-react';
 import { Fragment, useRef, useState, type KeyboardEvent, type MouseEvent } from 'react';
 import { Button } from '@/components/Button';
 import { StoreBadges } from '@/components/StoreBadges';
@@ -11,7 +11,7 @@ import { HeroProduct, type HeroSlide } from './HeroProduct';
 import { Parallax } from '@/motion/Parallax';
 import { FREE_PROFILE_URL, GET_CARD_URL } from '@/lib/site';
 
-const PILLAR_ICONS = [CreditCard, Database, Target, Sparkles, CalendarCheck];
+const PILLAR_ICONS = [CreditCard, Database, Target, Sparkles, Network, BookUser];
 /** Content hrefs: two keywords for the app's sign-up and store, anything else is a site path. */
 const go = (href: string) => (href === 'free-profile' ? FREE_PROFILE_URL : href === 'get-card' ? GET_CARD_URL : href);
 
@@ -82,23 +82,33 @@ export function HomeHero({ slides }: { slides: readonly HeroSlide[] }) {
           </div>
           <div id="hero-panel" role="tabpanel" aria-labelledby={`hero-tab-${m.key}`}>
             <h1 id="hero-title" className="home-hero__title" key={m.key}>
-              {m.lines.map((line, i) => (
-                <span key={line} className="home-hero__mask">
-                  <span className={`home-hero__line ${i >= m.lines.length - m.em ? 'em-coral' : ''}`} style={{ animationDelay: `${150 + i * 140}ms` }}>
-                    {line}
+              {m.lines.map((line, i) => {
+                const at = i === m.lines.length - 1 ? line.lastIndexOf(m.accent) : -1;
+                return (
+                  <span key={line} className="home-hero__mask">
+                    <span className="home-hero__line" style={{ animationDelay: `${150 + i * 140}ms` }}>
+                      {at >= 0 ? (
+                        <>
+                          {line.slice(0, at)}
+                          <span className="em-coral">{m.accent}</span>
+                        </>
+                      ) : (
+                        line
+                      )}
+                    </span>
                   </span>
-                </span>
-              ))}
+                );
+              })}
             </h1>
             <p className="lede home-hero__lede">
               {m.lede}
               {'ledeStrong' in m && m.ledeStrong ? <strong className="font-semibold text-white"> {m.ledeStrong}</strong> : null}
             </p>
             <div className="home-hero__ctas">
-              <Button href={go(m.primary.href)} size="lg" className="min-w-[210px] !min-h-[54px]">
+              <Button href={go(m.primary.href)} size="lg" className="sm:min-w-[210px] sm:!min-h-[54px]">
                 {m.primary.label}
               </Button>
-              <Button href={go(m.secondary.href)} size="lg" variant="secondary" className="min-w-[210px] !min-h-[54px]">
+              <Button href={go(m.secondary.href)} size="lg" variant="secondary" className="sm:min-w-[210px] sm:!min-h-[54px]">
                 {m.secondary.label}
               </Button>
             </div>

@@ -60,7 +60,7 @@ export default function ChangelogPage() {
           <div data-reveal="rise">
             <p className="eyebrow">In the product today</p>
             <h2 className="display-2 mt-4">
-              Confirmed, <span className="em-coral">launch date not published</span>.
+              Confirmed, launch date <span className="em-coral">not published</span>.
             </h2>
             <ul className="mt-6 flex flex-col gap-3">
               {IN_PRODUCT.map((p) => (

@@ -14,12 +14,13 @@ import type { ProtoScreen } from '@/content/design';
  * request, and names the Personal Relationship Manager in full. The store badges only link once the listings exist
  * (R3, `APP_STORE_URL` and `PLAY_STORE_URL`); until then they say so.
  */
-/** One side of the hero switcher (owner, 25 September 2026): the H1 in lines, the last `em` lines in red. */
+/** One side of the hero switcher (owner, 25 September 2026): the H1 in lines, with `accent`, the end of the last line, in red. */
 export interface HeroMode {
   readonly key: 'teams' | 'individuals';
   readonly tab: string;
   readonly lines: readonly string[];
-  readonly em: number;
+  /** The words at the end of the last line that are set in red. */
+  readonly accent: string;
   readonly lede: string;
   /** A closing sentence set in bold white after the lede. */
   readonly ledeStrong?: string;
@@ -35,7 +36,7 @@ export const HERO = {
       key: 'teams',
       tab: 'For teams',
       lines: ['Turn your team’s network', 'into business intelligence.'],
-      em: 1,
+      accent: 'business intelligence.',
       lede: 'Give your team an intelligent relationship platform that remembers who they meet, enriches every contact, identifies ICP matches and recommends the relationships worth developing.',
       ledeStrong: 'Reduce customer acquisition time and cost.',
       primary: { label: 'Set up your team', href: 'free-profile' },
@@ -45,7 +46,7 @@ export const HERO = {
       key: 'individuals',
       tab: 'For individuals',
       lines: ['Capture contacts.', 'Remember context.', 'Follow up at the right time.'],
-      em: 1,
+      accent: 'right time.',
       lede: 'Linkist is the AI-powered Personal Relationship Manager (PRM) that turns the people you meet into relationships you keep. Save contacts in seconds, get timely nudges and never lose track of who matters. It works with or without an NFC card.',
       primary: { label: 'Create Free Profile', href: 'free-profile' },
       secondary: { label: 'Get Linkist NFC', href: 'get-card' },
@@ -53,8 +54,8 @@ export const HERO = {
   ] as const satisfies readonly HeroMode[],
   switchToIndividuals: { lead: 'Buying just for yourself?', link: 'Switch to individuals' },
   byo: 'Already have an NFC card? Bring your own',
-  /** The five capabilities under the buttons, with their icons. */
-  pillars: ['Smart NFC Cards', 'Contact Enrichment', 'ICP Matching', 'AI-Powered Nudges', 'Smart Follow-ups'] as const,
+  /** The six capabilities under the buttons, with their icons (owner, 27 September 2026). */
+  pillars: ['Smart NFC Cards', 'Contact Enrichment', 'ICP Matching', 'AI-Powered Nudges', 'Network Insights', 'Team Knowledge'] as const,
   stores: {
     apple: { small: 'Download on the', big: 'App Store' },
     google: { small: 'Get it on', big: 'Google Play' },

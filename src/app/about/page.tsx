@@ -25,7 +25,7 @@ export default function AboutPage() {
         eyebrow="About Linkist"
         title={
           <>
-            Made in Dubai for <span className="em-coral">the people you meet</span>.
+            Made in Dubai for the people <span className="em-coral">you meet</span>.
           </>
         }
         lede="A Personal Relationship Manager built by RatioX Labs DWC-LLC in Dubai South. It captures who you meet, remembers the context and says what to do next."
@@ -41,7 +41,7 @@ export default function AboutPage() {
           <div data-reveal="rise">
             <p className="eyebrow">The idea</p>
             <h2 className="display-2 mt-4">
-              Contacts store people. <span className="em-coral">A PRM keeps the relationship.</span>
+              Contacts store people. A PRM keeps <span className="em-coral">the relationship</span>.
             </h2>
             <p className="mt-4 max-w-prose text-lg leading-relaxed text-body">A phone book holds a number. A CRM holds a deal. A Personal Relationship Manager keeps the person with their context, their fit and the next action.</p>
             <p className="mt-4 max-w-prose text-lg leading-relaxed text-body">The NFC card starts the connection. The PRM keeps it.</p>
@@ -64,7 +64,7 @@ export default function AboutPage() {
       </Section>
 
       <Section>
-        <SectionHead eyebrow="How we work" title={<>6 things Linkist <span className="em-coral">holds itself to</span>.</>} lede="Each points to where it is written." center />
+        <SectionHead eyebrow="How we work" title={<><span className="em-coral">6 things</span> Linkist holds itself to.</>} lede="Each points to where it is written." center />
         <ul className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3" data-reveal="rise" data-reveal-stagger="0.06">
           {PRINCIPLES.map((p) => (
             <li key={p.title} className="card sweep sweep--neutral lift p-6">
@@ -81,7 +81,7 @@ export default function AboutPage() {
           <div data-reveal="rise">
             <p className="eyebrow">The team</p>
             <h2 className="display-2 mt-4">
-              Small, in Dubai, <span className="em-coral">named when confirmed</span>.
+              Small, <span className="em-coral">in Dubai</span>, named when confirmed.
             </h2>
             <p className="mt-4 max-w-prose text-lg leading-relaxed text-body">Linkist is built by a small team at RatioX Labs in Dubai South. Names and roles appear here when the team confirms them; this site does not guess. The articles on the blog carry their authors&apos; bylines.</p>
             <div className="mt-6 flex flex-wrap gap-4">
@@ -92,7 +92,7 @@ export default function AboutPage() {
           <div data-reveal="rise">
             <p className="eyebrow">How it is built</p>
             <h2 className="display-2 mt-4">
-              A web app, <span className="em-coral">on your phone</span>.
+              A web app, on <span className="em-coral">your phone</span>.
             </h2>
             <p className="mt-4 max-w-prose text-lg leading-relaxed text-body">The app runs at prm.linkist.ai, with billing for plans, credits, invoices and cards. Profiles live at /me/yourname. Native apps are in final preparation.</p>
             <div className="mt-6">
@@ -107,7 +107,7 @@ export default function AboutPage() {
           <div data-reveal="rise">
             <p className="eyebrow">So far</p>
             <h2 className="display-2 mt-4">
-              Dated, <span className="em-coral">from public sources</span>.
+              Dated, from <span className="em-coral">public sources</span>.
             </h2>
             <ol className="mt-6 flex flex-col gap-4 border-l border-line pl-6">
               {TIMELINE.map((t) => (

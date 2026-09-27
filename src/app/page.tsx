@@ -30,6 +30,7 @@ const DEFINITIONS = [
   { term: 'Linkist', def: FAQ[0]!.a },
   { term: 'Personal Relationship Manager (PRM)', def: FAQ[1]!.a },
   { term: 'NFC card', def: 'A tap-to-share card linked to your live profile. Every card includes PRM Essential.' },
+  { term: 'Who it’s for', def: 'For SMEs, business owners, professionals and sales teams who build relationships to grow their business.' },
 ];
 
 export default function HomePage() {

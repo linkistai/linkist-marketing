@@ -43,7 +43,7 @@ export default function LegalIndex() {
                 <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted">Version {d.version || '1'}, effective {fmt(d.effective)}</p>
                 <h3 className="mt-3 font-display text-[22px] font-semibold leading-[1.2] tracking-[-0.02em] text-text">{d.title}</h3>
                 <p className="mt-2 flex-1 text-sm leading-[1.55] text-body">{d.summary}</p>
-                <span className="mt-5 inline-flex min-h-[24px] items-center gap-1.5 text-sm font-medium text-coral transition-colors group-hover:text-white">
+                <span className="mt-5 inline-flex min-h-[24px] items-center gap-1.5 text-sm font-medium text-white transition-colors group-hover:text-white">
                   Read <ArrowRight size={14} aria-hidden="true" />
                 </span>
               </Link>
@@ -61,7 +61,7 @@ export default function LegalIndex() {
                 <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted">Draft of {fmt(d.updated)}</p>
                 <h3 className="mt-3 font-display text-[22px] font-semibold leading-[1.2] tracking-[-0.02em] text-text">{d.title}</h3>
                 <p className="mt-2 flex-1 text-sm leading-[1.55] text-body">{d.summary}</p>
-                <span className="mt-5 inline-flex min-h-[24px] items-center gap-1.5 text-sm font-medium text-coral transition-colors group-hover:text-white">
+                <span className="mt-5 inline-flex min-h-[24px] items-center gap-1.5 text-sm font-medium text-white transition-colors group-hover:text-white">
                   Read <ArrowRight size={14} aria-hidden="true" />
                 </span>
               </Link>

@@ -34,7 +34,7 @@ export default function TeamsPage() {
         eyebrow="Linkist for teams"
         title={
           <>
-            Relationships that <span className="em-coral">stay with the company</span>.
+            Relationships that <span className="em-coral">stay</span> with the company.
           </>
         }
         lede="Shared contacts, branded cards, and history that stays when people move on. Everything in Pro, for every user."
@@ -54,7 +54,7 @@ export default function TeamsPage() {
 
       <section className="section section--charcoal">
         <div className="container">
-          <SectionHead eyebrow="What stays with the company" title={<>A key person leaves. <span className="em-coral">The relationship does not.</span></>} lede="Business context lives in personal phones and inboxes. The Team plan keeps it with the company." />
+          <SectionHead eyebrow="What stays with the company" title={<>A key person leaves. The relationship <span className="em-coral">does not</span>.</>} lede="Business context lives in personal phones and inboxes. The Team plan keeps it with the company." />
           <ul className="m-0 mt-[clamp(40px,5vw,64px)] grid list-none gap-3.5 p-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))]" data-reveal="rise" data-reveal-stagger="0.08">
             {KEEPS.map((k, i) => (
               <li key={k.title} className="card flex flex-col gap-9 p-[clamp(22px,2.6vw,32px)]">
@@ -89,7 +89,7 @@ export default function TeamsPage() {
             </div>
             <div className="card card--featured p-[clamp(24px,3vw,36px)]" data-reveal="rise">
               <p className="eyebrow eyebrow--plain">Enterprise</p>
-              <h3 className="display-3 mt-3 !text-[26px]">Coming later. Interest only today.</h3>
+              <h3 className="display-3 mt-3 !text-[26px]">Upcoming.</h3>
               <p className="mt-3 text-[15px] leading-relaxed text-body">SSO, CRM and HRMS integration, customisation and dedicated support are planned. Nothing to buy yet; tell us if you need it.</p>
               <div className="mt-6">
                 <Button href="mailto:support@linkist.ai?subject=Enterprise%20interest" variant="secondary">

@@ -91,5 +91,5 @@ export const IN_PRODUCT: readonly { title: string; body: string }[] = [
 /** Announced by the product as coming; not available today. */
 export const UPCOMING: readonly { title: string; body: string }[] = [
   { title: 'Native iOS and Android apps', body: 'The product says they are in final preparation for the App Store and Google Play. Until they are listed, Linkist is a web app on your phone.' },
-  { title: 'Enterprise', body: 'Interest only. Single sign-on, CRM and HRMS integration and product customisation are planned for it.' },
+  { title: 'Enterprise', body: 'Upcoming. Single sign-on, CRM and HRMS integration and product customisation are planned for it.' },
 ];
