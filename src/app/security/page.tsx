@@ -16,7 +16,7 @@ export const metadata: Metadata = pageMeta(
 );
 
 const GLANCE = [
-  ['Sign-in', 'Email or mobile plus a one-time code. No password.'],
+  ['Sign-in', 'Email or mobile number and a one-time code, a password you set, biometrics when enabled'],
   ['Law', 'The United Arab Emirates as applied in Dubai, plus your local consumer protection'],
   ['Responsible', CONTROLLER.name + ', Dubai'],
   ['Named providers', 'None yet; a list at linkist.ai/legal/providers is promised'],
@@ -202,7 +202,7 @@ export default function SecurityPage() {
         </div>
       </section>
 
-      <ClosingBand line1="Your contacts, your rules." line2="Start with an email or a mobile number." reassurance="No password. Free, no card needed." />
+      <ClosingBand line1="Your contacts, your rules." line2="Start with an email or a mobile number." reassurance="Free, no card needed." />
     </>
   );
 }

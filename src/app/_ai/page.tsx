@@ -6,7 +6,7 @@ import { StartFree, TextLink } from '@/components/Button';
 import { ClosingBand } from '@/components/ClosingBand';
 import { Faq } from '@/components/Faq';
 import { Section, SectionHead } from '@/components/Section';
-import { AI_CAPABILITIES, AI_FAQ, AI_INPUTS, AI_NOT_PUBLISHED, AI_OUTPUTS, AI_RULES, POLICY_DATE, POLICY_VERSION, PRIVACY_EMAIL_PUBLISHED, PRIVACY_URL, TERMS_URL } from '@/content/trust';
+import { AI_CAPABILITIES, AI_FAQ, AI_INPUTS, AI_OUTPUTS, AI_RULES, POLICY_DATE, POLICY_VERSION, PRIVACY_EMAIL_PUBLISHED, PRIVACY_URL, TERMS_URL } from '@/content/trust';
 import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
@@ -18,6 +18,12 @@ export const metadata: Metadata = pageMeta(
 
 const ICONS: readonly LucideIcon[] = [Sparkles, Target, Radar, Users, Bell, Handshake, Search, Sparkles];
 
+/**
+ * Hidden on 29 September 2026 (owner): until it is published again, /ai redirects to the Terms and
+ * Privacy (next.config.ts), the folder is private (`_ai`, outside routing), and nothing links here.
+ * To publish it: rename the folder to `ai`, drop the redirect, and put the footer link and the
+ * sitemap entry back. Its "Not published yet" section was removed at the same time (owner).
+ */
 export default function AiPage() {
   return (
     <>
@@ -115,18 +121,6 @@ export default function AiPage() {
           </a>
           . Questions and objections: {PRIVACY_EMAIL_PUBLISHED}.
         </p>
-      </Section>
-
-      <Section tone="charcoal" id="not-yet">
-        <SectionHead eyebrow="Not published yet" title={<>What this page <span className="em-coral">cannot</span> tell you today.</>} lede="The open questions, each with the team." center />
-        <ul className="mx-auto mt-10 grid max-w-4xl gap-4 md:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.06">
-          {AI_NOT_PUBLISHED.map((n) => (
-            <li key={n} className="card flex gap-3 p-5">
-              <ShieldCheck size={18} aria-hidden="true" className="mt-0.5 flex-none text-coral" />
-              <p className="text-sm text-body">{n}</p>
-            </li>
-          ))}
-        </ul>
       </Section>
 
       <section id="faq" className="section">

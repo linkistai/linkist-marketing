@@ -48,7 +48,7 @@ export function Button({
   );
 }
 
-/** The one primary conversion: Start free, landing on the app's real sign-in and registration screen. */
+/** The one primary conversion: Start Now (Start free until 29 September 2026), landing on the app's real sign-in and registration screen. */
 export function StartFree({ size = 'lg', variant = 'primary', className = '', label }: { size?: Size; variant?: Variant; className?: string; label?: string }) {
   return (
     <Button href={START_URL} size={size} variant={variant} className={className}>
@@ -57,7 +57,7 @@ export function StartFree({ size = 'lg', variant = 'primary', className = '', la
   );
 }
 
-/** "Get the App" (header, footer): the quick profile, like Start free (owner, 21 September 2026). */
+/** "Get the App" (header, footer): the quick profile, like Start Now (owner, 21 September 2026). */
 export function GetApp({ size = 'md', variant = 'primary', className = '' }: { size?: Size; variant?: Variant; className?: string }) {
   return (
     <Button href={FREE_PROFILE_URL} size={size} variant={variant} className={className}>

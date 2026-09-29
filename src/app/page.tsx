@@ -23,7 +23,7 @@ import { DEFAULT_DESCRIPTION, TAGLINE, pageMeta } from '@/lib/site';
 export const metadata: Metadata = pageMeta(TAGLINE, DEFAULT_DESCRIPTION, '/', { image: '/og/home.png' });
 
 /** The capabilities that scroll under the hero (v2 marquee), in glossary spelling. */
-const MARQUEE = ['AI Enrichment', 'Card Scan', 'Contact Import', 'Voice Notes', 'Natural-Language Search', 'ICP Matching', 'Relationship Priority', 'Network Ask', 'Top Actions', 'Intelligent Nudges', 'Warm Introductions'];
+const MARQUEE = ['AI Enrichment', 'Card Scan', 'Contact Import', 'Voice Notes', 'Natural-Language Search', 'ICP Matching', 'Relationship Heat Map', 'Network Ask', 'Top Actions', 'Intelligent Nudges', 'Warm Introductions'];
 
 /** The answer-first definitions (v2): real text, for readers and for answer engines. */
 const DEFINITIONS = [

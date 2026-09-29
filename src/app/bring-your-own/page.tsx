@@ -36,6 +36,7 @@ const FEATURES = [
 const FAQ = [
   { q: 'Does it cost anything?', a: 'No. Free forever, no payment details. Every profile includes PRM Essential.' },
   { q: 'Which cards and stickers work?', a: 'Any writable NTAG-type NFC card or sticker. The tools site checks the chip first.' },
+  { q: 'Do I need a Linkist profile?', a: 'Yes. You need at least an Essential plan Linkist digital profile to write to the card. Non-Linkist profiles or URLs cannot be written using this tool.' },
   { q: 'Do I need a particular phone?', a: 'Encoding needs an Android phone with NFC. The profile then opens on every phone.' },
   { q: 'What happens to the old link on the card?', a: 'It is replaced by your Linkist address, which you can update any time without touching the card.' },
 ] as const;

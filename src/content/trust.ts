@@ -72,14 +72,6 @@ export const AI_RULES: readonly Rule[] = [
   { title: 'Credits, and a bounded life', body: 'AI features use Credits; unused Credits do not roll over and have no cash value. AI results about people are kept up to 6 months unless refreshed, or until you delete them.', source: 'T 10; P 10' },
 ];
 
-/** Honest gaps for the AI page (C8). */
-export const AI_NOT_PUBLISHED: readonly string[] = [
-  'Which AI provider processes requests. The document points to a providers list at linkist.ai/legal/providers; that page is not published yet.',
-  'Where those requests are processed. The document says service providers may be in other countries and that the protections the law requires are used.',
-  'The Credits each plan includes and what each action costs. The document says the Pricing page shows them; it does not yet.',
-  'Which plans include which AI features. Compare the plans on the pricing page; the app shows the definitive table.',
-];
-
 export const AI_FAQ: readonly FaqItem[] = [
   { q: 'Do I have to use the AI features?', a: 'No. They are off until you switch them on, and you can use Linkist without agreeing to them.' },
   { q: 'How do I switch the AI off?', a: 'At any time, in Settings, Privacy in your account, or by writing to privacy@linkist.ai.' },
@@ -95,7 +87,7 @@ export const AI_FAQ: readonly FaqItem[] = [
 export const CONTROLS: readonly Rule[] = [
   { title: 'Encryption', body: 'Encryption is the first measure the privacy part lists, and one of the two protections named for data that moves between countries.', source: 'P 9, 12' },
   { title: 'Access controls', body: 'Access to data is controlled. On the Teams plan, Team Admins cannot see personal contacts.', source: 'P 12; T 13.4' },
-  { title: 'Secure login, no password', body: 'You sign in with an email address or mobile number and a one-time code. There is no password to reuse or phish.', source: 'P 12; product, 10 September 2026' },
+  { title: 'Secure login', body: 'You sign in with an email address or mobile number and a one-time code, and set up your account with a password. Biometrics can stand in for the password once you enable them.', source: 'P 12; Linkist, 29 September 2026' },
   { title: 'Activity logs and monitoring', body: 'Activity is logged and monitored. Security logs are usually kept up to 12 months.', source: 'P 10, 12' },
   { title: 'Service providers checked', body: 'Providers are checked, may use data only to help run Linkist, and Linkist remains responsible for their work on team contacts as if it were its own.', source: 'P 8, 12; T 13.7' },
   { title: 'Breach response', body: 'A breach is contained quickly and reported to the authorities and the people affected where the law requires. A company on Teams is told within 48 hours of a breach affecting team contacts.', source: 'P 14; T 13.7' },
@@ -165,7 +157,7 @@ export const CONTACT_DATA: readonly string[] = [
 
 /** What this website itself does, as distinct from the app (brief 7: the trust page says which controls belong to which). */
 export const SITE_CONTROLS: readonly Rule[] = [
-  { title: 'No credentials here', body: 'Sign in and Start free hand over to the product. This website never sees a code, a password or a payment.', source: 'This site' },
+  { title: 'No credentials here', body: 'Sign in and Start Now hand over to the product. This website never sees a code, a password or a payment.', source: 'This site' },
   { title: 'Content Security Policy', body: 'Scripts run only from this site, Google Tag Manager and Cloudflare Turnstile; frames from any other site are refused; nosniff, referrer and permissions policies are set.', source: 'next.config.ts' },
   { title: 'Nothing loads before consent', body: 'No analytics script until you accept it in the cookie notice, and no third-party script at all unless its key is configured.', source: 'This site' },
   { title: 'Forms that fail safely', body: 'Server validation, a size cap, a per-address rate limit, a honeypot and Cloudflare Turnstile when enabled. Messages go to the team by email and are not stored here.', source: 'src/lib/forms.ts' },
@@ -183,7 +175,7 @@ export const SECURITY_NOT_PUBLISHED: readonly string[] = [
 export const SECURITY_FAQ: readonly FaqItem[] = [
   { q: 'Is Linkist GDPR compliant or SOC 2 certified?', a: 'Not today, and Linkist does not claim either; GDPR and SOC 2 Type 2 compliance is planned for the whole product. Its terms are governed by the laws of the United Arab Emirates as applied in Dubai, and the privacy part says that where the law of your country gives you more protection, you have it. If a certification arrives, the evidence appears on this page first.' },
   { q: 'Where is my data hosted?', a: 'The provider and region are not published yet. The document says service providers may be in other countries and that data moving between countries has the protections the law requires, such as data protection agreements and encryption.' },
-  { q: 'Is there a password?', a: 'No. You sign in with your email address or mobile number and a one-time code that expires.' },
+  { q: 'Is there a password?', a: 'Yes. The sign-in screen asks for your email address or mobile number and sends a one-time code that expires, and you set up your account with a password. For future logins you can enable biometrics so you don’t need to enter your password.' },
   { q: 'Can I export my data?', a: 'Yes. You can ask to see and download your data, in Settings, Privacy or at privacy@linkist.ai, and you can download it before closing your account. Linkist replies within 30 days.' },
   { q: 'What happens when I delete my account?', a: 'Your account, profile and contacts are kept while the account is open, then up to 30 days. Payments and invoices stay as long as tax and accounting law requires, and consent records up to 7 years.' },
   { q: 'What about the people in my contacts?', a: 'You are responsible for having a fair reason to keep them and for using them only for the follow-up they would expect. Linkist never sells their details, never markets to them, and lets them ask what AI added, or have it removed.' },

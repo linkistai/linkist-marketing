@@ -82,7 +82,7 @@ export const CHANGELOG: readonly Change[] = [
 
 /** In the product today; the store and public pages say so, but no launch date is published. */
 export const IN_PRODUCT: readonly { title: string; body: string }[] = [
-  { title: 'Sign in with a code', body: 'Email or mobile number and a one-time code on one screen that also creates the account. No password.' },
+  { title: 'Sign in with a code', body: 'Email or mobile number and a one-time code on one screen that also creates the account.' },
   { title: 'NFC cards in three materials', body: 'PVC and brushed metal in white or black with four patterns, and cherry wood, priced in AED and US dollars, from AED 75 ($20). Every card includes PRM Essential.' },
   { title: 'Bring your own NFC card', body: 'An NFC card or sticker you already own can be encoded with your live profile for free at nfctools.linkist.ai.' },
   { title: 'A billing hub', body: 'Plans, AI credit top-ups, invoices and NFC card orders in one place at prm.linkist.ai.' },
@@ -90,6 +90,6 @@ export const IN_PRODUCT: readonly { title: string; body: string }[] = [
 
 /** Announced by the product as coming; not available today. */
 export const UPCOMING: readonly { title: string; body: string }[] = [
-  { title: 'Native iOS and Android apps', body: 'The product says they are in final preparation for the App Store and Google Play. Until they are listed, Linkist is a web app on your phone.' },
+  { title: 'Native iOS and Android apps', body: 'Coming soon to the App Store and Google Play. Until they are listed, Linkist is a web app on your phone.' },
   { title: 'Enterprise', body: 'Upcoming. Single sign-on, CRM and HRMS integration and product customisation are planned for it.' },
 ];

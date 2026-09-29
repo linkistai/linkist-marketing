@@ -38,19 +38,30 @@ export const CONTACT_ROUTES: readonly ContactRoute[] = [
   { key: 'security', title: 'Security', body: 'Report a vulnerability. Good-faith research is welcome; there is no public bounty yet.', to: SECURITY ?? SUPPORT, extra: SECURITY ? undefined : 'Reaches the support inbox until a dedicated address is published.' },
 ];
 
-/** Six things the site holds Linkist to, each traceable (about page). */
-export const PRINCIPLES: readonly { title: string; body: string; source: string }[] = [
-  { title: 'Relationships, not deals', body: 'A PRM keeps the person, the context and the next action together. Contact apps store people; CRMs manage deals.', source: 'The prototype, How Linkist works' },
-  { title: 'AI you switch on, and off', body: 'AI features are off until you switch them on, can be switched off at any time, and every result shows how confident it is.', source: 'Terms and Privacy, T 9 and P 6' },
-  { title: 'Your contacts are yours', body: 'Personal contacts stay with the person; only what is shared with a team stays with the company when someone leaves.', source: 'The Team plan' },
-  { title: 'With or without an NFC card', body: 'The free plan needs no NFC card, every NFC card includes PRM Essential, and an NFC card you already own can be activated free.', source: 'The store' },
-  { title: 'No password', body: 'Sign in with an email or mobile number and a one-time code. Nothing to reuse, nothing to phish.', source: 'The sign-in screens' },
-  { title: 'Honest about limits', body: 'A web app until the store listings exist, Enterprise marked as upcoming, no compliance badge without evidence, no named customer without consent.', source: 'This site, section 3.9 of the brief' },
-];
+/**
+ * The founders, word for word from the RatioX Labs site (ratioxlabs.com, #founders), in its order,
+ * with its photographs cropped square (owner, 29 September 2026). They replace the "named when
+ * confirmed" team note, the six principles and the dated timeline on the about page.
+ */
+export const FOUNDERS_INTRO = 'RatioX Labs is led by founders with experience across technology, business development, operations, and venture building.';
 
-/** Dated events with a public source (about page). */
-export const TIMELINE: readonly { date: string; text: string }[] = [
-  { date: 'June 2026', text: 'The first three guides appear on the blog.' },
-  { date: 'July 2026', text: 'Four more articles on relationship capital, AI memory, digital identity and the tap-to-follow-up flow.' },
-  { date: 'September 2026', text: 'The store lists NFC cards in PVC, wood and metal shipping within the UAE, bring-your-own activation at nfctools.linkist.ai, and native apps in preparation. The Linkist Terms and Privacy, version 1.0, replace the earlier terms and privacy policy. This website goes into preview.' },
+export const FOUNDERS: readonly { name: string; role: string; bio: string; photo: string }[] = [
+  {
+    name: 'Biji Thomas',
+    role: 'Co-Founder, Business Development',
+    photo: '/assets/founders/biji-thomas.webp',
+    bio: 'Leads business development and strategic partnerships. Brings over three decades of experience in enterprise leadership, business strategy, and applied AI across the energy, healthcare, and services sectors, with a focus on creating technology-led growth opportunities.',
+  },
+  {
+    name: 'Liju Mathew',
+    role: 'Co-Founder, Technology & Strategy',
+    photo: '/assets/founders/liju-mathew.webp',
+    bio: 'Leads solution design and overall technology strategy. With over 30 years of experience in technology leadership, product development, and digital platform architecture, focuses on turning business problems into working products and automation-led solutions.',
+  },
+  {
+    name: 'Praveen Bangera',
+    role: 'Co-Founder, Product & CX',
+    photo: '/assets/founders/praveen-bangera.webp',
+    bio: 'Leads product design, development, and customer experience. Brings over 30 years of experience in customer experience strategy, digital transformation, UX/UI, and design-led business transformation.',
+  },
 ];

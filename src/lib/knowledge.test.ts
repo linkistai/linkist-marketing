@@ -27,10 +27,10 @@ const CASES: readonly (readonly [string, string])[] = [
   ['Do I need a password?', 'one-time code'],
   ['Is shipping included?', 'UAE'],
   ['Can I get a refund?', 'refund'],
-  ['How do I delete my account?', 'Settings'],
-  ['Can I switch off the AI?', 'Privacy Settings'],
   ['What happens to contacts when someone leaves my team?', 'team'],
-  ['Is there an iPhone app?', 'web app'],
+  ['Is there an iPhone app?', 'coming soon'],
+  ['Can I add my card to Apple Wallet?', 'Coming soon'],
+  ['Can I write my own NFC sticker with a non-Linkist URL?', 'Essential plan'],
   ['How do I contact support?', 'support@linkist.ai'],
   ['Is there a lifetime plan?', 'Not at the moment'],
   ['How much is an extra team user?', '$50'],
@@ -55,9 +55,6 @@ describe('site assistant', () => {
   });
   it('finds the plan that has ICP matching', () => {
     expect(search('Which plan has ICP Matching?')[0]!.entry.id).toBe('which-plan-has-icp-matching');
-  });
-  it('finds the AI switch', () => {
-    expect(search('How do I switch the AI off?')[0]!.entry.a).toContain('Privacy Settings');
   });
   it('refuses empty and off-topic questions', () => {
     expect(search('What is the weather in Dubai tomorrow?')).toEqual([]);

@@ -5,18 +5,18 @@ import Link from 'next/link';
 import { TextLink } from '@/components/Button';
 import { ClosingBand } from '@/components/ClosingBand';
 import { Section, SectionHead } from '@/components/Section';
-import { ADDRESS_LINES, DATA_LAW, DPO, GOVERNING_LAW, LEGAL_NAME, PRINCIPLES, PRIVACY, SUPPORT, TIMELINE } from '@/content/company';
+import { ADDRESS_LINES, DATA_LAW, DPO, FOUNDERS, FOUNDERS_INTRO, GOVERNING_LAW, LEGAL_NAME, PRIVACY, SUPPORT } from '@/content/company';
 import { STAGES } from '@/content/home';
 import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
   'About Linkist',
-  'Linkist is a Personal Relationship Manager built by RatioX Labs DWC-LLC in Dubai: the idea of a PRM, six things the product holds itself to, how it is built, the company, and how to reach the team.',
+  'Linkist is a Personal Relationship Manager built by RatioX Labs DWC-LLC in Dubai: the idea of a PRM, the founders, the company, and how to reach the team.',
   '/about',
   { image: '/og/about.png' },
 );
 
-/** About (brief 4): RatioX Labs, the idea of a PRM, the team, contact. The team is named when the client confirms it (C10). */
+/** About (brief 4): the idea of a PRM, the founders as on the RatioX Labs site, and the company card (owner, 29 September 2026). */
 export default function AboutPage() {
   return (
     <>
@@ -63,92 +63,58 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section>
-        <SectionHead eyebrow="How we work" title={<><span className="em-coral">6 things</span> Linkist holds itself to.</>} lede="Each points to where it is written." center />
-        <ul className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3" data-reveal="rise" data-reveal-stagger="0.06">
-          {PRINCIPLES.map((p) => (
-            <li key={p.title} className="card sweep sweep--neutral lift p-6">
-              <h3 className="display-3 text-[22px]">{p.title}</h3>
-              <p className="mt-2 text-sm text-body">{p.body}</p>
-              <p className="mt-3 font-mono text-[11px] text-muted">{p.source}</p>
+      <Section tone="lifted" id="founders">
+        <SectionHead
+          eyebrow="Founders"
+          title={
+            <>
+              Led by the founders of <span className="em-coral">RatioX Labs</span>.
+            </>
+          }
+          lede={FOUNDERS_INTRO}
+          center
+        />
+        <ul className="m-0 mt-12 grid list-none gap-4 p-0 md:grid-cols-3" data-reveal="rise" data-reveal-stagger="0.08">
+          {FOUNDERS.map((f) => (
+            <li key={f.name} className="card founder flex flex-col items-center p-[clamp(24px,2.6vw,32px)] text-center">
+              <div className="founder__photo">
+                <Image src={f.photo} alt={`Portrait of ${f.name}`} width={480} height={480} sizes="120px" className="h-full w-full object-cover" />
+              </div>
+              <h3 className="display-3 mt-5 !text-[22px]">{f.name}</h3>
+              <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-coral">{f.role}</p>
+              <span className="founder__rule" aria-hidden="true" />
+              <p className="text-left text-sm leading-relaxed text-body">{f.bio}</p>
             </li>
           ))}
         </ul>
       </Section>
 
-      <Section tone="lifted">
-        <div className="grid gap-10 lg:grid-cols-2">
-          <div data-reveal="rise">
-            <p className="eyebrow">The team</p>
-            <h2 className="display-2 mt-4">
-              Small, <span className="em-coral">in Dubai</span>, named when confirmed.
-            </h2>
-            <p className="mt-4 max-w-prose text-lg leading-relaxed text-body">Linkist is built by a small team at RatioX Labs in Dubai South. Names and roles appear here when the team confirms them; this site does not guess. The articles on the blog carry their authors&apos; bylines.</p>
-            <div className="mt-6 flex flex-wrap gap-4">
-              <TextLink href="/customers">Why there are no named customers yet</TextLink>
-              <TextLink href="/blogs">Read the blog</TextLink>
-            </div>
-          </div>
-          <div data-reveal="rise">
-            <p className="eyebrow">How it is built</p>
-            <h2 className="display-2 mt-4">
-              A web app, on <span className="em-coral">your phone</span>.
-            </h2>
-            <p className="mt-4 max-w-prose text-lg leading-relaxed text-body">The app runs at prm.linkist.ai, with billing for plans, credits, invoices and cards. Profiles live at /me/yourname. Native apps are in final preparation.</p>
-            <div className="mt-6">
-              <TextLink href="/security">The security page</TextLink>
-            </div>
-          </div>
-        </div>
-      </Section>
-
       <Section>
-        <div className="grid gap-10 lg:grid-cols-2">
-          <div data-reveal="rise">
-            <p className="eyebrow">So far</p>
-            <h2 className="display-2 mt-4">
-              Dated, from <span className="em-coral">public sources</span>.
-            </h2>
-            <ol className="mt-6 flex flex-col gap-4 border-l border-line pl-6">
-              {TIMELINE.map((t) => (
-                <li key={t.date}>
-                  <p className="text-xs font-semibold uppercase tracking-[0.04em] text-muted">{t.date}</p>
-                  <p className="mt-1 text-body">{t.text}</p>
-                </li>
-              ))}
-            </ol>
-            <p className="mt-4 text-sm">
-              <Link href="/changelog" className="link">
-                The changelog
-              </Link>
-            </p>
-          </div>
-          <div className="card self-start p-7" data-reveal="rise">
-            <p className="eyebrow">The company</p>
-            <p className="mt-4 font-semibold">{LEGAL_NAME}, trading as Linkist</p>
-            <p className="mt-1 text-sm text-body">
-              {ADDRESS_LINES[0]}
-              <br />
-              {ADDRESS_LINES[1]}
-            </p>
-            <p className="mt-4 text-sm text-body">
-              Support: {SUPPORT}
-              <br />
-              Privacy: {PRIVACY}
-              <br />
-              Data Protection Officer: {DPO}
-            </p>
-            <p className="mt-4 text-sm text-body">Responsible for your data under {DATA_LAW}. {GOVERNING_LAW}</p>
-            <p className="mt-4 text-sm">
-              <Link href="/legal" className="link">
-                The legal documents
-              </Link>
-              <span className="text-muted"> · </span>
-              <Link href="/contact" className="link">
-                Contact
-              </Link>
-            </p>
-          </div>
+        <div className="card mx-auto max-w-2xl p-7" data-reveal="rise">
+          <p className="eyebrow">The company</p>
+          <p className="mt-4 font-semibold">{LEGAL_NAME}, trading as Linkist</p>
+          <p className="mt-1 text-sm text-body">
+            {ADDRESS_LINES[0]}
+            <br />
+            {ADDRESS_LINES[1]}
+          </p>
+          <p className="mt-4 text-sm text-body">
+            Support: {SUPPORT}
+            <br />
+            Privacy: {PRIVACY}
+            <br />
+            Data Protection Officer: {DPO}
+          </p>
+          <p className="mt-4 text-sm text-body">Responsible for your data under {DATA_LAW}. {GOVERNING_LAW}</p>
+          <p className="mt-4 text-sm">
+            <Link href="/legal" className="link">
+              The legal documents
+            </Link>
+            <span className="text-muted"> · </span>
+            <Link href="/contact" className="link">
+              Contact
+            </Link>
+          </p>
         </div>
       </Section>
 

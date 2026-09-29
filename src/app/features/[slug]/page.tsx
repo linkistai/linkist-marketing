@@ -10,7 +10,7 @@ import { FeatureTabs } from '@/components/FeatureTabs';
 import { PageHero } from '@/components/PageHero';
 import { ScreenFrame } from '@/components/ScreenFrame';
 import { SectionHead } from '@/components/Section';
-import { PROTO_ALT, type ProtoScreen } from '@/content/design';
+import { PROTO_ALT, TALL_SCREENS, type ProtoScreen } from '@/content/design';
 import { FEATURES, featureBySlug } from '@/content/features';
 import { isPreview, screen } from '@/lib/screens';
 import { pageMeta } from '@/lib/site';
@@ -43,7 +43,7 @@ export default async function FeaturePage({ params }: { params: Promise<{ slug: 
           <div className="v2-glow w-[min(100%,440px)]" aria-hidden="true" />
           {t.kind === 'phone' ? (
             <div className="relative w-full max-w-[280px]">
-              <ScreenFrame kind="phone" src={screen(t.screen)} alt={preview ? PROTO_ALT[t.screen as ProtoScreen] : t.alt} preview={preview} full={preview} className="!max-w-none" />
+              <ScreenFrame kind="phone" src={screen(t.screen)} alt={preview ? PROTO_ALT[t.screen as ProtoScreen] : t.alt} preview={preview} full={preview} tall={preview ? TALL_SCREENS[t.screen as ProtoScreen] : undefined} className="!max-w-none" />
             </div>
           ) : (
             <ScreenFrame kind="browser" src={screen(t.screen)} alt={t.alt} preview={preview} />

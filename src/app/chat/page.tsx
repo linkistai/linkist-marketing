@@ -9,7 +9,7 @@ import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
   'Ask the assistant',
-  'An automated assistant that answers from the help centre and the product facts: plans, NFC cards, ICP Matching, sign-in, AI and data, security. It says when it does not know and hands you to Start free.',
+  'An automated assistant that answers from the help centre and the product facts: plans, NFC cards, ICP Matching, sign-in and teams. It says when it does not know and hands you to Start Now.',
   '/chat',
   { image: '/og/chat.png' },
 );
@@ -32,7 +32,7 @@ export default function ChatPage() {
             Ask anything the <span className="em-coral">help centre</span> knows.
           </>
         }
-        lede="Automated. It answers from the help centre and hands you to Start free."
+        lede="Automated. It answers from the help centre and hands you to Start Now."
       />
       <Section tight className="!pt-0">
         <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">

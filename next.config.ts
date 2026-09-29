@@ -69,6 +69,8 @@ const nextConfig: NextConfig = {
       { source: '/terms', destination: '/legal/terms', permanent: true },
       { source: '/choose-plan', destination: '/pricing', permanent: true },
       { source: '/digital-business-card', destination: '/nfc-cards', permanent: true },
+      // AI and your data is hidden for now (owner, 29 September 2026): read the Terms and Privacy instead.
+      { source: '/ai', destination: '/legal/terms', permanent: false },
     ];
   },
 };

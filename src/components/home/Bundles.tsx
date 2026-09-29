@@ -1,8 +1,8 @@
 'use client';
 
-import Image from 'next/image';
 import { Fragment } from 'react';
 import { CurrencySwitch, useCurrency } from '@/components/Currency';
+import { ZoomImage } from '@/components/ZoomImage';
 import { BUNDLES, BUNDLE_BENEFITS, planByKey, immediateSavings, threeYear } from '@/content/plans';
 import { formatMoney } from '@/lib/glossary';
 
@@ -36,7 +36,7 @@ export function Bundles({ headingLevel = 3 }: { headingLevel?: 2 | 3 }) {
         {BUNDLES.map((b) => (
           <article key={b.key} className={`card card--panel grid items-center gap-6 p-[clamp(20px,2.6vw,30px)] [grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))] ${b.featured ? 'card--featured' : ''}`}>
             <div className="relative aspect-[1400/1120] overflow-hidden rounded-2xl">
-              <Image src={SHOT[b.key]!.src} alt={SHOT[b.key]!.alt} fill sizes="(min-width: 768px) 280px, 90vw" className="object-cover" />
+              <ZoomImage src={SHOT[b.key]!.src} alt={SHOT[b.key]!.alt} width={1400} height={1120} sizes="(min-width: 768px) 280px, 90vw" />
             </div>
             <div>
               <H className="font-mono text-[13px] font-normal uppercase tracking-[0.14em] text-soft-2">{b.name}</H>

@@ -96,7 +96,7 @@ export const STAGES: readonly Stage[] = [
     bullets: ['Search using what you remember', 'Define who you are looking for and see who fits', 'See which relationships are active or going quiet', 'Post what you need and find relevant people or trusted paths'],
     bulletsShort: ['Search by what you remember', 'Define who you want and see who fits', 'See which relationships are active or quiet', 'Post a need, find people or trusted paths'],
     outcome: 'Know who matters, who fits, and who can help.',
-    chips: ['Natural-Language Search', 'ICP Matching', 'Relationship Priority', 'Network Ask'],
+    chips: ['Natural-Language Search', 'ICP Matching', 'Relationship Heat Map', 'Network Ask'],
     screen: 'v12-icpintro',
     href: '/features/find',
   },

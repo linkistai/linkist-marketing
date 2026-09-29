@@ -207,7 +207,7 @@ export const COMPARE_ROWS: readonly CompareRow[] = [
   { group: 'Sharing' },
   { label: 'QR, URL, email and SMS sharing', cells: ['Yes', 'Yes', 'Yes', 'Yes', 'Yes'] },
   { label: 'QR code', cells: ['Yes', 'Yes', 'Yes', 'Yes', 'Yes'] },
-  { label: 'Add to Google or Apple Wallet', cells: ['Yes', 'Yes', 'Yes', 'Yes', 'Yes'] },
+  { label: 'Add to Google or Apple Wallet', cells: ['Coming soon', 'Coming soon', 'Coming soon', 'Coming soon', 'Coming soon'] },
   { label: 'Unlimited sharing', cells: ['Yes', 'Yes', 'Yes', 'Yes', 'Yes'] },
   { group: 'Contact capture and import' },
   { label: 'OCR business card scans', cells: ['5 / month', '20 / month', 'Unlimited', 'Unlimited', 'Unlimited'] },

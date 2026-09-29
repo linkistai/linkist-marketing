@@ -39,7 +39,7 @@ export default function PricingPage() {
             Start free. <span className="em-coral">Add more</span> when you need it.
           </>
         }
-        lede="4 plans in US dollars or UAE dirhams, no NFC card required. Upgrade when you need richer contact management, AI matching and follow-up, or team collaboration."
+        lede="Four plans to choose from, NFC card is optional. Upgrade when you need richer contact management, AI matching and follow-up, or team collaboration."
         ctas={
           <>
             <StartFree />

@@ -15,7 +15,7 @@ interface Turn {
 /**
  * The site assistant. Retrieval over the help corpus runs in the browser; when /api/chat is
  * configured with a Claude key it phrases the answer, otherwise the best match is shown as is.
- * Always labelled automated. Every answer offers Start free.
+ * Always labelled automated. Every answer offers Start Now.
  */
 export function Assistant({ compact }: { compact?: boolean }) {
   const [turns, setTurns] = useState<Turn[]>([{ who: 'linkist', text: 'Hello. I answer from the help centre and the product facts. Automated, not a live agent. What would you like to know?' }]);
@@ -113,7 +113,7 @@ export function Assistant({ compact }: { compact?: boolean }) {
               {t.who === 'linkist' && i > 0 ? (
                 <p className="mt-2 text-xs">
                   <a href={START_URL} className="font-semibold underline">
-                    Start free
+                    Start Now
                   </a>
                   <span className="text-muted"> with an email or a mobile number.</span>
                 </p>

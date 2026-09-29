@@ -6,7 +6,7 @@
   "status": "draft",
   "version": "0.1",
   "effective": "2026-09-10",
-  "updated": "2026-09-10"
+  "updated": "2026-09-29"
 }
 ---
 
@@ -32,7 +32,7 @@ No system is completely secure, and users are responsible for keeping their acco
 
 ## 3. Sign-in
 
-Accounts sign in with an email address or mobile number and a one-time code that expires. There is no password. Limited security logs are kept as needed.
+Accounts sign in with an email address or mobile number and a one-time code that expires, and the account is set up with a password. Biometrics can be enabled for later sign-ins. Limited security logs are kept as needed.
 
 ## 4. Logs and retention
 

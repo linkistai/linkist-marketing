@@ -17,7 +17,7 @@ Changes from the brief's section 4 are marked. Every page: one job, one primary 
 | `/founders-circle` | The offer, if still running | | Not built | Pending C7 (offer status). |
 | `/pricing` | Four plans, comparison table, cards, bundles, billing FAQ | | Built | The USD/AED switch applies to cards; plan prices are USD until C5 is answered. |
 | `/teams` | The Team plan for companies | Team mini mockup | Built | Enterprise is an interest route (mailto) until a contact page exists. |
-| `/ai` | What the AI does, reads, keeps; how to switch it off | Home preview | Built | Written from the published policy and terms with citations (D19); provider, region and credits listed as not published (C8). |
+| `/ai` | What the AI does, reads, keeps; how to switch it off | Home preview | Hidden (D62) | Hidden on the owner's instruction, 29 September 2026: /ai goes to the Terms and Privacy, the page is kept outside routing in `src/app/_ai`, and nothing links to it. Its Not published yet section was removed. |
 | `/security` | Trust page for a sceptical reader | At-a-glance card | Built | The policy's controls, providers by category, retention, rights, transfers and a "not published yet" list (D19, C9). |
 | `/customers` | Honest proof page: no named customers, what can be shown, three example networks, a design-partner invitation | Mini mockups | Built | Founder story and team wait for C10; partner terms for C20 (D26). |
 | `/about` | RatioX Labs, the idea of a PRM, six principles with sources, how it is built, the timeline, the company | | Built | The team is named when confirmed (C10, D26). |

@@ -56,6 +56,16 @@ The NFC cards on the site are the generated faces above with the name and compan
 
 Six public-profile mockups and six Signature card renders from the owner's "Profile and Card Samples" folder (John Jameson, Luca, Maya, Natalie, Rhea, Zayn), supplied as PNG. The profiles are resized to 780 x 1688 WebP in `public/screens/profile-*.webp` and shown only inside a phone frame with the Design preview badge; the cards are trimmed and resized to `public/assets/cards/sample-*-1x/-2x.webp`. Masters under `public/assets/masters/samples/` (git-ignored). The people are examples; the card logos are the sample companies', not customers. No credits were spent. The Nano Banana composite hero scene of 17 September (D50) is retired with D51.
 
+## Owner round, 29 September 2026 (D62)
+
+| Picture | File | Source and treatment |
+| --- | --- | --- |
+| Home hero background | `public/assets/gen/hero-halftone.webp` | The owner's red halftone field (supplied in chat), re-encoded as WebP at 2000 px. |
+| The founders | `public/assets/founders/<name>.webp` | The RatioX Labs site's own photographs (ratioxlabs.com, the local copy in the RatioX project), cropped square to 480 px. Text word for word from the same section. |
+| Natalie Vale's profile, light and dark | `public/screens/v12-profile-natalie-<theme>.webp` | Drawn by the v12 prototype's own preview (`pnpm capture:v12 profile`): Natalie's name, title, company and social links from the owner's sample profile, an example email and number in the prototype's style, and her sample photo with its two overlay buttons removed (`scripts/fixtures`). The prototype's dark-theme Save and Share icons are kept dark so they show. |
+| NFC symbol on the card faces | `public/assets/cards/{pvc,wood,metal,founders}-*.webp`, `card-*.webp` | The generated faces with the old embossed wave (bottom right) removed by cloning the card's own texture, and the real card's symbol (four arcs fitted from the owner's Signature card render) set at right-middle: red on PVC, metal and Founders Circle, engraved on wood. Pre-edit masters in `masters/cards-pre-d62/` (git-ignored). |
+| Exploded card view | `public/assets/cards/stack/closed.webp`, `layer-1.webp` | The linkist-prod layers with the white NFC symbol recoloured red; originals in `masters/stack-pre-d62/`. |
+
 ## Stock and third-party imagery
 
 None. No stock photographs, icon packs or third-party illustrations are used; the icons are Lucide (ISC licence) rendered inline.

@@ -15,7 +15,6 @@ const COLUMNS: { title: string; links: { href: string; label: string; external?:
       { href: '/use-cases', label: 'Use cases' },
       { href: '/pricing', label: 'PRM pricing' },
       { href: '/teams', label: 'Teams' },
-      { href: '/ai', label: 'AI and your data' },
     ],
   },
   {
@@ -43,13 +42,10 @@ const COLUMNS: { title: string; links: { href: string; label: string; external?:
     links: [
       { href: SIGN_IN_URL, label: 'Sign in', external: true },
       { href: '/about', label: 'About' },
-      { href: '/customers', label: 'Customers' },
       { href: '/blogs', label: 'Blog' },
       { href: '/help', label: 'Help centre' },
       { href: '/chat', label: 'Ask the assistant' },
-      { href: '/changelog', label: 'Changelog' },
       { href: '/community', label: 'Community' },
-      { href: '/security', label: 'Security' },
       { href: '/contact', label: 'Contact' },
       { href: '/legal', label: 'Legal' },
       { href: '/legal/privacy', label: 'Privacy' },

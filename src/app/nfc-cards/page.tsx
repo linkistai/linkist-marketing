@@ -1,16 +1,13 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { Button, TextLink } from '@/components/Button';
 import { ClosingBand } from '@/components/ClosingBand';
 import { Faq } from '@/components/Faq';
 import { NfcCardLayers } from '@/components/NfcCardLayers';
 import { PageHero } from '@/components/PageHero';
-import { PhoneStage } from '@/components/PhoneStage';
 import { SectionHead } from '@/components/Section';
+import { TapProfile } from '@/components/TapProfile';
 import { CardTiers } from '@/components/home/CardTiers';
-import { PROTO_ALT } from '@/content/design';
 import { CARD_OPTIONS, CARD_TIERS, SHIPPING_REGIONS } from '@/content/plans';
-import { screen } from '@/lib/screens';
 import { NFC_TOOLS_URL, STORE_URL, pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
@@ -95,18 +92,8 @@ export default function NfcCardsPage() {
                 </li>
               ))}
             </ol>
-            <div className="tapmoment relative flex justify-center" data-reveal="rise">
-              <PhoneStage src={screen('v6-share')} alt={PROTO_ALT['v6-share']} width={260} />
-              {/* The tap moment: a card comes in, touches the top of the phone, and the NFC rings fire at the touch. */}
-              <div className="tapmoment__card" aria-hidden="true">
-                <Image src="/assets/cards/card-metal.webp" alt="" width={1200} height={780} sizes="170px" className="h-auto w-full" />
-              </div>
-              <span className="tapmoment__rings" aria-hidden="true">
-                <span />
-                <span />
-                <span />
-              </span>
-            </div>
+            {/* What the other person sees (owner, 29 September 2026): Natalie Vale's card taps, her profile opens. */}
+            <TapProfile />
           </div>
         </div>
       </section>

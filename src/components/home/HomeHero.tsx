@@ -8,7 +8,6 @@ import { Button } from '@/components/Button';
 import { StoreBadges } from '@/components/StoreBadges';
 import { HERO } from '@/content/home';
 import { HeroProduct, type HeroSlide } from './HeroProduct';
-import { Parallax } from '@/motion/Parallax';
 import { FREE_PROFILE_URL, GET_CARD_URL } from '@/lib/site';
 
 const PILLAR_ICONS = [CreditCard, Database, Target, Sparkles, Network, BookUser];
@@ -49,11 +48,8 @@ export function HomeHero({ slides }: { slides: readonly HeroSlide[] }) {
   return (
     <section className="home-hero" aria-labelledby="hero-title" onMouseMove={onMove}>
       <div ref={spot} className="home-hero__spot" aria-hidden="true" />
-      <div className="home-hero__floor" aria-hidden="true" />
-      <Image src="/assets/gen/abstract.webp" alt="" aria-hidden="true" fill priority sizes="100vw" className="home-hero__field" />
-      <Parallax k={0.12} className="home-hero__mark">
-        <Image src="/brand/mark.png" alt="" aria-hidden="true" width={256} height={256} priority className="v2-spin h-auto w-full" />
-      </Parallax>
+      {/* The background (owner, 29 September 2026): the red halftone field, in place of the smoke, the floor glow and the faint mark. */}
+      <Image src="/assets/gen/hero-halftone.webp" alt="" aria-hidden="true" fill priority sizes="100vw" className="home-hero__field" />
 
       <div className="container home-hero__grid">
         <div className="home-hero__copy">

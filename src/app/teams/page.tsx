@@ -40,7 +40,7 @@ export default function TeamsPage() {
         lede="Shared contacts, branded cards, and history that stays when people move on. Everything in Pro, for every user."
         ctas={
           <>
-            <StartFree />
+            <StartFree label="Set up your team" />
             <TextLink href="/features/teams">See the Team features</TextLink>
           </>
         }
@@ -107,7 +107,7 @@ export default function TeamsPage() {
         </div>
       </section>
 
-      <ClosingBand line1="Keep the relationships." line2="Even when people move on." />
+      <ClosingBand line1="Keep the relationships." line2="Even when people move on." cta="Get Teams" reassurance="Everything in Pro for every user. Minimum 5 users." />
     </>
   );
 }

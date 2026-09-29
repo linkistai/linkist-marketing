@@ -113,3 +113,10 @@ tapmoment
 cardlayers
 promobar
 planpromo
+Bangera
+Biji
+Liju
+Mathew
+Praveen
+ratioxlabs
+zoomimg

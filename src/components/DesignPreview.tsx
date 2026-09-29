@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { ScreenFrame } from '@/components/ScreenFrame';
 import { SectionHead } from '@/components/Section';
-import { PROTO_ALT, PROTO_CAPTIONS, type ProtoScreen } from '@/content/design';
+import { PROTO_ALT, PROTO_CAPTIONS, TALL_SCREENS, type ProtoScreen } from '@/content/design';
 import { screen } from '@/lib/screens';
 
 /**
@@ -21,7 +21,7 @@ export function DesignPreview({ id, eyebrow, title, body, items, tone = 'bg' }: 
               </span>
               <h3 className="display-3 !text-[20px]">{it.title}</h3>
               <div className="mx-auto w-full max-w-[220px]">
-                <ScreenFrame kind="phone" src={screen(it.screen)} alt={PROTO_ALT[it.screen] ?? PROTO_CAPTIONS[it.screen]} preview full className="!max-w-none" />
+                <ScreenFrame kind="phone" src={screen(it.screen)} alt={PROTO_ALT[it.screen] ?? PROTO_CAPTIONS[it.screen]} preview full tall={TALL_SCREENS[it.screen]} className="!max-w-none" />
               </div>
             </li>
           ))}

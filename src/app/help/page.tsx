@@ -41,7 +41,7 @@ export default function HelpPage() {
           <HelpCentre />
         </div>
       </section>
-      <ClosingBand line1="Still stuck?" line2="Ask the assistant, or start free." reassurance="The assistant is automated. Free, no card needed." />
+      <ClosingBand line1="Still stuck?" line2="Ask the assistant, or start now." reassurance="The assistant is automated. Free, no card needed." />
     </>
   );
 }
