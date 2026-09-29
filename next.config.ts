@@ -71,6 +71,10 @@ const nextConfig: NextConfig = {
       { source: '/digital-business-card', destination: '/nfc-cards', permanent: true },
       // AI and your data is hidden for now (owner, 29 September 2026): read the Terms and Privacy instead.
       { source: '/ai', destination: '/legal/terms', permanent: false },
+      // Customers, Changelog and Security are off the website (owner, 29 September 2026).
+      { source: '/customers', destination: '/about', permanent: false },
+      { source: '/changelog', destination: '/blogs', permanent: false },
+      { source: '/security', destination: '/legal/privacy', permanent: false },
     ];
   },
 };

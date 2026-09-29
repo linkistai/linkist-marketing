@@ -59,10 +59,10 @@ When the introduction happens, thank the connector the same day. When something 
 
 ## Step 5: keep the connector warm
 
-Warm introductions come from warm relationships. Relationship Priority shows which relationships are warming up, cooling down or cold; a connector who has gone quiet for 6 months is not someone to ask for a favour this week. Intelligent Nudges prompt you before that happens, and the Weekly Planner gives the reconnect a slot.
+Warm introductions come from warm relationships. The Relationship Heat Map shows which relationships are warming up, cooling down or cold; a connector who has gone quiet for 6 months is not someone to ask for a favour this week. Intelligent Nudges prompt you before that happens, and the Weekly Planner gives the reconnect a slot.
 
 ## What Linkist does and does not do here
 
 It finds the path, drafts the message and reminds you. It does not send anything, and it does not contact the connector or the target on your behalf. The ask is yours, in your words, from your account.
 
-Network Ask, Warm Introductions and Relationship Priority are part of Pro and Team. The [Find](/features/find) and [Act](/features/act) pages show where they sit, and the [find-the-right-person use case](/use-cases/find-the-right-person) walks through a search from requirement to introduction.
+Network Ask, Warm Introductions and the Relationship Heat Map are part of Pro and Team. The [Find](/features/find) and [Act](/features/act) pages show where they sit, and the [find-the-right-person use case](/use-cases/find-the-right-person) walks through a search from requirement to introduction.

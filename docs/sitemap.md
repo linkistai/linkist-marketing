@@ -18,8 +18,8 @@ Changes from the brief's section 4 are marked. Every page: one job, one primary 
 | `/pricing` | Four plans, comparison table, cards, bundles, billing FAQ | | Built | The USD/AED switch applies to cards; plan prices are USD until C5 is answered. |
 | `/teams` | The Team plan for companies | Team mini mockup | Built | Enterprise is an interest route (mailto) until a contact page exists. |
 | `/ai` | What the AI does, reads, keeps; how to switch it off | Home preview | Hidden (D62) | Hidden on the owner's instruction, 29 September 2026: /ai goes to the Terms and Privacy, the page is kept outside routing in `src/app/_ai`, and nothing links to it. Its Not published yet section was removed. |
-| `/security` | Trust page for a sceptical reader | At-a-glance card | Built | The policy's controls, providers by category, retention, rights, transfers and a "not published yet" list (D19, C9). |
-| `/customers` | Honest proof page: no named customers, what can be shown, three example networks, a design-partner invitation | Mini mockups | Built | Founder story and team wait for C10; partner terms for C20 (D26). |
+| `/security` | Trust page for a sceptical reader | At-a-glance card | Removed (D63) | Off the website on the owner's instruction, 29 September 2026: /security goes to the Privacy part of the Terms and Privacy, the page is kept outside routing in `src/app/_security`. |
+| `/customers` | Honest proof page: no named customers, what can be shown, three example networks, a design-partner invitation | Mini mockups | Removed (D63) | Off the website on the owner's instruction, 29 September 2026: /customers goes to About, the page is kept outside routing in `src/app/_customers`. |
 | `/about` | RatioX Labs, the idea of a PRM, six principles with sources, how it is built, the timeline, the company | | Built | The team is named when confirmed (C10, D26). |
 
 ## Content and support
@@ -30,7 +30,7 @@ Changes from the brief's section 4 are marked. Every page: one job, one primary 
 | Ten in-house articles at `/blogs/[slug]` | Written from the product with title-card covers (D20); `/learn` redirects to `/blogs` | Built |
 | `/help` | Twelve categories, instant search, 109 Q&As with sources, a Limits category (D21) | Built |
 | `/chat` | Full-page assistant over the same corpus, suggested questions, how it answers | Built |
-| `/changelog` | Dated public events, what is in the product today, what is announced (D22) | Built |
+| `/changelog` | Dated public events, what is in the product today, what is announced (D22) | Removed (D63): /changelog goes to the blog, the page is kept outside routing in `src/app/_changelog` |
 | `/community` | The sign-up as a page, what members get, three channels, latest reads (D23) | Built |
 | `/contact` | Support, privacy, partnerships, press, security, phone and WhatsApp, post, the form | Built (D25) |
 

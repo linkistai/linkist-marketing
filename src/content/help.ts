@@ -66,7 +66,7 @@ export const HELP: readonly HelpEntry[] = [
   e('Capture', 'What are voice notes for?', 'Recording where you met and what mattered while it is fresh, so the context is saved with the contact.'),
   e('Capture', 'What is AI Enrichment?', 'It fills in missing professional details on an incomplete record from public or professional sources, where you have enabled it. Part of Pro and Team.'),
   e('Capture', 'Does the other person need Linkist to give me their details?', 'No. When someone taps your card or scans your code they see your live profile and can send their own details; if they use Linkist too, the meeting is captured on both sides.'),
-  e('Capture', 'Can I export my contacts?', 'The plan comparison lists export from Enhanced upwards. Separately, the document gives every user the right to see and download their data (P 11), and to download it before closing the account (T 15).', [{ label: 'Security', href: '/security' }]),
+  e('Capture', 'Can I export my contacts?', 'The plan comparison lists export from Enhanced upwards. Separately, the document gives every user the right to see and download their data (P 11), and to download it before closing the account (T 15).', [PRIVACY]),
 
   // Profiles and cards
   e('Profiles and cards', 'What is a digital business card?', 'A live profile with your photo and details that you share by QR code, link, email or SMS. Every plan includes one, and it updates wherever it has been shared.', [{ label: 'Profiles and cards', href: '/features/profiles' }]),

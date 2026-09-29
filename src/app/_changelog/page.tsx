@@ -18,6 +18,11 @@ const TONE: Record<ChangeTag, string> = {
 const fmt = (d: string) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 
 /** Dated public events on a timeline, then what the product holds today, then what it says is coming (C17). */
+/**
+ * Removed from the website on 29 September 2026 (owner). The folder is private (`_changelog`, outside
+ * routing), /changelog redirects to the blog (next.config.ts), and nothing links here. To publish it again:
+ * rename the folder to `changelog`, drop the redirect, and put the footer link and the sitemap entry back.
+ */
 export default function ChangelogPage() {
   return (
     <>

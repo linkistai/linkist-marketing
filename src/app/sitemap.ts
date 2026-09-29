@@ -18,15 +18,12 @@ export const ROUTES: readonly string[] = [
   '/bundles',
   '/pricing',
   '/teams',
-  '/security',
   '/blogs',
   ...getPosts().map((p) => `/blogs/${p.slug}`),
   '/help',
   '/chat',
-  '/changelog',
   '/community',
   '/about',
-  '/customers',
   '/contact',
   '/legal',
   ...getLegal()
@@ -52,7 +49,7 @@ function priority(path: string): number {
 }
 
 function changeFrequency(path: string): MetadataRoute.Sitemap[number]['changeFrequency'] {
-  if (path === '/' || path === '/blogs' || path === '/changelog') return 'weekly';
+  if (path === '/' || path === '/blogs') return 'weekly';
   if (path.startsWith('/legal')) return 'yearly';
   return 'monthly';
 }

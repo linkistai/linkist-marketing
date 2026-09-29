@@ -45,6 +45,11 @@ const EXAMPLES: readonly { title: string; who: string; body: string; mock: MiniM
 ];
 
 /** Honest proof (brief 3.9, 4): no named customers, what can be shown, example networks labelled as examples, a design-partner invitation. */
+/**
+ * Removed from the website on 29 September 2026 (owner). The folder is private (`_customers`, outside
+ * routing), /customers redirects to the about page (next.config.ts), and nothing links here. To publish it again:
+ * rename the folder to `customers`, drop the redirect, and put the footer link and the sitemap entry back.
+ */
 export default function CustomersPage() {
   return (
     <>

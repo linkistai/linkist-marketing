@@ -35,7 +35,7 @@ You can keep more than one. A founder might hold one ICP for customers and anoth
 
 ICP Matching works from what is in Linkist about each contact: profile data, contact details, your notes, connection history, the context of how you met, and professional information. Where you have enabled AI Enrichment, it also draws on public or professional sources to fill gaps in a record, which usually improves the match.
 
-It does not read anything outside Linkist about you, and it does not read your contacts' private data. The privacy policy lists exactly what the AI features use, and the [AI and your data](/ai) page repeats it with the section cited.
+It does not read anything outside Linkist about you, and it does not read your contacts' private data. The [privacy policy](/legal/privacy) lists exactly what the AI features use.
 
 ## What it shows
 
@@ -66,4 +66,4 @@ It is also optional. AI features in Linkist are switched on with a separate cons
 
 ## Where it lives
 
-ICP Matching is part of Pro and Team. It sits in the Build relationships stage alongside Natural-Language Search, Relationship Priority and Network Ask; the [Find](/features/find) page shows them together, and the [find-the-right-person use case](/use-cases/find-the-right-person) walks through a real search.
+ICP Matching is part of Pro and Team. It sits in the Build relationships stage alongside Natural-Language Search, the Relationship Heat Map and Network Ask; the [Find](/features/find) page shows them together, and the [find-the-right-person use case](/use-cases/find-the-right-person) walks through a real search.

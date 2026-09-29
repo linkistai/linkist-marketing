@@ -47,7 +47,7 @@ A PRM starts from the person and keeps three things with them.
 - **Fit.** Who among your contacts matches what you are looking for now, and which relationships are warming up or going quiet.
 - **The next action.** What deserves attention today, before the moment passes.
 
-Linkist arranges this as three stages: Capture and share, Build relationships, Act and grow. Capture gets the person in with their context. Build finds who matters, with Natural-Language Search, ICP Matching, Relationship Priority and Network Ask. Act tells you what to do next, with Top Actions, the Weekly Planner, Intelligent Nudges and Warm Introductions.
+Linkist arranges this as three stages: Capture and share, Build relationships, Act and grow. Capture gets the person in with their context. Build finds who matters, with Natural-Language Search, ICP Matching, the Relationship Heat Map and Network Ask. Act tells you what to do next, with Top Actions, the Weekly Planner, Intelligent Nudges and Warm Introductions.
 
 ::note
 A useful test: if a tool can tell you who to follow up with this week and why, it is doing PRM work. If it can only tell you who someone is, it is a contacts app. If it can only tell you what a deal is worth, it is a CRM.

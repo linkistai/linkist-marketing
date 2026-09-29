@@ -57,7 +57,7 @@ This is where a spreadsheet dies, because nobody opens it on Thursday. Linkist d
 - Top Actions lists the most important things to do today when you open the app.
 - Intelligent Nudges prompt you before a follow-up slips: you met someone at the event and have not followed up.
 - AI Follow-up drafts the message from the context you saved. You read it, change it, and send it yourself. Linkist never sends on your behalf.
-- Relationship Priority shows which of the new relationships are warming up and which are going quiet, so the second week gets the right attention too.
+- The Relationship Heat Map shows which of the new relationships are warming up and which are going quiet, so the second week gets the right attention too.
 
 ## What to skip
 

@@ -4,7 +4,7 @@
   "category": "networking",
   "categoryLabel": "Networking",
   "title": "A weekly relationship routine that takes 20 minutes",
-  "excerpt": "Relationships do not need more time; they need a fixed slot. A Monday plan, a daily glance and a Friday review, built on Top Actions, the Weekly Planner and Relationship Priority.",
+  "excerpt": "Relationships do not need more time; they need a fixed slot. A Monday plan, a daily glance and a Friday review, built on Top Actions, the Weekly Planner and the Relationship Heat Map.",
   "author": "Linkist",
   "date": "2026-09-10",
   "dateLabel": "10 September 2026",
@@ -18,7 +18,7 @@
   "faq": [
     { "q": "Which plans include Top Actions and the Weekly Planner?", "a": "Top Actions is part of Pro and Team. The plan comparison lists the Weekly Planner with the Act stage features on the pricing page." },
     { "q": "Do I have to do this every day?", "a": "No. The nudges arrive whether you open the app or not. The Monday and Friday slots are the routine; the days between are a glance." },
-    { "q": "What if I fall behind?", "a": "Relationship Priority shows which relationships have gone quiet, so the Friday review starts from the ones that matter rather than from guilt." }
+    { "q": "What if I fall behind?", "a": "The Relationship Heat Map shows which relationships have gone quiet, so the Friday review starts from the ones that matter rather than from guilt." }
   ]
 }
 ---
@@ -37,8 +37,8 @@ If you keep an ideal customer profile, check the home screen for new ICP matches
 ::flow
 Monday: Top Actions and the Weekly Planner
 Daily: a glance at the nudges
-Friday: Relationship Priority review
-Monthly: a read of Network Pulse
+Friday: Relationship Heat Map review
+Monthly: a read of Network Strength
 ::
 
 ## Every day, 2 minutes: the glance
@@ -49,13 +49,13 @@ The glance is short because you are not searching for what to do. The app has al
 
 ## Friday, 8 minutes: the review
 
-Relationship Priority shows which relationships are warming up, cooling down or cold. Read the cooling list first. Pick 2 people who matter and give each a slot next week: a message, a coffee, a useful article. Then read the warming list and ask whether any of them deserve an introduction to someone else you know. That is how a network compounds.
+The Relationship Heat Map shows which relationships are warming up, cooling down or cold. Read the cooling list first. Pick 2 people who matter and give each a slot next week: a message, a coffee, a useful article. Then read the warming list and ask whether any of them deserve an introduction to someone else you know. That is how a network compounds.
 
 Close by adding a line of context to anyone you spoke to this week. A sentence today saves a blank stare in 3 months.
 
 ## Monthly, 5 minutes: the wide view
 
-Once a month, look at the network as a whole rather than person by person. Network Pulse reads its health; Network Strength scores it; Opportunity Radar surfaces people and moments worth acting on. The question is simple: is the network growing in the direction you want, or just growing. The [network-growing-wrong use case](/use-cases/network-growing-wrong) is about that question.
+Once a month, look at the network as a whole rather than person by person. Network Strength shows how strong it is overall. The question is simple: is the network growing in the direction you want, or just growing. The [network-growing-wrong use case](/use-cases/network-growing-wrong) is about that question.
 
 ## Keeping it honest
 

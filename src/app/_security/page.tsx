@@ -23,6 +23,11 @@ const GLANCE = [
   ['Attestations', 'None claimed'],
 ] as const;
 
+/**
+ * Removed from the website on 29 September 2026 (owner). The folder is private (`_security`, outside
+ * routing), /security redirects to the Privacy part of the Terms and Privacy (next.config.ts), and nothing links here. To publish it again:
+ * rename the folder to `security`, drop the redirect, and put the footer link and the sitemap entry back.
+ */
 export default function SecurityPage() {
   return (
     <>

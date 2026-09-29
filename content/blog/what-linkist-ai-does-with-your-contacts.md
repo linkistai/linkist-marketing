@@ -31,7 +31,7 @@ The privacy policy lists the optional AI features and what they produce. In the 
 
 - **AI Enrichment** fills gaps in a saved contact from public or professional sources.
 - **ICP Matching** compares your contacts with the profile of who you are looking for.
-- **Relationship Priority** scores which relationships are active, cooling or cold.
+- **Relationship Heat Map** scores which relationships are active, cooling or cold.
 - **Network Strength** reads the network as a whole.
 - **Smart Signals** notice changes that deserve a reaction.
 - **Warm Introductions** suggest who could introduce you, and to whom.
@@ -61,4 +61,4 @@ Disable optional AI features, or object to automated profiling, in Privacy Setti
 
 ## What is not published
 
-Which model provider processes AI requests, in which region, and the credit price list. The policy names the provider category and says some providers may be outside the UAE, with data processing agreements and standard contractual clauses among the safeguards. The [AI and your data](/ai) page keeps these as open items and cites every section above; the [security](/security) page does the same for hosting, retention and your rights.
+Which model provider processes AI requests, in which region, and the credit price list. The policy names the provider category and says some providers may be outside the UAE, with data processing agreements and standard contractual clauses among the safeguards. The [Terms and Privacy](/legal/terms) is the document every section above cites.

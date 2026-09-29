@@ -41,7 +41,7 @@ Choose it if your profile is doing work for you: speaking, consulting, selling s
 
 $10 (AED 40) a month or $100 (AED 400) a year, and the plan most people land on once the network is too big to hold in a head. Everything in Enhanced, 5 profiles with full template customisation and unlimited card scans, then the intelligence: AI Enrichment and lead scoring, ICP Matching and Network Ask, Intelligent Nudges and Top Actions, the AI voice notetaker and AI Follow-up, and a deal-tracking mini-CRM.
 
-The AI features are optional and switched on with a separate consent; the [AI and your data](/ai) page explains what they read and how to switch them off.
+The AI features are optional and switched on with a separate consent; the [Terms and Privacy](/legal/terms) sets out what they read and how to switch them off.
 
 ::note
 A rule of thumb: if you can name every relationship that matters and remember its context, Essential or Enhanced is enough. When you cannot, Pro is the plan whose features exist for that problem.

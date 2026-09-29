@@ -63,6 +63,6 @@ AI Enrichment fills in missing professional details on an incomplete record, fro
 
 ## How context pays back
 
-Everything in the Build and Act stages runs on it. Natural-Language Search finds "the fintech founder from GITEX" because you tagged GITEX. ICP Matching has something to match. Relationship Priority knows when the last interaction was. AI Follow-up drafts a message that mentions what was actually discussed, because it was saved.
+Everything in the Build and Act stages runs on it. Natural-Language Search finds "the fintech founder from GITEX" because you tagged GITEX. ICP Matching has something to match. The Relationship Heat Map knows when the last interaction was. AI Follow-up drafts a message that mentions what was actually discussed, because it was saved.
 
 The [Capture](/features/capture) page lists every way context gets in, and the [too-many-relationships use case](/use-cases/too-many-relationships) shows what a network with context looks like a month later.
