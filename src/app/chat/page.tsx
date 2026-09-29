@@ -17,7 +17,7 @@ export const metadata: Metadata = pageMeta(
 const HOW = [
   ['It reads the help centre', `Every answer comes from the ${HELP.length} help entries and a short sheet of product facts. Nothing else, and never your data.`],
   ['It says when it does not know', 'A question outside those entries gets a plain "I do not know" and a pointer to support@linkist.ai, not a guess.'],
-  ['Nothing you type is stored', 'Questions are matched in your browser. When a model is configured on the server it phrases the matched entries and keeps nothing.'],
+  ['Nothing you type is stored', 'Questions are matched in your browser. When a model is configured, your question and the matching entries are sent to it to phrase the answer, and nothing is kept.'],
 ] as const;
 
 /** The full-page assistant (brief 4, checkpoint 5): the same brain as the floating widget on every page. */

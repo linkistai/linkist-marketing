@@ -6,7 +6,7 @@
   "status": "draft",
   "version": "0.1",
   "effective": "2026-09-10",
-  "updated": "2026-09-10"
+  "updated": "2026-09-29"
 }
 ---
 
@@ -36,7 +36,7 @@ RatioX Labs DWC-LLC is the data controller for personal data processed by Linkis
 
 ## 4. Governing law
 
-The Terms of Service are governed by the laws of the United Arab Emirates as applied in Dubai, and the courts of Dubai have jurisdiction, subject to applicable law (Terms of Service, section 27).
+The Linkist Terms and Privacy are governed by the laws of the United Arab Emirates as applied in Dubai, and disputes may be taken to the courts of Dubai; a consumer keeps the mandatory protection of the country where they live (Terms and Privacy, section 19).
 
 ## 5. Websites and products
 
@@ -47,4 +47,4 @@ The Terms of Service are governed by the laws of the United Arab Emirates as app
 
 ## 6. Documents in force
 
-The Terms of Service and the Privacy Policy, both version 1.1 effective 1 June 2026, published at linkist.ai/terms and linkist.ai/privacy and reproduced on this website.
+The Linkist Terms and Privacy, version 1.0, effective 7 September 2026, reproduced on this website at /legal/terms, with Part 2, Privacy, also on its own at /legal/privacy.

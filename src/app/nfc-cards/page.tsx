@@ -31,7 +31,7 @@ const FAQ = [
   { q: 'Which currency are cards priced in?', a: 'AED and US dollars; the USD / AED switch shows either. The store checks out in AED.' },
   { q: 'Is shipping included?', a: 'Yes, within the UAE. Other countries are not served yet.' },
   { q: 'Can I use an NFC card I already own?', a: 'Yes, free, at nfctools.linkist.ai. Encoding needs an Android phone.' },
-  { q: 'Can I return an NFC card?', a: 'Yes, within 7 days, if it is defective, misprinted or differs from your order.' },
+  { q: 'Can I return an NFC card?', a: 'Yes. Tell us within 7 days of delivery, or longer where the law allows, if it is faulty, damaged or wrong, and we replace or refund it.' },
 ] as const;
 
 /** Product with an AggregateOffer across the six store prices (AED 75 to 240). */
@@ -56,7 +56,7 @@ export default function NfcCardsPage() {
             Tap. Share. Make the <span className="em-coral">first impression</span> count.
           </>
         }
-        lede="A card that opens your live profile on any NFC phone, or by QR, and remembers the meeting. Includes PRM Essential."
+        lede="A card that opens your live profile on an NFC phone, or by QR, and remembers the meeting. Includes PRM Essential."
         ctas={
           <>
             <Button href={STORE_URL} size="lg">
@@ -138,7 +138,7 @@ export default function NfcCardsPage() {
             <ul className="m-0 grid list-none gap-3.5 p-0 sm:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.1">
               {[
                 ['An NFC card or sticker', 'Tap it. Linkist reads the chip, then writes your profile.'],
-                ['Change it forever', 'One permanent address. A new role never needs a new card.'],
+                ['Change it forever', 'One address that stays with your account. A new role never needs a new card.'],
               ].map(([t, b], i) => (
                 <li key={t} className="card flex flex-col gap-7 p-6">
                   <span aria-hidden="true" className="font-mono text-[13px] text-coral">

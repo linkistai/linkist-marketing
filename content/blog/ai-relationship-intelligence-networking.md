@@ -244,7 +244,7 @@ Professionals should own a smart digital identity that they can update, share an
 
 That identity can be shared through a Linkist profile, a direct link, QR code or NFC card. But Linkist’s broader purpose goes beyond the first exchange.
 
-The future of professional networking is not only about sharing who you are. It is about remembering who you met, why they mattered and how the relationship can continue. That is why relationship intelligence is an important part of Linkist’s long-term direction.
+The future of professional networking is not only about sharing who you are. It is about remembering who you met, why they mattered and how the relationship can continue. That is why relationship intelligence is built into Linkist Pro and Team today.
 
 ::flow
 The product begins with identity

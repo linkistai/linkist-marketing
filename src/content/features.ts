@@ -59,7 +59,7 @@ export const FEATURES: readonly FeaturePage[] = [
     tabs: [
       { key: 'tap', title: 'NFC tap and QR', body: 'Tap a Linkist NFC card to a phone, or show your QR code. The other person gets your live profile and you keep the meeting.', screen: 'v12-shareready', kind: 'phone', alt: 'Share Contact screen' },
       { key: 'scan', title: 'Card scan', body: 'Point the camera at a paper business card and it becomes a contact record. 5 a month on Essential, 20 on Enhanced, unlimited on Pro.', screen: 'v6-scan', kind: 'phone', alt: 'Card scan screen' },
-      { key: 'import', title: 'Import and add', body: 'Bring your phone contacts, a CSV or a VCF file, or add a person by hand. Tags and a voice note keep the context with them.', screen: 'v6-quickadd', kind: 'phone', alt: 'Contact import screen' },
+      { key: 'import', title: 'Import and add', body: 'Bring your phone contacts, a CSV or a VCF file, or add a person by hand. From Enhanced, notes and tags keep the context with them.', screen: 'v6-quickadd', kind: 'phone', alt: 'Contact import screen' },
       { key: 'enrich', title: 'AI Enrichment', body: 'An incomplete record gets its missing professional details filled in. You see what was added and can change it.', screen: 'v6-enrich', kind: 'phone', alt: 'AI Enrichment on a contact record', plan: 'Pro' },
     ],
     planNote: 'NFC, QR, import and manual add are in every plan. Card scans are limited by plan. AI Enrichment, lead capture forms and export start at Enhanced or Pro as listed on the pricing page.',
@@ -76,7 +76,7 @@ export const FEATURES: readonly FeaturePage[] = [
     slug: 'find',
     name: 'Find',
     stage: 'Build relationships',
-    title: 'Find: search, ICP Matching, priority and Network Ask',
+    title: 'Find: ICP Matching, Relationship Heat Map and Network Ask',
     description: 'Search your network with what you remember, define who you are looking for and see who fits, watch which relationships are warming or cooling, and post what you need.',
     headline: ['Find the people worth your ', 'attention', '.'],
     lede: 'Search in plain words, define who you are looking for, see who fits, and know which relationships are going quiet.',
@@ -97,8 +97,7 @@ export const FEATURES: readonly FeaturePage[] = [
     planNote: 'Search and the Relationship Heat Map are part of the app for every plan with notes and tags. ICP Matching, Network Ask and Network Strength are part of Pro and Team.',
     faq: [
       { q: 'What is an ICP?', a: 'An ideal customer profile: who you are looking for, described once. Linkist compares your contacts against it and shows the matches.' },
-      { q: 'How does Linkist decide a relationship is cooling?', a: 'From activity: when you last met, wrote or were nudged. Relationship Health groups contacts into warming up, cooling down and cold.' },
-      { q: 'Can other people see my Network Ask?', a: 'A Network Ask searches your own network and trusted paths through it. Who sees it is confirmed on the app audit and stated here plainly.' },
+      { q: 'How does Linkist decide a relationship is cooling?', a: 'From activity: when you last met, wrote or were nudged. The Relationship Heat Map groups contacts into warming up, cooling down and cold.' },
     ],
     hubBlurb: 'Natural-Language Search, ICP Matching, Relationship Heat Map and Network Ask.',
     object: 'search',
@@ -128,7 +127,7 @@ export const FEATURES: readonly FeaturePage[] = [
     ],
     planNote: 'Top Actions, Intelligent Nudges, Warm Introductions, AI Follow-up, the AI voice notetaker and the deal-tracking mini-CRM are part of Pro and Team.',
     faq: [
-      { q: 'Does Linkist send messages for me?', a: 'No. It drafts. You read, change and send.' },
+      { q: 'Does Linkist send messages for me?', a: 'Only when you tell it to send one. It drafts; you read, change and send.' },
       { q: 'How often do nudges arrive?', a: 'When something deserves attention: a follow-up you have not made, a relationship going quiet, a signal about a contact. You can schedule the cadence per contact.' },
       { q: 'What is the deal-tracking mini-CRM?', a: 'A light pipeline for the opportunities behind your relationships, on Pro and Team. It is not a full sales CRM and does not try to be.' },
     ],
@@ -156,7 +155,7 @@ export const FEATURES: readonly FeaturePage[] = [
       { key: 'card', title: 'Digital business card', body: 'Photo, name, role, company and the links that matter. One template on Essential, 3 on Enhanced, full customisation on Pro.', screen: 'v6-cards', kind: 'phone', alt: 'Digital business card' },
       { key: 'url', title: 'Personal URL', body: 'A memorable address of your own under linkist.ai/me. It is on your NFC card, in your email signature and on the QR code.', screen: 'profile-zayn', kind: 'phone', alt: 'Personal URL settings', plan: 'Enhanced' },
       { key: 'profiles', title: 'Several profiles', body: 'A personal profile and business profiles for the hats you wear: 1 on Essential, 3 on Enhanced, 5 on Pro. Switch which one a card shares.', screen: 'v6-cards', kind: 'phone', alt: 'Profiles list', plan: 'Enhanced' },
-      { key: 'share', title: 'Sharing and wallet', body: 'Share by NFC tap, QR code, link, email or SMS. Apple Wallet and Google Wallet are coming soon.', screen: 'v6-share', kind: 'phone', alt: 'Share Contact screen' },
+      { key: 'share', title: 'Sharing and wallet', body: 'Share by NFC tap, QR code, link, WhatsApp, email or SMS. Apple Wallet and Google Wallet are coming soon.', screen: 'v6-share', kind: 'phone', alt: 'Share Contact screen' },
     ],
     planNote: 'Essential includes the digital card, 1 profile, 1 template and QR, URL, email and SMS sharing. Enhanced adds the personal URL, unlimited fields, 3 profiles, 3 templates and a branded QR. Pro adds 5 profiles and full customisation.',
     faq: [
@@ -192,7 +191,7 @@ export const FEATURES: readonly FeaturePage[] = [
     planNote: 'The Team plan is $5 (AED 20) per user a month with a minimum of 5 users: $25 (AED 100) a month or $250 (AED 1,000) a year for 5 users, then $5 (AED 20) a month or $50 (AED 200) a year for each additional user. It includes everything in Pro for every user.',
     faq: [
       { q: 'What happens to contacts when someone leaves?', a: 'Their personal contacts stay theirs. Team-shared contacts and the relationship history remain with the authorised team.' },
-      { q: 'Can we brand the cards?', a: 'Yes. Company-wide branding on cards is part of the Team plan and managed from the admin console.' },
+      { q: 'Can we brand the cards?', a: 'Yes. On the Team plan, company-wide branding on every member’s card is managed from the admin console. A Signature NFC card prints your own name and logo on any plan.' },
       { q: 'Is there an Enterprise plan?', a: 'Not yet. Enterprise is upcoming; single sign-on and CRM and HRMS integration are planned for it. Contact us to talk.' },
     ],
     hubBlurb: 'Shared contacts, admin console, company branding and a team directory.',

@@ -17,8 +17,8 @@
   "imported": "2026-09-10",
   "faq": [
     { "q": "Which plans include ICP Matching?", "a": "Pro and Team." },
-    { "q": "Is ICP Matching switched on by default?", "a": "No. It is an optional AI feature with its own consent, separate from the terms, and you can switch it off in Privacy Settings." },
-    { "q": "Can a match be wrong?", "a": "Yes. Matches are suggestions built from the data available, and the terms ask you to review AI outputs before relying on them." }
+    { "q": "Is ICP Matching switched on by default?", "a": "No. AI features are off until you switch them on, and you can switch them off at any time in Settings > Privacy (T 9, P 5)." },
+    { "q": "Can a match be wrong?", "a": "Yes. Matches are suggestions built from the data available; the terms say AI can be wrong, so check a match before you rely on it (T 9)." }
   ]
 }
 ---
@@ -33,9 +33,9 @@ You can keep more than one. A founder might hold one ICP for customers and anoth
 
 ## What matching reads
 
-ICP Matching works from what is in Linkist about each contact: profile data, contact details, your notes, connection history, the context of how you met, and professional information. Where you have enabled AI Enrichment, it also draws on public or professional sources to fill gaps in a record, which usually improves the match.
+ICP Matching works from what is in Linkist about each contact: profile data, contact details, your notes, connection history, the context of how you met, and professional information. Where you have switched AI Enrichment on, it also fills gaps in a record, which usually improves the match.
 
-It does not read anything outside Linkist about you, and it does not read your contacts' private data. The [privacy policy](/legal/privacy) lists exactly what the AI features use.
+The [Terms and Privacy](/legal/terms) set the limits: the AI uses only public business sources, information from users and data providers Linkist has an agreement with, and information about individual people stays in your account (T 9).
 
 ## What it shows
 
@@ -60,10 +60,10 @@ Keep the context flowing in. Matching is only as good as the record. A tag for t
 
 ## What it cannot do
 
-ICP Matching is assistive. It suggests, and you decide. The privacy policy says Linkist does not use AI for legally binding decisions, and the terms say AI outputs may be incomplete or out of date and should be reviewed before you rely on them. A match is a reason to look, not a conclusion.
+ICP Matching is assistive. It suggests, and you decide. The privacy policy says Linkist does not use AI to make decisions that seriously affect people (P 6), and the terms say AI can be wrong, so check suggestions before you rely on them (T 9). A match is a reason to look, not a conclusion.
 
-It is also optional. AI features in Linkist are switched on with a separate consent, and you can switch them off in Privacy Settings or by writing to privacy@linkist.ai. AI enrichment outputs are kept for up to 6 months or until you delete your account.
+It is also optional. AI features in Linkist are off until you switch them on, and you can switch them off in Settings > Privacy or by writing to privacy@linkist.ai (T 9, P 5). AI results about people are kept for up to 6 months unless refreshed, or until you delete them (P 10).
 
 ## Where it lives
 
-ICP Matching is part of Pro and Team. It sits in the Build relationships stage alongside Natural-Language Search, the Relationship Heat Map and Network Ask; the [Find](/features/find) page shows them together, and the [find-the-right-person use case](/use-cases/find-the-right-person) walks through a real search.
+ICP Matching is part of Pro and Team. It sits in the Build relationships stage alongside Natural-Language Search, the Relationship Heat Map and Network Ask; the [Find](/features/find) page shows them together, and the [find-the-right-person use case](/use-cases/find-the-right-person) walks through a search.

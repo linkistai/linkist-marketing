@@ -7,7 +7,8 @@ export interface FeatureTab {
   readonly title: string;
   readonly body: string;
   readonly plan?: string;
-  readonly screen: ReactNode;
+  /** The screen beside the text; null when there is no capture yet, and the text stands alone. */
+  readonly screen: ReactNode | null;
 }
 
 /**
@@ -46,7 +47,7 @@ export function FeatureTabs({ tabs, label }: { tabs: readonly FeatureTab[]; labe
               <p className="lede mt-3 max-w-[520px]">{t.body}</p>
               {t.plan ? <p className="tag tag--plan mt-5">{t.plan}</p> : null}
             </div>
-            <div className="min-w-0">{t.screen}</div>
+            {t.screen ? <div className="min-w-0">{t.screen}</div> : null}
           </div>
         </div>
       ))}

@@ -171,7 +171,7 @@ A name and telephone number cannot tell you why a conversation mattered. Linkist
 
 ### 3. It helps users prioritise relationships
 
-Not every contact requires the same level of attention at the same time. Linkist’s broader PRM direction includes relationship insights, contact prioritisation, Ideal Customer Profile matching, network-strength indicators and intelligent nudges. The aim is not to rank people by their personal worth. It is to help professionals understand situational relevance.
+Not every contact requires the same level of attention at the same time. Linkist PRM includes relationship insights, the Relationship Heat Map, Ideal Customer Profile matching, Network Strength and Intelligent Nudges. The aim is not to rank people by their personal worth. It is to help professionals understand situational relevance.
 
 ### 4. It supports timely, relevant follow-up
 
@@ -179,7 +179,7 @@ A large portion of relationship value is lost through delay. Someone may fully i
 
 ### 5. It can reveal trusted pathways through a network
 
-Relationship capital is not limited to direct contacts. Sometimes the person who can help is connected through someone already known and trusted. Linkist’s Ask-based networking direction is intended to help users identify relevant direct and second-degree relationships while encouraging introductions through trusted, consent-aware pathways, fundamentally different from indiscriminate cold outreach.
+Relationship capital is not limited to direct contacts. Sometimes the person who can help is connected through someone already known and trusted. Network Ask, part of Linkist Pro and Team, helps users find relevant people in their network and trusted paths to someone one connection away, while encouraging introductions through consent-aware pathways, fundamentally different from indiscriminate cold outreach.
 
 ### 6. It helps relationship knowledge become actionable
 
@@ -187,7 +187,7 @@ A professional may already have valuable contacts but be unable to see patterns 
 
 ### 7. It can support relationship continuity across teams
 
-For organisations, Linkist’s longer-term value extends beyond individual productivity. Appropriately shared relationship context can help teams identify existing connections, avoid duplicate or conflicting outreach and preserve continuity when responsibilities change, without treating every private relationship as company property. Effective relationship management must combine usefulness with consent, privacy and appropriate access controls.
+For organisations, the Team plan takes Linkist beyond individual productivity. Appropriately shared relationship context can help teams identify existing connections, avoid duplicate or conflicting outreach and preserve continuity when responsibilities change, without treating every private relationship as company property. Effective relationship management must combine usefulness with consent, privacy and appropriate access controls.
 
 ::note
 In simple terms: the Linkist Smart NFC Card starts the connection; the Linkist PRM helps preserve the context, identify relevance and support the next action.

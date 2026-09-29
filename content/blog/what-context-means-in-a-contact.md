@@ -16,7 +16,7 @@
   "source": "Written from the product for the Linkist website, checkpoint 5",
   "imported": "2026-09-10",
   "faq": [
-    { "q": "What can I save with a contact in Linkist?", "a": "Notes about where and how you met, follow-up reminders, tags, interaction history, connection context, groups, and relationship status or priority, as the privacy policy lists." },
+    { "q": "What can I save with a contact in Linkist?", "a": "Where and how you met, notes, follow-up reminders and tags (the privacy policy lists these, P 2), plus the interaction history and where the relationship stands on the Relationship Heat Map. Notes and tags start at Enhanced." },
     { "q": "Does AI Enrichment write the context for me?", "a": "No. It fills in missing professional details such as company or role, where enabled. The context of the meeting is yours to record." },
     { "q": "Can I record context by voice?", "a": "Yes. Voice Notes keep a spoken note with the contact, recorded while the meeting is fresh." }
   ]
@@ -27,7 +27,7 @@ Open the contact of someone you met 6 months ago. The name is there, the company
 
 ## What context is
 
-Context is everything that makes a contact a relationship. In Linkist it has a place to live, and the privacy policy lists what the product keeps with each person:
+Context is everything that makes a contact a relationship. In Linkist it has a place to live. With each person, Linkist keeps:
 
 - notes about where and how you met
 - follow-up reminders
@@ -35,7 +35,7 @@ Context is everything that makes a contact a relationship. In Linkist it has a p
 - interaction history
 - connection context
 - groups, teams and communities
-- relationship status, priority and health
+- where the relationship stands on the Relationship Heat Map
 
 None of that is exotic. It is the material you would tell a colleague if you handed the relationship over. The difference is that it is written down, attached to the person, and searchable.
 
@@ -59,7 +59,7 @@ Card scans, NFC taps and QR captures all land in the same record, so the habits 
 
 ## What enrichment adds, and what it does not
 
-AI Enrichment fills in missing professional details on an incomplete record, from public or professional sources where you have enabled it. That gives you the company, the role and the links. It does not know what the person said to you, and it never will. Enrichment completes the profile; context is yours.
+AI Enrichment fills in missing professional details on an incomplete record, from public business sources and data providers Linkist has an agreement with, where you have switched it on. That gives you the company, the role and the links. It does not know what the person said to you, and it never will. Enrichment completes the profile; context is yours.
 
 ## How context pays back
 

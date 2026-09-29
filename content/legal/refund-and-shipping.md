@@ -2,11 +2,11 @@
 {
   "slug": "refund-and-shipping",
   "title": "Refund and Shipping Policy",
-  "summary": "Orders, delivery, changes, returns and refunds for NFC cards, and cancellation of subscriptions. A draft for counsel built on sections 7 to 9 of the published terms and the store as it stands.",
+  "summary": "Orders, delivery, changes, returns and refunds for NFC cards, and cancellation of subscriptions. A draft for counsel built on sections 7 to 9 of the earlier terms of service and the store as it stands.",
   "status": "draft",
   "version": "0.1",
   "effective": "2026-09-10",
-  "updated": "2026-09-10"
+  "updated": "2026-09-29"
 }
 ---
 
@@ -16,7 +16,7 @@ Physical NFC cards ordered from the Linkist store, and paid subscriptions. The T
 
 ## 2. Prices, currency and tax
 
-The store prices cards in AED and shows an approximate US dollar figure beside each price. The Terms say prices are displayed in USD unless otherwise stated; the currency that applies is the one shown at checkout. [PLACEHOLDER: confirm the billing currency and whether the AED price or the USD price is contractual.] Taxes, duties and shipping may be added at checkout depending on the product and the delivery country.
+Card prices are listed in AED and US dollars, and the store checks out in AED; the currency that applies is the one shown at checkout. [PLACEHOLDER: confirm the billing currency and whether the AED price or the USD price is contractual.] Taxes are added at checkout where they apply. Shipping within the UAE is included.
 
 ## 3. Where cards ship, and what it costs
 
@@ -47,9 +47,9 @@ NFC depends on compatible devices, settings, operating system restrictions and c
 
 ## 7. Subscriptions
 
-Unless stated otherwise at checkout, paid subscriptions renew automatically until cancelled. Cancel before the renewal date in the billing hub at prm.linkist.ai to stop the next period. A period already paid for runs to its end. Linkist may change subscription features or prices with reasonable notice where the law requires it, without affecting a period already paid for unless you agree or the law requires it.
+Paid plans renew automatically for the same period unless you cancel. Cancel before the renewal date in the billing hub at prm.linkist.ai to stop the next period. A period already paid for runs to its end. Linkist may change subscription features or prices with reasonable notice where the law requires it, without affecting a period already paid for unless you agree or the law requires it.
 
-[PLACEHOLDER: whether any refund is offered for an unused part of a subscription period, and the treatment of the lifetime Enhanced plan and the Founders Circle lifetime Pro if the service is discontinued.]
+[PLACEHOLDER: whether any refund is offered for an unused part of a subscription period, and the treatment of the Founders Circle lifetime Pro if the service is discontinued.]
 
 ## 8. Payment providers
 

@@ -59,6 +59,6 @@ It is not a replacement for the phone book. Linkist imports your phone contacts,
 
 ## Where to start
 
-The Essential plan is free and needs no card. Capture the next 10 people you meet with the context you would otherwise lose, then look at what the home screen suggests a week later. If the suggestions are useful, the paid plans add the intelligence: AI Enrichment, ICP Matching, Network Ask, Top Actions and the rest are part of Pro and Team.
+The Essential plan is free and needs no card. Share your profile and capture the next 10 people you meet. Enhanced adds notes and tags to keep the context, and Pro and Team add the intelligence: AI Enrichment, ICP Matching, Network Ask, Top Actions and the rest.
 
 Read how the three stages work on [How Linkist works](/how-it-works), or compare the plans on the [pricing page](/pricing).

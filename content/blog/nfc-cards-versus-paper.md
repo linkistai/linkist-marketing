@@ -18,7 +18,7 @@
   "faq": [
     { "q": "Does the other person need an app?", "a": "No. A tap or a QR scan opens your live profile in their browser and they can save your details from there." },
     { "q": "Does the card work with every phone?", "a": "It needs a phone with NFC switched on. The terms do not guarantee every device or setting, so every card can also carry a QR code as a fallback." },
-    { "q": "Can I keep the card I already have?", "a": "Yes. The store's bring-your-own route encodes an NFC card or sticker you already own with your live profile, free. Encoding needs an Android phone." }
+    { "q": "Can I keep the card I already have?", "a": "Yes, free, at nfctools.linkist.ai: it writes your live profile onto an NFC card or sticker you own. Encoding needs an Android phone and at least an Essential Linkist profile." }
   ]
 }
 ---
@@ -53,7 +53,7 @@ Linkist sells two tiers in three materials, each including the PRM Essential pla
 Prices are one-time, in AED with US dollars in brackets; the store checks out in AED. Shipping is included within the UAE, the only region served for now. The [NFC cards](/nfc-cards) page has the full detail, and the [bundles](/bundles) pair a Signature card with a year of Pro.
 
 ::note
-Already own an NFC card or sticker? The store's bring-your-own route writes your live profile onto it for free. Encoding the chip needs an Android phone; the profile then opens on any device.
+Already own an NFC card or sticker? The free tool at nfctools.linkist.ai writes your live profile onto it. Encoding the chip needs an Android phone and at least an Essential Linkist profile; the profile then opens on any device.
 ::
 
 ## Where paper still wins, and what to do about it

@@ -10,7 +10,7 @@ export const CHANNELS: readonly { name: string; handle: string; href: string }[]
 ];
 
 export const WHAT_YOU_GET: readonly { title: string; body: string }[] = [
-  { title: 'Product notes', body: 'What changed and what is coming, in the words of the changelog, when there is something worth saying.' },
+  { title: 'Product notes', body: 'What changed and what is coming, when there is something worth saying.' },
   { title: 'New articles', body: 'Guides on networking, NFC cards and relationship management as they are published on the blog.' },
   { title: 'Invitations', body: 'When Linkist runs or joins an event, in Dubai or online, members hear first. There is no fixed calendar yet.' },
 ];

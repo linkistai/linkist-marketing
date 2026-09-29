@@ -21,7 +21,7 @@
     },
     {
       "q": "Does an NFC business card work on every phone?",
-      "a": "Most modern smartphones (including iPhones from the 7 onwards and virtually all current Android devices) support NFC. For older devices, your QR code and profile link work as a universal fallback."
+      "a": "Most recent iPhones and Android phones open the profile with a tap when NFC is on, though no NFC card can promise to work with every phone. For other phones, your QR code and profile link are the fallback."
     },
     {
       "q": "Can I update my card after it has been printed or ordered?",
@@ -41,11 +41,11 @@
     },
     {
       "q": "Can companies create digital cards for their employees?",
-      "a": "Yes. Linkist offers team plans that allow administrators to create, manage, and brand profiles for every member of the team from a central dashboard. All cards share consistent branding while each individual maintains their own contact information."
+      "a": "Yes. Linkist’s Team plan lets administrators create, manage, and brand profiles for every member of the team from a central dashboard. All cards share consistent branding while each individual maintains their own contact information."
     },
     {
       "q": "How much does a Linkist digital business card cost?",
-      "a": "Linkist offers a free plan to get started. Paid plans unlock premium features including custom branding, analytics, the NFC card, and team management. Visit linkist.ai/digital-business-card for current pricing."
+      "a": "Linkist offers a free plan to get started. Paid plans add features such as custom branding, analytics and team management. An NFC card is a separate one-time purchase, and every NFC card includes PRM Essential. See the pricing page for current prices."
     },
     {
       "q": "Can I use my digital card outside of networking events?",
@@ -53,7 +53,7 @@
     },
     {
       "q": "What happens if I lose my NFC card?",
-      "a": "Your profile still exists online. You can share it via QR code or link while you order a replacement card. Your profile URL and all your data remain safe; you simply order a new NFC card and it is programmed to the same profile."
+      "a": "Switch the lost card off in the app straight away. Your profile and data are safe, and you can share by QR code or link while you order a replacement, which is charged unless the loss was Linkist’s fault. The new NFC card opens the same profile."
     }
   ]
 }
@@ -109,7 +109,7 @@ Linkist combines both: your digital profile exists online and can be shared via 
 
 ## NFC, QR code or profile link: which is better?
 
-Linkist supports three sharing methods, each suited to different situations.
+Your profile opens three ways, each suited to different situations, and you can send the link by email, SMS, WhatsApp or any messaging app.
 
 ::cards
 NFC Tap | Best at in-person events. One tap on a modern smartphone opens your profile instantly. No camera needed, fastest possible exchange.
@@ -118,7 +118,7 @@ Profile Link | Best for remote introductions: email, WhatsApp, video calls, Link
 ::
 
 ::note
-**Pro tip:** You do not need to choose just one. Linkist gives you all three simultaneously: your NFC card, a QR code, and a permanent profile link, so you are covered in every situation.
+**Pro tip:** You do not need to choose just one. Linkist gives you all three at once: a QR code, your profile link and, if you order one, an NFC card, so you are covered in every situation.
 ::
 
 ## Why are professionals moving beyond paper business cards?
@@ -126,7 +126,7 @@ Profile Link | Best for remote introductions: email, WhatsApp, video calls, Link
 Paper cards have served professionals for centuries. But in a world where people work across multiple roles, have multiple social profiles, and change jobs regularly, paper cards have real limitations.
 
 - ♻️ **Always up to date** Update your number, title, or links any time. Everyone who taps or scans your card sees the current version automatically.
-- 📊 **Analytics and insights** See who viewed your profile, when, and which links they clicked. Paper cards give zero data.
+- 📊 **Analytics and insights** See how often your profile is opened, from which city and on which device type; you see who it was when they send you their details. Paper cards give zero data.
 - 🌍 **Never run out** You can share with an unlimited number of people without running out of stock or worrying about printing costs.
 - 🔗 **Clickable links** Every element on your Linkist profile is clickable; people can call, email, or connect in one tap.
 - 💾 **Saved instantly** Recipients can save your contact directly to their phone's address book, no typing, no lost card.
@@ -172,7 +172,6 @@ Linkist was built with UAE professionals in mind. From the first tap at a Dubai 
 | **Analytics / view tracking** | ✓ | ✗ |
 | **Unlimited sharing** | ✓ | ✗ |
 | **Save to contacts** | ✓ (one tap) | Manual |
-| **Works without internet (NFC)** | ✓ | ✓ |
 | **Physical presence** | ✓ (optional NFC card) | ✓ |
 | **Eco-friendly** | ✓ | ✗ |
 | **Cost after setup** | Near zero | Ongoing printing |
@@ -230,7 +229,7 @@ Claim a short, clean profile URL early. `m.linkist.ai/me/your-name` is easier to
 
 ::cards
 Founders & CEOs | Share your company vision and multiple contact points without printing new cards after every pivot.
-Sales professionals | Share your profile in seconds and follow up with full context about which links they clicked.
+Sales professionals | Share your profile in seconds and follow up with the context you saved.
 Freelancers | Present a portfolio, booking link, and social proof in one shareable profile.
 Event speakers | Add your profile QR to your slides so the audience can connect with you without writing anything down.
 HR & Recruiters | Share a card that links directly to your LinkedIn and company careers page.
@@ -241,7 +240,7 @@ Corporate teams | Ensure every employee has a current, brand-consistent digital 
 
 Managing business cards across a growing team is one of the most overlooked operational challenges in professional services, consulting, and sales organisations. When every employee has a different card design, outdated information, or no card at all, it creates inconsistency in how the company presents itself.
 
-Linkist's team plans allow administrators to:
+Linkist's Team plan lets administrators:
 
 - Create and manage profiles for all team members from a central dashboard
 - Apply consistent brand colours, logos, and layout across all cards
@@ -259,19 +258,19 @@ Not all digital business card platforms are equal. When evaluating a platform, c
 2. **NFC card option**: the physical component makes a real difference in face-to-face settings.
 3. **Custom branding**: your own colours, logo, and profile URL matter for professional credibility.
 4. **Contact save functionality**: recipients should be able to add you to their contacts in one tap.
-5. **Analytics**: you should know when someone viewed your card and what they clicked.
+5. **Analytics**: you should know how often your card is opened.
 6. **Team management**: if you have more than one person, centralised control is essential.
 7. **Reliable uptime**: your card URL needs to load every time, at every event.
 8. **Fair pricing**: look for transparent pricing with no hidden costs for updates or contacts.
 
-Linkist meets all eight criteria and is built specifically for professionals in the UAE and across the GCC region.
+Linkist is built with these eight in mind, specifically for professionals in the UAE and across the GCC region.
 
 ## How to create a digital business card with Linkist
 
 Creating your Linkist profile takes less than five minutes:
 
-1. Go to [linkist.ai/choose-plan](/pricing) and choose your plan.
-2. Enter your name and claim your profile URL.
+1. Press Start Now to open the free quick profile; choose a paid plan any time on the [pricing page](/pricing).
+2. Enter your name (from Enhanced, you can also claim a personal profile URL).
 3. Add your contact details: phone, email, and website.
 4. Upload a profile photo and company logo.
 5. Add your social links (LinkedIn, Instagram, WhatsApp, etc.).
@@ -280,18 +279,18 @@ Creating your Linkist profile takes less than five minutes:
 8. Share your link, download your QR code, or order your NFC card.
 
 ::note
-**Free plan available.** You can create a Linkist profile for free and upgrade to unlock NFC cards, custom branding, analytics, and team features when you are ready.
+**Free plan available.** You can create a Linkist profile for free, add an NFC card any time as a one-time purchase that includes PRM Essential, and upgrade for custom branding, analytics and team features when you are ready.
 ::
 
 ## Beyond the card: building relationships with Linkist
 
 A business card (paper or digital) is only the start. The real value is in what comes after the initial exchange: the follow-up, the context, and the ongoing relationship.
 
-Linkist is building the tools that sit between the first tap and the long-term professional relationship. With Linkist PRM (Personal Relationship Manager), you can log notes about every contact, set follow-up reminders, and track where each relationship stands, all tied to the moment they scanned your card.
+Linkist PRM (Personal Relationship Manager) is the tool that sits between the first tap and the long-term professional relationship. With it you can log notes about every contact, set follow-up reminders, and track where each relationship stands, all tied to the moment you met.
 
 ::flow
 They tap your card
-You see their view
+They save your details
 You follow up
 You log context
 Relationship grows
@@ -305,7 +304,7 @@ The goal is not just a smarter business card; it is a smarter way to build and m
 No. With Linkist, the person you share with does not need to download anything. Your profile opens directly in their phone's browser, whether they tap your NFC card, scan your QR code, or click your profile link.
 
 ### Does an NFC business card work on every phone?
-Most modern smartphones (including iPhones from the 7 onwards and virtually all current Android devices) support NFC. For older devices, your QR code and profile link work as a universal fallback.
+Most recent iPhones and Android phones open the profile with a tap when NFC is on, though no NFC card can promise to work with every phone. For other phones, your QR code and profile link are the fallback.
 
 ### Can I update my card after it has been printed or ordered?
 Yes. Your NFC card is programmed to open your Linkist profile URL. You can update your phone number, title, social links, or any other information at any time without replacing the physical card.
@@ -320,13 +319,13 @@ For most professionals, yes. Linkist's NFC card gives you a physical card experi
 The two terms are generally used interchangeably. Both refer to a contactless, online profile that holds your professional details. "Digital business card" is the more commonly used term in professional contexts.
 
 ### Can companies create digital cards for their employees?
-Yes. Linkist offers team plans that allow administrators to create, manage, and brand profiles for every member of the team from a central dashboard. All cards share consistent branding while each individual maintains their own contact information.
+Yes. Linkist’s Team plan lets administrators create, manage, and brand profiles for every member of the team from a central dashboard. All cards share consistent branding while each individual maintains their own contact information.
 
 ### How much does a Linkist digital business card cost?
-Linkist offers a free plan to get started. Paid plans unlock premium features including custom branding, analytics, the NFC card, and team management. Visit linkist.ai/digital-business-card for current pricing.
+Linkist offers a free plan to get started. Paid plans add features such as custom branding, analytics and team management. An NFC card is a separate one-time purchase, and every NFC card includes PRM Essential. See the pricing page for current prices.
 
 ### Can I use my digital card outside of networking events?
 Yes. Your Linkist profile URL can be added to your email signature, LinkedIn bio, WhatsApp status, presentation slides, and proposals. Many users find that they share their digital card most often in everyday digital communication, not just at events.
 
 ### What happens if I lose my NFC card?
-Your profile still exists online. You can share it via QR code or link while you order a replacement card. Your profile URL and all your data remain safe; you simply order a new NFC card and it is programmed to the same profile.
+Switch the lost card off in the app straight away. Your profile and data are safe, and you can share by QR code or link while you order a replacement, which is charged unless the loss was Linkist’s fault. The new NFC card opens the same profile.

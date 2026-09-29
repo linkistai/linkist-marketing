@@ -33,6 +33,7 @@ Get the contact into Linkist while the conversation is still warm. There are 6 w
 - They have any phone: show your QR code. Same profile, same result.
 - They give you a paper card: scan it with the camera. The name, company, role, phone and email land in fields you can correct before saving.
 - They are already in your phone or in another tool: import from the address book, a CSV or a VCF file later.
+- None of those: type the name and one line about them now; the rest can wait.
 
 Then the part the spreadsheet never holds. Add a tag for the event, note where you met, and record a voice note of one sentence: what they need, what you offered, what you promised. That sentence is the difference between a follow-up that lands and a generic message.
 
@@ -56,7 +57,7 @@ This is where a spreadsheet dies, because nobody opens it on Thursday. Linkist d
 
 - Top Actions lists the most important things to do today when you open the app.
 - Intelligent Nudges prompt you before a follow-up slips: you met someone at the event and have not followed up.
-- AI Follow-up drafts the message from the context you saved. You read it, change it, and send it yourself. Linkist never sends on your behalf.
+- AI Follow-up drafts the message from the context you saved. You read it, change it, and send it yourself. Linkist sends nothing unless you tell it to send that message.
 - The Relationship Heat Map shows which of the new relationships are warming up and which are going quiet, so the second week gets the right attention too.
 
 ## What to skip

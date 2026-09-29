@@ -4,7 +4,7 @@
   "category": "networking",
   "categoryLabel": "Networking",
   "title": "A weekly relationship routine that takes 20 minutes",
-  "excerpt": "Relationships do not need more time; they need a fixed slot. A Monday plan, a daily glance and a Friday review, built on Top Actions, the Weekly Planner and the Relationship Heat Map.",
+  "excerpt": "Relationships do not need more time; they need a fixed slot. A Monday plan, a midweek glance and a Friday review, built on Top Actions, the Weekly Planner and the Relationship Heat Map.",
   "author": "Linkist",
   "date": "2026-09-10",
   "dateLabel": "10 September 2026",
@@ -23,9 +23,9 @@
 }
 ---
 
-The professionals with strong networks are rarely the ones with the most free time. They have a routine, and the routine is short because the tool does the remembering. This one takes about 20 minutes a week, split into a Monday plan, a daily glance and a Friday review.
+The professionals with strong networks are rarely the ones with the most free time. They have a routine, and the routine is short because the tool does the remembering. This one takes about 20 minutes a week: an 8-minute Monday plan, a 2-minute glance on the three days between and a 6-minute Friday review.
 
-## Monday, 10 minutes: plan the week
+## Monday, 8 minutes: plan the week
 
 Open Linkist and look at two things.
 
@@ -36,18 +36,18 @@ If you keep an ideal customer profile, check the home screen for new ICP matches
 
 ::flow
 Monday: Top Actions and the Weekly Planner
-Daily: a glance at the nudges
+Tuesday to Thursday: a glance at the nudges
 Friday: Relationship Heat Map review
 Monthly: a read of Network Strength
 ::
 
-## Every day, 2 minutes: the glance
+## Tuesday to Thursday, 2 minutes: the glance
 
-Intelligent Nudges arrive before a follow-up slips, and Smart Signals point at changes that deserve a reaction. The daily glance is a decision, not a task: act now, schedule it, or dismiss it. AI Follow-up drafts the message when you choose to act; you read, change and send it.
+Intelligent Nudges arrive before a follow-up slips, and Smart Signals point at changes that deserve a reaction. The glance is a decision, not a task: act now, schedule it, or dismiss it. AI Follow-up drafts the message when you choose to act; you read, change and send it.
 
 The glance is short because you are not searching for what to do. The app has already sorted it.
 
-## Friday, 8 minutes: the review
+## Friday, 6 minutes: the review
 
 The Relationship Heat Map shows which relationships are warming up, cooling down or cold. Read the cooling list first. Pick 2 people who matter and give each a slot next week: a message, a coffee, a useful article. Then read the warming list and ask whether any of them deserve an introduction to someone else you know. That is how a network compounds.
 

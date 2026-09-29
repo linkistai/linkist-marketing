@@ -33,20 +33,22 @@ export default async function FeaturePage({ params }: { params: Promise<{ slug: 
   if (!f) notFound();
   const tabs = f.tabs.map((t) => {
     const preview = isPreview(t.screen);
+    // No capture yet (the Team screens): the tab shows its text alone, never a "capture pending" frame.
+    const src = screen(t.screen);
     return {
       key: t.key,
       title: t.title,
       body: t.body,
       plan: t.plan,
-      screen: (
+      screen: !src ? null : (
         <div className="relative flex justify-center py-4">
           <div className="v2-glow w-[min(100%,440px)]" aria-hidden="true" />
           {t.kind === 'phone' ? (
             <div className="relative w-full max-w-[280px]">
-              <ScreenFrame kind="phone" src={screen(t.screen)} alt={preview ? PROTO_ALT[t.screen as ProtoScreen] : t.alt} preview={preview} full={preview} tall={preview ? TALL_SCREENS[t.screen as ProtoScreen] : undefined} className="!max-w-none" />
+              <ScreenFrame kind="phone" src={src} alt={preview ? PROTO_ALT[t.screen as ProtoScreen] : t.alt} preview={preview} full={preview} tall={preview ? TALL_SCREENS[t.screen as ProtoScreen] : undefined} className="!max-w-none" />
             </div>
           ) : (
-            <ScreenFrame kind="browser" src={screen(t.screen)} alt={t.alt} preview={preview} />
+            <ScreenFrame kind="browser" src={src} alt={t.alt} preview={preview} />
           )}
         </div>
       ),
@@ -72,7 +74,7 @@ export default async function FeaturePage({ params }: { params: Promise<{ slug: 
         ctas={
           <>
             <StartFree />
-            <TextLink href="#inside">See it on real screens</TextLink>
+            <TextLink href="#inside">See it on screen</TextLink>
           </>
         }
         note={

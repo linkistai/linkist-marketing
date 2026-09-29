@@ -63,6 +63,6 @@ Warm introductions come from warm relationships. The Relationship Heat Map shows
 
 ## What Linkist does and does not do here
 
-It finds the path, drafts the message and reminds you. It does not send anything, and it does not contact the connector or the target on your behalf. The ask is yours, in your words, from your account.
+It finds the path, drafts the message and reminds you. It sends nothing on its own and contacts no one unless you choose to send a message. The ask is yours, in your words, from your account.
 
 Network Ask, Warm Introductions and the Relationship Heat Map are part of Pro and Team. The [Find](/features/find) and [Act](/features/act) pages show where they sit, and the [find-the-right-person use case](/use-cases/find-the-right-person) walks through a search from requirement to introduction.

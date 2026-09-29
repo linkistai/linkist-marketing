@@ -2,7 +2,7 @@
 {
   "slug": "cookie-policy",
   "title": "Cookie Policy",
-  "summary": "What this website and the Linkist app store on your device, why, and how to change your choices. A draft for counsel built on section 12 of the published privacy policy.",
+  "summary": "What this website and the Linkist app store on your device, why, and how to change your choices. A draft for counsel built on section 12 of the earlier privacy policy.",
   "status": "draft",
   "version": "0.1",
   "effective": "2026-09-10",

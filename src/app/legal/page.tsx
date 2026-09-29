@@ -53,7 +53,7 @@ export default function LegalIndex() {
           <h2 id="drafts" className="mt-16 font-display text-[clamp(26px,2.6vw,34px)] font-semibold tracking-[-0.03em]">
             Drafts for counsel
           </h2>
-          <p className="mt-2 max-w-2xl text-sm text-body">Written before the Terms and Privacy of 7 September 2026. None is in force.</p>
+          <p className="mt-2 max-w-2xl text-sm text-body">Built on the earlier Linkist policies (version 1.1 of 1 June 2026) and not yet updated to the Terms and Privacy of 7 September 2026. None is in force.</p>
           <ul className="mt-6 grid gap-[18px] [grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))]">
             {drafts.map((d) => (
             <li key={d.slug} className="flex">

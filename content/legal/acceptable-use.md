@@ -2,7 +2,7 @@
 {
   "slug": "acceptable-use",
   "title": "Acceptable Use Policy",
-  "summary": "What you may not do with Linkist and what you may not put into it. A draft for counsel that restates sections 13 and 14 of the published terms in one place.",
+  "summary": "What you may not do with Linkist and what you may not put into it. A draft for counsel that restates sections 13 and 14 of the earlier terms of service in one place.",
   "status": "draft",
   "version": "0.1",
   "effective": "2026-09-10",

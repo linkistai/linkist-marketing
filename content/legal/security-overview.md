@@ -12,7 +12,7 @@
 
 ## 1. Basis
 
-This overview restates section 16 of the published Privacy Policy and adds what the product and this website show. It makes no claim the Privacy Policy does not make. The security page on this website presents the same material for a general reader.
+This overview restates section 16 of the published Privacy Policy and adds what the product and this website show. It makes no claim the Privacy Policy does not make.
 
 ## 2. Measures the Privacy Policy states
 

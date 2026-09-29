@@ -39,7 +39,7 @@ The Team plan in Linkist draws one line and keeps to it. Every contact is either
 That line is what makes people willing to share. Nobody hands over a network wholesale; everybody can share the relationships that belong to the work.
 
 ::note
-Sharing is per contact. The choice sits with the person who captured the relationship, and the history of a shared contact stays readable to the team afterwards.
+Sharing is per contact: contacts collected with a Team card or created in the team space are team contacts, anything else stays personal unless the person who captured it shares it, and the history of a shared contact stays readable to the team afterwards.
 ::
 
 ## What the team gets

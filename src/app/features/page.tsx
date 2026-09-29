@@ -11,7 +11,7 @@ import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
   'Features',
-  'Capture, Find, Act, Profiles and cards, and Teams: everything Linkist PRM does, each on its own page with real screens, and the plan each capability belongs to.',
+  'Capture, Find, Act, Profiles and cards, and Teams: everything Linkist PRM does, each on its own page with example screens, and the plan each capability belongs to.',
   '/features',
   { image: '/og/features.png' },
 );

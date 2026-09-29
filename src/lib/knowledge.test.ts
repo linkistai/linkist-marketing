@@ -32,7 +32,7 @@ const CASES: readonly (readonly [string, string])[] = [
   ['Can I add my card to Apple Wallet?', 'Coming soon'],
   ['Can I write my own NFC sticker with a non-Linkist URL?', 'Essential plan'],
   ['How do I contact support?', 'support@linkist.ai'],
-  ['Is there a lifetime plan?', 'Not at the moment'],
+  ['Is there a lifetime plan?', 'Founders Circle Bundle'],
   ['How much is an extra team user?', '$50'],
   ['Is Linkist SOC 2 certified?', 'planned for the whole product'],
 ];

@@ -84,7 +84,7 @@ export const USE_CASES: readonly UseCase[] = [
     problem: 'Business context lives in personal phones, inboxes and memories.',
     steps: ['Keep shared history and context', 'Keep authorised teammates connected', 'Lose less knowledge when roles change'],
     result: 'Keep relationship value inside the company.',
-    chips: ['Team Intelligence', 'Shared Contacts', 'Relationship History'],
+    chips: ['Team Knowledge', 'Shared Contacts', 'Relationship History'],
     screen: 'v6-detail',
     description: 'How the Team plan keeps shared contacts and their relationship history with the company when people move on.',
     feature: '/teams',

@@ -2,7 +2,7 @@
 {
   "slug": "contact-data-notice",
   "title": "Contact Data Notice",
-  "summary": "For people whose details a Linkist user has added: what is held about you, why, who can see it, how the optional AI features touch it, and how to ask for access or deletion. A draft for counsel built on sections 4, 6, 9, 10, 17 and 18 of the published privacy policy.",
+  "summary": "For people whose details a Linkist user has added: what is held about you, why, who can see it, how the optional AI features touch it, and how to ask for access or deletion. A draft for counsel built on sections 4, 6, 9, 10, 17 and 18 of the earlier privacy policy.",
   "status": "draft",
   "version": "0.1",
   "effective": "2026-09-10",

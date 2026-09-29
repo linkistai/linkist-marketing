@@ -32,7 +32,7 @@ export interface ContactRoute {
 
 export const CONTACT_ROUTES: readonly ContactRoute[] = [
   { key: 'support', title: 'Support', body: 'Something not working, a question the help centre did not answer, an order, or a card that will not tap.', to: SUPPORT },
-  { key: 'privacy', title: 'Privacy and your data', body: 'Access, correction, export, deletion, consent withdrawal, or a request about a contact someone added. Linkist aims to answer within 30 days.', to: PRIVACY, extra: `Data Protection Officer: ${DPO}` },
+  { key: 'privacy', title: 'Privacy and your data', body: 'Access, correction, export, deletion, consent withdrawal, or a request about a contact someone added. Linkist replies within 30 days, or sooner if your local law requires.', to: PRIVACY, extra: `Data Protection Officer: ${DPO}` },
   { key: 'partnership', title: 'Partnerships and teams', body: 'Companies that want the Team plan for their people, Enterprise interest, resellers and event organisers.', to: PARTNERSHIPS },
   { key: 'press', title: 'Press', body: 'Interviews, background on the PRM idea, brand assets.' },
   { key: 'security', title: 'Security', body: 'Report a vulnerability. Good-faith research is welcome; there is no public bounty yet.', to: SECURITY ?? SUPPORT, extra: SECURITY ? undefined : 'Reaches the support inbox until a dedicated address is published.' },

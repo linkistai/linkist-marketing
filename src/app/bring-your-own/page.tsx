@@ -28,17 +28,17 @@ const PATH = {
 } as const;
 
 const FEATURES = [
-  { icon: RefreshCw, title: 'Change it forever', body: 'Your details live behind one permanent address, so a new role never means a new card.' },
-  { icon: Inbox, title: 'Keep who you meet', body: 'Everyone who taps you arrives in your exchange inbox instead of vanishing.' },
+  { icon: RefreshCw, title: 'Change it forever', body: 'Your details live behind one address that stays with your account, so a new role never means a new card.' },
+  { icon: Inbox, title: 'Keep who you meet', body: 'Everyone who taps you sees your live profile and can send you their details, so the people you meet stop vanishing.' },
   { icon: Brain, title: 'It remembers', body: 'Linkist holds the context of the conversation, not just the contact details.' },
 ] as const;
 
 const FAQ = [
   { q: 'Does it cost anything?', a: 'No. Free forever, no payment details. Every profile includes PRM Essential.' },
-  { q: 'Which cards and stickers work?', a: 'Any writable NTAG-type NFC card or sticker. The tools site checks the chip first.' },
+  { q: 'Which cards and stickers work?', a: 'Any writable NTAG-type NFC card or sticker that you own; never a bank, payment, access, transport or ID card (T 14). The tools site checks the chip first.' },
   { q: 'Do I need a Linkist profile?', a: 'Yes. You need at least an Essential plan Linkist digital profile to write to the card. Non-Linkist profiles or URLs cannot be written using this tool.' },
   { q: 'Do I need a particular phone?', a: 'Encoding needs an Android phone with NFC. The profile then opens on every phone.' },
-  { q: 'What happens to the old link on the card?', a: 'It is replaced by your Linkist address, which you can update any time without touching the card.' },
+  { q: 'What happens to the old link on the card?', a: 'It is replaced by your Linkist address. You can update the profile behind it any time without touching the card.' },
 ] as const;
 
 export default function BringYourOwnPage() {
