@@ -70,7 +70,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <Breadcrumbs items={[{ label: 'Blog', href: '/blogs' }, { label: post.title, href: `/blogs/${post.slug}` }]} />
           </div>
           <header className="max-w-[900px]">
-            <p className="font-mono text-xs uppercase tracking-[0.16em] text-coral" data-hero-text>
+            <p className="font-body text-xs uppercase tracking-[0.08em] text-coral" data-hero-text>
               {post.categoryLabel}
             </p>
             <h1 id="page-title" className="mt-5 font-display text-[clamp(34px,4.6vw,64px)] font-semibold leading-[1.04] tracking-[-0.04em] [text-wrap:balance]" data-hero-text>

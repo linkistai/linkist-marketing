@@ -27,7 +27,7 @@ Changes from the brief's section 4 are marked. Every page: one job, one primary 
 | Route | Job | Status |
 | --- | --- | --- |
 | `/blogs`, `/blogs/[slug]` | The seven articles published on linkist.ai/blogs, imported verbatim at their existing addresses; `/learn` redirects here (D18) | Built |
-| Ten in-house articles at `/blogs/[slug]` | Written from the product with title-card covers (D20); `/learn` redirects to `/blogs` | Built |
+| Ten in-house articles at `/blogs/[slug]` | Written from the product with title-card covers (D20) | Removed (D65): the blog keeps only the seven linkist.ai originals; the files are in git history |
 | `/help` | Twelve categories, instant search, 109 Q&As with sources, a Limits category (D21) | Built |
 | `/chat` | Full-page assistant over the same corpus, suggested questions, how it answers | Built |
 | `/changelog` | Dated public events, what is in the product today, what is announced (D22) | Removed (D63): /changelog goes to the blog, the page is kept outside routing in `src/app/_changelog` |

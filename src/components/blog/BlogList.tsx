@@ -76,7 +76,7 @@ export function BlogCard({ post, priority }: { post: BlogCardData; priority?: bo
         <Image src={img.src} alt="" fill sizes="(max-width: 768px) 100vw, (max-width: 1180px) 50vw, 400px" priority={priority} className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
       </span>
       <span className="flex flex-1 flex-col p-[22px]">
-        <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-coral">{post.categoryLabel}</span>
+        <span className="font-body text-[11px] uppercase tracking-[0.08em] text-coral">{post.categoryLabel}</span>
         <h3 className="mt-2.5 font-display text-[21px] font-semibold leading-[1.2] tracking-[-0.02em] text-text">{post.title}</h3>
         <p className="mt-2.5 flex-1 text-sm leading-[1.55] text-body" style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
           {post.excerpt}

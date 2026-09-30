@@ -39,9 +39,9 @@ export function Bundles({ headingLevel = 3 }: { headingLevel?: 2 | 3 }) {
               <ZoomImage src={SHOT[b.key]!.src} alt={SHOT[b.key]!.alt} width={1400} height={1120} sizes="(min-width: 768px) 280px, 90vw" />
             </div>
             <div>
-              <H className="font-mono text-[13px] font-normal uppercase tracking-[0.14em] text-soft-2">{b.name}</H>
+              <H className="font-body text-[13px] font-medium uppercase tracking-[0.08em] text-soft-2">{b.name}</H>
               <p className="mt-3 text-base leading-normal text-soft">{b.includes}</p>
-              <p className="mt-[18px] font-mono text-[48px] font-semibold leading-none tracking-[-0.03em] tabular">{formatMoney(b.price[cur], cur)}</p>
+              <p className="mt-[18px] font-body text-[48px] font-semibold leading-none tracking-[-0.03em] tabular">{formatMoney(b.price[cur], cur)}</p>
               <p className="mt-1 text-xs text-muted">{b.priceNote}</p>
             </div>
           </article>
@@ -64,7 +64,7 @@ export function Bundles({ headingLevel = 3 }: { headingLevel?: 2 | 3 }) {
               <tr>
                 <th scope="row">Bought separately</th>
                 {IMMEDIATE_SAVINGS.map((r) => (
-                  <td key={r.material} className="whitespace-nowrap text-center font-mono tabular">
+                  <td key={r.material} className="whitespace-nowrap text-center font-body tabular">
                     {formatMoney(r.separately, cur)}
                   </td>
                 ))}
@@ -72,7 +72,7 @@ export function Bundles({ headingLevel = 3 }: { headingLevel?: 2 | 3 }) {
               <tr>
                 <th scope="row">Signature Bundle</th>
                 {IMMEDIATE_SAVINGS.map((r) => (
-                  <td key={r.material} className="whitespace-nowrap text-center font-mono tabular">
+                  <td key={r.material} className="whitespace-nowrap text-center font-body tabular">
                     {formatMoney(r.bundle, cur)}
                   </td>
                 ))}
@@ -82,7 +82,7 @@ export function Bundles({ headingLevel = 3 }: { headingLevel?: 2 | 3 }) {
                   Immediate saving
                 </th>
                 {IMMEDIATE_SAVINGS.map((r) => (
-                  <td key={r.material} className="yes whitespace-nowrap text-center font-mono tabular">
+                  <td key={r.material} className="yes whitespace-nowrap text-center font-body tabular">
                     {formatMoney(r.saving, cur)}
                   </td>
                 ))}
@@ -111,15 +111,15 @@ export function Bundles({ headingLevel = 3 }: { headingLevel?: 2 | 3 }) {
                 <Fragment key={r.material}>
                   <tr>
                     <th scope="row">Signature Bundle, then Pro yearly</th>
-                    <td className="whitespace-nowrap text-center font-mono tabular">{formatMoney(r.signatureRoute, cur)}</td>
-                    <td className="whitespace-nowrap text-center font-mono tabular">{formatMoney(r.separately, cur)}</td>
-                    <td className="yes whitespace-nowrap text-center font-mono tabular">{formatMoney(r.signatureSaving, cur)}</td>
+                    <td className="whitespace-nowrap text-center font-body tabular">{formatMoney(r.signatureRoute, cur)}</td>
+                    <td className="whitespace-nowrap text-center font-body tabular">{formatMoney(r.separately, cur)}</td>
+                    <td className="yes whitespace-nowrap text-center font-body tabular">{formatMoney(r.signatureSaving, cur)}</td>
                   </tr>
                   <tr>
                     <th scope="row">Founders Circle Bundle, lifetime Pro</th>
-                    <td className="whitespace-nowrap text-center font-mono tabular">{formatMoney(r.foundersRoute, cur)}</td>
-                    <td className="whitespace-nowrap text-center font-mono tabular">{formatMoney(r.separately, cur)}</td>
-                    <td className="yes whitespace-nowrap text-center font-mono tabular">{formatMoney(r.foundersSaving, cur)}</td>
+                    <td className="whitespace-nowrap text-center font-body tabular">{formatMoney(r.foundersRoute, cur)}</td>
+                    <td className="whitespace-nowrap text-center font-body tabular">{formatMoney(r.separately, cur)}</td>
+                    <td className="yes whitespace-nowrap text-center font-body tabular">{formatMoney(r.foundersSaving, cur)}</td>
                   </tr>
                 </Fragment>
               ))}

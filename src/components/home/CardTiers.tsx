@@ -125,7 +125,7 @@ export function CardTiers({
                   <div key={m.key} className="tierrow" data-on={m.key === mat}>
                     <dt className="text-sm text-soft">{m.name}</dt>
                     <dd className="m-0 text-right">
-                      <span className="font-mono text-[15px] font-semibold tabular">{formatMoney(t.prices[cur][m.key], cur)}</span>
+                      <span className="font-body text-[15px] font-semibold tabular">{formatMoney(t.prices[cur][m.key], cur)}</span>
                     </dd>
                   </div>
                 ))}

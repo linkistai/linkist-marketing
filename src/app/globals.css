@@ -40,7 +40,6 @@
   --color-soft-2: #e4e0da;
   --font-display: var(--font-display);
   --font-body: var(--font-body);
-  --font-mono: var(--font-mono);
   --radius-sm: var(--radius-sm);
   --radius-md: var(--radius-md);
   --radius-lg: var(--radius-lg);
@@ -54,7 +53,6 @@
 :root {
   --font-display: var(--font-display-next), 'DM Sans', Inter, system-ui, sans-serif;
   --font-body: var(--font-body-next), Inter, system-ui, sans-serif;
-  --font-mono: var(--font-mono-next), 'JetBrains Mono', ui-monospace, Menlo, monospace;
 }
 
 /* Site-level scale on top of the prototype's measured sizes (brief, Design system; Grownz D11). */
@@ -129,9 +127,6 @@ video {
 .num,
 .tabular {
   font-variant-numeric: tabular-nums;
-}
-.font-mono {
-  font-family: var(--font-mono);
 }
 
 :is(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
@@ -498,7 +493,7 @@ video {
   font-size: var(--text-sm);
 }
 .chip__value {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: var(--weight-semibold);
   font-variant-numeric: tabular-nums;
   font-size: var(--text-base);
@@ -663,7 +658,7 @@ html[data-motion='on'] .dot-live {
   display: flex;
   align-items: center;
   padding: 0 10px;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
 }
 .browser__screen {
   position: relative;
@@ -1059,7 +1054,7 @@ html[data-motion='on'] [data-hero-card='4'] {
 .prose-lk a { text-decoration: underline; text-underline-offset: 3px; }
 .prose-lk .anchor { text-decoration: none; color: var(--color-text); }
 .prose-lk .anchor:hover::after { content: ' #'; color: var(--brand-coral); }
-.prose-lk code { font-family: var(--font-mono); font-size: 0.9em; background: var(--color-surface2); padding: 0.1em 0.35em; border-radius: var(--radius-sm); }
+.prose-lk code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.9em; background: var(--color-surface2); padding: 0.1em 0.35em; border-radius: var(--radius-sm); }
 .prose-lk .note { margin-top: 1.6em; padding: 16px 20px; border-left: 3px solid var(--brand-crimson); background: var(--color-surface); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; }
 .prose-lk .note p { margin-top: 0; font-size: var(--text-base); }
 .prose-lk .note p + p { margin-top: 0.6em; }
@@ -1349,10 +1344,10 @@ html[data-motion='on'] .display-1[data-hero-text] {
   }
   .eyebrow {
     gap: 10px;
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0.16em;
+    font-weight: 500;
+    letter-spacing: 0.08em;
     color: var(--brand-coral);
   }
   .eyebrow::before {
@@ -1376,8 +1371,29 @@ html[data-motion='on'] .display-1[data-hero-text] {
   .eyebrow--accent {
     color: var(--brand-coral);
   }
+  /* Title accents in grey, white into grey from top to bottom, after linkist.ai's headings (owner,
+     30 September 2026, D65: no red in titles). Each line of a wrapped accent gets the whole gradient. */
   .em-coral {
-    color: var(--brand-red-bright);
+    color: #cfcfcf;
+  }
+  @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    .em-coral {
+      background-image: linear-gradient(180deg, #ffffff 12%, #8f8f8f 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+    :root[data-theme='light'] .em-coral {
+      background-image: linear-gradient(180deg, #141413 12%, #6b6b6b 100%);
+    }
+  }
+  @media (forced-colors: active) {
+    .em-coral {
+      background: none;
+      -webkit-text-fill-color: currentColor;
+    }
   }
   .link {
     min-height: 44px;
@@ -1541,10 +1557,10 @@ html[data-motion='on'] .display-1[data-hero-text] {
   .outcome__label {
     display: block;
     margin-bottom: 4px;
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0.12em;
+    font-weight: 500;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--brand-coral);
   }
@@ -1643,7 +1659,7 @@ html[data-motion='on'] .display-1[data-hero-text] {
     min-height: 44px;
     min-width: 58px;
     padding: 0 14px;
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 12px;
     color: var(--color-body);
     transition: background-color 0.25s;
@@ -1658,7 +1674,7 @@ html[data-motion='on'] .display-1[data-hero-text] {
     color: var(--v2-faint);
   }
   .source-line {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 11px;
     color: var(--v2-faint);
   }
@@ -1688,10 +1704,10 @@ html[data-motion='on'] .display-1[data-hero-text] {
   }
   .table--group td {
     background: var(--v2-bg-alt);
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0.1em;
+    font-weight: 500;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--brand-coral);
   }
@@ -1757,7 +1773,7 @@ html[data-motion='on'] .display-1[data-hero-text] {
     text-underline-offset: 3px;
   }
   .prose-lk code {
-    font-family: var(--font-mono);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     background: var(--v2-surface-3);
     border-radius: 6px;
   }
@@ -2196,7 +2212,7 @@ html[data-motion='on'] .v2-ripple > span:nth-child(3) {
     align-items: center;
     justify-content: center;
     background: #1a1a1b;
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 13px;
     font-weight: 600;
     transition: background-color 0.35s;
@@ -2305,9 +2321,9 @@ html[data-motion='on'] .v2-ripple > span:nth-child(3) {
     padding: 4px 8px;
     border-radius: 999px;
     background: rgba(5, 5, 5, 0.75);
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 11px;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.04em;
     color: var(--color-body);
   }
   .uccard__foot {
@@ -2574,7 +2590,7 @@ html[data-motion='off'] .uccard {
   .factchip__value {
     display: block;
     margin-top: 2px;
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 17px;
     font-weight: 600;
   }
@@ -3288,9 +3304,9 @@ html[data-motion='off'] .uccard {
     padding: 2px 8px;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.16);
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 10.5px;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
   }
   .promobar__cta {
@@ -3336,9 +3352,9 @@ html[data-motion='off'] .uccard {
     font-size: 14px;
   }
   .planpromo__label {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 10.5px;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--brand-coral);
   }
@@ -3424,7 +3440,7 @@ html[data-motion='off'] .uccard {
     .home-hero .eyebrow {
       gap: 8px;
       font-size: 11px;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.06em;
     }
   }
 }

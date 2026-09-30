@@ -72,7 +72,7 @@ export default function HomePage() {
               <dl className="m-0 flex min-w-0 flex-col gap-[22px] md:col-span-2">
                 {DEFINITIONS.map((d, i) => (
                   <div key={d.term} className={`grid gap-x-6 gap-y-2 [grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr))] ${i < DEFINITIONS.length - 1 ? 'border-b border-line pb-[22px]' : ''}`}>
-                    <dt className="pt-1 font-mono text-xs uppercase tracking-[0.12em] text-coral">{d.term}</dt>
+                    <dt className="pt-1 font-body text-xs uppercase tracking-[0.08em] text-coral">{d.term}</dt>
                     <dd className="m-0 text-[17px] leading-relaxed text-soft-2 [text-wrap:pretty] sm:col-span-2">{d.def}</dd>
                   </div>
                 ))}

@@ -16,7 +16,7 @@ export function DesignPreview({ id, eyebrow, title, body, items, tone = 'bg' }: 
         <ul className="m-0 mt-[clamp(40px,5vw,64px)] grid list-none gap-3.5 p-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))]" data-reveal="rise" data-reveal-stagger="0.08">
           {items.map((it, i) => (
             <li key={it.screen} className="card flex flex-col gap-6 p-[clamp(22px,2.6vw,32px)]">
-              <span aria-hidden="true" className="font-mono text-[13px] text-coral">
+              <span aria-hidden="true" className="font-body text-[13px] text-coral">
                 /{String(i + 1).padStart(2, '0')}
               </span>
               <h3 className="display-3 !text-[20px]">{it.title}</h3>

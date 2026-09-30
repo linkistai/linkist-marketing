@@ -46,7 +46,7 @@ The NFC cards on the site are the generated faces above with the name and compan
 | Articles | Files | Terms |
 | --- | --- | --- |
 | The 7 articles imported from linkist.ai/blogs (D18) | `public/blog/<slug>/cover.jpg` and the figures each article embeds, downloaded with the text by `pnpm import:blog` | The company's own published imagery, reused on the company's own site. |
-| The 10 articles written for this site (D20) | `public/blog/<slug>/cover.jpg`, title cards drawn by `pnpm covers` from the tokens and the brand fonts | Generated locally, no third-party material. Photographs replace them under option 3 of the image plan (C18). |
+| The 10 articles written for this site (D20) | `public/blog/<slug>/cover.jpg`, title cards drawn by `pnpm covers` from the tokens and the brand fonts | Generated locally, no third-party material. Removed with the articles (D65). |
 
 ## Open Graph cards
 

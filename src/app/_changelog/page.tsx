@@ -54,7 +54,7 @@ export default function ChangelogPage() {
                   <li key={it}>{it}</li>
                 ))}
               </ul>
-              <p className="mt-3 font-mono text-[11px] text-muted">Source: {c.source}</p>
+              <p className="mt-3 font-body text-[11px] text-muted">Source: {c.source}</p>
             </li>
           ))}
         </ol>

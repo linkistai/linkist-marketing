@@ -40,7 +40,7 @@ export function FeatureTabs({ tabs, label }: { tabs: readonly FeatureTab[]; labe
         <div key={t.key} role="tabpanel" id={`${id}-panel-${t.key}`} aria-labelledby={`${id}-tab-${t.key}`} hidden={i !== active} className="mt-[clamp(32px,4vw,48px)]">
           <div className="grid items-center gap-[clamp(32px,5vw,72px)] [grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))]">
             <div className="min-w-0">
-              <p className="font-mono text-xs tracking-[0.16em] text-coral">
+              <p className="font-body text-xs tracking-[0.04em] text-coral">
                 {String(i + 1).padStart(2, '0')} / {String(n).padStart(2, '0')}
               </p>
               <h3 className="mt-3 font-display text-[clamp(26px,2.6vw,34px)] font-semibold tracking-[-0.03em]">{t.title}</h3>

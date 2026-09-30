@@ -35,7 +35,7 @@ export default function ContactPage() {
                 <h2 className="display-3 text-[22px]">{r.title}</h2>
                 <p className="mt-2 text-sm text-body">{r.body}</p>
                 {r.to ? (
-                  <p className="mt-3 font-mono text-sm">
+                  <p className="mt-3 font-body text-sm">
                     <a href={`mailto:${r.to}`}>{r.to}</a>
                   </p>
                 ) : (
@@ -47,7 +47,7 @@ export default function ContactPage() {
             <div className="card p-6">
               <h2 className="display-3 text-[22px]">Phone and WhatsApp</h2>
               <p className="mt-2 text-sm text-body">The number the company publishes on linkist.ai.</p>
-              <p className="mt-3 flex flex-wrap gap-4 font-mono text-sm">
+              <p className="mt-3 flex flex-wrap gap-4 font-body text-sm">
                 <a href={PHONE.tel}>{PHONE.display}</a>
                 <a href={PHONE.whatsapp} rel="noopener noreferrer" target="_blank">
                   WhatsApp

@@ -40,7 +40,7 @@ export default function LegalIndex() {
             {published.map((d) => (
             <li key={d.slug} className="flex">
               <Link href={`/legal/${d.slug}`} className="card card--panel group flex w-full flex-col p-[26px] no-underline transition-[border-color,transform] duration-300 hover:-translate-y-1 hover:border-[rgba(238,80,100,0.35)]">
-                <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted">Version {d.version || '1'}, effective {fmt(d.effective)}</p>
+                <p className="font-body text-[11px] uppercase tracking-[0.08em] text-muted">Version {d.version || '1'}, effective {fmt(d.effective)}</p>
                 <h3 className="mt-3 font-display text-[22px] font-semibold leading-[1.2] tracking-[-0.02em] text-text">{d.title}</h3>
                 <p className="mt-2 flex-1 text-sm leading-[1.55] text-body">{d.summary}</p>
                 <span className="mt-5 inline-flex min-h-[24px] items-center gap-1.5 text-sm font-medium text-white transition-colors group-hover:text-white">
@@ -58,7 +58,7 @@ export default function LegalIndex() {
             {drafts.map((d) => (
             <li key={d.slug} className="flex">
               <Link href={`/legal/${d.slug}`} className="card card--panel group flex w-full flex-col p-[26px] no-underline transition-[border-color,transform] duration-300 hover:-translate-y-1 hover:border-[rgba(238,80,100,0.35)]">
-                <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted">Draft of {fmt(d.updated)}</p>
+                <p className="font-body text-[11px] uppercase tracking-[0.08em] text-muted">Draft of {fmt(d.updated)}</p>
                 <h3 className="mt-3 font-display text-[22px] font-semibold leading-[1.2] tracking-[-0.02em] text-text">{d.title}</h3>
                 <p className="mt-2 flex-1 text-sm leading-[1.55] text-body">{d.summary}</p>
                 <span className="mt-5 inline-flex min-h-[24px] items-center gap-1.5 text-sm font-medium text-white transition-colors group-hover:text-white">

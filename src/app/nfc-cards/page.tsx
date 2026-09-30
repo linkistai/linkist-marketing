@@ -69,7 +69,7 @@ export default function NfcCardsPage() {
           <div className="relative flex w-full flex-col items-center">
             <div className="v2-glow w-[90%]" aria-hidden="true" />
             <NfcCardLayers className="relative" />
-            <p className="mt-2 font-mono text-xs uppercase tracking-[0.14em] text-body">Inside a Linkist NFC card</p>
+            <p className="mt-2 font-body text-xs uppercase tracking-[0.08em] text-body">Inside a Linkist NFC card</p>
           </div>
         }
       />
@@ -81,7 +81,7 @@ export default function NfcCardsPage() {
             <ol className="m-0 grid list-none gap-3.5 p-0 sm:grid-cols-2" data-reveal="rise" data-reveal-stagger="0.08">
               {TAP.map((t, i) => (
                 <li key={t.title} className="card flex flex-col gap-7 p-[clamp(22px,2.6vw,28px)]">
-                  <span aria-hidden="true" className="font-mono text-[13px] text-coral">
+                  <span aria-hidden="true" className="font-body text-[13px] text-coral">
                     /{String(i + 1).padStart(2, '0')}
                   </span>
                   <div>
@@ -107,7 +107,7 @@ export default function NfcCardsPage() {
           <ul className="m-0 mt-12 grid list-none gap-3.5 p-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))]" data-reveal="rise" data-reveal-stagger="0.06">
             {CARD_OPTIONS.map((o) => (
               <li key={o.material} className="card p-[22px]">
-                <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-coral">{o.finish}</p>
+                <p className="font-body text-[11px] uppercase tracking-[0.08em] text-coral">{o.finish}</p>
                 <h3 className="display-3 mt-2">{o.material}</h3>
                 <p className="mt-2 text-sm text-body">
                   {o.colours.join(' or ')}. {o.patterns.length > 1 ? `${o.patterns.join(', ')} patterns.` : `${o.patterns[0]} finish.`}
@@ -141,7 +141,7 @@ export default function NfcCardsPage() {
                 ['Change it forever', 'One address that stays with your account. A new role never needs a new card.'],
               ].map(([t, b], i) => (
                 <li key={t} className="card flex flex-col gap-7 p-6">
-                  <span aria-hidden="true" className="font-mono text-[13px] text-coral">
+                  <span aria-hidden="true" className="font-body text-[13px] text-coral">
                     /{String(i + 1).padStart(2, '0')}
                   </span>
                   <div>

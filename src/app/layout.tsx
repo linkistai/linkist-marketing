@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { DM_Sans, Inter, JetBrains_Mono } from 'next/font/google';
+import { DM_Sans, Inter } from 'next/font/google';
 import { Footer } from '@/components/Footer';
 import { Nav } from '@/components/Nav';
 import { ChatWidget } from '@/components/chat/ChatWidget';
@@ -12,12 +12,12 @@ import { SmoothScroll } from '@/motion/SmoothScroll';
 import { DEFAULT_DESCRIPTION, SITE_NAME, SITE_URL, TAGLINE, THEME } from '@/lib/site';
 import './globals.css';
 
-// DM Sans for display and headings, Inter for body and UI, JetBrains Mono for figures (brief, Design
-// system), self-hosted through next/font. The display face uses font-display optional so a slow
-// first load keeps the adjusted fallback instead of reflowing headlines (Grownz D18).
+// DM Sans for display and headings, Inter for body, UI, labels and figures (brief, Design system; no
+// mono face since the owner's round of 30 September 2026, D65), self-hosted through next/font. The
+// display face uses font-display optional so a slow first load keeps the adjusted fallback instead of
+// reflowing headlines (Grownz D18).
 const display = DM_Sans({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-display-next', display: 'optional' });
 const body = Inter({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-body-next', display: 'swap' });
-const mono = JetBrains_Mono({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-mono-next', display: 'swap' });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const live = livePromos(new Date());
   const bar = live.find((p) => p.placements.includes('bar'));
   return (
-    <html lang="en-GB" data-theme={THEME} data-promo={bar?.id} className={`${display.variable} ${body.variable} ${mono.variable}`} suppressHydrationWarning>
+    <html lang="en-GB" data-theme={THEME} data-promo={bar?.id} className={`${display.variable} ${body.variable}`} suppressHydrationWarning>
       <body>
         {/* Before the first paint: motion, on by default for everyone (owner, 25 September 2026, D59; ?motion=off or the footer switch turns it off), and an offer bar the visitor already dismissed stays hidden. */}
         <script

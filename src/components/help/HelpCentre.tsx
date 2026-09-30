@@ -66,7 +66,7 @@ export function HelpCentre() {
                 <h2 id={`help-${c.replace(/\s+/g, '-')}`} className="font-display text-[26px] font-semibold tracking-[-0.025em]">
                   {c}
                 </h2>
-                <p className="mt-1 font-mono text-xs text-muted">
+                <p className="mt-1 font-body text-xs text-muted">
                   {items.length} {items.length === 1 ? 'answer' : 'answers'}
                 </p>
               </div>

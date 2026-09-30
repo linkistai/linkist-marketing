@@ -59,7 +59,7 @@
     color: var(--brand-green);
   }
   .mini__amt {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-variant-numeric: tabular-nums;
     font-weight: var(--weight-semibold);
   }
@@ -234,7 +234,7 @@
     left: 38px;
     top: 50%;
     transform: translate(-50%, -50%);
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 14px;
     font-weight: var(--weight-semibold);
   }

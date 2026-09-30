@@ -38,7 +38,7 @@ export function PlanCards({ compact, headingLevel = 3 }: { compact?: boolean; he
             <article key={p.key} className={`card card--panel relative flex flex-col !rounded-[24px] p-[26px] ${featured ? 'card--featured' : ''}`}>
               {p.badge ? <span className="plan-badge">{p.badge}</span> : null}
               <div className="flex items-center justify-between gap-2">
-                <H className="font-mono text-[13px] font-normal uppercase tracking-[0.14em] text-soft-2">{p.name}</H>
+                <H className="font-body text-[13px] font-medium uppercase tracking-[0.08em] text-soft-2">{p.name}</H>
                 {p.key === 'essential' ? <span className="text-xs font-semibold text-muted">No NFC card required</span> : null}
               </div>
               <p className="mt-2.5 text-sm italic text-[#9a968f]">{p.fit}</p>
@@ -58,7 +58,7 @@ export function PlanCards({ compact, headingLevel = 3 }: { compact?: boolean; he
               <div className="mt-auto pt-[26px]">
                 <PlanPromo plan={p.key} />
                 <p className="flex items-baseline gap-1">
-                  <span className="font-mono text-[34px] font-semibold tracking-[-0.03em] tabular">{formatMoney(cur === 'USD' ? p.monthly : p.aed.monthly, cur)}</span>
+                  <span className="font-body text-[34px] font-semibold tracking-[-0.03em] tabular">{formatMoney(cur === 'USD' ? p.monthly : p.aed.monthly, cur)}</span>
                   {p.monthly ? <span className="text-sm text-body">{p.perUser ? '/user/month' : '/month'}</span> : null}
                 </p>
 <p className="mt-1 text-xs leading-normal text-muted">{priceLine(p, cur)}</p>

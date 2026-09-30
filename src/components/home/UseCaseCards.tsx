@@ -102,7 +102,7 @@ export function UseCaseCards({ items }: { items: readonly UseCaseCard[] }) {
               <ol className="m-0 flex list-none flex-col gap-2.5 p-0">
                 {uc.steps.map((s, j) => (
                   <li key={s} className="flex items-start gap-3.5 rounded-[14px] border border-white/[0.06] bg-[#111112] px-4 py-3.5 text-[15px] leading-normal">
-                    <span className="flex-none pt-0.5 font-mono text-xs text-coral">{String(j + 1).padStart(2, '0')}</span>
+                    <span className="flex-none pt-0.5 font-body text-xs text-coral">{String(j + 1).padStart(2, '0')}</span>
                     {s}
                   </li>
                 ))}

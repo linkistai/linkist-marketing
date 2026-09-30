@@ -33,9 +33,9 @@ export function CompareTable() {
             <tr>
               <th scope="col">Feature</th>
               {COMPARE_HEADERS.map((h, j) => (
-                <th key={h} scope="col" className={`text-center font-mono !text-[12px] uppercase !tracking-[0.1em] ${j === pro ? 'compare__pro' : ''}`}>
+                <th key={h} scope="col" className={`text-center font-body !text-[12px] uppercase !tracking-[0.08em] ${j === pro ? 'compare__pro' : ''}`}>
                   {h}
-                  {h === 'Enterprise' ? <span className="mx-auto mt-1 block w-fit rounded-full border border-[rgba(238,80,100,0.45)] px-2 py-0.5 font-mono text-[9.5px] tracking-[0.12em] text-coral">Upcoming</span> : null}
+                  {h === 'Enterprise' ? <span className="mx-auto mt-1 block w-fit rounded-full border border-[rgba(238,80,100,0.45)] px-2 py-0.5 font-body text-[9.5px] tracking-[0.04em] text-coral">Upcoming</span> : null}
                 </th>
               ))}
             </tr>

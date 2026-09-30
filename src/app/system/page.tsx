@@ -51,7 +51,7 @@ export default function SystemPage() {
               <div style={{ background: hex, height: 72 }} />
               <div className="p-3 text-sm">
                 <b>{name}</b>
-                <span className="ml-2 font-mono text-muted">{hex}</span>
+                <span className="ml-2 font-body text-muted">{hex}</span>
               </div>
             </div>
           ))}
@@ -62,7 +62,7 @@ export default function SystemPage() {
             <p className="display-2">Display 2</p>
             <p className="display-3">Display 3</p>
             <p className="lede mt-4">Lede: one sentence, 14 to 22 words, warm grey, relaxed line height.</p>
-            <p className="mt-4">Body, Inter 15px. Figures in the mono face with tabular numerals: <span className="font-mono tabular">1,234,567</span>.</p>
+            <p className="mt-4">Body, Inter 15px. Figures in Inter with tabular numerals: <span className="font-body tabular">1,234,567</span>.</p>
             <p className="eyebrow mt-4">Eyebrow with the crimson dot</p>
           </div>
           <div className="card flex flex-col items-start gap-4 p-6">

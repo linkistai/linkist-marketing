@@ -55,10 +55,10 @@ export default function BlogsPage() {
             <article className="card card--panel card--featured mt-[clamp(40px,6vw,72px)] grid overflow-hidden [grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))]" data-reveal="rise">
               <Link href={`/blogs/${featured.slug}`} className="group relative block aspect-[16/10] min-h-[260px] overflow-hidden bg-bg-alt lg:aspect-auto" aria-label={`Read ${featured.title}`}>
                 <Image src={featuredImg.src} alt="" fill priority sizes="(max-width: 900px) 100vw, 640px" className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
-                <span className="absolute left-4 top-4 rounded-full border border-line bg-[rgba(5,5,5,0.72)] px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white backdrop-blur">Featured article</span>
+                <span className="absolute left-4 top-4 rounded-full border border-line bg-[rgba(5,5,5,0.72)] px-3 py-1.5 font-body text-[10px] uppercase tracking-[0.08em] text-white backdrop-blur">Featured article</span>
               </Link>
               <div className="flex flex-col gap-4 p-[clamp(24px,3.4vw,44px)]">
-                <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-coral">{featured.categoryLabel}</p>
+                <p className="font-body text-[11px] uppercase tracking-[0.08em] text-coral">{featured.categoryLabel}</p>
                 <h2 className="font-display text-[clamp(26px,2.6vw,36px)] font-semibold leading-[1.1] tracking-[-0.03em]">
                   <Link href={`/blogs/${featured.slug}`} className="no-underline hover:underline">
                     {featured.title}

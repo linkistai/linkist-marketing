@@ -46,13 +46,13 @@ export default function AboutPage() {
             <p className="mt-4 max-w-prose text-lg leading-relaxed text-body">A phone book holds a number. A CRM holds a deal. A Personal Relationship Manager keeps the person with their context, their fit and the next action.</p>
             <p className="mt-4 max-w-prose text-lg leading-relaxed text-body">The NFC card starts the connection. The PRM keeps it.</p>
             <div className="mt-6">
-              <TextLink href="/blogs/what-a-prm-is-and-is-not">What a PRM is, and what it is not</TextLink>
+              <TextLink href="/blogs/what-is-personal-relationship-management">What personal relationship management is</TextLink>
             </div>
           </div>
           <ol className="flex flex-col gap-3" data-reveal="rise" data-reveal-stagger="0.08">
             {STAGES.map((s) => (
               <li key={s.n} className="card flex gap-4 p-5">
-                <span className="inline-grid h-8 w-8 flex-none place-items-center rounded-full bg-crimson font-mono text-sm font-semibold text-white">{s.n}</span>
+                <span className="inline-grid h-8 w-8 flex-none place-items-center rounded-full bg-crimson font-body text-sm font-semibold text-white">{s.n}</span>
                 <div>
                   <p className="font-semibold">{s.label}</p>
                   <p className="mt-1 text-sm text-body">{s.title}</p>
@@ -81,7 +81,7 @@ export default function AboutPage() {
                 <Image src={f.photo} alt={`Portrait of ${f.name}`} width={480} height={480} sizes="120px" className="h-full w-full object-cover" />
               </div>
               <h3 className="display-3 mt-5 !text-[22px]">{f.name}</h3>
-              <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-coral">{f.role}</p>
+              <p className="mt-2 font-body text-[11px] uppercase tracking-[0.08em] text-coral">{f.role}</p>
               <span className="founder__rule" aria-hidden="true" />
               <p className="text-left text-sm leading-relaxed text-body">{f.bio}</p>
             </li>

@@ -64,11 +64,11 @@ export default function SecurityPage() {
           {CONTROLS.map((c, i) => (
             <li key={c.title} className="card sweep sweep--neutral lift p-6">
               <div className="flex items-center gap-3">
-                <span className="inline-grid h-8 w-8 flex-none place-items-center rounded-full bg-crimson font-mono text-sm font-semibold text-white">{i + 1}</span>
+                <span className="inline-grid h-8 w-8 flex-none place-items-center rounded-full bg-crimson font-body text-sm font-semibold text-white">{i + 1}</span>
                 <h2 className="display-3 text-[20px]">{c.title}</h2>
               </div>
               <p className="mt-3 text-sm text-body">{c.body}</p>
-              <p className="mt-3 font-mono text-[11px] text-muted">{c.source}</p>
+              <p className="mt-3 font-body text-[11px] text-muted">{c.source}</p>
             </li>
           ))}
         </ol>
@@ -93,7 +93,7 @@ export default function SecurityPage() {
                 <li key={s}>{s}</li>
               ))}
             </ul>
-            <p className="mt-3 font-mono text-[11px] text-muted">P 9</p>
+            <p className="mt-3 font-body text-[11px] text-muted">P 9</p>
           </div>
           <div className="card p-6" data-reveal="rise">
             <h3 className="font-semibold">The people in your contacts</h3>
@@ -102,7 +102,7 @@ export default function SecurityPage() {
                 <li key={s}>{s}</li>
               ))}
             </ul>
-            <p className="mt-3 font-mono text-[11px] text-muted">T 7, 11; P 7</p>
+            <p className="mt-3 font-body text-[11px] text-muted">T 7, 11; P 7</p>
           </div>
         </div>
       </Section>
@@ -129,7 +129,7 @@ export default function SecurityPage() {
             </tbody>
           </table>
         </div>
-        <p className="mt-4 text-center font-mono text-[11px] text-muted">P 10</p>
+        <p className="mt-4 text-center font-body text-[11px] text-muted">P 10</p>
       </Section>
 
       <Section id="rights">
@@ -170,7 +170,7 @@ export default function SecurityPage() {
                 Part 2, Privacy
               </a>
             </p>
-            <p className="mt-3 font-mono text-[11px] text-muted">P 1, 16; T 19, 20</p>
+            <p className="mt-3 font-body text-[11px] text-muted">P 1, 16; T 19, 20</p>
           </div>
         </div>
       </Section>
@@ -183,7 +183,7 @@ export default function SecurityPage() {
               <ShieldCheck size={18} aria-hidden="true" className="text-coral" />
               <h3 className="mt-3 font-semibold">{c.title}</h3>
               <p className="mt-2 text-sm text-body">{c.body}</p>
-              <p className="mt-3 font-mono text-[11px] text-muted">{c.source}</p>
+              <p className="mt-3 font-body text-[11px] text-muted">{c.source}</p>
             </li>
           ))}
         </ul>

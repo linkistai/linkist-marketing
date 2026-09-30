@@ -41,7 +41,7 @@ export function ScreenFrame({
       <span>
         Real screen capture pending
         <br />
-        <span className="font-mono text-[10px]">{alt}</span>
+        <span className="font-body text-[10px]">{alt}</span>
       </span>
     </div>
   );

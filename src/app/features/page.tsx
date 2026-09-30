@@ -43,7 +43,7 @@ export default function FeaturesHub() {
                     <Image src={f.scene.src} alt={f.scene.alt} fill priority={i === 0} sizes={i === 0 ? '(min-width: 1024px) 800px, 90vw' : '(min-width: 1024px) 400px, 90vw'} className={f.scene.square ? 'object-contain p-4' : 'object-cover'} />
                   </span>
                   <span className="flex flex-1 flex-col p-[clamp(22px,2.6vw,28px)]">
-                    <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-coral">{f.stage}</span>
+                    <span className="font-body text-[11px] uppercase tracking-[0.08em] text-coral">{f.stage}</span>
                     <h2 className="mt-2 font-display text-[26px] font-semibold tracking-[-0.025em]">{f.name}</h2>
                     <span className="mt-2 text-sm leading-normal text-body">{f.hubBlurb}</span>
                     <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-medium text-white">

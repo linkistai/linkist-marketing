@@ -64,7 +64,7 @@ export default async function UseCasePage({ params }: { params: Promise<{ slug: 
               <ol className="m-0 mt-8 flex list-none flex-col gap-2.5 p-0">
                 {u.steps.map((st, i) => (
                   <li key={st} className="flex items-start gap-3.5 rounded-[14px] border border-white/[0.06] bg-surface2 px-4 py-3.5 text-[15px] leading-normal">
-                    <span className="flex-none pt-0.5 font-mono text-xs text-coral">{String(i + 1).padStart(2, '0')}</span>
+                    <span className="flex-none pt-0.5 font-body text-xs text-coral">{String(i + 1).padStart(2, '0')}</span>
                     {st}
                   </li>
                 ))}

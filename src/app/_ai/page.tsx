@@ -66,7 +66,7 @@ export default function AiPage() {
                 <h2 className="display-3 mt-4 text-[20px]">{c.title}</h2>
                 <p className="text-xs text-muted">Document: {c.policyName}</p>
                 <p className="mt-2 flex-1 text-sm text-body">{c.body}</p>
-                <p className="mt-3 font-mono text-[11px] text-muted">{c.source}</p>
+                <p className="mt-3 font-body text-[11px] text-muted">{c.source}</p>
               </article>
             );
           })}
@@ -83,7 +83,7 @@ export default function AiPage() {
                 <li key={i}>{i}</li>
               ))}
             </ul>
-            <p className="mt-4 font-mono text-[11px] text-muted">P 2; T 9</p>
+            <p className="mt-4 font-body text-[11px] text-muted">P 2; T 9</p>
           </div>
           <div className="card p-7" data-reveal="rise">
             <p className="eyebrow">What it produces</p>
@@ -93,7 +93,7 @@ export default function AiPage() {
                 <li key={i}>{i}</li>
               ))}
             </ul>
-            <p className="mt-4 font-mono text-[11px] text-muted">P 2, 6</p>
+            <p className="mt-4 font-body text-[11px] text-muted">P 2, 6</p>
           </div>
         </div>
       </Section>
@@ -106,7 +106,7 @@ export default function AiPage() {
               <ShieldCheck size={18} aria-hidden="true" className="text-coral" />
               <h3 className="mt-3 font-semibold">{r.title}</h3>
               <p className="mt-2 text-sm text-body">{r.body}</p>
-              <p className="mt-3 font-mono text-[11px] text-muted">{r.source}</p>
+              <p className="mt-3 font-body text-[11px] text-muted">{r.source}</p>
             </li>
           ))}
         </ul>
