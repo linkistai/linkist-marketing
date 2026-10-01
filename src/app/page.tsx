@@ -52,7 +52,7 @@ export default function HomePage() {
               {[...MARQUEE, ...MARQUEE].map((m, i) => (
                 <span key={`${m}-${i}`} className="inline-flex items-center gap-6">
                   {m}
-                  <Image src="/brand/mark.png" alt="" width={12} height={12} className="h-3 w-auto opacity-90" />
+                  <Image src="/brand/mark.png" alt="" width={10} height={10} className="h-2.5 w-auto opacity-90" />
                 </span>
               ))}
             </div>
