@@ -1888,36 +1888,25 @@ html[data-motion='on'] .v2-ripple > span:nth-child(3) {
 
 /* v2 shared components: header, footer wordmark, closing band, page hero. */
 @layer components {
+  /* The header: a fixed bar from edge to edge, the same at any scroll position; its content sits on
+     the page's container (owner, 1 October 2026, D67). */
   .v2nav {
     position: fixed;
     inset: 0 0 auto 0;
     z-index: var(--z-nav);
-    display: flex;
-    justify-content: center;
-    padding: 14px clamp(12px, 3vw, 28px);
-    pointer-events: none;
   }
-  .v2nav__pill {
-    pointer-events: auto;
-    width: 100%;
-    max-width: 1240px;
+  .v2nav__bar {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(10, 10, 11, 0.95);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+  .v2nav__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    padding: 8px 8px 8px 20px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(10, 10, 11, 0.86);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    transition:
-      background-color 0.3s,
-      border-color 0.3s;
-  }
-  .v2nav__pill[data-scrolled='true'] {
-    background: rgba(10, 10, 11, 0.95);
-    border-color: rgba(255, 255, 255, 0.1);
+    padding-block: 8px;
   }
   .v2nav__link {
     display: inline-flex;
