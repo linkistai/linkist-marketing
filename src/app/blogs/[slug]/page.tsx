@@ -11,6 +11,18 @@ import { Toc } from '@/components/Toc';
 import { getPost, getPosts, related, renderPost } from '@/lib/blog';
 import { CATEGORY_IMAGE } from '@/lib/blog-shared';
 import { COMPANY, SITE_URL, absoluteAsset, pageMeta } from '@/lib/site';
+import { J } from '@/content/journeys';
+
+/** Each article's own tracked links (D69). A new article falls back to the plain journey links until it has tags. */
+const BLOG_CTA: Readonly<Record<string, { app: string; card: string; final: string }>> = {
+  'linkedin-profile-vs-digital-identity': { app: J.blog_linkedin_profile_get_app, card: J.blog_linkedin_profile_get_nfc_card, final: J.blog_linkedin_profile_final_start_now },
+  'ai-relationship-intelligence-networking': { app: J.blog_ai_relationship_intelligence_get_app, card: J.blog_ai_relationship_intelligence_get_nfc_card, final: J.blog_ai_relationship_intelligence_final_start_now },
+  'ai-nfc-smart-follow-up': { app: J.blog_ai_nfc_smart_follow_up_get_app, card: J.blog_ai_nfc_smart_follow_up_get_nfc_card, final: J.blog_ai_nfc_smart_follow_up_final_start_now },
+  'what-is-relationship-capital': { app: J.blog_relationship_capital_get_app, card: J.blog_relationship_capital_get_nfc_card, final: J.blog_relationship_capital_final_start_now },
+  'how-to-network-at-uae-business-events': { app: J.blog_uae_business_events_get_app, card: J.blog_uae_business_events_get_nfc_card, final: J.blog_uae_business_events_final_start_now },
+  'what-is-a-digital-business-card': { app: J.blog_digital_business_card_get_app, card: J.blog_digital_business_card_get_nfc_card, final: J.blog_digital_business_card_final_start_now },
+  'what-is-personal-relationship-management': { app: J.blog_personal_relationship_management_get_app, card: J.blog_personal_relationship_management_get_nfc_card, final: J.blog_personal_relationship_management_final_start_now },
+};
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -31,6 +43,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   if (!raw) notFound();
   const post = renderPost(raw);
   const url = `${SITE_URL}/blogs/${post.slug}`;
+  const cta = BLOG_CTA[post.slug] ?? { app: J.individual, card: J.store, final: J.individual };
   const others = related(post).map((p) => {
     const r = renderPost(p);
     return { slug: p.slug, category: p.category, categoryLabel: p.categoryLabel, title: p.title, excerpt: p.excerpt, author: p.author, dateLabel: p.dateLabel, cover: p.cover, minutes: r.minutes };
@@ -95,8 +108,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <div className="prose-lk" dangerouslySetInnerHTML={{ __html: post.html }} />
             <div className="mt-14 flex flex-col items-start gap-5 border-t border-line pt-8 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
               <div className="flex flex-wrap gap-3">
-                <GetApp />
-                <GetCard />
+                <GetApp href={cta.app} />
+                <GetCard href={cta.card} />
               </div>
               <ShareRow url={url} title={post.title} />
             </div>
@@ -135,7 +148,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
-      <ClosingBand />
+      <ClosingBand href={cta.final} />
     </>
   );
 }

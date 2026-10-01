@@ -7,6 +7,7 @@
 import type { FaqItem } from '@/components/Faq';
 import type { MiniMockKind } from '@/components/mockups/MiniMock';
 import type { ProtoScreen } from '@/content/design';
+import { J } from '@/content/journeys';
 
 /**
  * The home hero (D50): the owner's copy of 16 September 2026, word for word, in place of the two-slide
@@ -39,7 +40,7 @@ export const HERO = {
       accent: 'business intelligence.',
       lede: 'Give your team an intelligent relationship platform that remembers who they meet, enriches every contact, identifies ICP matches and recommends the relationships worth developing.',
       ledeStrong: 'Reduce customer acquisition time and cost.',
-      primary: { label: 'Set up your team', href: 'free-profile' },
+      primary: { label: 'Set up your team', href: J.home_teams_hero },
       secondary: { label: 'Explore Teams', href: '/teams' },
     },
     {
@@ -48,8 +49,8 @@ export const HERO = {
       lines: ['Capture contacts.', 'Remember context.', 'Follow up at the right time.'],
       accent: 'right time.',
       lede: 'Linkist is the AI-powered Personal Relationship Manager (PRM) that turns the people you meet into relationships you keep. Save contacts in seconds, get timely nudges and never lose track of who matters. It works with or without an NFC card.',
-      primary: { label: 'Create Free Profile', href: 'free-profile' },
-      secondary: { label: 'Get Linkist NFC', href: 'get-card' },
+      primary: { label: 'Create Free Profile', href: J.home_individual_create_free_profile },
+      secondary: { label: 'Get Linkist NFC', href: J.home_individual_get_linkist_nfc },
     },
   ] as const satisfies readonly HeroMode[],
   switchToIndividuals: { lead: 'Buying just for yourself?', link: 'Switch to individuals' },

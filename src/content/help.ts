@@ -1,3 +1,4 @@
+import { J } from '@/content/journeys';
 /**
  * Help centre corpus (brief 4, checkpoint 5). Every answer is one to three sentences and traces
  * to a source: the product's public screens and store (walked through on 10 September 2026,
@@ -45,9 +46,9 @@ const TERMS = { label: 'Terms and Privacy', href: '/legal/terms' };
 
 export const HELP: readonly HelpEntry[] = [
   // Getting started
-  e('Getting started', 'How do I create an account?', 'Press Create Free Profile or Get the App. The PRM app opens its quick-profile page at prm.linkist.ai/quick-profile, where the free profile and the account that goes with it are created. Sign in afterwards at prm.linkist.ai/UnifiedAuth with your email or mobile number.', [{ label: 'Get the App', href: '/start' }]),
+  e('Getting started', 'How do I create an account?', 'Select Get the App to create your free Linkist profile.', [{ label: 'Get the App', href: J.help_create_account }]),
   e('Getting started', 'Do I need a password?', 'The sign-in screen asks for your email address or mobile number and sends a one-time code that expires. You would need to set up your account with a password. For future logins you can enable biometrics so you don’t need to enter your password.'),
-  e('Getting started', 'Where do I sign in?', 'The PRM app signs in at prm.linkist.ai/UnifiedAuth, which is where Sign in leads. Get NFC Card opens the store at prm.linkist.ai/store/start.', [{ label: 'Get NFC Card', href: '/get-card' }]),
+  e('Getting started', 'Where do I sign in?', 'The PRM app signs in at prm.linkist.ai/UnifiedAuth, which is where Sign in leads. Get the App opens the same sign-in screen and signs existing members in, and Get NFC Card opens the store at prm.linkist.ai/store/start.', [{ label: 'Get the App', href: J.help_get_app }, { label: 'Get NFC Card', href: J.help_get_nfc_card }]),
   e('Getting started', 'Should I use my email or my mobile number?', 'Your account is linked to your email. Once set up, you can use your mobile number, email or biometrics (when enabled) to log in.'),
   e('Getting started', 'Do I need a card to start?', 'No. The Essential plan is free and needs no NFC card. You can add a card any time.', [{ label: 'Pricing', href: '/pricing' }]),
   e('Getting started', 'Is Linkist free?', 'The Essential plan is free for as long as you like. Enhanced, Pro and Team are paid, and every NFC card includes PRM Essential.', [{ label: 'Compare PRM plans', href: '/pricing#compare' }]),
@@ -125,7 +126,7 @@ export const HELP: readonly HelpEntry[] = [
   e('NFC cards and shipping', 'Is shipping included?', 'Yes. NFC cards ship within the UAE with shipping included. Other countries are not served yet.'),
   e('NFC cards and shipping', 'Can I change or cancel an order?', 'Yes, within 24 hours of ordering (T 14). After printing starts, a change or cancellation may not be possible. Write to support@linkist.ai with your order number.', [TERMS]),
   e('NFC cards and shipping', 'Can I return an NFC card?', 'Yes. Tell Linkist within 7 days of delivery, or longer where the law allows, if an NFC card is faulty, damaged or wrong, and it will be replaced or refunded (T 14). Write to support@linkist.ai.', [TERMS]),
-  e('NFC cards and shipping', 'Can I use an NFC card or sticker I already own?', 'Yes, free. At nfctools.linkist.ai, tap the card or sticker on your phone and Linkist writes your live profile onto it. Encoding a chip needs an Android phone; the profile then works on every device. You would need at least an Essential plan Linkist digital profile to write to the card. Non-Linkist profiles or URLs cannot be written using this tool.'),
+  e('NFC cards and shipping', 'Can I use an NFC card or sticker I already own?', 'Yes, at no extra cost. You need a Linkist digital profile on any plan, including Essential. If you don’t have one, you can create it as part of activation. Activate your card, then tap the card or sticker on your phone and Linkist writes your live profile onto it. Writing to the card needs Chrome on an Android phone. Once it is done, anyone can tap the card and open your profile. Only Linkist profiles can be written to the card. Other profiles or web links are not supported.', [{ label: 'Activate your card', href: J.help_byon }]),
   e('NFC cards and shipping', 'What are the bundles?', 'The Signature Bundle is any Signature NFC card plus 1 year of Pro for AED 369 ($100). The Founders Circle Bundle is the Founders Circle NFC card plus lifetime Pro for AED 549 ($150), one time.', [{ label: 'Bundles', href: '/bundles' }]),
   e('NFC cards and shipping', 'What is the Founders Circle?', 'The Founders Circle Bundle: the Founders Circle NFC card plus lifetime Pro, for a one-time AED 549 ($150). Availability is limited; the bundles page says so when it closes.'),
 

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { ClosingBand } from '@/components/ClosingBand';
 import { HelpCentre } from '@/components/help/HelpCentre';
 import { HELP, HELP_CATEGORIES } from '@/content/help';
+import { J } from '@/content/journeys';
 import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
@@ -41,7 +42,7 @@ export default function HelpPage() {
           <HelpCentre />
         </div>
       </section>
-      <ClosingBand line1="Still stuck?" line2="Ask the assistant, or start now." reassurance="The assistant is automated. Free, no card needed." />
+      <ClosingBand href={J.help_start_now} line1="Still stuck?" line2="Ask the assistant, or start now." reassurance="The assistant is automated. Free, no card needed." />
     </>
   );
 }

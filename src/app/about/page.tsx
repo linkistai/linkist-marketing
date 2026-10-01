@@ -7,6 +7,7 @@ import { ClosingBand } from '@/components/ClosingBand';
 import { Section, SectionHead } from '@/components/Section';
 import { ADDRESS_LINES, DATA_LAW, DPO, FOUNDERS, FOUNDERS_INTRO, GOVERNING_LAW, LEGAL_NAME, PRIVACY, SUPPORT } from '@/content/company';
 import { STAGES } from '@/content/home';
+import { J } from '@/content/journeys';
 import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
@@ -118,7 +119,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <ClosingBand line1="Capture the people you meet." line2="Remember why they mattered." />
+      <ClosingBand href={J.about_final_start_now} line1="Capture the people you meet." line2="Remember why they mattered." />
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { Button } from '@/components/Button';
 import { Section } from '@/components/Section';
-import { START_URL } from '@/lib/site';
+import { SIGN_IN_URL } from '@/lib/site';
 
 export const metadata = { title: 'Page not found', robots: { index: false, follow: false } };
 
@@ -21,7 +21,7 @@ export default function NotFound() {
         </div>
         <p className="mt-8 text-sm text-muted">
           Looking for the app?{' '}
-          <a href={START_URL} className="underline">
+          <a href={SIGN_IN_URL} className="underline">
             Sign in
           </a>
           .

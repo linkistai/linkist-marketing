@@ -7,6 +7,7 @@ import { ClosingBand } from '@/components/ClosingBand';
 import { SectionHead } from '@/components/Section';
 import { PageHero } from '@/components/PageHero';
 import { FEATURES } from '@/content/features';
+import { J } from '@/content/journeys';
 import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
@@ -76,7 +77,7 @@ export default function FeaturesHub() {
           </div>
         </div>
       </section>
-      <ClosingBand />
+      <ClosingBand href={J.features_final_start_now} />
     </>
   );
 }

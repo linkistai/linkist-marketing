@@ -10,6 +10,7 @@ import { CardTiers } from '@/components/home/CardTiers';
 import { CompareTable } from '@/components/home/CompareTable';
 import { PlanCards } from '@/components/home/PlanCards';
 import { ENTERPRISE_NOTE } from '@/content/plans';
+import { J } from '@/content/journeys';
 import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
@@ -42,7 +43,7 @@ export default function PricingPage() {
         lede="Four plans to choose from, NFC card is optional. Upgrade when you need richer contact management, AI matching and follow-up, or team collaboration."
         ctas={
           <>
-            <StartFree />
+            <StartFree href={J.pricing_hero_start_now} />
             <TextLink href="#compare">Compare PRM plans</TextLink>
           </>
         }
@@ -56,7 +57,7 @@ export default function PricingPage() {
 
       <section id="plans" className="section scroll-mt-[90px] !pt-0">
         <div className="container">
-          <PlanCards headingLevel={2} />
+          <PlanCards headingLevel={2} starts={{ essential: J.pricing_prm_essential, enhanced: J.pricing_prm_enhanced, pro: J.pricing_prm_pro, team: J.pricing_team_plan }} />
         </div>
       </section>
 
@@ -73,7 +74,7 @@ export default function PricingPage() {
         <div className="container">
           <SectionHead eyebrow="NFC card pricing" title={<>Tap. Share. Make the <span className="em-coral">first impression</span> count.</>} lede="One-time prices for Starter and Signature in PVC, wood and metal. Every card includes PRM Essential." center />
           <div className="mt-[clamp(40px,5vw,64px)]">
-            <CardTiers cta={{ href: '/nfc-cards', label: 'Explore NFC cards' }} headingLevel={3} />
+            <CardTiers buy={{ starter: J.pricing_nfc_starter, signature: J.pricing_nfc_signature }} cta={{ href: '/nfc-cards', label: 'Explore NFC cards' }} headingLevel={3} />
           </div>
         </div>
       </section>
@@ -93,7 +94,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <ClosingBand line1="Start free today." line2="Upgrade when you need to." />
+      <ClosingBand href={J.pricing_final_start_now} line1="Start free today." line2="Upgrade when you need to." />
     </>
   );
 }

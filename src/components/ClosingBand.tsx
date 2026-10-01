@@ -1,28 +1,28 @@
 import Image from 'next/image';
 import { Button } from '@/components/Button';
 import { G } from '@/lib/glossary';
-import { START_URL } from '@/lib/site';
 
 /**
  * The v2 closing band: a 36 px panel lit by a red glow from the lower right. Left, a two-line H2
  * with the second line in grey (less red, owner 27 September 2026), one primary CTA and a reassurance line; right, a floating cutout,
  * decorative: the metal, wood and PVC cards by default, the person cutout on the home page, or
  * `tap`, the hand tapping a card on a phone with NFC rings (owner, 25 September 2026, /nfc-cards).
- * (`person` and `personAlt` are kept for callers of the v1 band and are ignored.)
+ * (`person` and `personAlt` are kept for callers of the v1 band and are ignored.) `href` is the page's own
+ * tracked journey link (D69).
  */
 export function ClosingBand({
   line1 = 'Capture the people you meet.',
   line2 = 'Remember why they mattered.',
   reassurance = G.reassurance,
   cta = G.ctaPrimary,
-  href = START_URL,
+  href,
   image = 'cards',
 }: {
   line1?: string;
   line2?: string;
   reassurance?: string;
   cta?: string;
-  href?: string;
+  href: string;
   image?: 'cards' | 'portrait' | 'tap';
   person?: string;
   personAlt?: string;

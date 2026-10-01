@@ -8,6 +8,7 @@
  * (/api/chat) can phrase answers when configured.
  */
 import { HELP, type HelpEntry } from '@/content/help';
+import { J } from '@/content/journeys';
 import { FEATURES } from '@/content/features';
 import { FAQ as HOME_FAQ } from '@/content/home';
 import { BUNDLES, CARD_TIERS, MATERIALS, PLANS } from '@/content/plans';
@@ -39,7 +40,7 @@ const TRUTH: readonly HelpEntry[] = [
   { id: 'truth-use-cases', category: 'Getting started', q: 'Who is Linkist for, and what are the use cases?', a: 'Professionals and teams who meet people: after an event, finding the right person in a network you already have, keeping up with too many relationships, growing the network the right way, and keeping relationships when someone leaves a team.', links: [{ label: 'Use cases', href: '/use-cases' }] },
   { id: 'truth-icp-matching', category: 'Find', q: 'What is ICP Matching?', a: 'ICP Matching compares your contacts with an ideal customer profile, an ICP: a description of who you are looking for. It shows who fits and how many matches were found. To reach someone you do not know yet, Network Ask and Warm Introductions look for a trusted path. Part of Pro and Team.', links: [{ label: 'Find', href: '/features/find' }] },
   { id: 'truth-lifetime', category: 'Plans and billing', q: 'Is there a lifetime plan or a one-time price?', a: 'Not as a plan on its own: Enhanced, Pro and Team are paid monthly or yearly, and Essential is free. Lifetime Pro comes only in the Founders Circle Bundle, the Founders Circle NFC card plus lifetime Pro for a one-time AED 549 ($150). Launch offers show on the pricing page while they run.', links: [{ label: 'Pricing', href: '/pricing' }] },
-  { id: 'truth-byo', category: 'NFC cards and shipping', q: 'Can I bring my own NFC card or sticker?', a: 'Yes, free. At nfctools.linkist.ai, tap the card or sticker on your phone and Linkist writes your live profile onto it. Encoding a chip needs an Android phone; the profile then works on every device. You need at least an Essential plan Linkist digital profile to write to the card; non-Linkist profiles or URLs cannot be written with this tool.', links: [{ label: 'Bring your own NFC', href: '/bring-your-own' }] },
+  { id: 'truth-byo', category: 'NFC cards and shipping', q: 'Can I bring my own NFC card or sticker?', a: 'Yes, at no extra cost. You need a Linkist digital profile on any plan, including Essential. If you don’t have one, you can create it as part of activation. Activate your card, then tap the card or sticker on your phone and Linkist writes your live profile onto it. Writing to the card needs Chrome on an Android phone. Once it is done, anyone can tap the card and open your profile. Only Linkist profiles can be written to the card. Other profiles or web links are not supported.', links: [{ label: 'Activate your card', href: J.assistant_byon }, { label: 'Bring your own NFC', href: '/bring-your-own' }] },
 ];
 
 const both = (usd: number, aed?: number) => (aed === undefined ? formatMoney(usd, 'USD') : `${formatMoney(aed, 'AED')} (${formatMoney(usd, 'USD')})`);

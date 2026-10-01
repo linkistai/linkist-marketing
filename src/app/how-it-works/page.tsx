@@ -9,6 +9,7 @@ import { PhoneStage } from '@/components/PhoneStage';
 import { Bullets, Outcome, Tags } from '@/components/Section';
 import { PROTO_ALT, TALL_SCREENS } from '@/content/design';
 import { FAQ, STAGES } from '@/content/home';
+import { J } from '@/content/journeys';
 import { screen } from '@/lib/screens';
 import { pageMeta } from '@/lib/site';
 
@@ -34,7 +35,7 @@ export default function HowItWorksPage() {
         lede="Capture and share, build relationships, act and grow. Each stage feeds the next."
         ctas={
           <>
-            <StartFree />
+            <StartFree href={J.how_it_works_hero_start_now} />
             <TextLink href="#stage-1">Start at stage 1</TextLink>
           </>
         }
@@ -94,7 +95,7 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      <ClosingBand line1="Capture the people you meet." line2="Then act at the right time." />
+      <ClosingBand href={J.how_it_works_final_start_now} line1="Capture the people you meet." line2="Then act at the right time." />
     </>
   );
 }

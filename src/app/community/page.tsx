@@ -7,6 +7,7 @@ import { Newsletter } from '@/components/forms/Newsletter';
 import { Section } from '@/components/Section';
 import { CHANNELS, WHAT_YOU_GET } from '@/content/community';
 import { COMMUNITY } from '@/content/home';
+import { J } from '@/content/journeys';
 import { getPosts } from '@/lib/blog';
 import { pageMeta } from '@/lib/site';
 
@@ -68,6 +69,13 @@ export default function CommunityPage() {
                 </li>
               ))}
             </ul>
+            <p className="mt-6 text-sm text-body">
+              Have an idea for Linkist?{' '}
+              <a href={J.community_ideas} className="font-semibold text-white underline underline-offset-2">
+                Suggest a feature
+              </a>{' '}
+              on the Ideas board, where members suggest and vote on what comes next.
+            </p>
           </div>
           <div data-reveal="rise">
             <p className="eyebrow">Latest reads</p>
@@ -94,7 +102,7 @@ export default function CommunityPage() {
         </div>
       </Section>
 
-      <ClosingBand line1="Meet people. Remember them." line2="Start with an email or a mobile number." />
+      <ClosingBand href={J.community_final_start_now} line1="Meet people. Remember them." line2="Start with an email or a mobile number." />
     </>
   );
 }

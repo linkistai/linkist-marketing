@@ -12,6 +12,16 @@ import { PROTO_ALT, TALL_SCREENS } from '@/content/design';
 import { USE_CASES, useCaseBySlug } from '@/content/usecases';
 import { screen } from '@/lib/screens';
 import { pageMeta } from '@/lib/site';
+import { J } from '@/content/journeys';
+
+/** Each use case's own tracked links (D69): the hero button and the closing band. */
+const USE_CASE_CTA: Readonly<Record<string, { hero: string; final: string }>> = {
+  'after-the-event': { hero: J.use_case_after_event_hero_start_now, final: J.use_case_after_event_final_start_now },
+  'find-the-right-person': { hero: J.use_case_find_person_hero_start_now, final: J.use_case_find_person_final_start_now },
+  'too-many-relationships': { hero: J.use_case_too_many_relationships_hero_start_now, final: J.use_case_too_many_relationships_final_start_now },
+  'network-growing-wrong': { hero: J.use_case_network_growing_wrong_hero_start_now, final: J.use_case_network_growing_wrong_final_start_now },
+  'when-a-key-person-leaves': { hero: J.use_case_key_person_leaves_hero_start_now, final: J.use_case_key_person_leaves_final_start_now },
+};
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -42,7 +52,7 @@ export default async function UseCasePage({ params }: { params: Promise<{ slug: 
         lede={u.problem}
         ctas={
           <>
-            <StartFree />
+            <StartFree href={(USE_CASE_CTA[u.slug] ?? { hero: J.individual }).hero} />
             <TextLink href={u.feature}>The capabilities used</TextLink>
           </>
         }
@@ -97,7 +107,7 @@ export default async function UseCasePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      <ClosingBand />
+      <ClosingBand href={(USE_CASE_CTA[u.slug] ?? { final: J.individual }).final} />
     </>
   );
 }

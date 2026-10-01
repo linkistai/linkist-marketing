@@ -7,6 +7,7 @@ import { PageHero } from '@/components/PageHero';
 import { Bullets, SectionHead } from '@/components/Section';
 import { featureBySlug } from '@/content/features';
 import { planByKey } from '@/content/plans';
+import { J } from '@/content/journeys';
 import { TeamPrice } from '@/components/TeamPrice';
 import { pageMeta } from '@/lib/site';
 
@@ -40,7 +41,7 @@ export default function TeamsPage() {
         lede="Shared contacts, branded cards, and history that stays when people move on. Everything in Pro, for every user."
         ctas={
           <>
-            <StartFree label="Set up your team" />
+            <StartFree href={J.teams_hero} label="Set up your team" />
             <TextLink href="/features/teams">See the Team features</TextLink>
           </>
         }
@@ -83,7 +84,7 @@ export default function TeamsPage() {
               <Bullets items={team.groups.flatMap((g) => g.items)} className="mt-6" />
               <TeamPrice variant="block" />
               <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3">
-                <StartFree label="Start Here" />
+                <StartFree href={J.teams_plan} label="Start Here" />
                 <TextLink href="/pricing#compare">Compare PRM plans</TextLink>
               </div>
             </div>
@@ -107,7 +108,7 @@ export default function TeamsPage() {
         </div>
       </section>
 
-      <ClosingBand line1="Keep the relationships." line2="Even when people move on." cta="Get Teams" reassurance="Everything in Pro for every user. Minimum 5 users." />
+      <ClosingBand href={J.teams_final} line1="Keep the relationships." line2="Even when people move on." cta="Get Teams" reassurance="Everything in Pro for every user. Minimum 5 users." />
     </>
   );
 }

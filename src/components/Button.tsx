@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { G } from '@/lib/glossary';
-import { FREE_PROFILE_URL, GET_CARD_URL, START_URL } from '@/lib/site';
 
 type Variant = 'primary' | 'secondary' | 'ghost';
 type Size = 'sm' | 'md' | 'lg';
@@ -48,28 +47,31 @@ export function Button({
   );
 }
 
-/** The one primary conversion: Start Now (Start free until 29 September 2026), landing on the app's real sign-in and registration screen. */
-export function StartFree({ size = 'lg', variant = 'primary', className = '', label }: { size?: Size; variant?: Variant; className?: string; label?: string }) {
+/**
+ * The one primary conversion: Start Now (Start free until 29 September 2026). Every placement passes
+ * its own tracked journey link from src/content/journeys.ts (D69), so each button counts on its own.
+ */
+export function StartFree({ href, size = 'lg', variant = 'primary', className = '', label }: { href: string; size?: Size; variant?: Variant; className?: string; label?: string }) {
   return (
-    <Button href={START_URL} size={size} variant={variant} className={className}>
+    <Button href={href} size={size} variant={variant} className={className}>
       {label ?? G.ctaPrimary}
     </Button>
   );
 }
 
-/** "Get the App" (header, footer): the quick profile, like Start Now (owner, 21 September 2026). */
-export function GetApp({ size = 'md', variant = 'primary', className = '' }: { size?: Size; variant?: Variant; className?: string }) {
+/** "Get the App": the Individual journey, with the placement's own tag (D69). */
+export function GetApp({ href, size = 'md', variant = 'primary', className = '' }: { href: string; size?: Size; variant?: Variant; className?: string }) {
   return (
-    <Button href={FREE_PROFILE_URL} size={size} variant={variant} className={className}>
+    <Button href={href} size={size} variant={variant} className={className}>
       {G.ctaApp}
     </Button>
   );
 }
 
-/** "Get NFC Card": the store's start page (header, footer, pricing); the hero says "Get Linkist NFC" (D50). */
-export function GetCard({ size = 'md', variant = 'secondary', className = '', label }: { size?: Size; variant?: Variant; className?: string; label?: string }) {
+/** "Get NFC Card": the NFC card store journey, with the placement's own tag (D69); the hero says "Get Linkist NFC" (D50). */
+export function GetCard({ href, size = 'md', variant = 'secondary', className = '', label }: { href: string; size?: Size; variant?: Variant; className?: string; label?: string }) {
   return (
-    <Button href={GET_CARD_URL} size={size} variant={variant} className={className}>
+    <Button href={href} size={size} variant={variant} className={className}>
       {label ?? G.ctaNfc}
     </Button>
   );

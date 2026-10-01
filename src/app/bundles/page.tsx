@@ -6,7 +6,8 @@ import { Faq } from '@/components/Faq';
 import { PageHero } from '@/components/PageHero';
 import { Bundles } from '@/components/home/Bundles';
 import { BUNDLES } from '@/content/plans';
-import { STORE_URL, pageMeta } from '@/lib/site';
+import { pageMeta } from '@/lib/site';
+import { J } from '@/content/journeys';
 
 export const metadata: Metadata = pageMeta(
   'Bundles: Signature Bundle and Founders Circle Bundle',
@@ -36,7 +37,7 @@ export default function BundlesPage() {
         lede="Your card and Pro in one purchase, for less than buying both."
         ctas={
           <>
-            <Button href={STORE_URL} size="lg">
+            <Button href={J.bundles_hero_get_card} size="lg">
               Get your NFC card
             </Button>
             <TextLink href="/pricing">Compare PRM plans</TextLink>
@@ -62,7 +63,7 @@ export default function BundlesPage() {
         </div>
       </section>
 
-      <ClosingBand line1="An NFC card in your hand." line2="Pro in your pocket." cta="Get your NFC card" href={STORE_URL} reassurance="One purchase, free UAE shipping. Essential needs no card." />
+      <ClosingBand line1="An NFC card in your hand." line2="Pro in your pocket." cta="Get your NFC card" href={J.bundles_final_get_card} reassurance="One purchase, free UAE shipping. Essential needs no card." />
     </>
   );
 }

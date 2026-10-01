@@ -23,6 +23,14 @@ const csp = [
   ...(process.env['CSP_NO_UPGRADE'] === 'true' ? [] : ['upgrade-insecure-requests']),
 ].join('; ');
 
+/*
+ * The old shortcut addresses forward to tracked journeys (CTA link brief C07 to C09, 1 October 2026). Copied
+ * from src/content/journeys.ts, which journeys.test.ts checks these against; utm_medium=redirect is intended.
+ */
+const REDIRECT_START = 'https://prm.linkist.ai/UnifiedAuth?intent=individual&utm_source=linkist_ai&utm_medium=redirect&utm_campaign=website_cta&utm_content=redirect_start';
+const REDIRECT_APP = 'https://prm.linkist.ai/UnifiedAuth?intent=individual&utm_source=linkist_ai&utm_medium=redirect&utm_campaign=website_cta&utm_content=redirect_app';
+const REDIRECT_GET_CARD = 'https://prm.linkist.ai/store/start?utm_source=linkist_ai&utm_medium=redirect&utm_campaign=website_cta&utm_content=redirect_get_card';
+
 const securityHeaders = [
   { key: 'Content-Security-Policy', value: csp },
   { key: 'X-Content-Type-Options', value: 'nosniff' },
@@ -39,9 +47,8 @@ const nextConfig: NextConfig = {
     return [{ source: '/(.*)', headers: securityHeaders }];
   },
   async redirects() {
-    // The only integration with the product (brief, scope): Sign in and Get the App land on the PRM
-    // app's unified screen; Start free is the quick profile and Get NFC Card the store's start page
-    // (owner, 21 September 2026, D51). The brief's /learn path lives at /blogs, the old site's URL (D18).
+    // The only integration with the product (brief, scope): /sign-in lands on the PRM app's plain unified
+    // screen; /app, /start and /get-card forward to tracked journeys (D69). The brief's /learn path lives at /blogs, the old site's URL (D18).
     // Empty or unparsable values fall back, as in src/lib/site.ts (a dashboard can hold an empty variable).
     const url = (value: string | undefined, fallback: string) => {
       const v = (value ?? '').trim();
@@ -54,13 +61,11 @@ const nextConfig: NextConfig = {
     };
     const app = url(process.env['NEXT_PUBLIC_APP_URL'], 'https://prm.linkist.ai');
     const appAuth = url(process.env['NEXT_PUBLIC_GET_APP_URL'], `${app}/UnifiedAuth`);
-    const card = url(process.env['NEXT_PUBLIC_GET_CARD_URL'], `${app}/store/start`);
-    const profile = url(process.env['NEXT_PUBLIC_FREE_PROFILE_URL'], `${app}/quick-profile`);
     return [
-      { source: '/app', destination: appAuth, permanent: false },
+      { source: '/app', destination: REDIRECT_APP, permanent: false },
       { source: '/sign-in', destination: appAuth, permanent: false },
-      { source: '/start', destination: profile, permanent: false },
-      { source: '/get-card', destination: card, permanent: false },
+      { source: '/start', destination: REDIRECT_START, permanent: false },
+      { source: '/get-card', destination: REDIRECT_GET_CARD, permanent: false },
       { source: '/learn', destination: '/blogs', permanent: true },
       { source: '/learn/:slug', destination: '/blogs/:slug', permanent: true },
       { source: '/blog', destination: '/blogs', permanent: true },

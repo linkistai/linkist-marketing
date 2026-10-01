@@ -8,11 +8,8 @@ import { Button } from '@/components/Button';
 import { StoreBadges } from '@/components/StoreBadges';
 import { HERO } from '@/content/home';
 import { HeroProduct, type HeroSlide } from './HeroProduct';
-import { FREE_PROFILE_URL, GET_CARD_URL } from '@/lib/site';
 
 const PILLAR_ICONS = [CreditCard, Database, Target, Sparkles, Network, BookUser];
-/** Content hrefs: two keywords for the app's sign-up and store, anything else is a site path. */
-const go = (href: string) => (href === 'free-profile' ? FREE_PROFILE_URL : href === 'get-card' ? GET_CARD_URL : href);
 
 /**
  * The v2 home hero, with a For teams / For individuals switcher on the left (owner, 25 September
@@ -101,10 +98,10 @@ export function HomeHero({ slides }: { slides: readonly HeroSlide[] }) {
               {'ledeStrong' in m && m.ledeStrong ? <strong className="font-semibold text-white"> {m.ledeStrong}</strong> : null}
             </p>
             <div className="home-hero__ctas">
-              <Button href={go(m.primary.href)} size="lg" className="sm:min-w-[210px] sm:!min-h-[54px]">
+              <Button href={m.primary.href} size="lg" className="sm:min-w-[210px] sm:!min-h-[54px]">
                 {m.primary.label}
               </Button>
-              <Button href={go(m.secondary.href)} size="lg" variant="secondary" className="sm:min-w-[210px] sm:!min-h-[54px]">
+              <Button href={m.secondary.href} size="lg" variant="secondary" className="sm:min-w-[210px] sm:!min-h-[54px]">
                 {m.secondary.label}
               </Button>
             </div>

@@ -5,6 +5,7 @@ import { Newsletter } from '@/components/forms/Newsletter';
 import { Section } from '@/components/Section';
 import { CHANGELOG, IN_PRODUCT, UPCOMING, type ChangeTag } from '@/content/changelog';
 import { pageMeta } from '@/lib/site';
+import { J } from '@/content/journeys';
 
 export const metadata: Metadata = pageMeta('Changelog', 'What changed at Linkist, by date, from public sources: the website, the blog, the legal documents. Product release notes join the page when the team publishes them.', '/changelog', { image: '/og/changelog.png' });
 
@@ -101,7 +102,7 @@ export default function ChangelogPage() {
         </div>
       </Section>
 
-      <ClosingBand line1="Watch it grow." line2="Start with an email or a mobile number." />
+      <ClosingBand href={J.individual} line1="Watch it grow." line2="Start with an email or a mobile number." />
     </>
   );
 }

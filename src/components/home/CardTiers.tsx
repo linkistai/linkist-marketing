@@ -3,10 +3,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, type ReactNode } from 'react';
-import { CARD_TIERS, MATERIALS, type Material } from '@/content/plans';
+import { CARD_TIERS, MATERIALS, type Material, type TierKey } from '@/content/plans';
 import { CurrencySwitch, useCurrency } from '@/components/Currency';
 import { formatMoney } from '@/lib/glossary';
-import { STORE_URL } from '@/lib/site';
 
 const ARC: Record<string, { src: string; alt: string }> = {
   starter: { src: '/assets/tiers/starter-arc-2x.webp', alt: 'Starter NFC cards fanned in an arc: black and silver patterned fronts with the NFC mark, and the Linkist mark on the card in the middle' },
@@ -44,7 +43,10 @@ export function CardTiers({
   cta = { href: '/nfc-cards', label: 'Explore NFC cards' },
   headingLevel = 3,
   intro,
+  buy,
 }: {
+  /** Each tier's own tracked store link for this page (D69). */
+  buy: Readonly<Record<TierKey, string>>;
   cta?: { href: string; label: string } | null;
   headingLevel?: 2 | 3;
   intro?: { eyebrow: string; num?: string; title: ReactNode; lede: ReactNode; id?: string };
@@ -131,7 +133,7 @@ export function CardTiers({
                 ))}
               </dl>
               <div className="mt-auto flex flex-col gap-2.5">
-                <a href={STORE_URL} className={`btn ${featured ? 'btn--primary' : 'btn--secondary'} w-full !min-h-[50px] !text-[15px]`}>
+                <a href={buy[t.key]} className={`btn ${featured ? 'btn--primary' : 'btn--secondary'} w-full !min-h-[50px] !text-[15px]`}>
                   Get your {t.name} NFC card
                 </a>
                 <p className="text-center text-xs italic text-muted">PRM Essential plan included</p>

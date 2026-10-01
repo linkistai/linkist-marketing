@@ -8,6 +8,7 @@ import { MiniMock, type MiniMockKind } from '@/components/mockups/MiniMock';
 import { Section, SectionHead } from '@/components/Section';
 import { USE_CASES } from '@/content/usecases';
 import { pageMeta } from '@/lib/site';
+import { J } from '@/content/journeys';
 
 export const metadata: Metadata = pageMeta(
   'Customers',
@@ -136,7 +137,7 @@ export default function CustomersPage() {
         </ul>
       </Section>
 
-      <ClosingBand line1="Be one of the first." line2="Start with an email or a mobile number." reassurance="Free, no card needed. Nothing published without consent." />
+      <ClosingBand href={J.individual} line1="Be one of the first." line2="Start with an email or a mobile number." reassurance="Free, no card needed. Nothing published without consent." />
     </>
   );
 }

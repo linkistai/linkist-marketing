@@ -8,7 +8,8 @@ import { SectionHead } from '@/components/Section';
 import { TapProfile } from '@/components/TapProfile';
 import { CardTiers } from '@/components/home/CardTiers';
 import { CARD_OPTIONS, CARD_TIERS, SHIPPING_REGIONS } from '@/content/plans';
-import { NFC_TOOLS_URL, STORE_URL, pageMeta } from '@/lib/site';
+import { pageMeta } from '@/lib/site';
+import { J } from '@/content/journeys';
 
 export const metadata: Metadata = pageMeta(
   'NFC cards: Starter and Signature in PVC, wood and metal',
@@ -30,7 +31,7 @@ const FAQ = [
   { q: 'What is the difference between Starter and Signature?', a: 'Signature adds your name and logo. Both come in PVC, wood or metal with PRM Essential.' },
   { q: 'Which currency are cards priced in?', a: 'AED and US dollars; the USD / AED switch shows either. The store checks out in AED.' },
   { q: 'Is shipping included?', a: 'Yes, within the UAE. Other countries are not served yet.' },
-  { q: 'Can I use an NFC card I already own?', a: 'Yes, free, at nfctools.linkist.ai. Encoding needs an Android phone.' },
+  { q: 'Can I use an NFC card I already own?', a: 'Yes, at no extra cost. You need a Linkist digital profile on any plan, including Essential. If you don’t have one, you can create it as part of activation. Activate your card, then tap the card or sticker on your phone and Linkist writes your live profile onto it. Writing to the card needs Chrome on an Android phone. Once it is done, anyone can tap the card and open your profile. Only Linkist profiles can be written to the card. Other profiles or web links are not supported.', links: [{ label: 'Activate your card', href: J.nfc_cards_faq_byon }] },
   { q: 'Can I return an NFC card?', a: 'Yes. Tell us within 7 days of delivery, or longer where the law allows, if it is faulty, damaged or wrong, and we replace or refund it.' },
 ] as const;
 
@@ -59,7 +60,7 @@ export default function NfcCardsPage() {
         lede="A card that opens your live profile on an NFC phone, or by QR, and remembers the meeting. Includes PRM Essential."
         ctas={
           <>
-            <Button href={STORE_URL} size="lg">
+            <Button href={J.nfc_cards_hero_get_card} size="lg">
               Get your NFC card
             </Button>
             <TextLink href="#tiers">See NFC card pricing</TextLink>
@@ -102,7 +103,7 @@ export default function NfcCardsPage() {
         <div className="container">
           <SectionHead eyebrow="NFC card pricing" title={<>Two tiers, <span className="em-coral">three materials</span>.</>} lede="Signature adds your name and logo. One-time prices, PRM Essential included." center />
           <div className="mt-[clamp(40px,5vw,64px)]">
-            <CardTiers cta={{ href: '/bundles', label: 'See the bundles' }} />
+            <CardTiers buy={{ starter: J.nfc_cards_starter, signature: J.nfc_cards_signature }} cta={{ href: '/bundles', label: 'See the bundles' }} />
           </div>
           <ul className="m-0 mt-12 grid list-none gap-3.5 p-0 [grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))]" data-reveal="rise" data-reveal-stagger="0.06">
             {CARD_OPTIONS.map((o) => (
@@ -127,9 +128,9 @@ export default function NfcCardsPage() {
                 Already have an NFC card? Make it live, <span className="em-coral">free</span>.
               </h2>
               <p className="lede mt-5">Tap a card or sticker you own and Linkist writes your live profile onto it.</p>
-              <p className="mt-4 text-[13px] text-muted">Free forever. Encoding needs Android; the profile works everywhere.</p>
+              <p className="mt-4 text-[13px] text-muted">Free forever. Writing to the card needs Chrome on Android; the profile works everywhere.</p>
               <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3">
-                <Button href={NFC_TOOLS_URL} variant="secondary">
+                <Button href={J.nfc_cards_byon_activate} variant="secondary">
                   Activate the NFC card you already have
                 </Button>
                 <TextLink href="/bring-your-own">How bring-your-own works</TextLink>
@@ -174,7 +175,7 @@ export default function NfcCardsPage() {
         </div>
       </section>
 
-      <ClosingBand image="tap" line1="Order a card, or start without one." line2="PRM Essential included." cta="Get your NFC card" href={STORE_URL} reassurance="Free UAE shipping. Essential needs no card." />
+      <ClosingBand image="tap" line1="Order a card, or start without one." line2="PRM Essential included." cta="Get your NFC card" href={J.nfc_cards_final_get_card} reassurance="Free UAE shipping. Essential needs no card." />
     </>
   );
 }

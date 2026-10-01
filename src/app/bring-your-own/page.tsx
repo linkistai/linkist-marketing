@@ -4,7 +4,8 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Button } from '@/components/Button';
 import { ClosingBand } from '@/components/ClosingBand';
 import { Faq } from '@/components/Faq';
-import { NFC_TOOLS_URL, pageMeta } from '@/lib/site';
+import { pageMeta } from '@/lib/site';
+import { J } from '@/content/journeys';
 
 export const metadata: Metadata = pageMeta(
   'Bring your own NFC',
@@ -16,15 +17,15 @@ export const metadata: Metadata = pageMeta(
 /**
  * Bring your own NFC, laid out after the owner's reference (linkist-bring-your-own-nfc-v1.html,
  * 25 September 2026): the heading in two tones, one path card, three reasons in a row, then the
- * one button with its small print. The path opens the NFC tools site, which reads and writes the
- * chip. The reference's second path, an existing profile link, stays out: it only collected
+ * one button with its small print. Every way in opens the Bring your own (BYON) journey in the PRM
+ * app, which reads and writes the chip and creates the profile first when there is none (D69). The reference's second path, an existing profile link, stays out: it only collected
  * sign-up information (owner, 21 September 2026).
  */
 const PATH = {
   icon: Nfc,
   title: 'An NFC card or sticker',
   body: 'Tap it on your phone. We will show you what is on the chip, then write your live Linkist profile onto it.',
-  href: NFC_TOOLS_URL,
+  href: J.bring_your_own_hero_start,
 } as const;
 
 const FEATURES = [
@@ -35,9 +36,9 @@ const FEATURES = [
 
 const FAQ = [
   { q: 'Does it cost anything?', a: 'No. Free forever, no payment details. Every profile includes PRM Essential.' },
-  { q: 'Which cards and stickers work?', a: 'Any writable NTAG-type NFC card or sticker that you own; never a bank, payment, access, transport or ID card (T 14). The tools site checks the chip first.' },
-  { q: 'Do I need a Linkist profile?', a: 'Yes. You need at least an Essential plan Linkist digital profile to write to the card. Non-Linkist profiles or URLs cannot be written using this tool.' },
-  { q: 'Do I need a particular phone?', a: 'Encoding needs an Android phone with NFC. The profile then opens on every phone.' },
+  { q: 'Which cards and stickers work?', a: 'Any writable NTAG-type NFC card or sticker that you own; never a bank, payment, access, transport or ID card (T 14). Linkist checks the chip first.' },
+  { q: 'Do I need a Linkist profile?', a: 'Yes, on any plan, including Essential. If you don’t have one, you can create it as part of activation. Only Linkist profiles can be written to the card; other profiles or web links are not supported.' },
+  { q: 'Do I need a particular phone?', a: 'Writing to the card needs Chrome on an Android phone with NFC. The profile then opens on every phone.' },
   { q: 'What happens to the old link on the card?', a: 'It is replaced by your Linkist address. You can update the profile behind it any time without touching the card.' },
 ] as const;
 
@@ -92,11 +93,11 @@ export default function BringYourOwnPage() {
           </ul>
 
           <div className="mt-[clamp(40px,5vw,56px)] flex flex-wrap items-center gap-x-6 gap-y-4" data-reveal="rise">
-            <Button href={NFC_TOOLS_URL} size="lg">
+            <Button href={J.bring_your_own_activation} size="lg">
               Activate what I already have
               <ArrowRight size={16} aria-hidden="true" />
             </Button>
-            <p className="text-[13px] text-muted">Free forever · No payment details · Encoding a chip needs an Android phone, your profile works on every device</p>
+            <p className="text-[13px] text-muted">Free forever · No payment details · Writing to the card needs Chrome on Android, your profile works on every device</p>
           </div>
         </div>
       </section>
@@ -107,7 +108,7 @@ export default function BringYourOwnPage() {
         </div>
       </section>
 
-      <ClosingBand line1="Keep the card." line2="Get the intelligence." cta="Activate what I already have" href={NFC_TOOLS_URL} reassurance="Free forever. Works with the card or sticker you own." />
+      <ClosingBand line1="Keep the card." line2="Get the intelligence." cta="Activate what I already have" href={J.bring_your_own_final} reassurance="Free forever. Works with the card or sticker you own." />
     </>
   );
 }

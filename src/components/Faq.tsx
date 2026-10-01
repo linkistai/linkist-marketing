@@ -1,9 +1,12 @@
+import Link from 'next/link';
 import { Plus } from 'lucide-react';
 import type { ReactNode } from 'react';
 
 export interface FaqItem {
   readonly q: string;
   readonly a: string;
+  /** Links shown under the answer, such as a tracked journey link (D69). */
+  readonly links?: readonly { readonly label: string; readonly href: string }[];
 }
 
 /**
@@ -43,6 +46,21 @@ export function Faq({
             </span>
           </summary>
           <p className="faq__body">{it.a}</p>
+          {it.links?.length ? (
+            <p className="faq__body flex flex-wrap gap-x-5 gap-y-2 !pt-0">
+              {it.links.map((l) =>
+                l.href.startsWith('http') ? (
+                  <a key={l.href} href={l.href} className="font-semibold text-white underline underline-offset-2">
+                    {l.label}
+                  </a>
+                ) : (
+                  <Link key={l.href} href={l.href} className="font-semibold text-white underline underline-offset-2">
+                    {l.label}
+                  </Link>
+                ),
+              )}
+            </p>
+          ) : null}
         </details>
       ))}
       {jsonLd ? (

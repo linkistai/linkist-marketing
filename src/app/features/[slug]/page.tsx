@@ -14,6 +14,16 @@ import { PROTO_ALT, TALL_SCREENS, type ProtoScreen } from '@/content/design';
 import { FEATURES, featureBySlug } from '@/content/features';
 import { isPreview, screen } from '@/lib/screens';
 import { pageMeta } from '@/lib/site';
+import { J } from '@/content/journeys';
+
+/** Each feature page's own tracked links (D69): the hero button and the closing band. */
+const FEATURE_CTA: Readonly<Record<string, { hero: string; final: string }>> = {
+  capture: { hero: J.feature_capture_hero_start_now, final: J.feature_capture_final_start_now },
+  find: { hero: J.feature_find_hero_start_now, final: J.feature_find_final_start_now },
+  act: { hero: J.feature_act_hero_start_now, final: J.feature_act_final_start_now },
+  profiles: { hero: J.feature_profiles_hero_start_now, final: J.feature_profiles_final_start_now },
+  teams: { hero: J.feature_teams_hero_start_now, final: J.feature_teams_final_start_now },
+};
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -73,7 +83,7 @@ export default async function FeaturePage({ params }: { params: Promise<{ slug: 
         lede={f.lede}
         ctas={
           <>
-            <StartFree />
+            <StartFree href={(FEATURE_CTA[f.slug] ?? { hero: J.individual }).hero} />
             <TextLink href="#inside">See it on screen</TextLink>
           </>
         }
@@ -130,7 +140,7 @@ export default async function FeaturePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      <ClosingBand />
+      <ClosingBand href={(FEATURE_CTA[f.slug] ?? { final: J.individual }).final} />
     </>
   );
 }

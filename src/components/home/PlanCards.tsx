@@ -4,7 +4,7 @@ import { Check } from 'lucide-react';
 import { StartFree, TextLink } from '@/components/Button';
 import { CurrencySwitch, useCurrency } from '@/components/Currency';
 import { PlanPromo } from '@/components/Promotions';
-import { ENTERPRISE_NOTE, PLANS, type Plan } from '@/content/plans';
+import { ENTERPRISE_NOTE, PLANS, type Plan, type PlanKey } from '@/content/plans';
 import { formatMoney, type Currency } from '@/lib/glossary';
 
 /** The line under the price: the yearly price, or the Team plan's minimum and extra users. */
@@ -23,7 +23,8 @@ function priceLine(p: Plan, cur: Currency): string {
  * white "Most popular" badge on the top edge) and Team. Each card lists its groups, then pins the
  * price block and its CTA to the bottom. Prices follow the shared USD / AED switch (AED by default).
  */
-export function PlanCards({ compact, headingLevel = 3 }: { compact?: boolean; headingLevel?: 2 | 3 }) {
+/** `starts`: each plan's own tracked journey link for this page (D69). */
+export function PlanCards({ compact, headingLevel = 3, starts }: { compact?: boolean; headingLevel?: 2 | 3; starts: Readonly<Record<PlanKey, string>> }) {
   const H = headingLevel === 2 ? 'h2' : 'h3';
   const { currency: cur } = useCurrency();
   return (
@@ -63,7 +64,7 @@ export function PlanCards({ compact, headingLevel = 3 }: { compact?: boolean; he
                 </p>
 <p className="mt-1 text-xs leading-normal text-muted">{priceLine(p, cur)}</p>
                 <div className="mt-4">
-                  <StartFree label="Start Here" size="sm" variant={featured ? 'primary' : 'secondary'} className="w-full !min-h-[46px] !shadow-none" />
+                  <StartFree href={starts[p.key]} label="Start Here" size="sm" variant={featured ? 'primary' : 'secondary'} className="w-full !min-h-[46px] !shadow-none" />
                 </div>
               </div>
             </article>

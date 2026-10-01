@@ -7,6 +7,7 @@ import { Faq } from '@/components/Faq';
 import { Section, SectionHead } from '@/components/Section';
 import { CONTACT_DATA, CONTROLLER, CONTROLS, DPO_EMAIL_PUBLISHED, PRIVACY_EMAIL_PUBLISHED, PRIVACY_URL, PROVIDERS, RETENTION, RIGHTS, SECURITY_FAQ, SECURITY_NOT_PUBLISHED, SITE_CONTROLS, SUPPORT_EMAIL_PUBLISHED, TERMS_URL, TRANSFER_SAFEGUARDS } from '@/content/trust';
 import { pageMeta } from '@/lib/site';
+import { J } from '@/content/journeys';
 
 export const metadata: Metadata = pageMeta(
   'Security and trust',
@@ -42,7 +43,7 @@ export default function SecurityPage() {
         lede="Where your data lives, who sees it, how it is protected, your rights, and what is not published yet. Every line is sourced."
         ctas={
           <>
-            <StartFree />
+            <StartFree href={J.individual} />
             <TextLink href="#not-yet">What is not published yet</TextLink>
           </>
         }
@@ -207,7 +208,7 @@ export default function SecurityPage() {
         </div>
       </section>
 
-      <ClosingBand line1="Your contacts, your rules." line2="Start with an email or a mobile number." reassurance="Free, no card needed." />
+      <ClosingBand href={J.individual} line1="Your contacts, your rules." line2="Start with an email or a mobile number." reassurance="Free, no card needed." />
     </>
   );
 }

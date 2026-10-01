@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { ClosingBand } from '@/components/ClosingBand';
 import { PageHero } from '@/components/PageHero';
 import { USE_CASES } from '@/content/usecases';
+import { J } from '@/content/journeys';
 import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
@@ -54,7 +55,7 @@ export default function UseCasesHub() {
           </ul>
         </div>
       </section>
-      <ClosingBand />
+      <ClosingBand href={J.use_cases_final_start_now} />
     </>
   );
 }

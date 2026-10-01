@@ -16,6 +16,7 @@ import { StageSwitcher } from '@/components/home/StageSwitcher';
 import { UseCaseCards } from '@/components/home/UseCaseCards';
 import { PROTO_ALT, TALL_SCREENS } from '@/content/design';
 import { FAQ, STAGES } from '@/content/home';
+import { J } from '@/content/journeys';
 import { USE_CASES } from '@/content/usecases';
 import { asset, screen } from '@/lib/screens';
 import { DEFAULT_DESCRIPTION, TAGLINE, pageMeta } from '@/lib/site';
@@ -133,14 +134,14 @@ export default function HomePage() {
         <div className="container">
           <SectionHead id="price-title" num="04" eyebrow="Linkist PRM" title={<>Start free. <span className="em-coral">Add more</span> when you need it.</>} lede="No NFC card needed. Start free, then upgrade for richer contacts, AI matching and follow-up, or teams." />
           <div className="mt-[clamp(40px,5vw,64px)]">
-            <PlanCards compact />
+            <PlanCards compact starts={{ essential: J.home_prm_essential, enhanced: J.home_prm_enhanced, pro: J.home_prm_pro, team: J.home_prm_team }} />
           </div>
         </div>
       </section>
 
       <section id="cards" aria-labelledby="cards-title" className="section relative overflow-hidden">
         <div className="container">
-          <CardTiers intro={{ num: '05', eyebrow: 'Linkist NFC cards', id: 'cards-title', title: <>Tap. Share. Make the <span className="em-coral">first impression</span> count.</>, lede: 'A card that opens your live profile in one tap. Every card includes PRM Essential.' }} cta={{ href: '/nfc-cards', label: 'Explore NFC cards' }} />
+          <CardTiers buy={{ starter: J.home_nfc_starter, signature: J.home_nfc_signature }} intro={{ num: '05', eyebrow: 'Linkist NFC cards', id: 'cards-title', title: <>Tap. Share. Make the <span className="em-coral">first impression</span> count.</>, lede: 'A card that opens your live profile in one tap. Every card includes PRM Essential.' }} cta={{ href: '/nfc-cards', label: 'Explore NFC cards' }} />
         </div>
       </section>
 
@@ -166,7 +167,7 @@ export default function HomePage() {
 
       <CommunityBand />
 
-      <ClosingBand image="portrait" />
+      <ClosingBand href={J.home_final_start_now} image="portrait" />
     </>
   );
 }

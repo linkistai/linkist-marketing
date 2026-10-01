@@ -86,7 +86,7 @@ export default function SystemPage() {
       <Section tight id="buttons">
         <SectionHead eyebrow="Buttons and links" title="One primary CTA, everywhere" lede="Start Now lands on the app. Secondary actions are the prototype's ghost pill or a text link with an arrow." />
         <div className="mt-10 flex flex-wrap items-center gap-4">
-          <StartFree />
+          <StartFree href="/" />
           <Button variant="secondary" size="lg">
             Try Linkist now
           </Button>

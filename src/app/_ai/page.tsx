@@ -8,6 +8,7 @@ import { Faq } from '@/components/Faq';
 import { Section, SectionHead } from '@/components/Section';
 import { AI_CAPABILITIES, AI_FAQ, AI_INPUTS, AI_OUTPUTS, AI_RULES, POLICY_DATE, POLICY_VERSION, PRIVACY_EMAIL_PUBLISHED, PRIVACY_URL, TERMS_URL } from '@/content/trust';
 import { pageMeta } from '@/lib/site';
+import { J } from '@/content/journeys';
 
 export const metadata: Metadata = pageMeta(
   'AI and your data',
@@ -42,7 +43,7 @@ export default function AiPage() {
         lede={`AI is off until you switch it on, and every result shows its confidence. What it does, reads and keeps, from the Terms and Privacy v${POLICY_VERSION} of ${POLICY_DATE}.`}
         ctas={
           <>
-            <StartFree />
+            <StartFree href={J.individual} />
             <TextLink href="#rules">Read the rules</TextLink>
           </>
         }
@@ -129,7 +130,7 @@ export default function AiPage() {
         </div>
       </section>
 
-      <ClosingBand line1="Let the AI fill the gaps." line2="You keep the last word." reassurance="Optional, off in one switch. Free, no card needed." />
+      <ClosingBand href={J.individual} line1="Let the AI fill the gaps." line2="You keep the last word." reassurance="Optional, off in one switch. Free, no card needed." />
     </>
   );
 }
