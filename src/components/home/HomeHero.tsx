@@ -48,8 +48,8 @@ export function HomeHero({ slides }: { slides: readonly HeroSlide[] }) {
   return (
     <section className="home-hero" aria-labelledby="hero-title" onMouseMove={onMove}>
       <div ref={spot} className="home-hero__spot" aria-hidden="true" />
-      {/* The background (owner, 29 September 2026): the red halftone field, in place of the smoke, the floor glow and the faint mark. */}
-      <Image src="/assets/gen/hero-halftone.webp" alt="" aria-hidden="true" fill priority sizes="100vw" className="home-hero__field" />
+      {/* The background (owner, 1 October 2026, D66): grey smoke that breaks into a fine dot grid, in place of the red halftone. */}
+      <Image src="/assets/gen/hero-smoke.webp" alt="" aria-hidden="true" fill priority sizes="100vw" className="home-hero__field" />
 
       <div className="container home-hero__grid">
         <div className="home-hero__copy">

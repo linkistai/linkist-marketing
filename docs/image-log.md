@@ -60,7 +60,7 @@ Six public-profile mockups and six Signature card renders from the owner's "Prof
 
 | Picture | File | Source and treatment |
 | --- | --- | --- |
-| Home hero background | `public/assets/gen/hero-halftone.webp` | The owner's red halftone field (supplied in chat), re-encoded as WebP at 2000 px. |
+| Home hero background | `public/assets/gen/hero-smoke.webp` | Grey smoke that breaks into a halftone dot grid on the right (D66), generated locally from domain-warped noise at 2560 x 1440, no third-party material. It replaced the owner's red halftone field (D62, `hero-halftone.webp`, in git history). |
 | The founders | `public/assets/founders/<name>.webp` | The RatioX Labs site's own photographs (ratioxlabs.com, the local copy in the RatioX project), cropped square to 480 px. Text word for word from the same section. |
 | Natalie Vale's profile, light and dark | `public/screens/v12-profile-natalie-<theme>.webp` | Drawn by the v12 prototype's own preview (`pnpm capture:v12 profile`): Natalie's name, title, company and social links from the owner's sample profile, an example email and number in the prototype's style, and her sample photo with its two overlay buttons removed (`scripts/fixtures`). The prototype's dark-theme Save and Share icons are kept dark so they show. |
 | NFC symbol on the card faces | `public/assets/cards/{pvc,wood,metal,founders}-*.webp`, `card-*.webp` | The generated faces with the old embossed wave (bottom right) removed by cloning the card's own texture, and the real card's symbol (four arcs fitted from the owner's Signature card render) set at right-middle: red on PVC, metal and Founders Circle, engraved on wood. Pre-edit masters in `masters/cards-pre-d62/` (git-ignored). |

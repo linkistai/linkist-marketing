@@ -46,14 +46,16 @@ export default function HomePage() {
       />
 
       <div aria-hidden="true" className="marquee">
-        <div className="marquee__mask">
-          <div className="v2-marquee marquee__track">
-            {[...MARQUEE, ...MARQUEE].map((m, i) => (
-              <span key={`${m}-${i}`} className="inline-flex items-center gap-10">
-                {m}
-                <Image src="/brand/mark.png" alt="" width={18} height={18} className="h-[18px] w-auto opacity-90" />
-              </span>
-            ))}
+        <div className="container">
+          <div className="marquee__mask">
+            <div className="v2-marquee marquee__track">
+              {[...MARQUEE, ...MARQUEE].map((m, i) => (
+                <span key={`${m}-${i}`} className="inline-flex items-center gap-6">
+                  {m}
+                  <Image src="/brand/mark.png" alt="" width={12} height={12} className="h-3 w-auto opacity-90" />
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -158,11 +160,6 @@ export default function HomePage() {
             jsonLd
             num="07"
             title="Frequently asked questions"
-            aside={
-              <div className="relative aspect-[4/3] overflow-hidden rounded-[22px] border border-line">
-                <Image src="/assets/gen/event.webp" alt="A person at an event holding a phone with Linkist open" fill sizes="(min-width: 768px) 520px, 90vw" className="object-cover [object-position:60%_50%]" />
-              </div>
-            }
           />
         </div>
       </section>

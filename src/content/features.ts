@@ -32,7 +32,6 @@ export interface FeaturePage {
   readonly scene: { readonly src: string; readonly alt: string; readonly square?: boolean };
   readonly chips: readonly { label: string; value: string }[];
   readonly tabs: readonly FeatureTabContent[];
-  readonly planNote: string;
   readonly faq: readonly FaqItem[];
   readonly hubBlurb: string;
   readonly object: string;
@@ -62,7 +61,6 @@ export const FEATURES: readonly FeaturePage[] = [
       { key: 'import', title: 'Import and add', body: 'Bring your phone contacts, a CSV or a VCF file, or add a person by hand. From Enhanced, notes and tags keep the context with them.', screen: 'v6-quickadd', kind: 'phone', alt: 'Contact import screen' },
       { key: 'enrich', title: 'AI Enrichment', body: 'An incomplete record gets its missing professional details filled in. You see what was added and can change it.', screen: 'v6-enrich', kind: 'phone', alt: 'AI Enrichment on a contact record', plan: 'Pro' },
     ],
-    planNote: 'NFC, QR, import and manual add are in every plan. Card scans are limited by plan. AI Enrichment, lead capture forms and export start at Enhanced or Pro as listed on the pricing page.',
     faq: [
       { q: 'Does the other person need Linkist to receive my card?', a: 'No. A tap or a QR scan opens your live profile in their browser and they can save your details. If they use Linkist too, the meeting is captured on both sides.' },
       { q: 'What does the card scan read?', a: 'The name, company, role, phone, email and address printed on a paper business card, into fields you can correct before saving.' },
@@ -94,7 +92,6 @@ export const FEATURES: readonly FeaturePage[] = [
       { key: 'priority', title: 'Relationship Heat Map', body: 'The Relationship Heat Map shows who is warming up, cooling down and cold, so attention goes where it is needed.', screen: 'v6-health', kind: 'phone', alt: 'Relationship Health screen' },
       { key: 'ask', title: 'Network Ask', body: 'Post what you need. Linkist finds relevant people in your network, or a trusted path to someone one connection away.', screen: 'v6-askdetail', kind: 'phone', alt: 'Network Ask screen', plan: 'Pro' },
     ],
-    planNote: 'Search and the Relationship Heat Map are part of the app for every plan with notes and tags. ICP Matching, Network Ask and Network Strength are part of Pro and Team.',
     faq: [
       { q: 'What is an ICP?', a: 'An ideal customer profile: who you are looking for, described once. Linkist compares your contacts against it and shows the matches.' },
       { q: 'How does Linkist decide a relationship is cooling?', a: 'From activity: when you last met, wrote or were nudged. The Relationship Heat Map groups contacts into warming up, cooling down and cold.' },
@@ -125,7 +122,6 @@ export const FEATURES: readonly FeaturePage[] = [
       { key: 'planner', title: 'Weekly Planner', body: 'Plan the relationships and opportunities to work on this week, then tick them off.', screen: 'v6-brief', kind: 'phone', alt: 'Weekly Planner screen' },
       { key: 'intros', title: 'Warm Introductions and AI Follow-up', body: 'Ask for an introduction through someone you both know, and let Linkist draft the follow-up from the context you saved.', screen: 'v6-intros', kind: 'phone', alt: 'Warm introduction request', plan: 'Pro' },
     ],
-    planNote: 'Top Actions, Intelligent Nudges, Warm Introductions, AI Follow-up, the AI voice notetaker and the deal-tracking mini-CRM are part of Pro and Team.',
     faq: [
       { q: 'Does Linkist send messages for me?', a: 'Only when you tell it to send one. It drafts; you read, change and send.' },
       { q: 'How often do nudges arrive?', a: 'When something deserves attention: a follow-up you have not made, a relationship going quiet, a signal about a contact. You can schedule the cadence per contact.' },
@@ -157,7 +153,6 @@ export const FEATURES: readonly FeaturePage[] = [
       { key: 'profiles', title: 'Several profiles', body: 'A personal profile and business profiles for the hats you wear: 1 on Essential, 3 on Enhanced, 5 on Pro. Switch which one a card shares.', screen: 'v6-cards', kind: 'phone', alt: 'Profiles list', plan: 'Enhanced' },
       { key: 'share', title: 'Sharing and wallet', body: 'Share by NFC tap, QR code, link, WhatsApp, email or SMS. Apple Wallet and Google Wallet are coming soon.', screen: 'v6-share', kind: 'phone', alt: 'Share Contact screen' },
     ],
-    planNote: 'Essential includes the digital card, 1 profile, 1 template and QR, URL, email and SMS sharing. Enhanced adds the personal URL, unlimited fields, 3 profiles, 3 templates and a branded QR. Pro adds 5 profiles and full customisation.',
     faq: [
       { q: 'What if I change jobs?', a: 'Edit the profile once. Every card, QR code and link you have ever shared shows the new details.' },
       { q: 'Can I have a personal and a business profile?', a: 'Yes, from Enhanced: 1 personal and 2 business profiles. Pro allows 5.' },
@@ -188,7 +183,6 @@ export const FEATURES: readonly FeaturePage[] = [
       { key: 'admin', title: 'Admin console', body: 'Add and remove users, manage who sees what, and keep company branding on every card from one place.', screen: 'team-admin-browser', kind: 'browser', alt: 'Admin console', plan: 'Team' },
       { key: 'directory', title: 'Team directory', body: 'Every colleague and their profiles in one directory, so the right person can be introduced fast.', screen: 'team-directory-browser', kind: 'browser', alt: 'Team directory', plan: 'Team' },
     ],
-    planNote: 'The Team plan is $5 (AED 20) per user a month with a minimum of 5 users: $25 (AED 100) a month or $250 (AED 1,000) a year for 5 users, then $5 (AED 20) a month or $50 (AED 200) a year for each additional user. It includes everything in Pro for every user.',
     faq: [
       { q: 'What happens to contacts when someone leaves?', a: 'Their personal contacts stay theirs. Team-shared contacts and the relationship history remain with the authorised team.' },
       { q: 'Can we brand the cards?', a: 'Yes. On the Team plan, company-wide branding on every member’s card is managed from the admin console. A Signature NFC card prints your own name and logo on any plan.' },

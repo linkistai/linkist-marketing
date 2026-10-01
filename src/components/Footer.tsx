@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { LinkistLogotype } from './LinkistLogotype';
 import { Newsletter } from './forms/Newsletter';
 import { CookieChoicesLink } from './CookieChoicesLink';
 import { MotionToggle } from './MotionToggle';
@@ -57,7 +58,7 @@ const COLUMNS: { title: string; links: { href: string; label: string; external?:
 /**
  * The v2 footer: an auto-fit grid where the brand block (lockup, blurb, the two product buttons and
  * the newsletter) spans two columns beside Product, Features, Cards and Company. Under the columns
- * a giant outlined "Linkist" wordmark, decorative; then the copyright bar with the cookie choices
+ * a giant outlined "Linkist" wordmark drawn from the logotype (D66), decorative; then the copyright bar with the cookie choices
  * and the motion switch (brief 6).
  */
 export function Footer() {
@@ -97,7 +98,7 @@ export function Footer() {
         ))}
       </div>
       <div aria-hidden="true" className="container overflow-hidden">
-        <p className="footer-wordmark">Linkist</p>
+        <LinkistLogotype className="footer-wordmark" />
       </div>
       <div className="border-t border-line">
         <div className="container flex flex-col gap-3 py-[22px] text-xs text-muted md:flex-row md:items-center md:justify-between">

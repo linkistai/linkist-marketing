@@ -101,7 +101,13 @@ export default async function FeaturePage({ params }: { params: Promise<{ slug: 
           <div className="mt-10">
             <FeatureTabs tabs={tabs} label={`${f.name} features`} />
           </div>
-          <p className="mt-10 max-w-3xl text-[13px] leading-normal text-muted">{f.planNote}</p>
+          <p className="mt-10 max-w-3xl text-[13px] leading-normal text-muted">
+            Check{' '}
+            <Link href="/pricing#compare" className="text-soft underline underline-offset-2 hover:text-white">
+              Plan comparison
+            </Link>{' '}
+            for feature availability.
+          </p>
         </div>
       </section>
 
