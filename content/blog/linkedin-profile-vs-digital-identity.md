@@ -100,7 +100,7 @@ A professional digital identity may include:
 For example, a Linkist profile may use a format such as:
 
 ::note
-`m.linkist.ai/me/john-doe`
+`prm.linkist.ai/me/john-doe`
 ::
 
 This profile can be shared through an NFC card, QR code, direct link, WhatsApp, email signature or social bio. The purpose is simple: make your professional identity easy to share and easy to act on.

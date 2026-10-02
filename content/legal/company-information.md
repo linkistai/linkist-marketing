@@ -40,10 +40,8 @@ The Linkist Terms and Privacy are governed by the laws of the United Arab Emirat
 
 ## 5. Websites and products
 
-- This website: [PLACEHOLDER: the domain, once confirmed]
-- The Linkist PRM app and store: prm.linkist.ai
-- The NFC card product and public profiles: m.linkist.ai
-- The current public site: linkist.ai
+- This website: linkist.ai
+- The Linkist PRM app, public profiles and the store: prm.linkist.ai
 
 ## 6. Documents in force
 

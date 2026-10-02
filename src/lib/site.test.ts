@@ -15,7 +15,7 @@ describe('environment URLs', () => {
 
   it('keeps a good value and drops one trailing slash', () => {
     expect(coerceUrl('https://prm.linkist.ai/', 'https://x')).toBe('https://prm.linkist.ai');
-    expect(coerceUrl(' https://m.linkist.ai/login ', 'https://x')).toBe('https://m.linkist.ai/login');
+    expect(coerceUrl(' https://prm.linkist.ai/store/start ', 'https://x')).toBe('https://prm.linkist.ai/store/start');
   });
 
   it('treats empty strings as unset', () => {

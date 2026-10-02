@@ -74,7 +74,7 @@ At its core, a digital business card typically includes:
 
 ::note
 **Your Linkist profile URL looks like this:**
-`m.linkist.ai/me/john-doe`
+`prm.linkist.ai/me/john-doe`
 Anyone who visits this URL on any device sees your full, up-to-date professional profile, no app required.
 ::
 
@@ -223,7 +223,7 @@ If you represent a company, match your card colours and logo to your company bra
 
 ### A memorable URL
 
-Claim a short, clean profile URL early. `m.linkist.ai/me/your-name` is easier to share verbally and in writing than a random string of characters.
+Claim a short, clean profile URL early. `prm.linkist.ai/me/your-name` is easier to share verbally and in writing than a random string of characters.
 
 ## Who can benefit from a digital business card?
 

@@ -48,12 +48,15 @@ describe('tracked journey links (D69)', () => {
 
   it('never links to or names the retired addresses', () => {
     const tools = ['nfc', 'tools.linkist.ai'].join('');
+    // The old card app's host is being retired (owner, 2 October 2026, D73); prm.linkist.ai must not trip the check.
+    const cardApp = /(^|[^a-z])m\.linkist\.ai/;
     const quick = ['quick', '-profile'].join('');
     // llms.txt keeps its old pointer until its tracking values are agreed (brief, C15).
     const pending = join('src', 'app', 'llms.txt', 'route.ts');
     for (const f of [...files('src'), ...files('content')]) {
       const text = readFileSync(f, 'utf8');
       expect(text.includes(tools), f).toBe(false);
+      expect(cardApp.test(text), f).toBe(false);
       if (!f.endsWith(pending)) expect(text.includes(quick), f).toBe(false);
     }
   });

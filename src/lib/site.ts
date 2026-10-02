@@ -27,8 +27,6 @@ export const envString = (value: string | undefined): string | undefined => {
 export const SITE_URL = coerceUrl(process.env['NEXT_PUBLIC_SITE_URL'], 'https://linkist.ai');
 /** The PRM app. Its unified screen signs in and creates an account in one place (D7, D15). */
 export const APP_URL = coerceUrl(process.env['NEXT_PUBLIC_APP_URL'], 'https://prm.linkist.ai');
-/** The NFC card product: profiles, card activation and the card-holder sign-in (D15). */
-export const CARD_APP_URL = coerceUrl(process.env['NEXT_PUBLIC_CARD_APP_URL'], 'https://m.linkist.ai');
 /** "Get the App" and Sign in: the PRM app's unified sign-in and registration screen. */
 export const GET_APP_URL = coerceUrl(process.env['NEXT_PUBLIC_GET_APP_URL'], `${APP_URL}/UnifiedAuth`);
 /*

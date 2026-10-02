@@ -65,32 +65,6 @@ const nextConfig: NextConfig = {
     };
     const app = url(process.env['NEXT_PUBLIC_APP_URL'], 'https://prm.linkist.ai');
     const appAuth = url(process.env['NEXT_PUBLIC_GET_APP_URL'], `${app}/UnifiedAuth`);
-    const cardApp = url(process.env['NEXT_PUBLIC_CARD_APP_URL'], 'https://m.linkist.ai');
-    // linkist.ai used to be served by the card app that now lives on m.linkist.ai only (owner, 2 October
-    // 2026, D72): its pages forward there with the same path and query, so profile links on cards,
-    // sign-in and verification links in old emails, orders and admin keep working. Temporary, so they
-    // can move later.
-    const CARD_APP_PATHS = [
-      '/me/:path*',
-      '/login',
-      '/verify-login',
-      '/verify-email',
-      '/verify-mobile',
-      '/account/:path*',
-      '/profile-dashboard/:path*',
-      '/profiles/:path*',
-      '/orders/:path*',
-      '/checkout/:path*',
-      '/product-selection/:path*',
-      '/claim-url/:path*',
-      '/welcome-to-linkist/:path*',
-      '/templates/:path*',
-      '/nfc/:path+',
-      '/admin/:path*',
-      '/admin-login',
-      '/admin-access',
-      '/super-admin/:path*',
-    ];
     return [
       { source: '/app', destination: REDIRECT_APP, permanent: false },
       { source: '/sign-in', destination: appAuth, permanent: false },
@@ -106,10 +80,9 @@ const nextConfig: NextConfig = {
       { source: '/digital-business-card', destination: '/nfc-cards', permanent: true },
       // Addresses of the earlier linkist.ai sites that search engines still list (2 October 2026, D70).
       { source: '/nfc', destination: '/nfc-cards', permanent: true },
-      // The card app's own marketing pages, now on this site (D72).
+      // Old marketing pages of the earlier linkist.ai app (D72). Nothing links or forwards to that app (D73).
       { source: '/prm', destination: '/', permanent: true },
       { source: '/founding-member', destination: '/bundles', permanent: true },
-      ...CARD_APP_PATHS.map((source) => ({ source, destination: `${cardApp}${source}`, permanent: false })),
       { source: '/stories', destination: '/blogs', permanent: true },
       { source: '/stories/:slug*', destination: '/blogs', permanent: true },
       { source: '/feed', destination: '/blogs', permanent: true },
