@@ -44,12 +44,10 @@ export const PLAY_STORE_URL = envString(process.env['NEXT_PUBLIC_PLAY_STORE_URL'
 /** Sign in lands on the plain unified screen, untagged (D7; C10 and C11 of the CTA link brief). */
 export const SIGN_IN_URL = GET_APP_URL;
 /**
- * Where static assets such as OG images really live. The canonical domain (SITE_URL) is a
- * placeholder until C1 is answered, so social previews must point at the deployment that
- * serves the files: NEXT_PUBLIC_ASSET_URL if set, else Vercel's production host, else SITE_URL.
+ * Where static assets such as OG images live: the site's own domain now that linkist.ai serves it
+ * (2 October 2026, D70), or NEXT_PUBLIC_ASSET_URL when a deployment needs another host.
  */
-const vercelHost = envString(process.env['VERCEL_PROJECT_PRODUCTION_URL']);
-export const ASSET_URL = coerceUrl(process.env['NEXT_PUBLIC_ASSET_URL'], vercelHost ? `https://${vercelHost}` : SITE_URL);
+export const ASSET_URL = coerceUrl(process.env['NEXT_PUBLIC_ASSET_URL'], SITE_URL);
 export const absoluteAsset = (path: string): string => (path.startsWith('http') ? path : `${ASSET_URL}${path}`);
 /**
  * Set NEXT_PUBLIC_NOINDEX=true on a preview or on a deployment whose host is not yet the real

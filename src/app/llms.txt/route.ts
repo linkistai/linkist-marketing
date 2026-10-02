@@ -1,10 +1,24 @@
 import { ROUTES } from '@/app/sitemap';
 import { HELP } from '@/content/help';
 import { CARD_TIERS, MATERIALS, PLANS } from '@/content/plans';
+import { FEATURES } from '@/content/features';
+import { USE_CASES } from '@/content/usecases';
+import { getPosts } from '@/lib/blog';
 import { SITE_URL } from '@/lib/site';
 
 /** llms.txt: a plain-text map of the site for language models, with the product facts that matter. */
 export const dynamic = 'force-static';
+
+/** A readable name for each route, for the Markdown links in the page list. */
+function pageName(route: string): string {
+  if (route === '/') return 'Home';
+  const [, top = '', slug] = route.split('/');
+  if (top === 'blogs' && slug) return getPosts().find((p) => p.slug === slug)?.title ?? slug;
+  if (top === 'features' && slug) return `Feature: ${FEATURES.find((f) => f.slug === slug)?.name ?? slug}`;
+  if (top === 'use-cases' && slug) return `Use case: ${USE_CASES.find((u) => u.slug === slug)?.short ?? slug}`;
+  const words = (slug ?? top).replace(/-/g, ' ');
+  return words.charAt(0).toUpperCase() + words.slice(1);
+}
 
 export function GET() {
   const lines = [
@@ -21,7 +35,7 @@ export function GET() {
     '- The blog at /blogs carries Linkist’s articles, including those first published on linkist.ai/blogs.',
     '',
     '## Pages',
-    ...ROUTES.map((r) => `- ${SITE_URL}${r === '/' ? '' : r}`),
+    ...ROUTES.map((r) => `- [${pageName(r)}](${SITE_URL}${r === '/' ? '' : r})`),
     '',
     '## Help centre, first lines',
     ...HELP.slice(0, 40).map((h) => `- ${h.q} ${h.a.split('. ')[0]}.`),

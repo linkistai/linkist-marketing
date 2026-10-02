@@ -44,7 +44,11 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: { formats: ['image/avif', 'image/webp'] },
   async headers() {
-    return [{ source: '/(.*)', headers: securityHeaders }];
+    return [
+      { source: '/(.*)', headers: securityHeaders },
+      // The vercel.app address serves the same build as linkist.ai; it stays out of search (D70).
+      { source: '/(.*)', has: [{ type: 'host', value: '(?<sub>.+)\\.vercel\\.app' }], headers: [{ key: 'X-Robots-Tag', value: 'noindex' }] },
+    ];
   },
   async redirects() {
     // The only integration with the product (brief, scope): /sign-in lands on the PRM app's plain unified
@@ -74,6 +78,11 @@ const nextConfig: NextConfig = {
       { source: '/terms', destination: '/legal/terms', permanent: true },
       { source: '/choose-plan', destination: '/pricing', permanent: true },
       { source: '/digital-business-card', destination: '/nfc-cards', permanent: true },
+      // Addresses of the earlier linkist.ai sites that search engines still list (2 October 2026, D70).
+      { source: '/nfc', destination: '/nfc-cards', permanent: true },
+      { source: '/stories', destination: '/blogs', permanent: true },
+      { source: '/stories/:slug*', destination: '/blogs', permanent: true },
+      { source: '/feed', destination: '/blogs', permanent: true },
       // AI and your data is hidden for now (owner, 29 September 2026): read the Terms and Privacy instead.
       { source: '/ai', destination: '/legal/terms', permanent: false },
       // Customers, Changelog and Security are off the website (owner, 29 September 2026).
