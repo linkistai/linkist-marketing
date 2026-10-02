@@ -59,7 +59,7 @@ export function PlanCards({ compact, headingLevel = 3, starts }: { compact?: boo
               <div className="mt-auto pt-[26px]">
                 <PlanPromo plan={p.key} />
                 <p className="flex items-baseline gap-1">
-                  <span className="font-body text-[34px] font-semibold tracking-[-0.03em] tabular">{formatMoney(cur === 'USD' ? p.monthly : p.aed.monthly, cur)}</span>
+                  <span className="font-body text-[28px] font-semibold tracking-[-0.02em] tabular">{formatMoney(cur === 'USD' ? p.monthly : p.aed.monthly, cur)}</span>
                   {p.monthly ? <span className="text-sm text-body">{p.perUser ? '/user/month' : '/month'}</span> : null}
                 </p>
 <p className="mt-1 text-xs leading-normal text-muted">{priceLine(p, cur)}</p>

@@ -41,7 +41,7 @@ export function Bundles({ headingLevel = 3 }: { headingLevel?: 2 | 3 }) {
             <div>
               <H className="font-body text-[13px] font-medium uppercase tracking-[0.08em] text-soft-2">{b.name}</H>
               <p className="mt-3 text-base leading-normal text-soft">{b.includes}</p>
-              <p className="mt-[18px] font-body text-[48px] font-semibold leading-none tracking-[-0.03em] tabular">{formatMoney(b.price[cur], cur)}</p>
+              <p className="mt-[18px] font-body text-[28px] font-semibold leading-none tracking-[-0.02em] tabular">{formatMoney(b.price[cur], cur)}</p>
               <p className="mt-1 text-xs text-muted">{b.priceNote}</p>
             </div>
           </article>

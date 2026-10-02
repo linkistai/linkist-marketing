@@ -45,10 +45,8 @@ export function HelpCentre() {
         <Search size={20} aria-hidden="true" className="pointer-events-none absolute left-5 top-1/2 -translate-y-1/2 text-muted" />
         <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search, for example ICP Matching or shipping" className="helpsearch" autoComplete="off" />
       </label>
-      <p className="mt-3 text-sm text-muted" role="status" aria-live="polite">
-        {results.length} {results.length === 1 ? 'answer' : 'answers'}
-        {dq ? ` for “${dq}”` : ''}
-        {cat !== 'All' ? ` in ${cat}` : ''}
+      <p className="mt-3 min-h-[20px] text-sm text-muted" role="status" aria-live="polite">
+        {dq || cat !== 'All' ? `${results.length} ${results.length === 1 ? 'answer' : 'answers'}${dq ? ` for “${dq}”` : ''}${cat !== 'All' ? ` in ${cat}` : ''}` : ''}
       </p>
       <nav aria-label="Categories" className="mt-10 flex flex-wrap gap-2">
         {(['All', ...HELP_CATEGORIES] as const).map((c) => (
@@ -66,9 +64,6 @@ export function HelpCentre() {
                 <h2 id={`help-${c.replace(/\s+/g, '-')}`} className="font-display text-[26px] font-semibold tracking-[-0.025em]">
                   {c}
                 </h2>
-                <p className="mt-1 font-body text-xs text-muted">
-                  {items.length} {items.length === 1 ? 'answer' : 'answers'}
-                </p>
               </div>
               <div className="faq">
                 {items.map((r) => (

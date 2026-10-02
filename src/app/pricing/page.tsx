@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { StartFree, TextLink } from '@/components/Button';
 import { ClosingBand } from '@/components/ClosingBand';
 import { Faq } from '@/components/Faq';
@@ -10,6 +9,9 @@ import { CardTiers } from '@/components/home/CardTiers';
 import { CompareTable } from '@/components/home/CompareTable';
 import { PlanCards } from '@/components/home/PlanCards';
 import { ENTERPRISE_NOTE } from '@/content/plans';
+import { PROTO_ALT } from '@/content/design';
+import { PhoneStage } from '@/components/PhoneStage';
+import { screen } from '@/lib/screens';
 import { J } from '@/content/journeys';
 import { pageMeta } from '@/lib/site';
 
@@ -47,12 +49,8 @@ export default function PricingPage() {
             <TextLink href="#compare">Compare PRM plans</TextLink>
           </>
         }
-        side={
-          <div className="relative flex h-full w-full items-end justify-center">
-            <div className="v2-glow w-[90%]" aria-hidden="true" />
-            <Image src="/assets/gen/portrait-cut.webp" alt="" aria-hidden="true" width={896} height={1200} priority sizes="(min-width: 1024px) 400px, 70vw" className="relative w-[min(100%,400px)] [mask-image:linear-gradient(180deg,#000_80%,transparent)]" />
-          </div>
-        }
+        sideDesktopOnly
+        side={<PhoneStage src={screen('v6-home')} alt={PROTO_ALT['v6-home']} width={260} priority />}
       />
 
       <section id="plans" className="section scroll-mt-[90px] !pt-0">

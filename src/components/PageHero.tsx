@@ -8,7 +8,7 @@ import { Parallax } from '@/motion/Parallax';
  * optional note and an optional visual on the right. Two columns with a visual, one without. A red
  * wash and a giant slow-turning brand mark sit behind, decorative.
  */
-export function PageHero({ crumbs, eyebrow, title, lede, ctas, note, side, wide }: { crumbs?: readonly Crumb[]; eyebrow: string; title: ReactNode; lede?: ReactNode; ctas?: ReactNode; note?: ReactNode; side?: ReactNode; wide?: boolean }) {
+export function PageHero({ crumbs, eyebrow, title, lede, ctas, note, side, sideDesktopOnly, wide }: { crumbs?: readonly Crumb[]; eyebrow: string; title: ReactNode; lede?: ReactNode; ctas?: ReactNode; note?: ReactNode; side?: ReactNode; /** Hide the side picture below 1024 px. */ sideDesktopOnly?: boolean; wide?: boolean }) {
   return (
     <section className="page-hero" aria-labelledby="page-title">
       <Parallax k={0.1} className="page-hero__mark">
@@ -40,7 +40,7 @@ export function PageHero({ crumbs, eyebrow, title, lede, ctas, note, side, wide 
             ) : null}
             {note}
           </div>
-          {side ? <div className="relative flex min-h-[clamp(360px,50vh,560px)] min-w-0 items-center justify-center">{side}</div> : null}
+          {side ? <div className={`relative min-h-[clamp(360px,50vh,560px)] min-w-0 items-center justify-center ${sideDesktopOnly ? 'hidden lg:flex' : 'flex'}`}>{side}</div> : null}
         </div>
       </div>
     </section>

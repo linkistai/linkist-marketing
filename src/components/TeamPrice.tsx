@@ -26,7 +26,7 @@ export function TeamPrice({ variant }: { variant: 'note' | 'block' }) {
     <div className="mt-7">
       <CurrencySwitch label="Show Team prices in" />
       <p className="mt-5 flex items-baseline gap-2">
-        <span className="font-body text-[34px] font-semibold tracking-[-0.03em] tabular">{perUser}</span>
+        <span className="font-body text-[28px] font-semibold tracking-[-0.02em] tabular">{perUser}</span>
         <span className="text-body">per user a month</span>
       </p>
       <p className="mt-1 text-sm text-muted">
