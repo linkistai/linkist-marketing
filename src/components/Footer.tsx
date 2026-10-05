@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { LinkistLogotype } from './LinkistLogotype';
-import { Newsletter } from './forms/Newsletter';
 import { CookieChoicesLink } from './CookieChoicesLink';
 import { MotionToggle } from './MotionToggle';
 import { G } from '@/lib/glossary';
@@ -59,8 +58,8 @@ const COLUMNS: { title: string; links: { href: string; label: string; external?:
 ];
 
 /**
- * The v2 footer: an auto-fit grid where the brand block (lockup, blurb, the two product buttons and
- * the newsletter) spans two columns beside Product, Features, Cards and Company. Under the columns
+ * The v2 footer: an auto-fit grid where the brand block (lockup, blurb and the two product buttons; the
+ * email sign-up came out on 5 October 2026, D74) spans two columns beside Product, Features, Cards and Company. Under the columns
  * a giant outlined "Linkist" wordmark drawn from the logotype (D66), decorative; then the copyright bar with the cookie choices
  * and the motion switch (brief 6).
  */
@@ -78,9 +77,6 @@ export function Footer() {
             <a href={J.footer_get_nfc_card} className="btn btn--secondary btn--sm">
               {G.ctaNfc}
             </a>
-          </div>
-          <div className="mt-3 max-w-[340px]">
-            <Newsletter stacked />
           </div>
         </div>
         {COLUMNS.map((c) => (

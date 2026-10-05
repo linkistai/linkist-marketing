@@ -2,7 +2,6 @@
  * Layout rules from brief 10 that axe does not cover, against a running site:
  *   - every control at least 44 x 44 px (inline links inside running text are exempt, as WCAG allows)
  *   - the floating assistant launcher never covers the footer's last row or the hero controls
- *   - the footer newsletter input keeps a usable width at 768 px
  *
  *   pnpm layout            all routes from src/app/sitemap.ts
  *   pnpm layout / /help    only those
@@ -31,7 +30,6 @@ interface Scan {
   footerRow: Box | null;
   footerControls: (Box & { name: string })[];
   heroControls: (Box & { name: string })[];
-  newsletter: number | null;
   /** How far the page scrolls sideways; anything over a pixel is a layout bug. */
   sideways: number;
 }
@@ -53,7 +51,6 @@ async function main() {
       if (top.sideways > 1) problems.push(`${route} @${width}: the page scrolls ${top.sideways} px sideways`);
       if (top.small.length) warnings.push(`${route} @${width}: ${top.small.length} control(s) under 44 px: ${top.small.slice(0, 4).map((s) => `${s.tag} "${s.name}" ${s.w}x${s.h}`).join('; ')}${top.small.length > 4 ? '; ...' : ''}`);
       for (const c of top.heroControls) if (overlaps(top.launcher, c)) problems.push(`${route} @${width}: the assistant launcher covers the hero control "${c.name}"`);
-      if (width >= 768 && top.newsletter !== null && top.newsletter < 200) problems.push(`${route} @${width}: footer newsletter input is ${top.newsletter} px wide`);
       // At the bottom of the page (instant scroll, so smooth scrolling cannot leave the page mid-way) the
       // launcher must sit clear of every control in the footer's last row.
       await page.evaluate("window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' })");

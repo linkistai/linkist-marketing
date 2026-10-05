@@ -4,17 +4,17 @@ import { useCallback, useId, useState, type FormEvent } from 'react';
 import { Turnstile } from './Turnstile';
 
 /**
- * One-field email sign-up, used for the community band (posting to /api/community) and the footer
- * (posting to /api/subscribe). Renders the Turnstile widget when the site key is set and resets it
+ * One-field email sign-up, used for the community band (posting to /api/community) and the blog's
+ * subscribe band (posting to /api/subscribe). Renders the Turnstile widget when the site key is set and resets it
  * after any failure. Honest failure when the route is unconfigured (503 becomes a plain message).
  */
-export function Newsletter({ endpoint = '/api/subscribe', label = 'Product notes by email', button = 'Subscribe', placeholder = 'you@example.com', note = 'Occasional, no tracking, unsubscribe any time.', large, stacked }: { endpoint?: string; label?: string; button?: string; placeholder?: string; note?: string; large?: boolean; /** Input over button at every width, for narrow columns such as the footer. */ stacked?: boolean }) {
+export function Newsletter({ endpoint = '/api/subscribe', label = 'Product notes by email', button = 'Subscribe', placeholder = 'you@example.com', note = 'Occasional, no tracking, unsubscribe any time.', large }: { endpoint?: string; label?: string; button?: string; placeholder?: string; note?: string; large?: boolean }) {
   const [state, setState] = useState<'idle' | 'busy' | 'done' | 'error'>('idle');
   const [msg, setMsg] = useState('');
   const [token, setToken] = useState('');
   const [resetSignal, setResetSignal] = useState(0);
   const onToken = useCallback((t: string) => setToken(t), []);
-  // Unique per form: a page can carry two (the blog's subscribe band and the footer), and a shared id would tie both labels to one field.
+  // Unique per form: a page could carry two, and a shared id would tie both labels to one field.
   const id = `${endpoint.replace(/[^a-z]/g, '')}-email-${useId().replace(/:/g, '')}`;
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -47,7 +47,7 @@ export function Newsletter({ endpoint = '/api/subscribe', label = 'Product notes
         {label}
       </label>
       <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
-      <div className={`flex flex-col gap-2 ${stacked ? '' : 'sm:flex-row'}`}>
+      <div className="flex flex-col gap-2 sm:flex-row">
         <input id={id} name="email" type="email" required placeholder={placeholder} className={`min-w-0 flex-1 rounded-full border px-5 text-base text-text ${large ? 'min-h-[50px]' : 'min-h-[44px]'}`} style={{ background: 'var(--color-surface)', borderColor: 'var(--color-line-strong)' }} />
         <button type="submit" className={`btn btn--primary ${large ? '' : 'btn--sm'}`} disabled={state === 'busy'}>
           {state === 'busy' ? 'Sending' : button}

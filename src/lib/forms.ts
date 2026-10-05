@@ -2,6 +2,7 @@
  * Shared server helpers for the API routes (Grownz D31): body parsing that never throws, a
  * best-effort per-address rate limit, Turnstile verification (env-flagged) and Resend delivery.
  */
+import { SUPPORT } from '@/content/company';
 
 /** Largest request body any route accepts, in bytes. */
 export const MAX_BODY = 16 * 1024;
@@ -75,10 +76,9 @@ export async function verifyTurnstile(token: string, ip: string | null): Promise
   }
 }
 
-/** The message shown when delivery is not configured. Names an address only when one is set. */
+/** The message shown when delivery is not configured: the published support address, so a visitor is never stuck (D74). */
 export function unconfiguredMessage(): string {
-  const support = process.env['NEXT_PUBLIC_SUPPORT_EMAIL'];
-  return support ? `This form is not switched on yet. Email ${support} instead.` : 'This form is not switched on yet. Please try again later, or use the help centre.';
+  return `This form is not switched on yet. Email ${SUPPORT} instead.`;
 }
 
 export async function sendMail(opts: { to: string | undefined; subject: string; text: string; replyTo?: string }): Promise<{ ok: true } | { ok: false; status: number; reason: string }> {
