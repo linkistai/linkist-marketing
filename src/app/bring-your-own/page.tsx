@@ -5,7 +5,7 @@ import { Button } from '@/components/Button';
 import { ClosingBand } from '@/components/ClosingBand';
 import { Faq } from '@/components/Faq';
 import { pageMeta } from '@/lib/site';
-import { J } from '@/content/journeys';
+import { J, cta } from '@/content/journeys';
 
 export const metadata: Metadata = pageMeta(
   'Bring your own NFC',
@@ -66,7 +66,7 @@ export default function BringYourOwnPage() {
             You do not need to buy anything to start. If you already own an NFC card or sticker, Linkist takes it over in about a minute. You keep the hardware. You get the intelligence.
           </p>
 
-          <a href={PATH.href} className="card card--panel group mt-[clamp(40px,5vw,56px)] flex max-w-[600px] flex-col p-[clamp(24px,3vw,32px)] no-underline transition-[border-color,transform] duration-300 hover:-translate-y-1 hover:border-[rgba(238,80,100,0.35)]" data-reveal="rise">
+          <a href={PATH.href} {...cta(PATH.href, 'card card--panel group mt-[clamp(40px,5vw,56px)] flex max-w-[600px] flex-col p-[clamp(24px,3vw,32px)] no-underline transition-[border-color,transform] duration-300 hover:-translate-y-1 hover:border-[rgba(238,80,100,0.35)]')} data-reveal="rise">
             <span aria-hidden="true" className="grid h-14 w-14 place-items-center rounded-2xl border border-line bg-surface2 text-soft">
               <Icon size={22} />
             </span>

@@ -4,6 +4,8 @@ import { Footer } from '@/components/Footer';
 import { Nav } from '@/components/Nav';
 import { ChatWidget } from '@/components/chat/ChatWidget';
 import { CookieNotice } from '@/components/CookieNotice';
+import { Tracking } from '@/components/Tracking';
+import { headScript } from '@/lib/tracking';
 import { MotionProvider } from '@/motion/MotionProvider';
 import { CurrencyProvider } from '@/components/Currency';
 import { PromoBar, PromoProvider } from '@/components/Promotions';
@@ -39,6 +41,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const bar = live.find((p) => p.placements.includes('bar'));
   return (
     <html lang="en-GB" data-theme={THEME} data-promo={bar?.id} className={`${display.variable} ${body.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Google Tag Manager, as high in <head> as it can go, for a visitor who already allowed it in the cookie notice; first-time visitors start it from the notice (D75). */}
+        <script dangerouslySetInnerHTML={{ __html: headScript() }} />
+      </head>
       <body>
         {/* Before the first paint: motion, on by default for everyone (owner, 25 September 2026, D59; ?motion=off or the footer switch turns it off), and an offer bar the visitor already dismissed stays hidden. */}
         <script
@@ -59,6 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Footer />
             <ChatWidget />
             <CookieNotice />
+            <Tracking />
           </PromoProvider>
         </CurrencyProvider>
       </body>

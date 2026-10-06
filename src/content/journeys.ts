@@ -221,3 +221,24 @@ export const J = {
 } as const;
 
 export type JourneyTag = keyof typeof J;
+
+/**
+ * The class the marketing team's tag manager watches on every forward call to action (their request of
+ * September 2026, kept for the new site, D75). Billing and Suggest a feature are journey links too, but not
+ * steps towards a sign-up or a purchase, so they do not carry it.
+ */
+export const CTA_CLASS = 'cta_button_click';
+const NOT_FORWARD = /billing|ideas/;
+
+/** The placement tag (utm_content) of a forward journey link, or undefined for any other address. */
+export function ctaTag(href: string | undefined): string | undefined {
+  if (!href || !href.includes('utm_campaign=website_cta')) return undefined;
+  const tag = /[?&]utm_content=([a-z0-9_]+)/.exec(href)?.[1];
+  return tag && !NOT_FORWARD.test(tag) ? tag : undefined;
+}
+
+/** Attributes for an anchor: its own classes, plus the tracking class and data-cta tag when it is a forward call to action. */
+export function cta(href: string | undefined, className = ''): { className: string; 'data-cta'?: string } {
+  const tag = ctaTag(href);
+  return tag ? { className: `${className} ${CTA_CLASS}`.trim(), 'data-cta': tag } : { className };
+}

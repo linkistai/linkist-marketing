@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Plus, Search } from 'lucide-react';
 import { useDeferredValue, useMemo, useState } from 'react';
 import { HELP, HELP_CATEGORIES, type HelpCategory } from '@/content/help';
+import { cta } from '@/content/journeys';
 
 const norm = (s: string) => s.toLowerCase();
 
@@ -84,7 +85,7 @@ export function HelpCentre() {
                         <p className="mt-2 flex flex-wrap gap-3 text-sm">
                           {r.links.map((l) =>
                             l.href.startsWith('http') ? (
-                              <a key={l.href} href={l.href} className="link">
+                              <a key={l.href} href={l.href} {...cta(l.href, 'link')}>
                                 {l.label}
                               </a>
                             ) : (

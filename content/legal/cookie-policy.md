@@ -6,7 +6,7 @@
   "status": "draft",
   "version": "0.1",
   "effective": "2026-09-10",
-  "updated": "2026-09-25"
+  "updated": "2026-10-07"
 }
 ---
 
@@ -32,10 +32,12 @@ This website is built so that nothing non-essential loads before you choose.
 | linkist-country (cookie) | Essential | Remembers which consent rules apply to your region so the notice is shown correctly | [PLACEHOLDER: retention period] |
 | linkist-motion-2 (local storage) | Essential | Remembers whether you switched animation off in the footer | Until you clear it |
 | lk-currency (local storage) | Essential | Remembers whether you chose US dollars or UAE dirhams for prices | Until you clear it |
-| Google Analytics 4 (cookies set by Google) | Analytics | Page views and interactions, in aggregate, through Google Consent Mode. Loads only after you accept analytics and only when a measurement id is configured | [PLACEHOLDER: retention as configured in the Google Analytics property] |
+| Google Tag Manager (a script; no cookies of its own) | Analytics | Loads the Google Analytics and Meta Pixel tags below. Loads only after you accept the cookie notice, and only on linkist.ai | Not applicable |
+| Google Analytics 4 (cookies set by Google) | Analytics | Page views and interactions, in aggregate, through Google Consent Mode. Loads only after you accept the cookie notice | [PLACEHOLDER: retention as configured in the Google Analytics property] |
+| Meta Pixel (the _fbp cookie, set by Meta) | Marketing | Measures visits and button clicks that come from Linkist ads on Facebook and Instagram. Loads only after you accept the cookie notice | Up to 90 days, renewed on each visit (Meta) |
 | Cloudflare Turnstile (cookies set by Cloudflare) | Essential | Distinguishes people from scripts on the contact and sign-up forms, when the check is enabled | Set by Cloudflare; see its policy |
 
-This website sets no marketing cookies today. [PLACEHOLDER: confirm whether marketing cookies will be introduced on this website, and list them here before they are.]
+The Meta Pixel is the only marketing technology on this website. One choice in the cookie notice covers analytics and marketing together, and switching it off in "Cookie choices" stops both. [PLACEHOLDER: counsel to confirm the wording for marketing cookies and whether the two should be separate choices.]
 
 ## 4. What the app stores
 

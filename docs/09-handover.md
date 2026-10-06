@@ -47,7 +47,7 @@ Not set, so each feature is off and fails honestly:
 | --- | --- | --- |
 | `RESEND_API_KEY`, `LEAD_TO`, `LEAD_FROM` | Contact form, newsletter and community sign-up delivery | The routes answer 503 with a plain message that names the support address when that is set |
 | `TURNSTILE_SECRET_KEY`, `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Cloudflare Turnstile on every form, verified server-side, reset after a failure | No widget, no verification |
-| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | GA4 through the consent notice, Consent Mode on withdrawal | No notice, no script, no cookie-choices link |
+| `NEXT_PUBLIC_GTM_ID`, `NEXT_PUBLIC_GTM_HOSTS` | Since 7 October 2026 (D75): the marketing team's Google Tag Manager container (GA4 and the Meta Pixel) through the consent notice, Consent Mode and the Pixel's consent switch on withdrawal. Defaults: GTM-P8RPQ6RG on www.linkist.ai and linkist.ai | On any other host: no notice, no script, no cookie-choices link |
 | `NEXT_PUBLIC_SUPPORT_EMAIL`, `NEXT_PUBLIC_PRIVACY_EMAIL`, `NEXT_PUBLIC_PARTNERSHIPS_EMAIL`, `NEXT_PUBLIC_SECURITY_EMAIL` | Addresses on the contact page and in the 503 message | Support and privacy fall back to the published addresses; partnerships and security say the address is published at launch |
 | `ANTHROPIC_API_KEY`, `ANTHROPIC_MODEL` | Claude phrasing for the assistant, with server-side retrieval | The assistant answers from the help corpus alone, labelled automated |
 | `NEXT_PUBLIC_GET_APP_URL`, `NEXT_PUBLIC_GET_CARD_URL` | Overrides for the two landing pages | Derived from the two hosts above |

@@ -2,7 +2,7 @@ import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import nextConfig from '../../next.config';
-import { J } from './journeys';
+import { CTA_CLASS, J, cta, ctaTag } from './journeys';
 
 /** Praveen's six journey links (CTA links.docx, 1 October 2026), word for word. */
 const APPROVED = {
@@ -58,6 +58,21 @@ describe('tracked journey links (D69)', () => {
       expect(text.includes(tools), f).toBe(false);
       expect(cardApp.test(text), f).toBe(false);
       if (!f.endsWith(pending)) expect(text.includes(quick), f).toBe(false);
+    }
+  });
+});
+
+describe('the click class for the tag manager (D75)', () => {
+  it('marks every forward journey link with its placement tag', () => {
+    expect(ctaTag(J.header_get_app)).toBe('header_get_app');
+    expect(ctaTag(J.pricing_prm_pro)).toBe('pricing_prm_pro');
+    expect(cta(J.home_nfc_signature, 'btn')).toEqual({ className: `btn ${CTA_CLASS}`, 'data-cta': 'home_nfc_signature' });
+  });
+
+  it('leaves billing, Suggest a feature and every other address alone', () => {
+    for (const href of [J.footer_billing, J.footer_ideas, J.community_ideas, '/pricing', 'https://prm.linkist.ai/UnifiedAuth', undefined]) {
+      expect(ctaTag(href), String(href)).toBeUndefined();
+      expect(cta(href, 'link'), String(href)).toEqual({ className: 'link' });
     }
   });
 });

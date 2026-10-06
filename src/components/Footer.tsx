@@ -5,7 +5,7 @@ import { CookieChoicesLink } from './CookieChoicesLink';
 import { MotionToggle } from './MotionToggle';
 import { G } from '@/lib/glossary';
 import { COMPANY, SIGN_IN_URL } from '@/lib/site';
-import { J } from '@/content/journeys';
+import { J, cta } from '@/content/journeys';
 
 const COLUMNS: { title: string; links: { href: string; label: string; external?: boolean }[] }[] = [
   {
@@ -71,10 +71,10 @@ export function Footer() {
           <Image src="/brand/lockup.png" alt="Linkist" width={1352} height={422} className="h-[26px] w-auto self-start" />
           <p className="max-w-xs text-sm leading-relaxed text-body">A Personal Relationship Manager with an optional NFC card. Built in Dubai.</p>
           <div className="flex flex-wrap gap-2">
-            <a href={J.footer_get_app} className="btn btn--primary btn--sm">
+            <a href={J.footer_get_app} {...cta(J.footer_get_app, 'btn btn--primary btn--sm')}>
               {G.ctaApp}
             </a>
-            <a href={J.footer_get_nfc_card} className="btn btn--secondary btn--sm">
+            <a href={J.footer_get_nfc_card} {...cta(J.footer_get_nfc_card, 'btn btn--secondary btn--sm')}>
               {G.ctaNfc}
             </a>
           </div>
@@ -84,7 +84,7 @@ export function Footer() {
             <h2 className="mb-1 font-body text-xs font-semibold uppercase tracking-[0.06em] text-muted">{c.title}</h2>
             {c.links.map((l) =>
               l.external ? (
-                <a key={l.label} href={l.href} className="text-soft no-underline hover:text-white">
+                <a key={l.label} href={l.href} {...cta(l.href, 'text-soft no-underline hover:text-white')}>
                   {l.label}
                 </a>
               ) : (

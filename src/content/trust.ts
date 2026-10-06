@@ -158,8 +158,8 @@ export const CONTACT_DATA: readonly string[] = [
 /** What this website itself does, as distinct from the app (brief 7: the trust page says which controls belong to which). */
 export const SITE_CONTROLS: readonly Rule[] = [
   { title: 'No credentials here', body: 'Sign in and Start Now hand over to the product. This website never sees a code, a password or a payment.', source: 'This site' },
-  { title: 'Content Security Policy', body: 'Scripts run only from this site, Google Tag Manager and Cloudflare Turnstile; frames from any other site are refused; nosniff, referrer and permissions policies are set.', source: 'next.config.ts' },
-  { title: 'Nothing loads before consent', body: 'No analytics script until you accept it in the cookie notice, and no third-party script at all unless its key is configured.', source: 'This site' },
+  { title: 'Content Security Policy', body: 'Scripts run only from this site, Google Tag Manager with the Google and Meta measurement scripts it loads, and Cloudflare Turnstile; frames from any other site are refused; nosniff, referrer and permissions policies are set.', source: 'next.config.ts' },
+  { title: 'Nothing loads before consent', body: 'No analytics or advertising script until you accept the cookie notice, and no other third-party script unless its key is configured.', source: 'This site' },
   { title: 'Forms that fail safely', body: 'Server validation, a size cap, a per-address rate limit, a honeypot and Cloudflare Turnstile when enabled. Messages go to the team by email and are not stored here.', source: 'src/lib/forms.ts' },
   { title: 'The assistant keeps nothing', body: 'Questions are matched in your browser against the help centre. When a model is configured it receives the question and the matching entries only, and this site stores nothing.', source: '/chat' },
 ];

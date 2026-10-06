@@ -2,19 +2,23 @@ import type { NextConfig } from 'next';
 
 /**
  * Content Security Policy for the marketing site (brief 7, Grownz D31). The pages are prerendered,
- * so there is no per-request nonce; scripts are limited to this origin plus Google Analytics and
- * Cloudflare Turnstile, and inline scripts are allowed because Next.js hydration and the motion
- * pre-paint script are inline. Fonts are self-hosted through next/font, so no font host is listed.
- * Add a host here before loading anything new from a third party, or it is blocked silently.
+ * so there is no per-request nonce; inline scripts are allowed because Next.js hydration, the motion
+ * pre-paint script and the tag manager's start are inline. Third parties: Cloudflare Turnstile, and the
+ * marketing team's Google Tag Manager container with what it loads once the visitor allows it (D75):
+ * the Google tag (GA4, with the Google hosts it may call for signals and ads measurement), the Meta
+ * Pixel, and Tag Assistant's preview mode, which needs its own script, style, image and font hosts.
+ * The old card app blocked its own GA4 and Pixel this way (audit, 30 September 2026). Add a host here
+ * before the container loads anything new, or it is blocked silently.
  */
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://challenges.cloudflare.com",
-  "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https://www.googletagmanager.com https://*.google-analytics.com",
-  "font-src 'self' data:",
-  "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://challenges.cloudflare.com",
-  "frame-src https://challenges.cloudflare.com",
+  "script-src 'self' 'unsafe-inline' https://*.googletagmanager.com https://tagmanager.google.com https://cct.google https://www.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://connect.facebook.net https://challenges.cloudflare.com",
+  "style-src 'self' 'unsafe-inline' https://tagmanager.google.com https://fonts.googleapis.com",
+  // GA4's audiences ping goes to the visitor's own Google domain, so the main markets' domains are listed (UAE, GCC, India, Singapore, Australia, UK).
+  "img-src 'self' data: blob: https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.g.doubleclick.net https://ad.doubleclick.net https://*.google.com https://www.google.ae https://www.google.com.sa https://www.google.com.qa https://www.google.com.kw https://www.google.com.om https://www.google.com.bh https://www.google.co.in https://www.google.com.sg https://www.google.com.au https://www.google.co.uk https://www.googleadservices.com https://pagead2.googlesyndication.com https://ssl.gstatic.com https://www.gstatic.com https://www.facebook.com",
+  "font-src 'self' data: https://fonts.gstatic.com",
+  "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://ad.doubleclick.net https://*.google.com https://www.googleadservices.com https://pagead2.googlesyndication.com https://www.facebook.com https://connect.facebook.net https://challenges.cloudflare.com",
+  "frame-src https://challenges.cloudflare.com https://www.googletagmanager.com https://td.doubleclick.net",
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",

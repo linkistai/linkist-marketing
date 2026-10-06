@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { G } from '@/lib/glossary';
+import { cta } from '@/content/journeys';
 
 type Variant = 'primary' | 'secondary' | 'ghost';
 type Size = 'sm' | 'md' | 'lg';
@@ -27,8 +28,9 @@ export function Button({
 }) {
   const cls = `btn btn--${variant} ${size !== 'md' ? `btn--${size}` : ''} ${className}`;
   if (href && (href.startsWith('http') || external)) {
+    // A forward journey link also carries the tag manager's click class and its placement tag (D75).
     return (
-      <a href={href} className={cls}>
+      <a href={href} {...cta(href, cls)}>
         {children}
       </a>
     );

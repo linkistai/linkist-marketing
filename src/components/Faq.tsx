@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Plus } from 'lucide-react';
 import type { ReactNode } from 'react';
+import { cta } from '@/content/journeys';
 
 export interface FaqItem {
   readonly q: string;
@@ -50,7 +51,7 @@ export function Faq({
             <p className="faq__body flex flex-wrap gap-x-5 gap-y-2 !pt-0">
               {it.links.map((l) =>
                 l.href.startsWith('http') ? (
-                  <a key={l.href} href={l.href} className="font-semibold text-white underline underline-offset-2">
+                  <a key={l.href} href={l.href} {...cta(l.href, 'font-semibold text-white underline underline-offset-2')}>
                     {l.label}
                   </a>
                 ) : (

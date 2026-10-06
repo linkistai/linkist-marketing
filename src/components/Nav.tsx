@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { G } from '@/lib/glossary';
-import { J } from '@/content/journeys';
+import { J, cta } from '@/content/journeys';
 
 const LINKS = [
   { href: '/how-it-works', label: 'How it works' },
@@ -68,15 +68,15 @@ export function Nav() {
               ))}
             </nav>
             <div className="hidden items-center gap-2 min-[1180px]:flex">
-              <a href={J.header_get_nfc_card} className="btn btn--secondary btn--sm">
+              <a href={J.header_get_nfc_card} {...cta(J.header_get_nfc_card, 'btn btn--secondary btn--sm')}>
                 {G.ctaNfc}
               </a>
-              <a href={J.header_get_app} className="btn btn--primary btn--sm">
+              <a href={J.header_get_app} {...cta(J.header_get_app, 'btn btn--primary btn--sm')}>
                 {G.ctaApp}
               </a>
             </div>
             <div className="flex items-center gap-2 min-[1180px]:hidden">
-              <a href={J.header_mobile_get_app} className="btn btn--primary btn--sm">
+              <a href={J.header_mobile_get_app} {...cta(J.header_mobile_get_app, 'btn btn--primary btn--sm')}>
                 {G.ctaApp}
               </a>
               <button type="button" className="v2nav__menu-btn" aria-expanded={open} aria-controls="mobile-nav" onClick={() => setOpen((v) => !v)}>
@@ -97,10 +97,10 @@ export function Nav() {
             ))}
           </nav>
           <div className="mt-6 flex flex-col gap-2.5">
-            <a href={J.mobile_menu_get_app} className="btn btn--primary w-full !min-h-[52px]">
+            <a href={J.mobile_menu_get_app} {...cta(J.mobile_menu_get_app, 'btn btn--primary w-full !min-h-[52px]')}>
               {G.ctaApp}
             </a>
-            <a href={J.mobile_menu_get_nfc_card} className="btn btn--secondary w-full !min-h-[52px]">
+            <a href={J.mobile_menu_get_nfc_card} {...cta(J.mobile_menu_get_nfc_card, 'btn btn--secondary w-full !min-h-[52px]')}>
               {G.ctaNfc}
             </a>
           </div>

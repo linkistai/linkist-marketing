@@ -1,99 +1,72 @@
 'use client';
 
-import Script from 'next/script';
 import { useEffect, useState } from 'react';
+import { CONSENT_KEY, COUNTRY_COOKIE, NOTICE_ONLY, setTagConsent, startTags, trackingHere } from '@/lib/tracking';
 
-const KEY = 'linkist-consent';
-const GA = process.env['NEXT_PUBLIC_GA_MEASUREMENT_ID'];
-/** Markets where a notice is enough (brief 7, market list to confirm). Everyone else, and unknown, is consent-gated. */
-const NOTICE_ONLY = new Set(['AE', 'IN', 'US', 'SG', 'AU']);
-
-type Choice = 'granted' | 'denied' | null;
-
-declare global {
-  interface Window {
-    dataLayer?: unknown[];
-    gtag?: (...args: unknown[]) => void;
-  }
-}
+type Choice = 'granted' | 'denied';
 
 /**
- * Tells an already-loaded GA4 to stop or start. Unmounting the script tags is not enough once
- * gtag.js is running, so the choice is also pushed through Consent Mode and the property's
- * disable flag, which stops hits immediately (Grownz D31).
- */
-function applyConsent(c: Exclude<Choice, null>) {
-  if (!GA || typeof window === 'undefined') return;
-  (window as unknown as Record<string, unknown>)[`ga-disable-${GA}`] = c === 'denied';
-  window.dataLayer = window.dataLayer ?? [];
-  const gtag = window.gtag ?? ((...args: unknown[]) => window.dataLayer!.push(args));
-  gtag('consent', 'update', { analytics_storage: c, ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
-}
-
-/**
- * Cookie notice and GA4 loader. Reads a country hint from a cookie the edge can set
- * (`linkist-country`, ISO code). Analytics loads only after consent, or immediately in notice-only
- * markets. The footer link "Cookie choices" re-opens it. No GA id, no script, no notice.
+ * Cookie notice for the tag manager: Google Analytics and the Meta Pixel (D75). Reads a country hint from a
+ * cookie the edge can set (`linkist-country`, ISO code): in notice-only markets the tags start unless the
+ * visitor switches them off; everywhere else, and when the country is unknown, nothing loads until the
+ * visitor allows it. A returning visitor who allowed it starts from the pre-paint script in the layout. The
+ * footer link "Cookie choices" re-opens it. Off the live site (previews, local builds) there are no tags and
+ * no notice.
  */
 export function CookieNotice() {
-  const [choice, setChoice] = useState<Choice>(null);
-  const [country, setCountry] = useState<string | null>(null);
+  const [here, setHere] = useState(false);
+  const [noticeOnly, setNoticeOnly] = useState(false);
   const [open, setOpen] = useState(false);
   useEffect(() => {
+    if (!trackingHere()) return;
+    setHere(true);
+    let saved: Choice | null = null;
     try {
-      const saved = localStorage.getItem(KEY) as Choice;
-      if (saved === 'granted' || saved === 'denied') setChoice(saved);
-      const m = document.cookie.match(/(?:^|; )linkist-country=([A-Z]{2})/);
-      setCountry(m?.[1] ?? null);
-      if (!saved) setOpen(true);
+      const v = localStorage.getItem(CONSENT_KEY);
+      if (v === 'granted' || v === 'denied') saved = v;
     } catch {
-      setOpen(true);
+      /* storage blocked: ask */
     }
+    const m = document.cookie.match(new RegExp(`(?:^|; )${COUNTRY_COOKIE}=([A-Z]{2})`));
+    const n = !!m?.[1] && NOTICE_ONLY.includes(m[1]);
+    setNoticeOnly(n);
+    if (saved === 'granted' || (n && saved !== 'denied')) startTags();
+    if (!saved) setOpen(true);
     const onOpen = () => setOpen(true);
     window.addEventListener('linkist:cookie-choices', onOpen);
     return () => window.removeEventListener('linkist:cookie-choices', onOpen);
   }, []);
-  if (!GA) return null;
-  const noticeOnly = !!country && NOTICE_ONLY.has(country);
-  const load = choice === 'granted' || (noticeOnly && choice !== 'denied');
-  const decide = (c: Exclude<Choice, null>) => {
+  if (!here || !open) return null;
+  const decide = (c: Choice) => {
     try {
-      localStorage.setItem(KEY, c);
+      localStorage.setItem(CONSENT_KEY, c);
     } catch {
       /* ignore */
     }
-    applyConsent(c);
-    setChoice(c);
+    if (c === 'granted') startTags();
+    else setTagConsent(false);
     setOpen(false);
   };
   return (
-    <>
-      {load ? (
-        <>
-          <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA}`} strategy="afterInteractive" />
-          <Script id="ga4" strategy="afterInteractive">{`window['ga-disable-${GA}']=false;window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('consent','default',{analytics_storage:'granted',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','${GA}',{anonymize_ip:true});`}</Script>
-        </>
-      ) : null}
-      {open ? (
-        <div role="dialog" aria-label="Cookie choices" className="float float--deep float--card fixed bottom-4 left-4 right-4 mx-auto max-w-xl p-5 text-sm sm:left-auto sm:right-24" style={{ zIndex: 'var(--z-toast)' }}>
-          <p className="font-semibold">Analytics cookies</p>
-          <p className="mt-1 text-body">
-            {noticeOnly ? 'This site uses Google Analytics to understand which pages help. You can switch it off here or later from the footer.' : 'This site uses Google Analytics only if you allow it. Nothing loads until you choose.'}{' '}
-            <a href="/legal/privacy" className="underline">
-              Privacy
-            </a>
-            .
-          </p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            <button type="button" className="btn btn--primary btn--sm" onClick={() => decide('granted')}>
-              {noticeOnly ? 'OK' : 'Allow analytics'}
-            </button>
-            <button type="button" className="btn btn--secondary btn--sm" onClick={() => decide('denied')}>
-              {noticeOnly ? 'Switch off' : 'No thanks'}
-            </button>
-          </div>
-        </div>
-      ) : null}
-    </>
+    <div role="dialog" aria-label="Cookie choices" className="float float--deep float--card fixed bottom-4 left-4 right-4 mx-auto max-w-xl p-5 text-sm sm:left-auto sm:right-24" style={{ zIndex: 'var(--z-toast)' }}>
+      <p className="font-semibold">Cookies for analytics and ads</p>
+      <p className="mt-1 text-body">
+        {noticeOnly
+          ? 'This site uses Google Analytics to see which pages help and the Meta Pixel to measure Linkist ads. You can switch them off here or later from the footer.'
+          : 'With your permission, this site uses Google Analytics to see which pages help and the Meta Pixel to measure Linkist ads. Nothing loads until you choose.'}{' '}
+        <a href="/legal/privacy" className="underline">
+          Privacy
+        </a>
+        .
+      </p>
+      <div className="mt-3 flex flex-wrap gap-2">
+        <button type="button" className="btn btn--primary btn--sm" onClick={() => decide('granted')}>
+          {noticeOnly ? 'OK' : 'Allow'}
+        </button>
+        <button type="button" className="btn btn--secondary btn--sm" onClick={() => decide('denied')}>
+          {noticeOnly ? 'Switch off' : 'No thanks'}
+        </button>
+      </div>
+    </div>
   );
 }

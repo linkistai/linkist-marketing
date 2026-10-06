@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Bot, Send } from 'lucide-react';
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { FALLBACK, SUGGESTED, search, smallTalk, type KnowledgeHit } from '@/lib/knowledge';
-import { J } from '@/content/journeys';
+import { J, cta } from '@/content/journeys';
 
 /** In the assistant, the bring-your-own answer from the Help centre counts under the assistant's own tag (C14). */
 const inChat = (href: string) => (href === J.help_byon ? J.assistant_byon : href);
@@ -102,7 +102,7 @@ export function Assistant({ compact }: { compact?: boolean }) {
                 <p className="mt-2 flex flex-wrap gap-3 text-xs">
                   {t.hits[0].entry.links.map((l) =>
                     l.href.startsWith('http') ? (
-                      <a key={l.href} href={inChat(l.href)} className="underline">
+                      <a key={l.href} href={inChat(l.href)} {...cta(inChat(l.href), 'underline')}>
                         {l.label}
                       </a>
                     ) : (
@@ -115,7 +115,7 @@ export function Assistant({ compact }: { compact?: boolean }) {
               ) : null}
               {t.who === 'linkist' && i > 0 ? (
                 <p className="mt-2 text-xs">
-                  <a href={J.assistant_start_now} className="font-semibold underline">
+                  <a href={J.assistant_start_now} {...cta(J.assistant_start_now, 'font-semibold underline')}>
                     Start Now
                   </a>
                   <span className="text-muted"> with an email or a mobile number.</span>
