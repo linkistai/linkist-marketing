@@ -8,6 +8,8 @@ For the marketing team. Updated 7 October 2026 (decision D75).
 - It loads only after a visitor allows "Cookies for analytics and ads" in the cookie notice. For a returning visitor who allowed it, it starts from the top of `<head>` on every page.
 - Google Consent Mode is set to granted just before the container loads. If the visitor later switches off under "Cookie choices" in the footer, Consent Mode is updated to denied and the Pixel gets `fbq('consent', 'revoke')`.
 - The `<noscript>` iframe from the install code is left out on purpose: it would run without consent, and it only serves browsers with JavaScript turned off.
+- The site's security policy (CSP) lists every host these tags use. That includes the Pixel's Conversions API gateway from its Meta configuration: tw-0fde0867b14c4d8e9131519b5349f6f2.ecs.us-west-2.on.aws, with the fallback bded8a3c6ae-1-1053047382554.us-central1.run.app.
+  - If you change the gateway, or add a tag that loads from a new host, tell the developer first. Otherwise the browser blocks it without any visible error.
 
 ## Page views
 

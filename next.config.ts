@@ -17,7 +17,9 @@ const csp = [
   // GA4's audiences ping goes to the visitor's own Google domain, so the main markets' domains are listed (UAE, GCC, India, Singapore, Australia, UK).
   "img-src 'self' data: blob: https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.g.doubleclick.net https://ad.doubleclick.net https://*.google.com https://www.google.ae https://www.google.com.sa https://www.google.com.qa https://www.google.com.kw https://www.google.com.om https://www.google.com.bh https://www.google.co.in https://www.google.com.sg https://www.google.com.au https://www.google.co.uk https://www.googleadservices.com https://pagead2.googlesyndication.com https://ssl.gstatic.com https://www.gstatic.com https://www.facebook.com",
   "font-src 'self' data: https://fonts.gstatic.com",
-  "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://ad.doubleclick.net https://*.google.com https://www.googleadservices.com https://pagead2.googlesyndication.com https://www.facebook.com https://connect.facebook.net https://challenges.cloudflare.com",
+  // The Pixel sends its events through the Conversions API gateway set in its Meta configuration ("openbridge":
+  // an AWS endpoint with a Google Cloud fallback). If the marketing team changes the gateway, these two hosts change.
+  "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://ad.doubleclick.net https://*.google.com https://www.googleadservices.com https://pagead2.googlesyndication.com https://www.facebook.com https://connect.facebook.net https://tw-0fde0867b14c4d8e9131519b5349f6f2.ecs.us-west-2.on.aws https://bded8a3c6ae-1-1053047382554.us-central1.run.app https://challenges.cloudflare.com",
   "frame-src https://challenges.cloudflare.com https://www.googletagmanager.com https://td.doubleclick.net",
   "frame-ancestors 'none'",
   "base-uri 'self'",
