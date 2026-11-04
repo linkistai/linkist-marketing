@@ -13,6 +13,9 @@ const APPROVED = {
   billing: 'https://prm.linkist.ai/UnifiedAuth?intent=billing&next=%2Faccount%2Fbilling&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=billing',
   ideas: 'https://prm.linkist.ai/ideas?utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=ideas',
 } as const;
+/** The plans page with one individual plan chosen (plan links brief, 3 November 2026, D76). */
+const PLANS = ['essential', 'enhanced', 'pro'] as const;
+const planStart = (plan: string) => `https://prm.linkist.ai/plans?plan=${plan}&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&`;
 const beforeTag = (u: string) => u.split('utm_content=')[0]!;
 
 /** Every source file a visitor can see the output of. */
@@ -28,8 +31,18 @@ describe('tracked journey links (D69)', () => {
     for (const [k, u] of Object.entries(APPROVED)) expect(J[k as keyof typeof J]).toBe(u);
   });
 
+  it('sends the Essential, Enhanced and Pro buttons on Home and Pricing to the plans page with that plan chosen', () => {
+    for (const page of ['home', 'pricing'])
+      for (const plan of PLANS) {
+        const tag = `${page}_prm_${plan}`;
+        expect(J[tag as keyof typeof J], tag).toBe(`${planStart(plan)}utm_content=${tag}`);
+      }
+    expect(J.home_prm_team).toBe(`${beforeTag(APPROVED.teams)}utm_content=home_prm_team`);
+    expect(J.pricing_team_plan).toBe(`${beforeTag(APPROVED.teams)}utm_content=pricing_team_plan`);
+  });
+
   it('changes nothing but utm_content on every placement (and utm_medium on the redirects)', () => {
-    const prefixes = Object.values(APPROVED).map(beforeTag);
+    const prefixes = [...Object.values(APPROVED).map(beforeTag), ...PLANS.map(planStart)];
     for (const [tag, url] of Object.entries(J)) {
       const u = tag.startsWith('redirect_') ? url.replace('&utm_medium=redirect&', '&utm_medium=website&') : url;
       expect(prefixes, tag).toContain(beforeTag(u));

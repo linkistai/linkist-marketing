@@ -3,7 +3,9 @@
  * Generated on 1 October 2026 by script from FINAL_Linkist_Site_Buttons_and_Links_With_Approved_URLs_v2.xlsx
  * (Buttons, Links, Header and footer, Post-review changes), Praveen's CTA links.docx and three tags the owner
  * approved the same day for placements the workbook missed. Copy, never retype: the part before the ? and the
- * intent and next values decide the journey (D69). journeys.test.ts checks every entry.
+ * intent and next values decide the journey (D69). Since 3 November 2026 the Essential, Enhanced and Pro "Start
+ * Here" buttons on Home and Pricing open the app's plans page with that plan chosen; the app sets annual billing
+ * itself (plan links brief, D76). journeys.test.ts checks every entry.
  */
 export const J = {
   // Buttons row 13
@@ -131,11 +133,11 @@ export const J = {
   // Buttons row 8
   home_nfc_starter: 'https://prm.linkist.ai/store/start?utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=home_nfc_starter',
   // Buttons row 5
-  home_prm_enhanced: 'https://prm.linkist.ai/UnifiedAuth?intent=individual&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=home_prm_enhanced',
+  home_prm_enhanced: 'https://prm.linkist.ai/plans?plan=enhanced&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=home_prm_enhanced',
   // Buttons row 4
-  home_prm_essential: 'https://prm.linkist.ai/UnifiedAuth?intent=individual&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=home_prm_essential',
+  home_prm_essential: 'https://prm.linkist.ai/plans?plan=essential&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=home_prm_essential',
   // Buttons row 6
-  home_prm_pro: 'https://prm.linkist.ai/UnifiedAuth?intent=individual&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=home_prm_pro',
+  home_prm_pro: 'https://prm.linkist.ai/plans?plan=pro&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=home_prm_pro',
   // Buttons row 7
   home_prm_team: 'https://prm.linkist.ai/UnifiedAuth?intent=teams&next=%2Fteams%2Fstart&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=home_prm_team',
   // Buttons row 2
@@ -173,11 +175,11 @@ export const J = {
   // Buttons row 91
   pricing_nfc_starter: 'https://prm.linkist.ai/store/start?utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=pricing_nfc_starter',
   // Buttons row 88
-  pricing_prm_enhanced: 'https://prm.linkist.ai/UnifiedAuth?intent=individual&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=pricing_prm_enhanced',
+  pricing_prm_enhanced: 'https://prm.linkist.ai/plans?plan=enhanced&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=pricing_prm_enhanced',
   // Buttons row 87
-  pricing_prm_essential: 'https://prm.linkist.ai/UnifiedAuth?intent=individual&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=pricing_prm_essential',
+  pricing_prm_essential: 'https://prm.linkist.ai/plans?plan=essential&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=pricing_prm_essential',
   // Buttons row 89
-  pricing_prm_pro: 'https://prm.linkist.ai/UnifiedAuth?intent=individual&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=pricing_prm_pro',
+  pricing_prm_pro: 'https://prm.linkist.ai/plans?plan=pro&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=pricing_prm_pro',
   // Buttons row 90
   pricing_team_plan: 'https://prm.linkist.ai/UnifiedAuth?intent=teams&next=%2Fteams%2Fstart&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=pricing_team_plan',
   // C08
