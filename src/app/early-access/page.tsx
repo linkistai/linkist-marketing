@@ -8,7 +8,7 @@ import { COMPANY, pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
   'Get early access',
-  'Linkist launches on 9 November. To mark the UAE’s 55th National Day, we’re giving 200 professionals early access and the chance to help shape Linkist.',
+  'To mark the UAE’s 55th National Day, we’re giving 200 professionals early access and the chance to help shape Linkist.',
   '/early-access',
   { image: '/og/early-access.png' },
 );
@@ -96,7 +96,7 @@ export default function EarlyAccessPage() {
             <h1 className="ea-h1 mt-5">
               Built in the UAE. Now it’s yours first. <span className="em-coral">200 early access places for Founding Members.</span>
             </h1>
-            <p className="ea-lede mt-6">Linkist launches on 9 November. To mark the UAE’s 55th National Day, we’re giving 200 professionals early access and the chance to help shape Linkist.</p>
+            <p className="ea-lede mt-6">To mark the UAE’s 55th National Day, we’re giving 200 professionals early access and the chance to help shape Linkist.</p>
             <p className="ea-callout mt-7">
               Cost is on us. <strong>One year of Linkist Pro, worth USD 100, at no cost to you.</strong> No payment details needed.
             </p>
