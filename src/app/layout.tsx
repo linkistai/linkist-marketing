@@ -4,6 +4,7 @@ import { Footer } from '@/components/Footer';
 import { Nav } from '@/components/Nav';
 import { ChatWidget } from '@/components/chat/ChatWidget';
 import { CookieNotice } from '@/components/CookieNotice';
+import { SiteChrome } from '@/components/SiteChrome';
 import { Tracking } from '@/components/Tracking';
 import { headScript } from '@/lib/tracking';
 import { MotionProvider } from '@/motion/MotionProvider';
@@ -59,11 +60,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
         <CurrencyProvider>
           <PromoProvider live={live}>
-            <PromoBar />
-            <Nav />
+            <SiteChrome>
+              <PromoBar />
+              <Nav />
+            </SiteChrome>
             <main id="main">{children}</main>
-            <Footer />
-            <ChatWidget />
+            <SiteChrome>
+              <Footer />
+              <ChatWidget />
+            </SiteChrome>
             <CookieNotice />
             <Tracking />
           </PromoProvider>

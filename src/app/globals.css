@@ -3,6 +3,7 @@
 @import '../styles/interactions.css';
 @import '../styles/mockups.css';
 @import '../styles/extras.css';
+@import '../styles/early-access.css';
 
 /* Tailwind utilities read the token variables so bg-surface, text-muted and friends follow the theme. */
 @theme inline {
@@ -2058,8 +2059,8 @@ html[data-motion='on'] .v2-ripple > span:nth-child(3) {
 }
 
 /* The header is fixed; the first block of every page clears it. The home hero and page heroes
-   carry their own top padding. */
-#main > :first-child:not(.page-hero):not(.home-hero) {
+   carry their own top padding, and the early access landing page has no site header (D77). */
+#main > :first-child:not(.page-hero):not(.home-hero):not(.ea) {
   padding-top: calc(max(clamp(110px, 14vh, 140px), var(--first-pad, 0px)) + var(--promo-h, 0px));
 }
 

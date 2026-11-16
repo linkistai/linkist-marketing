@@ -9,6 +9,8 @@ export interface OgPage {
   readonly person?: string;
   /** A picture under public (blog covers), drawn as a rounded card at the right. */
   readonly image?: string;
+  /** The line at the bottom, when the page needs its own in place of the standard one. */
+  readonly foot?: string;
 }
 
 export const OG_PAGES: readonly OgPage[] = [
@@ -27,6 +29,13 @@ export const OG_PAGES: readonly OgPage[] = [
   { slug: 'bundles', title: 'The NFC card and PRM Pro together.', eyebrow: 'Bundled offers', screen: 'v6-share' },
   { slug: 'pricing', title: 'Start free. Add more when you need it.', eyebrow: 'Linkist PRM pricing', screen: 'v6-home' },
   { slug: 'teams', title: 'Relationships that stay with the company.', eyebrow: 'Linkist for teams', screen: 'v6-contacts' },
+  {
+    slug: 'early-access',
+    title: 'Built in the UAE. Now it’s yours first.',
+    eyebrow: 'Celebrating 55 years of the UAE',
+    screen: 'v12-profile-natalie-dark',
+    foot: '200 early access places for Founding Members. One year of Linkist Pro, worth USD 100, at no cost to you.',
+  },
   { slug: 'ai', title: 'What the AI does. What it sees. How to switch it off.', eyebrow: 'AI and your data', screen: 'v6-enrich' },
   { slug: 'security', title: 'Written for a sceptical reader.', eyebrow: 'Security and trust' },
   { slug: 'blogs', title: 'Network smarter, not harder.', eyebrow: 'Linkist Insights', image: '/blog/linkedin-profile-vs-digital-identity/cover.jpg' },
