@@ -105,23 +105,26 @@ export interface CardTier {
   readonly prices: Record<Currency, Record<Material, number>>;
 }
 
-/** The dirham peg, used only where the owner has not given a dirham figure (it is then shown as "about"). */
-export const AED_PER_USD = 3.6725;
+/**
+ * Every dirham price is the dollar price at AED 4 to the dollar, the rate the plan prices use, so the
+ * USD / AED switch shows the same amount everywhere (owner, 16 November 2026, D78). plans.test.ts checks it.
+ */
+export const AED_PER_USD = 4;
 
-/** One-time prices per material in both currencies (owner's price table, 25 September 2026). */
+/** One-time prices per material in both currencies (owner's price table, 25 September 2026; dirhams at AED 4 to the dollar since D78). */
 export const CARD_TIERS: readonly CardTier[] = [
   {
     key: 'starter',
     name: 'Starter',
     blurb: 'No customisation. Tap and share from day one.',
-    prices: { AED: { pvc: 75, wood: 95, metal: 200 }, USD: { pvc: 20, wood: 25, metal: 55 } },
+    prices: { AED: { pvc: 80, wood: 100, metal: 220 }, USD: { pvc: 20, wood: 25, metal: 55 } },
   },
   {
     key: 'signature',
     name: 'Signature',
     blurb: 'Your name and logo on the NFC card.',
     badge: 'Most chosen',
-    prices: { AED: { pvc: 95, wood: 125, metal: 240 }, USD: { pvc: 25, wood: 35, metal: 65 } },
+    prices: { AED: { pvc: 100, wood: 140, metal: 260 }, USD: { pvc: 25, wood: 35, metal: 65 } },
   },
 ];
 
@@ -146,8 +149,8 @@ export interface Bundle {
 }
 
 export const BUNDLES: readonly Bundle[] = [
-  { key: 'signature', name: 'Signature Bundle', includes: 'Any Signature NFC card plus 1 year of PRM Pro', price: { USD: 100, AED: 369 }, priceNote: 'bundle price', proYears: 1 },
-  { key: 'founders', name: 'Founders Circle Bundle', includes: 'Founders Circle NFC card plus lifetime PRM Pro', price: { USD: 150, AED: 549 }, priceNote: 'one-time bundle price', featured: true, proYears: 'lifetime' },
+  { key: 'signature', name: 'Signature Bundle', includes: 'Any Signature NFC card plus 1 year of PRM Pro', price: { USD: 100, AED: 400 }, priceNote: 'bundle price', proYears: 1 },
+  { key: 'founders', name: 'Founders Circle Bundle', includes: 'Founders Circle NFC card plus lifetime PRM Pro', price: { USD: 150, AED: 600 }, priceNote: 'one-time bundle price', featured: true, proYears: 'lifetime' },
 ];
 
 export const BUNDLE_BENEFITS = [

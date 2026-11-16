@@ -17,7 +17,7 @@ import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
   'Pricing: Essential, Enhanced, Pro and Team',
-  'Linkist PRM starts free with no card required. Enhanced is $2 (AED 8) a month, Pro $10 (AED 40), Team $5 (AED 20) per user with a minimum of 5 users. NFC cards from AED 75 ($20), bundles from AED 369 ($100).',
+  'Linkist PRM starts free with no card required. Enhanced is $2 (AED 8) a month, Pro $10 (AED 40), Team $5 (AED 20) per user with a minimum of 5 users. NFC cards from AED 80 ($20), bundles from AED 400 ($100).',
   '/pricing',
   { image: '/og/pricing.png' },
 );

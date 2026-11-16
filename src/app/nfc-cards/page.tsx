@@ -13,7 +13,7 @@ import { J } from '@/content/journeys';
 
 export const metadata: Metadata = pageMeta(
   'NFC cards: Starter and Signature in PVC, wood and metal',
-  'A Linkist NFC card opens your live profile with one tap. Starter from AED 75 ($20), Signature with your name and logo from AED 95 ($25), in PVC, cherry wood or brushed metal. Every NFC card includes PRM Essential. Ships within the UAE.',
+  'A Linkist NFC card opens your live profile with one tap. Starter from AED 80 ($20), Signature with your name and logo from AED 100 ($25), in PVC, cherry wood or brushed metal. Every NFC card includes PRM Essential. Ships within the UAE.',
   '/nfc-cards',
   { image: '/og/nfc-cards.png' },
 );
@@ -35,7 +35,7 @@ const FAQ = [
   { q: 'Can I return an NFC card?', a: 'Yes. Tell us within 7 days of delivery, or longer where the law allows, if it is faulty, damaged or wrong, and we replace or refund it.' },
 ] as const;
 
-/** Product with an AggregateOffer across the six store prices (AED 75 to 240). */
+/** Product with an AggregateOffer across the six store prices (AED 80 to 260). */
 const PRODUCT_LD = {
   '@context': 'https://schema.org',
   '@type': 'Product',
