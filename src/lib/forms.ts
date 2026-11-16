@@ -81,9 +81,9 @@ export function unconfiguredMessage(): string {
   return `This form is not switched on yet. Email ${SUPPORT} instead.`;
 }
 
-export async function sendMail(opts: { to: string | undefined; subject: string; text: string; replyTo?: string }): Promise<{ ok: true } | { ok: false; status: number; reason: string }> {
+export async function sendMail(opts: { to: string | undefined; subject: string; text: string; replyTo?: string; from?: string }): Promise<{ ok: true } | { ok: false; status: number; reason: string }> {
   const key = process.env['RESEND_API_KEY'];
-  const from = process.env['LEAD_FROM'] ?? 'Linkist website <website@linkist.ai>';
+  const from = opts.from ?? process.env['LEAD_FROM'] ?? 'Linkist website <website@linkist.ai>';
   if (!key || !opts.to) return { ok: false, status: 503, reason: unconfiguredMessage() };
   try {
     const res = await fetch('https://api.resend.com/emails', {

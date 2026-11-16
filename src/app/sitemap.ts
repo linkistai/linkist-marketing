@@ -18,6 +18,7 @@ export const ROUTES: readonly string[] = [
   '/bundles',
   '/pricing',
   '/teams',
+  '/early-access',
   '/blogs',
   ...getPosts().map((p) => `/blogs/${p.slug}`),
   '/help',

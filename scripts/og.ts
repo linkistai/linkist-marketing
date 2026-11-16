@@ -23,7 +23,7 @@ const data = (file: string) => (existsSync(file) ? `data:${mime(file)};base64,${
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 function html(og: OgPage) {
-  const { title, eyebrow, screen, person, image } = og;
+  const { title, eyebrow, screen, person, image, foot } = og;
   const mark = data(join(root, 'public/brand/mark.png'));
   const shot = screen ? data(join(root, 'public/screens', `${screen}.png`)) || data(join(root, 'public/screens', `${screen}.webp`)) : '';
   const cut = person ? data(join(root, 'public/assets/people', `${person}-2x.webp`)) : '';
@@ -56,7 +56,7 @@ function html(og: OgPage) {
   <div><span class="brand">${mark ? `<img src="${mark}" alt="">` : ''}Linkist</span>
     <p class="eyebrow" style="margin-top:44px">${esc(eyebrow)}</p>
     <h1>${esc(title)}</h1></div>
-  <p class="foot">Personal Relationship Manager. Free plan, no NFC card needed. Add one any time.</p>
+  <p class="foot">${esc(foot ?? 'Personal Relationship Manager. Free plan, no NFC card needed. Add one any time.')}</p>
 </div>
 ${shot ? `<div class="phone"><div class="screen"><img src="${shot}" alt=""></div></div>` : ''}
 ${cut ? `<img class="person" src="${cut}" alt="">` : ''}

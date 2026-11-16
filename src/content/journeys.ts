@@ -74,6 +74,9 @@ export const J = {
   community_final_start_now: 'https://prm.linkist.ai/UnifiedAuth?intent=individual&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=community_final_start_now',
   // C06
   community_ideas: 'https://prm.linkist.ai/ideas?utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=community_ideas',
+  // Early access page (D77): "Activate my year of Pro" in the confirmation and in the email with the code
+  early_access_activate_pro: 'https://prm.linkist.ai/plans?plan=pro&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=early_access_activate_pro',
+  early_access_email_activate_pro: 'https://prm.linkist.ai/plans?plan=pro&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=early_access_email_activate_pro',
   // Buttons row 68
   feature_act_final_start_now: 'https://prm.linkist.ai/UnifiedAuth?intent=individual&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=feature_act_final_start_now',
   // Buttons row 67
