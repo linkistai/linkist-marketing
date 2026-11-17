@@ -123,6 +123,18 @@
   .ea-input[aria-invalid='true'] {
     border-color: var(--color-bad);
   }
+  /* The country: shown, fixed to the UAE, not editable (Liju's notes v2.1, D79). */
+  .ea-input--fixed {
+    border-color: var(--color-line);
+    background: transparent;
+    color: var(--color-body);
+    cursor: default;
+  }
+  .ea-hint {
+    font-size: 12px;
+    font-weight: var(--weight-regular);
+    color: var(--color-muted);
+  }
   .ea-error {
     font-size: 12px;
     font-weight: var(--weight-regular);
@@ -230,10 +242,15 @@
     display: grid;
     gap: 24px;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 640px) {
     .ea-steps {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 32px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px 32px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .ea-steps {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
   .ea-step {
@@ -348,6 +365,23 @@
   .ea-watch:hover,
   .ea-watch:focus-visible {
     text-decoration: underline;
+  }
+
+  /* Offer terms: the small print above the footer (RatioX Labs' hand-off, D79). */
+  .ea-terms {
+    padding-block: clamp(32px, 4vw, 48px);
+    border-top: 1px solid var(--color-line);
+  }
+  .ea-terms__list {
+    display: grid;
+    gap: 6px;
+    max-width: 80ch;
+    margin-top: 14px;
+    padding-inline-start: 1.2em;
+    list-style: disc;
+    font-size: var(--text-base);
+    line-height: 1.5;
+    color: var(--color-muted);
   }
 
   /* The page's own footer */
@@ -472,44 +506,6 @@
     font-weight: var(--weight-semibold);
     line-height: 1.2;
     color: var(--color-text);
-  }
-  .ea-code-row {
-    display: flex;
-    gap: 10px;
-    margin-top: 8px;
-  }
-  .ea-code {
-    display: grid;
-    flex: 1;
-    place-items: center;
-    min-height: 52px;
-    border: 1.5px dashed var(--brand-coral);
-    border-radius: 12px;
-    background: var(--color-surface);
-    color: var(--color-text);
-    font-size: 20px;
-    font-weight: var(--weight-semibold);
-    letter-spacing: 0.14em;
-    user-select: all;
-  }
-  .ea-copy {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    min-height: 52px;
-    padding: 0 16px;
-    border: 1.5px solid var(--color-line-strong);
-    border-radius: 12px;
-    background: var(--color-surface);
-    color: var(--color-text);
-    font: inherit;
-    font-size: var(--text-base);
-    font-weight: var(--weight-medium);
-    white-space: nowrap;
-    cursor: pointer;
-  }
-  .ea-copy:hover {
-    border-color: var(--color-text);
   }
   .ea-gets-list {
     display: grid;

@@ -4,31 +4,50 @@ import Link from 'next/link';
 import { ArrowUpRight, MessageCircle, Play, Star, Zap, type LucideIcon } from 'lucide-react';
 import { CookieChoicesLink } from '@/components/CookieChoicesLink';
 import { ClaimForm } from '@/components/early-access/ClaimForm';
+import { closedState } from '@/lib/early-access';
 import { COMPANY, pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = pageMeta(
   'Get early access',
-  'To mark the UAE’s 55th National Day, we’re giving 200 professionals early access and the chance to help shape Linkist.',
+  'To mark the UAE’s 55th National Day, we’re giving 55 professionals in the UAE early access and the chance to help shape Linkist.',
   '/early-access',
   { image: '/og/early-access.png' },
 );
 
+/** Rebuilt every ten minutes, so the claim card turns to "closed" by itself after 31 December 2026 (Dubai). */
+export const revalidate = 600;
+
 /**
  * The UAE 55 early access page, word for word and section for section from Linkist's "Early Access
  * UAE 55 Founding Members Page and Ads" (November 2026), drawn in the site's own type, colours and
- * buttons (owner, 16 November 2026, D77). A landing page for the ads: its own short header and footer
- * stand in for the site's (SiteChrome). The app screens and video stills are cut from the brief.
+ * buttons (owner, 16 November 2026, D77), with the text changes in Liju's notes v2.1 and the hand-off to
+ * the app from RatioX Labs (17 November 2026, D79). A landing page for the ads: its own short header and
+ * footer stand in for the site's (SiteChrome). The app screens and video stills are cut from the brief,
+ * with real people's details blurred.
  */
 
 const GETS: readonly { icon: LucideIcon; title: string; body: string }[] = [
-  { icon: Star, title: 'Founding Member status', body: 'Recognised as one of the first 200 people to use Linkist.' },
+  { icon: Star, title: 'Founding Member status', body: 'Recognised as one of the first 55 people to use Linkist.' },
   { icon: Zap, title: 'Early access', body: 'Use new features before they are released to everyone.' },
 ];
 
+/** The sign-up as the app runs it (Liju's notes v2.1, section 6). The app fills in the email only; it asks for the name after payment. */
 const STEPS = [
-  { title: 'Claim your place', body: 'Enter your name, work email and country.' },
-  { title: 'Copy your code', body: 'Your code appears on screen and in your inbox.' },
-  { title: 'Activate Pro', body: 'Choose Pro at prm.linkist.ai/plans and paste your code. You pay USD 0.' },
+  { title: 'Claim your place', body: 'Enter your name and email.' },
+  { title: 'Create your account', body: 'Your email is filled in. Choose a password.' },
+  { title: 'Verify your email', body: 'Enter the 6-digit code we send you.' },
+  { title: 'Activate Pro', body: 'Your code UAE55 is applied for you. You pay USD 0.' },
+] as const;
+
+/** The offer in plain words (RatioX Labs' hand-off, section 6, with Liju's places and date; the survey is a request). */
+const TERMS = [
+  'Linkist Pro (annual), free for 12 months.',
+  'No card needed to start.',
+  'After 12 months, Pro continues at USD 100 (AED 400) a year only if you add a card. Otherwise your account moves to the free Essential plan. We’ll remind you first.',
+  'For professionals based in the UAE only.',
+  'Limited to the first 55 sign-ups, one per person.',
+  'Claim by 31 December 2026, 23:59 Dubai time.',
+  'The feedback survey 2 weeks after you join is a request, not a condition of the offer.',
 ] as const;
 
 const FEATURES = [
@@ -44,15 +63,15 @@ const FEATURES = [
 type Shot = { src: string; title: string; body: string; alt: string };
 
 const REMEMBER: readonly Shot[] = [
-  { src: '/early-access/remember-1-digital-profile.webp', title: 'Digital profile', body: 'Shared by NFC or QR; saved in one tap', alt: 'Natalie Vale’s digital profile in the Linkist app' },
-  { src: '/early-access/remember-2-contact-intelligence.webp', title: 'Contact Intelligence', body: 'Identity verified; ICP match and network value scored', alt: 'Contact Intelligence brief with ICP match and network value scores' },
+  { src: '/early-access/remember-1-digital-profile-v2.webp', title: 'Digital profile', body: 'Shared by NFC or QR; saved in one tap', alt: 'Natalie Vale’s digital profile in the Linkist app' },
+  { src: '/early-access/remember-2-contact-intelligence-v2.webp', title: 'Contact Intelligence', body: 'Identity verified; ICP match and network value scored', alt: 'Contact Intelligence brief with ICP match and network value scores' },
   { src: '/early-access/remember-3-company-intelligence.webp', title: 'Company Intelligence', body: 'Industry, size, HQ and public signals, with confidence', alt: 'Company Intelligence with industry, company size, headquarters and public signals' },
   { src: '/early-access/remember-4-interaction-log.webp', title: 'Interaction log', body: 'Meetings, calls, intros and notes on one timeline', alt: 'Log Interaction screen with meeting, call, email, message, note and intro types' },
 ];
 
 const RECONNECT: readonly Shot[] = [
   { src: '/early-access/reconnect-1-daily-dashboard.webp', title: 'Daily dashboard', body: 'AI insight, relationship health and network strength', alt: 'Daily dashboard with relationship health and network strength scores' },
-  { src: '/early-access/reconnect-2-smart-signals.webp', title: 'Smart Signals', body: 'Relevance-scored market signals with a suggested next step', alt: 'Smart Signals with a relevance-scored market signal and a suggested next step' },
+  { src: '/early-access/reconnect-2-smart-signals-v2.webp', title: 'Smart Signals', body: 'Relevance-scored market signals with a suggested next step', alt: 'Smart Signals with a relevance-scored market signal and a suggested next step' },
   { src: '/early-access/reconnect-3-connection-profile.webp', title: 'Connection profile', body: 'Define the ICP once; matching contacts found for you', alt: 'Connection profile with an ICP definition and matching contacts' },
 ];
 
@@ -63,6 +82,7 @@ const DEMOS = [
     body: 'Set up a business profile in minutes and share it by NFC card or QR code.',
     href: 'https://www.youtube.com/watch?v=AemkFHSq9_I',
     length: '1:12',
+    alt: 'Linkist demo video, 1 minute 12 seconds',
   },
   {
     src: '/early-access/demo-enrichment.webp',
@@ -70,6 +90,7 @@ const DEMOS = [
     body: 'AI enrichment adds verified role, company and context to every contact.',
     href: 'https://www.youtube.com/watch?v=bUJy8eZwiwE',
     length: '0:44',
+    alt: 'Linkist demo video, 44 seconds',
   },
 ] as const;
 
@@ -92,16 +113,16 @@ export default function EarlyAccessPage() {
         <HeroLines />
         <div className="container ea-hero__grid">
           <div>
-            <p className="eyebrow eyebrow--accent">Celebrating 55 years of the UAE · 200 early access places</p>
+            <p className="eyebrow eyebrow--accent">Celebrating 55 years of the UAE · 55 Founding Member places</p>
             <h1 className="ea-h1 mt-5">
-              Built in the UAE. Now it’s yours first. <span className="em-coral">200 early access places for Founding Members.</span>
+              Built in the UAE. Now it’s yours first. <span className="em-coral">55 places for UAE 55.</span>
             </h1>
-            <p className="ea-lede mt-6">To mark the UAE’s 55th National Day, we’re giving 200 professionals early access and the chance to help shape Linkist.</p>
+            <p className="ea-lede mt-6">To mark the UAE’s 55th National Day, we’re giving 55 professionals in the UAE early access and the chance to help shape Linkist.</p>
             <p className="ea-callout mt-7">
               Cost is on us. <strong>One year of Linkist Pro, worth USD 100, at no cost to you.</strong> No payment details needed.
             </p>
           </div>
-          <ClaimForm />
+          <ClaimForm closed={closedState(new Date(), process.env['EARLY_ACCESS_CLOSED'])} />
         </div>
       </section>
 
@@ -109,12 +130,12 @@ export default function EarlyAccessPage() {
         <div className="container">
           <div className="ea-narrow">
             <p className="ea-label">A thank-you to the UAE</p>
-            <h2 className="ea-h2 mt-3">We kept building. Now we want to give back.</h2>
+            <h2 className="ea-h2 mt-3">Celebrating 55 years of the UAE.</h2>
             <p className="ea-text mt-6">
-              This year asked a lot of all of us. We kept building, because we believe in what this country makes possible. Linkist is now ready, and to mark the UAE’s 55th National Day, we’re giving <strong>200</strong> people early
-              access as <strong>Founding Members</strong>, with one year of Linkist Pro, <strong>worth USD 100</strong>, on us.
+              Linkist was founded in the UAE, a country that makes it possible to build something new. To mark the UAE’s 55th National Day, we’re giving <strong>55</strong> professionals early access as{' '}
+              <strong>Founding Members</strong>, with one year of Linkist Pro, <strong>worth USD 100</strong>, on us.
             </p>
-            <p className="ea-text mt-4">Thank you to the UAE and to everyone who stood with us.</p>
+            <p className="ea-text mt-4">Thank you to the UAE, and happy Eid Al Etihad.</p>
             <p className="mt-5 font-semibold">The Linkist team</p>
           </div>
         </div>
@@ -128,7 +149,9 @@ export default function EarlyAccessPage() {
             <li className="card ea-card">
               <p className="ea-figure">USD 100</p>
               <h3 className="ea-card__title mt-3">One year of Linkist Pro</h3>
-              <p className="ea-card__text">Full access to the Pro app for 12 months, at no cost. No payment details needed.</p>
+              <p className="ea-card__text">
+                Full access to the Pro app for 12 months, at no cost. No payment details needed. After 12 months you move to the free Essential plan unless you choose to continue with Pro. We’ll remind you first.
+              </p>
             </li>
             {GETS.map(({ icon: Icon, title, body }) => (
               <li key={title} className="card ea-card">
@@ -152,7 +175,7 @@ export default function EarlyAccessPage() {
       <section className="ea-section ea-lifted">
         <div className="container">
           <p className="ea-label">How it works</p>
-          <h2 className="ea-h2 mt-3">Three steps, about two minutes.</h2>
+          <h2 className="ea-h2 mt-3">Four steps, about two minutes.</h2>
           <ol className="ea-steps mt-8">
             {STEPS.map((s, i) => (
               <li key={s.title} className="ea-step">
@@ -203,8 +226,9 @@ export default function EarlyAccessPage() {
           <ul className="ea-demos mt-6">
             {DEMOS.map((d) => (
               <li key={d.title} className="card ea-demo">
-                <a href={d.href} target="_blank" rel="noopener noreferrer" className="ea-demo__thumb" tabIndex={-1} aria-hidden="true">
-                  <Image src={d.src} alt="" width={1119} height={622} sizes="(min-width: 768px) 600px, 92vw" />
+                {/* Out of the tab order, since the Watch link below goes to the same video; screen readers still read it by its alt text. */}
+                <a href={d.href} target="_blank" rel="noopener noreferrer" className="ea-demo__thumb" tabIndex={-1}>
+                  <Image src={d.src} alt={d.alt} width={1119} height={622} sizes="(min-width: 768px) 600px, 92vw" />
                 </a>
                 <div className="ea-demo__body">
                   <h4 className="ea-card__title">{d.title}</h4>
@@ -222,11 +246,24 @@ export default function EarlyAccessPage() {
 
       <section className="ea-section ea-final">
         <div className="container text-center">
-          <h2 className="ea-h2 mx-auto max-w-[19ch]">200 places. One year of Pro. Cost is on us.</h2>
-          <p className="ea-text mx-auto mt-4 text-muted">Open until 6 December 2026, or until all places are taken.</p>
+          <h2 className="ea-h2 mx-auto max-w-[19ch]">55 places. One year of Pro. Cost is on us.</h2>
+          <p className="ea-text mx-auto mt-4 text-muted">Open until 31 December 2026, or until all places are taken.</p>
           <a href="#claim" className="btn btn--primary mt-7">
-            Claim my early access
+            Claim my place
           </a>
+        </div>
+      </section>
+
+      <section className="ea-terms" aria-labelledby="ea-terms-title">
+        <div className="container">
+          <h2 id="ea-terms-title" className="ea-label">
+            Offer terms
+          </h2>
+          <ul className="ea-terms__list">
+            {TERMS.map((t) => (
+              <li key={t}>{t}</li>
+            ))}
+          </ul>
         </div>
       </section>
 

@@ -74,9 +74,9 @@ export const J = {
   community_final_start_now: 'https://prm.linkist.ai/UnifiedAuth?intent=individual&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=community_final_start_now',
   // C06
   community_ideas: 'https://prm.linkist.ai/ideas?utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=community_ideas',
-  // Early access page (D77): "Activate my year of Pro" in the confirmation and in the email with the code
-  early_access_activate_pro: 'https://prm.linkist.ai/plans?plan=pro&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=early_access_activate_pro',
-  early_access_email_activate_pro: 'https://prm.linkist.ai/plans?plan=pro&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=early_access_email_activate_pro',
+  // Early access page (D79): "See Pro plans" once the 55 places are taken. Its "Activate my year of Pro" links
+  // carry the visitor's email and the app's own tags, so they are built in src/lib/early-access.ts instead.
+  early_access_full_see_plans: 'https://prm.linkist.ai/plans?plan=pro&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=early_access_full_see_plans',
   // Buttons row 68
   feature_act_final_start_now: 'https://prm.linkist.ai/UnifiedAuth?intent=individual&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=feature_act_final_start_now',
   // Buttons row 67

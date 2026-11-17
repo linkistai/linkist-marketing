@@ -27,12 +27,14 @@ describe('prices in two currencies (D78)', () => {
   });
 
   it('writes the same pairs in the page and answer text', () => {
-    // Any "AED n ($m)" written out in a page, the help centre, the assistant or llms.txt follows the same rate.
-    for (const f of ['src/content/help.ts', 'src/lib/knowledge.ts', 'src/app/bundles/page.tsx', 'src/app/nfc-cards/page.tsx', 'src/app/pricing/page.tsx', 'src/app/llms.txt/route.ts', 'src/content/plans.ts']) {
+    // Any "AED n ($m)", "$m (AED n)" or "USD m (AED n)" written out in a page, the help centre, the assistant or llms.txt follows the same rate.
+    const files = ['src/content/help.ts', 'src/lib/knowledge.ts', 'src/app/bundles/page.tsx', 'src/app/nfc-cards/page.tsx', 'src/app/pricing/page.tsx', 'src/app/early-access/page.tsx', 'src/app/llms.txt/route.ts', 'src/content/plans.ts'];
+    for (const f of files) {
       const text = readFileSync(f, 'utf8');
       const n = (s: string) => Number(s.replace(/,/g, ''));
       for (const m of text.matchAll(/AED ([\d,]+) \(\$([\d,]+)\)/g)) expect(n(m[1]!), `${f}: ${m[0]}`).toBe(n(m[2]!) * AED_PER_USD);
-      for (const m of text.matchAll(/\$([\d,]+) \(AED ([\d,]+)\)/g)) expect(n(m[2]!), `${f}: ${m[0]}`).toBe(n(m[1]!) * AED_PER_USD);
+      for (const m of text.matchAll(/(?:\$|USD )([\d,]+) \(AED ([\d,]+)\)/g)) expect(n(m[2]!), `${f}: ${m[0]}`).toBe(n(m[1]!) * AED_PER_USD);
     }
+    expect(readFileSync('src/app/early-access/page.tsx', 'utf8')).toContain('USD 100 (AED 400)');
   });
 });

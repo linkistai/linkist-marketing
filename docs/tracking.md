@@ -44,17 +44,18 @@ Use one of these, not both, or each click counts twice:
 
 ## The early access page
 
-`/early-access` is the landing page for the UAE 55 ads (16 November 2026, decision D77). It has its own short header and footer instead of the site menu.
+`/early-access` is the landing page for the UAE 55 ads (16 November 2026, decision D77; changed on 17 November, D79). It has its own short header and footer instead of the site menu.
 
 - **Page views** work as on every other page.
-- **A claim.** When the form succeeds and the code appears, the site pushes:
+- **A claim.** When the form succeeds and the confirmation opens, the site pushes:
 
   ```js
   { event: 'generate_lead', form_name: 'early_access_uae55' }
   ```
 
   Use a Custom Event trigger `generate_lead` for the Google Ads conversion, the Pixel's Lead event and the LinkedIn conversion. No name or email goes into the data layer.
-- **Activate my year of Pro.** The confirmation's button has `cta_button_click` with `data-cta="early_access_activate_pro"`, and opens prm.linkist.ai/plans with Pro chosen.
+- **Activate my year of Pro.** The confirmation's button has `cta_button_click` with `data-cta="early_access_activate_pro"`. It opens the app in the same tab with Pro (annual), the UAE and the coupon chosen and the visitor's email filled in: `https://prm.linkist.ai/plans?plan=pro&period=annual&country=AE&coupon=UAE55&email=…&utm_source=linkist_ai&utm_campaign=early_access_uae55&utm_medium=website&utm_content=early_access_popup`. The email is added only at the click. The link on the page, and the `cta_url` the event carries, leave it out, so no tag can collect it. The link in the visitor's email is the same, with `utm_medium=email&utm_content=early_access_email`.
+- **See Pro plans.** Once the places are taken, the card's button has `data-cta="early_access_full_see_plans"` and opens prm.linkist.ai/plans with Pro chosen.
 - **Ad links.** Each claim carries the landing address's `utm_` values and the click IDs `gclid`, `fbclid` and `li_fat_id`, and the lead email lists them. So give every ad its own `utm_source`, `utm_medium`, `utm_campaign` and `utm_content`.
 - **LinkedIn.** The site's security policy does not yet list the LinkedIn Insight Tag's hosts. Ask the developer to add them before you put the tag in the container.
 

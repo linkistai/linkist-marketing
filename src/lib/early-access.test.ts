@@ -1,17 +1,16 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { LANDING_PATHS } from '@/components/SiteChrome';
-import { closedReason, readClaim } from './early-access';
+import { activationUrl, closedState, readClaim } from './early-access';
 
-const good = { firstName: ' Aisha ', lastName: 'Kareem', email: 'aisha@example.com', country: 'United Arab Emirates', updates: true };
+const good = { name: ' Aisha ', email: 'aisha@example.com', updates: true };
+/** Everything a visitor reads on the early access page, in its email or in its link preview. */
+const PAGE_FILES = ['src/app/early-access/page.tsx', 'src/components/early-access/ClaimForm.tsx', 'src/app/api/early-access/route.ts', 'src/lib/early-access.ts', 'src/content/og.ts'];
 
-describe('early access claims (D77)', () => {
-  it('accepts a complete claim, trimmed, and keeps only the known tracking tags', () => {
-    const r = readClaim({ ...good, source: { utm_source: 'linkedin', utm_campaign: 'uae55', other: 'x', gclid: '' } });
-    expect(r).toEqual({
-      ok: true,
-      claim: { firstName: 'Aisha', lastName: 'Kareem', email: 'aisha@example.com', country: 'United Arab Emirates', updates: true, source: { utm_source: 'linkedin', utm_campaign: 'uae55' } },
-    });
+describe('early access claims (D77, D79)', () => {
+  it('takes a name and an email, trimmed, and keeps only the known tracking tags', () => {
+    const r = readClaim({ ...good, lastName: 'ignored', country: 'Atlantis', source: { utm_source: 'linkedin', utm_campaign: 'uae55', other: 'x', gclid: '' } });
+    expect(r).toEqual({ ok: true, claim: { name: 'Aisha', email: 'aisha@example.com', updates: true, source: { utm_source: 'linkedin', utm_campaign: 'uae55' } } });
   });
 
   it('takes product updates only from a ticked box', () => {
@@ -19,24 +18,45 @@ describe('early access claims (D77)', () => {
     expect(r.ok && r.claim.updates).toBe(false);
   });
 
-  it('names every missing or wrong field', () => {
-    const r = readClaim({ firstName: '', lastName: ' ', email: 'not-an-email', country: 'Atlantis' });
-    expect(r.ok).toBe(false);
-    if (!r.ok) expect(Object.keys(r.errors).sort()).toEqual(['country', 'email', 'firstName', 'lastName']);
+  it('names every missing or wrong field in Liju’s words', () => {
+    expect(readClaim({ name: ' ', email: 'not-an-email' })).toEqual({ ok: false, errors: { name: 'Enter your name.', email: 'Enter a valid email address.' } });
   });
 
-  it('stays open until the end of 6 December 2026 in Dubai, unless the places are marked as taken', () => {
-    expect(closedReason(new Date('2026-11-16T10:00:00+04:00'), undefined)).toBeNull();
-    expect(closedReason(new Date('2026-12-06T23:59:00+04:00'), '')).toBeNull();
-    expect(closedReason(new Date('2026-12-07T00:00:01+04:00'), undefined)).toBe('Early access closed on 6 December 2026.');
-    expect(closedReason(new Date('2026-11-20T10:00:00+04:00'), '1')).toBe('All 200 early access places have been taken.');
+  it('stays open until the end of 31 December 2026 in Dubai, unless the places are marked as taken', () => {
+    expect(closedState(new Date('2026-11-17T10:00:00+04:00'), undefined)).toBeNull();
+    expect(closedState(new Date('2026-12-31T23:59:00+04:00'), '')).toBeNull();
+    expect(closedState(new Date('2027-01-01T00:00:01+04:00'), undefined)).toEqual({ state: 'closed', title: 'Early access sign-up closed on 31 December 2026.' });
+    expect(closedState(new Date('2026-11-20T10:00:00+04:00'), '1')).toEqual({ state: 'full', title: 'All 55 Founding Member places have been claimed.', text: 'You can still try Linkist Pro.' });
+  });
+});
+
+describe('the hand-off to the app (RatioX Labs, D79)', () => {
+  it('opens the plans page with Pro annual, the UAE and the coupon chosen, and the email encoded', () => {
+    expect(activationUrl('popup', 'a+b@example.com')).toBe(
+      'https://prm.linkist.ai/plans?plan=pro&period=annual&country=AE&coupon=UAE55&email=a%2Bb%40example.com&utm_source=linkist_ai&utm_campaign=early_access_uae55&utm_medium=website&utm_content=early_access_popup',
+    );
+    const u = new URL(activationUrl('email', 'a+b@example.com'));
+    expect(u.searchParams.get('email')).toBe('a+b@example.com');
+    expect(u.searchParams.get('utm_medium')).toBe('email');
+    expect(u.searchParams.get('utm_content')).toBe('early_access_email');
   });
 
-  it('keeps the code out of the page and the form, so it shows only after a claim', () => {
-    for (const f of ['src/app/early-access/page.tsx', 'src/components/early-access/ClaimForm.tsx', 'src/lib/early-access.ts']) {
-      expect(readFileSync(f, 'utf8').includes('UAE55'), f).toBe(false);
+  it('never carries the name, and leaves the email out of the address the button shows', () => {
+    const shown = new URL(activationUrl('popup'));
+    expect(shown.searchParams.has('email')).toBe(false);
+    expect(shown.searchParams.has('name')).toBe(false);
+    expect(new URL(activationUrl('popup', 'x@example.com')).searchParams.has('name')).toBe(false);
+  });
+});
+
+describe('the page text (Liju’s notes v2.1)', () => {
+  it('says 55 places and 31 December, and never asks anyone to paste a code', () => {
+    for (const f of PAGE_FILES) {
+      const t = readFileSync(f, 'utf8');
+      expect(/\b200 (early|people|places|professionals|Founding)|first 200|All 200/.test(t), f).toBe(false);
+      expect(t.includes('6 December'), f).toBe(false);
+      expect(/paste/i.test(t), f).toBe(false);
     }
-    expect(readFileSync('src/app/api/early-access/route.ts', 'utf8').includes("|| 'UAE55'")).toBe(true);
   });
 
   it('gives the landing page its own header and footer', () => {
