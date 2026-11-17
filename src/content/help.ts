@@ -46,9 +46,9 @@ const TERMS = { label: 'Terms and Privacy', href: '/legal/terms' };
 
 export const HELP: readonly HelpEntry[] = [
   // Getting started
-  e('Getting started', 'How do I create an account?', 'Select Get the App to create your free Linkist profile.', [{ label: 'Get the App', href: J.help_create_account }]),
+  e('Getting started', 'How do I create an account?', 'Select Get the App, pick a plan (Essential is free) and create your account on the next step.', [{ label: 'Get the App', href: J.help_create_account }]),
   e('Getting started', 'Do I need a password?', 'The sign-in screen asks for your email address or mobile number and sends a one-time code that expires. You would need to set up your account with a password. For future logins you can enable biometrics so you don’t need to enter your password.'),
-  e('Getting started', 'Where do I sign in?', 'The PRM app signs in at prm.linkist.ai/UnifiedAuth, which is where Sign in leads. Get the App opens the same sign-in screen and signs existing members in, and Get NFC Card opens the store at prm.linkist.ai/store/start.', [{ label: 'Get the App', href: J.help_get_app }, { label: 'Get NFC Card', href: J.help_get_nfc_card }]),
+  e('Getting started', 'Where do I sign in?', 'The PRM app signs in at prm.linkist.ai/UnifiedAuth, which is where Sign in leads. Get the App opens the plans page at prm.linkist.ai/plans, where new members pick a plan and existing members can sign in. Account opens the app’s home at prm.linkist.ai, where you can sign up, manage your account, bring your own NFC card and send feedback. Get NFC Card opens the store at prm.linkist.ai/store/start.', [{ label: 'Get the App', href: J.help_get_app }, { label: 'Get NFC Card', href: J.help_get_nfc_card }]),
   e('Getting started', 'Should I use my email or my mobile number?', 'Your account is linked to your email. Once set up, you can use your mobile number, email or biometrics (when enabled) to log in.'),
   e('Getting started', 'Do I need a card to start?', 'No. The Essential plan is free and needs no NFC card. You can add a card any time.', [{ label: 'Pricing', href: '/pricing' }]),
   e('Getting started', 'Is Linkist free?', 'The Essential plan is free for as long as you like. Enhanced, Pro and Team are paid, and every NFC card includes PRM Essential.', [{ label: 'Compare PRM plans', href: '/pricing#compare' }]),

@@ -4,9 +4,12 @@ import { describe, expect, it } from 'vitest';
 import nextConfig from '../../next.config';
 import { CTA_CLASS, J, cta, ctaTag } from './journeys';
 
-/** Praveen's six journey links (CTA links.docx, 1 October 2026), word for word. */
+/**
+ * Praveen's six journey links (CTA links.docx, 1 October 2026), word for word, except the individual one: it opened
+ * the sign-in (UnifiedAuth with intent=individual) until the owner moved it to the app's plan chooser (17 November 2026, D80).
+ */
 const APPROVED = {
-  individual: 'https://prm.linkist.ai/UnifiedAuth?intent=individual&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=individual',
+  individual: 'https://prm.linkist.ai/plans?choose=1&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=individual',
   teams: 'https://prm.linkist.ai/UnifiedAuth?intent=teams&next=%2Fteams%2Fstart&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=teams',
   store: 'https://prm.linkist.ai/store/start?utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=store',
   byon: 'https://prm.linkist.ai/byon?utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&utm_content=byon',
@@ -16,6 +19,8 @@ const APPROVED = {
 /** The plans page with one individual plan chosen (plan links brief, 3 November 2026, D76). */
 const PLANS = ['essential', 'enhanced', 'pro'] as const;
 const planStart = (plan: string) => `https://prm.linkist.ai/plans?plan=${plan}&utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&`;
+/** The app's home, where people sign up, manage their account, bring their own NFC and send feedback (owner, 17 November 2026, D80). */
+const ACCOUNT = 'https://prm.linkist.ai/?utm_source=linkist_ai&utm_medium=website&utm_campaign=website_cta&';
 const beforeTag = (u: string) => u.split('utm_content=')[0]!;
 
 /** Every source file a visitor can see the output of. */
@@ -41,8 +46,21 @@ describe('tracked journey links (D69)', () => {
     expect(J.pricing_team_plan).toBe(`${beforeTag(APPROVED.teams)}utm_content=pricing_team_plan`);
   });
 
+  it('opens the plan chooser wherever the individual sign-in used to open, and the app’s home from Account (D80)', () => {
+    const chooser = beforeTag(APPROVED.individual);
+    for (const tag of ['header_get_app', 'header_mobile_get_app', 'mobile_menu_get_app', 'footer_get_app', 'assistant_start_now', 'home_final_start_now', 'help_create_account'] as const) {
+      expect(J[tag], tag).toBe(`${chooser}utm_content=${tag}`);
+    }
+    expect(J.header_account).toBe(`${ACCOUNT}utm_content=header_account`);
+    expect(J.mobile_menu_account).toBe(`${ACCOUNT}utm_content=mobile_menu_account`);
+    const oldSignIn = ['UnifiedAuth?intent=', 'individual'].join('');
+    for (const f of [...files('src'), ...files('content'), 'next.config.ts']) {
+      expect(readFileSync(f, 'utf8').includes(oldSignIn), f).toBe(false);
+    }
+  });
+
   it('changes nothing but utm_content on every placement (and utm_medium on the redirects)', () => {
-    const prefixes = [...Object.values(APPROVED).map(beforeTag), ...PLANS.map(planStart)];
+    const prefixes = [...Object.values(APPROVED).map(beforeTag), ...PLANS.map(planStart), ACCOUNT];
     for (const [tag, url] of Object.entries(J)) {
       const u = tag.startsWith('redirect_') ? url.replace('&utm_medium=redirect&', '&utm_medium=website&') : url;
       expect(prefixes, tag).toContain(beforeTag(u));
@@ -79,11 +97,12 @@ describe('the click class for the tag manager (D75)', () => {
   it('marks every forward journey link with its placement tag', () => {
     expect(ctaTag(J.header_get_app)).toBe('header_get_app');
     expect(ctaTag(J.pricing_prm_pro)).toBe('pricing_prm_pro');
+    expect(ctaTag(J.help_create_account)).toBe('help_create_account');
     expect(cta(J.home_nfc_signature, 'btn')).toEqual({ className: `btn ${CTA_CLASS}`, 'data-cta': 'home_nfc_signature' });
   });
 
-  it('leaves billing, Suggest a feature and every other address alone', () => {
-    for (const href of [J.footer_billing, J.footer_ideas, J.community_ideas, '/pricing', 'https://prm.linkist.ai/UnifiedAuth', undefined]) {
+  it('leaves billing, Suggest a feature, Account and every other address alone', () => {
+    for (const href of [J.footer_billing, J.footer_ideas, J.community_ideas, J.header_account, J.mobile_menu_account, '/pricing', 'https://prm.linkist.ai/UnifiedAuth', undefined]) {
       expect(ctaTag(href), String(href)).toBeUndefined();
       expect(cta(href, 'link'), String(href)).toEqual({ className: 'link' });
     }

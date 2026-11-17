@@ -15,6 +15,7 @@ export const G = {
   ctaApp: 'Get the App',
   ctaNfc: 'Get NFC Card',
   ctaSignIn: 'Sign in',
+  ctaAccount: 'Account',
   ctaSecondary: 'Explore Linkist',
   ctaTry: 'Try Linkist now',
   ctaCard: 'Get your NFC card',

@@ -32,9 +32,10 @@ const csp = [
 /*
  * The old shortcut addresses forward to tracked journeys (CTA link brief C07 to C09, 1 October 2026). Copied
  * from src/content/journeys.ts, which journeys.test.ts checks these against; utm_medium=redirect is intended.
+ * /start and /app open the app's plan chooser since 17 November 2026 (D80).
  */
-const REDIRECT_START = 'https://prm.linkist.ai/UnifiedAuth?intent=individual&utm_source=linkist_ai&utm_medium=redirect&utm_campaign=website_cta&utm_content=redirect_start';
-const REDIRECT_APP = 'https://prm.linkist.ai/UnifiedAuth?intent=individual&utm_source=linkist_ai&utm_medium=redirect&utm_campaign=website_cta&utm_content=redirect_app';
+const REDIRECT_START = 'https://prm.linkist.ai/plans?choose=1&utm_source=linkist_ai&utm_medium=redirect&utm_campaign=website_cta&utm_content=redirect_start';
+const REDIRECT_APP = 'https://prm.linkist.ai/plans?choose=1&utm_source=linkist_ai&utm_medium=redirect&utm_campaign=website_cta&utm_content=redirect_app';
 const REDIRECT_GET_CARD = 'https://prm.linkist.ai/store/start?utm_source=linkist_ai&utm_medium=redirect&utm_campaign=website_cta&utm_content=redirect_get_card';
 
 const securityHeaders = [

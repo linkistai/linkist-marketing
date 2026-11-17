@@ -34,7 +34,7 @@ Set in Vercel (the first three by the owner on 10 September, the last two on 11 
 | Variable | Value | Note |
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | `https://linkist.ai` | Placeholder until the domain is decided (C1). Every canonical URL, the sitemap, JSON-LD and the OG `url` follow it. |
-| `NEXT_PUBLIC_APP_URL` | `https://prm.linkist.ai` | The PRM app. Get the App, Start free and Sign in land on `/UnifiedAuth` (R8). |
+| `NEXT_PUBLIC_APP_URL` | `https://prm.linkist.ai` | The PRM app. Sign in and the `/sign-in` redirect land on `/UnifiedAuth`. The button links are fixed in `src/content/journeys.ts`: Get the App and Start Now open the plan chooser, `/plans?choose=1`, and Account opens the app's home (D80). |
 | `CAPTURE_BASE_URL` | the app | Only the capture script reads it; harmless in a deployment. |
 | `NEXT_PUBLIC_CARD_APP_URL` | `https://m.linkist.ai` | The NFC card product. Get NFC Card lands on `/login` (R8, and C21 for its DNS). |
 | `NEXT_PUBLIC_NOINDEX` | `true` | Pre-launch switch: `noindex` on every page, `robots.txt` disallows all. Remove from production on launch day; keep on preview. |

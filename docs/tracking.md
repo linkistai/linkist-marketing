@@ -29,7 +29,7 @@ What to set up in the container:
 
 ## Button clicks: `cta_button_click`
 
-Every forward call to action has the class `cta_button_click` and a `data-cta` attribute. These are Get the App, Get NFC Card, Start Now, the plan and NFC card buttons, Bundles and Bring your own. `data-cta` holds the placement name, the same as the link's `utm_content`, for example `pricing_prm_pro`. Billing, Suggest a feature, Sign in and links within the site do not have it.
+Every forward call to action has the class `cta_button_click` and a `data-cta` attribute. These are Get the App, Get NFC Card, Start Now, the plan and NFC card buttons, Bundles and Bring your own. `data-cta` holds the placement name, the same as the link's `utm_content`, for example `pricing_prm_pro`. Billing, Suggest a feature, Account, Sign in and links within the site do not have it.
 
 On click the site also pushes:
 

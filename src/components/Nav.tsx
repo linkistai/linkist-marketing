@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { CircleUserRound, Menu, X } from 'lucide-react';
 import { G } from '@/lib/glossary';
 import { J, cta } from '@/content/journeys';
 
@@ -18,15 +18,19 @@ const LINKS = [
   { href: '/blogs', label: 'Blog' },
 ];
 
-/** The v2 breakpoint: the seven links and both buttons need 1180 px. */
-const DESKTOP = '(min-width: 1180px)';
+/**
+ * The v2 breakpoint: the seven links and the three buttons need 1280 px. It was 1180 px for two buttons, but
+ * between the two the container is narrower and three links already broke onto two lines (D80).
+ */
+const DESKTOP = '(min-width: 1280px)';
 
 /**
  * The v2 header: a fixed bar across the full width (owner, 1 October 2026, D67: edge to edge, fixed,
  * one look at any scroll position), its content on the page's container. The lockup sits left, the
- * seven links centre (the current route is tinted red and marked aria-current), and Get NFC Card and
- * Get the App right. Below 1180 px the bar keeps Get the App and a 44 px menu
- * button that opens a full-screen overlay; Escape, any link and crossing the breakpoint close it.
+ * seven links centre (the current route is tinted red and marked aria-current), and Get NFC Card,
+ * Get the App and Account (the app's home, owner, 17 November 2026, D80) right. Below 1280 px the bar
+ * keeps Get the App and a 44 px menu button that opens a full-screen overlay with all three; Escape,
+ * any link and crossing the breakpoint close it.
  */
 export function Nav() {
   const path = usePathname();
@@ -60,22 +64,26 @@ export function Nav() {
             <Link href="/" aria-label="Linkist home" className="inline-flex min-h-[44px] items-center no-underline">
               <Image src="/brand/lockup.png" alt="Linkist" width={1352} height={422} priority className="h-[36px] w-auto sm:h-[44px]" />
             </Link>
-            <nav aria-label="Primary" className="hidden items-center gap-0.5 min-[1180px]:flex">
+            <nav aria-label="Primary" className="hidden items-center gap-0.5 min-[1280px]:flex">
               {LINKS.map((l) => (
                 <Link key={l.href} href={l.href} className="v2nav__link" aria-current={current(l.href)}>
                   {l.label}
                 </Link>
               ))}
             </nav>
-            <div className="hidden items-center gap-2 min-[1180px]:flex">
+            <div className="hidden items-center gap-2 min-[1280px]:flex">
               <a href={J.header_get_nfc_card} {...cta(J.header_get_nfc_card, 'btn btn--secondary btn--sm')}>
                 {G.ctaNfc}
               </a>
               <a href={J.header_get_app} {...cta(J.header_get_app, 'btn btn--primary btn--sm')}>
                 {G.ctaApp}
               </a>
+              <a href={J.header_account} {...cta(J.header_account, 'btn btn--ghost btn--sm')}>
+                <CircleUserRound size={17} aria-hidden="true" className="shrink-0" />
+                {G.ctaAccount}
+              </a>
             </div>
-            <div className="flex items-center gap-2 min-[1180px]:hidden">
+            <div className="flex items-center gap-2 min-[1280px]:hidden">
               <a href={J.header_mobile_get_app} {...cta(J.header_mobile_get_app, 'btn btn--primary btn--sm')}>
                 {G.ctaApp}
               </a>
@@ -88,7 +96,7 @@ export function Nav() {
         </div>
       </header>
       {open ? (
-        <div id="mobile-nav" className="v2nav__overlay min-[1180px]:hidden">
+        <div id="mobile-nav" className="v2nav__overlay min-[1280px]:hidden">
           <nav aria-label="Primary mobile" className="flex flex-col">
             {LINKS.map((l) => (
               <Link key={l.href} href={l.href} className="v2nav__big" aria-current={current(l.href)} onClick={() => setOpen(false)}>
@@ -102,6 +110,10 @@ export function Nav() {
             </a>
             <a href={J.mobile_menu_get_nfc_card} {...cta(J.mobile_menu_get_nfc_card, 'btn btn--secondary w-full !min-h-[52px]')}>
               {G.ctaNfc}
+            </a>
+            <a href={J.mobile_menu_account} {...cta(J.mobile_menu_account, 'btn btn--ghost w-full !min-h-[52px]')}>
+              <CircleUserRound size={18} aria-hidden="true" />
+              {G.ctaAccount}
             </a>
           </div>
         </div>
