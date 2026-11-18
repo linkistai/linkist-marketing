@@ -36,7 +36,7 @@ Set in Vercel (the first three by the owner on 10 September, the last two on 11 
 | `NEXT_PUBLIC_SITE_URL` | `https://linkist.ai` | Placeholder until the domain is decided (C1). Every canonical URL, the sitemap, JSON-LD and the OG `url` follow it. |
 | `NEXT_PUBLIC_APP_URL` | `https://prm.linkist.ai` | The PRM app. Sign in and the `/sign-in` redirect land on `/UnifiedAuth`. The button links are fixed in `src/content/journeys.ts`: Get the App and Start Now open the plan chooser, `/plans?choose=1`, and Account opens the app's home (D80). |
 | `CAPTURE_BASE_URL` | the app | Only the capture script reads it; harmless in a deployment. |
-| `NEXT_PUBLIC_CARD_APP_URL` | `https://m.linkist.ai` | The NFC card product. Get NFC Card lands on `/login` (R8, and C21 for its DNS). |
+| `NEXT_PUBLIC_CARD_APP_URL` | `https://m.linkist.ai` | No longer read: nothing on the site links to that host (D73), and `.env.example` dropped it (D82). It can be deleted in Vercel. |
 | `NEXT_PUBLIC_NOINDEX` | `true` | Pre-launch switch: `noindex` on every page, `robots.txt` disallows all. Remove from production on launch day; keep on preview. |
 
 Derived, not set: `NEXT_PUBLIC_ASSET_URL` falls back to Vercel's own `VERCEL_PROJECT_PRODUCTION_URL`, so Open Graph images resolve on the deployment host until the domain exists (Grownz D27). Confirm after the first deploy that `og:image` on any page points at the production host, then set the variable to the domain on launch day.
@@ -51,7 +51,7 @@ Not set, so each feature is off and fails honestly:
 | `NEXT_PUBLIC_GTM_ID`, `NEXT_PUBLIC_GTM_HOSTS` | Since 7 October 2026 (D75): the marketing team's Google Tag Manager container (GA4 and the Meta Pixel) through the consent notice, Consent Mode and the Pixel's consent switch on withdrawal. Defaults: GTM-P8RPQ6RG on www.linkist.ai and linkist.ai | On any other host: no notice, no script, no cookie-choices link |
 | `NEXT_PUBLIC_SUPPORT_EMAIL`, `NEXT_PUBLIC_PRIVACY_EMAIL`, `NEXT_PUBLIC_PARTNERSHIPS_EMAIL`, `NEXT_PUBLIC_SECURITY_EMAIL` | Addresses on the contact page and in the 503 message | Support and privacy fall back to the published addresses; partnerships and security say the address is published at launch |
 | `ANTHROPIC_API_KEY`, `ANTHROPIC_MODEL` | Claude phrasing for the assistant, with server-side retrieval | The assistant answers from the help corpus alone, labelled automated |
-| `NEXT_PUBLIC_GET_APP_URL`, `NEXT_PUBLIC_GET_CARD_URL` | Overrides for the two landing pages | Derived from the two hosts above |
+| `NEXT_PUBLIC_GET_APP_URL` | Override for the sign-in address: Sign in (footer and page not found) and the `/sign-in` redirect | `NEXT_PUBLIC_APP_URL` plus `/UnifiedAuth` |
 | `NEXT_PUBLIC_THEME` | `light` previews the backup theme | Dark ships |
 | `CAPTURE_BASE_URL` | Where `pnpm capture` signs in | Defaults to the app |
 

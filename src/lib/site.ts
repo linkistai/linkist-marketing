@@ -27,7 +27,7 @@ export const envString = (value: string | undefined): string | undefined => {
 export const SITE_URL = coerceUrl(process.env['NEXT_PUBLIC_SITE_URL'], 'https://linkist.ai');
 /** The PRM app. Its unified screen signs in and creates an account in one place (D7, D15). */
 export const APP_URL = coerceUrl(process.env['NEXT_PUBLIC_APP_URL'], 'https://prm.linkist.ai');
-/** "Get the App" and Sign in: the PRM app's unified sign-in and registration screen. */
+/** Sign in (footer and page not found): the PRM app's unified sign-in screen. next.config.ts reads the same variable for /sign-in. */
 export const GET_APP_URL = coerceUrl(process.env['NEXT_PUBLIC_GET_APP_URL'], `${APP_URL}/UnifiedAuth`);
 /*
  * Call-to-action links are not built here: every button uses its own tracked journey link from
