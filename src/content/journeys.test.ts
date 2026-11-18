@@ -57,6 +57,8 @@ describe('tracked journey links (D69)', () => {
     for (const f of [...files('src'), ...files('content'), 'next.config.ts']) {
       expect(readFileSync(f, 'utf8').includes(oldSignIn), f).toBe(false);
     }
+    // llms.txt sends AI tools to the same chooser, written plainly: its own tracking values are not agreed (owner, 18 November 2026, D81).
+    expect(readFileSync(join('src', 'app', 'llms.txt', 'route.ts'), 'utf8')).toContain('prm.linkist.ai/plans?choose=1 (');
   });
 
   it('changes nothing but utm_content on every placement (and utm_medium on the redirects)', () => {
@@ -81,14 +83,13 @@ describe('tracked journey links (D69)', () => {
     const tools = ['nfc', 'tools.linkist.ai'].join('');
     // The old card app's host is being retired (owner, 2 October 2026, D73); prm.linkist.ai must not trip the check.
     const cardApp = /(^|[^a-z])m\.linkist\.ai/;
+    // The quick profile is gone everywhere, llms.txt included, since D81 (18 November 2026).
     const quick = ['quick', '-profile'].join('');
-    // llms.txt keeps its old pointer until its tracking values are agreed (brief, C15).
-    const pending = join('src', 'app', 'llms.txt', 'route.ts');
     for (const f of [...files('src'), ...files('content')]) {
       const text = readFileSync(f, 'utf8');
       expect(text.includes(tools), f).toBe(false);
       expect(cardApp.test(text), f).toBe(false);
-      if (!f.endsWith(pending)) expect(text.includes(quick), f).toBe(false);
+      expect(text.includes(quick), f).toBe(false);
     }
   });
 });
