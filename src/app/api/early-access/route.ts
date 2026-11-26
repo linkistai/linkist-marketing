@@ -20,7 +20,6 @@ function leadText(c: Claim, now: Date): string {
     '',
     `Name: ${c.name}`,
     `Email: ${c.email}`,
-    `Product updates: ${c.updates ? 'yes' : 'no'}`,
     `Claimed: ${dubai(now)} (Dubai)`,
     `Came from: ${source.length ? source.join(', ') : 'no tracking tags'}`,
   ].join('\n');

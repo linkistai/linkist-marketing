@@ -140,19 +140,6 @@
     font-weight: var(--weight-regular);
     color: var(--color-bad);
   }
-  .ea-consent {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    min-height: 32px;
-    font-size: 13px;
-    color: var(--color-body);
-  }
-  .ea-consent input {
-    width: 18px;
-    height: 18px;
-    accent-color: var(--brand-crimson);
-  }
 
   /* Sections */
   .ea-section {

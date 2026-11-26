@@ -3,19 +3,19 @@ import { describe, expect, it } from 'vitest';
 import { LANDING_PATHS } from '@/components/SiteChrome';
 import { activationUrl, closedState, readClaim } from './early-access';
 
-const good = { name: ' Aisha ', email: 'aisha@example.com', updates: true };
+const good = { name: ' Aisha ', email: 'aisha@example.com' };
 /** Everything a visitor reads on the early access page, in its email or in its link preview. */
 const PAGE_FILES = ['src/app/early-access/page.tsx', 'src/components/early-access/ClaimForm.tsx', 'src/app/api/early-access/route.ts', 'src/lib/early-access.ts', 'src/content/og.ts'];
 
 describe('early access claims (D77, D79)', () => {
   it('takes a name and an email, trimmed, and keeps only the known tracking tags', () => {
     const r = readClaim({ ...good, lastName: 'ignored', country: 'Atlantis', source: { utm_source: 'linkedin', utm_campaign: 'uae55', other: 'x', gclid: '' } });
-    expect(r).toEqual({ ok: true, claim: { name: 'Aisha', email: 'aisha@example.com', updates: true, source: { utm_source: 'linkedin', utm_campaign: 'uae55' } } });
+    expect(r).toEqual({ ok: true, claim: { name: 'Aisha', email: 'aisha@example.com', source: { utm_source: 'linkedin', utm_campaign: 'uae55' } } });
   });
 
-  it('takes product updates only from a ticked box', () => {
-    const r = readClaim({ ...good, updates: 'yes' });
-    expect(r.ok && r.claim.updates).toBe(false);
+  it('asks nothing about product updates (owner, 26 November 2026, D85)', () => {
+    expect(readClaim({ ...good, updates: true })).toEqual({ ok: true, claim: { name: 'Aisha', email: 'aisha@example.com', source: {} } });
+    expect(readFileSync('src/components/early-access/ClaimForm.tsx', 'utf8')).not.toContain('type="checkbox"');
   });
 
   it('names every missing or wrong field in Liju’s words', () => {

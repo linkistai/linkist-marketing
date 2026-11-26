@@ -47,7 +47,6 @@ export function ClaimForm({ closed }: { closed: Closed | null }) {
     const payload = {
       name: value('name'),
       email: value('email'),
-      updates: fd.get('updates') === 'on',
       website: value('website'),
       turnstile: token,
       source,
@@ -95,10 +94,6 @@ export function ClaimForm({ closed }: { closed: Closed | null }) {
                 This offer is for professionals based in the UAE.
               </span>
             </div>
-            <label className="ea-consent">
-              <input type="checkbox" name="updates" />
-              Send me Linkist product updates
-            </label>
             <Turnstile onToken={onToken} resetSignal={resetSignal} theme="light" />
             <p className="text-sm text-muted">Enter your details on Linkist’s registration page.</p>
             {state.kind === 'error' ? (

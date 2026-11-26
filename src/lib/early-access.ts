@@ -23,7 +23,6 @@ export interface Claim {
   /** One field, "Name", used to greet the visitor in their email; the app asks for the name itself after payment. */
   readonly name: string;
   readonly email: string;
-  readonly updates: boolean;
   readonly source: Partial<Record<SourceKey, string>>;
 }
 
@@ -44,7 +43,7 @@ export function readClaim(body: Record<string, unknown>): { ok: true; claim: Cla
     const v = text(raw[k], 200);
     if (v) source[k] = v;
   }
-  return { ok: true, claim: { name, email, updates: body['updates'] === true, source } };
+  return { ok: true, claim: { name, email, source } };
 }
 
 /** What the claim card says once claims stop (Liju's notes v2.1, section 13). */
