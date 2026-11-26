@@ -219,7 +219,7 @@ export default function EarlyAccessPage() {
           <Phones items={REMEMBER} label="Remember: four app screens" />
 
           <p className="ea-label mt-14">Reconnect</p>
-          <h3 className="ea-h3 mt-2">The right person, at the right time</h3>
+          <h3 className="ea-h3 mt-2">Decide who to follow up with</h3>
           <Phones items={RECONNECT} label="Reconnect: three app screens" />
 
           <p className="ea-label mt-14">Product demo</p>
@@ -247,7 +247,7 @@ export default function EarlyAccessPage() {
 
       <section className="ea-section ea-final">
         <div className="container text-center">
-          <h2 className="ea-h2 mx-auto max-w-[19ch]">55 places. One year of Pro. Cost is on us.</h2>
+          <h2 className="ea-h2 mx-auto max-w-[19ch]">Claim your year of Linkist Pro</h2>
           <p className="ea-text mx-auto mt-4 text-muted">Open until 31 December 2026, or until all places are taken.</p>
           <a href="#claim" className="btn btn--primary mt-7">
             Claim my year of Pro
