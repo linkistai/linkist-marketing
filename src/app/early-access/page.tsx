@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight, MessageCircle, Play, Star, Zap, type LucideIcon } from 'lucide-react';
+import { MessageCircle, Play, Star, Zap, type LucideIcon } from 'lucide-react';
 import { CookieChoicesLink } from '@/components/CookieChoicesLink';
 import { ClaimForm } from '@/components/early-access/ClaimForm';
 import { closedState } from '@/lib/early-access';
@@ -21,7 +21,8 @@ export const revalidate = 600;
  * The UAE 55 early access page, word for word and section for section from Linkist's "Early Access
  * UAE 55 Founding Members Page and Ads" (November 2026), drawn in the site's own type, colours and
  * buttons (owner, 16 November 2026, D77), with the text changes in Liju's notes v2.1 and the hand-off to
- * the app from RatioX Labs (17 November 2026, D79). A landing page for the ads: its own short header and
+ * the app from RatioX Labs (17 November 2026, D79), and the hero's words from the owner's mockup (26 November
+ * 2026, D83). A landing page for the ads: its own short header and
  * footer stand in for the site's (SiteChrome). The app screens and video stills are cut from the brief,
  * with real people's details blurred.
  */
@@ -103,8 +104,7 @@ export default function EarlyAccessPage() {
             <Image src="/brand/lockup.png" alt="Linkist" width={1352} height={422} priority className="h-[30px] w-auto sm:h-[34px]" />
           </Link>
           <a href="#claim" className="btn btn--ghost btn--sm ea-top__cta">
-            Get early access
-            <ArrowUpRight size={16} aria-hidden="true" />
+            Claim my year of Pro
           </a>
         </div>
       </header>
@@ -113,13 +113,15 @@ export default function EarlyAccessPage() {
         <HeroLines />
         <div className="container ea-hero__grid">
           <div>
-            <p className="eyebrow eyebrow--accent">Celebrating 55 years of the UAE · 55 Founding Member places</p>
+            <p className="eyebrow eyebrow--accent">Built in the UAE · Celebrating the UAE’s 55th National Day</p>
             <h1 className="ea-h1 mt-5">
-              Built in the UAE. Now it’s yours first. <span className="em-coral">55 places for UAE 55.</span>
+              One year of Linkist Pro on us <span className="em-coral">for 55 UAE-based professionals.</span>
             </h1>
-            <p className="ea-lede mt-6">To mark the UAE’s 55th National Day, we’re giving 55 professionals in the UAE early access and the chance to help shape Linkist.</p>
+            <p className="ea-lede mt-6">
+              Linkist helps you remember the people you meet, what you discussed and when to follow up. To mark the UAE’s 55th National Day, we’re inviting 55 professionals to join us as Founding Members.
+            </p>
             <p className="ea-callout mt-7">
-              Cost is on us. <strong>One year of Linkist Pro, worth USD 100, at no cost to you.</strong> No payment details needed.
+              <strong>Get 12 months of Linkist Pro, worth USD 100.</strong> No payment details required.
             </p>
           </div>
           <ClaimForm closed={closedState(new Date(), process.env['EARLY_ACCESS_CLOSED'])} />
@@ -143,8 +145,7 @@ export default function EarlyAccessPage() {
 
       <section className="ea-section">
         <div className="container">
-          <p className="ea-label">What you get</p>
-          <h2 className="ea-h2 mt-3">Everything in Pro, plus a seat at the table.</h2>
+          <h2 className="ea-h2">What you get as a Founding Member</h2>
           <ul className="ea-gets mt-8">
             <li className="card ea-card">
               <p className="ea-figure">USD 100</p>
@@ -195,7 +196,7 @@ export default function EarlyAccessPage() {
       <section className="ea-section">
         <div className="container">
           <p className="ea-label">Remember and reconnect</p>
-          <h2 className="ea-h2 mt-3">What you’ll get early access to</h2>
+          <h2 className="ea-h2 mt-3">What you can do with Linkist Pro</h2>
           <ul className="ea-features mt-8">
             {FEATURES.map((f) => (
               <li key={f.title} className="card ea-card">
@@ -249,7 +250,7 @@ export default function EarlyAccessPage() {
           <h2 className="ea-h2 mx-auto max-w-[19ch]">55 places. One year of Pro. Cost is on us.</h2>
           <p className="ea-text mx-auto mt-4 text-muted">Open until 31 December 2026, or until all places are taken.</p>
           <a href="#claim" className="btn btn--primary mt-7">
-            Claim my place
+            Claim my year of Pro
           </a>
         </div>
       </section>

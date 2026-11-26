@@ -80,15 +80,16 @@ export function ClaimForm({ closed }: { closed: Closed | null }) {
         <Confirmation done={state.done} compact />
       ) : (
         <>
-          <h2 className="ea-claim__title">Claim your early access</h2>
-          <p className="mt-1.5 text-sm text-muted">55 places only. Open to professionals in the UAE until 31 December 2026, or until all places are taken.</p>
+          {/* The card's words follow the owner's mockup (26 November 2026, D83). */}
+          <h2 className="ea-claim__title">Claim your Founding Member place</h2>
+          <p className="mt-1.5 text-sm text-muted">Open to the first 55 eligible sign-ups. Claim by 31 December 2026 or before all places are taken.</p>
           {/* method="post" keeps names and emails out of the address bar if the page's script has not loaded yet. */}
           <form onSubmit={onSubmit} method="post" className="mt-5 flex flex-col gap-4" noValidate>
             <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
             <Field name="name" label="Name" autoComplete="given-name" maxLength={80} error={fe['name']} />
             <Field name="email" label="Email" type="email" autoComplete="email" placeholder="name@company.com" maxLength={200} error={fe['email']} />
             <div className="ea-field">
-              <label htmlFor="ea-country">Country</label>
+              <label htmlFor="ea-country">Country of residence</label>
               <input id="ea-country" value={EARLY_ACCESS.country} readOnly className="ea-input ea-input--fixed" aria-describedby="ea-country-hint" />
               <span id="ea-country-hint" className="ea-hint">
                 This offer is for professionals based in the UAE.
@@ -99,13 +100,14 @@ export function ClaimForm({ closed }: { closed: Closed | null }) {
               Send me Linkist product updates
             </label>
             <Turnstile onToken={onToken} resetSignal={resetSignal} theme="light" />
+            <p className="text-sm text-muted">Enter your details on Linkist’s registration page.</p>
             {state.kind === 'error' ? (
               <p role="alert" className="text-sm text-bad">
                 {state.message}
               </p>
             ) : null}
             <button type="submit" className="btn btn--primary w-full" disabled={state.kind === 'busy'} aria-busy={state.kind === 'busy'}>
-              Claim my place
+              Claim my year of Pro
             </button>
             <p className="text-center text-xs text-muted">
               By continuing you agree to our{' '}
