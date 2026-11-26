@@ -51,13 +51,14 @@ const TERMS = [
   'The feedback survey 2 weeks after you join is a request, not a condition of the offer.',
 ] as const;
 
+/** What you can do with Linkist Pro, in the words of the team's mockup, Linkist-UAE55-Early-Access.html (owner, 26 November 2026, D84). */
 const FEATURES = [
-  { title: 'Digital business card', body: 'Share your details with a tap or a QR code, and store every contact you receive.' },
-  { title: 'Scan several cards at once', body: 'Scan a whole stack of business cards in one go. No typing.' },
-  { title: 'Contact and company enrichment', body: 'Automatically fills in missing contact and company details for every card you scan.' },
-  { title: 'ICP matching', body: 'Ranks your contacts against your ideal customer profile, so you know who to focus on.' },
-  { title: 'Nudges and reminders', body: 'Reminds you who to follow up with, and when, while the conversation is still warm.' },
-  { title: 'Relationship memory', body: 'Remembers where you met everyone, with notes and tags.' },
+  { title: 'Share your digital business card', body: 'Share your contact details with a tap or a QR code.' },
+  { title: 'Capture the cards you collect', body: 'Scan several business cards at once and save the contact details.' },
+  { title: 'Fill in missing details', body: 'Linkist looks for missing details about the person and their company.' },
+  { title: 'Find the right people in your contacts', body: 'See which contacts match the customer profile you’re looking for.' },
+  { title: 'Follow up on what you promised', body: 'Set a reminder to send the proposal, make the introduction or pick up the conversation.' },
+  { title: 'Remember who you met', body: 'Add a note about where you met and what you discussed while it’s fresh.' },
   { title: 'Export to your CRM', body: 'Send your contacts to the CRM your team already uses.' },
 ] as const;
 
