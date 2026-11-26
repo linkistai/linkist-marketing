@@ -146,7 +146,8 @@ export default function EarlyAccessPage() {
 
       <section className="ea-section">
         <div className="container">
-          <h2 className="ea-h2">What you get as a Founding Member</h2>
+          <p className="ea-label">What you get</p>
+          <h2 className="ea-h2 mt-3">What you get as a Founding Member</h2>
           <ul className="ea-gets mt-8">
             <li className="card ea-card">
               <p className="ea-figure">USD 100</p>
