@@ -6,7 +6,7 @@
   "status": "draft",
   "version": "0.1",
   "effective": "2026-09-10",
-  "updated": "2026-09-29"
+  "updated": "2026-11-27"
 }
 ---
 
@@ -49,7 +49,7 @@ A personal data breach is assessed, contained, investigated and remediated. Wher
 ## 7. This website
 
 - Static pages served with a Content Security Policy that allows scripts only from this site, Google Tag Manager with the Google and Meta measurement scripts it loads, and Cloudflare Turnstile, plus the headers X-Content-Type-Options, X-Frame-Options, Referrer-Policy and Permissions-Policy.
-- No analytics or advertising script loads before consent, and none loads anywhere but linkist.ai. No other third-party script loads unless its key is configured.
+- No analytics or advertising script loads before consent, except for visitors in the UAE, where they load unless the visitor switches them off in the cookie notice. None loads anywhere but linkist.ai. No other third-party script loads unless its key is configured.
 - Forms are validated on the server, rate limited per address, protected by a honeypot and, when enabled, Cloudflare Turnstile, and deliver by email only; nothing typed into the site assistant is stored.
 - Sign in and Start free hand over to the product; this website never handles credentials.
 

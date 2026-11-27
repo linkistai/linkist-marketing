@@ -1,11 +1,13 @@
 /**
  * Google Tag Manager with the marketing team's container (GTM-P8RPQ6RG: the GA4 tag G-77QMEQVJXH and the
  * Meta Pixel), D75. It starts only after the visitor allows it in the cookie notice, or in a notice-only
- * market unless they switch it off, and only on the live site, so previews and local builds never send data.
+ * market (the UAE, D87) unless they switch it off, and only on the live site, so previews and local builds
+ * never send data.
  * One boot script serves both the pre-paint check in <head> (a returning visitor who already allowed it) and
  * the cookie notice (the moment someone allows it). The container's noscript iframe is left out: it would run
  * without consent and only serves browsers with JavaScript off.
  */
+import { COUNTRY_COOKIE, NOTICE_ONLY } from '@/lib/consent-region';
 import { SITE_URL } from '@/lib/site';
 
 declare global {
@@ -22,11 +24,10 @@ declare global {
 
 export const GTM_ID = process.env['NEXT_PUBLIC_GTM_ID']?.trim() || 'GTM-P8RPQ6RG';
 
-/** Where the cookie notice keeps the visitor's choice, and the country hint the edge can set. */
+/** Where the cookie notice keeps the visitor's choice. */
 export const CONSENT_KEY = 'linkist-consent';
-export const COUNTRY_COOKIE = 'linkist-country';
-/** Markets where a notice is enough (brief 7, market list to confirm). Everyone else, and unknown, is consent-gated. */
-export const NOTICE_ONLY: readonly string[] = ['AE', 'IN', 'US', 'SG', 'AU'];
+/** The country hint the edge middleware sets, and the markets where a notice is enough: the UAE since D87 (consent-region.ts). */
+export { COUNTRY_COOKIE, NOTICE_ONLY };
 
 /** Hosts the container runs on: the live site with and without www, or a comma list in NEXT_PUBLIC_GTM_HOSTS for a QA build. */
 export const GTM_HOSTS: readonly string[] = (() => {

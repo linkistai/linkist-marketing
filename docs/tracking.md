@@ -66,4 +66,8 @@ The steps after these buttons are in the PRM app at prm.linkist.ai, which is a s
 ## Still to decide
 
 - **UTM tags on internal links.** Every button link carries `utm_source=linkist_ai&utm_medium=website`, which the PRM app's Entry Links and UTM report reads. Suppose GA4, with this same property, also runs on prm.linkist.ai. Those tags then become each visitor's latest traffic source, and sign-ups are credited to linkist_ai / website instead of where the visitor really came from, for example a Meta ad. Fix it with either a separate GA4 property for the app, or another way for the app to read the placement.
-- **Consent by country.** The notice asks every visitor, because the site does not yet know where a visitor is. It was built for notice-only markets (UAE, India, US, Singapore and Australia), where tags start unless the visitor switches them off. That needs a small country lookup on the server; until then, data comes only from visitors who press Allow.
+- **Consent by country (D87, 27 November 2026).**
+  - **How the site knows the country.** The edge middleware (`src/middleware.ts`) reads the visitor's country from Vercel's `x-vercel-ip-country` header. For the UAE it sets the session cookie `linkist-country=AE`.
+  - **UAE visitors.** The tags start from their first page unless they switch them off. The notice tells them so and offers "OK" and "Switch off".
+  - **Everyone else**, including anyone whose country is unknown, is asked first. Nothing loads until they press Allow.
+  - **Still open.** India, the US, Singapore and Australia were also on brief 7's notice-only list. They are not confirmed (C12), so they stay consent-first. Adding one is a one-line change in `src/lib/consent-region.ts`.

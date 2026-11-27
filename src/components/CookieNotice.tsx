@@ -6,8 +6,8 @@ import { CONSENT_KEY, COUNTRY_COOKIE, NOTICE_ONLY, setTagConsent, startTags, tra
 type Choice = 'granted' | 'denied';
 
 /**
- * Cookie notice for the tag manager: Google Analytics and the Meta Pixel (D75). Reads a country hint from a
- * cookie the edge can set (`linkist-country`, ISO code): in notice-only markets the tags start unless the
+ * Cookie notice for the tag manager: Google Analytics and the Meta Pixel (D75). Reads the country hint the
+ * edge middleware sets (`linkist-country`, ISO code; D87): in notice-only markets (the UAE) the tags start unless the
  * visitor switches them off; everywhere else, and when the country is unknown, nothing loads until the
  * visitor allows it. A returning visitor who allowed it starts from the pre-paint script in the layout. The
  * footer link "Cookie choices" re-opens it. Off the live site (previews, local builds) there are no tags and

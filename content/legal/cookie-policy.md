@@ -6,7 +6,7 @@
   "status": "draft",
   "version": "0.1",
   "effective": "2026-09-10",
-  "updated": "2026-10-07"
+  "updated": "2026-11-27"
 }
 ---
 
@@ -24,17 +24,17 @@ The Privacy Policy names three categories.
 
 ## 3. What this website stores
 
-This website is built so that nothing non-essential loads before you choose.
+Outside the UAE, nothing non-essential loads before you choose. For visitors in the UAE, Google Analytics and the Meta Pixel load from the first page unless you switch them off in the cookie notice.
 
 | Name | Category | Purpose | Kept for |
 | --- | --- | --- | --- |
 | linkist-consent (local storage) | Essential | Remembers the choice you made in the cookie notice | Until you clear it or change your choice |
-| linkist-country (cookie) | Essential | Remembers which consent rules apply to your region so the notice is shown correctly | [PLACEHOLDER: retention period] |
+| linkist-country (cookie) | Essential | Remembers which consent rules apply to your region so the notice is shown correctly. Set only for visitors in the UAE | Until you close your browser |
 | linkist-motion-2 (local storage) | Essential | Remembers whether you switched animation off in the footer | Until you clear it |
 | lk-currency (local storage) | Essential | Remembers whether you chose US dollars or UAE dirhams for prices | Until you clear it |
-| Google Tag Manager (a script; no cookies of its own) | Analytics | Loads the Google Analytics and Meta Pixel tags below. Loads only after you accept the cookie notice, and only on linkist.ai | Not applicable |
-| Google Analytics 4 (cookies set by Google) | Analytics | Page views and interactions, in aggregate, through Google Consent Mode. Loads only after you accept the cookie notice | [PLACEHOLDER: retention as configured in the Google Analytics property] |
-| Meta Pixel (the _fbp cookie, set by Meta) | Marketing | Measures visits and button clicks that come from Linkist ads on Facebook and Instagram. Loads only after you accept the cookie notice | Up to 90 days, renewed on each visit (Meta) |
+| Google Tag Manager (a script; no cookies of its own) | Analytics | Loads the Google Analytics and Meta Pixel tags below, and only on linkist.ai. In the UAE it loads unless you switch it off in the cookie notice; elsewhere, only after you accept the cookie notice | Not applicable |
+| Google Analytics 4 (cookies set by Google) | Analytics | Page views and interactions, in aggregate, through Google Consent Mode. Loads with Google Tag Manager, as above | [PLACEHOLDER: retention as configured in the Google Analytics property] |
+| Meta Pixel (the _fbp cookie, set by Meta) | Marketing | Measures visits and button clicks that come from Linkist ads on Facebook and Instagram. Loads with Google Tag Manager, as above | Up to 90 days, renewed on each visit (Meta) |
 | Cloudflare Turnstile (cookies set by Cloudflare) | Essential | Distinguishes people from scripts on the contact and sign-up forms, when the check is enabled | Set by Cloudflare; see its policy |
 
 The Meta Pixel is the only marketing technology on this website. One choice in the cookie notice covers analytics and marketing together, and switching it off in "Cookie choices" stops both. [PLACEHOLDER: counsel to confirm the wording for marketing cookies and whether the two should be separate choices.]
@@ -55,4 +55,4 @@ Withdrawing consent does not affect processing that already happened.
 
 Questions about this policy: privacy@linkist.ai. The Data Protection Officer can be reached at dpo@linkist.ai.
 
-[PLACEHOLDER: counsel to confirm the consent mechanism meets the consent requirements of the UAE Personal Data Protection Law and any other law that applies to visitors outside the UAE.]
+[PLACEHOLDER: counsel to confirm that a notice with a switch-off meets the UAE Personal Data Protection Law for visitors in the UAE, and that asking first meets any other law that applies to visitors outside the UAE.]

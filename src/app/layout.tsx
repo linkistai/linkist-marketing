@@ -43,7 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-GB" data-theme={THEME} data-promo={bar?.id} className={`${display.variable} ${body.variable}`} suppressHydrationWarning>
       <head>
-        {/* Google Tag Manager, as high in <head> as it can go, for a visitor who already allowed it in the cookie notice; first-time visitors start it from the notice (D75). */}
+        {/* Google Tag Manager, as high in <head> as it can go, for a visitor who already allowed it in the cookie notice or one in the UAE who has not switched it off (D87); other first-time visitors start it from the notice (D75). */}
         <script dangerouslySetInnerHTML={{ __html: headScript() }} />
       </head>
       <body>

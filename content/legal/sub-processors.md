@@ -6,7 +6,7 @@
   "status": "draft",
   "version": "0.1",
   "effective": "2026-09-10",
-  "updated": "2026-09-10"
+  "updated": "2026-11-27"
 }
 ---
 
@@ -41,8 +41,8 @@ This website is separate from the app and is built so that each provider is used
 | Hosting of this website | [PLACEHOLDER: website host and region] | Always |
 | Delivery of contact form and sign-up emails to the team | Resend | When the email key is configured; otherwise the forms say they are not switched on |
 | Bot check on forms | Cloudflare Turnstile | When the site key is configured |
-| Analytics | Google Analytics 4, loaded through Google Tag Manager | Only after you accept the cookie notice |
-| Advertising measurement | Meta Platforms (the Meta Pixel), loaded through Google Tag Manager | Only after you accept the cookie notice |
+| Analytics | Google Analytics 4, loaded through Google Tag Manager | In the UAE, unless you switch it off in the cookie notice; elsewhere, only after you accept the cookie notice |
+| Advertising measurement | Meta Platforms (the Meta Pixel), loaded through Google Tag Manager | In the UAE, unless you switch it off in the cookie notice; elsewhere, only after you accept the cookie notice |
 | Phrasing of the site assistant's answers | Anthropic | When a key is configured; the assistant sends only your question and the matching help entries, and stores nothing |
 
 ## 4. Transfers outside the UAE
