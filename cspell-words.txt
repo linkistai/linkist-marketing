@@ -124,3 +124,5 @@ byon
 Etihad
 Supabase
 accendoz
+adipec
+merch
