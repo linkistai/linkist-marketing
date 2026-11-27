@@ -209,6 +209,12 @@
     line-height: 1;
     letter-spacing: -0.01em;
     color: var(--brand-coral);
+    white-space: nowrap;
+  }
+  /* The dollar amount after the dirham one, smaller, so "AED 400 (USD 100)" fits the card on a phone (D88). */
+  .ea-figure__usd {
+    font-size: 0.6em;
+    letter-spacing: 0;
   }
   .ea-icon {
     color: var(--brand-coral);

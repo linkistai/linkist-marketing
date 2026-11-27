@@ -143,7 +143,11 @@ export default function EarlyAccessPage() {
             <h2 className="ea-h2 mt-3">Celebrating 55 years of the UAE.</h2>
             <p className="ea-text mt-6">
               Linkist was founded in the UAE, a country that makes it possible to build something new. To mark the UAE’s 55th National Day, we’re giving <strong>55</strong> professionals early access as{' '}
-              <strong>Founding Members</strong>, with one year of Linkist Pro, <strong>worth USD 100</strong>, on us.
+              <strong>Founding Members</strong>, with one year of Linkist Pro,{' '}
+              <strong>
+                worth <span className="whitespace-nowrap">AED 400 (USD 100)</span>
+              </strong>
+              , on us.
             </p>
             <p className="ea-text mt-4">Thank you to the UAE, and happy Eid Al Etihad.</p>
             <p className="mt-5 font-semibold">The Linkist team</p>
@@ -157,7 +161,9 @@ export default function EarlyAccessPage() {
           <h2 className="ea-h2 mt-3">What you get as a Founding Member</h2>
           <ul className="ea-gets mt-8">
             <li className="card ea-card">
-              <p className="ea-figure">USD 100</p>
+              <p className="ea-figure">
+                AED 400 <span className="ea-figure__usd">(USD 100)</span>
+              </p>
               <h3 className="ea-card__title mt-3">One year of Linkist Pro</h3>
               <p className="ea-card__text">
                 Full access to the Pro app for 12 months, at no cost. No payment details needed. After 12 months you move to the free Essential plan unless you choose to continue with Pro. We’ll remind you first.

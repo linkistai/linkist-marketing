@@ -35,7 +35,7 @@ function visitorText(c: Claim): string {
     'To celebrate the UAE’s 55th National Day, we’re giving our first 55 members early access, with one year of Linkist Pro on us. Happy Eid Al Etihad.',
     '',
     'What you get',
-    '- One year of Linkist Pro, worth USD 100, at no cost to you',
+    '- One year of Linkist Pro, worth AED 400 (USD 100), at no cost to you',
     '- Founding Member status',
     '- Early access to new features',
     '- A direct feedback channel to the Linkist team',

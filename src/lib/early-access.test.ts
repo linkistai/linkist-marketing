@@ -67,6 +67,13 @@ describe('the page text (Liju’s notes v2.1)', () => {
     expect(page).toContain('Three steps, about 60 seconds.');
   });
 
+  it('gives the year of Pro its value as AED 400 (USD 100) everywhere a visitor reads it (owner, 27 November 2026, D88)', () => {
+    for (const f of PAGE_FILES) expect(readFileSync(f, 'utf8'), f).not.toMatch(/worth USD 100|"ea-figure">\s*USD/);
+    for (const f of ['src/app/early-access/page.tsx', 'src/components/early-access/ClaimForm.tsx', 'src/app/api/early-access/route.ts', 'src/content/og.ts']) {
+      expect(readFileSync(f, 'utf8'), f).toMatch(/AED 400\s*(?:<[^>]+>\s*)*\(USD 100\)/);
+    }
+  });
+
   it('gives the landing page its own header and footer', () => {
     expect(LANDING_PATHS).toContain('/early-access');
   });

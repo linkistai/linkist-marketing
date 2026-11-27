@@ -34,7 +34,7 @@ export const OG_PAGES: readonly OgPage[] = [
     title: 'Built in the UAE. Now it’s yours first.',
     eyebrow: 'Celebrating 55 years of the UAE',
     screen: 'v12-profile-natalie-dark',
-    foot: '55 Founding Member places. One year of Linkist Pro, worth USD 100, at no cost to you.',
+    foot: '55 Founding Member places. One year of Linkist Pro, worth AED 400 (USD 100), at no cost to you.',
   },
   { slug: 'ai', title: 'What the AI does. What it sees. How to switch it off.', eyebrow: 'AI and your data', screen: 'v6-enrich' },
   { slug: 'security', title: 'Written for a sceptical reader.', eyebrow: 'Security and trust' },

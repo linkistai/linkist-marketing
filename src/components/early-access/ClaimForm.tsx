@@ -181,7 +181,10 @@ function Confirmation({ done, titleId, compact }: { done: Done; titleId?: string
             <li>
               <Check size={16} aria-hidden="true" />
               <span>
-                <strong>One year of Linkist Pro, worth USD 100,</strong> at no cost to you
+                <strong>
+                  One year of Linkist Pro, worth <span className="whitespace-nowrap">AED 400 (USD 100)</span>,
+                </strong>{' '}
+                at no cost to you
               </span>
             </li>
             {GETS.map((g) => (
