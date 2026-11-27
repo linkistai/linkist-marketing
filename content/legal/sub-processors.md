@@ -40,6 +40,7 @@ This website is separate from the app and is built so that each provider is used
 | --- | --- | --- |
 | Hosting of this website | [PLACEHOLDER: website host and region] | Always |
 | Delivery of contact form and sign-up emails to the team | Resend | When the email key is configured; otherwise the forms say they are not switched on |
+| Keeping a list of early access claims (your name, your email and the ad or link you came from) so the team can follow up | Supabase | When you claim a place on the early access page and the database key is configured. Claims are kept until the campaign's follow-up is done, or deleted sooner if you ask at privacy@linkist.ai |
 | Bot check on forms | Cloudflare Turnstile | When the site key is configured |
 | Analytics | Google Analytics 4, loaded through Google Tag Manager | In the UAE, unless you switch it off in the cookie notice; elsewhere, only after you accept the cookie notice |
 | Advertising measurement | Meta Platforms (the Meta Pixel), loaded through Google Tag Manager | In the UAE, unless you switch it off in the cookie notice; elsewhere, only after you accept the cookie notice |

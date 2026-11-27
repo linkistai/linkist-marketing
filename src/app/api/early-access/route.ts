@@ -1,19 +1,22 @@
 import { NextResponse } from 'next/server';
 import { SUPPORT } from '@/content/company';
+import { markEmailed, saveClaim, type SaveResult } from '@/lib/claims-db';
 import { activationUrl, closedState, readClaim, type Claim } from '@/lib/early-access';
 import { clientIp, rateLimit, readJsonObject, sendMail, tooMany, verifyTurnstile } from '@/lib/forms';
 
 /**
- * Early access claims (D77, D79). Server validation, honeypot, a per-address rate limit, Turnstile when
- * configured. The claim goes to LEAD_TO, then the visitor gets an email with the link that activates their year
- * of Pro, and the answer carries what the confirmation on screen needs. Outside Vercel production, with no mail
- * set up, the claim is not sent and the confirmation still shows, so the page can be reviewed.
+ * Early access claims (D77, D79, D90). Server validation, honeypot, a per-address rate limit, Turnstile when
+ * configured. The claim is saved in Linkist's Supabase project when it is set up (D90) and goes to LEAD_TO, then the
+ * visitor gets an email with the link that activates their year of Pro, and the answer carries what the confirmation
+ * on screen needs. A claim that reached the database or the team's inbox counts, so one failing doesn't turn the
+ * visitor away. Outside Vercel production, with no mail set up, the claim is not sent and the confirmation still
+ * shows, so the page can be reviewed.
  */
 export const runtime = 'nodejs';
 
 const dubai = (d: Date) => d.toLocaleString('en-GB', { timeZone: 'Asia/Dubai', dateStyle: 'medium', timeStyle: 'short' });
 
-function leadText(c: Claim, now: Date): string {
+function leadText(c: Claim, now: Date, saved: SaveResult): string {
   const source = Object.entries(c.source).map(([k, v]) => `${k}=${v}`);
   return [
     'Early access claim, UAE 55 Founding Members',
@@ -22,6 +25,7 @@ function leadText(c: Claim, now: Date): string {
     `Email: ${c.email}`,
     `Claimed: ${dubai(now)} (Dubai)`,
     `Came from: ${source.length ? source.join(', ') : 'no tracking tags'}`,
+    `Claims database: ${saved.ok ? 'saved' : `not saved, ${saved.reason}`}`,
   ].join('\n');
 }
 
@@ -72,17 +76,18 @@ export async function POST(req: Request) {
   if (!ts.ok) return NextResponse.json({ error: ts.reason, turnstile: true }, { status: ts.status });
   const claim = read.claim;
 
+  const saved = await saveClaim(claim);
   const lead = await sendMail({
     to: process.env['LEAD_TO'],
     subject: `[linkist website] early access: ${claim.name}`,
-    text: leadText(claim, now),
+    text: leadText(claim, now, saved),
     replyTo: claim.email,
   });
   const review = !lead.ok && lead.status === 503 && process.env['VERCEL_ENV'] !== 'production';
-  if (!lead.ok && !review) return NextResponse.json({ error: lead.reason }, { status: lead.status });
+  if (!lead.ok && !saved.ok && !review) return NextResponse.json({ error: lead.reason }, { status: lead.status });
 
   let emailed = false;
-  if (lead.ok) {
+  if (lead.ok || saved.ok) {
     const sent = await sendMail({
       to: claim.email,
       from: process.env['EARLY_ACCESS_FROM'] ?? 'Linkist <hello@linkist.ai>',
@@ -92,5 +97,6 @@ export async function POST(req: Request) {
     });
     emailed = sent.ok;
   }
+  if (saved.ok) await markEmailed(saved.id, { lead: lead.ok, welcome: emailed });
   return NextResponse.json({ ok: true, name: claim.name, email: claim.email, emailed });
 }

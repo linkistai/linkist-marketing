@@ -122,3 +122,5 @@ ratioxlabs
 zoomimg
 byon
 Etihad
+Supabase
+accendoz
