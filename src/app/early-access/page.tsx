@@ -125,7 +125,11 @@ export default function EarlyAccessPage() {
               Linkist helps you remember the people you meet, what you discussed and when to follow up. To mark the UAE’s 55th National Day, we’re inviting 55 professionals to join us as Founding Members.
             </p>
             <p className="ea-callout mt-7">
-              <strong>Get 12 months of Linkist Pro, worth AED 400 (USD 100), as a launch offer.</strong> No payment details required.
+              {/* The amount stays on one line on a phone (D86). */}
+              <strong>
+                Get 12 months of Linkist Pro, worth <span className="whitespace-nowrap">AED 400 (USD 100)</span>, as a launch offer.
+              </strong>{' '}
+              No payment details required.
             </p>
           </div>
           <ClaimForm closed={closedState(new Date(), process.env['EARLY_ACCESS_CLOSED'])} />

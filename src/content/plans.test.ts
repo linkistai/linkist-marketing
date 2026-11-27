@@ -39,6 +39,6 @@ describe('prices in two currencies (D78)', () => {
     const earlyAccess = readFileSync('src/app/early-access/page.tsx', 'utf8');
     expect(earlyAccess).toContain('USD 100 (AED 400)');
     // The hero names the dirham price first (owner, 27 November 2026, D86).
-    expect(earlyAccess).toContain('worth AED 400 (USD 100), as a launch offer.');
+    expect(earlyAccess).toMatch(/worth (?:<span[^>]*>)?AED 400 \(USD 100\)(?:<\/span>)?, as a launch offer\./);
   });
 });
