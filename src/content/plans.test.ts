@@ -50,8 +50,11 @@ describe('prices in two currencies (D78)', () => {
       for (const m of text.matchAll(/AED ([\d,]+)\s*(?:<[^>]+>\s*)*\(USD ([\d,]+)\)/g)) expect(n(m[1]!), `${f}: ${m[0]}`).toBe(n(m[2]!) * AED_PER_USD);
     }
     const earlyAccess = readFileSync('src/app/early-access/page.tsx', 'utf8');
-    expect(earlyAccess).toContain('USD 100 (AED 400)');
-    // The hero names the dirham price first (owner, 27 November 2026, D86).
+    // The early access campaign names the dirham price first, in the hero (D86) and in the terms (D89)...
     expect(earlyAccess).toMatch(/worth (?:<span[^>]*>)?AED 400 \(USD 100\)(?:<\/span>)?, as a launch offer\./);
+    expect(earlyAccess).toContain('Pro continues at AED 400 (USD 100) a year');
+    // ...for that campaign only (owner, 27 November 2026, D89): the pricing page and the help centre keep the dollar first.
+    expect(readFileSync('src/app/pricing/page.tsx', 'utf8')).toContain('Pro is $100 (AED 400) a year');
+    expect(readFileSync('src/content/help.ts', 'utf8')).toContain('$100 (AED 400) a year');
   });
 });

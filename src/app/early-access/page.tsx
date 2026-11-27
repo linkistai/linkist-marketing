@@ -47,7 +47,7 @@ const STEPS = [
 const TERMS = [
   'Linkist Pro (annual), free for 12 months.',
   'No card needed to start.',
-  'After 12 months, Pro continues at USD 100 (AED 400) a year only if you add a card. Otherwise your account moves to the free Essential plan. We’ll remind you first.',
+  'After 12 months, Pro continues at AED 400 (USD 100) a year only if you add a card. Otherwise your account moves to the free Essential plan. We’ll remind you first.',
   'For professionals based in the UAE only.',
   'Limited to the first 55 sign-ups, one per person.',
   'Claim by 31 December 2026, 23:59 Dubai time.',
