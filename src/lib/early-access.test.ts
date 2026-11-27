@@ -18,6 +18,15 @@ describe('early access claims (D77, D79)', () => {
     expect(readFileSync('src/components/early-access/ClaimForm.tsx', 'utf8')).not.toContain('type="checkbox"');
   });
 
+  it('takes a name in any script but no links, digits or addresses, so the welcome email carries nobody else’s text (D91)', () => {
+    for (const ok of ['Aisha', 'Vivek Chandran', 'Dr. Ahmed Al Mansoori', 'Mary-Jane O’Neil', "D'Souza", 'J. R. R. Tolkien', 'محمد علي', 'Zoë Ångström']) {
+      expect(readClaim({ name: ok, email: 'a@example.com' }).ok, ok).toBe(true);
+    }
+    for (const bad of ['Win at evil.example', 'http://x.y', 'www.spam.io', 'Call 0501234567', 'me@x.com', '...', '-']) {
+      expect(readClaim({ name: bad, email: 'a@example.com' }), bad).toEqual({ ok: false, errors: { name: 'Enter your name.' } });
+    }
+  });
+
   it('names every missing or wrong field in Liju’s words', () => {
     expect(readClaim({ name: ' ', email: 'not-an-email' })).toEqual({ ok: false, errors: { name: 'Enter your name.', email: 'Enter a valid email address.' } });
   });

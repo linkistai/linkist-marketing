@@ -27,6 +27,12 @@ export interface Claim {
 }
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+/**
+ * A name in any script: letters, spaces, apostrophes, hyphens, and full stops that end a word ("Dr. Ahmed").
+ * No digits, links or addresses. The welcome email goes to whatever address is typed and greets by this name,
+ * so without the rule anyone could have hello@linkist.ai send a stranger their own link (D91).
+ */
+const NAME = /^(?=.*\p{L})(?:[\p{L}\p{M}'’ -]|\.(?= |$))+$/u;
 const text = (v: unknown, max: number) => (typeof v === 'string' ? v : '').replace(/\p{Cc}/gu, ' ').trim().slice(0, max);
 
 /** Checks a claim from the form. Field errors use the form's field names and Liju's wording. */
@@ -34,7 +40,7 @@ export function readClaim(body: Record<string, unknown>): { ok: true; claim: Cla
   const name = text(body['name'], 80);
   const email = text(body['email'], 200);
   const errors: Record<string, string> = {};
-  if (!name) errors['name'] = 'Enter your name.';
+  if (!NAME.test(name)) errors['name'] = 'Enter your name.';
   if (!EMAIL.test(email)) errors['email'] = 'Enter a valid email address.';
   if (Object.keys(errors).length) return { ok: false, errors };
   const raw = body['source'] && typeof body['source'] === 'object' && !Array.isArray(body['source']) ? (body['source'] as Record<string, unknown>) : {};
