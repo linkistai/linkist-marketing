@@ -34,7 +34,11 @@ describe('prices in two currencies (D78)', () => {
       const n = (s: string) => Number(s.replace(/,/g, ''));
       for (const m of text.matchAll(/AED ([\d,]+) \(\$([\d,]+)\)/g)) expect(n(m[1]!), `${f}: ${m[0]}`).toBe(n(m[2]!) * AED_PER_USD);
       for (const m of text.matchAll(/(?:\$|USD )([\d,]+) \(AED ([\d,]+)\)/g)) expect(n(m[2]!), `${f}: ${m[0]}`).toBe(n(m[1]!) * AED_PER_USD);
+      for (const m of text.matchAll(/AED ([\d,]+) \(USD ([\d,]+)\)/g)) expect(n(m[1]!), `${f}: ${m[0]}`).toBe(n(m[2]!) * AED_PER_USD);
     }
-    expect(readFileSync('src/app/early-access/page.tsx', 'utf8')).toContain('USD 100 (AED 400)');
+    const earlyAccess = readFileSync('src/app/early-access/page.tsx', 'utf8');
+    expect(earlyAccess).toContain('USD 100 (AED 400)');
+    // The hero names the dirham price first (owner, 27 November 2026, D86).
+    expect(earlyAccess).toContain('worth AED 400 (USD 100), as a launch offer.');
   });
 });

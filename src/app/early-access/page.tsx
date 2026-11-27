@@ -32,11 +32,14 @@ const GETS: readonly { icon: LucideIcon; title: string; body: string }[] = [
   { icon: Zap, title: 'Early access', body: 'Use new features before they are released to everyone.' },
 ];
 
-/** The sign-up as the app runs it (Liju's notes v2.1, section 6). The app fills in the email only; it asks for the name after payment. */
+/**
+ * The sign-up as the app runs it (Liju's notes v2.1, section 6), in three steps (owner, 27 November 2026, D86):
+ * creating the account and verifying the email are one step. The app fills in the email only; it asks for the
+ * name after payment.
+ */
 const STEPS = [
   { title: 'Claim your place', body: 'Enter your name and email.' },
-  { title: 'Create your account', body: 'Your email is filled in. Choose a password.' },
-  { title: 'Verify your email', body: 'Enter the 6-digit code we send you.' },
+  { title: 'Create your account', body: 'Your email is filled in. Choose a password, then enter the 6-digit code we send you.' },
   { title: 'Activate Pro', body: 'Your code UAE55 is applied for you. You pay USD 0.' },
 ] as const;
 
@@ -122,7 +125,7 @@ export default function EarlyAccessPage() {
               Linkist helps you remember the people you meet, what you discussed and when to follow up. To mark the UAE’s 55th National Day, we’re inviting 55 professionals to join us as Founding Members.
             </p>
             <p className="ea-callout mt-7">
-              <strong>Get 12 months of Linkist Pro, worth USD 100.</strong> No payment details required.
+              <strong>Get 12 months of Linkist Pro, worth AED 400 (USD 100), as a launch offer.</strong> No payment details required.
             </p>
           </div>
           <ClaimForm closed={closedState(new Date(), process.env['EARLY_ACCESS_CLOSED'])} />
@@ -178,7 +181,7 @@ export default function EarlyAccessPage() {
       <section className="ea-section ea-lifted">
         <div className="container">
           <p className="ea-label">How it works</p>
-          <h2 className="ea-h2 mt-3">Four steps, about two minutes.</h2>
+          <h2 className="ea-h2 mt-3">Three steps, about 60 seconds.</h2>
           <ol className="ea-steps mt-8">
             {STEPS.map((s, i) => (
               <li key={s.title} className="ea-step">

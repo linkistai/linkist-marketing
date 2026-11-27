@@ -59,6 +59,14 @@ describe('the page text (Liju’s notes v2.1)', () => {
     }
   });
 
+  it('says three steps and lists three (owner, 27 November 2026, D86)', () => {
+    const page = readFileSync('src/app/early-access/page.tsx', 'utf8');
+    const start = page.indexOf('const STEPS = [');
+    const steps = page.slice(start, page.indexOf('] as const;', start));
+    expect(steps.match(/\{ title: '/g)).toHaveLength(3);
+    expect(page).toContain('Three steps, about 60 seconds.');
+  });
+
   it('gives the landing page its own header and footer', () => {
     expect(LANDING_PATHS).toContain('/early-access');
   });

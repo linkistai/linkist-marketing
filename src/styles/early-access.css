@@ -225,19 +225,15 @@
   .ea-gets__wide {
     grid-column: 1 / -1;
   }
+  /* Three steps since D86: one column on a phone, three across from a tablet up. */
   .ea-steps {
     display: grid;
     gap: 24px;
   }
-  @media (min-width: 640px) {
+  @media (min-width: 768px) {
     .ea-steps {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 28px 32px;
-    }
-  }
-  @media (min-width: 1024px) {
-    .ea-steps {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
   .ea-step {
